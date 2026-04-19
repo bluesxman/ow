@@ -5,6 +5,12 @@
       "perks": {
         "minor": ["Soul Reaving", "Lingering Wraith"],
         "major": ["Shadow Blink", "Trigger Finger"]
+      },
+      "stats": {
+        "abilities": {
+          "Hellfire Shotguns": { "ammo": 8, "pellets": 20 },
+          "Shadow Step": { "cooldown_contains": "10" }
+        }
       }
     },
     {
@@ -12,6 +18,14 @@
       "perks": {
         "minor": ["Extra Edge", "Raging Storm"],
         "major": ["Siphoning Strike", "Relentless"]
+      }
+    },
+    {
+      "slug": "soldier-76",
+      "stats": {
+        "abilities": {
+          "Heavy Pulse Rifle": { "ammo": 30, "damage_falloff_contains": "30" }
+        }
       }
     }
   ]

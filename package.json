@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Overwatch hero data pipeline — scrapes Blizzard's hero pages and publishes JSON for Claude.ai conversations.",
+  "license": "(MIT AND CC-BY-SA-3.0)",
+  "description": "Overwatch hero data pipeline — scrapes Blizzard's hero pages and Fandom's wiki to publish JSON for Claude.ai conversations.",
   "engines": {
     "node": ">=24"
   },
@@ -11,6 +12,7 @@
     "scrape": "tsx src/index.ts",
     "scrape:dry": "tsx src/index.ts --dry-run",
     "validate-published": "tsx scripts/validate-published.ts",
+    "probe:fandom": "tsx scripts/probe-fandom.ts",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "test": "vitest run",

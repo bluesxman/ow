@@ -2,12 +2,15 @@ import { mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import type { Hero, Metadata, RosterEntry } from './types.js';
 import { renderDiffMarkdown, type HeroDiff } from './diff.js';
+import { slugToBlizzardUrl, slugToFandomUrl } from './sources/slugToFandomTitle.js';
 
 export interface PublishPaths {
   dataDir: string;
   heroesDir: string;
   previousDir: string;
   changelogPath: string;
+  attributionPath: string;
+  licensePath: string;
 }
 
 export function buildPaths(root: string): PublishPaths {
@@ -17,6 +20,8 @@ export function buildPaths(root: string): PublishPaths {
     heroesDir: join(dataDir, 'heroes'),
     previousDir: join(dataDir, '.previous'),
     changelogPath: join(dataDir, 'CHANGELOG.md'),
+    attributionPath: join(dataDir, 'ATTRIBUTION.md'),
+    licensePath: join(dataDir, 'LICENSE'),
   };
 }
 
@@ -63,6 +68,8 @@ export async function publish(input: PublishInput): Promise<{ paths: PublishPath
     stats: 'stats.json',
     all: 'all.json',
     per_hero_dir: 'heroes/',
+    attribution: 'ATTRIBUTION.md',
+    license: 'LICENSE',
   };
 
   const indexDoc = {
@@ -94,7 +101,7 @@ export async function publish(input: PublishInput): Promise<{ paths: PublishPath
   };
 
   if (dryRun) {
-    console.log(`[dry-run] would write ${slugs.length} per-hero files + 6 aggregate files`);
+    console.log(`[dry-run] would write ${slugs.length} per-hero files + 6 aggregate files + ATTRIBUTION.md`);
     return { paths, filesWritten: [] };
   }
 
@@ -121,13 +128,51 @@ export async function publish(input: PublishInput): Promise<{ paths: PublishPath
   await clearPerHeroFiles(paths.heroesDir);
   for (const slug of slugs) {
     const path = join(paths.heroesDir, `${slug}.json`);
-    await writeJson(path, { metadata, hero: heroes[slug] });
+    const attribution = {
+      fandom_page: slugToFandomUrl(slug),
+      blizzard_page: slugToBlizzardUrl(slug),
+    };
+    await writeJson(path, { metadata, attribution, hero: heroes[slug] });
     filesWritten.push(path);
   }
+
+  await writeAttribution(paths.attributionPath, rosterSorted, metadata);
+  filesWritten.push(paths.attributionPath);
 
   await prependChangelog(paths.changelogPath, diff, metadata);
 
   return { paths, filesWritten };
+}
+
+async function writeAttribution(path: string, roster: RosterEntry[], metadata: Metadata): Promise<void> {
+  const lines: string[] = [];
+  lines.push('# Attribution');
+  lines.push('');
+  lines.push(
+    'Hero combat stats (`stats.abilities.*`, `stats.health`, `stats.armor`, `stats.shields`, `sub_role`) are sourced from the [Overwatch Fandom Wiki](https://overwatch.fandom.com/) and are available under [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/).',
+  );
+  lines.push('');
+  lines.push(
+    "Perks, ability descriptions, roles, and portraits are sourced from [Blizzard's official hero pages](https://overwatch.blizzard.com/en-us/heroes/).",
+  );
+  lines.push('');
+  lines.push(`Last generated: ${metadata.last_updated}`);
+  lines.push('');
+  lines.push('## Per-hero source pages');
+  lines.push('');
+  lines.push('| Slug | Fandom | Blizzard |');
+  lines.push('|---|---|---|');
+  for (const r of roster) {
+    lines.push(`| ${r.slug} | ${slugToFandomUrl(r.slug)} | ${slugToBlizzardUrl(r.slug)} |`);
+  }
+  lines.push('');
+  lines.push('## Share-alike obligation');
+  lines.push('');
+  lines.push(
+    'Redistributing any file in this directory that contains Fandom-derived fields (effectively all of `data/`) requires preserving the CC-BY-SA 3.0 license on the redistributed content and preserving the `metadata.sources` block in each JSON file.',
+  );
+  lines.push('');
+  await writeFile(path, lines.join('\n'), 'utf8');
 }
 
 async function rotatePrevious(paths: PublishPaths): Promise<void> {

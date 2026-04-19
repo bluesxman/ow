@@ -15,7 +15,7 @@ const AbilitySchema = z.object({
   description: z.string().min(1),
 });
 
-const StatValue = z.union([z.number(), z.string()]);
+const StatValue = z.union([z.number(), z.string(), z.boolean()]);
 
 const AbilityStatSchema = z.record(z.string(), StatValue.optional());
 
@@ -51,7 +51,10 @@ export function validateHero(hero: unknown): { ok: true; value: Hero } | { ok: f
 interface ValidationFixture {
   heroes: Array<{
     slug: string;
-    perks: { minor: string[]; major: string[] };
+    perks?: { minor: string[]; major: string[] };
+    stats?: {
+      abilities?: Record<string, Record<string, string | number>>;
+    };
   }>;
 }
 
@@ -66,7 +69,7 @@ export interface FixtureCheckResult {
   ok: boolean;
   mismatches: Array<{
     slug: string;
-    tier: 'minor' | 'major';
+    tier: string;
     expected: string[];
     got: string[];
   }>;
@@ -81,27 +84,78 @@ export async function checkAgainstFixture(heroes: Record<string, Hero>): Promise
     if (!hero) {
       mismatches.push({
         slug: expected.slug,
-        tier: 'minor',
-        expected: expected.perks.minor,
+        tier: 'hero missing',
+        expected: ['<hero present>'],
         got: [],
       });
       continue;
     }
-    for (const tier of ['minor', 'major'] as const) {
-      const expectedSet = new Set(expected.perks[tier].map(normalizeForCompare));
-      const gotNames = hero.perks[tier].map((p) => p.name);
-      const gotSet = new Set(gotNames.map(normalizeForCompare));
-      const allMatched = [...expectedSet].every((n) => gotSet.has(n));
-      if (!allMatched || expectedSet.size !== gotSet.size) {
-        mismatches.push({
-          slug: expected.slug,
-          tier,
-          expected: expected.perks[tier],
-          got: gotNames,
-        });
+
+    if (expected.perks) {
+      for (const tier of ['minor', 'major'] as const) {
+        const expectedSet = new Set(expected.perks[tier].map(normalizeForCompare));
+        const gotNames = hero.perks[tier].map((p) => p.name);
+        const gotSet = new Set(gotNames.map(normalizeForCompare));
+        const allMatched = [...expectedSet].every((n) => gotSet.has(n));
+        if (!allMatched || expectedSet.size !== gotSet.size) {
+          mismatches.push({
+            slug: expected.slug,
+            tier,
+            expected: expected.perks[tier],
+            got: gotNames,
+          });
+        }
+      }
+    }
+
+    if (expected.stats?.abilities) {
+      for (const [abilityName, expectedFields] of Object.entries(expected.stats.abilities)) {
+        const actualAbility = hero.stats.abilities?.[abilityName];
+        if (!actualAbility) {
+          mismatches.push({
+            slug: expected.slug,
+            tier: `stats.${abilityName}`,
+            expected: [`<ability present with fields ${Object.keys(expectedFields).join(', ')}>`],
+            got: ['<ability missing>'],
+          });
+          continue;
+        }
+        for (const [field, expectedVal] of Object.entries(expectedFields)) {
+          const m = checkStatField(actualAbility, field, expectedVal);
+          if (m) {
+            mismatches.push({
+              slug: expected.slug,
+              tier: `stats.${abilityName}.${field}`,
+              expected: [String(expectedVal)],
+              got: [m.actual],
+            });
+          }
+        }
       }
     }
   }
 
   return { ok: mismatches.length === 0, mismatches };
+}
+
+function checkStatField(
+  ability: Record<string, unknown>,
+  field: string,
+  expected: string | number,
+): { actual: string } | null {
+  if (field.endsWith('_contains')) {
+    const realField = field.slice(0, -'_contains'.length);
+    const raw = ability[realField];
+    if (raw === undefined || raw === null) return { actual: '<undefined>' };
+    const s = String(raw).toLowerCase();
+    const needle = String(expected).toLowerCase();
+    if (!s.includes(needle)) return { actual: String(raw) };
+    return null;
+  }
+  const raw = ability[field];
+  if (raw === undefined || raw === null) return { actual: '<undefined>' };
+  const a = normalizeForCompare(String(raw));
+  const e = normalizeForCompare(String(expected));
+  if (a !== e) return { actual: String(raw) };
+  return null;
 }

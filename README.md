@@ -48,6 +48,8 @@ The scraper sequentially hits 51 hero pages on Blizzard (one browser tab at a ti
 
 The scraper runs **only on manual trigger** — no cron. When new Overwatch patch notes drop, go to the [Actions tab](https://github.com/bluesxman/ow/actions/workflows/scrape.yml) and click "Run workflow". This minimizes load on both sources and ensures every scrape corresponds to actual game changes.
 
+When the scrape produces changes, the workflow opens a `data-refresh/<date>-<run-id>` branch and a PR against `main` rather than pushing directly. Review the diff under `data/`, then merge manually to publish the new JSON to `raw.githubusercontent.com/bluesxman/ow/main/data/`.
+
 ## When Blizzard renames a perk
 
 The scraper uses a known-good validation fixture (`src/__tests__/fixtures/validation.json`) as a confidence check. If Reaper's "Soul Reaving" becomes "Soul Harvest" in a future patch, the scraper will **deliberately fail** rather than silently publish a changed name. Update the fixture and commit — this is an intentional human checkpoint.

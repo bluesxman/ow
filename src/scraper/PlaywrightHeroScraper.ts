@@ -109,13 +109,19 @@ export class PlaywrightHeroScraper implements HeroScraper {
 
     const patchVersion = await this.readPatchVersion().catch(() => new Date().toISOString().slice(0, 10));
 
-    for (const entry of roster) {
+    const total = roster.length;
+    for (let i = 0; i < total; i++) {
+      const entry = roster[i]!;
+      const started = Date.now();
+      const prefix = `[${i + 1}/${total}] ${entry.slug}`;
       try {
         const hero = await this.scrapeOne(entry);
         heroes[hero.slug] = hero;
+        console.log(`${prefix} ok (${Date.now() - started}ms)`);
       } catch (err) {
         const reason = err instanceof Error ? err.message : String(err);
         failed.push({ slug: entry.slug, reason });
+        console.log(`${prefix} fail (${Date.now() - started}ms): ${reason}`);
         if (failed.length >= MAX_HERO_FAILURES_BEFORE_ABORT && Object.keys(heroes).length === 0) {
           throw new Error(`Too many early hero failures (${failed.length}). Aborting.`);
         }

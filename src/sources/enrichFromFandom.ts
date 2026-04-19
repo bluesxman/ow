@@ -16,13 +16,19 @@ export async function enrichAllFromFandom(
   const enriched: Record<string, Hero> = {};
   const failed: EnrichmentResult['failed'] = [];
 
-  for (const [slug, hero] of Object.entries(heroes)) {
+  const entries = Object.entries(heroes);
+  const total = entries.length;
+  for (let i = 0; i < total; i++) {
+    const [slug, hero] = entries[i]!;
+    const started = Date.now();
+    const prefix = `[${i + 1}/${total}] ${slug}`;
     try {
       const fandomFields = await enrichOne(client, slug);
       enriched[slug] = mergeFandomInto(hero, fandomFields);
+      console.log(`${prefix} ok (${Date.now() - started}ms)`);
     } catch (err) {
       const reason = err instanceof Error ? err.message : String(err);
-      console.warn(`fandom enrichment failed for ${slug}: ${reason}`);
+      console.warn(`${prefix} fail (${Date.now() - started}ms): ${reason}`);
       failed.push({ slug, reason });
       enriched[slug] = hero;
     }

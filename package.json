@@ -12,6 +12,7 @@
     "scrape:dry": "tsx src/index.ts --dry-run",
     "validate-published": "tsx scripts/validate-published.ts",
     "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
     "test": "vitest run",
     "test:watch": "vitest"
   },
@@ -20,9 +21,12 @@
     "zod": "^4.3.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.4",
     "@types/node": "^25.6.0",
+    "eslint": "^9.39.4",
     "tsx": "^4.21.0",
     "typescript": "^6.0.0",
+    "typescript-eslint": "^8.58.2",
     "vitest": "^4.1.0"
   }
 }

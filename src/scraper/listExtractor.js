@@ -8,7 +8,7 @@
     var url;
     try {
       url = new URL(href, document.baseURI);
-    } catch (e) {
+    } catch {
       continue;
     }
     var m = url.pathname.match(/\/heroes\/([^/]+)\/?$/);

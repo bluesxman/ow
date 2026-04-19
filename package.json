@@ -12,6 +12,7 @@
     "scrape": "tsx src/index.ts",
     "scrape:dry": "tsx src/index.ts --dry-run",
     "validate-published": "tsx scripts/validate-published.ts",
+    "probe:fandom": "tsx scripts/probe-fandom.ts",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest"

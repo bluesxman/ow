@@ -7,8 +7,9 @@ import { PlaywrightHeroScraper } from './scraper/PlaywrightHeroScraper.js';
 import { validateHero, checkAgainstFixture } from './validate.js';
 import { diffHeroes, isEmptyDiff } from './diff.js';
 import { publish, readPreviousHeroes, buildPaths } from './publish.js';
-import { renderConsole, renderIssueBody, type RunReport } from './report.js';
+import { renderIssueBody, type RunReport } from './report.js';
 import { enrichAllFromFandom } from './sources/enrichFromFandom.js';
+import { logger } from './logger.js';
 import type { Hero, Metadata } from './types.js';
 
 function parseArgs(argv: string[]): { dryRun: boolean; skipFandom: boolean } {
@@ -32,13 +33,16 @@ async function main(): Promise<void> {
   const scraper = new PlaywrightHeroScraper();
   let exitCode = 0;
   try {
-    console.log('Discovering heroes…');
+    logger.info('Discovering heroes…');
     const roster = await scraper.listHeroes();
-    console.log(`Found ${roster.length} heroes`);
+    logger.info({ count: roster.length }, 'Found heroes');
 
-    console.log('Scraping hero pages…');
+    logger.info('Scraping hero pages…');
     const result = await scraper.scrapeAll(roster);
-    console.log(`Scraped ${Object.keys(result.heroes).length} heroes, ${result.failed.length} failures`);
+    logger.info(
+      { scraped: Object.keys(result.heroes).length, failures: result.failed.length },
+      'Scrape complete',
+    );
 
     const previous = await readPreviousHeroes(paths);
     const merged: Record<string, Hero> = { ...previous };
@@ -49,34 +53,35 @@ async function main(): Promise<void> {
         validHeroes[slug] = v.value;
         merged[slug] = v.value;
       } else {
-        console.warn(`validation failed for ${slug}: ${v.error}`);
+        logger.warn({ slug, error: v.error }, 'validation failed');
         result.failed.push({ slug, reason: `schema: ${v.error}` });
       }
     }
 
     let fandomFailed: Array<{ slug: string; reason: string }> = [];
     if (args.skipFandom) {
-      console.log('Skipping Fandom enrichment (--skip-fandom).');
+      logger.info('Skipping Fandom enrichment (--skip-fandom).');
     } else if (Object.keys(validHeroes).length === 0) {
-      console.log('No valid Blizzard-scraped heroes; skipping Fandom enrichment.');
+      logger.info('No valid Blizzard-scraped heroes; skipping Fandom enrichment.');
     } else {
-      console.log(`Enriching ${Object.keys(validHeroes).length} heroes from Fandom…`);
+      logger.info({ count: Object.keys(validHeroes).length }, 'Enriching heroes from Fandom…');
       const enrichment = await enrichAllFromFandom(validHeroes);
       for (const [slug, hero] of Object.entries(enrichment.enriched)) {
         validHeroes[slug] = hero;
         merged[slug] = hero;
       }
       fandomFailed = enrichment.failed;
-      console.log(
-        `Fandom enrichment complete. ${Object.keys(enrichment.enriched).length} enriched, ${fandomFailed.length} failures.`,
+      logger.info(
+        { enriched: Object.keys(enrichment.enriched).length, failures: fandomFailed.length },
+        'Fandom enrichment complete',
       );
     }
 
     const fixtureCheck = await checkAgainstFixture(merged);
     if (!fixtureCheck.ok) {
-      console.error('Validation fixture mismatch — aborting publish to preserve prior data.');
+      logger.error('Validation fixture mismatch — aborting publish to preserve prior data.');
       for (const m of fixtureCheck.mismatches) {
-        console.error(`  ${m.slug} ${m.tier}: expected [${m.expected.join(', ')}] got [${m.got.join(', ')}]`);
+        logger.error({ slug: m.slug, tier: m.tier, expected: m.expected, got: m.got }, 'fixture mismatch');
       }
       exitCode = 2;
     }
@@ -95,7 +100,7 @@ async function main(): Promise<void> {
 
     if (exitCode === 0) {
       if (isEmptyDiff(diff) && !args.dryRun) {
-        console.log('No changes detected — skipping publish (idempotent).');
+        logger.info('No changes detected — skipping publish (idempotent).');
       } else {
         await publish({
           heroes: merged,
@@ -105,7 +110,7 @@ async function main(): Promise<void> {
           dryRun: args.dryRun,
           root,
         });
-        console.log(args.dryRun ? 'Dry run complete.' : 'Published.');
+        logger.info(args.dryRun ? 'Dry run complete.' : 'Published.');
       }
     }
 
@@ -119,7 +124,22 @@ async function main(): Promise<void> {
       durationMs: Date.now() - started,
     };
 
-    console.log('\n' + renderConsole(report));
+    logger.info(
+      {
+        heroesScraped: report.heroesScraped,
+        heroesFailed: report.heroesFailed.length,
+        fandomFailed: report.fandomFailed.length,
+        patchVersion: report.metadata.patch_version,
+        durationMs: report.durationMs,
+        fixtureOk: report.fixtureCheck.ok,
+        diff: {
+          added: report.diff.added.length,
+          removed: report.diff.removed.length,
+          changed: report.diff.changed.length,
+        },
+      },
+      'Run summary',
+    );
 
     if (process.env['GITHUB_OUTPUT']) {
       await writeFile(

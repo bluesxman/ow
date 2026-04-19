@@ -3,6 +3,7 @@ import { FandomClient } from './FandomClient.js';
 import { parseWikitext } from './fandomWikitext.js';
 import { normalizeFandomHero } from './fandomNormalize.js';
 import { slugToFandomTitle } from './slugToFandomTitle.js';
+import { logger } from '../logger.js';
 
 export interface EnrichmentResult {
   enriched: Record<string, Hero>;
@@ -21,14 +22,14 @@ export async function enrichAllFromFandom(
   for (let i = 0; i < total; i++) {
     const [slug, hero] = entries[i]!;
     const started = Date.now();
-    const prefix = `[${i + 1}/${total}] ${slug}`;
+    const base = { phase: 'fandom', slug, idx: i + 1, total };
     try {
       const fandomFields = await enrichOne(client, slug);
       enriched[slug] = mergeFandomInto(hero, fandomFields);
-      console.log(`${prefix} ok (${Date.now() - started}ms)`);
+      logger.info({ ...base, durationMs: Date.now() - started }, 'hero ok');
     } catch (err) {
       const reason = err instanceof Error ? err.message : String(err);
-      console.warn(`${prefix} fail (${Date.now() - started}ms): ${reason}`);
+      logger.warn({ ...base, durationMs: Date.now() - started, reason }, 'hero fail');
       failed.push({ slug, reason });
       enriched[slug] = hero;
     }

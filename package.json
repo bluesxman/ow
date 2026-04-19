@@ -19,6 +19,7 @@
     "test:watch": "vitest"
   },
   "dependencies": {
+    "pino": "^10.3.1",
     "playwright": "^1.59.0",
     "zod": "^4.3.0"
   },

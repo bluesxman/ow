@@ -3,6 +3,7 @@ import { dirname, join, resolve } from 'node:path';
 import type { Hero, Metadata, RosterEntry } from './types.js';
 import { renderDiffMarkdown, type HeroDiff } from './diff.js';
 import { slugToBlizzardUrl, slugToFandomUrl } from './sources/slugToFandomTitle.js';
+import { logger } from './logger.js';
 
 export interface PublishPaths {
   dataDir: string;
@@ -101,7 +102,7 @@ export async function publish(input: PublishInput): Promise<{ paths: PublishPath
   };
 
   if (dryRun) {
-    console.log(`[dry-run] would write ${slugs.length} per-hero files + 6 aggregate files + ATTRIBUTION.md`);
+    logger.info({ heroFiles: slugs.length, aggregateFiles: 6 }, '[dry-run] would write per-hero + aggregate files + ATTRIBUTION.md');
     return { paths, filesWritten: [] };
   }
 

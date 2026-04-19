@@ -24,7 +24,7 @@
       "slug": "soldier-76",
       "stats": {
         "abilities": {
-          "Heavy Pulse Rifle": { "ammo": 30, "damage_falloff_contains": "30" }
+          "Heavy Pulse Rifle": { "ammo": 30, "falloff_contains": "30" }
         }
       }
     }

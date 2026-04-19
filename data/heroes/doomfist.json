@@ -1,0 +1,198 @@
+{
+  "metadata": {
+    "last_updated": "2026-04-19T23:57:59.845Z",
+    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "hero_count": 51,
+    "heroes_failed": [],
+    "fandom_failed": [],
+    "sources": [
+      {
+        "name": "Blizzard Entertainment",
+        "url": "https://overwatch.blizzard.com/en-us/heroes/",
+        "license": "Blizzard Terms of Service",
+        "fields": [
+          "name",
+          "role",
+          "portrait_url",
+          "perks",
+          "abilities.description"
+        ]
+      },
+      {
+        "name": "Overwatch Fandom Wiki",
+        "url": "https://overwatch.fandom.com/",
+        "license": "CC-BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "fields": [
+          "stats.health",
+          "stats.armor",
+          "stats.shields",
+          "stats.abilities.*",
+          "sub_role"
+        ]
+      }
+    ],
+    "schema_version": "2"
+  },
+  "attribution": {
+    "fandom_page": "https://overwatch.fandom.com/wiki/Doomfist",
+    "blizzard_page": "https://overwatch.blizzard.com/en-us/heroes/doomfist/"
+  },
+  "hero": {
+    "slug": "doomfist",
+    "name": "Doomfist",
+    "role": "tank",
+    "abilities": [
+      {
+        "name": "Hand Cannon",
+        "description": "Short-range weapon with spread. Reloads automatically."
+      },
+      {
+        "name": "Rocket Punch",
+        "description": "Hold to charge then release to launch forward and knock an enemy back. Damage increases if the enemy hits a wall."
+      },
+      {
+        "name": "Seismic Slam",
+        "description": "Leap and smash the ground."
+      },
+      {
+        "name": "Power Block",
+        "description": "Protect yourself from frontal attacks. Blocking heavy damage empowers Rocket Punch."
+      },
+      {
+        "name": "Meteor Strike",
+        "description": "Press Q to leap up into the air. Move the targeting circle, then press ABILITY 3 to strike the targeted area."
+      }
+    ],
+    "perks": {
+      "minor": [
+        {
+          "name": "One-Two",
+          "description": "Hitting an enemy into a wall with Rocket Punch reloads Hand Cannon and overfills ammo by 2."
+        },
+        {
+          "name": "Survival of the Fittest",
+          "description": "The Best Defense grants 25 overhealth from eliminations and its max overhealth is increased by 50."
+        }
+      ],
+      "major": [
+        {
+          "name": "Aftershock",
+          "description": "Enemies hit by Seismic Slam are slowed by 40% for 2 seconds."
+        },
+        {
+          "name": "Power Matrix",
+          "description": "Power Block absorbs projectiles for the first second of its duration."
+        }
+      ]
+    },
+    "stats": {
+      "abilities": {
+        "The Best Defense...": {
+          "ability_type": "Passive Ability",
+          "duration": "3 seconds"
+        },
+        "Hand Cannon": {
+          "ability_type": "Weapon",
+          "headshot": true,
+          "rate_of_fire": "3 volleys/s / 1.36 volleys/s (continuous fire of final shot)",
+          "damage": "5 – 1.5 (per shot) / 55 – 16.5 (per volley)",
+          "falloff": "15 – 30 meters",
+          "projectile_speed": "80 m/s",
+          "projectile_radius": "0.05 meters",
+          "pellets": 11,
+          "reload": "0.4 seconds (per shot) / 1.6 seconds (from empty)",
+          "ammo": 4,
+          "spread": "2.5 degrees",
+          "dps": "73.3 while firing continuously, 165 burst from full ammo."
+        },
+        "Rocket Punch": {
+          "ability_type": "Ability",
+          "cooldown": "4 seconds",
+          "damage": "25 - 75 (base, impact damage) / 10 - 40 (base, wall slam) / 38 - 113 (empowered, impact damage) / 15 - 60 (empowered, wall slam)",
+          "duration": "0.5 seconds (max. travel time) / 0.5 seconds (stun, punch impact) / 0.15 seconds (stun, wall slam) / 0.15 - 0.6 seconds (stun, empowered wall slam) / 20 seconds (Empowered Rocket Punch max duration)",
+          "range": "6.3 - 19.7 meters (self) / 9.3 - 29.4 meters (self, empowered) / 5.5 - 13.2 meters (knockback)"
+        },
+        "Seismic Slam": {
+          "ability_type": "Ability",
+          "cooldown": "6.5 seconds",
+          "damage": 50,
+          "radius": "15 meters"
+        },
+        "Power Block": {
+          "ability_type": "Ability",
+          "cooldown": "7 seconds",
+          "duration": "0.34 seconds (min) / 2.5 seconds (max)"
+        },
+        "Meteor Strike": {
+          "ability_type": "Ultimate Ability",
+          "healing": "90 per second (while targeting)",
+          "damage": "300 (inner sphere) / 100 – 50 (outer sphere)",
+          "falloff": "2 – 8 meters",
+          "duration": "4 seconds (targeting, max) / 3 seconds (slow)",
+          "radius": "2 meters (inner sphere) / 8 meters (outer sphere)"
+        },
+        "One-Two": {
+          "ability_type": "Minor Perk"
+        },
+        "Survival of the Fittest": {
+          "ability_type": "Minor Perk"
+        },
+        "Aftershock": {
+          "ability_type": "Major Perk"
+        },
+        "Power Matrix": {
+          "ability_type": "Major Perk"
+        },
+        "The Best Defense... (old)": {
+          "ability_type": "Passive Ability"
+        },
+        "Hand Cannon (old)": {
+          "ability_type": "Weapon",
+          "headshot": true,
+          "rate_of_fire": "1 shot per 0.32 seconds",
+          "damage": "1.8 - 6 per pellet / 19.8 - 66 per shot",
+          "falloff": "15 meters to 30 meters",
+          "projectile_speed": "80 meters per second",
+          "pellets": "11 per shot",
+          "reload": "0.32 seconds (inital reload) / +0.656 second (per bullet)",
+          "ammo": 4,
+          "spread": "Constant: 2.15 degrees"
+        },
+        "Rising Uppercut": {
+          "ability_type": "Ability",
+          "damage": 50,
+          "radius": "5 meters",
+          "cooldown": "6 seconds",
+          "duration": "0.6 seconds (air lock)"
+        },
+        "Seismic Slam (old)": {
+          "ability_type": "Ability",
+          "damage": "25 - 125",
+          "cooldown": "6 seconds",
+          "range": "15 meters (travel distance)",
+          "radius": "8 meters"
+        },
+        "Rocket Punch (old)": {
+          "cooldown": "4 seconds",
+          "duration": "0.496 second stun",
+          "ability_type": "Ability",
+          "damage": "50 - 100 (punch) / 50 - 150 (wall impact)",
+          "range": "~6.4 to 20 meters (depending on charge)"
+        },
+        "Meteor Strike (old)": {
+          "ability_type": "Ultimate Ability",
+          "duration": "Up to 4 seconds for select area / 1 second landing + 0.5 s. recovery (invulnerability)",
+          "damage": "Inner ring: 300 / Outer ring: 15-200",
+          "falloff": "2-8 meters",
+          "radius": "Inner ring: 2 meters / Outer ring: 6 meters / Overall radius: 8 meters"
+        },
+        "Seismic Empowerment": {
+          "ability_type": "Major Perk"
+        }
+      },
+      "health": 375
+    },
+    "sub_role": "Initiator"
+  }
+}

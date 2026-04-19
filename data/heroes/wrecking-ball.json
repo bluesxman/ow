@@ -1,0 +1,168 @@
+{
+  "metadata": {
+    "last_updated": "2026-04-19T23:57:59.845Z",
+    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "hero_count": 51,
+    "heroes_failed": [],
+    "fandom_failed": [],
+    "sources": [
+      {
+        "name": "Blizzard Entertainment",
+        "url": "https://overwatch.blizzard.com/en-us/heroes/",
+        "license": "Blizzard Terms of Service",
+        "fields": [
+          "name",
+          "role",
+          "portrait_url",
+          "perks",
+          "abilities.description"
+        ]
+      },
+      {
+        "name": "Overwatch Fandom Wiki",
+        "url": "https://overwatch.fandom.com/",
+        "license": "CC-BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "fields": [
+          "stats.health",
+          "stats.armor",
+          "stats.shields",
+          "stats.abilities.*",
+          "sub_role"
+        ]
+      }
+    ],
+    "schema_version": "2"
+  },
+  "attribution": {
+    "fandom_page": "https://overwatch.fandom.com/wiki/Wrecking_Ball",
+    "blizzard_page": "https://overwatch.blizzard.com/en-us/heroes/wrecking-ball/"
+  },
+  "hero": {
+    "slug": "wrecking-ball",
+    "name": "Wrecking Ball",
+    "role": "tank",
+    "abilities": [
+      {
+        "name": "Quad Cannons",
+        "description": "Automatic assault weapons."
+      },
+      {
+        "name": "Grappling Claw",
+        "description": "Launch a grappling claw to rapidly swing around the area. Enables high speed collisions to damage and knockback enemies."
+      },
+      {
+        "name": "Roll",
+        "description": "Transform into a ball and increase maximum movement speed."
+      },
+      {
+        "name": "Piledriver",
+        "description": "Slam into the ground below to damage and launch enemies upward."
+      },
+      {
+        "name": "Adaptive Shield",
+        "description": "Create temporary extra health that increases with more nearby enemies. Some of the health can be transferred to allies."
+      },
+      {
+        "name": "Minefield",
+        "description": "Deploy a massive field of proximity mines."
+      }
+    ],
+    "perks": {
+      "minor": [
+        {
+          "name": "Steamroller",
+          "description": "Roll impacts deal 100% more damage to Tanks."
+        },
+        {
+          "name": "Multi-Ball",
+          "description": "Press Q within 5 seconds after using Minefield to deploy 7 additional mines."
+        }
+      ],
+      "major": [
+        {
+          "name": "Hang Time",
+          "description": "Piledriver winds up longer, gaining air control and dealing up to 50% more damage."
+        },
+        {
+          "name": "Adaptive Barrier",
+          "description": "Adaptive Shield generates a 1.5 second barrier on activation."
+        }
+      ]
+    },
+    "stats": {
+      "abilities": {
+        "Quad Cannons": {
+          "ability_type": "Weapon",
+          "damage": "5 – 1.5 per shot",
+          "headshot": true,
+          "falloff": "15 – 25 meters",
+          "spread": "2 degrees (max)",
+          "projectile_radius": "0.04 meters",
+          "rate_of_fire": "25 shots per second",
+          "ammo": 80,
+          "reload": "1.6 seconds animation",
+          "dps": "125 while firing (83.33 overall w/reload)"
+        },
+        "Grappling Claw": {
+          "ability_type": "Ability",
+          "cooldown": "5 seconds (after fireball) / 1 second (no fireball)",
+          "damage": "60 (fireball collision)",
+          "range": "22.2 meters (max) / 6 meters (retracted)",
+          "duration": "8 seconds (max grapple time after fireball)"
+        },
+        "Roll": {
+          "ability_type": "Ability",
+          "cooldown": "0.4 seconds"
+        },
+        "Adaptive Shield": {
+          "ability_type": "Ability",
+          "cooldown": "15 seconds",
+          "radius": "13 meters",
+          "duration": "7 seconds (self) / 4 seconds (allies)"
+        },
+        "Piledriver": {
+          "ability_type": "Ability",
+          "cooldown": "8 seconds",
+          "damage": "100 - 20",
+          "radius": "1.5 - 8 meters",
+          "duration": "0.8 seconds (windup delay) / 0.75 seconds (enemy air lock)"
+        },
+        "Minefield": {
+          "ability_type": "Ultimate Ability",
+          "damage": 165,
+          "duration": "16 seconds (on ground) / 1.25 seconds (arming time)",
+          "radius": "1.5 meters (per mine)",
+          "projectile_speed": "12 m/s"
+        },
+        "Steamroller": {
+          "ability_type": "Minor Perk",
+          "damage": "120 (Tanks)"
+        },
+        "Multi-Ball": {
+          "ability_type": "Minor Perk"
+        },
+        "Hang Time": {
+          "ability_type": "Major Perk",
+          "damage": "150 - 20",
+          "duration": "1.1 seconds (windup delay)"
+        },
+        "Adaptive Barrier": {
+          "ability_type": "Major Perk",
+          "duration": "1.5 seconds",
+          "radius": "Approx. 1.5 meters"
+        },
+        "Transfer Efficiency": {
+          "ability_type": "Major Perk"
+        },
+        "Pack Rat": {
+          "ability_type": "Minor Perk"
+        }
+      },
+      "health": 300,
+      "armor": 125,
+      "shields": 150
+    },
+    "sub_role": "Initiator"
+  }
+}

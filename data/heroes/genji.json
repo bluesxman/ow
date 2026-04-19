@@ -1,0 +1,166 @@
+{
+  "metadata": {
+    "last_updated": "2026-04-19T23:57:59.845Z",
+    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "hero_count": 51,
+    "heroes_failed": [],
+    "fandom_failed": [],
+    "sources": [
+      {
+        "name": "Blizzard Entertainment",
+        "url": "https://overwatch.blizzard.com/en-us/heroes/",
+        "license": "Blizzard Terms of Service",
+        "fields": [
+          "name",
+          "role",
+          "portrait_url",
+          "perks",
+          "abilities.description"
+        ]
+      },
+      {
+        "name": "Overwatch Fandom Wiki",
+        "url": "https://overwatch.fandom.com/",
+        "license": "CC-BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "fields": [
+          "stats.health",
+          "stats.armor",
+          "stats.shields",
+          "stats.abilities.*",
+          "sub_role"
+        ]
+      }
+    ],
+    "schema_version": "2"
+  },
+  "attribution": {
+    "fandom_page": "https://overwatch.fandom.com/wiki/Genji",
+    "blizzard_page": "https://overwatch.blizzard.com/en-us/heroes/genji/"
+  },
+  "hero": {
+    "slug": "genji",
+    "name": "Genji",
+    "role": "damage",
+    "abilities": [
+      {
+        "name": "Shuriken",
+        "description": "Throw an accurate burst of 3 projectiles. Throw a fan of 3 projectiles in an arc."
+      },
+      {
+        "name": "Deflect",
+        "description": "Deflect incoming projectiles towards the direction you are aiming and block melee attacks."
+      },
+      {
+        "name": "Swift Strike",
+        "description": "Rapidly dash forward and inflict damage on enemies. Eliminations reset the cooldown."
+      },
+      {
+        "name": "Dragonblade",
+        "description": "Unsheathe a deadly melee weapon."
+      },
+      {
+        "name": "Cyber-Agility",
+        "description": "Climb on walls and double jump."
+      }
+    ],
+    "perks": {
+      "minor": [
+        {
+          "name": "Swift Cuts",
+          "description": "Quick Melee reduces the cooldown of Swift Strike by 3 seconds."
+        },
+        {
+          "name": "Dragon's Thirst",
+          "description": "Dragonblade swings gain 30% lifesteal."
+        }
+      ],
+      "major": [
+        {
+          "name": "Blade Twisting",
+          "description": "Swift Strike deals 25 additional damage over time if the enemy is below half health."
+        },
+        {
+          "name": "Meditation",
+          "description": "Regenerate 35 health per second while Deflect is active."
+        }
+      ]
+    },
+    "stats": {
+      "abilities": {
+        "Cyber-Agility": {
+          "ability_type": "Passive Ability",
+          "duration": "Up to 1 second"
+        },
+        "Shuriken": {
+          "ability_type": "Weapon;;Primary Fire",
+          "damage": "27 (per shuriken) / 81 (per shot)",
+          "headshot": true,
+          "pellets": 3,
+          "projectile_radius": "0.125 meters",
+          "projectile_speed": "75 m/s",
+          "rate_of_fire": "1.14 shots/s",
+          "ammo": 30,
+          "reload": "1.5 seconds",
+          "spread": "None",
+          "dps": "92.05 while firing (85.94 overall w/reload)"
+        },
+        "Shuriken Alt Fire": {
+          "ability_type": "Weapon;;Secondary Fire",
+          "damage": "(per shuriken) / (per shot)",
+          "headshot": true,
+          "projectile_speed": "m/s",
+          "projectile_radius": "0.125 meters",
+          "rate_of_fire": "1.47 shots/s",
+          "pellets": 3,
+          "reload": "1.5 seconds",
+          "spread": "4.5 degrees",
+          "dps": "119.12 while firing (109.09 overall w/reload)"
+        },
+        "Swift Strike": {
+          "ability_type": "Ability",
+          "cooldown": "8 seconds",
+          "damage": 50,
+          "headshot": false,
+          "duration": "0.4 seconds",
+          "range": "15 meters"
+        },
+        "Deflect": {
+          "ability_type": "Ability",
+          "cooldown": "10 seconds",
+          "duration": "0.27 seconds min. duration / 2 seconds max. duration / 0.192 seconds recovery"
+        },
+        "Dragonblade": {
+          "ability_type": "Ultimate Ability",
+          "damage": 110,
+          "headshot": false,
+          "rate_of_fire": "1.437 swings/s on average.",
+          "duration": "6 seconds",
+          "range": "5 meters",
+          "dps": "158.05 while swinging continuously"
+        },
+        "Swift Cuts": {
+          "ability_type": "Minor Perk"
+        },
+        "Dragon's Thirst": {
+          "ability_type": "Minor Perk",
+          "healing": "30% of damage dealt"
+        },
+        "Blade Twisting": {
+          "ability_type": "Major Perk",
+          "damage": "25 over time",
+          "duration": "1 second"
+        },
+        "Meditation": {
+          "ability_type": "Major Perk",
+          "healing": "35 per second"
+        },
+        "Acrobatics": {
+          "ability_type": "Minor Perk"
+        }
+      },
+      "health": 250
+    },
+    "sub_role": "Flanker"
+  }
+}

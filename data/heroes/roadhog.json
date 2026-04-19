@@ -1,0 +1,188 @@
+{
+  "metadata": {
+    "last_updated": "2026-04-19T23:57:59.845Z",
+    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "hero_count": 51,
+    "heroes_failed": [],
+    "fandom_failed": [],
+    "sources": [
+      {
+        "name": "Blizzard Entertainment",
+        "url": "https://overwatch.blizzard.com/en-us/heroes/",
+        "license": "Blizzard Terms of Service",
+        "fields": [
+          "name",
+          "role",
+          "portrait_url",
+          "perks",
+          "abilities.description"
+        ]
+      },
+      {
+        "name": "Overwatch Fandom Wiki",
+        "url": "https://overwatch.fandom.com/",
+        "license": "CC-BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "fields": [
+          "stats.health",
+          "stats.armor",
+          "stats.shields",
+          "stats.abilities.*",
+          "sub_role"
+        ]
+      }
+    ],
+    "schema_version": "2"
+  },
+  "attribution": {
+    "fandom_page": "https://overwatch.fandom.com/wiki/Roadhog",
+    "blizzard_page": "https://overwatch.blizzard.com/en-us/heroes/roadhog/"
+  },
+  "hero": {
+    "slug": "roadhog",
+    "name": "Roadhog",
+    "role": "tank",
+    "abilities": [
+      {
+        "name": "Scrap Gun",
+        "description": "Short-range spread weapon. Medium-range projectile that explodes into the weapon's short-range primary fire."
+      },
+      {
+        "name": "Chain Hook",
+        "description": "Drag a targeted enemy to you."
+      },
+      {
+        "name": "Take a Breather",
+        "description": "Heal yourself and reduce damage taken."
+      },
+      {
+        "name": "Whole Hog",
+        "description": "Damage and knock back enemies in front of you."
+      }
+    ],
+    "perks": {
+      "minor": [
+        {
+          "name": "Scrap Hook",
+          "description": "Chain Hook hits reload 2 ammo."
+        },
+        {
+          "name": "Shrapnel Launcher",
+          "description": "Extend the range of Scrap Gun's secondary fire by 50% and tighten its burst spread by 25%."
+        }
+      ],
+      "major": [
+        {
+          "name": "Hogdrogen Exposure",
+          "description": "Take A Breather also heals nearby allies for 50% of its healing."
+        },
+        {
+          "name": "Pulled Pork",
+          "description": "Gain overhealth based on how far you pull enemies with Chain Hook, up to 300."
+        }
+      ]
+    },
+    "stats": {
+      "abilities": {
+        "Scrap Gun": {
+          "ability_type": "Weapon;;Primary Fire",
+          "damage": "7 – 2.1 (per pellet) / 175 – 52.5 (per shot)",
+          "falloff": "30 – 50 meters",
+          "headshot": true,
+          "pellets": 25,
+          "ammo": 6,
+          "rate_of_fire": "1.25 shots/s",
+          "reload": "1.75 seconds animation",
+          "spread": "8 degrees",
+          "projectile_speed": "80 m/s",
+          "projectile_radius": "0.05 meters",
+          "dps": "203.13 while firing (154.76 overall w/ reload)"
+        },
+        "Scrap Gun Alt Fire": {
+          "ability_type": "Weapon;;Secondary Fire",
+          "damage": "50 (pre-detonation) / 7 – 2.1 (post-detonation, per pellet) / 175 – 52.5 (post-detonation, per shot)",
+          "falloff": "None (pre-detonation) / 24 - 39 meters (post-detonation)",
+          "projectile_speed": "60 m/s (pre-detonation) / 80 m/s (post-detonation)",
+          "projectile_radius": "0.05 meters (pre-detonation) / 0.075 meters (post-detonation)",
+          "range": "9 meters (pre-detonation)",
+          "pellets": "1 (pre-detonation) / 25 (post-detonation)",
+          "rate_of_fire": "1.25 shots/s",
+          "ammo": 6,
+          "reload": "1.75 seconds animation",
+          "headshot": true,
+          "spread": "8 degrees",
+          "dps": "203.13 while firing (154.76 overall w/ reload)"
+        },
+        "Chain Hook": {
+          "ability_type": "Ability",
+          "cooldown": "8 seconds",
+          "damage": 25,
+          "headshot": false,
+          "range": "20 meters",
+          "duration": "0.3 seconds (initial) / 0.4 seconds (final)",
+          "projectile_speed": "62 m/s",
+          "projectile_radius": "0.5 meters (vs enemy) / None (vs wall or barrier)"
+        },
+        "Take a Breather": {
+          "ability_type": "Ability",
+          "cooldown": "1.25 seconds",
+          "healing": "150 per second",
+          "duration": "0.4 seconds (min) / 3 seconds (max) / 1.3 seconds (energy regen delay)"
+        },
+        "Whole Hog": {
+          "ability_type": "Ultimate Ability",
+          "damage": "7 – 2.1",
+          "falloff": "30 – 40 meters",
+          "headshot": true,
+          "spread": "20 degrees (horizontal) / 2 degrees (vertical)",
+          "pellets": 16,
+          "ammo": "∞",
+          "rate_of_fire": "8 shots/s",
+          "duration": "7.5 seconds",
+          "projectile_radius": "0.04 meters",
+          "dps": "768 while firing"
+        },
+        "Scrap Hook": {
+          "ability_type": "Minor Perk"
+        },
+        "Shrapnel Launcher": {
+          "ability_type": "Minor Perk",
+          "spread": "8 → 6 degrees"
+        },
+        "Hogdrogen Exposure": {
+          "ability_type": "Major Perk",
+          "healing": "75/s",
+          "radius": "10 meters"
+        },
+        "Pulled Pork": {
+          "ability_type": "Major Perk",
+          "duration": "2 seconds"
+        },
+        "Pig Pen": {
+          "ability_type": "Ability",
+          "cooldown": "12 seconds",
+          "damage": "60 (initial) / 45/s (periodic) / 195 (total)",
+          "duration": "0.8 seconds (arming delay) / 3 seconds (slow)",
+          "projectile_radius": "None",
+          "projectile_speed": "27 m/s",
+          "range": "8.2 meters (straight forward) / 13.5 meters (at 35° angle)",
+          "radius": "2.5 meters (trigger) / 4 meters (slow area)"
+        },
+        "Hog Toss": {
+          "ability_type": "Minor Perk",
+          "damage": "75 (initial) / 56.25/s (periodic) / 238.8 (total)",
+          "projectile_speed": "40 m/s",
+          "range": "15.2 meters (straight forward) / 29 meters (at 35° angle)"
+        },
+        "Pent Up": {
+          "ability_type": "Minor Perk"
+        },
+        "Invigorate": {
+          "ability_type": "Major Perk"
+        }
+      },
+      "health": 600
+    },
+    "sub_role": "Bruiser"
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "metadata": {
+    "last_updated": "2026-04-19T23:57:59.845Z",
+    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "hero_count": 51,
+    "heroes_failed": [],
+    "fandom_failed": [],
+    "sources": [
+      {
+        "name": "Blizzard Entertainment",
+        "url": "https://overwatch.blizzard.com/en-us/heroes/",
+        "license": "Blizzard Terms of Service",
+        "fields": [
+          "name",
+          "role",
+          "portrait_url",
+          "perks",
+          "abilities.description"
+        ]
+      },
+      {
+        "name": "Overwatch Fandom Wiki",
+        "url": "https://overwatch.fandom.com/",
+        "license": "CC-BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "fields": [
+          "stats.health",
+          "stats.armor",
+          "stats.shields",
+          "stats.abilities.*",
+          "sub_role"
+        ]
+      }
+    ],
+    "schema_version": "2"
+  },
+  "attribution": {
+    "fandom_page": "https://overwatch.fandom.com/wiki/L%C3%BAcio",
+    "blizzard_page": "https://overwatch.blizzard.com/en-us/heroes/lucio/"
+  },
+  "hero": {
+    "slug": "lucio",
+    "name": "Lúcio",
+    "role": "support",
+    "abilities": [
+      {
+        "name": "Sonic Amplifier",
+        "description": "Sonic projectile launcher."
+      },
+      {
+        "name": "Crossfade",
+        "description": "Switches between two songs: Healing Boost heals nearby allies, and Speed Boost makes nearby allies move faster."
+      },
+      {
+        "name": "Amp It Up",
+        "description": "Increase the effectiveness of your current song."
+      },
+      {
+        "name": "Soundwave",
+        "description": "Create a short-range blast wave to knock enemies away from you."
+      },
+      {
+        "name": "Sound Barrier",
+        "description": "Create temporary extra health for nearby allies."
+      },
+      {
+        "name": "Wall Ride",
+        "description": "Jump onto a wall to ride along it."
+      }
+    ],
+    "perks": {
+      "minor": [
+        {
+          "name": "Soundwave Rider",
+          "description": "Wall Riding empowers your next Soundwave, increasing its knockback by 25% and damage by 50%."
+        },
+        {
+          "name": "Beat Drop",
+          "description": "Amp it Up is active during Sound Barrier."
+        }
+      ],
+      "major": [
+        {
+          "name": "Noise Violation",
+          "description": "Crossfade's range is increased by 150% while Amp It Up is active."
+        },
+        {
+          "name": "Accelerando",
+          "description": "Gain 15% attack speed while Lucio's Speed Song is active, tripled during Amp It Up."
+        }
+      ]
+    },
+    "stats": {
+      "abilities": {
+        "Wall Ride": {
+          "cooldown": "0.5 seconds",
+          "ability_type": "Passive Ability"
+        },
+        "Sonic Amplifier": {
+          "ability_type": "Weapon",
+          "damage": "20 (per round) / 80 (per volley)",
+          "headshot": true,
+          "rate_of_fire": "1.07 volleys/s",
+          "pellets": 4,
+          "ammo": 20,
+          "reload": "1.5 seconds animation",
+          "projectile_speed": "50 m/s",
+          "projectile_radius": "0.22 meters",
+          "spread": "None",
+          "dps": "85.56 while firing (64.78 overall w/reload)"
+        },
+        "Soundwave": {
+          "ability_type": "Ability",
+          "damage": 45,
+          "range": "7 meters",
+          "duration": "0.56 s. recovery for primary",
+          "cooldown": "5 seconds",
+          "headshot": false
+        },
+        "Crossfade": {
+          "ability_type": "Ability",
+          "healing": "20 per second (allies) / 14.4 per second (self)",
+          "radius": "12 meters",
+          "duration": "0.4 seconds (swap delay)"
+        },
+        "Amp It Up": {
+          "ability_type": "Ability",
+          "healing": "56 per second",
+          "radius": "12 meters",
+          "cooldown": "12 seconds",
+          "duration": "3 seconds"
+        },
+        "Sound Barrier": {
+          "ability_type": "Ultimate Ability",
+          "radius": "30 meters",
+          "duration": "6 seconds"
+        },
+        "Soundwave Rider": {
+          "ability_type": "Minor Perk",
+          "damage": "45 → 67.5"
+        },
+        "Beat Drop": {
+          "ability_type": "Minor Perk"
+        },
+        "Noise Violation": {
+          "ability_type": "Major Perk",
+          "range": "20 meters",
+          "duration": "3 seconds"
+        },
+        "Accelerando": {
+          "ability_type": "Major Perk",
+          "rate_of_fire": "1.23 shots/s (base) / 1.55 shots/s (Amp It Up)",
+          "reload": "0.75 seconds animation",
+          "duration": "3 seconds",
+          "dps": "while firing ( w/ reload)"
+        },
+        "Groovin'": {
+          "ability_type": "Minor Perk"
+        },
+        "Bass Blowout": {
+          "ability_type": "Minor Perk",
+          "range": "9.2 meters",
+          "headshot": false
+        }
+      },
+      "health": 225
+    },
+    "sub_role": "Tactician"
+  }
+}

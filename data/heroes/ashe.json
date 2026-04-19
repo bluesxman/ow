@@ -1,0 +1,169 @@
+{
+  "metadata": {
+    "last_updated": "2026-04-19T23:57:59.845Z",
+    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "hero_count": 51,
+    "heroes_failed": [],
+    "fandom_failed": [],
+    "sources": [
+      {
+        "name": "Blizzard Entertainment",
+        "url": "https://overwatch.blizzard.com/en-us/heroes/",
+        "license": "Blizzard Terms of Service",
+        "fields": [
+          "name",
+          "role",
+          "portrait_url",
+          "perks",
+          "abilities.description"
+        ]
+      },
+      {
+        "name": "Overwatch Fandom Wiki",
+        "url": "https://overwatch.fandom.com/",
+        "license": "CC-BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "fields": [
+          "stats.health",
+          "stats.armor",
+          "stats.shields",
+          "stats.abilities.*",
+          "sub_role"
+        ]
+      }
+    ],
+    "schema_version": "2"
+  },
+  "attribution": {
+    "fandom_page": "https://overwatch.fandom.com/wiki/Ashe",
+    "blizzard_page": "https://overwatch.blizzard.com/en-us/heroes/ashe/"
+  },
+  "hero": {
+    "slug": "ashe",
+    "name": "Ashe",
+    "role": "damage",
+    "abilities": [
+      {
+        "name": "The Viper",
+        "description": "Semi-automatic rifle. Hold to zoom in, increasing damage and accuracy but slowing rate of fire."
+      },
+      {
+        "name": "Coach Gun",
+        "description": "Blast enemies in front of you and knock yourself backwards."
+      },
+      {
+        "name": "Dynamite",
+        "description": "Throw an explosive that detonates after a short delay or immediately when shot."
+      },
+      {
+        "name": "B.O.B.",
+        "description": "Deploy Bob. He charges forward and knocks enemies into the air, then attacks with his arm cannons."
+      }
+    ],
+    "perks": {
+      "minor": [
+        {
+          "name": "Remote Detonator",
+          "description": "After using Dynamite, pressing E again causes it to detonate after a 0.5 second delay."
+        },
+        {
+          "name": "Double-Barreled",
+          "description": "Knocking an enemy back with Coach Gun briefly allows you to use it one more time with 25% less knockback."
+        }
+      ],
+      "major": [
+        {
+          "name": "Viper's Sting",
+          "description": "Hitting 2 consecutive scoped shots on a target deals 25 extra damage and reloads 1 ammo."
+        },
+        {
+          "name": "Airburst",
+          "description": "Dynamite has a 40% increased detonation radius while airborne and refunds 3 ammo when thrown."
+        }
+      ]
+    },
+    "stats": {
+      "abilities": {
+        "The Viper": {
+          "ability_type": "Weapon;;Hip Fire",
+          "damage": "35 – 10.5",
+          "falloff": "20 – 40 meters",
+          "headshot": true,
+          "spread": "1.85 degrees (max)",
+          "rate_of_fire": "3.9 shots/s",
+          "ammo": 12,
+          "reload": "0.5 seconds (initial animation) / +0.25 seconds per bullet / 3.5 seconds (full reload animation)",
+          "projectile_radius": "0.07 meters",
+          "dps": "136.5 while firing (63.86 overall w/ full reload, 34.78 w/ reload after each shot)"
+        },
+        "Take Aim (ADS)": {
+          "ability_type": "Weapon;;ADS",
+          "damage": "75 – 22.5",
+          "falloff": "35 – 55 meters",
+          "headshot": true,
+          "rate_of_fire": "1.52 shots/s",
+          "ammo": 12,
+          "reload": "0.5 seconds (initial animation) / +0.2 seconds per bullet / 2.9 seconds (full reload animation)",
+          "spread": "None",
+          "projectile_radius": "0.07 meters",
+          "dps": "114.33 while firing (41.3 overall w/ full reload, 32.98 w/ reload after each shot)"
+        },
+        "Coach Gun": {
+          "ability_type": "Ability",
+          "cooldown": "10 seconds",
+          "damage": "6 per shot / 90 per volley",
+          "headshot": false,
+          "pellets": 15,
+          "projectile_radius": "0.45 meters",
+          "range": "15 meters (enemy knockback) / 9.4 meters (self-knockback)",
+          "spread": "20 degrees"
+        },
+        "Dynamite": {
+          "ability_type": "Ability",
+          "cooldown": "12 seconds",
+          "damage": "50 - 20 (explosion, enemy) / 100 over 5 seconds (burn, enemy) / 25 - 10 (explosion, self) / 50 over 5 seconds (burn, self)",
+          "headshot": false,
+          "radius": "1.5 - 5 meters (falloff start - max)",
+          "duration": "2 seconds (explosion delay on ground) / 5 seconds (burn)",
+          "projectile_speed": "25 m/s",
+          "projectile_radius": "None"
+        },
+        "B.O.B.": {
+          "ability_type": "Ultimate Ability",
+          "damage": "120 (charge) / 17 (arm cannons)",
+          "range": "70 meters (charge) / 40 meters (arm cannons)",
+          "rate_of_fire": "8 shots/s",
+          "duration": "10 seconds (after stopping)",
+          "spread": "1.45 degrees"
+        },
+        "Remote Detonator": {
+          "ability_type": "Minor Perk"
+        },
+        "Double-Barreled": {
+          "ability_type": "Minor Perk",
+          "duration": "1 second (Time to reuse Coach Gun)"
+        },
+        "Viper's Sting": {
+          "ability_type": "Major Perk",
+          "damage": 25,
+          "duration": "1 second",
+          "ammo": "+1 current ammo"
+        },
+        "Airburst": {
+          "ability_type": "Major Perk",
+          "radius": "5 → 7 meters"
+        },
+        "Rapid Fire": {
+          "ability_type": "Minor Perk",
+          "damage": "31.5 - 9.45",
+          "rate_of_fire": "5.0 shots/s"
+        },
+        "Sidewinder": {
+          "ability_type": "Minor Perk"
+        }
+      },
+      "health": 250
+    },
+    "sub_role": "Sharpshooter"
+  }
+}

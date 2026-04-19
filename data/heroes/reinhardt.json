@@ -1,0 +1,160 @@
+{
+  "metadata": {
+    "last_updated": "2026-04-19T23:57:59.845Z",
+    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "hero_count": 51,
+    "heroes_failed": [],
+    "fandom_failed": [],
+    "sources": [
+      {
+        "name": "Blizzard Entertainment",
+        "url": "https://overwatch.blizzard.com/en-us/heroes/",
+        "license": "Blizzard Terms of Service",
+        "fields": [
+          "name",
+          "role",
+          "portrait_url",
+          "perks",
+          "abilities.description"
+        ]
+      },
+      {
+        "name": "Overwatch Fandom Wiki",
+        "url": "https://overwatch.fandom.com/",
+        "license": "CC-BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "fields": [
+          "stats.health",
+          "stats.armor",
+          "stats.shields",
+          "stats.abilities.*",
+          "sub_role"
+        ]
+      }
+    ],
+    "schema_version": "2"
+  },
+  "attribution": {
+    "fandom_page": "https://overwatch.fandom.com/wiki/Reinhardt",
+    "blizzard_page": "https://overwatch.blizzard.com/en-us/heroes/reinhardt/"
+  },
+  "hero": {
+    "slug": "reinhardt",
+    "name": "Reinhardt",
+    "role": "tank",
+    "abilities": [
+      {
+        "name": "Rocket Hammer",
+        "description": "Devastating melee weapon."
+      },
+      {
+        "name": "Charge",
+        "description": "Charge forward and smash an enemy against a wall."
+      },
+      {
+        "name": "Fire Strike",
+        "description": "Launch a fiery projectile."
+      },
+      {
+        "name": "Barrier Field",
+        "description": "Hold to deploy a frontal energy barrier."
+      },
+      {
+        "name": "Earthshatter",
+        "description": "Knock down all enemies in front of you."
+      }
+    ],
+    "perks": {
+      "minor": [
+        {
+          "name": "Crusader's Fire",
+          "description": "Refund a charge of Fire Strike when you stun an enemy, overfilling up to 3."
+        },
+        {
+          "name": "Crusader's Resolve",
+          "description": "While using Barrier Field, your passive health regeneration triggers 75% sooner."
+        }
+      ],
+      "major": [
+        {
+          "name": "Shield Slam",
+          "description": "While Barrier Field is active, use to damage and knockback enemies."
+        },
+        {
+          "name": "Ignited Fury",
+          "description": "For each enemy you hit with Fire Strike, gain 2 seconds of 25% increased attack speed."
+        }
+      ]
+    },
+    "stats": {
+      "abilities": {
+        "Rocket Hammer": {
+          "ability_type": "Weapon",
+          "damage": 100,
+          "headshot": false,
+          "rate_of_fire": "1.04 shots/s",
+          "duration": "0.208 seconds (hitbox active)",
+          "range": "4 meters",
+          "dps": "104 while swinging"
+        },
+        "Barrier Field": {
+          "ability_type": "Ability",
+          "cooldown": "5 seconds (destroyed)"
+        },
+        "Charge": {
+          "ability_type": "Ability",
+          "cooldown": "7 seconds",
+          "damage": "300 (pinned to wall) / 50 (collision w/out pin)",
+          "range": "50.2 meters",
+          "duration": "3 seconds (charge, max) / 0.3 seconds (charge, min) / 0.65 seconds (stun on wall hit)"
+        },
+        "Fire Strike": {
+          "ability_type": "Ability",
+          "cooldown": "6 seconds",
+          "damage": 120,
+          "headshot": false,
+          "projectile_speed": "30 m/s",
+          "projectile_radius": "0.85 meters"
+        },
+        "Earthshatter": {
+          "ability_type": "Ultimate Ability",
+          "damage": "50 (base) / 200 (critical)",
+          "duration": "3 seconds (knockdown)",
+          "radius": "1.5 meters (critical) / 25 meters (max)",
+          "projectile_speed": "40 m/s"
+        },
+        "Crusader's Fire": {
+          "ability_type": "Minor Perk"
+        },
+        "Crusader's Resolve": {
+          "ability_type": "Minor Perk"
+        },
+        "Shield Slam": {
+          "ability_type": "Major Perk",
+          "cooldown": "6 seconds",
+          "damage": 50,
+          "range": "5.52 meters (dash) / 3.6 meters (hitbox)"
+        },
+        "Ignited Fury": {
+          "ability_type": "Major Perk"
+        },
+        "Steadfast": {
+          "ability_type": "Passive Ability"
+        },
+        "Fiery Uptake": {
+          "ability_type": "Minor Perk"
+        },
+        "Crushing Victory": {
+          "ability_type": "Major Perk",
+          "duration": "5 seconds"
+        },
+        "Barrier Re-charge": {
+          "ability_type": "Minor Perk"
+        }
+      },
+      "health": 250,
+      "armor": 300
+    },
+    "sub_role": "Stalwart"
+  }
+}

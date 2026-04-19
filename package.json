@@ -1,0 +1,28 @@
+{
+  "name": "ow",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Overwatch hero data pipeline — scrapes Blizzard's hero pages and publishes JSON for Claude.ai conversations.",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "scrape": "tsx src/index.ts",
+    "scrape:dry": "tsx src/index.ts --dry-run",
+    "validate-published": "tsx scripts/validate-published.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "playwright": "^1.59.0",
+    "zod": "^4.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.0",
+    "vitest": "^4.1.0"
+  }
+}

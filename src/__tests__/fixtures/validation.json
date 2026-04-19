@@ -1,0 +1,18 @@
+{
+  "heroes": [
+    {
+      "slug": "reaper",
+      "perks": {
+        "minor": ["Soul Reaving", "Lingering Wraith"],
+        "major": ["Shadow Blink", "Trigger Finger"]
+      }
+    },
+    {
+      "slug": "vendetta",
+      "perks": {
+        "minor": ["Extra Edge", "Raging Storm"],
+        "major": ["Siphoning Strike", "Relentless"]
+      }
+    }
+  ]
+}

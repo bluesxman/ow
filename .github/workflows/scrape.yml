@@ -17,6 +17,9 @@ concurrency:
   group: scrape
   cancel-in-progress: false
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
 jobs:
   scrape:
     runs-on: ubuntu-latest
@@ -59,7 +62,7 @@ jobs:
       - name: Detect changes
         id: changes
         run: |
-          if git diff --quiet -- data/; then
+          if [ -z "$(git status --porcelain -- data/)" ]; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"

@@ -15,6 +15,7 @@ import {
 } from '../config.js';
 import { normalizeDescription, normalizeName, normalizeRole } from '../normalize.js';
 import { isValidSlug, toSlug } from '../slug.js';
+import { logger } from '../logger.js';
 import type { Ability, Hero, HeroStats, Perk, RosterEntry, Role, ScrapeResult } from '../types.js';
 import type { HeroScraper } from './HeroScraper.js';
 
@@ -113,15 +114,15 @@ export class PlaywrightHeroScraper implements HeroScraper {
     for (let i = 0; i < total; i++) {
       const entry = roster[i]!;
       const started = Date.now();
-      const prefix = `[${i + 1}/${total}] ${entry.slug}`;
+      const base = { phase: 'scrape', slug: entry.slug, idx: i + 1, total };
       try {
         const hero = await this.scrapeOne(entry);
         heroes[hero.slug] = hero;
-        console.log(`${prefix} ok (${Date.now() - started}ms)`);
+        logger.info({ ...base, durationMs: Date.now() - started }, 'hero ok');
       } catch (err) {
         const reason = err instanceof Error ? err.message : String(err);
         failed.push({ slug: entry.slug, reason });
-        console.log(`${prefix} fail (${Date.now() - started}ms): ${reason}`);
+        logger.warn({ ...base, durationMs: Date.now() - started, reason }, 'hero fail');
         if (failed.length >= MAX_HERO_FAILURES_BEFORE_ABORT && Object.keys(heroes).length === 0) {
           throw new Error(`Too many early hero failures (${failed.length}). Aborting.`);
         }

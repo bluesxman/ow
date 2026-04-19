@@ -38,9 +38,9 @@ npm run scrape:dry    # scrape live, don't write published files
 npm run scrape        # scrape live, write data/
 ```
 
-## Scheduling
+## When to run
 
-GitHub Actions runs the scraper Tue–Fri at 17:00 UTC (~10:00 PT — a few hours after Blizzard's typical Tuesday patch deploys). Manual runs via `workflow_dispatch`.
+The scraper runs **only on manual trigger** — no cron. When new Overwatch patch notes drop, go to the [Actions tab](https://github.com/bluesxman/ow/actions/workflows/scrape.yml) and click "Run workflow". This minimizes load on Blizzard's site and ensures every scrape corresponds to actual game changes.
 
 ## When Blizzard renames a perk
 

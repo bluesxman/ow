@@ -1,14 +1,12 @@
 name: scrape
 
 on:
-  schedule:
-    - cron: '0 17 * * 2,3,4,5'
   workflow_dispatch:
     inputs:
       reason:
-        description: 'Why you are running this manually'
+        description: 'Why you are running this manually (e.g., patch notes dropped)'
         required: false
-        default: 'ad-hoc'
+        default: 'patch'
 
 permissions:
   contents: write

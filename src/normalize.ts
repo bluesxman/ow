@@ -8,7 +8,7 @@ export function normalizeText(raw: string): string {
 }
 
 export function normalizeName(raw: string): string {
-  return normalizeText(raw);
+  return normalizeText(raw).replace(/\s*New$/, '').trim();
 }
 
 export function normalizeDescription(raw: string): string {

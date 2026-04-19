@@ -2,16 +2,20 @@ import { writeFile, mkdir } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import process from 'node:process';
-import { PUBLISHED_DATA_SOURCE, SCHEMA_VERSION } from './config.js';
+import { DATA_SOURCES, FANDOM_MAX_FAILURES_BEFORE_ISSUE, SCHEMA_VERSION } from './config.js';
 import { PlaywrightHeroScraper } from './scraper/PlaywrightHeroScraper.js';
 import { validateHero, checkAgainstFixture } from './validate.js';
 import { diffHeroes, isEmptyDiff } from './diff.js';
 import { publish, readPreviousHeroes, buildPaths } from './publish.js';
 import { renderConsole, renderIssueBody, type RunReport } from './report.js';
+import { enrichAllFromFandom } from './sources/enrichFromFandom.js';
 import type { Hero, Metadata } from './types.js';
 
-function parseArgs(argv: string[]): { dryRun: boolean } {
-  return { dryRun: argv.includes('--dry-run') };
+function parseArgs(argv: string[]): { dryRun: boolean; skipFandom: boolean } {
+  return {
+    dryRun: argv.includes('--dry-run'),
+    skipFandom: argv.includes('--skip-fandom'),
+  };
 }
 
 function projectRoot(): string {
@@ -50,6 +54,24 @@ async function main(): Promise<void> {
       }
     }
 
+    let fandomFailed: Array<{ slug: string; reason: string }> = [];
+    if (args.skipFandom) {
+      console.log('Skipping Fandom enrichment (--skip-fandom).');
+    } else if (Object.keys(validHeroes).length === 0) {
+      console.log('No valid Blizzard-scraped heroes; skipping Fandom enrichment.');
+    } else {
+      console.log(`Enriching ${Object.keys(validHeroes).length} heroes from Fandom…`);
+      const enrichment = await enrichAllFromFandom(validHeroes);
+      for (const [slug, hero] of Object.entries(enrichment.enriched)) {
+        validHeroes[slug] = hero;
+        merged[slug] = hero;
+      }
+      fandomFailed = enrichment.failed;
+      console.log(
+        `Fandom enrichment complete. ${Object.keys(enrichment.enriched).length} enriched, ${fandomFailed.length} failures.`,
+      );
+    }
+
     const fixtureCheck = await checkAgainstFixture(merged);
     if (!fixtureCheck.ok) {
       console.error('Validation fixture mismatch — aborting publish to preserve prior data.');
@@ -66,7 +88,8 @@ async function main(): Promise<void> {
       patch_version: result.patchVersion,
       hero_count: Object.keys(merged).length,
       heroes_failed: result.failed.map((f) => f.slug),
-      source: PUBLISHED_DATA_SOURCE,
+      fandom_failed: fandomFailed.map((f) => f.slug),
+      sources: DATA_SOURCES,
       schema_version: SCHEMA_VERSION,
     };
 
@@ -92,6 +115,7 @@ async function main(): Promise<void> {
       fixtureCheck,
       heroesScraped: Object.keys(validHeroes).length,
       heroesFailed: result.failed,
+      fandomFailed,
       durationMs: Date.now() - started,
     };
 
@@ -100,12 +124,16 @@ async function main(): Promise<void> {
     if (process.env['GITHUB_OUTPUT']) {
       await writeFile(
         process.env['GITHUB_OUTPUT'],
-        `heroes_scraped=${report.heroesScraped}\nheroes_failed=${report.heroesFailed.length}\nfixture_ok=${report.fixtureCheck.ok}\ndiff_added=${report.diff.added.length}\ndiff_removed=${report.diff.removed.length}\ndiff_changed=${report.diff.changed.length}\n`,
+        `heroes_scraped=${report.heroesScraped}\nheroes_failed=${report.heroesFailed.length}\nfandom_failed=${report.fandomFailed.length}\nfixture_ok=${report.fixtureCheck.ok}\ndiff_added=${report.diff.added.length}\ndiff_removed=${report.diff.removed.length}\ndiff_changed=${report.diff.changed.length}\n`,
         { flag: 'a' },
       );
     }
 
-    if (report.heroesFailed.length > 0 || !report.fixtureCheck.ok) {
+    const needsIssue =
+      report.heroesFailed.length > 0 ||
+      !report.fixtureCheck.ok ||
+      report.fandomFailed.length >= FANDOM_MAX_FAILURES_BEFORE_ISSUE;
+    if (needsIssue) {
       await mkdir(resolve(root, '.run'), { recursive: true });
       await writeFile(resolve(root, '.run/issue-body.md'), renderIssueBody(report), 'utf8');
     }

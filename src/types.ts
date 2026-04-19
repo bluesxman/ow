@@ -16,7 +16,20 @@ export interface AbilityStat {
   range?: number | string;
   duration?: number | string;
   ammo?: number | string;
-  [key: string]: number | string | undefined;
+  rate_of_fire?: number | string;
+  reload?: number | string;
+  falloff?: number | string;
+  spread?: number | string;
+  projectile_radius?: number | string;
+  projectile_speed?: number | string;
+  pellets?: number | string;
+  headshot?: boolean | string;
+  radius?: number | string;
+  healing?: number | string;
+  dps?: number | string;
+  movement_speed?: number | string;
+  ability_type?: string;
+  [key: string]: number | string | boolean | undefined;
 }
 
 export interface HeroStats {
@@ -40,13 +53,27 @@ export interface Hero {
   stats: HeroStats;
 }
 
+export interface SourceAttribution {
+  name: string;
+  url: string;
+  license: string;
+  license_url?: string;
+  fields: string[];
+}
+
 export interface Metadata {
   last_updated: string;
   patch_version: string;
   hero_count: number;
   heroes_failed: string[];
-  source: string;
+  fandom_failed: string[];
+  sources: SourceAttribution[];
   schema_version: string;
+}
+
+export interface PerHeroAttribution {
+  fandom_page: string;
+  blizzard_page: string;
 }
 
 export interface RosterEntry {

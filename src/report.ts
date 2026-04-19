@@ -8,6 +8,7 @@ export interface RunReport {
   fixtureCheck: FixtureCheckResult;
   heroesScraped: number;
   heroesFailed: Array<{ slug: string; reason: string }>;
+  fandomFailed: Array<{ slug: string; reason: string }>;
   durationMs: number;
 }
 
@@ -16,6 +17,8 @@ export function renderConsole(report: RunReport): string {
   lines.push(`Heroes scraped: ${report.heroesScraped}`);
   lines.push(`Heroes failed: ${report.heroesFailed.length}`);
   for (const f of report.heroesFailed) lines.push(`  - ${f.slug}: ${f.reason}`);
+  lines.push(`Fandom failed: ${report.fandomFailed.length}`);
+  for (const f of report.fandomFailed) lines.push(`  - ${f.slug}: ${f.reason}`);
   lines.push(`Patch: ${report.metadata.patch_version}`);
   lines.push(`Duration: ${(report.durationMs / 1000).toFixed(1)}s`);
   lines.push(`Fixture check: ${report.fixtureCheck.ok ? 'OK' : 'MISMATCH'}`);
@@ -33,6 +36,11 @@ export function renderIssueBody(report: RunReport): string {
   if (report.heroesFailed.length) {
     lines.push(`### Failed heroes (fell back to prior data)`);
     for (const f of report.heroesFailed) lines.push(`- **${f.slug}** — ${f.reason}`);
+    lines.push('');
+  }
+  if (report.fandomFailed.length) {
+    lines.push(`### Fandom enrichment failures (Blizzard data still published)`);
+    for (const f of report.fandomFailed) lines.push(`- **${f.slug}** — ${f.reason}`);
     lines.push('');
   }
   if (!report.fixtureCheck.ok) {

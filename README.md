@@ -26,6 +26,7 @@ https://raw.githubusercontent.com/bluesxman/ow/main/data/<file>
 | `heroes/<slug>.json` | You only care about one hero — cheapest fetch. |
 | `ATTRIBUTION.md` | Per-hero source URLs + CC-BY-SA 3.0 notice. |
 | `LICENSE` | CC-BY-SA 3.0, covering all data in this directory. |
+| `links.md` | You're working with an agent (e.g., Claude.ai chat) whose webfetch only follows URLs that appear in fetched content. Paste this single URL once to unlock fetches for every other file. The same URL list also lives under `links` in `index.json`. |
 
 Every JSON file carries a `metadata` block with `last_updated`, `patch_version`, `hero_count`, `heroes_failed`, `fandom_failed`, `sources` (explicit per-source attribution), `schema_version`. The current schema version is `"4"`.
 

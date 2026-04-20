@@ -13,6 +13,8 @@ export const MAX_HERO_FAILURES_BEFORE_ABORT = 5;
 
 export const SCHEMA_VERSION = '4';
 
+export const PUBLISHED_RAW_BASE = 'https://raw.githubusercontent.com/bluesxman/ow/main/data';
+
 export const SLUG_OVERRIDES: Record<string, string> = {
   'soldier: 76': 'soldier-76',
   'soldier:76': 'soldier-76',

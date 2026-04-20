@@ -61,7 +61,7 @@ Then open a PR with `gh pr create` whose body contains:
 ## Safety rails
 
 - **Do not touch** `metadata.last_updated`, `metadata.patch_version`, `metadata.hero_count`, `metadata.heroes_failed`, `metadata.fandom_failed`. Those are owned by the scrape pipeline; `rebuild-aggregates` carries the existing values through verbatim.
-- **Do not touch** `data/ATTRIBUTION.md`, `data/CHANGELOG.md`, `data/LICENSE`, or anything under `data/.previous/`.
+- **Do not touch** `data/ATTRIBUTION.md`, `data/CHANGELOG.md`, or `data/LICENSE`.
 - **Do not touch** Blizzard-sourced fields: `hero.abilities[*].description`, `hero.perks.*`, `hero.role`, `hero.portrait_url`. If a patch note rewrites ability behavior qualitatively, skip and note in the PR body — the next scrape will pick up Blizzard's new description.
 - If a bullet references a hero not in `data/heroes/` (PTR-only, removed, or new hero not yet scraped), skip and note.
 - If a percent delta is ambiguous about the base value, skip and note — don't guess.

@@ -65,11 +65,34 @@ function mergeFandomInto(
   if (fandomFields.stats.shields !== undefined) merged.stats.shields = fandomFields.stats.shields;
 
   if (fandomFields.stats.abilities && Object.keys(fandomFields.stats.abilities).length > 0) {
-    merged.stats = {
-      ...merged.stats,
-      abilities: { ...(merged.stats.abilities ?? {}), ...fandomFields.stats.abilities },
-    };
+    const filtered = filterCurrentAbilityStats(fandomFields.stats.abilities, blizzardHero);
+    if (Object.keys(filtered).length > 0) {
+      merged.stats = {
+        ...merged.stats,
+        abilities: { ...(merged.stats.abilities ?? {}), ...filtered },
+      };
+    }
   }
 
   return merged;
+}
+
+// Fandom pages often retain {{Ability_details}} templates for removed abilities and perks
+// (e.g., "Flashbang (old)", "Past Noon"). Only keep stats for names that match a current
+// Blizzard-listed ability or perk. Match is case-insensitive — Blizzard and Fandom sometimes
+// disagree on title-casing (e.g., "Even The Odds" vs "Even the Odds").
+export function filterCurrentAbilityStats(
+  fandomAbilities: Record<string, import('../types.js').AbilityStat>,
+  blizzardHero: Hero,
+): Record<string, import('../types.js').AbilityStat> {
+  const current = new Set<string>();
+  for (const a of blizzardHero.abilities) current.add(a.name.toLowerCase());
+  for (const p of blizzardHero.perks.minor) current.add(p.name.toLowerCase());
+  for (const p of blizzardHero.perks.major) current.add(p.name.toLowerCase());
+
+  const out: Record<string, import('../types.js').AbilityStat> = {};
+  for (const [name, stats] of Object.entries(fandomAbilities)) {
+    if (current.has(name.toLowerCase())) out[name] = stats;
+  }
+  return out;
 }

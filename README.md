@@ -44,9 +44,27 @@ npx playwright install --with-deps chromium
 npm test              # run unit tests against saved fixtures
 npm run scrape:dry    # scrape live, don't write published files
 npm run scrape        # scrape live, write data/
+npm run scrape:dev    # like scrape:dry but caches Blizzard + Fandom responses to .cache/
+npm run cache:clear   # delete .cache/
 ```
 
 The scraper sequentially hits 51 hero pages on Blizzard (one browser tab at a time) and then makes 51 requests to Fandom's `api.php` spaced ≥2.5 seconds apart. The full run takes ~5 minutes.
+
+### Local caching for development
+
+The `--cache` flag stores every Blizzard hero page (HTML) and Fandom API response (JSON) under `.cache/` (gitignored). On a subsequent run with `--cache`, hits are served from disk — no network, no Fandom throttling. CI never passes `--cache`, so production scrapes always fetch live.
+
+Combine with `--hero <slug>` to iterate on a single hero in seconds rather than minutes:
+
+```bash
+npx tsx src/index.ts --dry-run --cache --hero reaper
+```
+
+Clear the cache when Blizzard or Fandom publishes changes you want to pick up:
+
+```bash
+npm run cache:clear
+```
 
 ## When to run
 

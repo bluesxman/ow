@@ -5,12 +5,23 @@ import {
   FANDOM_TIMEOUT_MS,
   USER_AGENT,
 } from '../config.js';
+import type { DiskCache } from '../cache/diskCache.js';
+import { NoopCache } from '../cache/diskCache.js';
 
 export class FandomClient {
   private lastRequestAt = 0;
 
+  constructor(private readonly cache: DiskCache = new NoopCache()) {}
+
   async getWikitext(pageTitle: string): Promise<string> {
     const url = `${FANDOM_API_URL}?action=parse&page=${encodeURIComponent(pageTitle)}&format=json&prop=wikitext`;
+
+    const cached = await this.cache.get(url);
+    if (cached) {
+      const body = JSON.parse(cached.toString('utf8')) as FandomParseResponse;
+      const wikitext = body.parse?.wikitext?.['*'];
+      if (typeof wikitext === 'string' && wikitext.length > 0) return wikitext;
+    }
 
     for (let attempt = 0; attempt <= FANDOM_MAX_RETRIES; attempt++) {
       await this.throttle();
@@ -35,7 +46,8 @@ export class FandomClient {
           throw new Error(`Fandom ${res.status} for ${pageTitle}`);
         }
 
-        const body = (await res.json()) as FandomParseResponse;
+        const text = await res.text();
+        const body = JSON.parse(text) as FandomParseResponse;
         if ('error' in body && body.error) {
           throw new Error(`Fandom API error for ${pageTitle}: ${body.error.code} ${body.error.info}`);
         }
@@ -43,6 +55,7 @@ export class FandomClient {
         if (typeof wikitext !== 'string' || wikitext.length === 0) {
           throw new Error(`Fandom returned empty wikitext for ${pageTitle}`);
         }
+        await this.cache.set(url, text, { url, contentType: 'application/json' });
         return wikitext;
       } catch (err) {
         if (attempt === FANDOM_MAX_RETRIES) throw err;

@@ -4,7 +4,7 @@
   "title": "Overwatch Hero",
   "description": "Schema for a single hero record as published in data/heroes/{slug}.json (under the \"hero\" key) and inside the \"heroes\" map of data/all.json.",
   "metadata": {
-    "last_updated": "2026-04-20T02:37:04.037Z",
+    "last_updated": "2026-04-20T04:54:07.239Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -36,7 +36,7 @@
         ]
       }
     ],
-    "schema_version": "3"
+    "schema_version": "4"
   },
   "schema": {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -168,13 +168,42 @@
               "additionalProperties": {
                 "anyOf": [
                   {
-                    "type": "number"
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "boolean"
+                      }
+                    ]
                   },
                   {
-                    "type": "string"
-                  },
-                  {
-                    "type": "boolean"
+                    "type": "object",
+                    "propertyNames": {
+                      "type": "string"
+                    },
+                    "additionalProperties": {
+                      "type": "object",
+                      "propertyNames": {
+                        "type": "string"
+                      },
+                      "additionalProperties": {
+                        "anyOf": [
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "boolean"
+                          }
+                        ]
+                      }
+                    }
                   }
                 ]
               }

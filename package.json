@@ -16,7 +16,10 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "patch-notes:fetch": "node .claude/skills/process-patch-notes/scripts/fetch-blizzard-patches.mjs",
+    "patch-notes:affected": "node .claude/skills/process-patch-notes/scripts/list-affected-heroes.mjs",
+    "patch-notes:rebuild-aggregates": "tsx .claude/skills/process-patch-notes/scripts/rebuild-aggregates.ts"
   },
   "dependencies": {
     "playwright": "^1.59.0",
@@ -26,6 +29,7 @@
     "@eslint/js": "^9.39.4",
     "@types/node": "^25.6.0",
     "eslint": "^9.39.4",
+    "node-html-parser": "^7.1.0",
     "tsx": "^4.21.0",
     "typescript": "^6.0.0",
     "typescript-eslint": "^8.58.2",

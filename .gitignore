@@ -1,6 +1,9 @@
 node_modules
 dist
-.claude
+.claude/**
+!.claude/settings.json
+!.claude/skills/
+!.claude/skills/**
 .run
 *.log
 .DS_Store

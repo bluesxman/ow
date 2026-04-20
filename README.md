@@ -53,6 +53,17 @@ The scraper runs **only on manual trigger** — no cron. When new Overwatch patc
 
 When the scrape produces changes, the workflow opens a `data-refresh/<date>-<run-id>` branch and a PR against `main` rather than pushing directly. Review the diff under `data/`, then merge manually to publish the new JSON to `raw.githubusercontent.com/bluesxman/ow/main/data/`.
 
+## Maintaining data between scrapes
+
+Fandom's wiki (the source of numeric `stats.*` fields) often lags real Blizzard patches. Rather than wait for Fandom to catch up, you can apply a patch directly:
+
+```bash
+# In Claude Code, from this repo:
+/process-patch-notes --since=2026-04-01
+```
+
+The bundled `process-patch-notes` skill (at `.claude/skills/process-patch-notes/`) fetches the latest patch notes, cross-references them with `data/heroes/*.json`, edits the affected per-hero files in place, regenerates the aggregate files, and opens a PR for human review. Invoke it manually — it does not run unless asked.
+
 ## When Blizzard renames a perk
 
 The scraper uses a known-good validation fixture (`src/__tests__/fixtures/validation.json`) as a confidence check. If Reaper's "Soul Reaving" becomes "Soul Harvest" in a future patch, the scraper will **deliberately fail** rather than silently publish a changed name. Update the fixture and commit — this is an intentional human checkpoint.

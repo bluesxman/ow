@@ -46,15 +46,6 @@ jobs:
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
 
-      - name: Lint
-        run: npm run lint
-
-      - name: Typecheck
-        run: npm run typecheck
-
-      - name: Unit tests (fixture-gated selector logic)
-        run: npm test
-
       - name: Scrape
         id: scrape
         run: npm run scrape

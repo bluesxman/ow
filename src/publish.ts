@@ -1,6 +1,7 @@
 import { mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import { z } from 'zod';
+import { PUBLISHED_RAW_BASE } from './config.js';
 import type { Hero, Metadata, RosterEntry } from './types.js';
 import { renderDiffMarkdown, type HeroDiff } from './diff.js';
 import { slugToBlizzardUrl, slugToFandomUrl } from './sources/slugToFandomTitle.js';
@@ -13,6 +14,7 @@ export interface PublishPaths {
   changelogPath: string;
   attributionPath: string;
   licensePath: string;
+  linksPath: string;
 }
 
 export function buildPaths(root: string): PublishPaths {
@@ -24,6 +26,7 @@ export function buildPaths(root: string): PublishPaths {
     changelogPath: join(dataDir, 'CHANGELOG.md'),
     attributionPath: join(dataDir, 'ATTRIBUTION.md'),
     licensePath: join(dataDir, 'LICENSE'),
+    linksPath: join(dataDir, 'links.md'),
   };
 }
 
@@ -55,6 +58,11 @@ export interface PublishInput {
   root: string;
 }
 
+export interface PublishedLinks {
+  top_level: Record<string, string>;
+  per_hero: Record<string, string>;
+}
+
 export interface Aggregates {
   indexDoc: unknown;
   heroesDoc: unknown;
@@ -63,6 +71,7 @@ export interface Aggregates {
   statsDoc: unknown;
   allDoc: unknown;
   schemaDoc: unknown;
+  links: PublishedLinks;
 }
 
 export function buildAggregates(
@@ -110,6 +119,10 @@ export function buildAggregates(
       path: 'LICENSE',
       description: 'CC-BY-SA 3.0, covering everything in data/.',
     },
+    links: {
+      path: 'links.md',
+      description: 'Flat markdown list of every published raw URL — paste this once into Claude.ai (or any agent with a URL-allowlisted webfetch) to unlock fetches for every other file in this directory.',
+    },
   };
 
   const usage = {
@@ -124,16 +137,37 @@ export function buildAggregates(
     ],
   };
 
+  // Absolute raw URLs for every published file. Some clients (Claude.ai's
+  // webfetch in particular) only follow URLs that appear in fetched content,
+  // so we publish the full list inline so a single index fetch unlocks
+  // everything else. data/links.md is the markdown mirror for the same purpose.
+  const links: PublishedLinks = {
+    top_level: {
+      index: `${PUBLISHED_RAW_BASE}/index.json`,
+      heroes: `${PUBLISHED_RAW_BASE}/heroes.json`,
+      perks: `${PUBLISHED_RAW_BASE}/perks.json`,
+      abilities: `${PUBLISHED_RAW_BASE}/abilities.json`,
+      stats: `${PUBLISHED_RAW_BASE}/stats.json`,
+      all: `${PUBLISHED_RAW_BASE}/all.json`,
+      schema: `${PUBLISHED_RAW_BASE}/schema.json`,
+      attribution: `${PUBLISHED_RAW_BASE}/ATTRIBUTION.md`,
+      license: `${PUBLISHED_RAW_BASE}/LICENSE`,
+      links: `${PUBLISHED_RAW_BASE}/links.md`,
+    },
+    per_hero: Object.fromEntries(slugs.map((s) => [s, `${PUBLISHED_RAW_BASE}/heroes/${s}.json`])),
+  };
+
   const indexDoc = {
     metadata,
     usage,
     files: indexFiles,
+    links,
     heroes: rosterSorted.map((r) => ({ slug: r.slug, name: r.name, role: r.role })),
   };
 
   const schemaDoc = {
     $schema: 'https://json-schema.org/draft/2020-12/schema',
-    $id: 'https://raw.githubusercontent.com/bluesxman/ow/main/data/schema.json',
+    $id: `${PUBLISHED_RAW_BASE}/schema.json`,
     title: 'Overwatch Hero',
     description: 'Schema for a single hero record as published in data/heroes/{slug}.json (under the "hero" key) and inside the "heroes" map of data/all.json.',
     metadata,
@@ -162,7 +196,7 @@ export function buildAggregates(
     heroes: Object.fromEntries(slugs.map((s) => [s, heroes[s]!])),
   };
 
-  return { indexDoc, heroesDoc, perksDoc, abilitiesDoc, statsDoc, allDoc, schemaDoc };
+  return { indexDoc, heroesDoc, perksDoc, abilitiesDoc, statsDoc, allDoc, schemaDoc, links };
 }
 
 export async function publish(input: PublishInput): Promise<{ paths: PublishPaths; filesWritten: string[] }> {
@@ -173,14 +207,14 @@ export async function publish(input: PublishInput): Promise<{ paths: PublishPath
   const slugs = Object.keys(heroes).sort();
   const rosterSorted = [...roster].sort((a, b) => a.slug.localeCompare(b.slug));
 
-  const { indexDoc, heroesDoc, perksDoc, abilitiesDoc, statsDoc, allDoc, schemaDoc } = buildAggregates(
+  const { indexDoc, heroesDoc, perksDoc, abilitiesDoc, statsDoc, allDoc, schemaDoc, links } = buildAggregates(
     heroes,
     roster,
     metadata,
   );
 
   if (dryRun) {
-    console.log(`[dry-run] would write ${slugs.length} per-hero files + 7 top-level files + ATTRIBUTION.md`);
+    console.log(`[dry-run] would write ${slugs.length} per-hero files + 7 top-level files + ATTRIBUTION.md + links.md`);
     return { paths, filesWritten: [] };
   }
 
@@ -219,6 +253,9 @@ export async function publish(input: PublishInput): Promise<{ paths: PublishPath
   await writeAttribution(paths.attributionPath, rosterSorted, metadata);
   filesWritten.push(paths.attributionPath);
 
+  await writeLinks(paths.linksPath, links, metadata);
+  filesWritten.push(paths.linksPath);
+
   await prependChangelog(paths.changelogPath, diff, metadata);
 
   return { paths, filesWritten };
@@ -251,6 +288,32 @@ async function writeAttribution(path: string, roster: RosterEntry[], metadata: M
   lines.push(
     'Redistributing any file in this directory that contains Fandom-derived fields (effectively all of `data/`) requires preserving the CC-BY-SA 3.0 license on the redistributed content and preserving the `metadata.sources` block in each JSON file.',
   );
+  lines.push('');
+  await writeFile(path, lines.join('\n'), 'utf8');
+}
+
+export async function writeLinks(path: string, links: PublishedLinks, metadata: Metadata): Promise<void> {
+  const lines: string[] = [];
+  lines.push('# Links');
+  lines.push('');
+  lines.push(
+    'Flat list of every published raw URL. Paste this file once into any agent with a URL-allowlisted webfetch (e.g., Claude.ai chat) to unlock fetches for every other file in `data/`.',
+  );
+  lines.push('');
+  lines.push(`Last generated: ${metadata.last_updated}`);
+  lines.push('');
+  lines.push('## Top-level files');
+  lines.push('');
+  for (const [name, url] of Object.entries(links.top_level)) {
+    lines.push(`- **${name}** — ${url}`);
+  }
+  lines.push('');
+  lines.push('## Per-hero files');
+  lines.push('');
+  const slugs = Object.keys(links.per_hero).sort();
+  for (const slug of slugs) {
+    lines.push(`- **${slug}** — ${links.per_hero[slug]}`);
+  }
   lines.push('');
   await writeFile(path, lines.join('\n'), 'utf8');
 }

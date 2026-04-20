@@ -1,0 +1,163 @@
+{
+  "metadata": {
+    "last_updated": "2026-04-19T23:57:59.845Z",
+    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "hero_count": 51,
+    "heroes_failed": [],
+    "fandom_failed": [],
+    "sources": [
+      {
+        "name": "Blizzard Entertainment",
+        "url": "https://overwatch.blizzard.com/en-us/heroes/",
+        "license": "Blizzard Terms of Service",
+        "fields": [
+          "name",
+          "role",
+          "portrait_url",
+          "perks",
+          "abilities.description"
+        ]
+      },
+      {
+        "name": "Overwatch Fandom Wiki",
+        "url": "https://overwatch.fandom.com/",
+        "license": "CC-BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "fields": [
+          "stats.health",
+          "stats.armor",
+          "stats.shields",
+          "stats.abilities.*",
+          "sub_role"
+        ]
+      }
+    ],
+    "schema_version": "2"
+  },
+  "attribution": {
+    "fandom_page": "https://overwatch.fandom.com/wiki/Freja",
+    "blizzard_page": "https://overwatch.blizzard.com/en-us/heroes/freja/"
+  },
+  "hero": {
+    "slug": "freja",
+    "name": "Freja",
+    "role": "damage",
+    "abilities": [
+      {
+        "name": "Bola Shot",
+        "description": "Fire an explosive bola. Hitting an enemy wraps them up and pulls in other nearby enemies."
+      },
+      {
+        "name": "Quick Dash",
+        "description": "Vault in the direction you're moving and refresh Take Aim."
+      },
+      {
+        "name": "Take Aim",
+        "description": "Slow your momentum to take aim with a high speed explosive bolt. Using Quick Dash refreshes Take Aim."
+      },
+      {
+        "name": "Updraft",
+        "description": "Launch upward with a gust of wind."
+      }
+    ],
+    "perks": {
+      "minor": [
+        {
+          "name": "Relentless Barrage",
+          "description": "Direct hits with Take Aim refund 8 automatic bolt ammo."
+        },
+        {
+          "name": "Momentum Boost",
+          "description": "Quick Dash distance is increased by 20%."
+        }
+      ],
+      "major": [
+        {
+          "name": "Aerial Recovery",
+          "description": "After using Updraft, heal for 30 health per second until Freja touches the ground."
+        },
+        {
+          "name": "Rising Winds",
+          "description": "Updraft gains an additional charge but has 20% decreased height."
+        }
+      ]
+    },
+    "stats": {
+      "abilities": {
+        "Bounty Hunting": {
+          "ability_type": "Passive Ability"
+        },
+        "Revdraw Crossbow": {
+          "ability_type": "Weapon;;Hip Fire",
+          "headshot": true,
+          "ammo": 15,
+          "damage": 30,
+          "rate_of_fire": "4.81 shots/s",
+          "reload": "1.6 seconds",
+          "spread": "1.5 degrees (max, horizontal only)",
+          "projectile_radius": "0.175 meters",
+          "projectile_speed": "125 m/s",
+          "dps": "120.19 while firing (79.45 overall w/ reload)"
+        },
+        "Take Aim": {
+          "ability_type": "Weapon;;ADS",
+          "headshot": true,
+          "ammo": 1,
+          "reload": "1.5 seconds",
+          "damage": "35 (direct hit) / 80 - 30 (explosion, enemy) / 40 - 13.3 (explosion, self)",
+          "duration": "1 second (slowdown)",
+          "radius": "0.6 - 2.5 meters (falloff start - max)",
+          "projectile_radius": "0.175 meters",
+          "projectile_speed": "125 m/s",
+          "spread": "None"
+        },
+        "Quick Dash": {
+          "ability_type": "Ability",
+          "cooldown": "4.5 seconds"
+        },
+        "Updraft": {
+          "ability_type": "Ability",
+          "cooldown": "12 seconds"
+        },
+        "Bola Shot": {
+          "ability_type": "Ultimate Ability",
+          "damage": "25 (direct hit) / 75 (over time) / 100 - 60 (explosion, enemy) / 50 - 30 (explosion, self)",
+          "duration": "1.4 seconds",
+          "radius": "2 - 5.5 meters (falloff start - max) / 5 meters (pull)",
+          "projectile_radius": "0.77 meters",
+          "projectile_speed": "70 m/s"
+        },
+        "Relentless Barrage": {
+          "ability_type": "Minor Perk"
+        },
+        "Momentum Boost": {
+          "ability_type": "Minor Perk"
+        },
+        "Aerial Recovery": {
+          "ability_type": "Major Perk",
+          "healing": "30 per second"
+        },
+        "Rising Winds": {
+          "ability_type": "Major Perk"
+        },
+        "Frost Bolts": {
+          "ability_type": "Minor Perk",
+          "duration": "2 seconds"
+        },
+        "Tracking Instinct": {
+          "ability_type": "Minor Perk"
+        },
+        "Ready to Hunt": {
+          "ability_type": "Major Perk",
+          "duration": "3 seconds"
+        },
+        "Hunters Instinct": {
+          "ability_type": "Minor Perk",
+          "duration": "3 seconds"
+        }
+      },
+      "health": 225
+    },
+    "sub_role": "Recon"
+  }
+}

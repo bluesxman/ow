@@ -1,0 +1,171 @@
+{
+  "metadata": {
+    "last_updated": "2026-04-19T23:57:59.845Z",
+    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "hero_count": 51,
+    "heroes_failed": [],
+    "fandom_failed": [],
+    "sources": [
+      {
+        "name": "Blizzard Entertainment",
+        "url": "https://overwatch.blizzard.com/en-us/heroes/",
+        "license": "Blizzard Terms of Service",
+        "fields": [
+          "name",
+          "role",
+          "portrait_url",
+          "perks",
+          "abilities.description"
+        ]
+      },
+      {
+        "name": "Overwatch Fandom Wiki",
+        "url": "https://overwatch.fandom.com/",
+        "license": "CC-BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "fields": [
+          "stats.health",
+          "stats.armor",
+          "stats.shields",
+          "stats.abilities.*",
+          "sub_role"
+        ]
+      }
+    ],
+    "schema_version": "2"
+  },
+  "attribution": {
+    "fandom_page": "https://overwatch.fandom.com/wiki/Hazard",
+    "blizzard_page": "https://overwatch.blizzard.com/en-us/heroes/hazard/"
+  },
+  "hero": {
+    "slug": "hazard",
+    "name": "Hazard",
+    "role": "tank",
+    "abilities": [
+      {
+        "name": "Bonespur",
+        "description": "Fire a burst of spikes."
+      },
+      {
+        "name": "Spike Guard",
+        "description": "Protect yourself from frontal damage, firing homing spikes at nearby enemies and regenerating ammo."
+      },
+      {
+        "name": "Violent Leap",
+        "description": "Lunge forward. Activate again to slash at enemies, knocking them back."
+      },
+      {
+        "name": "Jagged Wall",
+        "description": "Launch a spiked wall that damages and knocks back nearby enemies."
+      },
+      {
+        "name": "Downpour",
+        "description": "Rain down a torrent of spikes, immobilizing enemies."
+      },
+      {
+        "name": "Vault",
+        "description": "Scale short walls and grab ledges."
+      }
+    ],
+    "perks": {
+      "minor": [
+        {
+          "name": "Deep Leap",
+          "description": "Violent Leap's range is increased by 15%."
+        },
+        {
+          "name": "Anarchic Zeal",
+          "description": "Spike Guard's spikes gain 30% Lifesteal."
+        }
+      ],
+      "major": [
+        {
+          "name": "Reconstitution",
+          "description": "Jagged Wall hits charge Spike Guard with 25 energy, up to 50 extra."
+        },
+        {
+          "name": "Explosive Impalements",
+          "description": "Bonespur hits mark targets with spikes. Quick Melee and Violent Leap's slash detonate them for 40 explosive damage."
+        }
+      ]
+    },
+    "stats": {
+      "abilities": {
+        "Vault": {
+          "ability_type": "Passive Ability",
+          "duration": "Up to 0.2 seconds"
+        },
+        "Bonespur": {
+          "ability_type": "Weapon",
+          "falloff": "15 - 35 meters",
+          "damage": "7.5 - 2.25 (per shot) / 75 - 22.5 (per volley)",
+          "headshot": true,
+          "rate_of_fire": "1.75 volleys/s",
+          "pellets": 10,
+          "ammo": 8,
+          "reload": "1.75 seconds",
+          "projectile_radius": "0.05 meters",
+          "projectile_speed": "140 m/s",
+          "spread": "0 degrees (center shot) / 1.8 degrees (5 central shots) / 3.5 degrees (4 corner shots)",
+          "dps": "131.58 while firing (87.46 overall with reload)"
+        },
+        "Spike Guard": {
+          "ability_type": "Ability",
+          "damage": "11.67 per projectile / 210.06 maximum",
+          "headshot": false,
+          "rate_of_fire": "6 shots/s",
+          "pellets": "1 per enemy",
+          "duration": "0.3 seconds (min) / 3 seconds (max)",
+          "radius": "7 meters (targeting)",
+          "projectile_radius": "0.14 meters",
+          "projectile_speed": "20 m/s"
+        },
+        "Violent Leap": {
+          "ability_type": "Ability",
+          "cooldown": "5.5 seconds",
+          "damage": "70 (slash)",
+          "range": "14 meters (leap, aimed up) - 15 meters (leap, along ground) / 5.4 meters (slash)"
+        },
+        "Jagged Wall": {
+          "ability_type": "Ability",
+          "cooldown": "12 seconds",
+          "damage": 50,
+          "range": "∞ (projectile) / 5 meter length (wall)",
+          "duration": "10 seconds (projectile) / 0.5 seconds (wall, min) / 6 seconds (wall, max)",
+          "projectile_radius": "None",
+          "projectile_speed": "60 m/s"
+        },
+        "Downpour": {
+          "ability_type": "Ultimate Ability",
+          "damage": "90 over 0.3 seconds",
+          "headshot": false,
+          "range": "30 meters",
+          "duration": "2.8 seconds (trap)"
+        },
+        "Deep Leap": {
+          "ability_type": "Minor Perk"
+        },
+        "Anarchic Zeal": {
+          "ability_type": "Minor Perk",
+          "healing": "30% of damage dealt"
+        },
+        "Reconstitution": {
+          "ability_type": "Major Perk"
+        },
+        "Explosive Impalements": {
+          "ability_type": "Major Perk",
+          "damage": 40,
+          "duration": "4 seconds (counter timeout) / 8 seconds (spike)"
+        },
+        "Off The Top": {
+          "ability_type": "Minor Perk",
+          "damage": 120
+        }
+      },
+      "health": 275,
+      "armor": 225
+    },
+    "sub_role": "Initiator"
+  }
+}

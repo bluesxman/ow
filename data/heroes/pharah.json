@@ -1,0 +1,177 @@
+{
+  "metadata": {
+    "last_updated": "2026-04-19T23:57:59.845Z",
+    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "hero_count": 51,
+    "heroes_failed": [],
+    "fandom_failed": [],
+    "sources": [
+      {
+        "name": "Blizzard Entertainment",
+        "url": "https://overwatch.blizzard.com/en-us/heroes/",
+        "license": "Blizzard Terms of Service",
+        "fields": [
+          "name",
+          "role",
+          "portrait_url",
+          "perks",
+          "abilities.description"
+        ]
+      },
+      {
+        "name": "Overwatch Fandom Wiki",
+        "url": "https://overwatch.fandom.com/",
+        "license": "CC-BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "fields": [
+          "stats.health",
+          "stats.armor",
+          "stats.shields",
+          "stats.abilities.*",
+          "sub_role"
+        ]
+      }
+    ],
+    "schema_version": "2"
+  },
+  "attribution": {
+    "fandom_page": "https://overwatch.fandom.com/wiki/Pharah",
+    "blizzard_page": "https://overwatch.blizzard.com/en-us/heroes/pharah/"
+  },
+  "hero": {
+    "slug": "pharah",
+    "name": "Pharah",
+    "role": "damage",
+    "abilities": [
+      {
+        "name": "Rocket Launcher",
+        "description": "Long-range explosive projectile weapon."
+      },
+      {
+        "name": "Jet Dash",
+        "description": "Boost horizontally."
+      },
+      {
+        "name": "Jump Jet",
+        "description": "Fly rapidly upwards. Grants some fuel."
+      },
+      {
+        "name": "Concussive Blast",
+        "description": "Launch an explosive blast to knock back enemies."
+      },
+      {
+        "name": "Barrage",
+        "description": "Hover in place and launch a continuous volley of mini-rockets."
+      },
+      {
+        "name": "Hover Jets",
+        "description": "Hold to hover. Slows falling when fuel is empty. Fuel only regenerates while on the ground."
+      }
+    ],
+    "perks": {
+      "minor": [
+        {
+          "name": "Concussive Force",
+          "description": "Concussive Blast deals up to 50 explosion damage."
+        },
+        {
+          "name": "Helix Shields",
+          "description": "Convert 125 health to shields. Direct hits with the Rocket Launcher triggers passive shield regeneration."
+        }
+      ],
+      "major": [
+        {
+          "name": "Fuel Stores",
+          "description": "Jet Dash grants 50% fuel. Maximum overfuel is increased by 100%."
+        },
+        {
+          "name": "Rocket Salvo",
+          "description": "After using a movement ability, your next primary fire also shoots two spiraling mini-rockets, each exploding for 40 damage."
+        }
+      ]
+    },
+    "stats": {
+      "abilities": {
+        "Hover Jets": {
+          "ability_type": "Passive Ability",
+          "duration": "Up to 2 seconds (continuous flight) / 0.3 seconds (energy regen delay)"
+        },
+        "Rocket Launcher": {
+          "ability_type": "Weapon",
+          "damage": "140 (direct hit) / 80 – 24.6 (splash, enemy) / 20 – 6.15 (splash, self)",
+          "headshot": false,
+          "rate_of_fire": "1.25 shots/second",
+          "ammo": 6,
+          "reload": "1.5 seconds animation",
+          "spread": "None",
+          "radius": "0.8 - 2.5 meter radius (falloff start - max)",
+          "projectile_radius": "0.325 meters",
+          "projectile_speed": "40 m/s",
+          "dps": "150 while firing (114 overall w/reload)"
+        },
+        "Jet Dash": {
+          "ability_type": "Ability",
+          "cooldown": "9 seconds",
+          "duration": "0.85 seconds"
+        },
+        "Jump Jet": {
+          "ability_type": "Ability",
+          "cooldown": "14 seconds",
+          "duration": "0.85 seconds (launch) / 6 seconds (overfill)",
+          "range": "8.4 meters (vertical)"
+        },
+        "Concussive Blast": {
+          "ability_type": "Ability",
+          "cooldown": "7 seconds",
+          "damage": "30 (direct hit only)",
+          "headshot": false,
+          "radius": "8 meters",
+          "projectile_radius": "0.225 meters",
+          "projectile_speed": "60 m/s"
+        },
+        "Barrage": {
+          "ability_type": "Ultimate Ability",
+          "damage": "10 (direct hit) / 25 – 7.5 (splash, enemy) / 12.5 – 3.75 (splash, self)",
+          "headshot": false,
+          "radius": "0.5 - 1.5 meters (falloff start - max)",
+          "rate_of_fire": "30 rockets per second",
+          "duration": "2.5 seconds",
+          "projectile_speed": "45 m/s",
+          "projectile_radius": "0.075 meters",
+          "spread": "8 degrees"
+        },
+        "Concussive Force": {
+          "ability_type": "Minor Perk"
+        },
+        "Helix Shields": {
+          "ability_type": "Minor Perk"
+        },
+        "Fuel Stores": {
+          "ability_type": "Major Perk"
+        },
+        "Rocket Salvo": {
+          "ability_type": "Major Perk",
+          "damage": "40 (per rocket) / 200 (direct hit if all rockets land)"
+        },
+        "Concussive Implosion": {
+          "ability_type": "Major Perk",
+          "damage": "30 (direct hit only)",
+          "headshot": false,
+          "radius": "4 meters (enemies) / 8 meters (pharah)",
+          "projectile_radius": "0.225 meters",
+          "projectile_speed": "60 m/s"
+        },
+        "Sky Spy": {
+          "ability_type": "Major Perk",
+          "damage": "120 → 156 (direct hit on marked heroes)",
+          "duration": "3 seconds"
+        },
+        "Drift Thrusters": {
+          "ability_type": "Minor Perk"
+        }
+      },
+      "health": 225
+    },
+    "sub_role": "Recon"
+  }
+}

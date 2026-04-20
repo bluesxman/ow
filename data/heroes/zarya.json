@@ -1,0 +1,163 @@
+{
+  "metadata": {
+    "last_updated": "2026-04-19T23:57:59.845Z",
+    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "hero_count": 51,
+    "heroes_failed": [],
+    "fandom_failed": [],
+    "sources": [
+      {
+        "name": "Blizzard Entertainment",
+        "url": "https://overwatch.blizzard.com/en-us/heroes/",
+        "license": "Blizzard Terms of Service",
+        "fields": [
+          "name",
+          "role",
+          "portrait_url",
+          "perks",
+          "abilities.description"
+        ]
+      },
+      {
+        "name": "Overwatch Fandom Wiki",
+        "url": "https://overwatch.fandom.com/",
+        "license": "CC-BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "fields": [
+          "stats.health",
+          "stats.armor",
+          "stats.shields",
+          "stats.abilities.*",
+          "sub_role"
+        ]
+      }
+    ],
+    "schema_version": "2"
+  },
+  "attribution": {
+    "fandom_page": "https://overwatch.fandom.com/wiki/Zarya",
+    "blizzard_page": "https://overwatch.blizzard.com/en-us/heroes/zarya/"
+  },
+  "hero": {
+    "slug": "zarya",
+    "name": "Zarya",
+    "role": "tank",
+    "abilities": [
+      {
+        "name": "Particle Cannon",
+        "description": "Short-range linear beam weapon. Energy grenade launcher."
+      },
+      {
+        "name": "Particle Barrier",
+        "description": "Create a damage barrier around you."
+      },
+      {
+        "name": "Projected Barrier",
+        "description": "Create a damage barrier around an ally."
+      },
+      {
+        "name": "Graviton Surge",
+        "description": "Launch a gravity well that pulls enemies to it."
+      },
+      {
+        "name": "Energy",
+        "description": "Damage blocked by barriers increases Particle Cannon damage."
+      }
+    ],
+    "perks": {
+      "minor": [
+        {
+          "name": "Jump-Ups",
+          "description": "Secondary Fire's self-knockback is increased by 75%."
+        },
+        {
+          "name": "Spotter",
+          "description": "Projected Barrier activates ally health regeneration and increases their movement speed by 20%."
+        }
+      ],
+      "major": [
+        {
+          "name": "Extra Oomph",
+          "description": "While a Barrier is active, dealing damage with Particle Cannon's beam generates energy."
+        },
+        {
+          "name": "Energy Lance",
+          "description": "Particle Cannon's beam pierces enemies."
+        }
+      ]
+    },
+    "stats": {
+      "abilities": {
+        "Energy": {
+          "ability_type": "Passive Ability"
+        },
+        "Particle Cannon": {
+          "ability_type": "Weapon;;Primary Fire",
+          "damage": "95 per second (at 0%) / 175 per second (100% Energy)",
+          "headshot": false,
+          "ammo": 100,
+          "reload": "1.5 seconds animation",
+          "projectile_radius": "0.2 meters",
+          "range": "15 meters",
+          "dps": "95 while firing (0% charge) (73.07 overall w/reload)175 while firing (100% charge) (134.61 overall w/reload)"
+        },
+        "Particle Cannon Alt Fire": {
+          "ability_type": "Weapon;;Secondary Fire",
+          "damage": "55 – 11 (enemy, 0% Energy) / 110 – 22 (enemy, 100% Energy) / 27.5 – 5.5 (self, 0% Energy) / 55 – 11 (self, 100% Energy)",
+          "headshot": false,
+          "rate_of_fire": "1 shot/s",
+          "ammo": 100,
+          "reload": "1.5 seconds",
+          "projectile_speed": "25 m/s",
+          "projectile_radius": "0.32 meters",
+          "radius": "0.5 - 2.5 meters",
+          "spread": "None",
+          "dps": "55 while firing (0% charge) (40 overall w/reload) 110 while firing (100% charge (80 overall w/reload)"
+        },
+        "Particle Barrier": {
+          "ability_type": "Ability",
+          "cooldown": "11 seconds",
+          "duration": "2.25 seconds",
+          "radius": "1.5 meters"
+        },
+        "Projected Barrier": {
+          "ability_type": "Ability",
+          "cooldown": "9 seconds",
+          "range": "30 meters",
+          "radius": "1.5 meters",
+          "duration": "2.25 seconds"
+        },
+        "Graviton Surge": {
+          "ability_type": "Ultimate Ability",
+          "damage": "5 (impact) / 5 per second (over time)",
+          "duration": "4 seconds",
+          "radius": "7 meters",
+          "projectile_speed": "25 m/s",
+          "projectile_radius": "0.2 meters"
+        },
+        "Spotter": {
+          "ability_type": "Minor Perk"
+        },
+        "Jump-Ups": {
+          "ability_type": "Minor Perk"
+        },
+        "Energy Lance": {
+          "ability_type": "Major Perk"
+        },
+        "Extra Oomph": {
+          "ability_type": "Major Perk"
+        },
+        "Graviton Crush": {
+          "ability_type": "Minor Perk",
+          "damage": "40% of max HP over 3.58 seconds"
+        },
+        "Energy Converter": {
+          "ability_type": "Minor Perk"
+        }
+      },
+      "health": 175,
+      "shields": 225
+    },
+    "sub_role": "Bruiser"
+  }
+}

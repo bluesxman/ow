@@ -1,0 +1,159 @@
+{
+  "metadata": {
+    "last_updated": "2026-04-19T23:57:59.845Z",
+    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "hero_count": 51,
+    "heroes_failed": [],
+    "fandom_failed": [],
+    "sources": [
+      {
+        "name": "Blizzard Entertainment",
+        "url": "https://overwatch.blizzard.com/en-us/heroes/",
+        "license": "Blizzard Terms of Service",
+        "fields": [
+          "name",
+          "role",
+          "portrait_url",
+          "perks",
+          "abilities.description"
+        ]
+      },
+      {
+        "name": "Overwatch Fandom Wiki",
+        "url": "https://overwatch.fandom.com/",
+        "license": "CC-BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "fields": [
+          "stats.health",
+          "stats.armor",
+          "stats.shields",
+          "stats.abilities.*",
+          "sub_role"
+        ]
+      }
+    ],
+    "schema_version": "2"
+  },
+  "attribution": {
+    "fandom_page": "https://overwatch.fandom.com/wiki/Mauga",
+    "blizzard_page": "https://overwatch.blizzard.com/en-us/heroes/mauga/"
+  },
+  "hero": {
+    "slug": "mauga",
+    "name": "Mauga",
+    "role": "tank",
+    "abilities": [
+      {
+        "name": "Overrun",
+        "description": "Charge forward and stomp to launch enemies. You are unstoppable while charging."
+      },
+      {
+        "name": "Cardiac Overdrive",
+        "description": "Gain damage reduction and nearby allies heal themselves by dealing damage."
+      },
+      {
+        "name": "Berserker",
+        "description": "Gain temporary health when dealing critical damage."
+      },
+      {
+        "name": "Cage Fight",
+        "description": "Deploy a barrier that traps yourself and enemies."
+      }
+    ],
+    "perks": {
+      "minor": [
+        {
+          "name": "Kinetic Bandolier",
+          "description": "Overrun reloads up to 150 ammo during the first second of charging."
+        },
+        {
+          "name": "Pyromaniac",
+          "description": "Igniting enemies with Incendiary Chaingun grants 50 overhealth."
+        }
+      ],
+      "major": [
+        {
+          "name": "Firewalker",
+          "description": "Overrun ignites enemies hit."
+        },
+        {
+          "name": "Combat Fuel",
+          "description": "Critical hits grant Mauga 3 temporary overhealth on Cardiac Overdrive's next use, up to 150 overhealth."
+        }
+      ]
+    },
+    "stats": {
+      "abilities": {
+        "Berserker": {
+          "ability_type": "Passive Ability",
+          "duration": "2 seconds"
+        },
+        "Incendiary Chaingun": {
+          "ability_type": "Weapon;;Primary Fire",
+          "damage": "4 - 1.2 (direct) / 15 per second (damage over time)",
+          "falloff": "30 - 40 meters / 15 - 20 meters (simultaneous fire)",
+          "headshot": true,
+          "ammo": 300,
+          "rate_of_fire": "18 shots/s",
+          "reload": "2 seconds",
+          "spread": "1 degree (base) / 4 degrees (simultaneous fire)",
+          "projectile_radius": "0.04 meters",
+          "duration": "4 seconds (damage over time)",
+          "dps": "72 while firing (64.7 w/ reload) 87 w/ damage over time 288 while firing both guns simultaneously 303 w/ damage over time"
+        },
+        "Volatile Chaingun": {
+          "ability_type": "Weapon;;Secondary Fire",
+          "damage": "4 - 1.2",
+          "falloff": "30 - 40 meters / 15 - 20 meters (simultaneous fire)",
+          "headshot": true,
+          "ammo": 300,
+          "rate_of_fire": "18 shots/s",
+          "reload": "2 seconds",
+          "spread": "1 degree (base) / 4 degrees (simultaneous fire)",
+          "projectile_radius": "0.04 meters",
+          "dps": "72 while firing (64.7 w/ reload) 288 while firing both guns simultaneously 303 w/ damage over time"
+        },
+        "Overrun": {
+          "ability_type": "Ability",
+          "cooldown": "5 seconds",
+          "damage": "30 (collision) / 75 (stomp, outer radius) / 150 (stomp, inner radius)",
+          "duration": "0.32 seconds (charge, min) / 2 seconds (charge, max) / 0.6 seconds (stomp) / 1 second (knockdown)",
+          "range": "4.4 meters (charge, min) / 28 meters (charge, max) / 6.5 meters (stomp)",
+          "radius": "7 meters (stomp, max) / 2 meters (stomp, critical)",
+          "projectile_speed": "30 m/s (shockwave)"
+        },
+        "Cardiac Overdrive": {
+          "ability_type": "Ability",
+          "cooldown": "12 seconds",
+          "healing": "100% of damage dealt (self) / 50% of damage dealt (allies)",
+          "duration": "3 seconds",
+          "radius": "10.5 meter radius"
+        },
+        "Cage Fight": {
+          "ability_type": "Ultimate Ability",
+          "duration": "8 seconds",
+          "radius": "7.2 meters"
+        },
+        "Kinetic Bandolier": {
+          "ability_type": "Minor Perk"
+        },
+        "Pyromaniac": {
+          "ability_type": "Minor Perk"
+        },
+        "Firewalker": {
+          "ability_type": "Major Perk"
+        },
+        "Combat Fuel": {
+          "ability_type": "Major Perk"
+        },
+        "Two Hearts": {
+          "ability_type": "Minor Perk",
+          "healing": "20 per second"
+        }
+      },
+      "health": 425,
+      "armor": 150
+    },
+    "sub_role": "Bruiser"
+  }
+}

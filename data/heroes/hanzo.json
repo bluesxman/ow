@@ -1,0 +1,182 @@
+{
+  "metadata": {
+    "last_updated": "2026-04-19T23:57:59.845Z",
+    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "hero_count": 51,
+    "heroes_failed": [],
+    "fandom_failed": [],
+    "sources": [
+      {
+        "name": "Blizzard Entertainment",
+        "url": "https://overwatch.blizzard.com/en-us/heroes/",
+        "license": "Blizzard Terms of Service",
+        "fields": [
+          "name",
+          "role",
+          "portrait_url",
+          "perks",
+          "abilities.description"
+        ]
+      },
+      {
+        "name": "Overwatch Fandom Wiki",
+        "url": "https://overwatch.fandom.com/",
+        "license": "CC-BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "fields": [
+          "stats.health",
+          "stats.armor",
+          "stats.shields",
+          "stats.abilities.*",
+          "sub_role"
+        ]
+      }
+    ],
+    "schema_version": "2"
+  },
+  "attribution": {
+    "fandom_page": "https://overwatch.fandom.com/wiki/Hanzo",
+    "blizzard_page": "https://overwatch.blizzard.com/en-us/heroes/hanzo/"
+  },
+  "hero": {
+    "slug": "hanzo",
+    "name": "Hanzo",
+    "role": "damage",
+    "abilities": [
+      {
+        "name": "Storm Bow",
+        "description": "Hold to charge then release to launch arrows further."
+      },
+      {
+        "name": "Storm Arrows",
+        "description": "The next 5 arrows ricochet and fire instantly at reduced damage."
+      },
+      {
+        "name": "Sonic Arrow",
+        "description": "Reveals enemies for a short time upon impact."
+      },
+      {
+        "name": "Lunge",
+        "description": "Double Jump."
+      },
+      {
+        "name": "Dragonstrike",
+        "description": "Launch a deadly Dragon Spirit that devastates enemies it passes through."
+      },
+      {
+        "name": "Wall Climb",
+        "description": "Jump at walls to climb up them."
+      }
+    ],
+    "perks": {
+      "minor": [
+        {
+          "name": "Sonic Disruption",
+          "description": "Sonic Arrow hacks nearby Health Packs for 30 seconds."
+        },
+        {
+          "name": "Dragon Fury",
+          "description": "After hitting an enemy with Primary Fire, gain 20% attack speed for 1.5 seconds."
+        }
+      ],
+      "major": [
+        {
+          "name": "Frost Arrow",
+          "description": "Press R to ready an explosive frost arrow, slowing enemies hit by 35% for 2 seconds."
+        },
+        {
+          "name": "Scatter Arrows",
+          "description": "On first ricochet, Storm Arrows split into 5 shots dealing 33% damage and bounce 1 extra time."
+        }
+      ]
+    },
+    "stats": {
+      "abilities": {
+        "Wall Climb": {
+          "duration": "Up to 1 second",
+          "ability_type": "Passive Ability"
+        },
+        "Storm Bow": {
+          "ability_type": "Weapon",
+          "damage": "125 (max charge) / 25 (min charge)",
+          "headshot": true,
+          "rate_of_fire": "0.82 shots/s (max charge) / 2 shots/s (min charge)",
+          "ammo": "∞",
+          "projectile_radius": "0.125 meters",
+          "projectile_speed": "110 m/s (max charge) / 25 m/s (min charge)",
+          "spread": "None",
+          "dps": "102.46 at full charge, 50 at min charge"
+        },
+        "Sonic Arrow": {
+          "ability_type": "Ability",
+          "cooldown": "12 seconds",
+          "headshot": true,
+          "radius": "9 meters",
+          "duration": "6 seconds"
+        },
+        "Storm Arrows": {
+          "ability_type": "Ability",
+          "cooldown": "8 seconds",
+          "damage": 75,
+          "headshot": true,
+          "ammo": 5,
+          "rate_of_fire": "4 shots/s",
+          "duration": "Up to 5 seconds",
+          "projectile_speed": "140 m/s",
+          "projectile_radius": "0.125 meters",
+          "spread": "None"
+        },
+        "Lunge": {
+          "cooldown": "4 seconds",
+          "range": "7.85 meters",
+          "ability_type": "Ability"
+        },
+        "Dragonstrike": {
+          "ability_type": "Ultimate Ability",
+          "damage": "125 (initial arrow) / 200 per second (outer) / 400 per second (inner)",
+          "headshot": true,
+          "projectile_speed": "20 m/s (initial arrow) / 15 m/s (dragons)",
+          "projectile_radius": "0.175 meters",
+          "radius": "4 meters (outer) / 2.4 meters (inner)",
+          "range": "10 meters (initial arrow) / Infinite (dragons)",
+          "duration": "0.5 seconds (initial arrow)"
+        },
+        "Sonic Disruption": {
+          "ability_type": "Minor Perk"
+        },
+        "Dragon Fury": {
+          "ability_type": "Major Perk"
+        },
+        "Frost Arrow": {
+          "ability_type": "Major Perk",
+          "duration": "2 seconds",
+          "radius": "4 meters",
+          "cooldown": "14 seconds"
+        },
+        "Scatter Arrows": {
+          "ability_type": "Major Perk",
+          "damage": "75 → 25 (after bounce)",
+          "pellets": "1 → 5 (after bounce)",
+          "headshot": false
+        },
+        "Scatter Arrow": {
+          "ability_type": "Ability",
+          "damage": "Initial shot: See Storm Bow / Scattered: *Fully charged: 75 per arrow *Uncharged: 22 per arrow",
+          "projectile_speed": "See Storm Bow",
+          "pellets": "6 scattered arrows",
+          "rate_of_fire": "See Storm Bow",
+          "cooldown": "10 seconds",
+          "headshot": false
+        },
+        "Yamagami Technique": {
+          "ability_type": "Major Perk"
+        },
+        "Swift Lunge": {
+          "ability_type": "Minor Perk"
+        }
+      },
+      "health": 250
+    },
+    "sub_role": "Sharpshooter"
+  }
+}

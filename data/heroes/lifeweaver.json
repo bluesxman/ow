@@ -1,0 +1,192 @@
+{
+  "metadata": {
+    "last_updated": "2026-04-19T23:57:59.845Z",
+    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "hero_count": 51,
+    "heroes_failed": [],
+    "fandom_failed": [],
+    "sources": [
+      {
+        "name": "Blizzard Entertainment",
+        "url": "https://overwatch.blizzard.com/en-us/heroes/",
+        "license": "Blizzard Terms of Service",
+        "fields": [
+          "name",
+          "role",
+          "portrait_url",
+          "perks",
+          "abilities.description"
+        ]
+      },
+      {
+        "name": "Overwatch Fandom Wiki",
+        "url": "https://overwatch.fandom.com/",
+        "license": "CC-BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "fields": [
+          "stats.health",
+          "stats.armor",
+          "stats.shields",
+          "stats.abilities.*",
+          "sub_role"
+        ]
+      }
+    ],
+    "schema_version": "2"
+  },
+  "attribution": {
+    "fandom_page": "https://overwatch.fandom.com/wiki/Lifeweaver",
+    "blizzard_page": "https://overwatch.blizzard.com/en-us/heroes/lifeweaver/"
+  },
+  "hero": {
+    "slug": "lifeweaver",
+    "name": "Lifeweaver",
+    "role": "support",
+    "abilities": [
+      {
+        "name": "Healing Blossom",
+        "description": "Hold to charge a healing burst. Release to heal a targeted ally. Passively charges at a reduced rate when not in use."
+      },
+      {
+        "name": "Thorn Volley",
+        "description": "Rapidly fires pairs of projectiles."
+      },
+      {
+        "name": "Petal Platform",
+        "description": "Throw a platform that springs upwards when stepped on. Resets when not in use."
+      },
+      {
+        "name": "Rejuvenating Dash",
+        "description": "Dash towards your traveling direction and lightly heal yourself."
+      },
+      {
+        "name": "Life Grip",
+        "description": "Pull an ally to your location, protecting them as they travel."
+      },
+      {
+        "name": "Tree of Life",
+        "description": "Place a tree that instantly heals allies upon sprouting and continues healing periodically as it lives."
+      }
+    ],
+    "perks": {
+      "minor": [
+        {
+          "name": "Petal Protection",
+          "description": "Allies heal 20 health per second while standing on Petal Platform."
+        },
+        {
+          "name": "Dashing Escape",
+          "description": "Rejuvenating Dash's distance is increased by 30%."
+        }
+      ],
+      "major": [
+        {
+          "name": "Sow the Seed",
+          "description": "Quick Melee with Healing Blossom to throw a seed. Another ally can pick it up for overhealth and movement speed."
+        },
+        {
+          "name": "Superbloom",
+          "description": "Thorns detonate for 40 extra damage when enough stick within 2.5 seconds."
+        }
+      ]
+    },
+    "stats": {
+      "abilities": {
+        "Healing Blossom": {
+          "ability_type": "Weapon;;Primary Fire",
+          "reload": "1.75 seconds",
+          "rate_of_fire": "0.67 shots/s (max charge) / 3.33 shots/s (min charge)",
+          "ammo": 16,
+          "range": "30 meters (targeting)",
+          "healing": "90 over 0.3 seconds (max charge) / 10 over 0.3 seconds (min charge)",
+          "projectile_speed": "60 m/s",
+          "projectile_radius": "0.25 meters"
+        },
+        "Thorn Volley": {
+          "ability_type": "Weapon;;Secondary Fire",
+          "damage": "6 (per thorn) / 12 (per shot)",
+          "headshot": true,
+          "rate_of_fire": "11 volleys/s",
+          "pellets": 2,
+          "ammo": 100,
+          "reload": "1.5 seconds",
+          "projectile_speed": "100 m/s",
+          "projectile_radius": "0.2 meters",
+          "spread": "1.2 degrees (max)",
+          "dps": "131.87 while firing (99.17 overall w/ reload)"
+        },
+        "Petal Platform": {
+          "ability_type": "Ability",
+          "cooldown": "12 seconds",
+          "projectile_speed": "40 m/s",
+          "duration": "∞ (unused) / 12 seconds (raised total)",
+          "projectile_radius": "0.15 meters"
+        },
+        "Rejuvenating Dash": {
+          "cooldown": "5 seconds",
+          "healing": 55,
+          "ability_type": "Ability",
+          "range": "6.15 meters (along ground) / 6.9 meters (in air)",
+          "duration": "0.3 seconds"
+        },
+        "Life Grip": {
+          "ability_type": "Ability",
+          "cooldown": "18 seconds",
+          "healing": "75 (ally)",
+          "range": "30 meters"
+        },
+        "Tree of Life": {
+          "ability_type": "Ultimate Ability",
+          "healing": "150 (instant) / 90 per pulse",
+          "rate_of_fire": "1 pulse every 1.75 seconds (8 pulses)",
+          "duration": "15 seconds (tree) / 6 seconds (overhealth)",
+          "range": "30 meters (targeting)",
+          "radius": "12 meters (healing)"
+        },
+        "Petal Protection": {
+          "ability_type": "Minor Perk",
+          "healing": "20 per second"
+        },
+        "Dashing Escape": {
+          "ability_type": "Minor Perk",
+          "range": "8 meters (along ground) / 8.97 meters (in air)"
+        },
+        "Superbloom": {
+          "ability_type": "Major Perk",
+          "damage": 40,
+          "duration": "2.5 second window"
+        },
+        "Sow the Seed": {
+          "ability_type": "Major Perk",
+          "duration": "5 seconds",
+          "cooldown": "11 seconds"
+        },
+        "Parting Gift": {
+          "healing": "Ally: 250 / Enemy: 75",
+          "duration": "12 seconds",
+          "ability_type": "Passive Ability"
+        },
+        "Life Cycle": {
+          "ability_type": "Minor Perk",
+          "healing": "10 HP per second (passively while alive) / 250 HP (upon death)",
+          "duration": "10 seconds (healing seed)"
+        },
+        "Cleansing Grasp": {
+          "ability_type": "Minor Perk"
+        },
+        "Lifeweaving": {
+          "ability_type": "Minor Perk",
+          "healing": "80 → 110 over 0.3 seconds (max charge) / 10 → 40 over 0.3 seconds (min charge)",
+          "duration": "3 second window"
+        },
+        "Petal Power": {
+          "ability_type": "Major Perk",
+          "rate_of_fire": "+30%"
+        }
+      },
+      "health": 200,
+      "shields": 50
+    },
+    "sub_role": "Medic"
+  }
+}

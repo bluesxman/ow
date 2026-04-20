@@ -1,0 +1,167 @@
+{
+  "metadata": {
+    "last_updated": "2026-04-19T23:57:59.845Z",
+    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "hero_count": 51,
+    "heroes_failed": [],
+    "fandom_failed": [],
+    "sources": [
+      {
+        "name": "Blizzard Entertainment",
+        "url": "https://overwatch.blizzard.com/en-us/heroes/",
+        "license": "Blizzard Terms of Service",
+        "fields": [
+          "name",
+          "role",
+          "portrait_url",
+          "perks",
+          "abilities.description"
+        ]
+      },
+      {
+        "name": "Overwatch Fandom Wiki",
+        "url": "https://overwatch.fandom.com/",
+        "license": "CC-BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "fields": [
+          "stats.health",
+          "stats.armor",
+          "stats.shields",
+          "stats.abilities.*",
+          "sub_role"
+        ]
+      }
+    ],
+    "schema_version": "2"
+  },
+  "attribution": {
+    "fandom_page": "https://overwatch.fandom.com/wiki/Junker_Queen",
+    "blizzard_page": "https://overwatch.blizzard.com/en-us/heroes/junker-queen/"
+  },
+  "hero": {
+    "slug": "junker-queen",
+    "name": "Junker Queen",
+    "role": "tank",
+    "abilities": [
+      {
+        "name": "Scattergun",
+        "description": "Pump action shotgun."
+      },
+      {
+        "name": "Commanding Shout",
+        "description": "Grants temporary health and movement speed to yourself and allies."
+      },
+      {
+        "name": "Carnage",
+        "description": "Wound all enemies in front of you, dealing damage over time and reducing the cooldown for each enemy hit."
+      },
+      {
+        "name": "Rampage",
+        "description": "Charge forward. Wounds enemies, dealing damage over time and preventing them from being healed."
+      },
+      {
+        "name": "Adrenaline Rush",
+        "description": "Heal from all damage over time dealt by wounds."
+      }
+    ],
+    "perks": {
+      "minor": [
+        {
+          "name": "Rampant Charge",
+          "description": "Gain Unstoppable and reduce all cooldowns by 6 seconds when using Rampage."
+        },
+        {
+          "name": "Battle Shout",
+          "description": "Commanding Shout fully reloads Scatter Gun and increases allied reload speed by 50%."
+        }
+      ],
+      "major": [
+        {
+          "name": "Willy-Willy",
+          "description": "When recalling Jagged Blade, its radius is increased by 100% and it deals 30 additional impact damage."
+        },
+        {
+          "name": "Savage Satiation",
+          "description": "Carnage's impact damage gains 100% lifesteal."
+        }
+      ]
+    },
+    "stats": {
+      "abilities": {
+        "Adrenaline Rush": {
+          "ability_type": "Passive Ability",
+          "healing": "225% of wound damage dealt"
+        },
+        "Scattergun": {
+          "ability_type": "Weapon",
+          "damage": "8 – 2.4 (per shot) / 80 – 24 (per volley)",
+          "rate_of_fire": "1.33 volleys/s",
+          "ammo": 8,
+          "falloff": "15 – 25 meters",
+          "pellets": 10,
+          "projectile_radius": "0.04 meters",
+          "spread": "2.75 degrees",
+          "reload": "1.5 seconds",
+          "headshot": true,
+          "dps": "while firing ( w/ reload)"
+        },
+        "Jagged Blade": {
+          "ability_type": "Ability",
+          "cooldown": "6 seconds",
+          "damage": "65 (thrown hit) / 30 over 3 seconds (wound, thrown hit) / 15 over 3 seconds (wound, return hit & melee)",
+          "range": "60 meters",
+          "duration": "3 seconds",
+          "projectile_speed": "40 m/s",
+          "projectile_radius": "0.27 meters",
+          "headshot": false,
+          "healing": "67.5 over 3 seconds (direct hit) / 33.75 over 3 seconds (recall/melee)"
+        },
+        "Commanding Shout": {
+          "ability_type": "Ability",
+          "cooldown": "12 seconds",
+          "radius": "15 meters",
+          "duration": "4 seconds"
+        },
+        "Carnage": {
+          "ability_type": "Ability",
+          "cooldown": "9 seconds / -2 seconds per enemy hit",
+          "damage": "105 (impact) / 40 over 3 seconds (wound)",
+          "healing": "90 over 3 seconds",
+          "duration": "3 seconds (wound) / 0.144 seconds (hitbox active)",
+          "range": "4.5 meters"
+        },
+        "Rampage": {
+          "ability_type": "Ultimate Ability",
+          "damage": "40 impact / 90 over 4.5 seconds",
+          "healing": "202.5 over 4.5 seconds",
+          "radius": "5 meters",
+          "range": "25 meters",
+          "duration": "4.5 seconds (DoT) / 0.7 seconds (dash)"
+        },
+        "Rampant Charge": {
+          "ability_type": "Minor Perk"
+        },
+        "Battle Shout": {
+          "ability_type": "Minor Perk"
+        },
+        "Willy-Willy": {
+          "ability_type": "Major Perk",
+          "projectile_radius": "→",
+          "damage": "0 → 30 (return impact)"
+        },
+        "Savage Satiation": {
+          "ability_type": "Major Perk",
+          "healing": "0 → 100% of damage dealt (impact)"
+        },
+        "Rending Recall": {
+          "ability_type": "Minor Perk"
+        },
+        "Deep Wounds": {
+          "ability_type": "Major Perk"
+        }
+      },
+      "health": 375
+    },
+    "sub_role": "Stalwart"
+  }
+}

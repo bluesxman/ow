@@ -1,0 +1,205 @@
+{
+  "metadata": {
+    "last_updated": "2026-04-19T23:57:59.845Z",
+    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "hero_count": 51,
+    "heroes_failed": [],
+    "fandom_failed": [],
+    "sources": [
+      {
+        "name": "Blizzard Entertainment",
+        "url": "https://overwatch.blizzard.com/en-us/heroes/",
+        "license": "Blizzard Terms of Service",
+        "fields": [
+          "name",
+          "role",
+          "portrait_url",
+          "perks",
+          "abilities.description"
+        ]
+      },
+      {
+        "name": "Overwatch Fandom Wiki",
+        "url": "https://overwatch.fandom.com/",
+        "license": "CC-BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "fields": [
+          "stats.health",
+          "stats.armor",
+          "stats.shields",
+          "stats.abilities.*",
+          "sub_role"
+        ]
+      }
+    ],
+    "schema_version": "2"
+  },
+  "attribution": {
+    "fandom_page": "https://overwatch.fandom.com/wiki/Torbj%C3%B6rn",
+    "blizzard_page": "https://overwatch.blizzard.com/en-us/heroes/torbjorn/"
+  },
+  "hero": {
+    "slug": "torbjorn",
+    "name": "Torbjörn",
+    "role": "damage",
+    "abilities": [
+      {
+        "name": "Rivet Gun",
+        "description": "Slow firing, long-ranged weapon. Inaccurate but powerful short-range weapon."
+      },
+      {
+        "name": "Forge Hammer",
+        "description": "Swing to repair your turret or damage an enemy."
+      },
+      {
+        "name": "Deploy Turret",
+        "description": "Deploy a self-building turret."
+      },
+      {
+        "name": "Overload",
+        "description": "Gain additional extra health as well as improved attack, movement, and reload speed."
+      },
+      {
+        "name": "Molten Core",
+        "description": "Create pools of molten slag that damage enemies. Deals additional damage to armor."
+      }
+    ],
+    "perks": {
+      "minor": [
+        {
+          "name": "Hammer Time",
+          "description": "Move 20% faster while Forge Hammer is equipped."
+        },
+        {
+          "name": "Pre-Heated",
+          "description": "Molten Core activates Overload."
+        }
+      ],
+      "major": [
+        {
+          "name": "Anchor Bolts",
+          "description": "Deploy Turret's throw range is increased by 50% and it can now attach to walls and ceilings."
+        },
+        {
+          "name": "Overloaded Turret",
+          "description": "Overload upgrades your Turret for 5 seconds, increasing its health and damage."
+        }
+      ]
+    },
+    "stats": {
+      "abilities": {
+        "Rivet Gun": {
+          "ability_type": "Weapon;;Primary Fire",
+          "damage": 70,
+          "headshot": true,
+          "projectile_speed": "70 m/s",
+          "projectile_radius": "0.18 meters",
+          "rate_of_fire": "1.96 shots/s",
+          "ammo": 18,
+          "reload": "2 seconds",
+          "spread": "None",
+          "dps": "137.25 while firing (112.7 overall w/reload)"
+        },
+        "Rivet Gun Alt Fire": {
+          "ability_type": "Weapon;;Secondary Fire",
+          "damage": "12.5 - 3.75 per pellet / 125 - 37.5 per shot",
+          "falloff": "10 – 20 meters",
+          "headshot": true,
+          "rate_of_fire": "1.43 shots/s",
+          "ammo": 18,
+          "pellets": 10,
+          "reload": "2 seconds",
+          "spread": "4.5 degrees",
+          "projectile_speed": "120 m/s",
+          "projectile_radius": "0.05 meters",
+          "dps": "178.57 while firing (135.54 overall w/reload)"
+        },
+        "Forge Hammer": {
+          "ability_type": "Weapon",
+          "damage": 70,
+          "headshot": false,
+          "healing": "50 (to Torbjörn's turret)",
+          "rate_of_fire": "1 swing per ~0.7 seconds",
+          "duration": "0.192 seconds (hitbox active)",
+          "range": "2.5 meters",
+          "dps": "100 while firing"
+        },
+        "Deploy Turret": {
+          "ability_type": "Ability",
+          "cooldown": "5 seconds / 12 seconds (in combat)",
+          "damage": 12,
+          "headshot": false,
+          "rate_of_fire": "4 shots/s",
+          "range": "15 meters (deploying turret) / 40 meters (attack range)",
+          "duration": "Until destroyed or replaced",
+          "projectile_speed": "17 meters per second",
+          "projectile_radius": "0.35 meters (deploying turret)"
+        },
+        "Overload": {
+          "ability_type": "Ability",
+          "cooldown": "10 seconds",
+          "rate_of_fire": "Rivet Gun: 0.4 second recovery (primary fire) / Rivet Gun: 0.5 second recovery (alternate fire) / Forge Hammer: 0.6 second recovery",
+          "reload": "1.4 seconds (Rivet Gun)",
+          "duration": "6 seconds"
+        },
+        "Molten Core": {
+          "ability_type": "Ultimate Ability",
+          "damage": "25 (impact) / 190 per second (pools, base) / +100 (pools, bonus against armor)",
+          "projectile_speed": "40 m/s",
+          "projectile_radius": "0.205 meters",
+          "radius": "2.4 meters (pools)",
+          "duration": "5.5 seconds (max transformation) / 10 seconds (pools)",
+          "ammo": 10,
+          "rate_of_fire": "1 ammo per 0.144 (if holding primary) / 1 ammo per 0.016 (manual rapid fire)",
+          "dps": "190 per second (pools) +100 (pools, bonus against armor)"
+        },
+        "Hammer Time": {
+          "ability_type": "Minor Perk"
+        },
+        "Pre-Heated": {
+          "ability_type": "Minor Perk"
+        },
+        "Anchor Bolts": {
+          "ability_type": "Major Perk"
+        },
+        "Overloaded Turret": {
+          "ability_type": "Major Perk",
+          "damage": 30,
+          "duration": "5 seconds"
+        },
+        "Scrap Collector": {
+          "ammo": "200 scrap / 1 scrap every 0.5 seconds / Gains 15 scrap from fallen heroes.",
+          "ability_type": "Passive Ability"
+        },
+        "Build Turret": {
+          "ability_type": "Ability",
+          "damage": "14 per round, 14 per rocket",
+          "range": "40/40/40 meters",
+          "rate_of_fire": "2/4/5 rounds per second / 0/0/4 rockets per second",
+          "cooldown": "8 seconds",
+          "duration": "Until destroyed",
+          "headshot": false
+        },
+        "Armor Pack": {
+          "ability_type": "Ability",
+          "projectile_speed": "12 meters per second",
+          "ammo": "200 scrap"
+        },
+        "Molten Core (old)": {
+          "ability_type": "Ultimate Ability",
+          "rate_of_fire": "+50%",
+          "duration": "12 seconds"
+        },
+        "Craftsman": {
+          "ability_type": "Minor Perk"
+        },
+        "Fully Loaded": {
+          "ability_type": "Minor Perk"
+        }
+      },
+      "health": 225,
+      "armor": 75
+    },
+    "sub_role": "Specialist"
+  }
+}

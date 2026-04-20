@@ -1,0 +1,161 @@
+{
+  "metadata": {
+    "last_updated": "2026-04-19T23:57:59.845Z",
+    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "hero_count": 51,
+    "heroes_failed": [],
+    "fandom_failed": [],
+    "sources": [
+      {
+        "name": "Blizzard Entertainment",
+        "url": "https://overwatch.blizzard.com/en-us/heroes/",
+        "license": "Blizzard Terms of Service",
+        "fields": [
+          "name",
+          "role",
+          "portrait_url",
+          "perks",
+          "abilities.description"
+        ]
+      },
+      {
+        "name": "Overwatch Fandom Wiki",
+        "url": "https://overwatch.fandom.com/",
+        "license": "CC-BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "fields": [
+          "stats.health",
+          "stats.armor",
+          "stats.shields",
+          "stats.abilities.*",
+          "sub_role"
+        ]
+      }
+    ],
+    "schema_version": "2"
+  },
+  "attribution": {
+    "fandom_page": "https://overwatch.fandom.com/wiki/Junkrat",
+    "blizzard_page": "https://overwatch.blizzard.com/en-us/heroes/junkrat/"
+  },
+  "hero": {
+    "slug": "junkrat",
+    "name": "Junkrat",
+    "role": "damage",
+    "abilities": [
+      {
+        "name": "Frag Launcher",
+        "description": "Bouncing explosive projectile weapon."
+      },
+      {
+        "name": "Concussion Mine",
+        "description": "Throw a knockback mine with LSHIFT then detonate it with ABILITY 1."
+      },
+      {
+        "name": "Steel Trap",
+        "description": "Place an immobilizing trap."
+      },
+      {
+        "name": "RIP-Tire",
+        "description": "Drive and detonate an exploding tire."
+      },
+      {
+        "name": "Total Mayhem",
+        "description": "Deals no damage to self with explosives. Drop bombs on death."
+      }
+    ],
+    "perks": {
+      "minor": [
+        {
+          "name": "Nitro Boost",
+          "description": "During RIP-Tire, use LSHIFT to gain a quick boost of speed. Doing so reduces RIP-Tire's damage by 50%."
+        },
+        {
+          "name": "Bomb Voyage",
+          "description": "After launching with Concussion Mine, Junkrat gains 25% increased attack speed for 3 seconds."
+        }
+      ],
+      "major": [
+        {
+          "name": "Mine Recycling",
+          "description": "Eliminations with Concussion Mine restore one charge."
+        },
+        {
+          "name": "Frag Cannon",
+          "description": "Frag Launcher's projectile speed is increased by 25%."
+        }
+      ]
+    },
+    "stats": {
+      "abilities": {
+        "Total Mayhem": {
+          "ability_type": "Passive Ability",
+          "damage": 50,
+          "pellets": 6,
+          "radius": "2 meters",
+          "headshot": false
+        },
+        "Frag Launcher": {
+          "ability_type": "Weapon",
+          "damage": "45 (direct hit) / 80 - 10 (splash, enemy)",
+          "projectile_speed": "30 m/s",
+          "projectile_radius": "0.325 meters (0.16 meters after second bounce)",
+          "radius": "0.5 - 2 meters (falloff start - max)",
+          "rate_of_fire": "1.5 shots/s / recovery stops while using melee",
+          "ammo": 5,
+          "reload": "1.5 seconds animation",
+          "headshot": false,
+          "spread": "None",
+          "dps": "180 while firing (124.13 overall w/reload)"
+        },
+        "Concussion Mine": {
+          "ability_type": "Ability",
+          "cooldown": "8 seconds",
+          "damage": "120 – 55",
+          "projectile_speed": "25 m/s",
+          "projectile_radius": "0.2 meters",
+          "radius": "1 - 3 meters (falloff start - max)",
+          "duration": "Until detonated or replaced",
+          "headshot": false
+        },
+        "Steel Trap": {
+          "ability_type": "Ability",
+          "damage": 100,
+          "radius": "1 meter",
+          "projectile_speed": "17 m/s",
+          "projectile_radius": "None",
+          "cooldown": "10 seconds",
+          "duration": "Until triggered or replaced (trap) / 2.5 seconds (root)",
+          "headshot": false
+        },
+        "RIP-Tire": {
+          "ability_type": "Ultimate Ability",
+          "damage": "600 - 60",
+          "radius": "10 - 2 meters (falloff start - max)",
+          "duration": "10 seconds (max)",
+          "headshot": false
+        },
+        "Nitro Boost": {
+          "ability_type": "Minor Perk"
+        },
+        "Bomb Voyage": {
+          "ability_type": "Minor Perk"
+        },
+        "Mine Recycling": {
+          "ability_type": "Major Perk"
+        },
+        "Frag Cannon": {
+          "ability_type": "Major Perk"
+        },
+        "Aluminium Frame": {
+          "ability_type": "Minor Perk"
+        },
+        "Tick Tock": {
+          "ability_type": "Major Perk"
+        }
+      },
+      "health": 250
+    },
+    "sub_role": "Specialist"
+  }
+}

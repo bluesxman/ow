@@ -1,0 +1,294 @@
+{
+  "metadata": {
+    "last_updated": "2026-04-19T23:57:59.845Z",
+    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "hero_count": 51,
+    "heroes_failed": [],
+    "fandom_failed": [],
+    "sources": [
+      {
+        "name": "Blizzard Entertainment",
+        "url": "https://overwatch.blizzard.com/en-us/heroes/",
+        "license": "Blizzard Terms of Service",
+        "fields": [
+          "name",
+          "role",
+          "portrait_url",
+          "perks",
+          "abilities.description"
+        ]
+      },
+      {
+        "name": "Overwatch Fandom Wiki",
+        "url": "https://overwatch.fandom.com/",
+        "license": "CC-BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "fields": [
+          "stats.health",
+          "stats.armor",
+          "stats.shields",
+          "stats.abilities.*",
+          "sub_role"
+        ]
+      }
+    ],
+    "schema_version": "2"
+  },
+  "heroes": [
+    {
+      "slug": "ana",
+      "name": "Ana",
+      "role": "damage"
+    },
+    {
+      "slug": "anran",
+      "name": "Anran",
+      "role": "damage"
+    },
+    {
+      "slug": "ashe",
+      "name": "Ashe",
+      "role": "damage"
+    },
+    {
+      "slug": "baptiste",
+      "name": "Baptiste",
+      "role": "damage"
+    },
+    {
+      "slug": "bastion",
+      "name": "Bastion",
+      "role": "damage"
+    },
+    {
+      "slug": "brigitte",
+      "name": "Brigitte",
+      "role": "damage"
+    },
+    {
+      "slug": "cassidy",
+      "name": "Cassidy",
+      "role": "damage"
+    },
+    {
+      "slug": "domina",
+      "name": "Domina",
+      "role": "damage"
+    },
+    {
+      "slug": "doomfist",
+      "name": "Doomfist",
+      "role": "damage"
+    },
+    {
+      "slug": "dva",
+      "name": "D.Va",
+      "role": "damage"
+    },
+    {
+      "slug": "echo",
+      "name": "Echo",
+      "role": "damage"
+    },
+    {
+      "slug": "emre",
+      "name": "Emre",
+      "role": "damage"
+    },
+    {
+      "slug": "freja",
+      "name": "Freja",
+      "role": "damage"
+    },
+    {
+      "slug": "genji",
+      "name": "Genji",
+      "role": "damage"
+    },
+    {
+      "slug": "hanzo",
+      "name": "Hanzo",
+      "role": "damage"
+    },
+    {
+      "slug": "hazard",
+      "name": "Hazard",
+      "role": "damage"
+    },
+    {
+      "slug": "illari",
+      "name": "Illari",
+      "role": "damage"
+    },
+    {
+      "slug": "jetpack-cat",
+      "name": "Jetpack Cat",
+      "role": "damage"
+    },
+    {
+      "slug": "junker-queen",
+      "name": "Junker Queen",
+      "role": "damage"
+    },
+    {
+      "slug": "junkrat",
+      "name": "Junkrat",
+      "role": "damage"
+    },
+    {
+      "slug": "juno",
+      "name": "Juno",
+      "role": "damage"
+    },
+    {
+      "slug": "kiriko",
+      "name": "Kiriko",
+      "role": "damage"
+    },
+    {
+      "slug": "lifeweaver",
+      "name": "Lifeweaver",
+      "role": "damage"
+    },
+    {
+      "slug": "lucio",
+      "name": "Lúcio",
+      "role": "damage"
+    },
+    {
+      "slug": "mauga",
+      "name": "Mauga",
+      "role": "damage"
+    },
+    {
+      "slug": "mei",
+      "name": "Mei",
+      "role": "damage"
+    },
+    {
+      "slug": "mercy",
+      "name": "Mercy",
+      "role": "damage"
+    },
+    {
+      "slug": "mizuki",
+      "name": "Mizuki",
+      "role": "damage"
+    },
+    {
+      "slug": "moira",
+      "name": "Moira",
+      "role": "damage"
+    },
+    {
+      "slug": "orisa",
+      "name": "Orisa",
+      "role": "damage"
+    },
+    {
+      "slug": "pharah",
+      "name": "Pharah",
+      "role": "damage"
+    },
+    {
+      "slug": "ramattra",
+      "name": "Ramattra",
+      "role": "damage"
+    },
+    {
+      "slug": "reaper",
+      "name": "Reaper",
+      "role": "damage"
+    },
+    {
+      "slug": "reinhardt",
+      "name": "Reinhardt",
+      "role": "damage"
+    },
+    {
+      "slug": "roadhog",
+      "name": "Roadhog",
+      "role": "damage"
+    },
+    {
+      "slug": "sierra",
+      "name": "Sierra",
+      "role": "damage"
+    },
+    {
+      "slug": "sigma",
+      "name": "Sigma",
+      "role": "damage"
+    },
+    {
+      "slug": "sojourn",
+      "name": "Sojourn",
+      "role": "damage"
+    },
+    {
+      "slug": "soldier-76",
+      "name": "Soldier: 76",
+      "role": "damage"
+    },
+    {
+      "slug": "sombra",
+      "name": "Sombra",
+      "role": "damage"
+    },
+    {
+      "slug": "symmetra",
+      "name": "Symmetra",
+      "role": "damage"
+    },
+    {
+      "slug": "torbjorn",
+      "name": "Torbjörn",
+      "role": "damage"
+    },
+    {
+      "slug": "tracer",
+      "name": "Tracer",
+      "role": "damage"
+    },
+    {
+      "slug": "vendetta",
+      "name": "Vendetta",
+      "role": "damage"
+    },
+    {
+      "slug": "venture",
+      "name": "Venture",
+      "role": "damage"
+    },
+    {
+      "slug": "widowmaker",
+      "name": "Widowmaker",
+      "role": "damage"
+    },
+    {
+      "slug": "winston",
+      "name": "Winston",
+      "role": "damage"
+    },
+    {
+      "slug": "wrecking-ball",
+      "name": "Wrecking Ball",
+      "role": "damage"
+    },
+    {
+      "slug": "wuyang",
+      "name": "Wuyang",
+      "role": "damage"
+    },
+    {
+      "slug": "zarya",
+      "name": "Zarya",
+      "role": "damage"
+    },
+    {
+      "slug": "zenyatta",
+      "name": "Zenyatta",
+      "role": "damage"
+    }
+  ]
+}

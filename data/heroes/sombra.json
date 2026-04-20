@@ -1,0 +1,179 @@
+{
+  "metadata": {
+    "last_updated": "2026-04-19T23:57:59.845Z",
+    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "hero_count": 51,
+    "heroes_failed": [],
+    "fandom_failed": [],
+    "sources": [
+      {
+        "name": "Blizzard Entertainment",
+        "url": "https://overwatch.blizzard.com/en-us/heroes/",
+        "license": "Blizzard Terms of Service",
+        "fields": [
+          "name",
+          "role",
+          "portrait_url",
+          "perks",
+          "abilities.description"
+        ]
+      },
+      {
+        "name": "Overwatch Fandom Wiki",
+        "url": "https://overwatch.fandom.com/",
+        "license": "CC-BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "fields": [
+          "stats.health",
+          "stats.armor",
+          "stats.shields",
+          "stats.abilities.*",
+          "sub_role"
+        ]
+      }
+    ],
+    "schema_version": "2"
+  },
+  "attribution": {
+    "fandom_page": "https://overwatch.fandom.com/wiki/Sombra",
+    "blizzard_page": "https://overwatch.blizzard.com/en-us/heroes/sombra/"
+  },
+  "hero": {
+    "slug": "sombra",
+    "name": "Sombra",
+    "role": "damage",
+    "abilities": [
+      {
+        "name": "Machine Pistol",
+        "description": "Short-range automatic weapon."
+      },
+      {
+        "name": "Hack",
+        "description": "Hold to hack. Hacked enemies cannot use abilities and can be seen through walls. Hacked health packs spawn faster and can't be used by enemies. Taking damage interrupts the hack attempt."
+      },
+      {
+        "name": "Translocator",
+        "description": "Throw a beacon and teleport to it. Become stealthed for a short duration after teleporting."
+      },
+      {
+        "name": "Virus",
+        "description": "Infect enemies with a projectile that deals damage over time. Virus damages hacked enemies at a faster rate."
+      },
+      {
+        "name": "EMP",
+        "description": "Deal damage to all nearby enemies equal to a percentage of their current health, hacking them and destroying barriers around you."
+      }
+    ],
+    "perks": {
+      "minor": [
+        {
+          "name": "Encrypted Upload",
+          "description": "Hack can be used while invisible, successful hacks increase the duration of stealth by 3 seconds."
+        },
+        {
+          "name": "CTRL ALT ESC",
+          "description": "Teleporting with Translocator while below half health initiates passive health regeneration."
+        }
+      ],
+      "major": [
+        {
+          "name": "High-Speed Bandwidth",
+          "description": "Hacked health packs provide allies with 25% increased movement speed and 50 overhealth for 4 seconds."
+        },
+        {
+          "name": "Viral Replication",
+          "description": "Hitting a hacked enemy with Virus spreads Virus to enemies within 8 meters."
+        }
+      ]
+    },
+    "stats": {
+      "abilities": {
+        "Opportunist": {
+          "ability_type": "Passive Ability"
+        },
+        "Machine Pistol": {
+          "ability_type": "Weapon",
+          "damage": "8 - 2.4",
+          "falloff": "15 - 35 meters",
+          "headshot": true,
+          "rate_of_fire": "20 shots/s",
+          "ammo": 60,
+          "reload": "1.2 seconds animation",
+          "spread": "2.3 degrees (max)",
+          "projectile_radius": "0.04 meters",
+          "dps": "Damage per second: 160 while firing (114.3 overall w/reload) 192 while firing w/ opportunist"
+        },
+        "Hack": {
+          "ability_type": "Ability",
+          "cooldown": "6 seconds (heroes) / 3 seconds (non-heroes)",
+          "range": "15 meters",
+          "duration": "8 seconds (reveal, heroes) / 1.0 seconds (ability disable, heroes) / 45 seconds (health packs) / 10 seconds (disable, objects) / 3 seconds (disable, B.O.B.)"
+        },
+        "Virus": {
+          "ability_type": "Ability",
+          "cooldown": "6 seconds",
+          "damage": "35 (impact, normal) / 70 (impact, hacked) / 75 (DoT)",
+          "duration": "4 seconds (normal) / 2 seconds (hacked)",
+          "projectile_speed": "51 m/s",
+          "projectile_radius": "0.5 meters"
+        },
+        "Translocator": {
+          "ability_type": "Ability",
+          "cooldown": "6 seconds",
+          "duration": "0.25 seconds (teleport delay) / 0.4 seconds (invulnerability) / 5 seconds (invisibility)",
+          "projectile_speed": "72 m/s",
+          "radius": "4 meters (detection)"
+        },
+        "EMP": {
+          "ability_type": "Ultimate Ability",
+          "duration": "8 seconds (reveal, heroes) / 3 seconds (ability disable, heroes) / 45 seconds (health packs) / 10 seconds (disable, objects)",
+          "radius": "15 meters",
+          "damage": "25% of current health"
+        },
+        "Encrypted Upload": {
+          "ability_type": "Minor Perk"
+        },
+        "CTRL ALT ESC": {
+          "ability_type": "Minor Perk"
+        },
+        "High-Speed Bandwidth": {
+          "ability_type": "Major Perk",
+          "duration": "4 seconds"
+        },
+        "Viral Replication": {
+          "ability_type": "Major Perk",
+          "radius": "8 meters"
+        },
+        "Stealth": {
+          "ability_type": "Passive Ability",
+          "cooldown": "3.5 seconds",
+          "radius": "4 meters (detection)",
+          "duration": "∞"
+        },
+        "Translocator (old)": {
+          "ability_type": "Ability",
+          "projectile_speed": "25 meters per second",
+          "cooldown": "6 seconds",
+          "duration": "∞"
+        },
+        "Viral Efficacy": {
+          "ability_type": "Minor Perk"
+        },
+        "Stack Overflow": {
+          "ability_type": "Major Perk",
+          "range": "12.75 meters"
+        },
+        "White Hat": {
+          "ability_type": "Major Perk",
+          "healing": "100 over 2 seconds"
+        },
+        "Healthy Hacker": {
+          "ability_type": "Major Perk",
+          "duration": "10 seconds"
+        }
+      },
+      "health": 225
+    },
+    "sub_role": "Recon"
+  }
+}

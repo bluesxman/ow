@@ -1,0 +1,173 @@
+{
+  "metadata": {
+    "last_updated": "2026-04-19T23:57:59.845Z",
+    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "hero_count": 51,
+    "heroes_failed": [],
+    "fandom_failed": [],
+    "sources": [
+      {
+        "name": "Blizzard Entertainment",
+        "url": "https://overwatch.blizzard.com/en-us/heroes/",
+        "license": "Blizzard Terms of Service",
+        "fields": [
+          "name",
+          "role",
+          "portrait_url",
+          "perks",
+          "abilities.description"
+        ]
+      },
+      {
+        "name": "Overwatch Fandom Wiki",
+        "url": "https://overwatch.fandom.com/",
+        "license": "CC-BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "fields": [
+          "stats.health",
+          "stats.armor",
+          "stats.shields",
+          "stats.abilities.*",
+          "sub_role"
+        ]
+      }
+    ],
+    "schema_version": "2"
+  },
+  "attribution": {
+    "fandom_page": "https://overwatch.fandom.com/wiki/Zenyatta",
+    "blizzard_page": "https://overwatch.blizzard.com/en-us/heroes/zenyatta/"
+  },
+  "hero": {
+    "slug": "zenyatta",
+    "name": "Zenyatta",
+    "role": "support",
+    "abilities": [
+      {
+        "name": "Orb of Destruction",
+        "description": "Energy projectile weapon. Charge to release more projectiles."
+      },
+      {
+        "name": "Orb of Discord",
+        "description": "Launch this orb at an enemy to increase the damage they take."
+      },
+      {
+        "name": "Orb of Harmony",
+        "description": "Launch this orb at an ally to heal them."
+      },
+      {
+        "name": "Transcendence",
+        "description": "Become invulnerable, move faster, and heal nearby allies."
+      },
+      {
+        "name": "Snap Kick",
+        "description": "Quick melee damage increased by 50%, and its knockback is significantly increased."
+      }
+    ],
+    "perks": {
+      "minor": [
+        {
+          "name": "Discordant Repair",
+          "description": "Zenyatta gains 10% lifesteal against enemies with Discord Orb."
+        },
+        {
+          "name": "Ascendance",
+          "description": "Activate and hold Double Jump to hover for up to 3 seconds."
+        }
+      ],
+      "major": [
+        {
+          "name": "Focused Destruction",
+          "description": "Secondary Fire charges 20% faster and can store 1 extra Orb of Destruction."
+        },
+        {
+          "name": "Dual Harmony",
+          "description": "Gain a 2nd Harmony Orb but they both heal for 70% effectiveness."
+        }
+      ]
+    },
+    "stats": {
+      "abilities": {
+        "Snap Kick": {
+          "ability_type": "Passive Ability",
+          "damage": 60
+        },
+        "Orb of Destruction": {
+          "ability_type": "Weapon;;Primary Fire",
+          "damage": 50,
+          "headshot": true,
+          "rate_of_fire": "1 shot every 0.4 second",
+          "ammo": 25,
+          "reload": "1.5 seconds animation",
+          "spread": "None",
+          "projectile_speed": "90 m/s",
+          "projectile_radius": "0.225 meters",
+          "dps": "125 while firing (108.7 overall w/reload) 156.25 while firing w/ discord"
+        },
+        "Orb of Destruction Alt Fire": {
+          "ability_type": "Weapon;;Secondary Fire",
+          "damage": "50 per orb / 250 per volley",
+          "headshot": true,
+          "rate_of_fire": "1 orb per 0.524 seconds (charging) / 1 shot per 0.144 seconds (firing) / 0.6 seconds recovery",
+          "ammo": 25,
+          "reload": "1.5 seconds animation",
+          "spread": "None",
+          "projectile_speed": "90 m/s",
+          "projectile_radius": "0.225 meters",
+          "dps": "77.64 while firing (68.18 overall w/reload)"
+        },
+        "Orb of Harmony": {
+          "ability_type": "Ability",
+          "healing": "35 health per second",
+          "range": "40 meters",
+          "projectile_speed": "90 m/s",
+          "duration": "5 seconds (if out of sight)"
+        },
+        "Orb of Discord": {
+          "ability_type": "Ability",
+          "projectile_speed": "90 m/s",
+          "range": "40 meters",
+          "duration": "1.5 seconds (if out of sight)"
+        },
+        "Transcendence": {
+          "ability_type": "Ultimate Ability",
+          "healing": "400 health per second",
+          "radius": "10 meters",
+          "duration": "6 seconds"
+        },
+        "Discordant Repair": {
+          "ability_type": "Minor Perk",
+          "healing": "6.5 (bodyshot, per orb) / 13 (headshot, per orb)"
+        },
+        "Ascendance": {
+          "ability_type": "Minor Perk",
+          "duration": "3 seconds"
+        },
+        "Focused Destruction": {
+          "ability_type": "Major Perk",
+          "rate_of_fire": "1 orb per 0.42 seconds (charging) / 1 shot per 0.144 seconds (firing) / 0.6 seconds recovery"
+        },
+        "Dual Harmony": {
+          "ability_type": "Major Perk",
+          "healing": "35 → 24.5 per second"
+        },
+        "Zenith Kick": {
+          "ability_type": "Minor Perk"
+        },
+        "Duality": {
+          "ability_type": "Major Perk",
+          "healing": "40% of damage dealt",
+          "range": "40 meters",
+          "projectile_speed": "90 m/s",
+          "duration": "5 seconds (if out of sight)"
+        },
+        "Transcendent Condemnation": {
+          "ability_type": "Minor Perk"
+        }
+      },
+      "health": 75,
+      "shields": 175
+    },
+    "sub_role": "Tactician"
+  }
+}

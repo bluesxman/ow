@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { chromium, type Browser, type BrowserContext, type Page } from 'playwright';
+import { chromium, type Browser, type BrowserContext, type Page, type Route } from 'playwright';
 import {
   BASE_URL,
   HEROES_INDEX_URL,
@@ -13,6 +13,8 @@ import {
   PATCH_NOTES_URL,
   USER_AGENT,
 } from '../config.js';
+import type { DiskCache } from '../cache/diskCache.js';
+import { NoopCache } from '../cache/diskCache.js';
 import { normalizeDescription, normalizeName, normalizeRole } from '../normalize.js';
 import { isValidSlug, toSlug } from '../slug.js';
 import type { Ability, Hero, HeroStats, Perk, RosterEntry, Role, ScrapeResult } from '../types.js';
@@ -42,6 +44,8 @@ export class PlaywrightHeroScraper implements HeroScraper {
   private browser: Browser | null = null;
   private context: BrowserContext | null = null;
 
+  constructor(private readonly cache: DiskCache = new NoopCache()) {}
+
   async init(): Promise<void> {
     if (this.browser) return;
     this.browser = await chromium.launch({ headless: true });
@@ -52,6 +56,34 @@ export class PlaywrightHeroScraper implements HeroScraper {
     });
     this.context.setDefaultTimeout(HERO_PAGE_TIMEOUT_MS);
     this.context.setDefaultNavigationTimeout(NAV_TIMEOUT_MS);
+    await this.installCacheRoute();
+  }
+
+  private async installCacheRoute(): Promise<void> {
+    if (!this.context) return;
+    if (this.cache instanceof NoopCache) return;
+    await this.context.route('**/overwatch.blizzard.com/**', async (route: Route) => {
+      const req = route.request();
+      if (req.method() !== 'GET') {
+        await route.continue();
+        return;
+      }
+      const url = req.url();
+      const cached = await this.cache.get(url);
+      if (cached) {
+        await route.fulfill({
+          status: 200,
+          contentType: url.endsWith('.json') ? 'application/json' : 'text/html; charset=utf-8',
+          body: cached,
+        });
+        return;
+      }
+      const res = await route.fetch();
+      const body = await res.body();
+      const ct = res.headers()['content-type'] ?? 'text/html';
+      if (res.status() === 200) await this.cache.set(url, body, { url, contentType: ct });
+      await route.fulfill({ response: res, body });
+    });
   }
 
   async close(): Promise<void> {

@@ -9,12 +9,31 @@ import { diffHeroes } from './diff.js';
 import { publish, readPreviousHeroes, buildPaths } from './publish.js';
 import { renderConsole, renderIssueBody, type RunReport } from './report.js';
 import { enrichAllFromFandom } from './sources/enrichFromFandom.js';
+import { FandomClient } from './sources/FandomClient.js';
+import { defaultCacheRoot, FsDiskCache, NoopCache, type DiskCache } from './cache/diskCache.js';
 import type { Hero, Metadata } from './types.js';
 
-function parseArgs(argv: string[]): { dryRun: boolean; skipFandom: boolean } {
+function parseArgs(argv: string[]): {
+  dryRun: boolean;
+  skipFandom: boolean;
+  cache: boolean;
+  hero: string | null;
+} {
+  let hero: string | null = null;
+  for (let i = 0; i < argv.length; i++) {
+    const a = argv[i]!;
+    if (a === '--hero' && argv[i + 1]) {
+      hero = argv[i + 1]!;
+      i++;
+    } else if (a.startsWith('--hero=')) {
+      hero = a.slice('--hero='.length);
+    }
+  }
   return {
     dryRun: argv.includes('--dry-run'),
     skipFandom: argv.includes('--skip-fandom'),
+    cache: argv.includes('--cache'),
+    hero,
   };
 }
 
@@ -29,12 +48,19 @@ async function main(): Promise<void> {
   const root = projectRoot();
   const paths = buildPaths(root);
 
-  const scraper = new PlaywrightHeroScraper();
+  const cache: DiskCache = args.cache ? new FsDiskCache(defaultCacheRoot(root)) : new NoopCache();
+  if (args.cache) console.log(`Local cache enabled at ${defaultCacheRoot(root)}`);
+  if (args.hero) console.log(`Single-hero mode: ${args.hero}`);
+  const scraper = new PlaywrightHeroScraper(cache);
   let exitCode = 0;
   try {
     console.log('Discovering heroes…');
-    const roster = await scraper.listHeroes();
-    console.log(`Found ${roster.length} heroes`);
+    const fullRoster = await scraper.listHeroes();
+    const roster = args.hero ? fullRoster.filter((r) => r.slug === args.hero) : fullRoster;
+    if (args.hero && roster.length === 0) {
+      throw new Error(`--hero ${args.hero} not found in roster of ${fullRoster.length} heroes`);
+    }
+    console.log(`Found ${fullRoster.length} heroes${args.hero ? ` (filtered to 1)` : ''}`);
 
     console.log('Scraping hero pages…');
     const result = await scraper.scrapeAll(roster);
@@ -61,7 +87,7 @@ async function main(): Promise<void> {
       console.log('No valid Blizzard-scraped heroes; skipping Fandom enrichment.');
     } else {
       console.log(`Enriching ${Object.keys(validHeroes).length} heroes from Fandom…`);
-      const enrichment = await enrichAllFromFandom(validHeroes);
+      const enrichment = await enrichAllFromFandom(validHeroes, new FandomClient(cache));
       for (const [slug, hero] of Object.entries(enrichment.enriched)) {
         validHeroes[slug] = hero;
         merged[slug] = hero;
@@ -96,7 +122,7 @@ async function main(): Promise<void> {
     if (exitCode === 0) {
       await publish({
         heroes: merged,
-        roster,
+        roster: fullRoster,
         metadata,
         diff,
         dryRun: args.dryRun,

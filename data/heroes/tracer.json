@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-19T23:57:59.845Z",
+    "last_updated": "2026-04-20T02:37:04.037Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "2"
+    "schema_version": "3"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Tracer",
@@ -42,6 +42,7 @@
     "slug": "tracer",
     "name": "Tracer",
     "role": "damage",
+    "sub_role": "flanker",
     "abilities": [
       {
         "name": "Pulse Pistols",
@@ -130,16 +131,9 @@
         "Quantum Entanglement": {
           "ability_type": "Major Perk",
           "duration": "6 seconds"
-        },
-        "Blast from the Past": {
-          "ability_type": "Minor Perk"
-        },
-        "Flashback": {
-          "ability_type": "Major Perk"
         }
       },
       "health": 175
-    },
-    "sub_role": "Flanker"
+    }
   }
 }

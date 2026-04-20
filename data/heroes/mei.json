@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-19T23:57:59.845Z",
+    "last_updated": "2026-04-20T02:37:04.037Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "2"
+    "schema_version": "3"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Mei",
@@ -42,6 +42,7 @@
     "slug": "mei",
     "name": "Mei",
     "role": "damage",
+    "sub_role": "specialist",
     "abilities": [
       {
         "name": "Endothermic Blaster",
@@ -98,18 +99,6 @@
           "spread": "None",
           "dps": "110 while firing (90.58 overall w/reload)"
         },
-        "Icicle": {
-          "ability_type": "Weapon;;Secondary Fire",
-          "damage": 85,
-          "headshot": true,
-          "rate_of_fire": "1 shot per 0.8 seconds",
-          "ammo": 140,
-          "reload": "1.5 seconds animation",
-          "spread": "None",
-          "projectile_radius": "0.2 meters",
-          "projectile_speed": "115 m/s",
-          "dps": "106.25 while firing (94.44 overall w/reload)"
-        },
         "Cryo-Freeze": {
           "ability_type": "Ability",
           "cooldown": "12 seconds",
@@ -147,25 +136,9 @@
           "ability_type": "Major Perk",
           "damage": "70 per second",
           "radius": "4.5 meters"
-        },
-        "Deep Chill": {
-          "ability_type": "Passive Ability",
-          "damage": 40,
-          "headshot": false,
-          "duration": "1.5 seconds"
-        },
-        "Chilling Reach": {
-          "ability_type": "Minor Perk"
-        },
-        "Biting Cold": {
-          "ability_type": "Minor Perk"
-        },
-        "Permafrost": {
-          "ability_type": "Minor Perk"
         }
       },
       "health": 300
-    },
-    "sub_role": "Specialist"
+    }
   }
 }

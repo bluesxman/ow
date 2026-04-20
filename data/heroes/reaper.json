@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-19T23:57:59.845Z",
+    "last_updated": "2026-04-20T02:37:04.037Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "2"
+    "schema_version": "3"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Reaper",
@@ -42,6 +42,7 @@
     "slug": "reaper",
     "name": "Reaper",
     "role": "damage",
+    "sub_role": "flanker",
     "abilities": [
       {
         "name": "Hellfire Shotguns",
@@ -105,15 +106,6 @@
           "projectile_radius": "0.04 meters",
           "dps": "230 while firing (153.33 overall with reload)"
         },
-        "Dire Triggers": {
-          "ability_type": "Ability",
-          "cooldown": "6 seconds",
-          "damage": "3.45 - 1.035 (per pellet) / 69 - 20.7 (per blast) / 138 - 41.4 (both blasts)",
-          "headshot": true,
-          "falloff": "25 - 35 meters",
-          "pellets": "20 per blast / 2 blasts per shot",
-          "spread": "3 degrees"
-        },
         "Wraith Form": {
           "ability_type": "Ability",
           "cooldown": "8 seconds",
@@ -149,16 +141,9 @@
         },
         "Trigger Finger": {
           "ability_type": "Major Perk"
-        },
-        "Death's Shadow": {
-          "ability_type": "Minor Perk"
-        },
-        "Ravenous Wraith": {
-          "ability_type": "Major Perk"
         }
       },
       "health": 300
-    },
-    "sub_role": "Flanker"
+    }
   }
 }

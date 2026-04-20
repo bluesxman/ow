@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-19T23:57:59.845Z",
+    "last_updated": "2026-04-20T02:37:04.037Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "2"
+    "schema_version": "3"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Juno",
@@ -42,6 +42,7 @@
     "slug": "juno",
     "name": "Juno",
     "role": "support",
+    "sub_role": "survivor",
     "abilities": [
       {
         "name": "Mediblaster",
@@ -150,21 +151,10 @@
         },
         "Lift Off": {
           "ability_type": "Major Perk"
-        },
-        "Hyper Boost": {
-          "ability_type": "Minor Perk"
-        },
-        "Re-Boots": {
-          "ability_type": "Minor Perk"
-        },
-        "Master Blaster": {
-          "ability_type": "Major Perk",
-          "headshot": true
         }
       },
       "health": 75,
       "shields": 150
-    },
-    "sub_role": "Survivor"
+    }
   }
 }

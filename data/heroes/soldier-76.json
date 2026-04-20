@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-19T23:57:59.845Z",
+    "last_updated": "2026-04-20T02:37:04.037Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "2"
+    "schema_version": "3"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Soldier%3A_76",
@@ -42,6 +42,7 @@
     "slug": "soldier-76",
     "name": "Soldier: 76",
     "role": "damage",
+    "sub_role": "specialist",
     "abilities": [
       {
         "name": "Heavy Pulse Rifle",
@@ -143,19 +144,9 @@
           "healing": "30 per second",
           "duration": "5 seconds",
           "cooldown": "10 seconds"
-        },
-        "Field Emergency": {
-          "ability_type": "Minor Perk"
-        },
-        "Recycled Pulse Munitions": {
-          "ability_type": "Minor Perk"
-        },
-        "Agility Training": {
-          "ability_type": "Major Perk"
         }
       },
       "health": 250
-    },
-    "sub_role": "Specialist"
+    }
   }
 }

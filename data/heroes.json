@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-19T23:57:59.845Z",
+    "last_updated": "2026-04-20T02:37:04.037Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,263 +32,314 @@
         ]
       }
     ],
-    "schema_version": "2"
+    "schema_version": "3"
   },
   "heroes": [
     {
       "slug": "ana",
       "name": "Ana",
-      "role": "damage"
+      "role": "support",
+      "sub_role": "tactician"
     },
     {
       "slug": "anran",
       "name": "Anran",
-      "role": "damage"
+      "role": "damage",
+      "sub_role": "flanker"
     },
     {
       "slug": "ashe",
       "name": "Ashe",
-      "role": "damage"
+      "role": "damage",
+      "sub_role": "sharpshooter"
     },
     {
       "slug": "baptiste",
       "name": "Baptiste",
-      "role": "damage"
+      "role": "support",
+      "sub_role": "tactician"
     },
     {
       "slug": "bastion",
       "name": "Bastion",
-      "role": "damage"
+      "role": "damage",
+      "sub_role": "specialist"
     },
     {
       "slug": "brigitte",
       "name": "Brigitte",
-      "role": "damage"
+      "role": "support",
+      "sub_role": "survivor"
     },
     {
       "slug": "cassidy",
       "name": "Cassidy",
-      "role": "damage"
+      "role": "damage",
+      "sub_role": "sharpshooter"
     },
     {
       "slug": "domina",
       "name": "Domina",
-      "role": "damage"
+      "role": "tank",
+      "sub_role": "stalwart"
     },
     {
       "slug": "doomfist",
       "name": "Doomfist",
-      "role": "damage"
+      "role": "tank",
+      "sub_role": "initiator"
     },
     {
       "slug": "dva",
       "name": "D.Va",
-      "role": "damage"
+      "role": "tank",
+      "sub_role": "initiator"
     },
     {
       "slug": "echo",
       "name": "Echo",
-      "role": "damage"
+      "role": "damage",
+      "sub_role": "recon"
     },
     {
       "slug": "emre",
       "name": "Emre",
-      "role": "damage"
+      "role": "damage",
+      "sub_role": "specialist"
     },
     {
       "slug": "freja",
       "name": "Freja",
-      "role": "damage"
+      "role": "damage",
+      "sub_role": "recon"
     },
     {
       "slug": "genji",
       "name": "Genji",
-      "role": "damage"
+      "role": "damage",
+      "sub_role": "flanker"
     },
     {
       "slug": "hanzo",
       "name": "Hanzo",
-      "role": "damage"
+      "role": "damage",
+      "sub_role": "sharpshooter"
     },
     {
       "slug": "hazard",
       "name": "Hazard",
-      "role": "damage"
+      "role": "tank",
+      "sub_role": "initiator"
     },
     {
       "slug": "illari",
       "name": "Illari",
-      "role": "damage"
+      "role": "support",
+      "sub_role": "survivor"
     },
     {
       "slug": "jetpack-cat",
       "name": "Jetpack Cat",
-      "role": "damage"
+      "role": "support",
+      "sub_role": "tactician"
     },
     {
       "slug": "junker-queen",
       "name": "Junker Queen",
-      "role": "damage"
+      "role": "tank",
+      "sub_role": "stalwart"
     },
     {
       "slug": "junkrat",
       "name": "Junkrat",
-      "role": "damage"
+      "role": "damage",
+      "sub_role": "specialist"
     },
     {
       "slug": "juno",
       "name": "Juno",
-      "role": "damage"
+      "role": "support",
+      "sub_role": "survivor"
     },
     {
       "slug": "kiriko",
       "name": "Kiriko",
-      "role": "damage"
+      "role": "support",
+      "sub_role": "medic"
     },
     {
       "slug": "lifeweaver",
       "name": "Lifeweaver",
-      "role": "damage"
+      "role": "support",
+      "sub_role": "medic"
     },
     {
       "slug": "lucio",
       "name": "Lúcio",
-      "role": "damage"
+      "role": "support",
+      "sub_role": "tactician"
     },
     {
       "slug": "mauga",
       "name": "Mauga",
-      "role": "damage"
+      "role": "tank",
+      "sub_role": "bruiser"
     },
     {
       "slug": "mei",
       "name": "Mei",
-      "role": "damage"
+      "role": "damage",
+      "sub_role": "specialist"
     },
     {
       "slug": "mercy",
       "name": "Mercy",
-      "role": "damage"
+      "role": "support",
+      "sub_role": "medic"
     },
     {
       "slug": "mizuki",
       "name": "Mizuki",
-      "role": "damage"
+      "role": "support",
+      "sub_role": "survivor"
     },
     {
       "slug": "moira",
       "name": "Moira",
-      "role": "damage"
+      "role": "support",
+      "sub_role": "medic"
     },
     {
       "slug": "orisa",
       "name": "Orisa",
-      "role": "damage"
+      "role": "tank",
+      "sub_role": "bruiser"
     },
     {
       "slug": "pharah",
       "name": "Pharah",
-      "role": "damage"
+      "role": "damage",
+      "sub_role": "recon"
     },
     {
       "slug": "ramattra",
       "name": "Ramattra",
-      "role": "damage"
+      "role": "tank",
+      "sub_role": "stalwart"
     },
     {
       "slug": "reaper",
       "name": "Reaper",
-      "role": "damage"
+      "role": "damage",
+      "sub_role": "flanker"
     },
     {
       "slug": "reinhardt",
       "name": "Reinhardt",
-      "role": "damage"
+      "role": "tank",
+      "sub_role": "stalwart"
     },
     {
       "slug": "roadhog",
       "name": "Roadhog",
-      "role": "damage"
+      "role": "tank",
+      "sub_role": "bruiser"
     },
     {
       "slug": "sierra",
       "name": "Sierra",
-      "role": "damage"
+      "role": "damage",
+      "sub_role": "recon"
     },
     {
       "slug": "sigma",
       "name": "Sigma",
-      "role": "damage"
+      "role": "tank",
+      "sub_role": "stalwart"
     },
     {
       "slug": "sojourn",
       "name": "Sojourn",
-      "role": "damage"
+      "role": "damage",
+      "sub_role": "sharpshooter"
     },
     {
       "slug": "soldier-76",
       "name": "Soldier: 76",
-      "role": "damage"
+      "role": "damage",
+      "sub_role": "specialist"
     },
     {
       "slug": "sombra",
       "name": "Sombra",
-      "role": "damage"
+      "role": "damage",
+      "sub_role": "recon"
     },
     {
       "slug": "symmetra",
       "name": "Symmetra",
-      "role": "damage"
+      "role": "damage",
+      "sub_role": "specialist"
     },
     {
       "slug": "torbjorn",
       "name": "Torbjörn",
-      "role": "damage"
+      "role": "damage",
+      "sub_role": "specialist"
     },
     {
       "slug": "tracer",
       "name": "Tracer",
-      "role": "damage"
+      "role": "damage",
+      "sub_role": "flanker"
     },
     {
       "slug": "vendetta",
       "name": "Vendetta",
-      "role": "damage"
+      "role": "damage",
+      "sub_role": "flanker"
     },
     {
       "slug": "venture",
       "name": "Venture",
-      "role": "damage"
+      "role": "damage",
+      "sub_role": "flanker"
     },
     {
       "slug": "widowmaker",
       "name": "Widowmaker",
-      "role": "damage"
+      "role": "damage",
+      "sub_role": "sharpshooter"
     },
     {
       "slug": "winston",
       "name": "Winston",
-      "role": "damage"
+      "role": "tank",
+      "sub_role": "initiator"
     },
     {
       "slug": "wrecking-ball",
       "name": "Wrecking Ball",
-      "role": "damage"
+      "role": "tank",
+      "sub_role": "initiator"
     },
     {
       "slug": "wuyang",
       "name": "Wuyang",
-      "role": "damage"
+      "role": "support",
+      "sub_role": "survivor"
     },
     {
       "slug": "zarya",
       "name": "Zarya",
-      "role": "damage"
+      "role": "tank",
+      "sub_role": "bruiser"
     },
     {
       "slug": "zenyatta",
       "name": "Zenyatta",
-      "role": "damage"
+      "role": "support",
+      "sub_role": "tactician"
     }
   ]
 }

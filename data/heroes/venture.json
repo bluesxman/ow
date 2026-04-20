@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-19T23:57:59.845Z",
+    "last_updated": "2026-04-20T02:37:04.037Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "2"
+    "schema_version": "3"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Venture",
@@ -42,6 +42,7 @@
     "slug": "venture",
     "name": "Venture",
     "role": "damage",
+    "sub_role": "flanker",
     "abilities": [
       {
         "name": "SMART Excavator",
@@ -84,16 +85,6 @@
     },
     "stats": {
       "abilities": {
-        "Clobber": {
-          "ability_type": "Passive Ability",
-          "damage": "30 (impact) / 40 (over time)",
-          "duration": "0.7 seconds",
-          "range": "3 meters"
-        },
-        "Explorer's Resolve": {
-          "ability_type": "Passive Ability",
-          "duration": "3 seconds"
-        },
         "Smart Excavator": {
           "ability_type": "Weapon",
           "damage": "35 (direct hit bonus) / 40 - 12 (explosion)",
@@ -148,17 +139,9 @@
         },
         "Covered in Dirt": {
           "ability_type": "Major Perk"
-        },
-        "Seismic Sense": {
-          "ability_type": "Minor Perk",
-          "radius": "25 meter vision redius"
-        },
-        "SMART-R Excavator": {
-          "ability_type": "Major Perk"
         }
       },
       "health": 250
-    },
-    "sub_role": "Flanker"
+    }
   }
 }

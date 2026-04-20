@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-19T23:57:59.845Z",
+    "last_updated": "2026-04-20T02:37:04.037Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "2"
+    "schema_version": "3"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Baptiste",
@@ -42,6 +42,7 @@
     "slug": "baptiste",
     "name": "Baptiste",
     "role": "support",
+    "sub_role": "tactician",
     "abilities": [
       {
         "name": "Biotic Launcher",
@@ -104,16 +105,6 @@
           "projectile_radius": "0.07 meters",
           "dps": "127.5 while firing (109 overall w/reload)"
         },
-        "Biotic Launcher Alt Fire": {
-          "ability_type": "Weapon;;Secondary Fire",
-          "healing": "30 (direct hit) / 60 (splash, ally)",
-          "radius": "3 meters",
-          "rate_of_fire": "1.11 shots/s",
-          "ammo": 10,
-          "reload": "1.5 seconds animation",
-          "projectile_radius": "None",
-          "projectile_speed": "60 m/s"
-        },
         "Regenerative Burst": {
           "ability_type": "Ability",
           "cooldown": "14 seconds",
@@ -151,16 +142,9 @@
         "Rocket Boots": {
           "ability_type": "Major Perk",
           "cooldown": "6 seconds"
-        },
-        "Field Medicine": {
-          "ability_type": "Minor Perk"
-        },
-        "Biotic Reloader": {
-          "ability_type": "Minor Perk"
         }
       },
       "health": 250
-    },
-    "sub_role": "Tactician"
+    }
   }
 }

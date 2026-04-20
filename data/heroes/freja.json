@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-19T23:57:59.845Z",
+    "last_updated": "2026-04-20T02:37:04.037Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "2"
+    "schema_version": "3"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Freja",
@@ -42,6 +42,7 @@
     "slug": "freja",
     "name": "Freja",
     "role": "damage",
+    "sub_role": "recon",
     "abilities": [
       {
         "name": "Bola Shot",
@@ -84,21 +85,6 @@
     },
     "stats": {
       "abilities": {
-        "Bounty Hunting": {
-          "ability_type": "Passive Ability"
-        },
-        "Revdraw Crossbow": {
-          "ability_type": "Weapon;;Hip Fire",
-          "headshot": true,
-          "ammo": 15,
-          "damage": 30,
-          "rate_of_fire": "4.81 shots/s",
-          "reload": "1.6 seconds",
-          "spread": "1.5 degrees (max, horizontal only)",
-          "projectile_radius": "0.175 meters",
-          "projectile_speed": "125 m/s",
-          "dps": "120.19 while firing (79.45 overall w/ reload)"
-        },
         "Take Aim": {
           "ability_type": "Weapon;;ADS",
           "headshot": true,
@@ -139,25 +125,9 @@
         },
         "Rising Winds": {
           "ability_type": "Major Perk"
-        },
-        "Frost Bolts": {
-          "ability_type": "Minor Perk",
-          "duration": "2 seconds"
-        },
-        "Tracking Instinct": {
-          "ability_type": "Minor Perk"
-        },
-        "Ready to Hunt": {
-          "ability_type": "Major Perk",
-          "duration": "3 seconds"
-        },
-        "Hunters Instinct": {
-          "ability_type": "Minor Perk",
-          "duration": "3 seconds"
         }
       },
       "health": 225
-    },
-    "sub_role": "Recon"
+    }
   }
 }

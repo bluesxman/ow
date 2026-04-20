@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-19T23:57:59.845Z",
+    "last_updated": "2026-04-20T02:37:04.037Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "2"
+    "schema_version": "3"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/L%C3%BAcio",
@@ -42,6 +42,7 @@
     "slug": "lucio",
     "name": "Lúcio",
     "role": "support",
+    "sub_role": "tactician",
     "abilities": [
       {
         "name": "Sonic Amplifier",
@@ -153,18 +154,9 @@
           "reload": "0.75 seconds animation",
           "duration": "3 seconds",
           "dps": "while firing ( w/ reload)"
-        },
-        "Groovin'": {
-          "ability_type": "Minor Perk"
-        },
-        "Bass Blowout": {
-          "ability_type": "Minor Perk",
-          "range": "9.2 meters",
-          "headshot": false
         }
       },
       "health": 225
-    },
-    "sub_role": "Tactician"
+    }
   }
 }

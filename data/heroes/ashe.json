@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-19T23:57:59.845Z",
+    "last_updated": "2026-04-20T02:37:04.037Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "2"
+    "schema_version": "3"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Ashe",
@@ -42,6 +42,7 @@
     "slug": "ashe",
     "name": "Ashe",
     "role": "damage",
+    "sub_role": "sharpshooter",
     "abilities": [
       {
         "name": "The Viper",
@@ -96,18 +97,6 @@
           "projectile_radius": "0.07 meters",
           "dps": "136.5 while firing (63.86 overall w/ full reload, 34.78 w/ reload after each shot)"
         },
-        "Take Aim (ADS)": {
-          "ability_type": "Weapon;;ADS",
-          "damage": "75 – 22.5",
-          "falloff": "35 – 55 meters",
-          "headshot": true,
-          "rate_of_fire": "1.52 shots/s",
-          "ammo": 12,
-          "reload": "0.5 seconds (initial animation) / +0.2 seconds per bullet / 2.9 seconds (full reload animation)",
-          "spread": "None",
-          "projectile_radius": "0.07 meters",
-          "dps": "114.33 while firing (41.3 overall w/ full reload, 32.98 w/ reload after each shot)"
-        },
         "Coach Gun": {
           "ability_type": "Ability",
           "cooldown": "10 seconds",
@@ -152,18 +141,9 @@
         "Airburst": {
           "ability_type": "Major Perk",
           "radius": "5 → 7 meters"
-        },
-        "Rapid Fire": {
-          "ability_type": "Minor Perk",
-          "damage": "31.5 - 9.45",
-          "rate_of_fire": "5.0 shots/s"
-        },
-        "Sidewinder": {
-          "ability_type": "Minor Perk"
         }
       },
       "health": 250
-    },
-    "sub_role": "Sharpshooter"
+    }
   }
 }

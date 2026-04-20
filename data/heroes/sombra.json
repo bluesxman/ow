@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-19T23:57:59.845Z",
+    "last_updated": "2026-04-20T02:37:04.037Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "2"
+    "schema_version": "3"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Sombra",
@@ -42,6 +42,7 @@
     "slug": "sombra",
     "name": "Sombra",
     "role": "damage",
+    "sub_role": "recon",
     "abilities": [
       {
         "name": "Machine Pistol",
@@ -88,9 +89,6 @@
     },
     "stats": {
       "abilities": {
-        "Opportunist": {
-          "ability_type": "Passive Ability"
-        },
         "Machine Pistol": {
           "ability_type": "Weapon",
           "damage": "8 - 2.4",
@@ -143,37 +141,9 @@
         "Viral Replication": {
           "ability_type": "Major Perk",
           "radius": "8 meters"
-        },
-        "Stealth": {
-          "ability_type": "Passive Ability",
-          "cooldown": "3.5 seconds",
-          "radius": "4 meters (detection)",
-          "duration": "∞"
-        },
-        "Translocator (old)": {
-          "ability_type": "Ability",
-          "projectile_speed": "25 meters per second",
-          "cooldown": "6 seconds",
-          "duration": "∞"
-        },
-        "Viral Efficacy": {
-          "ability_type": "Minor Perk"
-        },
-        "Stack Overflow": {
-          "ability_type": "Major Perk",
-          "range": "12.75 meters"
-        },
-        "White Hat": {
-          "ability_type": "Major Perk",
-          "healing": "100 over 2 seconds"
-        },
-        "Healthy Hacker": {
-          "ability_type": "Major Perk",
-          "duration": "10 seconds"
         }
       },
       "health": 225
-    },
-    "sub_role": "Recon"
+    }
   }
 }

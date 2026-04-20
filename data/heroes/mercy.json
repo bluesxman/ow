@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-19T23:57:59.845Z",
+    "last_updated": "2026-04-20T02:37:04.037Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "2"
+    "schema_version": "3"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Mercy",
@@ -42,6 +42,7 @@
     "slug": "mercy",
     "name": "Mercy",
     "role": "support",
+    "sub_role": "medic",
     "abilities": [
       {
         "name": "Caduceus Staff",
@@ -92,9 +93,6 @@
     },
     "stats": {
       "abilities": {
-        "Swift Recovery": {
-          "ability_type": "Passive Ability"
-        },
         "Angelic Descent": {
           "duration": "Until cancelled",
           "ability_type": "Passive Ability"
@@ -127,11 +125,6 @@
           "range": "5.50 meters",
           "cooldown": "30 seconds"
         },
-        "Flash Heal": {
-          "ability_type": "Ability",
-          "cooldown": "12 seconds",
-          "healing": "60 (default) / 120 (low health)"
-        },
         "Valkyrie": {
           "ability_type": "Ultimate Ability",
           "healing": "65 per second per target",
@@ -154,35 +147,9 @@
         "Double Dose": {
           "ability_type": "Major Perk",
           "healing": "60 → 50 (default) / 120 → 100 (low health)"
-        },
-        "Regeneration": {
-          "ability_type": "Passive Ability",
-          "healing": "22.5 health per second after not taking damage for 1.5 second"
-        },
-        "Resurrect (old)": {
-          "ability_type": "Ultimate Ability",
-          "healing": "Restores full health to fallen allies",
-          "range": "15 meters",
-          "duration": "1 second cast time"
-        },
-        "Angelic Recovery": {
-          "ability_type": "Minor Perk"
-        },
-        "Winged Reach": {
-          "ability_type": "Minor Perk"
-        },
-        "Sympathetic Recovery": {
-          "ability_type": "Passive Ability",
-          "healing": "40% of healing dealt"
-        },
-        "Flash Heal (old)": {
-          "ability_type": "Major Perk",
-          "cooldown": "15 seconds",
-          "healing": "50 (default) / 150 (low health)"
         }
       },
       "health": 225
-    },
-    "sub_role": "Medic"
+    }
   }
 }

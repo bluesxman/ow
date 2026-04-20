@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T02:37:04.037Z",
+    "last_updated": "2026-04-20T05:43:42.860Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "3"
+    "schema_version": "4"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Winston",
@@ -92,7 +92,17 @@
           "range": "8 meters",
           "ammo": 120,
           "reload": "1.5 seconds animation",
-          "dps": "70 while firing (52.24 overall w/reload)"
+          "dps": "70 while firing (52.24 overall w/reload)",
+          "modes": {
+            "Secondary Fire": {
+              "damage": "15.93 (min charge) / 60 (max charge)",
+              "headshot": false,
+              "range": "40 meters",
+              "projectile_radius": "0.33 meters",
+              "spread": "None",
+              "dps": "14.67, continuous fire at minimum charge 37.5, continuous fire at max charge 19.35, continuous fire with max hold"
+            }
+          }
         },
         "Jump Pack": {
           "ability_type": "Ability",

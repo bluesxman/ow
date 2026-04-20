@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T02:37:04.037Z",
+    "last_updated": "2026-04-20T05:43:42.860Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "3"
+    "schema_version": "4"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Sojourn",
@@ -96,7 +96,17 @@
           "duration": "9 seconds (energy decay delay)",
           "reload": "1.2 seconds",
           "spread": "1.6 degrees (vertical, max) / 0.64 degrees (horizontal, max)",
-          "dps": "144 while firing (~100.93 overall w/reload)"
+          "dps": "144 while firing (~100.93 overall w/reload)",
+          "modes": {
+            "Secondary Fire": {
+              "damage": "120 - 60 (max charge) / 21 - 10.5 (min charge)",
+              "falloff": "40 – 60 meters",
+              "projectile_radius": "0.14 meters",
+              "cooldown": "None",
+              "headshot": true,
+              "spread": "None"
+            }
+          }
         },
         "Power Slide": {
           "ability_type": "Ability",

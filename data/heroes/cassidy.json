@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T02:37:04.037Z",
+    "last_updated": "2026-04-20T05:43:42.860Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "3"
+    "schema_version": "4"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Cassidy",
@@ -91,7 +91,20 @@
           "reload": "1.5 seconds animation",
           "spread": "None",
           "projectile_radius": "0.07 meters",
-          "dps": "140 while firing (93.33 overall w/reload)"
+          "dps": "140 while firing (93.33 overall w/reload)",
+          "modes": {
+            "Secondary Fire": {
+              "damage": "50 - 15",
+              "falloff": "20 - 30 meters",
+              "headshot": false,
+              "rate_of_fire": "8.33 shots/s",
+              "ammo": 6,
+              "reload": "1.5 seconds animation",
+              "spread": "6 degrees",
+              "projectile_radius": "0.07 meters",
+              "dps": "416.67 while firing (135.14 overall w/reload)"
+            }
+          }
         },
         "Combat Roll": {
           "ability_type": "Ability",

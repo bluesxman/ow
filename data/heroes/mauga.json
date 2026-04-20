@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T02:37:04.037Z",
+    "last_updated": "2026-04-20T05:43:42.860Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "3"
+    "schema_version": "4"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Mauga",
@@ -121,6 +121,32 @@
         },
         "Combat Fuel": {
           "ability_type": "Major Perk"
+        },
+        "Incendiary Chaingun": {
+          "ability_type": "Weapon;;Primary Fire",
+          "damage": "4 - 1.2 (direct) / 15 per second (damage over time)",
+          "falloff": "30 - 40 meters / 15 - 20 meters (simultaneous fire)",
+          "headshot": true,
+          "ammo": 300,
+          "rate_of_fire": "18 shots/s",
+          "reload": "2 seconds",
+          "spread": "1 degree (base) / 4 degrees (simultaneous fire)",
+          "projectile_radius": "0.04 meters",
+          "duration": "4 seconds (damage over time)",
+          "dps": "72 while firing (64.7 w/ reload) 87 w/ damage over time 288 while firing both guns simultaneously 303 w/ damage over time",
+          "modes": {
+            "Secondary Fire": {
+              "damage": "4 - 1.2",
+              "falloff": "30 - 40 meters / 15 - 20 meters (simultaneous fire)",
+              "headshot": true,
+              "ammo": 300,
+              "rate_of_fire": "18 shots/s",
+              "reload": "2 seconds",
+              "spread": "1 degree (base) / 4 degrees (simultaneous fire)",
+              "projectile_radius": "0.04 meters",
+              "dps": "72 while firing (64.7 w/ reload) 288 while firing both guns simultaneously 303 w/ damage over time"
+            }
+          }
         }
       },
       "health": 425,

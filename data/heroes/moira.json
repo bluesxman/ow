@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T02:37:04.037Z",
+    "last_updated": "2026-04-20T05:43:42.860Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "3"
+    "schema_version": "4"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Moira",
@@ -91,7 +91,17 @@
           "duration": "3 seconds (HoT) / 0.45 seconds (energy regen delay)",
           "range": "15 meters",
           "projectile_radius": "None",
-          "projectile_speed": "40 m/s"
+          "projectile_speed": "40 m/s",
+          "modes": {
+            "Secondary Fire": {
+              "damage": "65 per second",
+              "headshot": false,
+              "healing": "30 per second (self)",
+              "ammo": "∞",
+              "range": "20 meters",
+              "dps": "65 while firing"
+            }
+          }
         },
         "Fade": {
           "ability_type": "Ability",

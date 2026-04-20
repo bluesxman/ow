@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T02:37:04.037Z",
+    "last_updated": "2026-04-20T05:43:42.860Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "3"
+    "schema_version": "4"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Genji",
@@ -104,7 +104,20 @@
           "ammo": 30,
           "reload": "1.5 seconds",
           "spread": "None",
-          "dps": "92.05 while firing (85.94 overall w/reload)"
+          "dps": "92.05 while firing (85.94 overall w/reload)",
+          "modes": {
+            "Secondary Fire": {
+              "damage": "(per shuriken) / (per shot)",
+              "headshot": true,
+              "projectile_speed": "m/s",
+              "projectile_radius": "0.125 meters",
+              "rate_of_fire": "1.47 shots/s",
+              "pellets": 3,
+              "reload": "1.5 seconds",
+              "spread": "4.5 degrees",
+              "dps": "119.12 while firing (109.09 overall w/reload)"
+            }
+          }
         },
         "Swift Strike": {
           "ability_type": "Ability",

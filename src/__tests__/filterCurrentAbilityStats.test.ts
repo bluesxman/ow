@@ -85,4 +85,140 @@ describe('filterCurrentAbilityStats', () => {
     const result = filterCurrentAbilityStats({ SomethingElse: stat('x') }, hero);
     expect(result).toEqual({});
   });
+
+  it('folds parenthetical-suffixed twin templates into base.modes', () => {
+    const hero: Hero = {
+      slug: 'emre',
+      name: 'Emre',
+      role: 'damage',
+      abilities: [{ name: 'Synthetic Burst Rifle', description: '' }],
+      perks: { minor: [], major: [] },
+      stats: { abilities: {} },
+    };
+    const input: Record<string, AbilityStat> = {
+      'Synthetic Burst Rifle': { ability_type: 'Weapon (Hip Fire)', damage: 22, damage_falloff_range: '25 - 40 meters' },
+      'Synthetic Burst Rifle (ADS)': { ability_type: 'Weapon (ADS)', damage: 22, damage_falloff_range: '35 - 50 meters' },
+    };
+    const result = filterCurrentAbilityStats(input, hero);
+    expect(Object.keys(result)).toEqual(['Synthetic Burst Rifle']);
+    const base = result['Synthetic Burst Rifle']!;
+    expect(base.damage).toBe(22);
+    expect(base.damage_falloff_range).toBe('25 - 40 meters');
+    expect(base.modes?.ADS).toEqual({ damage: 22, damage_falloff_range: '35 - 50 meters' });
+  });
+
+  it('drops a suffixed template when its base name is not a current ability', () => {
+    const hero = cassidyLike();
+    const result = filterCurrentAbilityStats(
+      { 'Flashbang (old)': stat('8s') },
+      hero,
+    );
+    expect(result).toEqual({});
+  });
+
+  it('derives the mode key from the parenthetical suffix when ability_type has none', () => {
+    const hero: Hero = {
+      slug: 'emre',
+      name: 'Emre',
+      role: 'damage',
+      abilities: [{ name: 'Synthetic Burst Rifle', description: '' }],
+      perks: { minor: [], major: [] },
+      stats: { abilities: {} },
+    };
+    const input: Record<string, AbilityStat> = {
+      'Synthetic Burst Rifle': { damage: 22 },
+      'Synthetic Burst Rifle (Scoped)': { damage: 30 },
+    };
+    const result = filterCurrentAbilityStats(input, hero);
+    expect(result['Synthetic Burst Rifle']?.modes?.Scoped).toEqual({ damage: 30 });
+  });
+
+  it('folds an orphan ADS template by ability_type when names differ (Ashe pattern)', () => {
+    const hero: Hero = {
+      slug: 'ashe',
+      name: 'Ashe',
+      role: 'damage',
+      abilities: [{ name: 'The Viper', description: '' }],
+      perks: { minor: [], major: [] },
+      stats: { abilities: {} },
+    };
+    const input: Record<string, AbilityStat> = {
+      'The Viper': { ability_type: 'Weapon;;Hip Fire', damage: 35 },
+      'Take Aim (ADS)': { ability_type: 'Weapon;;ADS', damage: 75 },
+    };
+    const result = filterCurrentAbilityStats(input, hero);
+    expect(Object.keys(result)).toEqual(['The Viper']);
+    expect(result['The Viper']?.modes?.ADS).toEqual({ damage: 75 });
+  });
+
+  it('folds an orphan Secondary Fire template by ability_type (Sojourn pattern)', () => {
+    const hero: Hero = {
+      slug: 'sojourn',
+      name: 'Sojourn',
+      role: 'damage',
+      abilities: [{ name: 'Railgun', description: '' }],
+      perks: { minor: [], major: [] },
+      stats: { abilities: {} },
+    };
+    const input: Record<string, AbilityStat> = {
+      Railgun: { ability_type: 'Weapon;;Primary Fire', damage: 9 },
+      'Charged Shot': { ability_type: 'Weapon;;Secondary Fire', damage: 120 },
+    };
+    const result = filterCurrentAbilityStats(input, hero);
+    expect(Object.keys(result)).toEqual(['Railgun']);
+    expect(result['Railgun']?.modes?.['Secondary Fire']).toEqual({ damage: 120 });
+  });
+
+  it('hoists a primary-fire orphan into output when Blizzard surfaces neither weapon (Mauga pattern)', () => {
+    const hero: Hero = {
+      slug: 'mauga',
+      name: 'Mauga',
+      role: 'tank',
+      abilities: [{ name: 'Berserker', description: '' }],
+      perks: { minor: [], major: [] },
+      stats: { abilities: {} },
+    };
+    const input: Record<string, AbilityStat> = {
+      'Incendiary Chaingun': { ability_type: 'Weapon;;Primary Fire', damage: 4 },
+      'Volatile Chaingun': { ability_type: 'Weapon;;Secondary Fire', damage: 5 },
+    };
+    const result = filterCurrentAbilityStats(input, hero);
+    expect(Object.keys(result)).toEqual(['Incendiary Chaingun']);
+    expect(result['Incendiary Chaingun']?.modes?.['Secondary Fire']).toEqual({ damage: 5 });
+  });
+
+  it('throws when an alternate-mode orphan has no anchor (ambiguous data, not silent drop)', () => {
+    const hero: Hero = {
+      slug: 'mystery',
+      name: 'Mystery',
+      role: 'damage',
+      abilities: [{ name: 'Something', description: '' }],
+      perks: { minor: [], major: [] },
+      stats: { abilities: {} },
+    };
+    const input: Record<string, AbilityStat> = {
+      'Mystery Scope': { ability_type: 'Weapon;;ADS', damage: 99 },
+    };
+    expect(() => filterCurrentAbilityStats(input, hero)).toThrow(/no Primary\/Hip Fire anchor/);
+  });
+
+  it('throws when multiple primary-fire anchors exist with an alternate-mode orphan', () => {
+    const hero: Hero = {
+      slug: 'mystery',
+      name: 'Mystery',
+      role: 'damage',
+      abilities: [
+        { name: 'Rifle A', description: '' },
+        { name: 'Rifle B', description: '' },
+      ],
+      perks: { minor: [], major: [] },
+      stats: { abilities: {} },
+    };
+    const input: Record<string, AbilityStat> = {
+      'Rifle A': { ability_type: 'Weapon;;Primary Fire', damage: 10 },
+      'Rifle B': { ability_type: 'Weapon;;Primary Fire', damage: 20 },
+      'Scoped Shot': { ability_type: 'Weapon;;ADS', damage: 50 },
+    };
+    expect(() => filterCurrentAbilityStats(input, hero)).toThrow(/cannot disambiguate/);
+  });
 });

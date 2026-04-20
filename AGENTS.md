@@ -8,12 +8,16 @@ A patch-tracking pipeline that scrapes [Blizzard's Overwatch hero pages](https:/
 
 ## If you're consuming the data
 
-1. **Start at [`data/index.json`](./data/index.json).** It carries `metadata` (freshness + source attribution + `schema_version`), a `usage` block with a recommended workflow, a `files` map describing every published file, and a roster of all 51 heroes.
+1. **Start at [`data/index.json`](./data/index.json).** It carries `metadata` (freshness + source attribution + `schema_version`), a `usage` block with a recommended workflow, a `files` map describing every published file, a `links` block with raw URLs for every published file (top-level + per-hero), and a roster of all 51 heroes.
 2. **For one hero**, fetch [`data/heroes/{slug}.json`](./data/heroes/) — cheapest fetch, includes its own per-hero `attribution` block.
 3. **For roster-wide queries**, fetch the topical aggregate (`perks.json`, `abilities.json`, `stats.json`) instead of `all.json`.
 4. **For schema/validation**, fetch [`data/schema.json`](./data/schema.json) — JSON Schema (draft-2020-12) describing the per-hero record. Generated at publish time from the zod schema in `src/validate.ts`.
 5. **Check `metadata.last_updated`** before trusting the data. Refreshes happen manually on Overwatch patch days (no cron).
 6. **Honor attribution.** Fandom-derived fields are CC-BY-SA 3.0 — see [`data/ATTRIBUTION.md`](./data/ATTRIBUTION.md) and the `metadata.sources` block in every JSON file.
+
+### If your webfetch only follows URLs from previously-fetched content
+
+Some agents (Claude.ai chat, for example) won't fetch arbitrary URLs — only ones that already appeared in a search result or a prior fetch. For those, [`data/links.md`](./data/links.md) is a flat markdown list of every published raw URL. Fetch that one URL once, and every other file in `data/` becomes reachable.
 
 The full file inventory and use-case guidance lives in the "Published files" section of [README.md](./README.md).
 
@@ -31,5 +35,6 @@ Published files are served from `raw.githubusercontent.com`:
 ```
 https://raw.githubusercontent.com/bluesxman/ow/main/data/index.json
 https://raw.githubusercontent.com/bluesxman/ow/main/data/schema.json
+https://raw.githubusercontent.com/bluesxman/ow/main/data/links.md
 https://raw.githubusercontent.com/bluesxman/ow/main/data/heroes/{slug}.json
 ```

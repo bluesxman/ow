@@ -6,7 +6,7 @@
 
 import { readFile, readdir, writeFile } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
-import { buildAggregates, buildPaths } from '../../../../src/publish.js';
+import { buildAggregates, buildPaths, writeLinks } from '../../../../src/publish.js';
 import type { Hero, Metadata, RosterEntry } from '../../../../src/types.js';
 
 interface IndexDoc {
@@ -56,7 +56,10 @@ async function main(): Promise<void> {
     const body = JSON.stringify(value, null, 2) + '\n';
     await writeFile(path, body, 'utf8');
   }
-  console.log(`rebuilt ${outputs.length} aggregate files under ${dirname(outputs[0]![0])}`);
+
+  await writeLinks(paths.linksPath, aggregates.links, index.metadata);
+
+  console.log(`rebuilt ${outputs.length} aggregate files + links.md under ${dirname(outputs[0]![0])}`);
 }
 
 main().catch((err) => {

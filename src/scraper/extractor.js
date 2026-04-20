@@ -92,8 +92,6 @@
   }
 
   var bodyText = document.body.innerText;
-  var roleMatch = bodyText.match(/\b(Tank|Damage|Support)\b/);
-  var roleText = roleMatch ? roleMatch[1].toLowerCase() : '';
   var hp = bodyText.match(/(?:Health|HP)\s*[:\s]\s*(\d{2,4})/i);
   var armor = bodyText.match(/Armor\s*[:\s]\s*(\d{2,4})/i);
   var shields = bodyText.match(/Shields?\s*[:\s]\s*(\d{2,4})/i);
@@ -101,7 +99,6 @@
   return {
     perks: extractPerks(),
     abilities: extractAbilities(),
-    role: roleText,
     stats: {
       health: hp ? Number(hp[1]) : undefined,
       armor: armor ? Number(armor[1]) : undefined,

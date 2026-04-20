@@ -51,6 +51,7 @@ export function validateHero(hero: unknown): { ok: true; value: Hero } | { ok: f
 interface ValidationFixture {
   heroes: Array<{
     slug: string;
+    role?: 'tank' | 'damage' | 'support';
     perks?: { minor: string[]; major: string[] };
     stats?: {
       abilities?: Record<string, Record<string, string | number>>;
@@ -89,6 +90,15 @@ export async function checkAgainstFixture(heroes: Record<string, Hero>): Promise
         got: [],
       });
       continue;
+    }
+
+    if (expected.role && hero.role !== expected.role) {
+      mismatches.push({
+        slug: expected.slug,
+        tier: 'role',
+        expected: [expected.role],
+        got: [hero.role],
+      });
     }
 
     if (expected.perks) {

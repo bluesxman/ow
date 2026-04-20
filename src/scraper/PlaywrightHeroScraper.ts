@@ -27,13 +27,13 @@ interface RawListEntry {
   slug: string;
   name: string;
   role: string | null;
+  sub_role: string | null;
   portrait: string | null;
 }
 
 interface ExtractionResult {
   perks: { minor: Array<{ name: string; description: string }>; major: Array<{ name: string; description: string }> };
   abilities: Array<{ name: string; description: string }>;
-  role: string;
   stats: { health?: number; armor?: number; shields?: number };
   markers: { perksIdx: number; stadiumIdx: number; abilitiesIdx: number };
 }
@@ -79,11 +79,13 @@ export class PlaywrightHeroScraper implements HeroScraper {
       for (const entry of entries) {
         const slug = isValidSlug(entry.slug) ? entry.slug : toSlug(entry.name);
         if (!isValidSlug(slug)) continue;
+        const role: Role = (entry.role ? normalizeRole(entry.role) : null) ?? 'damage';
         const r: RosterEntry = {
           slug,
           name: normalizeName(entry.name),
-          role: 'damage',
+          role,
         };
+        if (entry.sub_role) r.sub_role = normalizeName(entry.sub_role);
         if (entry.portrait) r.portrait_url = entry.portrait;
         roster.push(r);
       }
@@ -154,7 +156,7 @@ export class PlaywrightHeroScraper implements HeroScraper {
 
       const extraction = (await page.evaluate(EXTRACTOR_SOURCE)) as ExtractionResult;
 
-      const role: Role = normalizeRole(extraction.role) ?? entry.role;
+      const role: Role = entry.role;
 
       const minorPerks: Perk[] = extraction.perks.minor.slice(0, 2).map((p) => ({
         name: normalizeName(p.name),

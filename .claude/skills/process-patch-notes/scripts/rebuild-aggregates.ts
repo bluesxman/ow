@@ -56,7 +56,6 @@ async function main(): Promise<void> {
     const body = JSON.stringify(value, null, 2) + '\n';
     await writeFile(path, body, 'utf8');
   }
-
   await writeLinks(paths.linksPath, aggregates.links, index.metadata);
 
   console.log(`rebuilt ${outputs.length} aggregate files + links.md under ${dirname(outputs[0]![0])}`);

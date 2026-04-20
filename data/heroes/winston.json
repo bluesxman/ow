@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-19T23:57:59.845Z",
+    "last_updated": "2026-04-20T02:37:04.037Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "2"
+    "schema_version": "3"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Winston",
@@ -42,6 +42,7 @@
     "slug": "winston",
     "name": "Winston",
     "role": "tank",
+    "sub_role": "initiator",
     "abilities": [
       {
         "name": "Tesla Cannon",
@@ -93,15 +94,6 @@
           "reload": "1.5 seconds animation",
           "dps": "70 while firing (52.24 overall w/reload)"
         },
-        "Tesla Cannon Alt Fire": {
-          "ability_type": "Weapon;;Secondary Fire",
-          "damage": "15.93 (min charge) / 60 (max charge)",
-          "headshot": false,
-          "range": "40 meters",
-          "projectile_radius": "0.33 meters",
-          "spread": "None",
-          "dps": "14.67, continuous fire at minimum charge 37.5, continuous fire at max charge 19.35, continuous fire with max hold"
-        },
         "Jump Pack": {
           "ability_type": "Ability",
           "cooldown": "5 seconds",
@@ -140,17 +132,10 @@
         "Revitalizing Barrier": {
           "ability_type": "Major Perk",
           "healing": "30 per second"
-        },
-        "Short Circuit": {
-          "ability_type": "Minor Perk"
-        },
-        "Barrier Toss": {
-          "ability_type": "Minor Perk"
         }
       },
       "health": 275,
       "armor": 200
-    },
-    "sub_role": "Initiator"
+    }
   }
 }

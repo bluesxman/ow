@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-19T23:57:59.845Z",
+    "last_updated": "2026-04-20T02:37:04.037Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "2"
+    "schema_version": "3"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Bastion",
@@ -42,6 +42,7 @@
     "slug": "bastion",
     "name": "Bastion",
     "role": "damage",
+    "sub_role": "specialist",
     "abilities": [
       {
         "name": "Configuration: Assault",
@@ -88,9 +89,6 @@
     },
     "stats": {
       "abilities": {
-        "Ironclad": {
-          "ability_type": "Passive Ability"
-        },
         "Configuration: Recon": {
           "ability_type": "Weapon;;Recon Form",
           "damage": "23 - 7.5",
@@ -156,40 +154,10 @@
           "ability_type": "Major Perk",
           "healing": "90 per second",
           "duration": "0.5 seconds (min) / 3.3 seconds (max)"
-        },
-        "Configuration: Sentry": {
-          "ability_type": "Weapon;;Sentry Form",
-          "damage": "4.5 - 15",
-          "falloff": "30 to 50 meters",
-          "rate_of_fire": "31 rounds per second",
-          "ammo": 300,
-          "reload": "1.984 seconds animation",
-          "headshot": false,
-          "spread": "1.8 - 2.7 degrees"
-        },
-        "Self-Repair (old)": {
-          "ability_type": "Ability",
-          "healing": "90 per second",
-          "cooldown": "1 second",
-          "duration": "Up to 3.33 seconds"
-        },
-        "Configuration: Tank": {
-          "ability_type": "Ultimate Ability",
-          "damage": "Direct hit: 205 / Splash: 42 - 140 / Self: 10.5 - 35 (becomes 8.4 - 28 due to Ironclad)",
-          "radius": "4 meter radius",
-          "projectile_speed": "60 meters per second",
-          "rate_of_fire": "1 shot per second",
-          "ammo": "∞",
-          "duration": "8 seconds",
-          "headshot": false
-        },
-        "Smart Bomb": {
-          "ability_type": "Minor Perk"
         }
       },
       "health": 250,
       "armor": 100
-    },
-    "sub_role": "Specialist"
+    }
   }
 }

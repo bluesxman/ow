@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-19T23:57:59.845Z",
+    "last_updated": "2026-04-20T02:37:04.037Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "2"
+    "schema_version": "3"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Zenyatta",
@@ -42,6 +42,7 @@
     "slug": "zenyatta",
     "name": "Zenyatta",
     "role": "support",
+    "sub_role": "tactician",
     "abilities": [
       {
         "name": "Orb of Destruction",
@@ -104,18 +105,6 @@
           "projectile_radius": "0.225 meters",
           "dps": "125 while firing (108.7 overall w/reload) 156.25 while firing w/ discord"
         },
-        "Orb of Destruction Alt Fire": {
-          "ability_type": "Weapon;;Secondary Fire",
-          "damage": "50 per orb / 250 per volley",
-          "headshot": true,
-          "rate_of_fire": "1 orb per 0.524 seconds (charging) / 1 shot per 0.144 seconds (firing) / 0.6 seconds recovery",
-          "ammo": 25,
-          "reload": "1.5 seconds animation",
-          "spread": "None",
-          "projectile_speed": "90 m/s",
-          "projectile_radius": "0.225 meters",
-          "dps": "77.64 while firing (68.18 overall w/reload)"
-        },
         "Orb of Harmony": {
           "ability_type": "Ability",
           "healing": "35 health per second",
@@ -150,24 +139,10 @@
         "Dual Harmony": {
           "ability_type": "Major Perk",
           "healing": "35 → 24.5 per second"
-        },
-        "Zenith Kick": {
-          "ability_type": "Minor Perk"
-        },
-        "Duality": {
-          "ability_type": "Major Perk",
-          "healing": "40% of damage dealt",
-          "range": "40 meters",
-          "projectile_speed": "90 m/s",
-          "duration": "5 seconds (if out of sight)"
-        },
-        "Transcendent Condemnation": {
-          "ability_type": "Minor Perk"
         }
       },
       "health": 75,
       "shields": 175
-    },
-    "sub_role": "Tactician"
+    }
   }
 }

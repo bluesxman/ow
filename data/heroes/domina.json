@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-19T23:57:59.845Z",
+    "last_updated": "2026-04-20T02:37:04.037Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "2"
+    "schema_version": "3"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Domina",
@@ -42,6 +42,7 @@
     "slug": "domina",
     "name": "Domina",
     "role": "tank",
+    "sub_role": "stalwart",
     "abilities": [
       {
         "name": "Photon Magnum",
@@ -88,10 +89,6 @@
     },
     "stats": {
       "abilities": {
-        "Reconstruction": {
-          "ability_type": "Passive Ability",
-          "healing": "75% of ability damage dealt"
-        },
         "Photon Magnum": {
           "ability_type": "Weapon",
           "damage": "60 (over time) / 60 (hitscan shot)",
@@ -147,7 +144,6 @@
       },
       "health": 100,
       "shields": 400
-    },
-    "sub_role": "Stalwart"
+    }
   }
 }

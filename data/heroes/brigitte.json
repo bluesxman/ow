@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-19T23:57:59.845Z",
+    "last_updated": "2026-04-20T02:37:04.037Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "2"
+    "schema_version": "3"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Brigitte",
@@ -42,6 +42,7 @@
     "slug": "brigitte",
     "name": "Brigitte",
     "role": "support",
+    "sub_role": "survivor",
     "abilities": [
       {
         "name": "Rocket Flail",
@@ -159,17 +160,10 @@
         },
         "Whiplash": {
           "ability_type": "Major Perk"
-        },
-        "Barrier Restoration": {
-          "ability_type": "Minor Perk"
-        },
-        "Quick Fix": {
-          "ability_type": "Major Perk"
         }
       },
       "health": 200,
       "armor": 50
-    },
-    "sub_role": "Survivor"
+    }
   }
 }

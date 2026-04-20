@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T02:37:04.037Z",
+    "last_updated": "2026-04-19T23:57:59.845Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,62 +32,13 @@
         ]
       }
     ],
-    "schema_version": "3"
-  },
-  "usage": {
-    "start_here": "data/heroes/{slug}.json",
-    "schema": "data/schema.json",
-    "recommended_workflow": [
-      "Check metadata.last_updated and metadata.heroes_failed for freshness and quality.",
-      "For one hero, fetch data/heroes/{slug}.json (cheapest, self-attributed).",
-      "For roster-wide queries, fetch the topical aggregate (perks.json / abilities.json / stats.json).",
-      "For comparison work across all heroes, fetch all.json once.",
-      "Validate any hero record against data/schema.json."
-    ]
-  },
-  "files": {
-    "heroes": {
-      "path": "heroes.json",
-      "description": "Roster only — slug, name, role, sub_role, portrait_url. No perks/abilities/stats."
-    },
-    "perks": {
-      "path": "perks.json",
-      "description": "Minor + major perks for every hero, keyed by slug."
-    },
-    "abilities": {
-      "path": "abilities.json",
-      "description": "Ability names + descriptions for every hero, keyed by slug. No numeric stats."
-    },
-    "stats": {
-      "path": "stats.json",
-      "description": "HP/armor/shields and per-ability numeric stats (damage, ammo, falloff, cooldown, etc.) for every hero, keyed by slug."
-    },
-    "all": {
-      "path": "all.json",
-      "description": "Complete denormalized dump — every field for every hero in one file. Largest payload."
-    },
-    "per_hero": {
-      "path": "heroes/{slug}.json",
-      "description": "Single hero — same content as a slice of all.json plus a per-hero attribution block. Cheapest fetch for one-hero queries."
-    },
-    "schema": {
-      "path": "schema.json",
-      "description": "JSON Schema (draft-2020-12) for the per-hero record. Generated from src/validate.ts HeroSchema."
-    },
-    "attribution": {
-      "path": "ATTRIBUTION.md",
-      "description": "Per-hero source URLs + CC-BY-SA 3.0 share-alike notice."
-    },
-    "license": {
-      "path": "LICENSE",
-      "description": "CC-BY-SA 3.0, covering everything in data/."
-    }
+    "schema_version": "2"
   },
   "heroes": [
     {
       "slug": "ana",
       "name": "Ana",
-      "role": "support"
+      "role": "damage"
     },
     {
       "slug": "anran",
@@ -102,7 +53,7 @@
     {
       "slug": "baptiste",
       "name": "Baptiste",
-      "role": "support"
+      "role": "damage"
     },
     {
       "slug": "bastion",
@@ -112,7 +63,7 @@
     {
       "slug": "brigitte",
       "name": "Brigitte",
-      "role": "support"
+      "role": "damage"
     },
     {
       "slug": "cassidy",
@@ -122,17 +73,17 @@
     {
       "slug": "domina",
       "name": "Domina",
-      "role": "tank"
+      "role": "damage"
     },
     {
       "slug": "doomfist",
       "name": "Doomfist",
-      "role": "tank"
+      "role": "damage"
     },
     {
       "slug": "dva",
       "name": "D.Va",
-      "role": "tank"
+      "role": "damage"
     },
     {
       "slug": "echo",
@@ -162,22 +113,22 @@
     {
       "slug": "hazard",
       "name": "Hazard",
-      "role": "tank"
+      "role": "damage"
     },
     {
       "slug": "illari",
       "name": "Illari",
-      "role": "support"
+      "role": "damage"
     },
     {
       "slug": "jetpack-cat",
       "name": "Jetpack Cat",
-      "role": "support"
+      "role": "damage"
     },
     {
       "slug": "junker-queen",
       "name": "Junker Queen",
-      "role": "tank"
+      "role": "damage"
     },
     {
       "slug": "junkrat",
@@ -187,27 +138,27 @@
     {
       "slug": "juno",
       "name": "Juno",
-      "role": "support"
+      "role": "damage"
     },
     {
       "slug": "kiriko",
       "name": "Kiriko",
-      "role": "support"
+      "role": "damage"
     },
     {
       "slug": "lifeweaver",
       "name": "Lifeweaver",
-      "role": "support"
+      "role": "damage"
     },
     {
       "slug": "lucio",
       "name": "Lúcio",
-      "role": "support"
+      "role": "damage"
     },
     {
       "slug": "mauga",
       "name": "Mauga",
-      "role": "tank"
+      "role": "damage"
     },
     {
       "slug": "mei",
@@ -217,22 +168,22 @@
     {
       "slug": "mercy",
       "name": "Mercy",
-      "role": "support"
+      "role": "damage"
     },
     {
       "slug": "mizuki",
       "name": "Mizuki",
-      "role": "support"
+      "role": "damage"
     },
     {
       "slug": "moira",
       "name": "Moira",
-      "role": "support"
+      "role": "damage"
     },
     {
       "slug": "orisa",
       "name": "Orisa",
-      "role": "tank"
+      "role": "damage"
     },
     {
       "slug": "pharah",
@@ -242,7 +193,7 @@
     {
       "slug": "ramattra",
       "name": "Ramattra",
-      "role": "tank"
+      "role": "damage"
     },
     {
       "slug": "reaper",
@@ -252,12 +203,12 @@
     {
       "slug": "reinhardt",
       "name": "Reinhardt",
-      "role": "tank"
+      "role": "damage"
     },
     {
       "slug": "roadhog",
       "name": "Roadhog",
-      "role": "tank"
+      "role": "damage"
     },
     {
       "slug": "sierra",
@@ -267,7 +218,7 @@
     {
       "slug": "sigma",
       "name": "Sigma",
-      "role": "tank"
+      "role": "damage"
     },
     {
       "slug": "sojourn",
@@ -317,27 +268,27 @@
     {
       "slug": "winston",
       "name": "Winston",
-      "role": "tank"
+      "role": "damage"
     },
     {
       "slug": "wrecking-ball",
       "name": "Wrecking Ball",
-      "role": "tank"
+      "role": "damage"
     },
     {
       "slug": "wuyang",
       "name": "Wuyang",
-      "role": "support"
+      "role": "damage"
     },
     {
       "slug": "zarya",
       "name": "Zarya",
-      "role": "tank"
+      "role": "damage"
     },
     {
       "slug": "zenyatta",
       "name": "Zenyatta",
-      "role": "support"
+      "role": "damage"
     }
   ]
 }

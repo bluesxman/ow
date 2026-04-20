@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-19T23:57:59.845Z",
+    "last_updated": "2026-04-20T02:37:04.037Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "2"
+    "schema_version": "3"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Zarya",
@@ -42,6 +42,7 @@
     "slug": "zarya",
     "name": "Zarya",
     "role": "tank",
+    "sub_role": "bruiser",
     "abilities": [
       {
         "name": "Particle Cannon",
@@ -101,19 +102,6 @@
           "range": "15 meters",
           "dps": "95 while firing (0% charge) (73.07 overall w/reload)175 while firing (100% charge) (134.61 overall w/reload)"
         },
-        "Particle Cannon Alt Fire": {
-          "ability_type": "Weapon;;Secondary Fire",
-          "damage": "55 – 11 (enemy, 0% Energy) / 110 – 22 (enemy, 100% Energy) / 27.5 – 5.5 (self, 0% Energy) / 55 – 11 (self, 100% Energy)",
-          "headshot": false,
-          "rate_of_fire": "1 shot/s",
-          "ammo": 100,
-          "reload": "1.5 seconds",
-          "projectile_speed": "25 m/s",
-          "projectile_radius": "0.32 meters",
-          "radius": "0.5 - 2.5 meters",
-          "spread": "None",
-          "dps": "55 while firing (0% charge) (40 overall w/reload) 110 while firing (100% charge (80 overall w/reload)"
-        },
         "Particle Barrier": {
           "ability_type": "Ability",
           "cooldown": "11 seconds",
@@ -146,18 +134,10 @@
         },
         "Extra Oomph": {
           "ability_type": "Major Perk"
-        },
-        "Graviton Crush": {
-          "ability_type": "Minor Perk",
-          "damage": "40% of max HP over 3.58 seconds"
-        },
-        "Energy Converter": {
-          "ability_type": "Minor Perk"
         }
       },
       "health": 175,
       "shields": 225
-    },
-    "sub_role": "Bruiser"
+    }
   }
 }

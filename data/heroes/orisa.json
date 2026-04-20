@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-19T23:57:59.845Z",
+    "last_updated": "2026-04-20T02:37:04.037Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "2"
+    "schema_version": "3"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Orisa",
@@ -42,6 +42,7 @@
     "slug": "orisa",
     "name": "Orisa",
     "role": "tank",
+    "sub_role": "bruiser",
     "abilities": [
       {
         "name": "Augmented Fusion Driver",
@@ -143,53 +144,10 @@
           "cooldown": "8 seconds",
           "duration": "6 seconds",
           "radius": "7.4 meter width / 3.8 meter height / 2.9 meter depth"
-        },
-        "Fusion Driver": {
-          "ability_type": "Weapon",
-          "damage": 11,
-          "projectile_speed": "120 meters per second",
-          "rate_of_fire": "12 rounds per second",
-          "ammo": 150,
-          "reload": "2.5 seconds",
-          "headshot": true,
-          "spread": "Constant: 1.2 degree"
-        },
-        "Halt!": {
-          "ability_type": "Ability",
-          "projectile_speed": "25 meters per second",
-          "radius": "5 meter radius",
-          "cooldown": "6 seconds",
-          "duration": "0.65 seconds (snare)"
-        },
-        "Fortify (old)": {
-          "ability_type": "Ability",
-          "cooldown": "10 seconds",
-          "duration": "4 seconds"
-        },
-        "Protective Barrier (old)": {
-          "ability_type": "Ability",
-          "projectile_speed": "25 meters per second",
-          "cooldown": "10 seconds",
-          "duration": "20 seconds"
-        },
-        "Supercharger": {
-          "ability_type": "Ultimate Ability",
-          "damage": "+50% damage boost",
-          "radius": "25 meter radius",
-          "duration": "15 seconds",
-          "projectile_speed": "7 meters per second (horizontal)"
-        },
-        "Heat Dissipator": {
-          "ability_type": "Minor Perk"
-        },
-        "Fleeting Bulwark": {
-          "ability_type": "Minor Perk",
-          "duration": "1.75 seconds"
         }
       },
       "health": 150,
       "armor": 300
-    },
-    "sub_role": "Bruiser"
+    }
   }
 }

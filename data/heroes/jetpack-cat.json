@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-19T23:57:59.845Z",
+    "last_updated": "2026-04-20T02:37:04.037Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "2"
+    "schema_version": "3"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Jetpack_Cat",
@@ -42,6 +42,7 @@
     "slug": "jetpack-cat",
     "name": "Jetpack Cat",
     "role": "support",
+    "sub_role": "tactician",
     "abilities": [
       {
         "name": "Biotic Pawjectiles",
@@ -88,9 +89,6 @@
     },
     "stats": {
       "abilities": {
-        "Jetpack": {
-          "ability_type": "Passive Ability"
-        },
         "Biotic Pawjectiles": {
           "ability_type": "Weapon",
           "damage": "24 (per volley) / 8 (center pellet) / 4 (per paw pellet)",
@@ -146,14 +144,9 @@
           "cooldown": "6 seconds.",
           "damage": "40 (damage over time)",
           "duration": "1 second"
-        },
-        "Territorial": {
-          "ability_type": "Major Perk",
-          "damage": "10 per pulse"
         }
       },
       "health": 225
-    },
-    "sub_role": "Tactician"
+    }
   }
 }

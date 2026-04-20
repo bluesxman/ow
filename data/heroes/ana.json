@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-19T23:57:59.845Z",
+    "last_updated": "2026-04-20T02:37:04.037Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "2"
+    "schema_version": "3"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Ana",
@@ -42,6 +42,7 @@
     "slug": "ana",
     "name": "Ana",
     "role": "support",
+    "sub_role": "tactician",
     "abilities": [
       {
         "name": "Biotic Rifle",
@@ -98,13 +99,6 @@
           "spread": "None",
           "dps": "while firing / overall w/ reload"
         },
-        "Zoom (ADS)": {
-          "ability_type": "Weapon;;ADS",
-          "headshot": false,
-          "projectile_radius": "0.07 meters (enemies) / 0.3 meters (allies)",
-          "spread": "None",
-          "dps": "while firing / overall w/ reload"
-        },
         "Sleep Dart": {
           "ability_type": "Ability",
           "cooldown": "14 seconds",
@@ -147,14 +141,9 @@
           "ability_type": "Major Perk",
           "damage": 60,
           "healing": 60
-        },
-        "Shrike": {
-          "ability_type": "Major Perk",
-          "duration": "6 seconds"
         }
       },
       "health": 250
-    },
-    "sub_role": "Tactician"
+    }
   }
 }

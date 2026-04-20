@@ -1,8 +1,10 @@
 import { mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
+import { z } from 'zod';
 import type { Hero, Metadata, RosterEntry } from './types.js';
 import { renderDiffMarkdown, type HeroDiff } from './diff.js';
 import { slugToBlizzardUrl, slugToFandomUrl } from './sources/slugToFandomTitle.js';
+import { HeroSchema } from './validate.js';
 
 export interface PublishPaths {
   dataDir: string;
@@ -61,21 +63,71 @@ export async function publish(input: PublishInput): Promise<{ paths: PublishPath
   const slugs = Object.keys(heroes).sort();
   const rosterSorted = [...roster].sort((a, b) => a.slug.localeCompare(b.slug));
 
-  const indexFiles: Record<string, string> = {
-    heroes: 'heroes.json',
-    perks: 'perks.json',
-    abilities: 'abilities.json',
-    stats: 'stats.json',
-    all: 'all.json',
-    per_hero_dir: 'heroes/',
-    attribution: 'ATTRIBUTION.md',
-    license: 'LICENSE',
+  const indexFiles: Record<string, { path: string; description: string }> = {
+    heroes: {
+      path: 'heroes.json',
+      description: 'Roster only — slug, name, role, sub_role, portrait_url. No perks/abilities/stats.',
+    },
+    perks: {
+      path: 'perks.json',
+      description: 'Minor + major perks for every hero, keyed by slug.',
+    },
+    abilities: {
+      path: 'abilities.json',
+      description: 'Ability names + descriptions for every hero, keyed by slug. No numeric stats.',
+    },
+    stats: {
+      path: 'stats.json',
+      description: 'HP/armor/shields and per-ability numeric stats (damage, ammo, falloff, cooldown, etc.) for every hero, keyed by slug.',
+    },
+    all: {
+      path: 'all.json',
+      description: 'Complete denormalized dump — every field for every hero in one file. Largest payload.',
+    },
+    per_hero: {
+      path: 'heroes/{slug}.json',
+      description: 'Single hero — same content as a slice of all.json plus a per-hero attribution block. Cheapest fetch for one-hero queries.',
+    },
+    schema: {
+      path: 'schema.json',
+      description: 'JSON Schema (draft-2020-12) for the per-hero record. Generated from src/validate.ts HeroSchema.',
+    },
+    attribution: {
+      path: 'ATTRIBUTION.md',
+      description: 'Per-hero source URLs + CC-BY-SA 3.0 share-alike notice.',
+    },
+    license: {
+      path: 'LICENSE',
+      description: 'CC-BY-SA 3.0, covering everything in data/.',
+    },
+  };
+
+  const usage = {
+    start_here: 'data/heroes/{slug}.json',
+    schema: 'data/schema.json',
+    recommended_workflow: [
+      'Check metadata.last_updated and metadata.heroes_failed for freshness and quality.',
+      'For one hero, fetch data/heroes/{slug}.json (cheapest, self-attributed).',
+      'For roster-wide queries, fetch the topical aggregate (perks.json / abilities.json / stats.json).',
+      'For comparison work across all heroes, fetch all.json once.',
+      'Validate any hero record against data/schema.json.',
+    ],
   };
 
   const indexDoc = {
     metadata,
+    usage,
     files: indexFiles,
     heroes: rosterSorted.map((r) => ({ slug: r.slug, name: r.name, role: r.role })),
+  };
+
+  const schemaDoc = {
+    $schema: 'https://json-schema.org/draft/2020-12/schema',
+    $id: 'https://raw.githubusercontent.com/bluesxman/ow/main/data/schema.json',
+    title: 'Overwatch Hero',
+    description: 'Schema for a single hero record as published in data/heroes/{slug}.json (under the "hero" key) and inside the "heroes" map of data/all.json.',
+    metadata,
+    schema: z.toJSONSchema(HeroSchema, { target: 'draft-2020-12' }),
   };
 
   const heroesDoc = { metadata, heroes: rosterSorted };
@@ -101,7 +153,7 @@ export async function publish(input: PublishInput): Promise<{ paths: PublishPath
   };
 
   if (dryRun) {
-    console.log(`[dry-run] would write ${slugs.length} per-hero files + 6 aggregate files + ATTRIBUTION.md`);
+    console.log(`[dry-run] would write ${slugs.length} per-hero files + 7 top-level files + ATTRIBUTION.md`);
     return { paths, filesWritten: [] };
   }
 
@@ -118,6 +170,7 @@ export async function publish(input: PublishInput): Promise<{ paths: PublishPath
     [join(paths.dataDir, 'abilities.json'), abilitiesDoc],
     [join(paths.dataDir, 'stats.json'), statsDoc],
     [join(paths.dataDir, 'all.json'), allDoc],
+    [join(paths.dataDir, 'schema.json'), schemaDoc],
   ];
 
   for (const [path, value] of topLevel) {
@@ -176,7 +229,7 @@ async function writeAttribution(path: string, roster: RosterEntry[], metadata: M
 }
 
 async function rotatePrevious(paths: PublishPaths): Promise<void> {
-  const files = ['index.json', 'heroes.json', 'perks.json', 'abilities.json', 'stats.json', 'all.json'];
+  const files = ['index.json', 'heroes.json', 'perks.json', 'abilities.json', 'stats.json', 'all.json', 'schema.json'];
   for (const f of files) {
     try {
       const src = join(paths.dataDir, f);

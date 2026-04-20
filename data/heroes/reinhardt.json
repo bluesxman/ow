@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-19T23:57:59.845Z",
+    "last_updated": "2026-04-20T02:37:04.037Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "2"
+    "schema_version": "3"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Reinhardt",
@@ -42,6 +42,7 @@
     "slug": "reinhardt",
     "name": "Reinhardt",
     "role": "tank",
+    "sub_role": "stalwart",
     "abilities": [
       {
         "name": "Rocket Hammer",
@@ -137,24 +138,10 @@
         },
         "Ignited Fury": {
           "ability_type": "Major Perk"
-        },
-        "Steadfast": {
-          "ability_type": "Passive Ability"
-        },
-        "Fiery Uptake": {
-          "ability_type": "Minor Perk"
-        },
-        "Crushing Victory": {
-          "ability_type": "Major Perk",
-          "duration": "5 seconds"
-        },
-        "Barrier Re-charge": {
-          "ability_type": "Minor Perk"
         }
       },
       "health": 250,
       "armor": 300
-    },
-    "sub_role": "Stalwart"
+    }
   }
 }

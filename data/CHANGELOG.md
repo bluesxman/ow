@@ -1,4 +1,108 @@
-# Changelog
+## 2026-04-20 — Overwatch Retail Patch Notes - April 17, 2026
+
+### Changed
+- **ana**
+  - sub_role: Tactician → tactician
+- **anran**
+  - sub_role: Flanker → flanker
+- **ashe**
+  - sub_role: Sharpshooter → sharpshooter
+- **baptiste**
+  - sub_role: Tactician → tactician
+- **bastion**
+  - sub_role: Specialist → specialist
+- **brigitte**
+  - sub_role: Survivor → survivor
+- **cassidy**
+  - sub_role: Sharpshooter → sharpshooter
+- **domina**
+  - sub_role: Stalwart → stalwart
+- **doomfist**
+  - sub_role: Initiator → initiator
+- **dva**
+  - sub_role: Initiator → initiator
+- **echo**
+  - sub_role: Recon → recon
+- **emre**
+  - sub_role: Specialist → specialist
+- **freja**
+  - sub_role: Recon → recon
+- **genji**
+  - sub_role: Flanker → flanker
+- **hanzo**
+  - sub_role: Sharpshooter → sharpshooter
+- **hazard**
+  - sub_role: Initiator → initiator
+- **illari**
+  - sub_role: Survivor → survivor
+- **jetpack-cat**
+  - sub_role: Tactician → tactician
+- **junker-queen**
+  - sub_role: Stalwart → stalwart
+- **junkrat**
+  - sub_role: Specialist → specialist
+- **juno**
+  - sub_role: Survivor → survivor
+- **kiriko**
+  - sub_role: Medic → medic
+- **lifeweaver**
+  - sub_role: Medic → medic
+- **lucio**
+  - sub_role: Tactician → tactician
+- **mauga**
+  - sub_role: Bruiser → bruiser
+- **mei**
+  - sub_role: Specialist → specialist
+- **mercy**
+  - sub_role: Medic → medic
+- **mizuki**
+  - sub_role: Survivor → survivor
+- **moira**
+  - sub_role: Medic → medic
+- **orisa**
+  - sub_role: Bruiser → bruiser
+- **pharah**
+  - sub_role: Recon → recon
+- **ramattra**
+  - sub_role: Stalwart → stalwart
+- **reaper**
+  - sub_role: Flanker → flanker
+- **reinhardt**
+  - sub_role: Stalwart → stalwart
+- **roadhog**
+  - sub_role: Bruiser → bruiser
+- **sierra**
+  - sub_role: Recon → recon
+- **sigma**
+  - sub_role: Stalwart → stalwart
+- **sojourn**
+  - sub_role: Sharpshooter → sharpshooter
+- **soldier-76**
+  - sub_role: Specialist → specialist
+- **sombra**
+  - sub_role: Recon → recon
+- **symmetra**
+  - sub_role: Specialist → specialist
+- **torbjorn**
+  - sub_role: Specialist → specialist
+- **tracer**
+  - sub_role: Flanker → flanker
+- **vendetta**
+  - sub_role: Flanker → flanker
+- **venture**
+  - sub_role: Flanker → flanker
+- **widowmaker**
+  - sub_role: Sharpshooter → sharpshooter
+- **winston**
+  - sub_role: Initiator → initiator
+- **wrecking-ball**
+  - sub_role: Initiator → initiator
+- **wuyang**
+  - sub_role: Survivor → survivor
+- **zarya**
+  - sub_role: Bruiser → bruiser
+- **zenyatta**
+  - sub_role: Tactician → tactician
 
 Auto-generated per-run diffs. Newest first.
 

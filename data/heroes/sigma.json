@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-19T23:57:59.845Z",
+    "last_updated": "2026-04-20T02:37:04.037Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "2"
+    "schema_version": "3"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Sigma",
@@ -42,6 +42,7 @@
     "slug": "sigma",
     "name": "Sigma",
     "role": "tank",
+    "sub_role": "stalwart",
     "abilities": [
       {
         "name": "Hyperspheres",
@@ -146,15 +147,10 @@
         "Levitation": {
           "ability_type": "Major Perk",
           "duration": "1.75 seconds"
-        },
-        "Massive Impact": {
-          "ability_type": "Minor Perk",
-          "duration": "3.3 seconds (max knockdown)"
         }
       },
       "health": 200,
       "shields": 275
-    },
-    "sub_role": "Stalwart"
+    }
   }
 }

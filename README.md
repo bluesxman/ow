@@ -16,7 +16,8 @@ https://raw.githubusercontent.com/bluesxman/ow/main/data/<file>
 
 | File | Use when |
 |---|---|
-| `index.json` | You need to discover what files exist and which heroes are covered. **Start here.** |
+| `index.json` | You need to discover what files exist, which heroes are covered, and how to navigate them. Includes a `usage` block with a recommended workflow + a `files` map with one-line descriptions of every file below. **Start here.** |
+| `schema.json` | You want to validate or generate types for the per-hero record. JSON Schema (draft-2020-12), generated from `src/validate.ts`. |
 | `heroes.json` | You only need the roster (slug, name, role). |
 | `perks.json` | You need perks across all heroes. |
 | `abilities.json` | You need abilities across all heroes. |
@@ -26,9 +27,11 @@ https://raw.githubusercontent.com/bluesxman/ow/main/data/<file>
 | `ATTRIBUTION.md` | Per-hero source URLs + CC-BY-SA 3.0 notice. |
 | `LICENSE` | CC-BY-SA 3.0, covering all data in this directory. |
 
-Every JSON file carries a `metadata` block with `last_updated`, `patch_version`, `hero_count`, `heroes_failed`, `fandom_failed`, `sources` (explicit per-source attribution), `schema_version`.
+Every JSON file carries a `metadata` block with `last_updated`, `patch_version`, `hero_count`, `heroes_failed`, `fandom_failed`, `sources` (explicit per-source attribution), `schema_version`. The current schema version is `"3"`.
 
 Every `heroes/<slug>.json` also includes a top-level `attribution` block with the exact Fandom and Blizzard page URLs the data came from.
+
+For AI agents specifically, see [AGENTS.md](./AGENTS.md).
 
 ## Local use
 

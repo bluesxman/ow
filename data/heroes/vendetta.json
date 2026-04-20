@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-19T23:57:59.845Z",
+    "last_updated": "2026-04-20T02:37:04.037Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "2"
+    "schema_version": "3"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Vendetta",
@@ -42,6 +42,7 @@
     "slug": "vendetta",
     "name": "Vendetta",
     "role": "damage",
+    "sub_role": "flanker",
     "abilities": [
       {
         "name": "Palatine Fang",
@@ -92,11 +93,6 @@
     },
     "stats": {
       "abilities": {
-        "Onslaught": {
-          "rate_of_fire": "+5% (per stack)",
-          "duration": "5.5 seconds",
-          "ability_type": "Passive Ability"
-        },
         "Palatine Fang": {
           "damage": "45 (swing) / 120 (overhead strike)",
           "duration": "0.75 seconds (combo input delay)",
@@ -153,15 +149,10 @@
         "Siphoning Strike": {
           "ability_type": "Major Perk",
           "healing": "40% of damage dealt"
-        },
-        "Swift Vengeance": {
-          "ability_type": "Major Perk",
-          "duration": "60 seconds"
         }
       },
       "health": 175,
       "armor": 75
-    },
-    "sub_role": "Flanker"
+    }
   }
 }

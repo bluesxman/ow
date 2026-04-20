@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-19T23:57:59.845Z",
+    "last_updated": "2026-04-20T02:37:04.037Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "2"
+    "schema_version": "3"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/D.Va",
@@ -42,6 +42,7 @@
     "slug": "dva",
     "name": "D.Va",
     "role": "tank",
+    "sub_role": "initiator",
     "abilities": [
       {
         "name": "Fusion Cannons",
@@ -188,26 +189,10 @@
           "pellets": "11 per shot",
           "spread": "→ degrees",
           "duration": "3 seconds"
-        },
-        "Bunny Stomp": {
-          "ability_type": "Minor Perk",
-          "radius": "4.5 meter radius"
-        },
-        "Ejection Suit": {
-          "ability_type": "Minor Perk",
-          "duration": "10 seconds"
-        },
-        "Heavy Rockets": {
-          "ability_type": "Major Perk",
-          "damage": "5 (direct hit bonus) / 22 - 6.6 (splash, enemy) / 22 - 6.6 (splash, self)",
-          "rate_of_fire": "6 shots/second",
-          "ammo": 7,
-          "radius": "3.0 meter splash radius"
         }
       },
       "health": 175,
       "armor": 325
-    },
-    "sub_role": "Initiator"
+    }
   }
 }

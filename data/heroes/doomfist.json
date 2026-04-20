@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-19T23:57:59.845Z",
+    "last_updated": "2026-04-20T02:37:04.037Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "2"
+    "schema_version": "3"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Doomfist",
@@ -42,6 +42,7 @@
     "slug": "doomfist",
     "name": "Doomfist",
     "role": "tank",
+    "sub_role": "initiator",
     "abilities": [
       {
         "name": "Hand Cannon",
@@ -88,10 +89,6 @@
     },
     "stats": {
       "abilities": {
-        "The Best Defense...": {
-          "ability_type": "Passive Ability",
-          "duration": "3 seconds"
-        },
         "Hand Cannon": {
           "ability_type": "Weapon",
           "headshot": true,
@@ -143,56 +140,9 @@
         },
         "Power Matrix": {
           "ability_type": "Major Perk"
-        },
-        "The Best Defense... (old)": {
-          "ability_type": "Passive Ability"
-        },
-        "Hand Cannon (old)": {
-          "ability_type": "Weapon",
-          "headshot": true,
-          "rate_of_fire": "1 shot per 0.32 seconds",
-          "damage": "1.8 - 6 per pellet / 19.8 - 66 per shot",
-          "falloff": "15 meters to 30 meters",
-          "projectile_speed": "80 meters per second",
-          "pellets": "11 per shot",
-          "reload": "0.32 seconds (inital reload) / +0.656 second (per bullet)",
-          "ammo": 4,
-          "spread": "Constant: 2.15 degrees"
-        },
-        "Rising Uppercut": {
-          "ability_type": "Ability",
-          "damage": 50,
-          "radius": "5 meters",
-          "cooldown": "6 seconds",
-          "duration": "0.6 seconds (air lock)"
-        },
-        "Seismic Slam (old)": {
-          "ability_type": "Ability",
-          "damage": "25 - 125",
-          "cooldown": "6 seconds",
-          "range": "15 meters (travel distance)",
-          "radius": "8 meters"
-        },
-        "Rocket Punch (old)": {
-          "cooldown": "4 seconds",
-          "duration": "0.496 second stun",
-          "ability_type": "Ability",
-          "damage": "50 - 100 (punch) / 50 - 150 (wall impact)",
-          "range": "~6.4 to 20 meters (depending on charge)"
-        },
-        "Meteor Strike (old)": {
-          "ability_type": "Ultimate Ability",
-          "duration": "Up to 4 seconds for select area / 1 second landing + 0.5 s. recovery (invulnerability)",
-          "damage": "Inner ring: 300 / Outer ring: 15-200",
-          "falloff": "2-8 meters",
-          "radius": "Inner ring: 2 meters / Outer ring: 6 meters / Overall radius: 8 meters"
-        },
-        "Seismic Empowerment": {
-          "ability_type": "Major Perk"
         }
       },
       "health": 375
-    },
-    "sub_role": "Initiator"
+    }
   }
 }

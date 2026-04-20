@@ -2,6 +2,7 @@
   "heroes": [
     {
       "slug": "reaper",
+      "role": "damage",
       "perks": {
         "minor": ["Soul Reaving", "Lingering Wraith"],
         "major": ["Shadow Blink", "Trigger Finger"]
@@ -15,6 +16,7 @@
     },
     {
       "slug": "vendetta",
+      "role": "damage",
       "perks": {
         "minor": ["Extra Edge", "Raging Storm"],
         "major": ["Siphoning Strike", "Relentless"]
@@ -22,11 +24,20 @@
     },
     {
       "slug": "soldier-76",
+      "role": "damage",
       "stats": {
         "abilities": {
           "Heavy Pulse Rifle": { "ammo": 30, "falloff_contains": "30" }
         }
       }
+    },
+    {
+      "slug": "reinhardt",
+      "role": "tank"
+    },
+    {
+      "slug": "ana",
+      "role": "support"
     }
   ]
 }

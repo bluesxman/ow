@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-19T23:57:59.845Z",
+    "last_updated": "2026-04-20T02:37:04.037Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "2"
+    "schema_version": "3"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Torbj%C3%B6rn",
@@ -42,6 +42,7 @@
     "slug": "torbjorn",
     "name": "Torbjörn",
     "role": "damage",
+    "sub_role": "specialist",
     "abilities": [
       {
         "name": "Rivet Gun",
@@ -100,20 +101,6 @@
           "spread": "None",
           "dps": "137.25 while firing (112.7 overall w/reload)"
         },
-        "Rivet Gun Alt Fire": {
-          "ability_type": "Weapon;;Secondary Fire",
-          "damage": "12.5 - 3.75 per pellet / 125 - 37.5 per shot",
-          "falloff": "10 – 20 meters",
-          "headshot": true,
-          "rate_of_fire": "1.43 shots/s",
-          "ammo": 18,
-          "pellets": 10,
-          "reload": "2 seconds",
-          "spread": "4.5 degrees",
-          "projectile_speed": "120 m/s",
-          "projectile_radius": "0.05 meters",
-          "dps": "178.57 while firing (135.54 overall w/reload)"
-        },
         "Forge Hammer": {
           "ability_type": "Weapon",
           "damage": 70,
@@ -166,40 +153,10 @@
           "ability_type": "Major Perk",
           "damage": 30,
           "duration": "5 seconds"
-        },
-        "Scrap Collector": {
-          "ammo": "200 scrap / 1 scrap every 0.5 seconds / Gains 15 scrap from fallen heroes.",
-          "ability_type": "Passive Ability"
-        },
-        "Build Turret": {
-          "ability_type": "Ability",
-          "damage": "14 per round, 14 per rocket",
-          "range": "40/40/40 meters",
-          "rate_of_fire": "2/4/5 rounds per second / 0/0/4 rockets per second",
-          "cooldown": "8 seconds",
-          "duration": "Until destroyed",
-          "headshot": false
-        },
-        "Armor Pack": {
-          "ability_type": "Ability",
-          "projectile_speed": "12 meters per second",
-          "ammo": "200 scrap"
-        },
-        "Molten Core (old)": {
-          "ability_type": "Ultimate Ability",
-          "rate_of_fire": "+50%",
-          "duration": "12 seconds"
-        },
-        "Craftsman": {
-          "ability_type": "Minor Perk"
-        },
-        "Fully Loaded": {
-          "ability_type": "Minor Perk"
         }
       },
       "health": 225,
       "armor": 75
-    },
-    "sub_role": "Specialist"
+    }
   }
 }

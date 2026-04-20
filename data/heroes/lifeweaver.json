@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-19T23:57:59.845Z",
+    "last_updated": "2026-04-20T02:37:04.037Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "2"
+    "schema_version": "3"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Lifeweaver",
@@ -42,6 +42,7 @@
     "slug": "lifeweaver",
     "name": "Lifeweaver",
     "role": "support",
+    "sub_role": "medic",
     "abilities": [
       {
         "name": "Healing Blossom",
@@ -160,33 +161,10 @@
           "ability_type": "Major Perk",
           "duration": "5 seconds",
           "cooldown": "11 seconds"
-        },
-        "Parting Gift": {
-          "healing": "Ally: 250 / Enemy: 75",
-          "duration": "12 seconds",
-          "ability_type": "Passive Ability"
-        },
-        "Life Cycle": {
-          "ability_type": "Minor Perk",
-          "healing": "10 HP per second (passively while alive) / 250 HP (upon death)",
-          "duration": "10 seconds (healing seed)"
-        },
-        "Cleansing Grasp": {
-          "ability_type": "Minor Perk"
-        },
-        "Lifeweaving": {
-          "ability_type": "Minor Perk",
-          "healing": "80 → 110 over 0.3 seconds (max charge) / 10 → 40 over 0.3 seconds (min charge)",
-          "duration": "3 second window"
-        },
-        "Petal Power": {
-          "ability_type": "Major Perk",
-          "rate_of_fire": "+30%"
         }
       },
       "health": 200,
       "shields": 50
-    },
-    "sub_role": "Medic"
+    }
   }
 }

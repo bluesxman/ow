@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-19T23:57:59.845Z",
+    "last_updated": "2026-04-20T02:37:04.037Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "2"
+    "schema_version": "3"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Genji",
@@ -42,6 +42,7 @@
     "slug": "genji",
     "name": "Genji",
     "role": "damage",
+    "sub_role": "flanker",
     "abilities": [
       {
         "name": "Shuriken",
@@ -105,18 +106,6 @@
           "spread": "None",
           "dps": "92.05 while firing (85.94 overall w/reload)"
         },
-        "Shuriken Alt Fire": {
-          "ability_type": "Weapon;;Secondary Fire",
-          "damage": "(per shuriken) / (per shot)",
-          "headshot": true,
-          "projectile_speed": "m/s",
-          "projectile_radius": "0.125 meters",
-          "rate_of_fire": "1.47 shots/s",
-          "pellets": 3,
-          "reload": "1.5 seconds",
-          "spread": "4.5 degrees",
-          "dps": "119.12 while firing (109.09 overall w/reload)"
-        },
         "Swift Strike": {
           "ability_type": "Ability",
           "cooldown": "8 seconds",
@@ -154,13 +143,9 @@
         "Meditation": {
           "ability_type": "Major Perk",
           "healing": "35 per second"
-        },
-        "Acrobatics": {
-          "ability_type": "Minor Perk"
         }
       },
       "health": 250
-    },
-    "sub_role": "Flanker"
+    }
   }
 }

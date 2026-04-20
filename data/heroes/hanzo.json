@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-19T23:57:59.845Z",
+    "last_updated": "2026-04-20T02:37:04.037Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "2"
+    "schema_version": "3"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Hanzo",
@@ -42,6 +42,7 @@
     "slug": "hanzo",
     "name": "Hanzo",
     "role": "damage",
+    "sub_role": "sharpshooter",
     "abilities": [
       {
         "name": "Storm Bow",
@@ -158,25 +159,9 @@
           "damage": "75 → 25 (after bounce)",
           "pellets": "1 → 5 (after bounce)",
           "headshot": false
-        },
-        "Scatter Arrow": {
-          "ability_type": "Ability",
-          "damage": "Initial shot: See Storm Bow / Scattered: *Fully charged: 75 per arrow *Uncharged: 22 per arrow",
-          "projectile_speed": "See Storm Bow",
-          "pellets": "6 scattered arrows",
-          "rate_of_fire": "See Storm Bow",
-          "cooldown": "10 seconds",
-          "headshot": false
-        },
-        "Yamagami Technique": {
-          "ability_type": "Major Perk"
-        },
-        "Swift Lunge": {
-          "ability_type": "Minor Perk"
         }
       },
       "health": 250
-    },
-    "sub_role": "Sharpshooter"
+    }
   }
 }

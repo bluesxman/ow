@@ -10,7 +10,6 @@ import { HeroSchema } from './validate.js';
 export interface PublishPaths {
   dataDir: string;
   heroesDir: string;
-  previousDir: string;
   changelogPath: string;
   attributionPath: string;
   licensePath: string;
@@ -22,7 +21,6 @@ export function buildPaths(root: string): PublishPaths {
   return {
     dataDir,
     heroesDir: join(dataDir, 'heroes'),
-    previousDir: join(dataDir, '.previous'),
     changelogPath: join(dataDir, 'CHANGELOG.md'),
     attributionPath: join(dataDir, 'ATTRIBUTION.md'),
     licensePath: join(dataDir, 'LICENSE'),
@@ -220,9 +218,6 @@ export async function publish(input: PublishInput): Promise<{ paths: PublishPath
 
   await mkdir(paths.dataDir, { recursive: true });
   await mkdir(paths.heroesDir, { recursive: true });
-  await mkdir(paths.previousDir, { recursive: true });
-
-  await rotatePrevious(paths);
 
   const topLevel: Array<[string, unknown]> = [
     [join(paths.dataDir, 'index.json'), indexDoc],
@@ -316,18 +311,6 @@ export async function writeLinks(path: string, links: PublishedLinks, metadata: 
   }
   lines.push('');
   await writeFile(path, lines.join('\n'), 'utf8');
-}
-
-async function rotatePrevious(paths: PublishPaths): Promise<void> {
-  const files = ['index.json', 'heroes.json', 'perks.json', 'abilities.json', 'stats.json', 'all.json', 'schema.json'];
-  for (const f of files) {
-    try {
-      const src = join(paths.dataDir, f);
-      const dst = join(paths.previousDir, f);
-      const body = await readFile(src, 'utf8');
-      await writeFile(dst, body, 'utf8');
-    } catch {}
-  }
 }
 
 async function clearPerHeroFiles(dir: string): Promise<void> {

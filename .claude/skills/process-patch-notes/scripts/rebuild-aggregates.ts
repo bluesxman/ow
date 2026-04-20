@@ -49,6 +49,7 @@ async function main(): Promise<void> {
     [join(paths.dataDir, 'abilities.json'), aggregates.abilitiesDoc],
     [join(paths.dataDir, 'stats.json'), aggregates.statsDoc],
     [join(paths.dataDir, 'all.json'), aggregates.allDoc],
+    [join(paths.dataDir, 'schema.json'), aggregates.schemaDoc],
   ];
 
   for (const [path, value] of outputs) {

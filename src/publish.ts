@@ -62,6 +62,7 @@ export interface Aggregates {
   abilitiesDoc: unknown;
   statsDoc: unknown;
   allDoc: unknown;
+  schemaDoc: unknown;
 }
 
 export function buildAggregates(
@@ -161,7 +162,7 @@ export function buildAggregates(
     heroes: Object.fromEntries(slugs.map((s) => [s, heroes[s]!])),
   };
 
-  return { indexDoc, heroesDoc, perksDoc, abilitiesDoc, statsDoc, allDoc };
+  return { indexDoc, heroesDoc, perksDoc, abilitiesDoc, statsDoc, allDoc, schemaDoc };
 }
 
 export async function publish(input: PublishInput): Promise<{ paths: PublishPaths; filesWritten: string[] }> {
@@ -172,7 +173,7 @@ export async function publish(input: PublishInput): Promise<{ paths: PublishPath
   const slugs = Object.keys(heroes).sort();
   const rosterSorted = [...roster].sort((a, b) => a.slug.localeCompare(b.slug));
 
-  const { indexDoc, heroesDoc, perksDoc, abilitiesDoc, statsDoc, allDoc } = buildAggregates(
+  const { indexDoc, heroesDoc, perksDoc, abilitiesDoc, statsDoc, allDoc, schemaDoc } = buildAggregates(
     heroes,
     roster,
     metadata,

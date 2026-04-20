@@ -27,7 +27,7 @@ https://raw.githubusercontent.com/bluesxman/ow/main/data/<file>
 | `ATTRIBUTION.md` | Per-hero source URLs + CC-BY-SA 3.0 notice. |
 | `LICENSE` | CC-BY-SA 3.0, covering all data in this directory. |
 
-Every JSON file carries a `metadata` block with `last_updated`, `patch_version`, `hero_count`, `heroes_failed`, `fandom_failed`, `sources` (explicit per-source attribution), `schema_version`. The current schema version is `"3"`.
+Every JSON file carries a `metadata` block with `last_updated`, `patch_version`, `hero_count`, `heroes_failed`, `fandom_failed`, `sources` (explicit per-source attribution), `schema_version`. The current schema version is `"4"`.
 
 Every `heroes/<slug>.json` also includes a top-level `attribution` block with the exact Fandom and Blizzard page URLs the data came from.
 

@@ -1,4 +1,4 @@
-import type { AbilityStat, HeroStats } from '../types.js';
+import type { AbilityStat, AbilityStatMode, HeroStats } from '../types.js';
 import type { ParsedTemplate } from './fandomWikitext.js';
 
 const FIELD_MAP: Record<string, keyof AbilityStat> = {
@@ -86,11 +86,45 @@ export function normalizeFandomHero(
   const hp = normalizeInfoboxHP(infobox);
   const subRole = normalizeSubRole(infobox);
 
-  const abilityStats: Record<string, AbilityStat> = {};
+  const parsedInOrder: Array<{ name: string; stats: AbilityStat }> = [];
   for (const tpl of abilities) {
     const parsed = normalizeAbility(tpl);
-    if (!parsed) continue;
-    abilityStats[parsed.name] = parsed.stats;
+    if (parsed) parsedInOrder.push(parsed);
+  }
+
+  const groups = new Map<string, Array<{ name: string; stats: AbilityStat }>>();
+  for (const entry of parsedInOrder) {
+    const existing = groups.get(entry.name);
+    if (existing) existing.push(entry);
+    else groups.set(entry.name, [entry]);
+  }
+
+  const abilityStats: Record<string, AbilityStat> = {};
+  for (const [name, group] of groups) {
+    if (group.length === 1) {
+      abilityStats[name] = group[0]!.stats;
+      continue;
+    }
+    const baseIdx = pickBaseIndex(group);
+    const base = group[baseIdx]!.stats;
+    const modes: Record<string, AbilityStatMode> = {};
+    for (let i = 0; i < group.length; i++) {
+      if (i === baseIdx) continue;
+      const { stats } = group[i]!;
+      const modeKey = typeof stats.ability_type === 'string' && stats.ability_type.trim()
+        ? stats.ability_type.trim()
+        : 'Alt';
+      const { ability_type: _at, modes: _m, ...rest } = stats;
+      void _at;
+      void _m;
+      const submode = rest as AbilityStatMode;
+      if (modes[modeKey] !== undefined) {
+        console.warn(`duplicate sub-mode "${modeKey}" for ability "${name}" — overwriting`);
+      }
+      modes[modeKey] = submode;
+    }
+    base.modes = modes;
+    abilityStats[name] = base;
   }
 
   const stats: HeroStats = { ...hp };
@@ -99,6 +133,14 @@ export function normalizeFandomHero(
   const result: FandomHeroFields = { stats };
   if (subRole) result.sub_role = subRole;
   return result;
+}
+
+function pickBaseIndex(group: Array<{ stats: AbilityStat }>): number {
+  const hipFire = group.findIndex((g) => /hip\s*fire/i.test(String(g.stats.ability_type ?? '')));
+  if (hipFire >= 0) return hipFire;
+  const primary = group.findIndex((g) => /primary\s*fire/i.test(String(g.stats.ability_type ?? '')));
+  if (primary >= 0) return primary;
+  return 0;
 }
 
 function parseNumber(value: string | undefined): number | undefined {

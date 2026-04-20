@@ -17,7 +17,12 @@ const AbilitySchema = z.object({
 
 const StatValue = z.union([z.number(), z.string(), z.boolean()]);
 
-const AbilityStatSchema = z.record(z.string(), StatValue.optional());
+const AbilityStatModeSchema = z.record(z.string(), StatValue.optional());
+
+const AbilityStatSchema = z.record(
+  z.string(),
+  z.union([StatValue, z.record(z.string(), AbilityStatModeSchema)]).optional(),
+);
 
 export const HeroSchema = z.object({
   slug: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/),

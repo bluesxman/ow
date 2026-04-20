@@ -10,7 +10,7 @@ export interface Ability {
   description: string;
 }
 
-export interface AbilityStat {
+export interface AbilityStatMode {
   damage?: number | string;
   cooldown?: number | string;
   range?: number | string;
@@ -30,6 +30,29 @@ export interface AbilityStat {
   movement_speed?: number | string;
   ability_type?: string;
   [key: string]: number | string | boolean | undefined;
+}
+
+export interface AbilityStat {
+  damage?: number | string;
+  cooldown?: number | string;
+  range?: number | string;
+  duration?: number | string;
+  ammo?: number | string;
+  rate_of_fire?: number | string;
+  reload?: number | string;
+  falloff?: number | string;
+  spread?: number | string;
+  projectile_radius?: number | string;
+  projectile_speed?: number | string;
+  pellets?: number | string;
+  headshot?: boolean | string;
+  radius?: number | string;
+  healing?: number | string;
+  dps?: number | string;
+  movement_speed?: number | string;
+  ability_type?: string;
+  modes?: Record<string, AbilityStatMode>;
+  [key: string]: number | string | boolean | Record<string, AbilityStatMode> | undefined;
 }
 
 export interface HeroStats {

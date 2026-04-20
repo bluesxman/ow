@@ -11,7 +11,7 @@ export const NAV_TIMEOUT_MS = 30_000;
 export const MIN_EXPECTED_HEROES = 30;
 export const MAX_HERO_FAILURES_BEFORE_ABORT = 5;
 
-export const SCHEMA_VERSION = '3';
+export const SCHEMA_VERSION = '4';
 
 export const SLUG_OVERRIDES: Record<string, string> = {
   'soldier: 76': 'soldier-76',

@@ -5,7 +5,7 @@ import process from 'node:process';
 import { DATA_SOURCES, FANDOM_MAX_FAILURES_BEFORE_ISSUE, SCHEMA_VERSION } from './config.js';
 import { PlaywrightHeroScraper } from './scraper/PlaywrightHeroScraper.js';
 import { validateHero, checkAgainstFixture } from './validate.js';
-import { diffHeroes, isEmptyDiff } from './diff.js';
+import { diffHeroes } from './diff.js';
 import { publish, readPreviousHeroes, buildPaths } from './publish.js';
 import { renderConsole, renderIssueBody, type RunReport } from './report.js';
 import { enrichAllFromFandom } from './sources/enrichFromFandom.js';
@@ -94,19 +94,15 @@ async function main(): Promise<void> {
     };
 
     if (exitCode === 0) {
-      if (isEmptyDiff(diff) && !args.dryRun) {
-        console.log('No changes detected — skipping publish (idempotent).');
-      } else {
-        await publish({
-          heroes: merged,
-          roster,
-          metadata,
-          diff,
-          dryRun: args.dryRun,
-          root,
-        });
-        console.log(args.dryRun ? 'Dry run complete.' : 'Published.');
-      }
+      await publish({
+        heroes: merged,
+        roster,
+        metadata,
+        diff,
+        dryRun: args.dryRun,
+        root,
+      });
+      console.log(args.dryRun ? 'Dry run complete.' : 'Published.');
     }
 
     const report: RunReport = {

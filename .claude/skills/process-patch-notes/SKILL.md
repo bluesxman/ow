@@ -19,13 +19,11 @@ Fandom's wiki (the source of `stats.*` fields) lags real patches. This skill is 
 
 !`git rev-parse --abbrev-ref HEAD`
 
-!`npm run patch-notes:fetch -- --since={{args:--since=30d}}`
+!`npm run --silent patch-notes:fetch -- $0 && cat .run/patch-notes.md`
 
-!`cat .run/patch-notes.md`
+!`npm run --silent patch-notes:affected && cat .run/patch-affected.json`
 
-!`npm run patch-notes:affected`
-
-!`cat .run/patch-affected.json`
+Invoked without arguments, the fetch script uses its 30-day default window. Pass `--since=YYYY-MM-DD` or `--since=Nd` to override (e.g. `/process-patch-notes --since=2026-04-01`).
 
 ## Update algorithm
 

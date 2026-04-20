@@ -19,6 +19,9 @@ function parseArgs(argv) {
     if (!m) continue;
     const key = m[1];
     const val = m[2];
+    // Empty or unset values fall back to the default — this keeps the skill
+    // preflight robust when the user invokes without an explicit --since.
+    if (!val) continue;
     if (key === 'since' || key === 'out' || key === 'url') args[key] = val;
   }
   return args;

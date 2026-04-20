@@ -53,11 +53,20 @@ export interface PublishInput {
   root: string;
 }
 
-export async function publish(input: PublishInput): Promise<{ paths: PublishPaths; filesWritten: string[] }> {
-  const { heroes, roster, metadata, diff, dryRun, root } = input;
-  const paths = buildPaths(root);
-  const filesWritten: string[] = [];
+export interface Aggregates {
+  indexDoc: unknown;
+  heroesDoc: unknown;
+  perksDoc: unknown;
+  abilitiesDoc: unknown;
+  statsDoc: unknown;
+  allDoc: unknown;
+}
 
+export function buildAggregates(
+  heroes: Record<string, Hero>,
+  roster: RosterEntry[],
+  metadata: Metadata,
+): Aggregates {
   const slugs = Object.keys(heroes).sort();
   const rosterSorted = [...roster].sort((a, b) => a.slug.localeCompare(b.slug));
 
@@ -99,6 +108,23 @@ export async function publish(input: PublishInput): Promise<{ paths: PublishPath
     metadata,
     heroes: Object.fromEntries(slugs.map((s) => [s, heroes[s]!])),
   };
+
+  return { indexDoc, heroesDoc, perksDoc, abilitiesDoc, statsDoc, allDoc };
+}
+
+export async function publish(input: PublishInput): Promise<{ paths: PublishPaths; filesWritten: string[] }> {
+  const { heroes, roster, metadata, diff, dryRun, root } = input;
+  const paths = buildPaths(root);
+  const filesWritten: string[] = [];
+
+  const slugs = Object.keys(heroes).sort();
+  const rosterSorted = [...roster].sort((a, b) => a.slug.localeCompare(b.slug));
+
+  const { indexDoc, heroesDoc, perksDoc, abilitiesDoc, statsDoc, allDoc } = buildAggregates(
+    heroes,
+    roster,
+    metadata,
+  );
 
   if (dryRun) {
     console.log(`[dry-run] would write ${slugs.length} per-hero files + 6 aggregate files + ATTRIBUTION.md`);

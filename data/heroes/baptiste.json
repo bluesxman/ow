@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T02:37:04.037Z",
+    "last_updated": "2026-04-20T05:43:42.860Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "3"
+    "schema_version": "4"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Baptiste",
@@ -103,7 +103,18 @@
           "ammo": 36,
           "reload": "1.5 seconds animation",
           "projectile_radius": "0.07 meters",
-          "dps": "127.5 while firing (109 overall w/reload)"
+          "dps": "127.5 while firing (109 overall w/reload)",
+          "modes": {
+            "Secondary Fire": {
+              "healing": "30 (direct hit) / 60 (splash, ally)",
+              "radius": "3 meters",
+              "rate_of_fire": "1.11 shots/s",
+              "ammo": 10,
+              "reload": "1.5 seconds animation",
+              "projectile_radius": "None",
+              "projectile_speed": "60 m/s"
+            }
+          }
         },
         "Regenerative Burst": {
           "ability_type": "Ability",

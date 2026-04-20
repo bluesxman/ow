@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T02:37:04.037Z",
+    "last_updated": "2026-04-20T05:43:42.860Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "3"
+    "schema_version": "4"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Ashe",
@@ -95,7 +95,20 @@
           "ammo": 12,
           "reload": "0.5 seconds (initial animation) / +0.25 seconds per bullet / 3.5 seconds (full reload animation)",
           "projectile_radius": "0.07 meters",
-          "dps": "136.5 while firing (63.86 overall w/ full reload, 34.78 w/ reload after each shot)"
+          "dps": "136.5 while firing (63.86 overall w/ full reload, 34.78 w/ reload after each shot)",
+          "modes": {
+            "ADS": {
+              "damage": "75 – 22.5",
+              "falloff": "35 – 55 meters",
+              "headshot": true,
+              "rate_of_fire": "1.52 shots/s",
+              "ammo": 12,
+              "reload": "0.5 seconds (initial animation) / +0.2 seconds per bullet / 2.9 seconds (full reload animation)",
+              "spread": "None",
+              "projectile_radius": "0.07 meters",
+              "dps": "114.33 while firing (41.3 overall w/ full reload, 32.98 w/ reload after each shot)"
+            }
+          }
         },
         "Coach Gun": {
           "ability_type": "Ability",

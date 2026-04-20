@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T02:37:04.037Z",
+    "last_updated": "2026-04-20T05:43:42.860Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "3"
+    "schema_version": "4"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Roadhog",
@@ -97,7 +97,23 @@
           "spread": "8 degrees",
           "projectile_speed": "80 m/s",
           "projectile_radius": "0.05 meters",
-          "dps": "203.13 while firing (154.76 overall w/ reload)"
+          "dps": "203.13 while firing (154.76 overall w/ reload)",
+          "modes": {
+            "Secondary Fire": {
+              "damage": "50 (pre-detonation) / 7 – 2.1 (post-detonation, per pellet) / 175 – 52.5 (post-detonation, per shot)",
+              "falloff": "None (pre-detonation) / 24 - 39 meters (post-detonation)",
+              "projectile_speed": "60 m/s (pre-detonation) / 80 m/s (post-detonation)",
+              "projectile_radius": "0.05 meters (pre-detonation) / 0.075 meters (post-detonation)",
+              "range": "9 meters (pre-detonation)",
+              "pellets": "1 (pre-detonation) / 25 (post-detonation)",
+              "rate_of_fire": "1.25 shots/s",
+              "ammo": 6,
+              "reload": "1.75 seconds animation",
+              "headshot": true,
+              "spread": "8 degrees",
+              "dps": "203.13 while firing (154.76 overall w/ reload)"
+            }
+          }
         },
         "Chain Hook": {
           "ability_type": "Ability",

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T02:37:04.037Z",
+    "last_updated": "2026-04-20T05:43:42.860Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "3"
+    "schema_version": "4"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Torbj%C3%B6rn",
@@ -99,7 +99,22 @@
           "ammo": 18,
           "reload": "2 seconds",
           "spread": "None",
-          "dps": "137.25 while firing (112.7 overall w/reload)"
+          "dps": "137.25 while firing (112.7 overall w/reload)",
+          "modes": {
+            "Secondary Fire": {
+              "damage": "12.5 - 3.75 per pellet / 125 - 37.5 per shot",
+              "falloff": "10 – 20 meters",
+              "headshot": true,
+              "rate_of_fire": "1.43 shots/s",
+              "ammo": 18,
+              "pellets": 10,
+              "reload": "2 seconds",
+              "spread": "4.5 degrees",
+              "projectile_speed": "120 m/s",
+              "projectile_radius": "0.05 meters",
+              "dps": "178.57 while firing (135.54 overall w/reload)"
+            }
+          }
         },
         "Forge Hammer": {
           "ability_type": "Weapon",

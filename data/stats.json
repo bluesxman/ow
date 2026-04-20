@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T02:37:04.037Z",
+    "last_updated": "2026-04-20T05:43:42.860Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "3"
+    "schema_version": "4"
   },
   "heroes": {
     "ana": {
@@ -50,7 +50,15 @@
             "duration": "0.59 seconds effect",
             "projectile_radius": "0.15 meters",
             "spread": "None",
-            "dps": "while firing / overall w/ reload"
+            "dps": "while firing / overall w/ reload",
+            "modes": {
+              "ADS": {
+                "headshot": false,
+                "projectile_radius": "0.07 meters (enemies) / 0.3 meters (allies)",
+                "spread": "None",
+                "dps": "while firing / overall w/ reload"
+              }
+            }
           },
           "Sleep Dart": {
             "ability_type": "Ability",
@@ -187,7 +195,20 @@
             "ammo": 12,
             "reload": "0.5 seconds (initial animation) / +0.25 seconds per bullet / 3.5 seconds (full reload animation)",
             "projectile_radius": "0.07 meters",
-            "dps": "136.5 while firing (63.86 overall w/ full reload, 34.78 w/ reload after each shot)"
+            "dps": "136.5 while firing (63.86 overall w/ full reload, 34.78 w/ reload after each shot)",
+            "modes": {
+              "ADS": {
+                "damage": "75 – 22.5",
+                "falloff": "35 – 55 meters",
+                "headshot": true,
+                "rate_of_fire": "1.52 shots/s",
+                "ammo": 12,
+                "reload": "0.5 seconds (initial animation) / +0.2 seconds per bullet / 2.9 seconds (full reload animation)",
+                "spread": "None",
+                "projectile_radius": "0.07 meters",
+                "dps": "114.33 while firing (41.3 overall w/ full reload, 32.98 w/ reload after each shot)"
+              }
+            }
           },
           "Coach Gun": {
             "ability_type": "Ability",
@@ -255,7 +276,18 @@
             "ammo": 36,
             "reload": "1.5 seconds animation",
             "projectile_radius": "0.07 meters",
-            "dps": "127.5 while firing (109 overall w/reload)"
+            "dps": "127.5 while firing (109 overall w/reload)",
+            "modes": {
+              "Secondary Fire": {
+                "healing": "30 (direct hit) / 60 (splash, ally)",
+                "radius": "3 meters",
+                "rate_of_fire": "1.11 shots/s",
+                "ammo": 10,
+                "reload": "1.5 seconds animation",
+                "projectile_radius": "None",
+                "projectile_speed": "60 m/s"
+              }
+            }
           },
           "Regenerative Burst": {
             "ability_type": "Ability",
@@ -458,7 +490,20 @@
             "reload": "1.5 seconds animation",
             "spread": "None",
             "projectile_radius": "0.07 meters",
-            "dps": "140 while firing (93.33 overall w/reload)"
+            "dps": "140 while firing (93.33 overall w/reload)",
+            "modes": {
+              "Secondary Fire": {
+                "damage": "50 - 15",
+                "falloff": "20 - 30 meters",
+                "headshot": false,
+                "rate_of_fire": "8.33 shots/s",
+                "ammo": 6,
+                "reload": "1.5 seconds animation",
+                "spread": "6 degrees",
+                "projectile_radius": "0.07 meters",
+                "dps": "416.67 while firing (135.14 overall w/reload)"
+              }
+            }
           },
           "Combat Roll": {
             "ability_type": "Ability",
@@ -801,7 +846,19 @@
             "reload": "1.8 seconds",
             "projectile_radius": "0.07 meters",
             "spread": "0.45 degrees (max)",
-            "dps": "while firing ( w/ reload)"
+            "dps": "while firing ( w/ reload)",
+            "modes": {
+              "ADS": {
+                "damage": "22 - 6.67 (per shot) / 66 - 20 (per round)",
+                "falloff": "35 - 50 meters",
+                "headshot": true,
+                "rate_of_fire": "2.08 volleys/s",
+                "pellets": 3,
+                "ammo": 36,
+                "reload": "1.8 seconds",
+                "projectile_radius": "0.07 meters"
+              }
+            }
           },
           "Cyber Frag": {
             "ability_type": "Ability",
@@ -906,7 +963,20 @@
             "ammo": 30,
             "reload": "1.5 seconds",
             "spread": "None",
-            "dps": "92.05 while firing (85.94 overall w/reload)"
+            "dps": "92.05 while firing (85.94 overall w/reload)",
+            "modes": {
+              "Secondary Fire": {
+                "damage": "(per shuriken) / (per shot)",
+                "headshot": true,
+                "projectile_speed": "m/s",
+                "projectile_radius": "0.125 meters",
+                "rate_of_fire": "1.47 shots/s",
+                "pellets": 3,
+                "reload": "1.5 seconds",
+                "spread": "4.5 degrees",
+                "dps": "119.12 while firing (109.09 overall w/reload)"
+              }
+            }
           },
           "Swift Strike": {
             "ability_type": "Ability",
@@ -1112,7 +1182,17 @@
             "spread": "None",
             "projectile_radius": "0.12 meters",
             "duration": "0.65 seconds (charge time) / 0.25 seconds (recovery)",
-            "dps": "(max charge): 77.7 while firing (68 overall w/ reload)"
+            "dps": "(max charge): 77.7 while firing (68 overall w/ reload)",
+            "modes": {
+              "Secondary Fire": {
+                "headshot": false,
+                "spread": "None",
+                "healing": "115 per second",
+                "range": "20 meters",
+                "projectile_radius": "0.25 meters",
+                "duration": "0.6 seconds (energy regen delay)"
+              }
+            }
           },
           "Outburst": {
             "ability_type": "Ability",
@@ -1670,6 +1750,32 @@
           },
           "Combat Fuel": {
             "ability_type": "Major Perk"
+          },
+          "Incendiary Chaingun": {
+            "ability_type": "Weapon;;Primary Fire",
+            "damage": "4 - 1.2 (direct) / 15 per second (damage over time)",
+            "falloff": "30 - 40 meters / 15 - 20 meters (simultaneous fire)",
+            "headshot": true,
+            "ammo": 300,
+            "rate_of_fire": "18 shots/s",
+            "reload": "2 seconds",
+            "spread": "1 degree (base) / 4 degrees (simultaneous fire)",
+            "projectile_radius": "0.04 meters",
+            "duration": "4 seconds (damage over time)",
+            "dps": "72 while firing (64.7 w/ reload) 87 w/ damage over time 288 while firing both guns simultaneously 303 w/ damage over time",
+            "modes": {
+              "Secondary Fire": {
+                "damage": "4 - 1.2",
+                "falloff": "30 - 40 meters / 15 - 20 meters (simultaneous fire)",
+                "headshot": true,
+                "ammo": 300,
+                "rate_of_fire": "18 shots/s",
+                "reload": "2 seconds",
+                "spread": "1 degree (base) / 4 degrees (simultaneous fire)",
+                "projectile_radius": "0.04 meters",
+                "dps": "72 while firing (64.7 w/ reload) 288 while firing both guns simultaneously 303 w/ damage over time"
+              }
+            }
           }
         },
         "health": 425,
@@ -1691,7 +1797,20 @@
             "projectile_speed": "40 m/s",
             "projectile_radius": "0.55 meters",
             "spread": "None",
-            "dps": "110 while firing (90.58 overall w/reload)"
+            "dps": "110 while firing (90.58 overall w/reload)",
+            "modes": {
+              "Secondary Fire": {
+                "damage": 85,
+                "headshot": true,
+                "rate_of_fire": "1 shot per 0.8 seconds",
+                "ammo": 140,
+                "reload": "1.5 seconds animation",
+                "spread": "None",
+                "projectile_radius": "0.2 meters",
+                "projectile_speed": "115 m/s",
+                "dps": "106.25 while firing (94.44 overall w/reload)"
+              }
+            }
           },
           "Cryo-Freeze": {
             "ability_type": "Ability",
@@ -1870,7 +1989,17 @@
             "duration": "3 seconds (HoT) / 0.45 seconds (energy regen delay)",
             "range": "15 meters",
             "projectile_radius": "None",
-            "projectile_speed": "40 m/s"
+            "projectile_speed": "40 m/s",
+            "modes": {
+              "Secondary Fire": {
+                "damage": "65 per second",
+                "headshot": false,
+                "healing": "30 per second (self)",
+                "ammo": "∞",
+                "range": "20 meters",
+                "dps": "65 while firing"
+              }
+            }
           },
           "Fade": {
             "ability_type": "Ability",
@@ -2224,7 +2353,23 @@
             "spread": "8 degrees",
             "projectile_speed": "80 m/s",
             "projectile_radius": "0.05 meters",
-            "dps": "203.13 while firing (154.76 overall w/ reload)"
+            "dps": "203.13 while firing (154.76 overall w/ reload)",
+            "modes": {
+              "Secondary Fire": {
+                "damage": "50 (pre-detonation) / 7 – 2.1 (post-detonation, per pellet) / 175 – 52.5 (post-detonation, per shot)",
+                "falloff": "None (pre-detonation) / 24 - 39 meters (post-detonation)",
+                "projectile_speed": "60 m/s (pre-detonation) / 80 m/s (post-detonation)",
+                "projectile_radius": "0.05 meters (pre-detonation) / 0.075 meters (post-detonation)",
+                "range": "9 meters (pre-detonation)",
+                "pellets": "1 (pre-detonation) / 25 (post-detonation)",
+                "rate_of_fire": "1.25 shots/s",
+                "ammo": 6,
+                "reload": "1.75 seconds animation",
+                "headshot": true,
+                "spread": "8 degrees",
+                "dps": "203.13 while firing (154.76 overall w/ reload)"
+              }
+            }
           },
           "Chain Hook": {
             "ability_type": "Ability",
@@ -2419,7 +2564,17 @@
             "duration": "9 seconds (energy decay delay)",
             "reload": "1.2 seconds",
             "spread": "1.6 degrees (vertical, max) / 0.64 degrees (horizontal, max)",
-            "dps": "144 while firing (~100.93 overall w/reload)"
+            "dps": "144 while firing (~100.93 overall w/reload)",
+            "modes": {
+              "Secondary Fire": {
+                "damage": "120 - 60 (max charge) / 21 - 10.5 (min charge)",
+                "falloff": "40 – 60 meters",
+                "projectile_radius": "0.14 meters",
+                "cooldown": "None",
+                "headshot": true,
+                "spread": "None"
+              }
+            }
           },
           "Power Slide": {
             "ability_type": "Ability",
@@ -2593,7 +2748,22 @@
             "ammo": 100,
             "reload": "1.5 seconds animation",
             "duration": "2 seconds (decay delay) / 1.7 seconds (decay per level)",
-            "dps": "60/120/180 while firing"
+            "dps": "60/120/180 while firing",
+            "modes": {
+              "Secondary Fire": {
+                "damage": "5 - 100 (direct hit, min - max charge) / 2.5 - 50 (aoe at falloff start, min - max charge) / 2.5 - 12.5 (aoe at max radius, min - max charge)",
+                "projectile_radius": "0.115 - 0.475 meters (min - max charge)",
+                "radius": "0.5 meters (falloff start) / 0.5 - 2.0 meters (max radius, min - max charge)",
+                "duration": "1 second (to max charge)",
+                "rate_of_fire": "3.9 shots/s (min charge) / 0.8 shots/s (max charge)",
+                "projectile_speed": "50 m/s",
+                "ammo": 100,
+                "reload": "1.5 seconds animation",
+                "headshot": false,
+                "spread": "None",
+                "dps": "90.9 while firing (at full charge)"
+              }
+            }
           },
           "Sentry Turret": {
             "ability_type": "Ability",
@@ -2650,7 +2820,22 @@
             "ammo": 18,
             "reload": "2 seconds",
             "spread": "None",
-            "dps": "137.25 while firing (112.7 overall w/reload)"
+            "dps": "137.25 while firing (112.7 overall w/reload)",
+            "modes": {
+              "Secondary Fire": {
+                "damage": "12.5 - 3.75 per pellet / 125 - 37.5 per shot",
+                "falloff": "10 – 20 meters",
+                "headshot": true,
+                "rate_of_fire": "1.43 shots/s",
+                "ammo": 18,
+                "pellets": 10,
+                "reload": "2 seconds",
+                "spread": "4.5 degrees",
+                "projectile_speed": "120 m/s",
+                "projectile_radius": "0.05 meters",
+                "dps": "178.57 while firing (135.54 overall w/reload)"
+              }
+            }
           },
           "Forge Hammer": {
             "ability_type": "Weapon",
@@ -2904,7 +3089,20 @@
             "reload": "1.5 seconds animation",
             "spread": "3 degrees (max)",
             "projectile_radius": "0.07 meters",
-            "dps": "140 while firing (98 overall w/ reload)"
+            "dps": "140 while firing (98 overall w/ reload)",
+            "modes": {
+              "ADS": {
+                "damage": "12 - 6 (at 0% power) / 120 - 60 (at 100% power)",
+                "falloff": "50 - 70 meters",
+                "headshot": true,
+                "rate_of_fire": "0.5 second recovery",
+                "ammo": 35,
+                "reload": "1.5 seconds animation",
+                "spread": "None",
+                "projectile_radius": "None",
+                "dps": "80 while firing (full charge) (70 overall w/reload)"
+              }
+            }
           },
           "Grappling Hook": {
             "ability_type": "Ability",
@@ -2953,7 +3151,17 @@
             "range": "8 meters",
             "ammo": 120,
             "reload": "1.5 seconds animation",
-            "dps": "70 while firing (52.24 overall w/reload)"
+            "dps": "70 while firing (52.24 overall w/reload)",
+            "modes": {
+              "Secondary Fire": {
+                "damage": "15.93 (min charge) / 60 (max charge)",
+                "headshot": false,
+                "range": "40 meters",
+                "projectile_radius": "0.33 meters",
+                "spread": "None",
+                "dps": "14.67, continuous fire at minimum charge 37.5, continuous fire at max charge 19.35, continuous fire with max hold"
+              }
+            }
           },
           "Jump Pack": {
             "ability_type": "Ability",
@@ -3152,7 +3360,21 @@
             "reload": "1.5 seconds animation",
             "projectile_radius": "0.2 meters",
             "range": "15 meters",
-            "dps": "95 while firing (0% charge) (73.07 overall w/reload)175 while firing (100% charge) (134.61 overall w/reload)"
+            "dps": "95 while firing (0% charge) (73.07 overall w/reload)175 while firing (100% charge) (134.61 overall w/reload)",
+            "modes": {
+              "Secondary Fire": {
+                "damage": "55 – 11 (enemy, 0% Energy) / 110 – 22 (enemy, 100% Energy) / 27.5 – 5.5 (self, 0% Energy) / 55 – 11 (self, 100% Energy)",
+                "headshot": false,
+                "rate_of_fire": "1 shot/s",
+                "ammo": 100,
+                "reload": "1.5 seconds",
+                "projectile_speed": "25 m/s",
+                "projectile_radius": "0.32 meters",
+                "radius": "0.5 - 2.5 meters",
+                "spread": "None",
+                "dps": "55 while firing (0% charge) (40 overall w/reload) 110 while firing (100% charge (80 overall w/reload)"
+              }
+            }
           },
           "Particle Barrier": {
             "ability_type": "Ability",
@@ -3209,7 +3431,20 @@
             "spread": "None",
             "projectile_speed": "90 m/s",
             "projectile_radius": "0.225 meters",
-            "dps": "125 while firing (108.7 overall w/reload) 156.25 while firing w/ discord"
+            "dps": "125 while firing (108.7 overall w/reload) 156.25 while firing w/ discord",
+            "modes": {
+              "Secondary Fire": {
+                "damage": "50 per orb / 250 per volley",
+                "headshot": true,
+                "rate_of_fire": "1 orb per 0.524 seconds (charging) / 1 shot per 0.144 seconds (firing) / 0.6 seconds recovery",
+                "ammo": 25,
+                "reload": "1.5 seconds animation",
+                "spread": "None",
+                "projectile_speed": "90 m/s",
+                "projectile_radius": "0.225 meters",
+                "dps": "77.64 while firing (68.18 overall w/reload)"
+              }
+            }
           },
           "Orb of Harmony": {
             "ability_type": "Ability",

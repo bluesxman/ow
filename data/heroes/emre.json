@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T02:37:04.037Z",
+    "last_updated": "2026-04-20T05:43:42.860Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "3"
+    "schema_version": "4"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Emre",
@@ -101,7 +101,19 @@
           "reload": "1.8 seconds",
           "projectile_radius": "0.07 meters",
           "spread": "0.45 degrees (max)",
-          "dps": "while firing ( w/ reload)"
+          "dps": "while firing ( w/ reload)",
+          "modes": {
+            "ADS": {
+              "damage": "22 - 6.67 (per shot) / 66 - 20 (per round)",
+              "falloff": "35 - 50 meters",
+              "headshot": true,
+              "rate_of_fire": "2.08 volleys/s",
+              "pellets": 3,
+              "ammo": 36,
+              "reload": "1.8 seconds",
+              "projectile_radius": "0.07 meters"
+            }
+          }
         },
         "Cyber Frag": {
           "ability_type": "Ability",

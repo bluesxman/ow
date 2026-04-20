@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T02:37:04.037Z",
+    "last_updated": "2026-04-20T05:43:42.860Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "3"
+    "schema_version": "4"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Symmetra",
@@ -94,7 +94,22 @@
           "ammo": 100,
           "reload": "1.5 seconds animation",
           "duration": "2 seconds (decay delay) / 1.7 seconds (decay per level)",
-          "dps": "60/120/180 while firing"
+          "dps": "60/120/180 while firing",
+          "modes": {
+            "Secondary Fire": {
+              "damage": "5 - 100 (direct hit, min - max charge) / 2.5 - 50 (aoe at falloff start, min - max charge) / 2.5 - 12.5 (aoe at max radius, min - max charge)",
+              "projectile_radius": "0.115 - 0.475 meters (min - max charge)",
+              "radius": "0.5 meters (falloff start) / 0.5 - 2.0 meters (max radius, min - max charge)",
+              "duration": "1 second (to max charge)",
+              "rate_of_fire": "3.9 shots/s (min charge) / 0.8 shots/s (max charge)",
+              "projectile_speed": "50 m/s",
+              "ammo": 100,
+              "reload": "1.5 seconds animation",
+              "headshot": false,
+              "spread": "None",
+              "dps": "90.9 while firing (at full charge)"
+            }
+          }
         },
         "Sentry Turret": {
           "ability_type": "Ability",

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T02:37:04.037Z",
+    "last_updated": "2026-04-20T05:43:42.860Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "3"
+    "schema_version": "4"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Widowmaker",
@@ -95,7 +95,20 @@
           "reload": "1.5 seconds animation",
           "spread": "3 degrees (max)",
           "projectile_radius": "0.07 meters",
-          "dps": "140 while firing (98 overall w/ reload)"
+          "dps": "140 while firing (98 overall w/ reload)",
+          "modes": {
+            "ADS": {
+              "damage": "12 - 6 (at 0% power) / 120 - 60 (at 100% power)",
+              "falloff": "50 - 70 meters",
+              "headshot": true,
+              "rate_of_fire": "0.5 second recovery",
+              "ammo": 35,
+              "reload": "1.5 seconds animation",
+              "spread": "None",
+              "projectile_radius": "None",
+              "dps": "80 while firing (full charge) (70 overall w/reload)"
+            }
+          }
         },
         "Grappling Hook": {
           "ability_type": "Ability",

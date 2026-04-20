@@ -85,4 +85,51 @@ describe('filterCurrentAbilityStats', () => {
     const result = filterCurrentAbilityStats({ SomethingElse: stat('x') }, hero);
     expect(result).toEqual({});
   });
+
+  it('folds parenthetical-suffixed twin templates into base.modes', () => {
+    const hero: Hero = {
+      slug: 'emre',
+      name: 'Emre',
+      role: 'damage',
+      abilities: [{ name: 'Synthetic Burst Rifle', description: '' }],
+      perks: { minor: [], major: [] },
+      stats: { abilities: {} },
+    };
+    const input: Record<string, AbilityStat> = {
+      'Synthetic Burst Rifle': { ability_type: 'Weapon (Hip Fire)', damage: 22, damage_falloff_range: '25 - 40 meters' },
+      'Synthetic Burst Rifle (ADS)': { ability_type: 'Weapon (ADS)', damage: 22, damage_falloff_range: '35 - 50 meters' },
+    };
+    const result = filterCurrentAbilityStats(input, hero);
+    expect(Object.keys(result)).toEqual(['Synthetic Burst Rifle']);
+    const base = result['Synthetic Burst Rifle']!;
+    expect(base.damage).toBe(22);
+    expect(base.damage_falloff_range).toBe('25 - 40 meters');
+    expect(base.modes?.ADS).toEqual({ damage: 22, damage_falloff_range: '35 - 50 meters' });
+  });
+
+  it('drops a suffixed template when its base name is not a current ability', () => {
+    const hero = cassidyLike();
+    const result = filterCurrentAbilityStats(
+      { 'Flashbang (old)': stat('8s') },
+      hero,
+    );
+    expect(result).toEqual({});
+  });
+
+  it('derives the mode key from the parenthetical suffix when ability_type has none', () => {
+    const hero: Hero = {
+      slug: 'emre',
+      name: 'Emre',
+      role: 'damage',
+      abilities: [{ name: 'Synthetic Burst Rifle', description: '' }],
+      perks: { minor: [], major: [] },
+      stats: { abilities: {} },
+    };
+    const input: Record<string, AbilityStat> = {
+      'Synthetic Burst Rifle': { damage: 22 },
+      'Synthetic Burst Rifle (Scoped)': { damage: 30 },
+    };
+    const result = filterCurrentAbilityStats(input, hero);
+    expect(result['Synthetic Burst Rifle']?.modes?.Scoped).toEqual({ damage: 30 });
+  });
 });

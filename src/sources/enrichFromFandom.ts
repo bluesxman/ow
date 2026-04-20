@@ -81,6 +81,11 @@ function mergeFandomInto(
 // (e.g., "Flashbang (old)", "Past Noon"). Only keep stats for names that match a current
 // Blizzard-listed ability or perk. Match is case-insensitive — Blizzard and Fandom sometimes
 // disagree on title-casing (e.g., "Even The Odds" vs "Even the Odds").
+//
+// Some weapons appear on Fandom under two templates with a parenthetical suffix (e.g.,
+// "Synthetic Burst Rifle" + "Synthetic Burst Rifle (ADS)") while Blizzard lists only the
+// base name. In that case, fold the suffixed template into base.modes[<suffix>] rather
+// than dropping it.
 export function filterCurrentAbilityStats(
   fandomAbilities: Record<string, import('../types.js').AbilityStat>,
   blizzardHero: Hero,
@@ -91,8 +96,41 @@ export function filterCurrentAbilityStats(
   for (const p of blizzardHero.perks.major) current.add(p.name.toLowerCase());
 
   const out: Record<string, import('../types.js').AbilityStat> = {};
+  const suffixed: Array<{ base: string; suffix: string; stats: import('../types.js').AbilityStat }> = [];
+
   for (const [name, stats] of Object.entries(fandomAbilities)) {
-    if (current.has(name.toLowerCase())) out[name] = stats;
+    if (current.has(name.toLowerCase())) {
+      out[name] = stats;
+      continue;
+    }
+    const m = /^(.*?)\s*\(([^)]+)\)\s*$/.exec(name);
+    if (m && m[1] && m[2] && current.has(m[1].trim().toLowerCase())) {
+      suffixed.push({ base: m[1].trim(), suffix: m[2].trim(), stats });
+    }
   }
+
+  for (const { base, suffix, stats } of suffixed) {
+    const baseKey = Object.keys(out).find((k) => k.toLowerCase() === base.toLowerCase());
+    if (!baseKey) continue;
+    const baseStats = out[baseKey]!;
+    const modeKey = deriveModeKey(stats.ability_type, suffix);
+    const { ability_type: _at, modes: _m, ...rest } = stats;
+    void _at; void _m;
+    const submode = rest as import('../types.js').AbilityStatMode;
+    const existingModes = baseStats.modes ?? {};
+    if (existingModes[modeKey] !== undefined) {
+      console.warn(`duplicate sub-mode "${modeKey}" for ability "${baseKey}" — overwriting`);
+    }
+    baseStats.modes = { ...existingModes, [modeKey]: submode };
+  }
+
   return out;
+}
+
+function deriveModeKey(abilityType: string | undefined, suffix: string): string {
+  if (typeof abilityType === 'string') {
+    const p = /\(([^)]+)\)/.exec(abilityType);
+    if (p && p[1]) return p[1].trim();
+  }
+  return suffix;
 }

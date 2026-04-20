@@ -3,7 +3,7 @@ import { dirname, join, resolve } from 'node:path';
 import { z } from 'zod';
 import { PUBLISHED_RAW_BASE } from './config.js';
 import type { Hero, Metadata, RosterEntry } from './types.js';
-import { renderDiffMarkdown, type HeroDiff } from './diff.js';
+import { isEmptyDiff, renderDiffMarkdown, type HeroDiff } from './diff.js';
 import { slugToBlizzardUrl, slugToFandomUrl } from './sources/slugToFandomTitle.js';
 import { HeroSchema } from './validate.js';
 
@@ -323,6 +323,7 @@ async function clearPerHeroFiles(dir: string): Promise<void> {
 }
 
 async function prependChangelog(path: string, diff: HeroDiff, metadata: Metadata): Promise<void> {
+  if (isEmptyDiff(diff)) return;
   const date = metadata.last_updated.slice(0, 10);
   const section = renderDiffMarkdown(diff, date, metadata.patch_version);
   let existing = '';

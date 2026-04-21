@@ -97,23 +97,52 @@ export function filterCurrentAbilityStats(
   fandomAbilities: Record<string, import('../types.js').AbilityStat>,
   blizzardHero: Hero,
 ): Record<string, import('../types.js').AbilityStat> {
-  const current = new Set<string>();
-  for (const a of blizzardHero.abilities) current.add(a.name.toLowerCase());
-  for (const p of blizzardHero.perks.minor) current.add(p.name.toLowerCase());
-  for (const p of blizzardHero.perks.major) current.add(p.name.toLowerCase());
+  const currentExact = new Set<string>();
+  for (const a of blizzardHero.abilities) currentExact.add(a.name.toLowerCase());
+  for (const p of blizzardHero.perks.minor) currentExact.add(p.name.toLowerCase());
+  for (const p of blizzardHero.perks.major) currentExact.add(p.name.toLowerCase());
+
+  const parenIndex = new Map<string, string[]>();
+  const indexParen = (full: string): void => {
+    const m = /^(.*?)\s*\(([^)]+)\)\s*$/.exec(full);
+    if (!m || !m[1]) return;
+    const stem = m[1].trim().toLowerCase();
+    if (!stem) return;
+    const existing = parenIndex.get(stem);
+    if (existing) existing.push(full);
+    else parenIndex.set(stem, [full]);
+  };
+  for (const a of blizzardHero.abilities) indexParen(a.name);
+  for (const p of blizzardHero.perks.minor) indexParen(p.name);
+  for (const p of blizzardHero.perks.major) indexParen(p.name);
 
   const out: Record<string, import('../types.js').AbilityStat> = {};
   const suffixed: Array<{ base: string; suffix: string; stats: import('../types.js').AbilityStat }> = [];
   const dropped: Array<{ name: string; stats: import('../types.js').AbilityStat }> = [];
 
   for (const [name, stats] of Object.entries(fandomAbilities)) {
-    if (current.has(name.toLowerCase())) {
+    const lower = name.toLowerCase();
+    if (currentExact.has(lower)) {
       out[name] = stats;
       continue;
     }
+    // Reverse-parenthetical match: Fandom "X" → Blizzard "X (suffix)".
+    // Only fires when Fandom name has no parens itself (otherwise the suffixed-twin pass handles it).
+    if (!/[()]/.test(name)) {
+      const parenCandidates = parenIndex.get(lower);
+      if (parenCandidates && parenCandidates.length === 1) {
+        out[parenCandidates[0]!] = stats;
+        continue;
+      }
+      if (parenCandidates && parenCandidates.length > 1) {
+        throw new Error(
+          `[${blizzardHero.slug}] Fandom ability "${name}" matches multiple Blizzard parenthetical abilities: ${parenCandidates.map((c) => `"${c}"`).join(', ')} — cannot disambiguate`,
+        );
+      }
+    }
     const m = /^(.*?)\s*\(([^)]+)\)\s*$/.exec(name);
     const suffix = m?.[2]?.trim();
-    if (m && m[1] && suffix && !/^old$/i.test(suffix) && current.has(m[1].trim().toLowerCase())) {
+    if (m && m[1] && suffix && !/^old$/i.test(suffix) && currentExact.has(m[1].trim().toLowerCase())) {
       suffixed.push({ base: m[1].trim(), suffix, stats });
     } else {
       dropped.push({ name, stats });
@@ -130,6 +159,7 @@ export function filterCurrentAbilityStats(
   }
 
   foldOrphanScopedModes(out, dropped, blizzardHero.slug);
+  foldKeyBasedSecondaryOrphans(out, dropped, blizzardHero);
 
   return out;
 }
@@ -212,6 +242,8 @@ function foldOrphanScopedModes(
       out[primary.name] = primary.stats;
       const modeKey = deriveOrphanModeKey(alt.stats.ability_type);
       foldModeInto(primary.stats, primary.name, modeKey, alt.stats);
+      removeFromDropped(dropped, primary);
+      removeFromDropped(dropped, alt);
       return;
     }
     throw new Error(
@@ -233,4 +265,100 @@ function foldOrphanScopedModes(
   const orphan = altOrphans[0]!;
   const modeKey = deriveOrphanModeKey(orphan.stats.ability_type);
   foldModeInto(anchorStats, anchorKey, modeKey, orphan.stats);
+  removeFromDropped(dropped, orphan);
+}
+
+function removeFromDropped(
+  dropped: Array<{ name: string; stats: import('../types.js').AbilityStat }>,
+  item: { name: string; stats: import('../types.js').AbilityStat },
+): void {
+  const idx = dropped.indexOf(item);
+  if (idx >= 0) dropped.splice(idx, 1);
+}
+
+// Secondary-fire abilities that Blizzard doesn't surface as separate ability entries
+// (e.g., Reaper's Dire Triggers — Hellfire Shotguns' RMB; Junker Queen's Jagged Blade —
+// Scattergun's throw-knife). Fandom encodes the binding via `key = "secondary fire"`
+// rather than via a weapon-mode `ability_type` label, so the earlier alt-mode pass
+// doesn't catch them.
+//
+// Parent selection:
+//   1. Prefer the Blizzard ability (by exact-name match) whose description textually
+//      mentions the orphan name. Disambiguates Junker Queen's Jagged Blade → Scattergun
+//      via the Willy-Willy perk's description.
+//   2. Else if exactly one kept ability is classifiable as a primary weapon, use it.
+//      Handles Reaper's Dire Triggers → Hellfire Shotguns (the lone weapon).
+//   3. Else throw — safer to surface a data gap than silently misplace the orphan.
+//      Covers Ramattra's Block: multiple Blizzard-form weapons, no description mention.
+const SECONDARY_KEY_RE = /secondary\s*fire|alt\w*\s*fire/i;
+
+function foldKeyBasedSecondaryOrphans(
+  out: Record<string, import('../types.js').AbilityStat>,
+  dropped: Array<{ name: string; stats: import('../types.js').AbilityStat }>,
+  blizzardHero: Hero,
+): void {
+  const orphans = dropped.filter(
+    (d) =>
+      typeof d.stats.key === 'string' &&
+      SECONDARY_KEY_RE.test(d.stats.key) &&
+      // Skip "(old)" templates Fandom retains for historical reference — they're
+      // intentional silent drops matching the existing name-match pass behavior.
+      !/\(\s*old\s*\)\s*$/i.test(d.name),
+  );
+  if (orphans.length === 0) return;
+
+  for (const orphan of orphans) {
+    const parentKey = findSecondaryOrphanParent(orphan.name, out, blizzardHero);
+    if (!parentKey) {
+      throw new Error(
+        `[${blizzardHero.slug}] Fandom template "${orphan.name}" has key="${orphan.stats.key}" but no parent ability can be identified — orphan cannot be safely placed`,
+      );
+    }
+    foldModeInto(out[parentKey]!, parentKey, 'Secondary Fire', orphan.stats);
+    const idx = dropped.indexOf(orphan);
+    if (idx >= 0) dropped.splice(idx, 1);
+  }
+}
+
+function findSecondaryOrphanParent(
+  orphanName: string,
+  out: Record<string, import('../types.js').AbilityStat>,
+  blizzardHero: Hero,
+): string | null {
+  // 1. Description-mention rule: pick the Blizzard ability whose description mentions
+  //    the orphan name. Perk descriptions also count (they frequently reference the
+  //    weapon the orphan belongs to).
+  const wordRe = new RegExp(`\\b${orphanName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+  const mentioningAbilities = blizzardHero.abilities.filter((a) => wordRe.test(a.description));
+  if (mentioningAbilities.length === 1) {
+    const key = Object.keys(out).find((k) => k.toLowerCase() === mentioningAbilities[0]!.name.toLowerCase());
+    if (key) return key;
+  }
+  const mentioningPerks = [...blizzardHero.perks.minor, ...blizzardHero.perks.major].filter(
+    (p) => wordRe.test(p.description),
+  );
+  if (mentioningPerks.length === 1) {
+    // Perk mentions the orphan; find which Blizzard ability the perk modifies by
+    // scanning the perk's description for any kept-weapon name.
+    for (const abKey of Object.keys(out)) {
+      const re = new RegExp(`\\b${abKey.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+      if (re.test(mentioningPerks[0]!.description)) return abKey;
+    }
+  }
+
+  // 2. Single-weapon rule: exactly one kept ability has a weapon ability_type.
+  //    "Weapon", "Weapon;;Primary Fire", "Weapon;;Hip Fire" all qualify.
+  //    Skipped when the hero has parenthetical form-variant abilities (e.g. Ramattra's
+  //    "Void Accelerator (Omnic Form)" / "Pummel (Nemesis Form)") — the single-weapon
+  //    count is misleading because only one form's weapon shows, but the orphan may
+  //    belong to the other form.
+  const hasFormSplit = blizzardHero.abilities.some((a) => /\([^)]*\b(form|mode|stance)\b[^)]*\)/i.test(a.name));
+  if (!hasFormSplit) {
+    const weapons = Object.entries(out).filter(
+      ([, s]) => typeof s.ability_type === 'string' && /\bweapon\b/i.test(s.ability_type),
+    );
+    if (weapons.length === 1) return weapons[0]![0];
+  }
+
+  return null;
 }

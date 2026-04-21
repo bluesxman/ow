@@ -29,6 +29,7 @@ export interface AbilityStatMode {
   dps?: number | string;
   movement_speed?: number | string;
   ability_type?: string;
+  key?: string;
   [key: string]: number | string | boolean | undefined;
 }
 
@@ -51,6 +52,7 @@ export interface AbilityStat {
   dps?: number | string;
   movement_speed?: number | string;
   ability_type?: string;
+  key?: string;
   modes?: Record<string, AbilityStatMode>;
   [key: string]: number | string | boolean | Record<string, AbilityStatMode> | undefined;
 }

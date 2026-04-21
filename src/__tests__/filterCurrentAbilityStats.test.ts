@@ -221,4 +221,121 @@ describe('filterCurrentAbilityStats', () => {
     };
     expect(() => filterCurrentAbilityStats(input, hero)).toThrow(/cannot disambiguate/);
   });
+
+  it('matches Fandom "X" to Blizzard "X (suffix)" when the Fandom name lacks the parenthetical', () => {
+    const hero: Hero = {
+      slug: 'ramattra',
+      name: 'Ramattra',
+      role: 'tank',
+      abilities: [
+        { name: 'Void Accelerator (Omnic Form)', description: 'Fire a stream of projectiles.' },
+        { name: 'Pummel (Nemesis Form)', description: 'Punch.' },
+      ],
+      perks: { minor: [], major: [] },
+      stats: { abilities: {} },
+    };
+    const input: Record<string, AbilityStat> = {
+      'Void Accelerator': { ability_type: 'Weapon', damage: 6 },
+      Pummel: { ability_type: 'Ability', damage: 40 },
+    };
+    const result = filterCurrentAbilityStats(input, hero);
+    expect(Object.keys(result).sort()).toEqual(['Pummel (Nemesis Form)', 'Void Accelerator (Omnic Form)']);
+    expect(result['Void Accelerator (Omnic Form)']?.damage).toBe(6);
+    expect(result['Pummel (Nemesis Form)']?.damage).toBe(40);
+  });
+
+  it('throws when a Fandom name matches multiple Blizzard parenthetical variants', () => {
+    const hero: Hero = {
+      slug: 'ambig',
+      name: 'Ambig',
+      role: 'damage',
+      abilities: [
+        { name: 'Rifle (Form A)', description: '' },
+        { name: 'Rifle (Form B)', description: '' },
+      ],
+      perks: { minor: [], major: [] },
+      stats: { abilities: {} },
+    };
+    const input: Record<string, AbilityStat> = {
+      Rifle: { damage: 10 },
+    };
+    expect(() => filterCurrentAbilityStats(input, hero)).toThrow(/matches multiple Blizzard parenthetical/);
+  });
+
+  it('folds a key=secondary fire orphan under the sole primary weapon (Reaper Dire Triggers pattern)', () => {
+    const hero: Hero = {
+      slug: 'reaper',
+      name: 'Reaper',
+      role: 'damage',
+      abilities: [
+        { name: 'Hellfire Shotguns', description: 'Short-range spread weapons.' },
+        { name: 'Shadow Step', description: 'Teleport.' },
+      ],
+      perks: { minor: [], major: [] },
+      stats: { abilities: {} },
+    };
+    const input: Record<string, AbilityStat> = {
+      'Hellfire Shotguns': { ability_type: 'Weapon', damage: 115 },
+      'Shadow Step': { ability_type: 'Ability', cooldown: '10 seconds' },
+      'Dire Triggers': { ability_type: 'Ability', key: 'secondary fire', damage: 69, cast_time: '0.5 seconds' },
+    };
+    const result = filterCurrentAbilityStats(input, hero);
+    expect(Object.keys(result).sort()).toEqual(['Hellfire Shotguns', 'Shadow Step']);
+    expect(result['Hellfire Shotguns']?.modes?.['Secondary Fire']?.damage).toBe(69);
+    expect(result['Hellfire Shotguns']?.modes?.['Secondary Fire']?.cast_time).toBe('0.5 seconds');
+  });
+
+  it('folds a key=secondary fire orphan via perk-description mention (Junker Queen Jagged Blade pattern)', () => {
+    const hero: Hero = {
+      slug: 'junker-queen',
+      name: 'Junker Queen',
+      role: 'tank',
+      abilities: [
+        { name: 'Scattergun', description: 'Fires a spread of pellets.' },
+        { name: 'Carnage', description: 'Swing your axe.' },
+      ],
+      perks: {
+        minor: [
+          { name: 'Willy-Willy', description: 'Jagged Blade spins on impact and pulls enemies in.' },
+          { name: 'Other Minor', description: 'unrelated' },
+        ],
+        major: [
+          { name: 'Some Major', description: 'unrelated' },
+          { name: 'Another Major', description: 'unrelated' },
+        ],
+      },
+      stats: { abilities: {} },
+    };
+    const input: Record<string, AbilityStat> = {
+      Scattergun: { ability_type: 'Weapon', damage: 80 },
+      Carnage: { ability_type: 'Ability', damage: 90 },
+      'Jagged Blade': { ability_type: 'Ability', key: 'secondary fire', damage: 75 },
+    };
+    const result = filterCurrentAbilityStats(input, hero);
+    expect(Object.keys(result).sort()).toEqual(['Carnage', 'Scattergun']);
+    expect(result['Scattergun']?.modes?.['Secondary Fire']?.damage).toBe(75);
+  });
+
+  it('throws on a key=secondary fire orphan when no parent can be identified (Ramattra Block pattern)', () => {
+    const hero: Hero = {
+      slug: 'ramattra',
+      name: 'Ramattra',
+      role: 'tank',
+      abilities: [
+        { name: 'Void Accelerator (Omnic Form)', description: 'Fire a stream of projectiles.' },
+        { name: 'Pummel (Nemesis Form)', description: 'Punch, creating a wave.' },
+      ],
+      perks: { minor: [], major: [] },
+      stats: { abilities: {} },
+    };
+    const input: Record<string, AbilityStat> = {
+      'Void Accelerator': { ability_type: 'Weapon', damage: 6 },
+      Pummel: { ability_type: 'Ability;;Nemesis Form', damage: 40 },
+      Block: { ability_type: 'Ability', key: 'secondary fire', cooldown: '0' },
+    };
+    // Ramattra's form-split abilities ("(Omnic Form)" / "(Nemesis Form)") mean we can't
+    // safely assume the lone primary weapon is Block's parent. Expect a throw so the
+    // hero is surfaced via fandom_failed instead of being misplaced.
+    expect(() => filterCurrentAbilityStats(input, hero)).toThrow(/no parent ability can be identified/);
+  });
 });

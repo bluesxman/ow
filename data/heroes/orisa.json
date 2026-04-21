@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -99,10 +99,20 @@
           "ammo": "∞",
           "headshot": true,
           "spread": "0.75 degrees (max)",
-          "dps": "140 while firing (99.42 overall w/ recharge, 86.84 w/ overheat)"
+          "dps": "140 while firing (99.42 overall w/ recharge, 86.84 w/ overheat)",
+          "modes": {
+            "Secondary Fire": {
+              "key": "secondary fire",
+              "projectile_speed": "25 meters per second",
+              "radius": "5 meter radius",
+              "cooldown": "6 seconds",
+              "duration": "0.65 seconds (snare)"
+            }
+          }
         },
         "Energy Javelin": {
           "ability_type": "Ability",
+          "key": "secondary fire",
           "cooldown": "7 seconds",
           "damage": "70 (direct impact), 40 (wall collision)",
           "headshot": false,
@@ -112,11 +122,13 @@
         },
         "Fortify": {
           "ability_type": "Ability",
+          "key": "ability 1",
           "cooldown": "15.5 seconds",
           "duration": "4 seconds"
         },
         "Javelin Spin": {
           "ability_type": "Ability",
+          "key": "ability 2",
           "cooldown": "8 seconds",
           "damage": "20 (first hit) / 5.3 (subsequent hits)",
           "duration": "0.5 seconds (min) / 1.75 seconds (max) / 2 seconds (movement speed)",
@@ -140,6 +152,7 @@
           "projectile_speed": "72 m/s (min charge) / 140 m/s (max charge)"
         },
         "Protective Barrier": {
+          "key": "Ability 2",
           "ability_type": "Major Perk",
           "cooldown": "8 seconds",
           "duration": "6 seconds",

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -98,6 +98,7 @@
           "dps": "136.5 while firing (63.86 overall w/ full reload, 34.78 w/ reload after each shot)",
           "modes": {
             "ADS": {
+              "key": "secondary fire",
               "damage": "75 – 22.5",
               "falloff": "35 – 55 meters",
               "headshot": true,
@@ -112,6 +113,7 @@
         },
         "Coach Gun": {
           "ability_type": "Ability",
+          "key": "ability 1",
           "cooldown": "10 seconds",
           "damage": "6 per shot / 90 per volley",
           "headshot": false,
@@ -122,6 +124,7 @@
         },
         "Dynamite": {
           "ability_type": "Ability",
+          "key": "ability 2",
           "cooldown": "12 seconds",
           "damage": "50 - 20 (explosion, enemy) / 100 over 5 seconds (burn, enemy) / 25 - 10 (explosion, self) / 50 over 5 seconds (burn, self)",
           "headshot": false,

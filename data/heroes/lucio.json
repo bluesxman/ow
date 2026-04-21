@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -112,6 +112,7 @@
         },
         "Soundwave": {
           "ability_type": "Ability",
+          "key": "secondary fire",
           "damage": 45,
           "range": "7 meters",
           "duration": "0.56 s. recovery for primary",
@@ -120,12 +121,14 @@
         },
         "Crossfade": {
           "ability_type": "Ability",
+          "key": "ability 1",
           "healing": "20 per second (allies) / 14.4 per second (self)",
           "radius": "12 meters",
           "duration": "0.4 seconds (swap delay)"
         },
         "Amp It Up": {
           "ability_type": "Ability",
+          "key": "ability 2",
           "healing": "56 per second",
           "radius": "12 meters",
           "cooldown": "12 seconds",

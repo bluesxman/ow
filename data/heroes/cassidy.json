@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -94,6 +94,7 @@
           "dps": "140 while firing (93.33 overall w/reload)",
           "modes": {
             "Secondary Fire": {
+              "key": "secondary fire",
               "damage": "50 - 15",
               "falloff": "20 - 30 meters",
               "headshot": false,
@@ -108,6 +109,7 @@
         },
         "Combat Roll": {
           "ability_type": "Ability",
+          "key": "ability 1",
           "cooldown": "5 seconds",
           "range": "6.22 meters",
           "duration": "0.4 seconds"
@@ -134,6 +136,7 @@
         },
         "Silver Bullet": {
           "ability_type": "Major Perk",
+          "key": "Secondary Fire",
           "cooldown": "8 seconds",
           "damage": "70 - 21 (base) / 70 (bleed)",
           "falloff": "25 - 35 meters",

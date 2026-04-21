@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -104,16 +104,31 @@
           "spread": "2.75 degrees",
           "reload": "1.5 seconds",
           "headshot": true,
-          "dps": "while firing ( w/ reload)"
+          "dps": "while firing ( w/ reload)",
+          "modes": {
+            "Secondary Fire": {
+              "key": "secondary fire",
+              "cooldown": "6 seconds",
+              "damage": "65 (thrown hit) / 30 over 3 seconds (wound, thrown hit) / 15 over 3 seconds (wound, return hit & melee)",
+              "range": "60 meters",
+              "duration": "3 seconds",
+              "projectile_speed": "40 m/s",
+              "projectile_radius": "0.27 meters",
+              "headshot": false,
+              "healing": "67.5 over 3 seconds (direct hit) / 33.75 over 3 seconds (recall/melee)"
+            }
+          }
         },
         "Commanding Shout": {
           "ability_type": "Ability",
+          "key": "ability 1",
           "cooldown": "12 seconds",
           "radius": "15 meters",
           "duration": "4 seconds"
         },
         "Carnage": {
           "ability_type": "Ability",
+          "key": "ability 2",
           "cooldown": "9 seconds / -2 seconds per enemy hit",
           "damage": "105 (impact) / 40 over 3 seconds (wound)",
           "healing": "90 over 3 seconds",

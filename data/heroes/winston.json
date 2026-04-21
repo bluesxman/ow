@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -95,6 +95,7 @@
           "dps": "70 while firing (52.24 overall w/reload)",
           "modes": {
             "Secondary Fire": {
+              "key": "secondary fire",
               "damage": "15.93 (min charge) / 60 (max charge)",
               "headshot": false,
               "range": "40 meters",
@@ -106,6 +107,7 @@
         },
         "Jump Pack": {
           "ability_type": "Ability",
+          "key": "ability 1",
           "cooldown": "5 seconds",
           "damage": "1 (collision) / 60 – 1 (landing)",
           "headshot": false,
@@ -113,6 +115,7 @@
         },
         "Barrier Projector": {
           "ability_type": "Ability",
+          "key": "ability 2",
           "cooldown": "12 seconds",
           "duration": "8 seconds",
           "radius": "5 meters"

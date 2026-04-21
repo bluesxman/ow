@@ -4,7 +4,7 @@ Hero combat stats (`stats.abilities.*`, `stats.health`, `stats.armor`, `stats.sh
 
 Perks, ability descriptions, roles, and portraits are sourced from [Blizzard's official hero pages](https://overwatch.blizzard.com/en-us/heroes/).
 
-Last generated: 2026-04-20T05:43:42.860Z
+Last generated: 2026-04-21T23:48:58.836Z
 
 ## Per-hero source pages
 

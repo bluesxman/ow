@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -101,6 +101,7 @@
         },
         "Drill Dash": {
           "ability_type": "Ability",
+          "key": "Secondary Fire",
           "cooldown": "8 seconds",
           "damage": "30 (first hit) / 60 over 0.4 seconds (subsequent hits) / 5 (during Burrow)",
           "duration": "0.45 seconds (unburrowed) / 0.9 seconds (burrowed)",
@@ -109,6 +110,7 @@
         },
         "Burrow": {
           "ability_type": "Ability",
+          "key": "ability 1",
           "cooldown": "8 seconds",
           "damage": "110 - 75 (max charge) / 55 - 37.5 (min charge)",
           "radius": "2 - 7 meters (max charge, falloff start - max) / 1 - 3.5 meters (min charge, falloff start - max)",
@@ -133,6 +135,7 @@
         },
         "Smart Extender": {
           "ability_type": "Major Perk",
+          "key": "Ability 2",
           "cooldown": "12 seconds",
           "duration": "4 seconds",
           "range": "16 → 32 meters (SMART Excavator)"

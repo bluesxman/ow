@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -101,6 +101,7 @@
         },
         "Spirit Glaive": {
           "ability_type": "Weapon",
+          "key": "primary fire",
           "damage": "30 (base) / 30 (total damage over time)",
           "headshot": true,
           "rate_of_fire": "1.43 shots/s",
@@ -113,6 +114,7 @@
         },
         "Healing Kasa": {
           "ability_type": "Ability",
+          "key": "secondary fire",
           "cooldown": "6 seconds",
           "healing": "90 (1st bounce) / 70 (2nd bounce) / 50 (3rd bounce) / 30 (self)",
           "duration": "0.25 seconds (heal over time duration)",
@@ -121,11 +123,13 @@
         },
         "Katashiro Return": {
           "ability_type": "Ability",
+          "key": "ability 1",
           "cooldown": "12 seconds",
           "duration": "4.5 seconds (paper doll) / 0.25 seconds (invulnerability) / 0.17 seconds (leap)"
         },
         "Binding Chain": {
           "ability_type": "Ability",
+          "key": "ability 2",
           "cooldown": "12 seconds",
           "damage": 50,
           "duration": "1.6 seconds (hinder, non-tanks) / 1.2 seconds (hinder, tanks)",

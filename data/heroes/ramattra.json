@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -89,9 +89,30 @@
     },
     "stats": {
       "abilities": {
+        "Void Accelerator (Omnic Form)": {
+          "ability_type": "Weapon;;Omnic Form",
+          "key": "primary fire",
+          "damage": 5,
+          "rate_of_fire": "25 shots/s",
+          "ammo": 100,
+          "projectile_speed": "80 m/s",
+          "projectile_radius": "0.15 meters",
+          "reload": "1 second",
+          "headshot": true,
+          "spread": "None",
+          "dps": "125 (100 overall w/ reload)"
+        },
+        "Void Barrier (Omnic Form)": {
+          "ability_type": "Ability;;Omnic Form",
+          "key": "secondary fire",
+          "cooldown": "12 seconds",
+          "range": "35 meters",
+          "duration": "4 seconds"
+        },
         "Ravenous Vortex": {
           "ability_type": "Ability;;both forms",
           "cooldown": "11 seconds",
+          "key": "ability 2",
           "damage": "15 (explosion damage) / 23.3 per second / 70 total",
           "headshot": false,
           "duration": "3 seconds",
@@ -99,8 +120,29 @@
           "projectile_radius": "None",
           "radius": "4 meters"
         },
+        "Pummel (Nemesis Form)": {
+          "ability_type": "Weapon;;Nemesis Form",
+          "key": "primary fire",
+          "damage": 65,
+          "headshot": false,
+          "rate_of_fire": "1.67 shots/s",
+          "ammo": "∞",
+          "projectile_speed": "105 m/s",
+          "projectile_radius": "0.575 meters",
+          "range": "10 meters",
+          "spread": "None",
+          "dps": "108.33 while firing",
+          "modes": {
+            "Secondary Fire": {
+              "key": "secondary fire",
+              "cooldown": "1 second",
+              "duration": "0.2 seconds (min)"
+            }
+          }
+        },
         "Annihilation": {
           "ability_type": "Ultimate Ability",
+          "key": "ability 3",
           "damage": "35 per second",
           "headshot": false,
           "radius": "13 meters",

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -114,10 +114,12 @@
         },
         "Barrier Shield": {
           "ability_type": "Ability",
+          "key": "secondary fire",
           "cooldown": "5 seconds (destroyed)"
         },
         "Shield Bash": {
           "ability_type": "Ability",
+          "key": "primary fire",
           "cooldown": "5 seconds",
           "damage": 70,
           "duration": "0.3 seconds",
@@ -126,6 +128,7 @@
         },
         "Whip Shot": {
           "ability_type": "Ability",
+          "key": "ability 1",
           "cooldown": "4 seconds",
           "damage": 70,
           "headshot": false,
@@ -136,6 +139,7 @@
         },
         "Repair Pack": {
           "ability_type": "Ability",
+          "key": "ability 2",
           "cooldown": "5 seconds",
           "healing": "25 (instantly) / 100 over 2 seconds (over time)",
           "duration": "2 seconds",

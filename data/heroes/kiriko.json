@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -91,6 +91,7 @@
       "abilities": {
         "Healing Ofuda": {
           "ability_type": "Weapon;;Primary Fire",
+          "key": "primary fire",
           "healing": "13 (per talisman) / 26 (per burst)",
           "rate_of_fire": "0.2 seconds (per burst) / 1.42 seconds (full clip)",
           "reload": "0.9 seconds",
@@ -102,6 +103,7 @@
         },
         "Kunai": {
           "ability_type": "Weapon;;Secondary Fire",
+          "key": "secondary fire",
           "damage": 60,
           "headshot": true,
           "rate_of_fire": "2 shots/s",
@@ -114,12 +116,14 @@
         },
         "Swift Step": {
           "ability_type": "Ability",
+          "key": "ability 1",
           "range": "30 meters",
           "duration": "0.25 second invulnerability",
           "cooldown": "7 seconds"
         },
         "Protection Suzu": {
           "ability_type": "Ability",
+          "key": "ability 2",
           "cooldown": "14 seconds",
           "healing": "80 (no cleanse) / 110 (cleanse)",
           "projectile_speed": "37 m/s",

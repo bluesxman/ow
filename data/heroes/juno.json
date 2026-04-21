@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -94,7 +94,8 @@
     "stats": {
       "abilities": {
         "Martian Overboots": {
-          "ability_type": "Passive Ability"
+          "ability_type": "Passive Ability",
+          "key": "jump"
         },
         "Mediblaster": {
           "ability_type": "Weapon",
@@ -112,6 +113,7 @@
         },
         "Pulsar Torpedoes": {
           "ability_type": "Ability",
+          "key": "secondary fire",
           "cooldown": "10 seconds",
           "damage": 85,
           "healing": "85 (direct) / 50 (over time)",
@@ -120,11 +122,13 @@
         },
         "Glide Boost": {
           "ability_type": "Ability",
+          "key": "ability 1",
           "cooldown": "6 seconds",
           "duration": "4 seconds"
         },
         "Hyper Ring": {
           "ability_type": "Ability",
+          "key": "ability 2",
           "cooldown": "14 seconds",
           "duration": "6 seconds (ring) / 3 seconds (speed boost)",
           "range": "17 meters",

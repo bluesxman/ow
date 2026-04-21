@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -100,10 +100,12 @@
         },
         "Barrier Field": {
           "ability_type": "Ability",
+          "key": "secondary fire",
           "cooldown": "5 seconds (destroyed)"
         },
         "Charge": {
           "ability_type": "Ability",
+          "key": "ability 1",
           "cooldown": "7 seconds",
           "damage": "300 (pinned to wall) / 50 (collision w/out pin)",
           "range": "50.2 meters",
@@ -111,6 +113,7 @@
         },
         "Fire Strike": {
           "ability_type": "Ability",
+          "key": "ability 2",
           "cooldown": "6 seconds",
           "damage": 120,
           "headshot": false,
@@ -132,6 +135,7 @@
         },
         "Shield Slam": {
           "ability_type": "Major Perk",
+          "key": "primary fire",
           "cooldown": "6 seconds",
           "damage": 50,
           "range": "5.52 meters (dash) / 3.6 meters (hitbox)"

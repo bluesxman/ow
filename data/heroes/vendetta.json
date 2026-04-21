@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -94,6 +94,7 @@
     "stats": {
       "abilities": {
         "Palatine Fang": {
+          "key": "primary fire",
           "damage": "45 (swing) / 120 (overhead strike)",
           "duration": "0.75 seconds (combo input delay)",
           "rate_of_fire": "1.18 swings/s (average at 0 stacks)",
@@ -103,16 +104,19 @@
         "Warding Stance": {
           "cooldown": "0.5 seconds",
           "duration": "0.34 seconds (min duration) / 0.75 seconds (energy regen delay)",
-          "ability_type": "Ability"
+          "ability_type": "Ability",
+          "key": "secondary fire"
         },
         "Projected Edge": {
           "damage": 70,
           "projectile_speed": "37 m/s",
           "projectile_radius": "0.2 meters (inner) / 1.235 meters (outer)",
-          "ability_type": "Ability"
+          "ability_type": "Ability",
+          "key": "primary fire"
         },
         "Whirlwind Dash": {
           "ability_type": "Ability",
+          "key": "ability 1",
           "cooldown": "10 seconds",
           "damage": "70 - 35",
           "falloff": "3.5 - 6.5 meters",
@@ -127,14 +131,16 @@
           "range": "15 meters",
           "projectile_speed": "50 m/s",
           "projectile_radius": "0.92 meters",
-          "ability_type": "Ability"
+          "ability_type": "Ability",
+          "key": "ability 2"
         },
         "Sundering Blade": {
           "damage": "100/50 (direct/indirect stage 1) / 200/100 (direct/indirect stage 2) / 400/200 (direct/indirect stage 3)",
           "duration": "1 second (charge time per stage) / 4 seconds (max)",
           "range": "8/16/24 meters (stage 1/2/3)",
           "radius": "2.1/2.8/3.2 meters (stage 1/2/3) / 2.5 meters (direct hit)",
-          "ability_type": "Ultimate Ability"
+          "ability_type": "Ultimate Ability",
+          "key": "ultimate"
         },
         "Raging Storm": {
           "ability_type": "Minor Perk",

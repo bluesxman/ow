@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -92,6 +92,7 @@
         },
         "Synthetic Burst Rifle": {
           "ability_type": "Weapon (Hip Fire)",
+          "key": "primary fire",
           "damage": "22 - 6.67 (per shot) / 66 - 20 (per round)",
           "falloff": "25 - 40 meters",
           "headshot": true,
@@ -104,6 +105,7 @@
           "dps": "while firing ( w/ reload)",
           "modes": {
             "ADS": {
+              "key": "secondary fire",
               "damage": "22 - 6.67 (per shot) / 66 - 20 (per round)",
               "falloff": "35 - 50 meters",
               "headshot": true,
@@ -117,6 +119,7 @@
         },
         "Cyber Frag": {
           "ability_type": "Ability",
+          "key": "ability 2",
           "cooldown": "10 seconds",
           "damage": "110 - 55 (area of effect)",
           "duration": "0.6 seconds (explosion delay)",

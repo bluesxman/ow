@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -94,6 +94,7 @@
           "projectile_speed": "40 m/s",
           "modes": {
             "Secondary Fire": {
+              "key": "secondary fire",
               "damage": "65 per second",
               "headshot": false,
               "healing": "30 per second (self)",
@@ -105,12 +106,14 @@
         },
         "Fade": {
           "ability_type": "Ability",
+          "key": "ability 1",
           "cooldown": "6 seconds",
           "duration": "0.752 seconds + 0.048 s. recovery",
           "range": "15 meters (max)"
         },
         "Biotic Orb": {
           "ability_type": "Ability",
+          "key": "ability 2",
           "damage": "50 per second, up to 200",
           "headshot": false,
           "healing": "65 per second, up to 300",

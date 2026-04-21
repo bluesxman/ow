@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -95,7 +95,8 @@
       "abilities": {
         "Wall Climb": {
           "duration": "Up to 1 second",
-          "ability_type": "Passive Ability"
+          "ability_type": "Passive Ability",
+          "key": "jump"
         },
         "Storm Bow": {
           "ability_type": "Weapon",
@@ -110,6 +111,7 @@
         },
         "Sonic Arrow": {
           "ability_type": "Ability",
+          "key": "ability 1",
           "cooldown": "12 seconds",
           "headshot": true,
           "radius": "9 meters",
@@ -117,6 +119,7 @@
         },
         "Storm Arrows": {
           "ability_type": "Ability",
+          "key": "ability 2",
           "cooldown": "8 seconds",
           "damage": 75,
           "headshot": true,
@@ -130,7 +133,8 @@
         "Lunge": {
           "cooldown": "4 seconds",
           "range": "7.85 meters",
-          "ability_type": "Ability"
+          "ability_type": "Ability",
+          "key": "jump"
         },
         "Dragonstrike": {
           "ability_type": "Ultimate Ability",
@@ -150,6 +154,7 @@
         },
         "Frost Arrow": {
           "ability_type": "Major Perk",
+          "key": "reload",
           "duration": "2 seconds",
           "radius": "4 meters",
           "cooldown": "14 seconds"

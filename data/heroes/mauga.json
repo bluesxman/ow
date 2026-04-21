@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -91,6 +91,7 @@
         },
         "Overrun": {
           "ability_type": "Ability",
+          "key": "ability 1",
           "cooldown": "5 seconds",
           "damage": "30 (collision) / 75 (stomp, outer radius) / 150 (stomp, inner radius)",
           "duration": "0.32 seconds (charge, min) / 2 seconds (charge, max) / 0.6 seconds (stomp) / 1 second (knockdown)",
@@ -100,6 +101,7 @@
         },
         "Cardiac Overdrive": {
           "ability_type": "Ability",
+          "key": "ability 2",
           "cooldown": "12 seconds",
           "healing": "100% of damage dealt (self) / 50% of damage dealt (allies)",
           "duration": "3 seconds",
@@ -123,6 +125,7 @@
           "ability_type": "Major Perk"
         },
         "Incendiary Chaingun": {
+          "key": "primary fire",
           "ability_type": "Weapon;;Primary Fire",
           "damage": "4 - 1.2 (direct) / 15 per second (damage over time)",
           "falloff": "30 - 40 meters / 15 - 20 meters (simultaneous fire)",
@@ -136,6 +139,7 @@
           "dps": "72 while firing (64.7 w/ reload) 87 w/ damage over time 288 while firing both guns simultaneously 303 w/ damage over time",
           "modes": {
             "Secondary Fire": {
+              "key": "secondary fire",
               "damage": "4 - 1.2",
               "falloff": "30 - 40 meters / 15 - 20 meters (simultaneous fire)",
               "headshot": true,

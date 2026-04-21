@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -95,6 +95,7 @@
       "abilities": {
         "Hover Jets": {
           "ability_type": "Passive Ability",
+          "key": "jump",
           "duration": "Up to 2 seconds (continuous flight) / 0.3 seconds (energy regen delay)"
         },
         "Rocket Launcher": {
@@ -112,17 +113,20 @@
         },
         "Jet Dash": {
           "ability_type": "Ability",
+          "key": "Secondary Fire",
           "cooldown": "9 seconds",
           "duration": "0.85 seconds"
         },
         "Jump Jet": {
           "ability_type": "Ability",
+          "key": "ability 1",
           "cooldown": "14 seconds",
           "duration": "0.85 seconds (launch) / 6 seconds (overfill)",
           "range": "8.4 meters (vertical)"
         },
         "Concussive Blast": {
           "ability_type": "Ability",
+          "key": "ability 2",
           "cooldown": "7 seconds",
           "damage": "30 (direct hit only)",
           "headshot": false,

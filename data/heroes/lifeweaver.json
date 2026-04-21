@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -105,6 +105,7 @@
         },
         "Thorn Volley": {
           "ability_type": "Weapon;;Secondary Fire",
+          "key": "secondary fire",
           "damage": "6 (per thorn) / 12 (per shot)",
           "headshot": true,
           "rate_of_fire": "11 volleys/s",
@@ -118,6 +119,7 @@
         },
         "Petal Platform": {
           "ability_type": "Ability",
+          "key": "ability 1",
           "cooldown": "12 seconds",
           "projectile_speed": "40 m/s",
           "duration": "∞ (unused) / 12 seconds (raised total)",
@@ -127,11 +129,13 @@
           "cooldown": "5 seconds",
           "healing": 55,
           "ability_type": "Ability",
+          "key": "jump",
           "range": "6.15 meters (along ground) / 6.9 meters (in air)",
           "duration": "0.3 seconds"
         },
         "Life Grip": {
           "ability_type": "Ability",
+          "key": "ability 2",
           "cooldown": "18 seconds",
           "healing": "75 (ally)",
           "range": "30 meters"

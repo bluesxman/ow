@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -100,6 +100,7 @@
           "dps": "while firing / overall w/ reload",
           "modes": {
             "ADS": {
+              "key": "secondary fire",
               "headshot": false,
               "projectile_radius": "0.07 meters (enemies) / 0.3 meters (allies)",
               "spread": "None",
@@ -109,6 +110,7 @@
         },
         "Sleep Dart": {
           "ability_type": "Ability",
+          "key": "ability 1",
           "cooldown": "14 seconds",
           "damage": 5,
           "headshot": false,
@@ -118,6 +120,7 @@
         },
         "Biotic Grenade": {
           "ability_type": "Ability",
+          "key": "ability 2",
           "cooldown": "12 seconds",
           "damage": 75,
           "headshot": false,

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -95,6 +95,7 @@
       "abilities": {
         "Vault": {
           "ability_type": "Passive Ability",
+          "key": "jump",
           "duration": "Up to 0.2 seconds"
         },
         "Bonespur": {
@@ -113,6 +114,7 @@
         },
         "Spike Guard": {
           "ability_type": "Ability",
+          "key": "secondary fire",
           "damage": "11.67 per projectile / 210.06 maximum",
           "headshot": false,
           "rate_of_fire": "6 shots/s",
@@ -124,12 +126,14 @@
         },
         "Violent Leap": {
           "ability_type": "Ability",
+          "key": "ability 1",
           "cooldown": "5.5 seconds",
           "damage": "70 (slash)",
           "range": "14 meters (leap, aimed up) - 15 meters (leap, along ground) / 5.4 meters (slash)"
         },
         "Jagged Wall": {
           "ability_type": "Ability",
+          "key": "ability 2",
           "cooldown": "12 seconds",
           "damage": 50,
           "range": "∞ (projectile) / 5 meter length (wall)",

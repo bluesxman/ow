@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -105,6 +105,7 @@
         },
         "Experimental Barrier": {
           "ability_type": "Ability",
+          "key": "secondary fire",
           "projectile_speed": "20 m/s",
           "range": "∞",
           "duration": "Until recalled or destroyed",
@@ -112,12 +113,14 @@
         },
         "Kinetic Grasp": {
           "ability_type": "Ability",
+          "key": "ability 1",
           "cooldown": "12 seconds",
           "range": "3 meters",
           "duration": "2 seconds"
         },
         "Accretion": {
           "ability_type": "Ability",
+          "key": "ability 2",
           "cooldown": "10 seconds",
           "damage": "80 (direct) / 40 – 12 (splash, enemy) / 20 – 6 (splash, self)",
           "headshot": false,
@@ -141,11 +144,13 @@
         },
         "Hyper Strike": {
           "ability_type": "Major Perk",
+          "key": "quick melee",
           "damage": "50 over 0.37 seconds",
           "duration": "1 second"
         },
         "Levitation": {
           "ability_type": "Major Perk",
+          "key": "jump",
           "duration": "1.75 seconds"
         }
       },

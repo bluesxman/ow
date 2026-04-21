@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -101,12 +101,14 @@
         },
         "Barrier Array": {
           "ability_type": "Ability",
+          "key": "secondary fire",
           "cooldown": "14 seconds",
           "range": "35 meters",
           "duration": "8 seconds"
         },
         "Sonic Repulsors": {
           "ability_type": "Ability",
+          "key": "ability 1",
           "cooldown": "7 seconds",
           "damage": "40 (base) / 40 (wall impact)",
           "range": "8.5 meters",
@@ -114,6 +116,7 @@
         },
         "Crystal Charge": {
           "ability_type": "Ability",
+          "key": "ability 2",
           "cooldown": "8 seconds",
           "damage": "50 (over time) / 100 - 50 (explosion)",
           "duration": "1 second (damage over time)",

@@ -316,7 +316,29 @@ describe('filterCurrentAbilityStats', () => {
     expect(result['Scattergun']?.modes?.['Secondary Fire']?.damage).toBe(75);
   });
 
-  it('throws on a key=secondary fire orphan when no parent can be identified (Ramattra Block pattern)', () => {
+  it('routes a key=secondary fire orphan to the matching form-split Blizzard ability (Ramattra Block pattern)', () => {
+    const hero: Hero = {
+      slug: 'ramattra',
+      name: 'Ramattra',
+      role: 'tank',
+      abilities: [
+        { name: 'Void Accelerator (Omnic Form)', description: 'Fire a stream of projectiles.' },
+        { name: 'Pummel (Nemesis Form)', description: 'Punch, creating a wave.' },
+      ],
+      perks: { minor: [], major: [] },
+      stats: { abilities: {} },
+    };
+    const input: Record<string, AbilityStat> = {
+      'Void Accelerator': { ability_type: 'Weapon', damage: 6 },
+      Pummel: { ability_type: 'Ability;;Nemesis Form', damage: 40 },
+      Block: { ability_type: 'Ability;;Nemesis Form', key: 'secondary fire', cooldown: '0' },
+    };
+    const result = filterCurrentAbilityStats(input, hero);
+    expect(Object.keys(result).sort()).toEqual(['Pummel (Nemesis Form)', 'Void Accelerator (Omnic Form)']);
+    expect(result['Pummel (Nemesis Form)']?.modes?.['Secondary Fire']?.cooldown).toBe('0');
+  });
+
+  it('throws on a key=secondary fire orphan when form-split hero has no matching form tail', () => {
     const hero: Hero = {
       slug: 'ramattra',
       name: 'Ramattra',
@@ -333,9 +355,6 @@ describe('filterCurrentAbilityStats', () => {
       Pummel: { ability_type: 'Ability;;Nemesis Form', damage: 40 },
       Block: { ability_type: 'Ability', key: 'secondary fire', cooldown: '0' },
     };
-    // Ramattra's form-split abilities ("(Omnic Form)" / "(Nemesis Form)") mean we can't
-    // safely assume the lone primary weapon is Block's parent. Expect a throw so the
-    // hero is surfaced via fandom_failed instead of being misplaced.
     expect(() => filterCurrentAbilityStats(input, hero)).toThrow(/no parent ability can be identified/);
   });
 });

@@ -205,6 +205,17 @@ function classifyAbilityType(abilityType: string | undefined): 'primary' | 'alt'
   return 'other';
 }
 
+// Extract a form qualifier (e.g. "Nemesis Form", "Omnic Form") from an ability_type tail.
+// Returns undefined when no form-like tail is present.
+function extractFormTail(abilityType: string | undefined): string | undefined {
+  if (typeof abilityType !== 'string') return undefined;
+  const semi = abilityType.split(/;;|::/).map((s) => s.trim()).filter(Boolean);
+  if (semi.length < 2) return undefined;
+  const tail = semi[semi.length - 1]!;
+  if (/\b(form|mode|stance)\b/i.test(tail)) return tail;
+  return undefined;
+}
+
 // Derive the mode key for an orphan by its ability_type label, falling back to a fixed
 // default. E.g. "Weapon;;Secondary Fire" → "Secondary Fire"; "Weapon (ADS)" → "ADS".
 function deriveOrphanModeKey(abilityType: string | undefined): string {
@@ -308,7 +319,7 @@ function foldKeyBasedSecondaryOrphans(
   if (orphans.length === 0) return;
 
   for (const orphan of orphans) {
-    const parentKey = findSecondaryOrphanParent(orphan.name, out, blizzardHero);
+    const parentKey = findSecondaryOrphanParent(orphan.name, orphan.stats, out, blizzardHero);
     if (!parentKey) {
       throw new Error(
         `[${blizzardHero.slug}] Fandom template "${orphan.name}" has key="${orphan.stats.key}" but no parent ability can be identified — orphan cannot be safely placed`,
@@ -322,10 +333,28 @@ function foldKeyBasedSecondaryOrphans(
 
 function findSecondaryOrphanParent(
   orphanName: string,
+  orphanStats: import('../types.js').AbilityStat,
   out: Record<string, import('../types.js').AbilityStat>,
   blizzardHero: Hero,
 ): string | null {
-  // 1. Description-mention rule: pick the Blizzard ability whose description mentions
+  // 1. Form-tail routing: the orphan's ability_type carries a semicolon-separated form
+  //    qualifier (e.g. "Ability;;Nemesis Form"). Route to the kept Blizzard ability
+  //    whose name carries the matching parenthetical form suffix.
+  //    Ramattra Block: "Ability;;Nemesis Form" → "Pummel (Nemesis Form)".
+  const formTail = extractFormTail(orphanStats.ability_type);
+  if (formTail) {
+    const formRe = new RegExp(`\\(\\s*${formTail.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*\\)`, 'i');
+    const formMatches = Object.entries(out).filter(([k]) => formRe.test(k));
+    if (formMatches.length === 1) return formMatches[0]![0];
+    if (formMatches.length > 1) {
+      const weapons = formMatches.filter(
+        ([, s]) => typeof s.ability_type === 'string' && /\bweapon\b/i.test(s.ability_type),
+      );
+      if (weapons.length === 1) return weapons[0]![0];
+    }
+  }
+
+  // 2. Description-mention rule: pick the Blizzard ability whose description mentions
   //    the orphan name. Perk descriptions also count (they frequently reference the
   //    weapon the orphan belongs to).
   const wordRe = new RegExp(`\\b${orphanName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');

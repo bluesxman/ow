@@ -27,6 +27,7 @@ const FIELD_MAP: Record<string, keyof AbilityStat> = {
   movement_speed: 'movement_speed',
   move_speed: 'movement_speed',
   ability_type: 'ability_type',
+  key: 'key',
   ability_details: undefined as unknown as keyof AbilityStat,
 };
 

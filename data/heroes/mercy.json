@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -95,7 +95,8 @@
       "abilities": {
         "Angelic Descent": {
           "duration": "Until cancelled",
-          "ability_type": "Passive Ability"
+          "ability_type": "Passive Ability",
+          "key": "jump"
         },
         "Caduceus Staff": {
           "ability_type": "Weapon",
@@ -116,11 +117,13 @@
         },
         "Guardian Angel": {
           "ability_type": "Ability",
+          "key": "ability 1",
           "range": "30 meters",
           "cooldown": "1.5 seconds"
         },
         "Resurrect": {
           "ability_type": "Ability",
+          "key": "ability 2",
           "healing": "Revives ally at full health",
           "range": "5.50 meters",
           "cooldown": "30 seconds"

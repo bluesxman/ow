@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -98,6 +98,7 @@
           "dps": "140 while firing (98 overall w/ reload)",
           "modes": {
             "ADS": {
+              "key": "secondary fire",
               "damage": "12 - 6 (at 0% power) / 120 - 60 (at 100% power)",
               "falloff": "50 - 70 meters",
               "headshot": true,
@@ -112,11 +113,13 @@
         },
         "Grappling Hook": {
           "ability_type": "Ability",
+          "key": "ability 1",
           "cooldown": "10 seconds",
           "range": "20 meters"
         },
         "Venom Mine": {
           "ability_type": "Ability",
+          "key": "ability 2",
           "cooldown": "15 seconds",
           "damage": "25 per second / 125 total",
           "headshot": false,

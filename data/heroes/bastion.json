@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -91,6 +91,7 @@
       "abilities": {
         "Configuration: Recon": {
           "ability_type": "Weapon;;Recon Form",
+          "key": "primary fire",
           "damage": "23 - 7.5",
           "falloff": "30 - 50 meters",
           "headshot": true,
@@ -103,6 +104,7 @@
         },
         "A-36 Tactical Grenade": {
           "ability_type": "Ability",
+          "key": "secondary fire",
           "damage": "15 (direct hit bonus) / 100 - 50 (splash, enemy) / 50 - 25 (splash, self)",
           "cooldown": "8 seconds",
           "projectile_speed": "40 m/s",
@@ -112,11 +114,13 @@
         },
         "Reconfigure": {
           "ability_type": "Ability",
+          "key": "ability 1",
           "cooldown": "12 seconds",
           "duration": "6 seconds"
         },
         "Configuration: Assault": {
           "ability_type": "Weapon;;Assault Form",
+          "key": "primary fire",
           "damage": "12 - 3.6",
           "falloff": "30 - 50 meters",
           "rate_of_fire": "30 shots/s",
@@ -152,6 +156,7 @@
         },
         "Self-Repair": {
           "ability_type": "Major Perk",
+          "key": "ability 2",
           "healing": "90 per second",
           "duration": "0.5 seconds (min) / 3.3 seconds (max)"
         }

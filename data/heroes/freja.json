@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -87,6 +87,7 @@
       "abilities": {
         "Take Aim": {
           "ability_type": "Weapon;;ADS",
+          "key": "Secondary Fire",
           "headshot": true,
           "ammo": 1,
           "reload": "1.5 seconds",
@@ -99,10 +100,12 @@
         },
         "Quick Dash": {
           "ability_type": "Ability",
+          "key": "ability 1",
           "cooldown": "4.5 seconds"
         },
         "Updraft": {
           "ability_type": "Ability",
+          "key": "ability 2",
           "cooldown": "12 seconds"
         },
         "Bola Shot": {

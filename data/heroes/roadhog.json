@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -100,6 +100,7 @@
           "dps": "203.13 while firing (154.76 overall w/ reload)",
           "modes": {
             "Secondary Fire": {
+              "key": "secondary fire",
               "damage": "50 (pre-detonation) / 7 – 2.1 (post-detonation, per pellet) / 175 – 52.5 (post-detonation, per shot)",
               "falloff": "None (pre-detonation) / 24 - 39 meters (post-detonation)",
               "projectile_speed": "60 m/s (pre-detonation) / 80 m/s (post-detonation)",
@@ -117,6 +118,7 @@
         },
         "Chain Hook": {
           "ability_type": "Ability",
+          "key": "ability 1",
           "cooldown": "8 seconds",
           "damage": 25,
           "headshot": false,
@@ -127,6 +129,7 @@
         },
         "Take a Breather": {
           "ability_type": "Ability",
+          "key": "ability 2",
           "cooldown": "1.25 seconds",
           "healing": "150 per second",
           "duration": "0.4 seconds (min) / 3 seconds (max) / 1.3 seconds (energy regen delay)"

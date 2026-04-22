@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -99,6 +99,7 @@
           "dps": "144 while firing (~100.93 overall w/reload)",
           "modes": {
             "Secondary Fire": {
+              "key": "secondary fire",
               "damage": "120 - 60 (max charge) / 21 - 10.5 (min charge)",
               "falloff": "40 – 60 meters",
               "projectile_radius": "0.14 meters",
@@ -110,12 +111,14 @@
         },
         "Power Slide": {
           "ability_type": "Ability",
+          "key": "ability 1",
           "cooldown": "7 seconds",
           "duration": "1 second",
           "range": "13 meters (slide) / 11.7 meters (jump)"
         },
         "Disruptor Shot": {
           "ability_type": "Ability",
+          "key": "ability 2",
           "cooldown": "15 seconds",
           "damage": "90 per second / 315 total",
           "headshot": false,

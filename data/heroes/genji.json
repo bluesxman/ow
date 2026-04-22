@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -91,6 +91,7 @@
       "abilities": {
         "Cyber-Agility": {
           "ability_type": "Passive Ability",
+          "key": "jump",
           "duration": "Up to 1 second"
         },
         "Shuriken": {
@@ -107,6 +108,7 @@
           "dps": "92.05 while firing (85.94 overall w/reload)",
           "modes": {
             "Secondary Fire": {
+              "key": "secondary fire",
               "damage": "(per shuriken) / (per shot)",
               "headshot": true,
               "projectile_speed": "m/s",
@@ -121,6 +123,7 @@
         },
         "Swift Strike": {
           "ability_type": "Ability",
+          "key": "ability 1",
           "cooldown": "8 seconds",
           "damage": 50,
           "headshot": false,
@@ -129,6 +132,7 @@
         },
         "Deflect": {
           "ability_type": "Ability",
+          "key": "ability 2",
           "cooldown": "10 seconds",
           "duration": "0.27 seconds min. duration / 2 seconds max. duration / 0.192 seconds recovery"
         },

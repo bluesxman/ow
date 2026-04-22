@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -94,7 +94,8 @@
     "stats": {
       "abilities": {
         "Glide": {
-          "ability_type": "Passive Ability"
+          "ability_type": "Passive Ability",
+          "key": "jump"
         },
         "Tri-Shot": {
           "ability_type": "Weapon",
@@ -111,6 +112,7 @@
         },
         "Sticky Bombs": {
           "ability_type": "Ability",
+          "key": "secondary fire",
           "cooldown": "6 seconds",
           "damage": "5 (direct hit) / 25 (explosion, enemy) / 12.5 (explosion, self)",
           "headshot": false,
@@ -122,11 +124,13 @@
         },
         "Flight": {
           "ability_type": "Ability",
+          "key": "ability 1",
           "cooldown": "6 seconds",
           "duration": "0.2 seconds (min) / 3 seconds (max)"
         },
         "Focusing Beam": {
           "ability_type": "Ability",
+          "key": "ability 2",
           "cooldown": "8 seconds",
           "damage": "75 per second / 175 per second (target <50% hp)",
           "headshot": false,

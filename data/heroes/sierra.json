@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -91,6 +91,7 @@
       "abilities": {
         "Helix Rifle": {
           "ability_type": "Weapon (Hip Fire)",
+          "key": "primary fire",
           "damage": "9 (per pellet) / 18 (per volley)",
           "headshot": true,
           "rate_of_fire": "10.45 shots/s",
@@ -103,6 +104,7 @@
         },
         "Tracking Shot": {
           "ability_type": "Ability",
+          "key": "secondary fire",
           "cooldown": "10 seconds",
           "damage": 35,
           "headshot": true,
@@ -112,12 +114,14 @@
         },
         "Anchor Drone": {
           "ability_type": "Ability",
+          "key": "ability 1",
           "cooldown": "12 seconds",
           "duration": "10 seconds",
           "range": "14 meters (deploy range) / 17 meters (grapple)"
         },
         "Tremor Charge": {
           "ability_type": "Ability",
+          "key": "ability 2",
           "cooldown": "8.5 seconds",
           "damage": "100 (inner shockwave) / 60 (outer shockwave)",
           "range": "12 meters",

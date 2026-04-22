@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -107,23 +107,27 @@
         },
         "Grappling Claw": {
           "ability_type": "Ability",
+          "key": "secondary fire",
           "cooldown": "5 seconds (after fireball) / 1 second (no fireball)",
           "damage": "60 (fireball collision)",
           "range": "22.2 meters (max) / 6 meters (retracted)",
           "duration": "8 seconds (max grapple time after fireball)"
         },
         "Roll": {
+          "key": "ability 1",
           "ability_type": "Ability",
           "cooldown": "0.4 seconds"
         },
         "Adaptive Shield": {
           "ability_type": "Ability",
+          "key": "ability 2",
           "cooldown": "15 seconds",
           "radius": "13 meters",
           "duration": "7 seconds (self) / 4 seconds (allies)"
         },
         "Piledriver": {
           "ability_type": "Ability",
+          "key": "crouch",
           "cooldown": "8 seconds",
           "damage": "100 - 20",
           "radius": "1.5 - 8 meters",

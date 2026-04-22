@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -105,6 +105,7 @@
         },
         "Rocket Punch": {
           "ability_type": "Ability",
+          "key": "secondary fire",
           "cooldown": "4 seconds",
           "damage": "25 - 75 (base, impact damage) / 10 - 40 (base, wall slam) / 38 - 113 (empowered, impact damage) / 15 - 60 (empowered, wall slam)",
           "duration": "0.5 seconds (max. travel time) / 0.5 seconds (stun, punch impact) / 0.15 seconds (stun, wall slam) / 0.15 - 0.6 seconds (stun, empowered wall slam) / 20 seconds (Empowered Rocket Punch max duration)",
@@ -112,12 +113,14 @@
         },
         "Seismic Slam": {
           "ability_type": "Ability",
+          "key": "ability 1",
           "cooldown": "6.5 seconds",
           "damage": 50,
           "radius": "15 meters"
         },
         "Power Block": {
           "ability_type": "Ability",
+          "key": "ability 2",
           "cooldown": "7 seconds",
           "duration": "0.34 seconds (min) / 2.5 seconds (max)"
         },

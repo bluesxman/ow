@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -103,6 +103,7 @@
           "dps": "95 while firing (0% charge) (73.07 overall w/reload)175 while firing (100% charge) (134.61 overall w/reload)",
           "modes": {
             "Secondary Fire": {
+              "key": "secondary fire",
               "damage": "55 – 11 (enemy, 0% Energy) / 110 – 22 (enemy, 100% Energy) / 27.5 – 5.5 (self, 0% Energy) / 55 – 11 (self, 100% Energy)",
               "headshot": false,
               "rate_of_fire": "1 shot/s",
@@ -118,12 +119,14 @@
         },
         "Particle Barrier": {
           "ability_type": "Ability",
+          "key": "ability 1",
           "cooldown": "11 seconds",
           "duration": "2.25 seconds",
           "radius": "1.5 meters"
         },
         "Projected Barrier": {
           "ability_type": "Ability",
+          "key": "ability 2",
           "cooldown": "9 seconds",
           "range": "30 meters",
           "radius": "1.5 meters",

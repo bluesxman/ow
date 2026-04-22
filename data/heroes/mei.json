@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -100,6 +100,7 @@
           "dps": "110 while firing (90.58 overall w/reload)",
           "modes": {
             "Secondary Fire": {
+              "key": "secondary fire",
               "damage": 85,
               "headshot": true,
               "rate_of_fire": "1 shot per 0.8 seconds",
@@ -114,12 +115,14 @@
         },
         "Cryo-Freeze": {
           "ability_type": "Ability",
+          "key": "ability 1",
           "cooldown": "12 seconds",
           "healing": "62.5 per second",
           "duration": "0.44 seconds min. duration / 4 seconds max. duration / 0.24 seconds recovery"
         },
         "Ice Wall": {
           "ability_type": "Ability",
+          "key": "ability 2",
           "cooldown": "12 seconds",
           "range": "25 meters",
           "duration": "Up to 5 seconds / 0.5 seconds recovery"
@@ -139,6 +142,7 @@
         },
         "Glacial Propulsion": {
           "ability_type": "Minor Perk",
+          "key": "jump",
           "cooldown": "10 seconds"
         },
         "Deep Freeze": {

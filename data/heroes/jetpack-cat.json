@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -91,6 +91,7 @@
       "abilities": {
         "Biotic Pawjectiles": {
           "ability_type": "Weapon",
+          "key": "primary fire",
           "damage": "24 (per volley) / 8 (center pellet) / 4 (per paw pellet)",
           "headshot": false,
           "healing": "24 (per volley)",
@@ -106,16 +107,19 @@
         },
         "Frenetic Flight": {
           "ability_type": "Ability",
+          "key": "secondary fire",
           "duration": "0.75 seconds (regen delay)"
         },
         "Lifeline": {
           "ability_type": "Ability",
+          "key": "ability 1",
           "cooldown": "2 seconds",
           "radius": "4 meters (tether length)",
           "healing": "25 per second (ally)"
         },
         "Purr": {
           "ability_type": "Ability",
+          "key": "ability 2",
           "cooldown": "12 seconds",
           "damage": 30,
           "healing": "30 (per pulse)",
@@ -141,6 +145,7 @@
         },
         "Claws Out": {
           "ability_type": "Major Perk",
+          "key": "quick melee",
           "cooldown": "6 seconds.",
           "damage": "40 (damage over time)",
           "duration": "1 second"

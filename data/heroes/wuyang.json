@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -104,6 +104,7 @@
           "dps": "Rapid fire of uncharged orbs: 90.91 while firing (74.07 overall w/ reload) Perfectly timed charged orbs: 158.73 while firing (128.21 overall w/ reload)"
         },
         "Restorative Stream": {
+          "key": "Secondary Fire",
           "ability_type": "Ability",
           "healing": "20 per second (passive) / 55 per second (bonus manual healing)",
           "range": "20 meters",
@@ -111,12 +112,14 @@
         },
         "Rushing Torrent": {
           "ability_type": "Ability",
+          "key": "ability 1",
           "cooldown": "8 seconds",
           "range": "3.7 meters (vertical)",
           "duration": "3.5 seconds"
         },
         "Guardian Wave": {
           "ability_type": "Ability",
+          "key": "ability 2",
           "cooldown": "14 seconds",
           "damage": "80 - 40",
           "healing": 80,

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -104,16 +104,29 @@
           "reload": "1.5 seconds animation",
           "spread": "6 degrees",
           "projectile_radius": "0.04 meters",
-          "dps": "230 while firing (153.33 overall with reload)"
+          "dps": "230 while firing (153.33 overall with reload)",
+          "modes": {
+            "Secondary Fire": {
+              "key": "secondary fire",
+              "cooldown": "6 seconds",
+              "damage": "3.45 - 1.035 (per pellet) / 69 - 20.7 (per blast) / 138 - 41.4 (both blasts)",
+              "headshot": true,
+              "falloff": "25 - 35 meters",
+              "pellets": "20 per blast / 2 blasts per shot",
+              "spread": "3 degrees"
+            }
+          }
         },
         "Wraith Form": {
           "ability_type": "Ability",
+          "key": "ability 1",
           "cooldown": "8 seconds",
           "duration": "0.4 seconds (min) / 3 seconds (max)",
           "range": "23.1 meters"
         },
         "Shadow Step": {
           "ability_type": "Ability",
+          "key": "ability 2",
           "range": "35 meters",
           "cooldown": "10 seconds",
           "duration": "0.53 seconds (teleport) / 0.98 seconds (invulnerability)"

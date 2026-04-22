@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -91,7 +91,8 @@
       "abilities": {
         "Snap Kick": {
           "ability_type": "Passive Ability",
-          "damage": 60
+          "damage": 60,
+          "key": "quick melee"
         },
         "Orb of Destruction": {
           "ability_type": "Weapon;;Primary Fire",
@@ -106,6 +107,7 @@
           "dps": "125 while firing (108.7 overall w/reload) 156.25 while firing w/ discord",
           "modes": {
             "Secondary Fire": {
+              "key": "secondary fire",
               "damage": "50 per orb / 250 per volley",
               "headshot": true,
               "rate_of_fire": "1 orb per 0.524 seconds (charging) / 1 shot per 0.144 seconds (firing) / 0.6 seconds recovery",
@@ -120,6 +122,7 @@
         },
         "Orb of Harmony": {
           "ability_type": "Ability",
+          "key": "ability 1",
           "healing": "35 health per second",
           "range": "40 meters",
           "projectile_speed": "90 m/s",
@@ -127,6 +130,7 @@
         },
         "Orb of Discord": {
           "ability_type": "Ability",
+          "key": "ability 2",
           "projectile_speed": "90 m/s",
           "range": "40 meters",
           "duration": "1.5 seconds (if out of sight)"
@@ -143,6 +147,7 @@
         },
         "Ascendance": {
           "ability_type": "Minor Perk",
+          "key": "jump",
           "duration": "3 seconds"
         },
         "Focused Destruction": {

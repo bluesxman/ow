@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T05:43:42.860Z",
+    "last_updated": "2026-04-21T23:48:58.836Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -130,12 +130,14 @@
         },
         "Defense Matrix": {
           "ability_type": "Ability;;Mech",
+          "key": "secondary fire",
           "cooldown": "1 second",
           "duration": "0.5 seconds (min) / 3 seconds (max) / 0.75 seconds (energy regen delay)",
           "range": "10.3 meters"
         },
         "Boosters": {
           "ability_type": "Ability;;Mech",
+          "key": "ability 1",
           "cooldown": "4 seconds",
           "damage": 25,
           "headshot": false,
@@ -144,6 +146,7 @@
         },
         "Micro Missiles": {
           "ability_type": "Ability;;Mech",
+          "key": "ability 2",
           "cooldown": "7 seconds",
           "damage": "3 (direct hit bonus) / 5.5 - 1.375 (splash, enemy) / 5.5 - 1.375 (splash, self)",
           "rate_of_fire": "11 shots/s",
@@ -179,6 +182,7 @@
           "ability_type": "Major Perk"
         },
         "Precision Fusion": {
+          "key": "reload",
           "ability_type": "Major Perk",
           "cooldown": "8 seconds",
           "damage": "2 - 0.6 → 1 - 0.3 (per projectile) / 22 - 6.6 → 11 - 3.3 (per volley)",

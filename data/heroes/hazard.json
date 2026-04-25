@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-21T23:48:58.836Z",
+    "last_updated": "2026-04-25T14:55:03.899Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -136,6 +136,7 @@
           "key": "ability 2",
           "cooldown": "12 seconds",
           "damage": 50,
+          "health": 400,
           "range": "∞ (projectile) / 5 meter length (wall)",
           "duration": "10 seconds (projectile) / 0.5 seconds (wall, min) / 6 seconds (wall, max)",
           "projectile_radius": "None",

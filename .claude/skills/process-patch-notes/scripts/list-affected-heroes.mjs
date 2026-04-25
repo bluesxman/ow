@@ -136,7 +136,10 @@ export function buildAffected(parsed, heroesBySlug) {
     const matchedAbilities = [];
     const skippedAbilities = [];
     for (const mentioned of entry.abilities) {
-      const stripped = mentioned.replace(/\s*[–—-]\s*(Major|Minor)\s*Perk\s*$/i, '').trim();
+      const stripped = mentioned
+        .replace(/\s*[–—-]\s*(Major|Minor)\s*Perk\s*$/i, '')
+        .replace(/^\[(.+)\]$/, '$1')
+        .trim();
       const key = stripped.toLowerCase();
       const existingKey = abilityKeysLower.get(key);
       if (existingKey) {

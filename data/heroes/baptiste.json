@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-21T23:48:58.836Z",
+    "last_updated": "2026-04-25T14:55:03.899Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -130,6 +130,7 @@
           "ability_type": "Ability",
           "key": "ability 2",
           "cooldown": "22 seconds",
+          "health": 125,
           "projectile_speed": "60 m/s",
           "healing": "Any deficit from 20% HP",
           "radius": "6 meters",

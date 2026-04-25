@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-21T23:48:58.836Z",
+    "last_updated": "2026-04-25T14:55:03.899Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -121,6 +121,7 @@
           "ability_type": "Ability",
           "key": "ability 1",
           "cooldown": "12 seconds",
+          "health": 300,
           "projectile_speed": "40 m/s",
           "duration": "∞ (unused) / 12 seconds (raised total)",
           "projectile_radius": "0.15 meters"
@@ -142,6 +143,7 @@
         },
         "Tree of Life": {
           "ability_type": "Ultimate Ability",
+          "health": 1200,
           "healing": "150 (instant) / 90 per pulse",
           "rate_of_fire": "1 pulse every 1.75 seconds (8 pulses)",
           "duration": "15 seconds (tree) / 6 seconds (overhealth)",

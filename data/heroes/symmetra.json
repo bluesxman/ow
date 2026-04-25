@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-21T23:48:58.836Z",
+    "last_updated": "2026-04-25T14:55:03.899Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -116,6 +116,7 @@
           "ability_type": "Ability",
           "key": "ability 1",
           "cooldown": "10 seconds",
+          "health": 40,
           "damage": "30 per second",
           "headshot": false,
           "duration": "Until destroyed or replaced",
@@ -125,6 +126,7 @@
         "Teleporter": {
           "ability_type": "Ability",
           "key": "ability 2",
+          "health": 100,
           "duration": "10 seconds",
           "cooldown": "12 seconds",
           "range": "30 meters",
@@ -132,6 +134,7 @@
         },
         "Photon Barrier": {
           "ability_type": "Ultimate Ability",
+          "health": 4000,
           "duration": "12 seconds",
           "range": "25 meters"
         },
@@ -146,6 +149,7 @@
           "ability_type": "Major Perk",
           "key": "Ability 2",
           "cooldown": "12 seconds",
+          "health": 600,
           "duration": "6 seconds",
           "projectile_speed": "5.5 m/s"
         },

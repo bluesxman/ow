@@ -99,6 +99,22 @@ describe('normalizeAbility', () => {
     expect(result?.stats.rate_of_fire).toBe('2 shots/s');
   });
 
+  it('maps barrier_health to health', () => {
+    const result = normalizeAbility({
+      name: 'Ability_details',
+      params: { ability_name: 'Experimental Barrier', barrier_health: '650' },
+    });
+    expect(result?.stats.health).toBe(650);
+  });
+
+  it('maps health on deployable abilities', () => {
+    const result = normalizeAbility({
+      name: 'Ability_details',
+      params: { ability_name: 'Sentry Turret', health: '30' },
+    });
+    expect(result?.stats.health).toBe(30);
+  });
+
   it('skips empty parameters', () => {
     const result = normalizeAbility({
       name: 'Ability_details',

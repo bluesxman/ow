@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-21T23:48:58.836Z",
+    "last_updated": "2026-04-25T14:55:03.899Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -115,7 +115,8 @@
         "Barrier Shield": {
           "ability_type": "Ability",
           "key": "secondary fire",
-          "cooldown": "5 seconds (destroyed)"
+          "cooldown": "5 seconds (destroyed)",
+          "health": "300 (default) / 750 (during Rally)"
         },
         "Shield Bash": {
           "ability_type": "Ability",

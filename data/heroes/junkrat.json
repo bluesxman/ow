@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-21T23:48:58.836Z",
+    "last_updated": "2026-04-25T14:55:03.899Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -118,12 +118,14 @@
           "projectile_radius": "0.2 meters",
           "radius": "1 - 3 meters (falloff start - max)",
           "duration": "Until detonated or replaced",
+          "health": 25,
           "headshot": false
         },
         "Steel Trap": {
           "ability_type": "Ability",
           "key": "ability 2",
           "damage": 100,
+          "health": 100,
           "radius": "1 meter",
           "projectile_speed": "17 m/s",
           "projectile_radius": "None",
@@ -133,6 +135,7 @@
         },
         "RIP-Tire": {
           "ability_type": "Ultimate Ability",
+          "health": 100,
           "damage": "600 - 60",
           "radius": "10 - 2 meters (falloff start - max)",
           "duration": "10 seconds (max)",

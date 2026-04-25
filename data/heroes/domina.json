@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-21T23:48:58.836Z",
+    "last_updated": "2026-04-25T14:55:03.899Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -104,6 +104,7 @@
           "key": "secondary fire",
           "cooldown": "14 seconds",
           "range": "35 meters",
+          "health": "225 (per barrier segment)",
           "duration": "8 seconds"
         },
         "Sonic Repulsors": {
@@ -128,6 +129,7 @@
           "ability_type": "Ultimate Ability",
           "damage": "75 (piercing hit) / 300 - 100 (barrier health-based implosion)",
           "duration": "5 seconds",
+          "health": 450,
           "projectile_speed": "35 m/s",
           "projectile_radius": "1.5 meters (globule) / 0.2 meters (direct hit damage) / 0.2 meters (matrix interaction)"
         },

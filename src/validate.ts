@@ -16,13 +16,27 @@ const StatValue = z.union([z.number(), z.string(), z.boolean()]);
 // numeric fields as the base ability but never nest further.
 const AbilityModeSchema = z.record(z.string(), StatValue.optional());
 
+// Cross-ability effect: an ability that modifies another ability's behavior
+// or stats (e.g. Sierra's Tracking Shot marks an enemy and Helix Rifle
+// follow-up shots track the marker — Tracking Shot's "modifies" entry
+// references Helix Rifle with the tracked-shot damage value).
+//
+// `target_ability` is the name of the affected ability on the same hero.
+// Stat fields (damage, cooldown, etc.) carry the values that apply when this
+// ability is in play, distinct from the affected ability's baseline stats.
+const ModifiesEntrySchema = z.object({
+  target_ability: z.string().min(1),
+  description: z.string().optional(),
+}).catchall(StatValue.optional());
+
 const AbilitySchema = z.object({
   name: z.string().min(1),
   description: z.string().min(1),
+  modifies: z.array(ModifiesEntrySchema).optional(),
 }).catchall(
-  // Anything beyond name/description is either a numeric/string/boolean stat
-  // or the `modes` record. Catchall keeps the schema permissive — Fandom adds
-  // new template params over time and we don't want to break on them.
+  // Anything beyond name/description/modifies is either a numeric/string/boolean
+  // stat or the `modes` record. Catchall keeps the schema permissive — Fandom
+  // adds new template params over time and we don't want to break on them.
   z.union([StatValue, z.record(z.string(), AbilityModeSchema)]).optional(),
 );
 

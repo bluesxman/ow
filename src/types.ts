@@ -29,6 +29,24 @@ export interface AbilityMode {
   [key: string]: number | string | boolean | undefined;
 }
 
+// Cross-ability effect entry — see AbilityModifies in src/validate.ts for the
+// zod schema. Used when one ability changes another ability's stats or
+// behavior (e.g. Sierra's Tracking Shot marks an enemy; Helix Rifle follow-up
+// shots track the marker with their own damage value).
+export interface AbilityModifies {
+  target_ability: string;
+  description?: string;
+  damage?: number | string;
+  cooldown?: number | string;
+  range?: number | string;
+  duration?: number | string;
+  healing?: number | string;
+  health?: number | string;
+  rate_of_fire?: number | string;
+  movement_speed?: number | string;
+  [key: string]: number | string | boolean | undefined;
+}
+
 export interface Ability {
   name: string;
   description: string;
@@ -52,7 +70,8 @@ export interface Ability {
   dps?: number | string;
   movement_speed?: number | string;
   modes?: Record<string, AbilityMode>;
-  [key: string]: number | string | boolean | Record<string, AbilityMode> | undefined;
+  modifies?: AbilityModifies[];
+  [key: string]: number | string | boolean | Record<string, AbilityMode> | AbilityModifies[] | undefined;
 }
 
 export interface HeroStats {

@@ -21,6 +21,14 @@ Source-of-truth split:
 6. **Check `metadata.last_updated`** before trusting the data. Refreshes happen manually on Overwatch patch days (no cron).
 7. **Honor attribution.** Fandom-derived fields are CC-BY-SA 3.0 — see [`ATTRIBUTION.md`](https://raw.githubusercontent.com/bluesxman/ow/main/data/ATTRIBUTION.md) and the `metadata.sources` block in every JSON file.
 
+### Cross-ability effects: `abilities[].modifies`
+
+Some abilities change another ability's stats or behavior — e.g. Sierra's `Tracking Shot` marks an enemy and the marked target is then tracked by `Helix Rifle` follow-up shots, with their own damage value distinct from `Helix Rifle`'s baseline. The `modifies?: AbilityModifies[]` field on an ability captures this.
+
+Each entry carries `target_ability` (name of the affected ability on the same hero), an optional `description`, and any stat fields (`damage`, `cooldown`, `duration`, etc.) that apply when the modifier is in play. Consumers should read top-level ability fields as the ability's own primary effect, and `modifies[]` as secondary effects that apply to other named abilities.
+
+The field is optional — most abilities don't have cross-effects and won't carry it. The Fandom scrape doesn't populate it; it's filled in by AI judgment via the patch-day workflow when patch notes reveal interactions.
+
 ### If your webfetch only follows URLs from previously-fetched content
 
 Some agents (Claude.ai chat, for example) won't fetch arbitrary URLs — only ones that already appeared in a search result or a prior fetch. For those, [`links.md`](https://raw.githubusercontent.com/bluesxman/ow/main/data/links.md) is a flat markdown list of every published raw URL. Fetch that one URL once, and every other file in `data/` becomes reachable.

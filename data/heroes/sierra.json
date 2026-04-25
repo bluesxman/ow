@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.0.0"
+    "schema_version": "5.1.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Sierra",
@@ -68,7 +68,15 @@
         "headshot": true,
         "duration": "3 seconds (tracking)",
         "projectile_speed": "140 m/s",
-        "projectile_radius": "0.26 meters"
+        "projectile_radius": "0.26 meters",
+        "modifies": [
+          {
+            "target_ability": "Helix Rifle",
+            "description": "While the marker is active, Helix Rifle shots automatically track the marked enemy.",
+            "damage": 9,
+            "duration": "3 seconds"
+          }
+        ]
       },
       {
         "name": "Anchor Drone",

@@ -23,6 +23,8 @@ const FIELD_MAP: Record<string, keyof AbilityStat> = {
   radius: 'radius',
   heal: 'healing',
   healing: 'healing',
+  health: 'health',
+  barrier_health: 'health',
   dps: 'dps',
   movement_speed: 'movement_speed',
   move_speed: 'movement_speed',

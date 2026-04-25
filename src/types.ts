@@ -26,6 +26,7 @@ export interface AbilityStatMode {
   headshot?: boolean | string;
   radius?: number | string;
   healing?: number | string;
+  health?: number | string;
   dps?: number | string;
   movement_speed?: number | string;
   ability_type?: string;
@@ -49,6 +50,7 @@ export interface AbilityStat {
   headshot?: boolean | string;
   radius?: number | string;
   healing?: number | string;
+  health?: number | string;
   dps?: number | string;
   movement_speed?: number | string;
   ability_type?: string;

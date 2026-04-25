@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-21T23:48:58.836Z",
+    "last_updated": "2026-04-25T14:55:03.899Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "4"
+    "schema_version": "4.1.0"
   },
   "heroes": {
     "ana": {
@@ -241,6 +241,7 @@
           },
           "B.O.B.": {
             "ability_type": "Ultimate Ability",
+            "health": "1000 / 1150x18px|sub|class=inline-icon invert-image|link=Roles#Role:Tank",
             "damage": "120 (charge) / 17 (arm cannons)",
             "range": "70 meters (charge) / 40 meters (arm cannons)",
             "rate_of_fire": "8 shots/s",
@@ -312,6 +313,7 @@
             "ability_type": "Ability",
             "key": "ability 2",
             "cooldown": "22 seconds",
+            "health": 125,
             "projectile_speed": "60 m/s",
             "healing": "Any deficit from 20% HP",
             "radius": "6 meters",
@@ -445,7 +447,8 @@
           "Barrier Shield": {
             "ability_type": "Ability",
             "key": "secondary fire",
-            "cooldown": "5 seconds (destroyed)"
+            "cooldown": "5 seconds (destroyed)",
+            "health": "300 (default) / 750 (during Rally)"
           },
           "Shield Bash": {
             "ability_type": "Ability",
@@ -587,6 +590,7 @@
             "key": "secondary fire",
             "cooldown": "14 seconds",
             "range": "35 meters",
+            "health": "225 (per barrier segment)",
             "duration": "8 seconds"
           },
           "Sonic Repulsors": {
@@ -611,6 +615,7 @@
             "ability_type": "Ultimate Ability",
             "damage": "75 (piercing hit) / 300 - 100 (barrier health-based implosion)",
             "duration": "5 seconds",
+            "health": 450,
             "projectile_speed": "35 m/s",
             "projectile_radius": "1.5 meters (globule) / 0.2 meters (direct hit damage) / 0.2 meters (matrix interaction)"
           },
@@ -698,7 +703,8 @@
       "stats": {
         "abilities": {
           "Eject!": {
-            "ability_type": "Passive Ability"
+            "ability_type": "Passive Ability",
+            "health": 150
           },
           "Fusion Cannons": {
             "ability_type": "Weapon;;Mech",
@@ -775,7 +781,8 @@
             "ability_type": "Minor Perk"
           },
           "Shield System": {
-            "ability_type": "Major Perk"
+            "ability_type": "Major Perk",
+            "health": -150
           },
           "Precision Fusion": {
             "key": "reload",
@@ -1195,6 +1202,7 @@
             "key": "ability 2",
             "cooldown": "12 seconds",
             "damage": 50,
+            "health": 400,
             "range": "∞ (projectile) / 5 meter length (wall)",
             "duration": "10 seconds (projectile) / 0.5 seconds (wall, min) / 6 seconds (wall, max)",
             "projectile_radius": "None",
@@ -1266,6 +1274,7 @@
             "ability_type": "Ability",
             "key": "ability 2",
             "cooldown": "7 seconds (default) / 14 seconds (under attack)",
+            "health": 75,
             "healing": "40 over 0.45 seconds (allies) / 20 over 0.45 seconds (self)",
             "range": "15 meters",
             "projectile_speed": "25 m/s",
@@ -1482,12 +1491,14 @@
             "projectile_radius": "0.2 meters",
             "radius": "1 - 3 meters (falloff start - max)",
             "duration": "Until detonated or replaced",
+            "health": 25,
             "headshot": false
           },
           "Steel Trap": {
             "ability_type": "Ability",
             "key": "ability 2",
             "damage": 100,
+            "health": 100,
             "radius": "1 meter",
             "projectile_speed": "17 m/s",
             "projectile_radius": "None",
@@ -1497,6 +1508,7 @@
           },
           "RIP-Tire": {
             "ability_type": "Ultimate Ability",
+            "health": 100,
             "damage": "600 - 60",
             "radius": "10 - 2 meters (falloff start - max)",
             "duration": "10 seconds (max)",
@@ -1689,6 +1701,7 @@
             "ability_type": "Ability",
             "key": "ability 1",
             "cooldown": "12 seconds",
+            "health": 300,
             "projectile_speed": "40 m/s",
             "duration": "∞ (unused) / 12 seconds (raised total)",
             "projectile_radius": "0.15 meters"
@@ -1710,6 +1723,7 @@
           },
           "Tree of Life": {
             "ability_type": "Ultimate Ability",
+            "health": 1200,
             "healing": "150 (instant) / 90 per pulse",
             "rate_of_fire": "1 pulse every 1.75 seconds (8 pulses)",
             "duration": "15 seconds (tree) / 6 seconds (overhealth)",
@@ -1838,6 +1852,7 @@
           },
           "Cage Fight": {
             "ability_type": "Ultimate Ability",
+            "health": 1200,
             "duration": "8 seconds",
             "radius": "7.2 meters"
           },
@@ -1928,6 +1943,7 @@
             "ability_type": "Ability",
             "key": "ability 2",
             "cooldown": "12 seconds",
+            "health": "250 per pillar / 5 pillars",
             "range": "25 meters",
             "duration": "Up to 5 seconds / 0.5 seconds recovery"
           },
@@ -2232,6 +2248,7 @@
             "key": "Ability 2",
             "ability_type": "Major Perk",
             "cooldown": "8 seconds",
+            "health": 600,
             "duration": "6 seconds",
             "radius": "7.4 meter width / 3.8 meter height / 2.9 meter depth"
           }
@@ -2332,6 +2349,7 @@
             "ability_type": "Ability;;Omnic Form",
             "key": "secondary fire",
             "cooldown": "12 seconds",
+            "health": 1000,
             "range": "35 meters",
             "duration": "4 seconds"
           },
@@ -2485,6 +2503,7 @@
           "Barrier Field": {
             "ability_type": "Ability",
             "key": "secondary fire",
+            "health": 1500,
             "cooldown": "5 seconds (destroyed)"
           },
           "Charge": {
@@ -2647,6 +2666,7 @@
             "ability_type": "Ability",
             "key": "ability 1",
             "cooldown": "12 seconds",
+            "health": 80,
             "duration": "10 seconds",
             "range": "14 meters (deploy range) / 17 meters (grapple)"
           },
@@ -2704,6 +2724,7 @@
           "Experimental Barrier": {
             "ability_type": "Ability",
             "key": "secondary fire",
+            "health": 650,
             "projectile_speed": "20 m/s",
             "range": "∞",
             "duration": "Until recalled or destroyed",
@@ -2986,6 +3007,7 @@
             "ability_type": "Ability",
             "key": "ability 1",
             "cooldown": "10 seconds",
+            "health": 40,
             "damage": "30 per second",
             "headshot": false,
             "duration": "Until destroyed or replaced",
@@ -2995,6 +3017,7 @@
           "Teleporter": {
             "ability_type": "Ability",
             "key": "ability 2",
+            "health": 100,
             "duration": "10 seconds",
             "cooldown": "12 seconds",
             "range": "30 meters",
@@ -3002,6 +3025,7 @@
           },
           "Photon Barrier": {
             "ability_type": "Ultimate Ability",
+            "health": 4000,
             "duration": "12 seconds",
             "range": "25 meters"
           },
@@ -3016,6 +3040,7 @@
             "ability_type": "Major Perk",
             "key": "Ability 2",
             "cooldown": "12 seconds",
+            "health": 600,
             "duration": "6 seconds",
             "projectile_speed": "5.5 m/s"
           },
@@ -3072,6 +3097,7 @@
             "ability_type": "Ability",
             "key": "ability 1",
             "cooldown": "5 seconds / 12 seconds (in combat)",
+            "health": 225,
             "damage": 12,
             "headshot": false,
             "rate_of_fire": "4 shots/s",
@@ -3110,6 +3136,7 @@
           },
           "Overloaded Turret": {
             "ability_type": "Major Perk",
+            "health": "+150",
             "damage": 30,
             "duration": "5 seconds"
           }
@@ -3351,6 +3378,7 @@
             "cooldown": "15 seconds",
             "damage": "25 per second / 125 total",
             "headshot": false,
+            "health": 1,
             "projectile_speed": "20 m/s",
             "projectile_radius": "0.2 meters",
             "radius": "3 meters (trigger) / 4 meters (explosion)",
@@ -3413,11 +3441,13 @@
             "ability_type": "Ability",
             "key": "ability 2",
             "cooldown": "12 seconds",
+            "health": 650,
             "duration": "8 seconds",
             "radius": "5 meters"
           },
           "Primal Rage": {
             "ability_type": "Ultimate Ability",
+            "health": "700 max health, fully restore HP",
             "damage": "50 (melee)",
             "headshot": false,
             "rate_of_fire": "1 swing per 0.656 seconds",
@@ -3492,6 +3522,7 @@
           },
           "Minefield": {
             "ability_type": "Ultimate Ability",
+            "health": 60,
             "damage": 165,
             "duration": "16 seconds (on ground) / 1.25 seconds (arming time)",
             "radius": "1.5 meters (per mine)",
@@ -3512,6 +3543,7 @@
           "Adaptive Barrier": {
             "ability_type": "Major Perk",
             "duration": "1.5 seconds",
+            "health": 150,
             "radius": "Approx. 1.5 meters"
           }
         },
@@ -3628,6 +3660,7 @@
             "ability_type": "Ability",
             "key": "ability 1",
             "cooldown": "11 seconds",
+            "health": 225,
             "duration": "2.25 seconds",
             "radius": "1.5 meters"
           },
@@ -3635,6 +3668,7 @@
             "ability_type": "Ability",
             "key": "ability 2",
             "cooldown": "9 seconds",
+            "health": 225,
             "range": "30 meters",
             "radius": "1.5 meters",
             "duration": "2.25 seconds"

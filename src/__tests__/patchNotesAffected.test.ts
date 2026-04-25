@@ -121,6 +121,20 @@ describe('buildAffected', () => {
     const report = buildAffected(parsed, { cassidy: cassidy() });
     expect(report.affected[0].abilities).toContain('Silver Bullet');
   });
+
+  it('matches ability names wrapped in [brackets]', () => {
+    const parsed = parsePatchMarkdown(`
+## Patch Notes
+
+### Damage
+
+#### Cassidy
+- **[Peacekeeper]**
+  - Damage tweaked.
+`);
+    const report = buildAffected(parsed, { cassidy: cassidy() });
+    expect(report.affected[0].abilities).toContain('Peacekeeper');
+  });
 });
 
 describe('nameToSlug', () => {

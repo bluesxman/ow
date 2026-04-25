@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-21T23:48:58.836Z",
+    "last_updated": "2026-04-25T14:55:03.899Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -32,7 +32,7 @@
         ]
       }
     ],
-    "schema_version": "4"
+    "schema_version": "4.1.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Winston",
@@ -117,11 +117,13 @@
           "ability_type": "Ability",
           "key": "ability 2",
           "cooldown": "12 seconds",
+          "health": 650,
           "duration": "8 seconds",
           "radius": "5 meters"
         },
         "Primal Rage": {
           "ability_type": "Ultimate Ability",
+          "health": "700 max health, fully restore HP",
           "damage": "50 (melee)",
           "headshot": false,
           "rate_of_fire": "1 swing per 0.656 seconds",

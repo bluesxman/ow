@@ -4,7 +4,7 @@
   "title": "Overwatch Hero",
   "description": "Schema for a single hero record as published in data/heroes/{slug}.json (under the \"hero\" key) and inside the \"heroes\" map of data/all.json.",
   "metadata": {
-    "last_updated": "2026-04-21T23:48:58.836Z",
+    "last_updated": "2026-04-25T14:55:03.899Z",
     "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -36,7 +36,7 @@
         ]
       }
     ],
-    "schema_version": "4"
+    "schema_version": "4.1.0"
   },
   "schema": {
     "$schema": "https://json-schema.org/draft/2020-12/schema",

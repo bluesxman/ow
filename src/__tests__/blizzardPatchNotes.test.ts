@@ -2,14 +2,18 @@ import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
-import { PATCH_HISTORY_CUTOFF_DATE, parsePatchNotes } from '../sources/blizzardPatchNotes.js';
+import {
+  PATCH_HISTORY_CUTOFF_DATE,
+  parsePatchNotesMarkdown,
+  renderCombined,
+} from '../sources/blizzardPatchNotes.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const FIXTURE_PATH = resolve(here, 'fixtures/blizzard-patch-notes.html');
 const HTML = readFileSync(FIXTURE_PATH, 'utf8');
 
-describe('parsePatchNotes against captured Blizzard fixture', () => {
-  const patches = parsePatchNotes(HTML);
+describe('parsePatchNotesMarkdown against captured Blizzard fixture', () => {
+  const patches = parsePatchNotesMarkdown(HTML);
 
   it('extracts at least one patch from the fixture', () => {
     expect(patches.length).toBeGreaterThan(0);
@@ -22,10 +26,10 @@ describe('parsePatchNotes against captured Blizzard fixture', () => {
     }
   });
 
-  it('every patch has a non-empty title and at least one section', () => {
+  it('every patch has a non-empty title and non-empty markdown', () => {
     for (const p of patches) {
       expect(p.title.length).toBeGreaterThan(0);
-      expect(p.sections.length).toBeGreaterThan(0);
+      expect(p.markdown.length).toBeGreaterThan(0);
     }
   });
 
@@ -35,33 +39,69 @@ describe('parsePatchNotes against captured Blizzard fixture', () => {
     }
   });
 
-  it('hero items carry both raw name and slug', () => {
-    let sawHero = false;
-    for (const patch of patches) {
-      for (const section of patch.sections) {
-        for (const item of section.items) {
-          if (item.kind === 'hero') {
-            sawHero = true;
-            expect(item.hero.length).toBeGreaterThan(0);
-            expect(item.hero_slug).toMatch(/^[a-z0-9]+(-[a-z0-9]+)*$/);
-          }
-        }
-      }
-    }
-    expect(sawHero).toBe(true);
-  });
-
-  it('discriminated union — every item is hero or general, never both', () => {
-    for (const patch of patches) {
-      for (const section of patch.sections) {
-        for (const item of section.items) {
-          expect(['hero', 'general']).toContain(item.kind);
-        }
-      }
-    }
-  });
-
   it('cutoff is locked to OW2 Season 20 start', () => {
     expect(PATCH_HISTORY_CUTOFF_DATE).toBe('2025-12-09');
+  });
+
+  // Regression test for the April 23, 2026 hotfix: the previous
+  // pre-classifying parser silently dropped "Hero Balance Updates" because
+  // Blizzard split the heading and the hero cards into two sibling DOM
+  // sections. The faithful HTML→Markdown converter must surface every
+  // hero/ability mentioned on the live page.
+  it('preserves all April 23, 2026 retail balance changes', () => {
+    const apr23 = patches.find((p) => p.date === '2026-04-23');
+    expect(apr23, 'expected April 23 patch in fixture').toBeDefined();
+    const md = apr23!.markdown;
+
+    expect(md).toContain('Hero Balance Updates');
+
+    expect(md).toContain('Roadhog');
+    expect(md).toContain('Chain Hook');
+    expect(md).toMatch(/Cooldown reduced from 8 to 7 seconds/);
+
+    expect(md).toContain('Sombra');
+    expect(md).toContain('Stealth');
+
+    expect(md).toContain('Vendetta');
+    expect(md).toMatch(/[Hh]ealth/);
+  });
+
+  it('preserves hero/ability hierarchy as nested headings', () => {
+    const apr23 = patches.find((p) => p.date === '2026-04-23');
+    expect(apr23).toBeDefined();
+    const md = apr23!.markdown;
+    // Hero names appear as h5 in Blizzard's HTML — should map to ##### in
+    // our markdown.
+    expect(md).toMatch(/##### Roadhog/);
+  });
+
+  it('preserves Stadium hero updates as a distinct section', () => {
+    const apr23 = patches.find((p) => p.date === '2026-04-23');
+    expect(apr23).toBeDefined();
+    const md = apr23!.markdown;
+    expect(md).toContain('Stadium Hero Updates');
+  });
+});
+
+describe('renderCombined', () => {
+  const patches = parsePatchNotesMarkdown(HTML);
+
+  it('emits a single document with one heading per patch', () => {
+    const doc = renderCombined(patches);
+    for (const p of patches) {
+      expect(doc).toContain(`# ${p.title}`);
+    }
+  });
+
+  it('separates patches with a horizontal rule', () => {
+    const doc = renderCombined(patches);
+    if (patches.length > 1) {
+      expect(doc).toContain('\n---\n');
+    }
+  });
+
+  it('returns a placeholder when given no patches', () => {
+    const doc = renderCombined([]);
+    expect(doc).toContain('_No patches found._');
   });
 });

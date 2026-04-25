@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:30:00.000Z",
+    "last_updated": "2026-04-25T22:30:00.000Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -35,6 +35,70 @@
       "title": "Overwatch Retail Patch Notes – April 23, 2026",
       "url": null,
       "sections": [
+        {
+          "title": "Hero Balance Updates",
+          "mode": "retail",
+          "group_label": null,
+          "changes": [
+            {
+              "raw": {
+                "text": "Cooldown reduced from 8 to 7 seconds."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "roadhog",
+                "subject_name": "Chain Hook",
+                "subject_slug": "chain-hook",
+                "metric": "cooldown",
+                "metric_phrase": "cooldown",
+                "from": "8 seconds",
+                "to": "7 seconds",
+                "delta": "-1 second",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": {
+                "text": "Movement speed bonus reduction while revealed by damage reduced from 50% to 33%."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "sombra",
+                "subject_name": "Stealth",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "movement speed bonus reduction while revealed by damage",
+                "from": "50%",
+                "to": "33%",
+                "delta": "-17%",
+                "blizzard_commentary": [],
+                "notes": "Stealth is the post-Translocator invisibility state, not a top-level ability with its own slug; subject_slug left null."
+              }
+            },
+            {
+              "raw": {
+                "text": "Health increased from 175 to 200. (Total health increased from 250 to 275.)"
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "hero_general",
+                "hero_slug": "vendetta",
+                "subject_name": "Vendetta",
+                "subject_slug": null,
+                "metric": "health",
+                "metric_phrase": "health",
+                "from": 175,
+                "to": 200,
+                "delta": 25,
+                "blizzard_commentary": ["(Total health increased from 250 to 275.)"],
+                "notes": "Base health pool; total includes 75 armor."
+              }
+            }
+          ]
+        },
         {
           "title": "Major Bug Fixes",
           "mode": "retail",

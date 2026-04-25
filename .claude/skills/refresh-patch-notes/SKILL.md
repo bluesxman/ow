@@ -48,9 +48,11 @@ The interpreted layer carries:
 
 !`git rev-parse --abbrev-ref HEAD`
 
-!`npm run --silent patch-notes:dump-raw && cat .run/patch-notes-raw.json | jq '{fetched_at, cutoff_date, patch_count: (.patches | length), patches: [.patches[] | {date, title, section_count: (.sections | length)}]}'`
+!`npm run --silent patch-notes:dump-raw && head -n 4 .run/patch-notes-raw.md && echo '---' && wc -l .run/patch-notes-raw.md`
 
-The dump script writes the raw deterministic parse to `.run/patch-notes-raw.json`. That's the input — patches sorted newest-first, with sections containing items (`kind: hero` with abilities and hero_level bullets, or `kind: general` with bullets and an optional title).
+The dump script writes a faithful Markdown rendering of every post-cutoff patch to `.run/patch-notes-raw.md`. That file is the input — patches are introduced with `# <patch title>` and separated by `---`, with whatever section/hero/ability heading hierarchy Blizzard published preserved verbatim. Read it end-to-end; it's the ground truth.
+
+The deterministic layer does **not** classify items into hero vs. general buckets and does **not** infer modes — that's all your job. Anything visible on Blizzard's page should be visible in the markdown; if a bullet is missing, the deterministic scrape is broken (escalate, do not paper over).
 
 ## Procedure
 
@@ -58,30 +60,36 @@ The dump script writes the raw deterministic parse to `.run/patch-notes-raw.json
 
    **Exclude joke patches** — Blizzard publishes April Fools "patch notes" in the same feed (e.g., the April 1, 2026 "Underwatch Patch Notes" with absurd fake changes like "Cassidy fires a piercing bullet whenever saying hello"). These don't reflect real game state. Identify by the patch title (`Underwatch`, `April 1` joke style) and/or by the absurdity of the bullets. Drop the entire patch from the output and note the exclusion in the PR body. If unsure, ask the user.
 
-2. **Read the raw input**: `.run/patch-notes-raw.json`. For each patch in `patches[]`:
-   - Use the same `date` and `title` as in the raw input.
+2. **Read the raw markdown**: `.run/patch-notes-raw.md`. Each patch starts at a `# <title>` heading and runs until the next `---` separator. For each patch:
+   - Parse the date out of the title (e.g. "April 23, 2026" → `2026-04-23`).
    - Set `url: null` (Blizzard doesn't publish stable per-patch URLs).
-   - Map raw sections to published sections (see step 3).
+   - Walk the markdown in document order; the heading hierarchy is your guide. Typical shape:
+     ```
+     ## <Section> (e.g. "Hero Balance Updates", "Stadium Hero Updates", "Bug Fixes")
+     ##### <Hero>
+     <Ability>
+     - <bullet>
+     ```
+     But Blizzard's exact heading depths and labels shift patch-to-patch. **Do not assume a fixed depth.** Use heading text and visual context (a name that matches a hero in `data/heroes/` is a hero; a name that matches an ability is an ability) to classify each bullet.
 
-3. **For each section in the raw input**:
-   - Set `title` to the raw section title verbatim.
-   - Set `mode` based on the section title and surrounding context. Rules:
-     - Title contains "Stadium" → `stadium`.
-     - Section appears immediately after a `Stadium Updates` / `Stadium Hero Updates` block in the same patch and re-uses a generic name like `Tank` / `Damage` / `Support` → `stadium`.
-     - Section is `Map Updates`, `Bug Fixes`, `General Updates`, `Hero Updates`, or a season opener → `retail` unless the section explicitly contains Stadium-only content.
-     - When in doubt, set `unknown` and leave a note on each change.
-   - Set `group_label` to the section's grouping subject when meaningful (a single hero name when the section has one hero block; a topic like "Mystery Heroes Updates" for general sub-blocks). Else null.
+3. **For each section heading you encounter**, decide a `mode` for the changes nested under it:
+   - Section title contains "Stadium" → `stadium`.
+   - Section is "Hero Balance Updates", "Hero Updates", "Map Updates", "Bug Fixes", "General Updates", or a season opener → `retail` unless its content is explicitly Stadium-only.
+   - A bare role label like `Tank` / `Damage` / `Support` immediately following a Stadium block → `stadium`.
+   - When in doubt, set `unknown` and leave a `notes` explaining on each change.
 
-4. **For each item in the raw section**, flatten to `changes[]`:
-   - **Hero items (`kind: hero`)**: emit one change per `hero_level` bullet and one change per ability bullet. Each gets:
-     - `raw.text`: the bullet text.
-     - `interpreted.hero_slug`: `item.hero_slug` (already normalized by the parser).
-     - For ability bullets: `subject_kind: 'ability'`, `subject_name: <ability_name>` (or `'perk'` if the ability name carries a `– Minor Perk` / `– Major Perk` suffix; in that case strip the suffix from `subject_name`).
-     - For hero-level bullets: `subject_kind: 'hero_general'`, `subject_name: <hero name>`.
-     - Bracketed prefixes (`[Ravenous Vortex]`, `[Annihilation]`) reference a specific ability — when present, prefer that as `subject_name` and set `subject_kind: 'ability'`. Strip the bracketed prefix from `metric_phrase` so it doesn't leak into the metric label.
-   - **General items (`kind: general`)**: one change per bullet.
-     - When the item carries a `title`, use it as `subject_name` and set `subject_kind: 'system'` (or `'map'` for map sections, `'role'` for role passive bullets).
-     - When `title` is empty, treat as a flat section bullet — `subject_name: null`, `subject_kind: 'system'`.
+   Set `group_label` on the published section when meaningful (a single hero name when the section has one hero block; a topic like "Mystery Heroes Updates" for general sub-blocks). Else null. The published `title` should match the original section heading text verbatim.
+
+4. **For each bullet, emit one `change`**:
+   - `raw.text`: the bullet text exactly as rendered in the markdown (after stripping the leading `- `).
+   - `interpreted`: judgment fields below.
+   - **Subject classification** — use the nearest enclosing heading(s):
+     - Hero heading visible immediately above (matches a slug in `data/heroes/`): `hero_slug` = that slug.
+     - Ability heading visible above the hero (matches a `name` in `data/heroes/<hero>.json#abilities[]`): `subject_kind: 'ability'`, `subject_name: <ability name>`.
+     - Ability heading suffixed with "– Minor Perk" / "– Major Perk", or a bullet whose only context is a perk name (matches `perks.minor[*].name` or `perks.major[*].name`): `subject_kind: 'perk'`, `subject_name: <perk name>` (strip the suffix from the name).
+     - Bullet directly under a hero heading with no ability heading: `subject_kind: 'hero_general'`, `subject_name: <hero name>`.
+     - Bracketed prefix in the bullet itself (`[Ravenous Vortex] cooldown reduction…`) names a specific ability — prefer that as `subject_name` and set `subject_kind: 'ability'` even if no ability heading is visible. Strip the bracketed prefix from `metric_phrase`.
+     - No hero or ability context (e.g. a `Bug Fixes` general bullet about Custom Bindings): `subject_kind: 'system'` (or `'map'` for map sections, `'role'` for role passive bullets); `hero_slug: null`; `subject_name: <whatever short label fits the bullet>`.
    - **`subject_slug` field** (foreign key into the affected hero's data):
      - When `subject_kind` is `'ability'`: look up the ability in `data/heroes/<hero_slug>.json`'s `abilities[]` and copy its `slug` field. Don't derive — read.
      - When `subject_kind` is `'perk'`: look up in `perks.minor[*]` / `perks.major[*]` of the same hero and copy its `slug`.

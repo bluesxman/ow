@@ -2256,7 +2256,7 @@
           "description": "Channel a burst of healing talismans that can seek targeted allies.",
           "ability_type": "Weapon;;Primary Fire",
           "healing": "13 (per talisman) / 26 (per burst)",
-          "rate_of_fire": "0.2 seconds (per burst) / 1.42 seconds (full clip)",
+          "rate_of_fire": "0.143 seconds (per burst) / 1.42 seconds (full clip)",
           "reload": "0.9 seconds",
           "pellets": 2,
           "ammo": 10,

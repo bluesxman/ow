@@ -1,8 +1,8 @@
 ---
 name: refresh-patch-notes
-description: Refresh data/patch-notes.json with the latest Blizzard patch notes, applying AI judgment to interpret each natural-language change into structured fields (mode, subject, metric, from/to, etc.). Manually invoked on patch days. Opens a PR for human review.
+description: Refresh data/patch-notes.json with the latest Blizzard patch notes, applying AI judgment to interpret each natural-language change into structured fields (mode, subject, metric, from/to, etc.). First step of the patch-day flow — followed by process-patch-notes for hero stat updates. Manually invoked on patch days. Opens a PR for human review.
 disable-model-invocation: true
-allowed-tools: Bash(npm run patch-notes:*) Bash(jq *) Bash(git *) Bash(gh pr *) Read Edit Write Grep Glob
+allowed-tools: Bash(npm run patch-notes:*) Bash(npm run typecheck) Bash(npm run lint) Bash(npm test) Bash(jq *) Bash(git *) Bash(gh pr *) Read Edit Write Grep Glob
 effort: high
 ---
 
@@ -11,6 +11,17 @@ effort: high
 Maintains `data/patch-notes.json` — the published, structured history of Blizzard's patch notes from `2025-12-09` onward (OW2 Season 20: Vendetta and the post-rebrand 2026 seasons).
 
 The deterministic scrape pipeline (GHA, `npm run scrape`) does not write this file. Patch notes are natural-language and require interpretation that pattern-matching can't do well; that's this skill's job. The scrape pipeline writes the schema (a static contract) but not the data.
+
+## Patch-day order
+
+This is the first skill in the patch-day flow:
+
+1. **refresh-patch-notes** (this skill) — fetches raw patches, interprets, writes `data/patch-notes.json`.
+2. **[process-patch-notes](../process-patch-notes/SKILL.md)** — reads `data/patch-notes.json`, applies retail quantitative changes to `data/heroes/*.json`, and opens the **combined PR** containing both files.
+
+When invoked as part of the patch-day flow, this skill **does not open its own PR** — it stages the change locally and hands off to `process-patch-notes`, which commits both sets of edits together so reviewers see the full causal chain (patch interpretation → applied stat numbers) in one diff.
+
+When invoked **standalone** (e.g. re-interpreting an earlier patch without applying hero edits), this skill opens its own PR — see the "Standalone PR" section below.
 
 ## What this skill produces
 
@@ -102,7 +113,25 @@ The dump script writes the raw deterministic parse to `.run/patch-notes-raw.json
 
 11. **Rebuild aggregates**: `npm run patch-notes:rebuild-aggregates`. The patch-notes file is independent from the hero aggregates, but this keeps `data/index.json`'s timestamps consistent.
 
-## Branch and PR
+12. **Quality gates** — run before committing:
+
+    !`npm run typecheck`
+
+    !`npm run lint`
+
+    !`npm test`
+
+    Hand-edited JSON occasionally introduces shape errors that the schema validator misses (typos in untyped string fields, escaped quotes that break JSON.parse on a second pass, etc.). Stop and investigate if any gate fails.
+
+## When chained into the patch-day flow
+
+When the user has asked Claude to "update our data with the latest patch", or has invoked `process-patch-notes` immediately after this skill, **do not open a PR here**. Stop after step 12 (gates). Hand off to `process-patch-notes` — that skill will commit both `data/patch-notes.json` and `data/heroes/*.json` together and open the single combined PR.
+
+In this mode, `git status` should show `data/patch-notes.json` as the only change in the working tree at hand-off time. Do not `git add`, do not commit, do not push, do not open a PR.
+
+## Standalone PR
+
+When invoked **standalone** — re-interpreting an earlier patch, fixing an interpretation error, or otherwise updating `data/patch-notes.json` without intending to apply hero edits — open a PR for just the patch-notes change:
 
 ```
 BRANCH=patch-notes/$(date -u +%Y-%m-%d)

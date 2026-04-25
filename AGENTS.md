@@ -39,6 +39,29 @@ The version reflects what's currently on `main`, not what's in flight. Don't bum
 
 Edit the constant in [`src/config.ts`](./src/config.ts) (`SCHEMA_VERSION`) and call out the bump in the PR body. Routine `chore(data): refresh hero data` PRs should use a patch bump; the scrape workflow does not bump it automatically — set it explicitly when you intend a release.
 
+## Patch-day workflow
+
+When Blizzard publishes a new patch, two AI-driven Claude Code skills update the data in sequence and commit a **single combined PR**:
+
+1. **[`refresh-patch-notes`](./.claude/skills/refresh-patch-notes/SKILL.md)** — fetches the latest patch notes from Blizzard, applies AI judgment to interpret each natural-language bullet into structured fields (mode, subject, metric, from/to, etc.), and writes `data/patch-notes.json`. Stages the change locally; **does not open a PR** when chained into the patch-day flow.
+2. **[`process-patch-notes`](./.claude/skills/process-patch-notes/SKILL.md)** — reads the structured `data/patch-notes.json` from step 1 and applies retail quantitative changes to `data/heroes/*.json`. Commits both files together and opens the combined PR.
+
+```
+User: "Update our data with the latest patch."
+→ Claude invokes refresh-patch-notes (writes data/patch-notes.json, runs gates, stops)
+→ Claude invokes process-patch-notes (edits data/heroes/*.json, commits everything, opens PR)
+→ User reviews the single PR and merges
+```
+
+The combined PR shows the full causal chain in one diff: patch-notes interpretation alongside the applied hero stat numbers. A reviewer verifying "Cassidy Peacekeeper damage went 75 → 70" can see both the source bullet (`raw.text` in `data/patch-notes.json`) and the destination edit (`data/heroes/cassidy.json`) without context-switching.
+
+Either skill can also be invoked **standalone**:
+
+- `refresh-patch-notes` alone: re-interprets earlier patches, fixes interpretation errors, or backfills history. Opens its own PR for just `data/patch-notes.json`.
+- `process-patch-notes` alone: re-applies an existing `data/patch-notes.json` to hero stats (e.g. after a manual hero-JSON revert). PR contains hero edits only.
+
+Both skills run quality gates (`npm run typecheck`, `npm run lint`, `npm test`) before committing. The deterministic scrape (`npm run scrape`) is a separate, GHA-friendly workflow and does **not** participate in the patch-day flow — it's for refreshing Fandom-derived hero data wholesale (run on Fandom updates, not Blizzard patches).
+
 ## If you're modifying the code
 
 - Read [README.md](./README.md) first.

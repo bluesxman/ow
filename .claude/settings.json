@@ -17,6 +17,9 @@
       "Bash(git commit -m *)",
       "Bash(git push -u origin *)",
       "Bash(gh pr create *)"
+    ],
+    "deny": [
+      "WebFetch(domain:*.fandom.com)"
     ]
   }
 }

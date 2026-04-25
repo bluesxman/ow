@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T15:47:39.427Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,18 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
           "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.abilities.*"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Sombra",
@@ -45,6 +47,10 @@
     "sub_role": "recon",
     "abilities": [
       {
+        "name": "Opportunist",
+        "description": "You detect enemy ultimate abilities on nameplates, and deal more damage to hacked enemies."
+      },
+      {
         "name": "Machine Pistol",
         "description": "Short-range automatic weapon."
       },
@@ -53,16 +59,16 @@
         "description": "Hold to hack. Hacked enemies cannot use abilities and can be seen through walls. Hacked health packs spawn faster and can't be used by enemies. Taking damage interrupts the hack attempt."
       },
       {
+        "name": "Virus",
+        "description": "Infect enemies with a projectile that deals damage over time. Virus damages hacked targets at a faster rate."
+      },
+      {
         "name": "Translocator",
         "description": "Throw a beacon and teleport to it. Become stealthed for a short duration after teleporting."
       },
       {
-        "name": "Virus",
-        "description": "Infect enemies with a projectile that deals damage over time. Virus damages hacked enemies at a faster rate."
-      },
-      {
         "name": "EMP",
-        "description": "Deal damage to all nearby enemies equal to a percentage of their current health, hacking them and destroying barriers around you."
+        "description": "Deal damage to all nearby enemies based on their current health, hacking them and destroying barriers around you."
       }
     ],
     "perks": {
@@ -79,7 +85,7 @@
       "major": [
         {
           "name": "High-Speed Bandwidth",
-          "description": "Hacked health packs provide allies with 25% increased movement speed and 50 overhealth for 4 seconds."
+          "description": "Hacked health packs grant allies 25% movement speed and 50 overhealth for 4 seconds."
         },
         {
           "name": "Viral Replication",
@@ -88,7 +94,11 @@
       ]
     },
     "stats": {
+      "health": 225,
       "abilities": {
+        "Opportunist": {
+          "ability_type": "Passive Ability"
+        },
         "Machine Pistol": {
           "ability_type": "Weapon",
           "damage": "8 - 2.4",
@@ -103,14 +113,12 @@
         },
         "Hack": {
           "ability_type": "Ability",
-          "key": "secondary fire",
           "cooldown": "6 seconds (heroes) / 3 seconds (non-heroes)",
           "range": "15 meters",
           "duration": "8 seconds (reveal, heroes) / 1.0 seconds (ability disable, heroes) / 45 seconds (health packs) / 10 seconds (disable, objects) / 3 seconds (disable, B.O.B.)"
         },
         "Virus": {
           "ability_type": "Ability",
-          "key": "ability 1",
           "cooldown": "6 seconds",
           "damage": "35 (impact, normal) / 70 (impact, hacked) / 75 (DoT)",
           "duration": "4 seconds (normal) / 2 seconds (hacked)",
@@ -119,7 +127,6 @@
         },
         "Translocator": {
           "ability_type": "Ability",
-          "key": "ability 2",
           "cooldown": "6 seconds",
           "duration": "0.25 seconds (teleport delay) / 0.4 seconds (invulnerability) / 5 seconds (invisibility)",
           "projectile_speed": "72 m/s",
@@ -130,23 +137,8 @@
           "duration": "8 seconds (reveal, heroes) / 3 seconds (ability disable, heroes) / 45 seconds (health packs) / 10 seconds (disable, objects)",
           "radius": "15 meters",
           "damage": "25% of current health"
-        },
-        "Encrypted Upload": {
-          "ability_type": "Minor Perk"
-        },
-        "CTRL ALT ESC": {
-          "ability_type": "Minor Perk"
-        },
-        "High-Speed Bandwidth": {
-          "ability_type": "Major Perk",
-          "duration": "4 seconds"
-        },
-        "Viral Replication": {
-          "ability_type": "Major Perk",
-          "radius": "8 meters"
         }
-      },
-      "health": 225
+      }
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T15:47:39.427Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,18 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
           "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.abilities.*"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Hanzo",
@@ -45,16 +47,20 @@
     "sub_role": "sharpshooter",
     "abilities": [
       {
+        "name": "Wall Climb",
+        "description": "Jump at walls to climb up them."
+      },
+      {
         "name": "Storm Bow",
         "description": "Hold to charge then release to launch arrows further."
       },
       {
-        "name": "Storm Arrows",
-        "description": "The next 5 arrows ricochet and fire instantly at reduced damage."
-      },
-      {
         "name": "Sonic Arrow",
         "description": "Reveals enemies for a short time upon impact."
+      },
+      {
+        "name": "Storm Arrows",
+        "description": "The next 5 arrows ricochet and fire instantly at reduced damage."
       },
       {
         "name": "Lunge",
@@ -63,10 +69,6 @@
       {
         "name": "Dragonstrike",
         "description": "Launch a deadly Dragon Spirit that devastates enemies it passes through."
-      },
-      {
-        "name": "Wall Climb",
-        "description": "Jump at walls to climb up them."
       }
     ],
     "perks": {
@@ -83,7 +85,7 @@
       "major": [
         {
           "name": "Frost Arrow",
-          "description": "Press R to ready an explosive frost arrow, slowing enemies hit by 35% for 2 seconds."
+          "description": "Press Reload to ready an explosive frost arrow that slows enemies by 35% for 2 seconds."
         },
         {
           "name": "Scatter Arrows",
@@ -92,11 +94,11 @@
       ]
     },
     "stats": {
+      "health": 250,
       "abilities": {
         "Wall Climb": {
           "duration": "Up to 1 second",
-          "ability_type": "Passive Ability",
-          "key": "jump"
+          "ability_type": "Passive Ability"
         },
         "Storm Bow": {
           "ability_type": "Weapon",
@@ -111,7 +113,6 @@
         },
         "Sonic Arrow": {
           "ability_type": "Ability",
-          "key": "ability 1",
           "cooldown": "12 seconds",
           "headshot": true,
           "radius": "9 meters",
@@ -119,7 +120,6 @@
         },
         "Storm Arrows": {
           "ability_type": "Ability",
-          "key": "ability 2",
           "cooldown": "8 seconds",
           "damage": 75,
           "headshot": true,
@@ -133,8 +133,7 @@
         "Lunge": {
           "cooldown": "4 seconds",
           "range": "7.85 meters",
-          "ability_type": "Ability",
-          "key": "jump"
+          "ability_type": "Ability"
         },
         "Dragonstrike": {
           "ability_type": "Ultimate Ability",
@@ -145,28 +144,8 @@
           "radius": "4 meters (outer) / 2.4 meters (inner)",
           "range": "10 meters (initial arrow) / Infinite (dragons)",
           "duration": "0.5 seconds (initial arrow)"
-        },
-        "Sonic Disruption": {
-          "ability_type": "Minor Perk"
-        },
-        "Dragon Fury": {
-          "ability_type": "Major Perk"
-        },
-        "Frost Arrow": {
-          "ability_type": "Major Perk",
-          "key": "reload",
-          "duration": "2 seconds",
-          "radius": "4 meters",
-          "cooldown": "14 seconds"
-        },
-        "Scatter Arrows": {
-          "ability_type": "Major Perk",
-          "damage": "75 → 25 (after bounce)",
-          "pellets": "1 → 5 (after bounce)",
-          "headshot": false
         }
-      },
-      "health": 250
+      }
     }
   }
 }

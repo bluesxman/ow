@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T15:47:39.427Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,18 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
           "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.abilities.*"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Domina",
@@ -44,6 +46,10 @@
     "role": "tank",
     "sub_role": "stalwart",
     "abilities": [
+      {
+        "name": "Reconstruction",
+        "description": "Dealing damage from abilities restores shields."
+      },
       {
         "name": "Photon Magnum",
         "description": "Medium-range beam that culminates in a high impact shot."
@@ -88,7 +94,13 @@
       ]
     },
     "stats": {
+      "health": 100,
+      "shields": 400,
       "abilities": {
+        "Reconstruction": {
+          "ability_type": "Passive Ability",
+          "healing": "75% of ability damage dealt"
+        },
         "Photon Magnum": {
           "ability_type": "Weapon",
           "damage": "60 (over time) / 60 (hitscan shot)",
@@ -101,7 +113,6 @@
         },
         "Barrier Array": {
           "ability_type": "Ability",
-          "key": "secondary fire",
           "cooldown": "14 seconds",
           "range": "35 meters",
           "health": "225 (per barrier segment)",
@@ -109,7 +120,6 @@
         },
         "Sonic Repulsors": {
           "ability_type": "Ability",
-          "key": "ability 1",
           "cooldown": "7 seconds",
           "damage": "40 (base) / 40 (wall impact)",
           "range": "8.5 meters",
@@ -117,7 +127,6 @@
         },
         "Crystal Charge": {
           "ability_type": "Ability",
-          "key": "ability 2",
           "cooldown": "8 seconds",
           "damage": "50 (over time) / 100 - 50 (explosion)",
           "duration": "1 second (damage over time)",
@@ -132,23 +141,8 @@
           "health": 450,
           "projectile_speed": "35 m/s",
           "projectile_radius": "1.5 meters (globule) / 0.2 meters (direct hit damage) / 0.2 meters (matrix interaction)"
-        },
-        "Efficient Design": {
-          "ability_type": "Minor Perk"
-        },
-        "Extended Power": {
-          "ability_type": "Minor Perk",
-          "range": "25 → 30 meters"
-        },
-        "Disruptive Detonation": {
-          "ability_type": "Major Perk"
-        },
-        "Power Move": {
-          "ability_type": "Major Perk"
         }
-      },
-      "health": 100,
-      "shields": 400
+      }
     }
   }
 }

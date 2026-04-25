@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T15:47:39.427Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,18 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
           "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.abilities.*"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Hazard",
@@ -45,16 +47,20 @@
     "sub_role": "initiator",
     "abilities": [
       {
+        "name": "Vault",
+        "description": "Scale short walls and grab ledges."
+      },
+      {
         "name": "Bonespur",
         "description": "Fire a burst of spikes."
       },
       {
         "name": "Spike Guard",
-        "description": "Protect yourself from frontal damage, firing homing spikes at nearby enemies and regenerating ammo."
+        "description": "Protect yourself from frontal damage. Firing homing spikes at nearby enemies and regenerating ammo."
       },
       {
         "name": "Violent Leap",
-        "description": "Lunge forward. Activate again to slash at enemies, knocking them back."
+        "description": "Lunge forward. Activate again to slash enemies, knocking them back."
       },
       {
         "name": "Jagged Wall",
@@ -62,22 +68,18 @@
       },
       {
         "name": "Downpour",
-        "description": "Rain down a torrent of spikes, immobilizing enemies."
-      },
-      {
-        "name": "Vault",
-        "description": "Scale short walls and grab ledges."
+        "description": "Rain down a torrent of spikes, Immobilizing enemies."
       }
     ],
     "perks": {
       "minor": [
         {
           "name": "Deep Leap",
-          "description": "Violent Leap's range is increased by 15%."
+          "description": "Violent Leap’s range is increased by 15%."
         },
         {
           "name": "Anarchic Zeal",
-          "description": "Spike Guard's spikes gain 30% Lifesteal."
+          "description": "Spike Guard’s spikes gain 30% Lifesteal."
         }
       ],
       "major": [
@@ -92,10 +94,11 @@
       ]
     },
     "stats": {
+      "health": 275,
+      "armor": 225,
       "abilities": {
         "Vault": {
           "ability_type": "Passive Ability",
-          "key": "jump",
           "duration": "Up to 0.2 seconds"
         },
         "Bonespur": {
@@ -114,7 +117,6 @@
         },
         "Spike Guard": {
           "ability_type": "Ability",
-          "key": "secondary fire",
           "damage": "11.67 per projectile / 210.06 maximum",
           "headshot": false,
           "rate_of_fire": "6 shots/s",
@@ -126,14 +128,12 @@
         },
         "Violent Leap": {
           "ability_type": "Ability",
-          "key": "ability 1",
           "cooldown": "5.5 seconds",
           "damage": "70 (slash)",
           "range": "14 meters (leap, aimed up) - 15 meters (leap, along ground) / 5.4 meters (slash)"
         },
         "Jagged Wall": {
           "ability_type": "Ability",
-          "key": "ability 2",
           "cooldown": "12 seconds",
           "damage": 50,
           "health": 400,
@@ -148,25 +148,8 @@
           "headshot": false,
           "range": "30 meters",
           "duration": "2.8 seconds (trap)"
-        },
-        "Deep Leap": {
-          "ability_type": "Minor Perk"
-        },
-        "Anarchic Zeal": {
-          "ability_type": "Minor Perk",
-          "healing": "30% of damage dealt"
-        },
-        "Reconstitution": {
-          "ability_type": "Major Perk"
-        },
-        "Explosive Impalements": {
-          "ability_type": "Major Perk",
-          "damage": 40,
-          "duration": "4 seconds (counter timeout) / 8 seconds (spike)"
         }
-      },
-      "health": 275,
-      "armor": 225
+      }
     }
   }
 }

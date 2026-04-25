@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T15:47:39.427Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,18 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
           "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.abilities.*"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Widowmaker",
@@ -46,7 +48,11 @@
     "abilities": [
       {
         "name": "Widow's Kiss",
-        "description": "Automatic assault weapon. Hold for long-ranged sniper weapon."
+        "description": "Automatic assault weapon."
+      },
+      {
+        "name": "Widow's Kiss (ADS)",
+        "description": "Hold for long-ranged sniper weapon."
       },
       {
         "name": "Grappling Hook",
@@ -74,16 +80,17 @@
       ],
       "major": [
         {
-          "name": "Seeker Mine",
-          "description": "Venom Mine now fires poison darts at enemies within 10 meters and remains active after triggered."
+          "name": "Widow’s Bite",
+          "description": "Scoped shots can charge up to 125%, piercing enemies when fully charged."
         },
         {
-          "name": "Widow's Bite",
-          "description": "Scoped shots can charge up to 125%, piercing enemies when fully charged."
+          "name": "Seeker Mine",
+          "description": "Venom Mine now fires poison darts at enemies within 10 meters and remains active after triggered."
         }
       ]
     },
     "stats": {
+      "health": 225,
       "abilities": {
         "Widow's Kiss": {
           "ability_type": "Weapon;;Hip Fire",
@@ -95,31 +102,27 @@
           "reload": "1.5 seconds animation",
           "spread": "3 degrees (max)",
           "projectile_radius": "0.07 meters",
-          "dps": "140 while firing (98 overall w/ reload)",
-          "modes": {
-            "ADS": {
-              "key": "secondary fire",
-              "damage": "12 - 6 (at 0% power) / 120 - 60 (at 100% power)",
-              "falloff": "50 - 70 meters",
-              "headshot": true,
-              "rate_of_fire": "0.5 second recovery",
-              "ammo": 35,
-              "reload": "1.5 seconds animation",
-              "spread": "None",
-              "projectile_radius": "None",
-              "dps": "80 while firing (full charge) (70 overall w/reload)"
-            }
-          }
+          "dps": "140 while firing (98 overall w/ reload)"
+        },
+        "Widow's Kiss (ADS)": {
+          "ability_type": "Weapon;;ADS",
+          "damage": "12 - 6 (at 0% power) / 120 - 60 (at 100% power)",
+          "falloff": "50 - 70 meters",
+          "headshot": true,
+          "rate_of_fire": "0.5 second recovery",
+          "ammo": 35,
+          "reload": "1.5 seconds animation",
+          "spread": "None",
+          "projectile_radius": "None",
+          "dps": "80 while firing (full charge) (70 overall w/reload)"
         },
         "Grappling Hook": {
           "ability_type": "Ability",
-          "key": "ability 1",
           "cooldown": "10 seconds",
           "range": "20 meters"
         },
         "Venom Mine": {
           "ability_type": "Ability",
-          "key": "ability 2",
           "cooldown": "15 seconds",
           "damage": "25 per second / 125 total",
           "headshot": false,
@@ -133,22 +136,8 @@
           "ability_type": "Ultimate Ability",
           "radius": "Global",
           "duration": "15 seconds"
-        },
-        "Scoped Efficiency": {
-          "ability_type": "Minor Perk"
-        },
-        "Sniper's Instinct": {
-          "ability_type": "Minor Perk",
-          "duration": "2 seconds"
-        },
-        "Seeker Mine": {
-          "ability_type": "Major Perk",
-          "damage": "10 per second / 75 total",
-          "duration": "5 seconds (poison) / 8.2 seconds (rearming time)",
-          "radius": "10 meters"
         }
-      },
-      "health": 225
+      }
     }
   }
 }

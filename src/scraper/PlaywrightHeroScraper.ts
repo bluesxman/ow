@@ -3,7 +3,6 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium, type Browser, type BrowserContext, type Page, type Route } from 'playwright';
 import {
-  BASE_URL,
   HEROES_INDEX_URL,
   HERO_LIST_TIMEOUT_MS,
   HERO_PAGE_TIMEOUT_MS,
@@ -15,13 +14,15 @@ import {
 } from '../config.js';
 import type { DiskCache } from '../cache/diskCache.js';
 import { NoopCache } from '../cache/diskCache.js';
-import { normalizeDescription, normalizeName, normalizeRole } from '../normalize.js';
+import { normalizeName, normalizeRole } from '../normalize.js';
 import { isValidSlug, toSlug } from '../slug.js';
-import type { Ability, Hero, HeroStats, Perk, RosterEntry, Role, ScrapeResult } from '../types.js';
+import type { Hero, RosterEntry, Role, ScrapeResult } from '../types.js';
+import { FandomClient } from '../sources/FandomClient.js';
+import { buildHeroFromFandom, normalizeFandomHero } from '../sources/fandomNormalize.js';
+import { slugToFandomTitle } from '../sources/slugToFandomTitle.js';
 import type { HeroScraper } from './HeroScraper.js';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
-const EXTRACTOR_SOURCE = readFileSync(resolve(HERE, 'extractor.js'), 'utf8');
 const LIST_EXTRACTOR_SOURCE = readFileSync(resolve(HERE, 'listExtractor.js'), 'utf8');
 const PATCH_EXTRACTOR_SOURCE = readFileSync(resolve(HERE, 'patchExtractor.js'), 'utf8');
 
@@ -33,18 +34,14 @@ interface RawListEntry {
   portrait: string | null;
 }
 
-interface ExtractionResult {
-  perks: { minor: Array<{ name: string; description: string }>; major: Array<{ name: string; description: string }> };
-  abilities: Array<{ name: string; description: string }>;
-  stats: { health?: number; armor?: number; shields?: number };
-  markers: { perksIdx: number; stadiumIdx: number; abilitiesIdx: number };
-}
-
 export class PlaywrightHeroScraper implements HeroScraper {
   private browser: Browser | null = null;
   private context: BrowserContext | null = null;
+  private fandomClient: FandomClient;
 
-  constructor(private readonly cache: DiskCache = new NoopCache()) {}
+  constructor(private readonly cache: DiskCache = new NoopCache()) {
+    this.fandomClient = new FandomClient(cache);
+  }
 
   async init(): Promise<void> {
     if (this.browser) return;
@@ -177,63 +174,17 @@ export class PlaywrightHeroScraper implements HeroScraper {
   }
 
   private async scrapeOne(entry: RosterEntry): Promise<Hero> {
-    const page = await this.newPage();
-    try {
-      const url = `${BASE_URL}/en-us/heroes/${entry.slug}/`;
-      const response = await page.goto(url, { waitUntil: 'domcontentloaded' });
-      if (response && response.status() >= 400) {
-        throw new Error(`HTTP ${response.status()} for ${url}`);
-      }
-      await page.waitForLoadState('networkidle', { timeout: HERO_PAGE_TIMEOUT_MS }).catch(() => {});
-
-      const extraction = (await page.evaluate(EXTRACTOR_SOURCE)) as ExtractionResult;
-
-      const role: Role = entry.role;
-
-      const minorPerks: Perk[] = extraction.perks.minor.slice(0, 2).map((p) => ({
-        name: normalizeName(p.name),
-        description: normalizeDescription(p.description),
-      }));
-      const majorPerks: Perk[] = extraction.perks.major.slice(0, 2).map((p) => ({
-        name: normalizeName(p.name),
-        description: normalizeDescription(p.description),
-      }));
-
-      if (minorPerks.length !== 2 || majorPerks.length !== 2) {
-        throw new Error(`Perk count mismatch: minor=${minorPerks.length}, major=${majorPerks.length} (markers ${JSON.stringify(extraction.markers)})`);
-      }
-
-      const perksJoined = [...minorPerks, ...majorPerks].map((p) => `${p.name} ${p.description}`).join(' ').toLowerCase();
-      if (perksJoined.includes('stadium')) {
-        throw new Error('Extracted perks contain "Stadium" — subtree isolation failed');
-      }
-
-      const abilities: Ability[] = extraction.abilities.map((a) => ({
-        name: normalizeName(a.name),
-        description: normalizeDescription(a.description),
-      }));
-
-      const stats: HeroStats = {
-        ...(extraction.stats.health !== undefined ? { health: extraction.stats.health } : {}),
-        ...(extraction.stats.armor !== undefined ? { armor: extraction.stats.armor } : {}),
-        ...(extraction.stats.shields !== undefined ? { shields: extraction.stats.shields } : {}),
-        abilities: {},
-      };
-
-      const hero: Hero = {
-        slug: entry.slug,
-        name: entry.name,
-        role,
-        abilities: abilities.length ? abilities : [{ name: 'TBD', description: 'Ability extraction failed for this hero.' }],
-        perks: { minor: minorPerks, major: majorPerks },
-        stats,
-      };
-      if (entry.sub_role !== undefined) hero.sub_role = entry.sub_role;
-      if (entry.portrait_url !== undefined) hero.portrait_url = entry.portrait_url;
-
-      return hero;
-    } finally {
-      await page.close();
+    const title = slugToFandomTitle(entry.slug);
+    const wikitext = await this.fandomClient.getWikitext(title);
+    const fandom = normalizeFandomHero(wikitext);
+    if (fandom.abilities.length === 0) {
+      throw new Error(`Fandom page "${title}" yielded zero abilities`);
     }
+    if (fandom.perks.minor.length !== 2 || fandom.perks.major.length !== 2) {
+      throw new Error(
+        `Fandom perk count mismatch: minor=${fandom.perks.minor.length}, major=${fandom.perks.major.length}`,
+      );
+    }
+    return buildHeroFromFandom(entry, fandom);
   }
 }

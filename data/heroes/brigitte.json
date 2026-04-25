@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T15:47:39.427Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,18 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
           "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.abilities.*"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Brigitte",
@@ -45,16 +47,12 @@
     "sub_role": "survivor",
     "abilities": [
       {
+        "name": "Inspire",
+        "description": "Dealing damage to enemies heals nearby allies."
+      },
+      {
         "name": "Rocket Flail",
         "description": "Melee weapon with extended range."
-      },
-      {
-        "name": "Repair Pack",
-        "description": "Heals an ally for a short duration."
-      },
-      {
-        "name": "Whip Shot",
-        "description": "Launch your flail forward to knock an enemy away from you."
       },
       {
         "name": "Barrier Shield",
@@ -65,19 +63,23 @@
         "description": "Available when Barrier Shield is deployed. Dash forward to knock back an enemy."
       },
       {
-        "name": "Rally",
-        "description": "Gain armor, empower Barrier Shield, and provide extra health to nearby allies."
+        "name": "Whip Shot",
+        "description": "Launch your flail forward to knock an enemy away from you."
       },
       {
-        "name": "Inspire",
-        "description": "Dealing damage to enemies heals nearby allies."
+        "name": "Repair Pack",
+        "description": "Heals an ally for a short duration."
+      },
+      {
+        "name": "Rally",
+        "description": "Gain armor, empower Barrier Shield and provide extra health to nearby allies."
       }
     ],
     "perks": {
       "minor": [
         {
           "name": "Combat Medic",
-          "description": "Melee attacks against enemies reduce the cooldown of Repair Pack by 0.75 seconds."
+          "description": "Melee attacks reduce the cooldown of Repair Pack by 0.75 seconds."
         },
         {
           "name": "Morale Boost",
@@ -96,6 +98,8 @@
       ]
     },
     "stats": {
+      "health": 200,
+      "armor": 50,
       "abilities": {
         "Inspire": {
           "ability_type": "Passive Ability",
@@ -114,13 +118,11 @@
         },
         "Barrier Shield": {
           "ability_type": "Ability",
-          "key": "secondary fire",
           "cooldown": "5 seconds (destroyed)",
           "health": "300 (default) / 750 (during Rally)"
         },
         "Shield Bash": {
           "ability_type": "Ability",
-          "key": "primary fire",
           "cooldown": "5 seconds",
           "damage": 70,
           "duration": "0.3 seconds",
@@ -129,7 +131,6 @@
         },
         "Whip Shot": {
           "ability_type": "Ability",
-          "key": "ability 1",
           "cooldown": "4 seconds",
           "damage": 70,
           "headshot": false,
@@ -140,7 +141,6 @@
         },
         "Repair Pack": {
           "ability_type": "Ability",
-          "key": "ability 2",
           "cooldown": "5 seconds",
           "healing": "25 (instantly) / 100 over 2 seconds (over time)",
           "duration": "2 seconds",
@@ -151,24 +151,8 @@
           "ability_type": "Ultimate Ability",
           "radius": "8 meters",
           "duration": "10 seconds (Rally) / 30 seconds (overhealth) / 0.75 seconds (Shield Bash stun)"
-        },
-        "Combat Medic": {
-          "ability_type": "Minor Perk"
-        },
-        "Morale Boost": {
-          "ability_type": "Minor Perk",
-          "duration": "4 → 7 seconds"
-        },
-        "Inspiring Strike": {
-          "ability_type": "Major Perk",
-          "duration": "2 seconds"
-        },
-        "Whiplash": {
-          "ability_type": "Major Perk"
         }
-      },
-      "health": 200,
-      "armor": 50
+      }
     }
   }
 }

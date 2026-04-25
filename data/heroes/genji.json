@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T15:47:39.427Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,18 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
           "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.abilities.*"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Genji",
@@ -45,24 +47,28 @@
     "sub_role": "flanker",
     "abilities": [
       {
-        "name": "Shuriken",
-        "description": "Throw an accurate burst of 3 projectiles. Throw a fan of 3 projectiles in an arc."
+        "name": "Cyber-Agility",
+        "description": "Climb on walls and double jump."
       },
       {
-        "name": "Deflect",
-        "description": "Deflect incoming projectiles towards the direction you are aiming and block melee attacks."
+        "name": "Shuriken",
+        "description": "Throw an accurate burst of 3 projectiles."
+      },
+      {
+        "name": "Shuriken Alt Fire",
+        "description": "Throw a fan of 3 projectiles in an arc."
       },
       {
         "name": "Swift Strike",
         "description": "Rapidly dash forward and inflict damage on enemies. Eliminations reset the cooldown."
       },
       {
-        "name": "Dragonblade",
-        "description": "Unsheathe a deadly melee weapon."
+        "name": "Deflect",
+        "description": "Deflect incoming projectiles towards the direction you are aiming and block melee attacks."
       },
       {
-        "name": "Cyber-Agility",
-        "description": "Climb on walls and double jump."
+        "name": "Dragonblade",
+        "description": "Unsheathe a deadly melee weapon."
       }
     ],
     "perks": {
@@ -88,10 +94,10 @@
       ]
     },
     "stats": {
+      "health": 250,
       "abilities": {
         "Cyber-Agility": {
           "ability_type": "Passive Ability",
-          "key": "jump",
           "duration": "Up to 1 second"
         },
         "Shuriken": {
@@ -105,25 +111,22 @@
           "ammo": 30,
           "reload": "1.5 seconds",
           "spread": "None",
-          "dps": "92.05 while firing (85.94 overall w/reload)",
-          "modes": {
-            "Secondary Fire": {
-              "key": "secondary fire",
-              "damage": "(per shuriken) / (per shot)",
-              "headshot": true,
-              "projectile_speed": "m/s",
-              "projectile_radius": "0.125 meters",
-              "rate_of_fire": "1.47 shots/s",
-              "pellets": 3,
-              "reload": "1.5 seconds",
-              "spread": "4.5 degrees",
-              "dps": "119.12 while firing (109.09 overall w/reload)"
-            }
-          }
+          "dps": "92.05 while firing (85.94 overall w/reload)"
+        },
+        "Shuriken Alt Fire": {
+          "ability_type": "Weapon;;Secondary Fire",
+          "damage": "(per shuriken) / (per shot)",
+          "headshot": true,
+          "projectile_speed": "m/s",
+          "projectile_radius": "0.125 meters",
+          "rate_of_fire": "1.47 shots/s",
+          "pellets": 3,
+          "reload": "1.5 seconds",
+          "spread": "4.5 degrees",
+          "dps": "119.12 while firing (109.09 overall w/reload)"
         },
         "Swift Strike": {
           "ability_type": "Ability",
-          "key": "ability 1",
           "cooldown": "8 seconds",
           "damage": 50,
           "headshot": false,
@@ -132,7 +135,6 @@
         },
         "Deflect": {
           "ability_type": "Ability",
-          "key": "ability 2",
           "cooldown": "10 seconds",
           "duration": "0.27 seconds min. duration / 2 seconds max. duration / 0.192 seconds recovery"
         },
@@ -144,25 +146,8 @@
           "duration": "6 seconds",
           "range": "5 meters",
           "dps": "158.05 while swinging continuously"
-        },
-        "Swift Cuts": {
-          "ability_type": "Minor Perk"
-        },
-        "Dragon's Thirst": {
-          "ability_type": "Minor Perk",
-          "healing": "30% of damage dealt"
-        },
-        "Blade Twisting": {
-          "ability_type": "Major Perk",
-          "damage": "25 over time",
-          "duration": "1 second"
-        },
-        "Meditation": {
-          "ability_type": "Major Perk",
-          "healing": "35 per second"
         }
-      },
-      "health": 250
+      }
     }
   }
 }

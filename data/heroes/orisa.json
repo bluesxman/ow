@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T15:47:39.427Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,18 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
           "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.abilities.*"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Orisa",
@@ -46,7 +48,7 @@
     "abilities": [
       {
         "name": "Augmented Fusion Driver",
-        "description": "Automatic heat based weapon."
+        "description": "Automatic heat-based weapon."
       },
       {
         "name": "Energy Javelin",
@@ -62,7 +64,7 @@
       },
       {
         "name": "Terra Surge",
-        "description": "Sweep in enemies and anchor down, gaining the effects of Fortify and charging up a surge of damage. Use Q to unleash the surge early."
+        "description": "Sweep in enemies and anchor down, gaining the effects of Fortify and charging up a surge of damage. Use Primary Fire to unleash the surge early."
       }
     ],
     "perks": {
@@ -79,15 +81,17 @@
       "major": [
         {
           "name": "Charged Javelin",
-          "description": "Hold to charge Energy Javelin, increasing its knockback up to 25% and its projectile speed up to 100%. Pierces enemies at full power."
+          "description": "Energy Javelin can be charged to increase projectile speed and knockback. Pierces enemies at full power."
         },
         {
           "name": "Protective Barrier",
-          "description": "Convert Javelin Spin to instead launch a barrier."
+          "description": "Javelin Spin is replaced with a barrier."
         }
       ]
     },
     "stats": {
+      "health": 150,
+      "armor": 300,
       "abilities": {
         "Augmented Fusion Driver": {
           "ability_type": "Weapon",
@@ -99,20 +103,10 @@
           "ammo": "∞",
           "headshot": true,
           "spread": "0.75 degrees (max)",
-          "dps": "140 while firing (99.42 overall w/ recharge, 86.84 w/ overheat)",
-          "modes": {
-            "Secondary Fire": {
-              "key": "secondary fire",
-              "projectile_speed": "25 meters per second",
-              "radius": "5 meter radius",
-              "cooldown": "6 seconds",
-              "duration": "0.65 seconds (snare)"
-            }
-          }
+          "dps": "140 while firing (99.42 overall w/ recharge, 86.84 w/ overheat)"
         },
         "Energy Javelin": {
           "ability_type": "Ability",
-          "key": "secondary fire",
           "cooldown": "7 seconds",
           "damage": "70 (direct impact), 40 (wall collision)",
           "headshot": false,
@@ -122,13 +116,11 @@
         },
         "Fortify": {
           "ability_type": "Ability",
-          "key": "ability 1",
           "cooldown": "15.5 seconds",
           "duration": "4 seconds"
         },
         "Javelin Spin": {
           "ability_type": "Ability",
-          "key": "ability 2",
           "cooldown": "8 seconds",
           "damage": "20 (first hit) / 5.3 (subsequent hits)",
           "duration": "0.5 seconds (min) / 1.75 seconds (max) / 2 seconds (movement speed)",
@@ -139,29 +131,8 @@
           "damage": "18.8/s (periodic damage) / 72 - 500 (release)",
           "duration": "0.75 - 4 seconds (charge time)",
           "radius": "10.5 meters (initial pull) / 8.5 meter (damage and slow)"
-        },
-        "Defense Protocol": {
-          "ability_type": "Minor Perk",
-          "healing": "100 per second"
-        },
-        "Mobile Fortification": {
-          "ability_type": "Minor Perk"
-        },
-        "Charged Javelin": {
-          "ability_type": "Major Perk",
-          "projectile_speed": "72 m/s (min charge) / 140 m/s (max charge)"
-        },
-        "Protective Barrier": {
-          "key": "Ability 2",
-          "ability_type": "Major Perk",
-          "cooldown": "8 seconds",
-          "health": 600,
-          "duration": "6 seconds",
-          "radius": "7.4 meter width / 3.8 meter height / 2.9 meter depth"
         }
-      },
-      "health": 150,
-      "armor": 300
+      }
     }
   }
 }

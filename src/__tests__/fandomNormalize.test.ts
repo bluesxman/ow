@@ -2,8 +2,8 @@ import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
-import { parseWikitext, type ParsedTemplate } from '../sources/fandomWikitext.js';
 import {
+  extractSections,
   normalizeAbility,
   normalizeFandomHero,
   normalizeInfoboxHP,
@@ -125,10 +125,98 @@ describe('normalizeAbility', () => {
   });
 });
 
+describe('extractSections — section-based perk and ability extraction', () => {
+  it('routes blocks under "=== Minor Perks ===" to minor regardless of ability_type field', () => {
+    const wt = `
+== Perks ==
+=== Minor Perks ===
+{{Ability details
+| ability_name = Mislabeled Minor
+| ability_type = Major Perk
+| official_description = One.
+}}
+=== Major perks ===
+{{Ability details
+| ability_name = Real Major
+| ability_type = Major Perk
+| official_description = Two.
+}}
+`;
+    const sec = extractSections(wt);
+    expect(sec.minorPerks.map((p) => p.name)).toEqual(['Mislabeled Minor']);
+    expect(sec.majorPerks.map((p) => p.name)).toEqual(['Real Major']);
+  });
+
+  it('skips blocks inside "==== Removed Perks ====" subsubsection', () => {
+    const wt = `
+== Perks ==
+=== Major Perks ===
+{{Ability details
+| ability_name = Current
+| ability_type = Major Perk
+| official_description = Active.
+}}
+==== Removed Perks ====
+{{Ability details
+| ability_name = Old Major
+| ability_type = Major Perk
+| official_description = Retired.
+}}
+`;
+    const sec = extractSections(wt);
+    expect(sec.majorPerks.map((p) => p.name)).toEqual(['Current']);
+  });
+
+  it('skips removed=1 and "(old)" suffixed names', () => {
+    const wt = `
+== Perks ==
+=== Minor Perks ===
+{{Ability details
+| ability_name = Active
+| ability_type = Minor Perk
+| official_description = ok.
+}}
+{{Ability details
+| removed = 1
+| ability_name = Removed Flagged
+| ability_type = Minor Perk
+| official_description = was.
+}}
+{{Ability details
+| ability_name = Stale (old)
+| ability_type = Minor Perk
+| official_description = was.
+}}
+`;
+    const sec = extractSections(wt);
+    expect(sec.minorPerks.map((p) => p.name)).toEqual(['Active']);
+  });
+
+  it('extracts abilities under "== Abilities ==" with descriptions', () => {
+    const wt = `
+== Abilities ==
+{{Ability details
+| ability_name = Test Weapon
+| ability_type = Weapon
+| official_description = Shoots stuff.
+}}
+{{Ability details
+| ability_name = Removed Mode
+| removed = 1
+| official_description = was.
+}}
+== Strategy ==
+text
+`;
+    const sec = extractSections(wt);
+    expect(sec.abilityBlocks).toHaveLength(1);
+    expect(sec.abilityBlocks[0]).toMatchObject({ name: 'Test Weapon', description: 'Shoots stuff.' });
+  });
+});
+
 describe('normalizeFandomHero on Reaper fixture', () => {
   const wt = loadFixtureWikitext('fandom-reaper.json');
-  const { infobox, abilities } = parseWikitext(wt);
-  const hero = normalizeFandomHero(infobox, abilities);
+  const hero = normalizeFandomHero(wt);
 
   it('captures Reaper sub_role', () => {
     expect(hero.sub_role).toBe('Flanker');
@@ -136,6 +224,13 @@ describe('normalizeFandomHero on Reaper fixture', () => {
 
   it('captures Reaper health', () => {
     expect(hero.stats.health).toBe(300);
+  });
+
+  it('emits abilities with names and descriptions', () => {
+    expect(hero.abilities.length).toBeGreaterThan(0);
+    const hellfire = hero.abilities.find((a) => a.name === 'Hellfire Shotguns');
+    expect(hellfire).toBeDefined();
+    expect(hellfire!.description).toContain('Short-range');
   });
 
   it('captures Hellfire Shotguns combat stats', () => {
@@ -155,12 +250,28 @@ describe('normalizeFandomHero on Reaper fixture', () => {
     expect(shadow).toBeDefined();
     expect(String(shadow!.cooldown ?? '')).toContain('10');
   });
+
+  it('emits exactly 2 minor and 2 major perks for Reaper', () => {
+    expect(hero.perks.minor).toHaveLength(2);
+    expect(hero.perks.major).toHaveLength(2);
+    const minorNames = hero.perks.minor.map((p) => p.name);
+    const majorNames = hero.perks.major.map((p) => p.name);
+    expect(minorNames).toContain('Soul Reaving');
+    expect(minorNames).toContain('Lingering Wraith');
+    expect(majorNames).toContain('Shadow Blink');
+    expect(majorNames).toContain('Trigger Finger');
+  });
+
+  it('attaches non-empty perk descriptions', () => {
+    for (const p of [...hero.perks.minor, ...hero.perks.major]) {
+      expect(p.description.length).toBeGreaterThan(0);
+    }
+  });
 });
 
 describe('normalizeFandomHero on Soldier: 76 fixture', () => {
   const wt = loadFixtureWikitext('fandom-soldier-76.json');
-  const { infobox, abilities } = parseWikitext(wt);
-  const hero = normalizeFandomHero(infobox, abilities);
+  const hero = normalizeFandomHero(wt);
 
   it('captures Heavy Pulse Rifle stats', () => {
     const rifle = hero.stats.abilities?.['Heavy Pulse Rifle'];
@@ -168,103 +279,25 @@ describe('normalizeFandomHero on Soldier: 76 fixture', () => {
     expect(rifle!.ammo).toBe(30);
     expect(String(rifle!.falloff ?? '')).toContain('30');
   });
+
+  it('emits Heavy Pulse Rifle in abilities[]', () => {
+    expect(hero.abilities.find((a) => a.name === 'Heavy Pulse Rifle')).toBeDefined();
+  });
 });
 
 describe('normalizeFandomHero on Freja fixture (space-variant template)', () => {
   const wt = loadFixtureWikitext('fandom-freja.json');
-  const { infobox, abilities } = parseWikitext(wt);
-  const hero = normalizeFandomHero(infobox, abilities);
+  const hero = normalizeFandomHero(wt);
 
   it('still extracts ability stats despite "Ability details" template variant', () => {
     expect(Object.keys(hero.stats.abilities ?? {}).length).toBeGreaterThan(0);
-  });
-});
-
-describe('normalizeFandomHero merges same-named templates into modes', () => {
-  it('promotes Hip Fire entry to base and nests Zoomed under modes', () => {
-    const templates: ParsedTemplate[] = [
-      {
-        name: 'Ability_details',
-        params: {
-          ability_name: 'Synthetic Burst Rifle',
-          ability_type: 'Weapon;;Hip Fire',
-          damage_falloff_range: '25 - 40 meters',
-          spread: '0.45 degrees',
-          ammo: '36',
-        },
-      },
-      {
-        name: 'Ability_details',
-        params: {
-          ability_name: 'Synthetic Burst Rifle',
-          ability_type: 'Weapon;;Zoomed',
-          damage_falloff_range: '35 - 60 meters',
-          spread: '0.05 degrees',
-        },
-      },
-    ];
-    const hero = normalizeFandomHero(null, templates);
-    const rifle = hero.stats.abilities?.['Synthetic Burst Rifle'];
-    expect(rifle).toBeDefined();
-    expect(rifle!.ability_type).toBe('Weapon;;Hip Fire');
-    expect(rifle!.falloff).toBe('25 - 40 meters');
-    expect(rifle!.spread).toBe('0.45 degrees');
-    expect(rifle!.ammo).toBe(36);
-    const zoomed = rifle!.modes?.['Weapon;;Zoomed'];
-    expect(zoomed).toBeDefined();
-    expect(zoomed!.falloff).toBe('35 - 60 meters');
-    expect(zoomed!.spread).toBe('0.05 degrees');
-    expect(zoomed).not.toHaveProperty('ability_type');
-  });
-
-  it('falls back to primary fire when no hip fire entry is present', () => {
-    const templates: ParsedTemplate[] = [
-      {
-        name: 'Ability_details',
-        params: {
-          ability_name: 'Dual Mode',
-          ability_type: 'Weapon;;Secondary Fire',
-          damage: '50',
-        },
-      },
-      {
-        name: 'Ability_details',
-        params: {
-          ability_name: 'Dual Mode',
-          ability_type: 'Weapon;;Primary Fire',
-          damage: '75',
-        },
-      },
-    ];
-    const hero = normalizeFandomHero(null, templates);
-    const entry = hero.stats.abilities?.['Dual Mode'];
-    expect(entry?.ability_type).toBe('Weapon;;Primary Fire');
-    expect(entry?.damage).toBe(75);
-    expect(entry?.modes?.['Weapon;;Secondary Fire']?.damage).toBe(50);
-  });
-
-  it('leaves single-mode abilities flat with no modes field', () => {
-    const templates: ParsedTemplate[] = [
-      {
-        name: 'Ability_details',
-        params: {
-          ability_name: 'Solo Ability',
-          ability_type: 'Ability',
-          cooldown: '6 seconds',
-        },
-      },
-    ];
-    const hero = normalizeFandomHero(null, templates);
-    const entry = hero.stats.abilities?.['Solo Ability'];
-    expect(entry).toBeDefined();
-    expect(entry!.modes).toBeUndefined();
+    expect(hero.abilities.length).toBeGreaterThan(0);
   });
 });
 
 describe('normalizeFandomHero on Emre fixture (same-name dual-mode rifle)', () => {
   const wt = loadFixtureWikitext('fandom-emre.json');
-  const { infobox, abilities } = parseWikitext(wt);
-  const hero = normalizeFandomHero(infobox, abilities);
+  const hero = normalizeFandomHero(wt);
 
   it('captures Hip Fire stats on the base Synthetic Burst Rifle entry', () => {
     const rifle = hero.stats.abilities?.['Synthetic Burst Rifle'];

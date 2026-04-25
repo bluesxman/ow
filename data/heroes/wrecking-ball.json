@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T15:47:39.427Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,18 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
           "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.abilities.*"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Wrecking_Ball",
@@ -57,12 +59,12 @@
         "description": "Transform into a ball and increase maximum movement speed."
       },
       {
-        "name": "Piledriver",
-        "description": "Slam into the ground below to damage and launch enemies upward."
+        "name": "Adaptive Shield",
+        "description": "Create temporary extra health that increase with more nearby enemies. Some of the health can be transferred to allies."
       },
       {
-        "name": "Adaptive Shield",
-        "description": "Create temporary extra health that increases with more nearby enemies. Some of the health can be transferred to allies."
+        "name": "Piledriver",
+        "description": "Slam into the ground below to damage and launch enemies upward."
       },
       {
         "name": "Minefield",
@@ -77,7 +79,7 @@
         },
         {
           "name": "Multi-Ball",
-          "description": "Press Q within 5 seconds after using Minefield to deploy 7 additional mines."
+          "description": "Press Ultimate within 5 seconds after using Minefield to deploy 7 additional mines."
         }
       ],
       "major": [
@@ -92,6 +94,9 @@
       ]
     },
     "stats": {
+      "health": 300,
+      "armor": 125,
+      "shields": 150,
       "abilities": {
         "Quad Cannons": {
           "ability_type": "Weapon",
@@ -107,27 +112,23 @@
         },
         "Grappling Claw": {
           "ability_type": "Ability",
-          "key": "secondary fire",
           "cooldown": "5 seconds (after fireball) / 1 second (no fireball)",
           "damage": "60 (fireball collision)",
           "range": "22.2 meters (max) / 6 meters (retracted)",
           "duration": "8 seconds (max grapple time after fireball)"
         },
         "Roll": {
-          "key": "ability 1",
           "ability_type": "Ability",
           "cooldown": "0.4 seconds"
         },
         "Adaptive Shield": {
           "ability_type": "Ability",
-          "key": "ability 2",
           "cooldown": "15 seconds",
           "radius": "13 meters",
           "duration": "7 seconds (self) / 4 seconds (allies)"
         },
         "Piledriver": {
           "ability_type": "Ability",
-          "key": "crouch",
           "cooldown": "8 seconds",
           "damage": "100 - 20",
           "radius": "1.5 - 8 meters",
@@ -140,29 +141,8 @@
           "duration": "16 seconds (on ground) / 1.25 seconds (arming time)",
           "radius": "1.5 meters (per mine)",
           "projectile_speed": "12 m/s"
-        },
-        "Steamroller": {
-          "ability_type": "Minor Perk",
-          "damage": "120 (Tanks)"
-        },
-        "Multi-Ball": {
-          "ability_type": "Minor Perk"
-        },
-        "Hang Time": {
-          "ability_type": "Major Perk",
-          "damage": "150 - 20",
-          "duration": "1.1 seconds (windup delay)"
-        },
-        "Adaptive Barrier": {
-          "ability_type": "Major Perk",
-          "duration": "1.5 seconds",
-          "health": 150,
-          "radius": "Approx. 1.5 meters"
         }
-      },
-      "health": 300,
-      "armor": 125,
-      "shields": 150
+      }
     }
   }
 }

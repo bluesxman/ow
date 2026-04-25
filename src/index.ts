@@ -2,20 +2,17 @@ import { writeFile, mkdir } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import process from 'node:process';
-import { DATA_SOURCES, FANDOM_MAX_FAILURES_BEFORE_ISSUE, SCHEMA_VERSION } from './config.js';
+import { DATA_SOURCES, SCHEMA_VERSION } from './config.js';
 import { PlaywrightHeroScraper } from './scraper/PlaywrightHeroScraper.js';
 import { validateHero, checkAgainstFixture } from './validate.js';
 import { diffHeroes } from './diff.js';
 import { publish, readPreviousHeroes, buildPaths } from './publish.js';
 import { renderConsole, renderIssueBody, type RunReport } from './report.js';
-import { enrichAllFromFandom } from './sources/enrichFromFandom.js';
-import { FandomClient } from './sources/FandomClient.js';
 import { defaultCacheRoot, FsDiskCache, NoopCache, type DiskCache } from './cache/diskCache.js';
 import type { Hero, Metadata } from './types.js';
 
 function parseArgs(argv: string[]): {
   dryRun: boolean;
-  skipFandom: boolean;
   cache: boolean;
   hero: string | null;
 } {
@@ -31,7 +28,6 @@ function parseArgs(argv: string[]): {
   }
   return {
     dryRun: argv.includes('--dry-run'),
-    skipFandom: argv.includes('--skip-fandom'),
     cache: argv.includes('--cache'),
     hero,
   };
@@ -54,7 +50,7 @@ async function main(): Promise<void> {
   const scraper = new PlaywrightHeroScraper(cache);
   let exitCode = 0;
   try {
-    console.log('Discovering heroes…');
+    console.log('Discovering heroes via Blizzard roster…');
     const fullRoster = await scraper.listHeroes();
     const roster = args.hero ? fullRoster.filter((r) => r.slug === args.hero) : fullRoster;
     if (args.hero && roster.length === 0) {
@@ -62,9 +58,9 @@ async function main(): Promise<void> {
     }
     console.log(`Found ${fullRoster.length} heroes${args.hero ? ` (filtered to 1)` : ''}`);
 
-    console.log('Scraping hero pages…');
+    console.log('Fetching hero data from Fandom…');
     const result = await scraper.scrapeAll(roster);
-    console.log(`Scraped ${Object.keys(result.heroes).length} heroes, ${result.failed.length} failures`);
+    console.log(`Fetched ${Object.keys(result.heroes).length} heroes, ${result.failed.length} failures`);
 
     const previous = await readPreviousHeroes(paths);
     const merged: Record<string, Hero> = { ...previous };
@@ -78,24 +74,6 @@ async function main(): Promise<void> {
         console.warn(`validation failed for ${slug}: ${v.error}`);
         result.failed.push({ slug, reason: `schema: ${v.error}` });
       }
-    }
-
-    let fandomFailed: Array<{ slug: string; reason: string }> = [];
-    if (args.skipFandom) {
-      console.log('Skipping Fandom enrichment (--skip-fandom).');
-    } else if (Object.keys(validHeroes).length === 0) {
-      console.log('No valid Blizzard-scraped heroes; skipping Fandom enrichment.');
-    } else {
-      console.log(`Enriching ${Object.keys(validHeroes).length} heroes from Fandom…`);
-      const enrichment = await enrichAllFromFandom(validHeroes, new FandomClient(cache));
-      for (const [slug, hero] of Object.entries(enrichment.enriched)) {
-        validHeroes[slug] = hero;
-        merged[slug] = hero;
-      }
-      fandomFailed = enrichment.failed;
-      console.log(
-        `Fandom enrichment complete. ${Object.keys(enrichment.enriched).length} enriched, ${fandomFailed.length} failures.`,
-      );
     }
 
     const fixtureCheck = await checkAgainstFixture(merged);
@@ -114,7 +92,7 @@ async function main(): Promise<void> {
       patch_version: result.patchVersion,
       hero_count: Object.keys(merged).length,
       heroes_failed: result.failed.map((f) => f.slug),
-      fandom_failed: fandomFailed.map((f) => f.slug),
+      fandom_failed: [],
       sources: DATA_SOURCES,
       schema_version: SCHEMA_VERSION,
     };
@@ -137,7 +115,7 @@ async function main(): Promise<void> {
       fixtureCheck,
       heroesScraped: Object.keys(validHeroes).length,
       heroesFailed: result.failed,
-      fandomFailed,
+      fandomFailed: [],
       durationMs: Date.now() - started,
     };
 
@@ -151,10 +129,7 @@ async function main(): Promise<void> {
       );
     }
 
-    const needsIssue =
-      report.heroesFailed.length > 0 ||
-      !report.fixtureCheck.ok ||
-      report.fandomFailed.length >= FANDOM_MAX_FAILURES_BEFORE_ISSUE;
+    const needsIssue = report.heroesFailed.length > 0 || !report.fixtureCheck.ok;
     if (needsIssue) {
       await mkdir(resolve(root, '.run'), { recursive: true });
       await writeFile(resolve(root, '.run/issue-body.md'), renderIssueBody(report), 'utf8');

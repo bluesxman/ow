@@ -1,3 +1,158 @@
+# Changelog
+
+Auto-generated per-run diffs. Newest first.
+
+## 2026-04-25 — Overwatch Retail Patch Notes – April 23, 2026
+
+### Changed
+- **ana**
+  - minor[Groggy] description changed
+  - major perk names: [Biotic Bounce | Headhunter] → [Headhunter | Biotic Bounce]
+  - abilities list changed: [Biotic Grenade|Biotic Rifle|Nano Boost|Sleep Dart] → [Biotic Grenade|Biotic Rifle|Nano Boost|Sleep Dart|Zoom (ADS)]
+- **ashe**
+  - minor[Remote Detonator] description changed
+  - minor[Double-Barreled] description changed
+  - abilities list changed: [B.O.B.|Coach Gun|Dynamite|The Viper] → [B.O.B.|Coach Gun|Dynamite|Take Aim (ADS)|The Viper]
+- **baptiste**
+  - minor perk names: [Expanded Field | Assault Burst] → [Assault Burst | Expanded Field]
+  - major[Automated Healing] description changed
+  - major[Rocket Boots] description changed
+  - abilities list changed: [Amplification Matrix|Biotic Launcher|Exo Boots|Immortality Field|Regenerative Burst] → [Amplification Matrix|Biotic Launcher|Biotic Launcher Alt Fire|Exo Boots|Immortality Field|Regenerative Burst]
+- **bastion**
+  - minor perk names: [Armored Artillery | Configuration Reload] → [Configuration Reload | Armored Artillery]
+  - major[Lindholm Explosives] description changed
+  - abilities list changed: [A-36 Tactical Grenade|Configuration: Artillery|Configuration: Assault|Configuration: Recon|Reconfigure] → [A-36 Tactical Grenade|Configuration: Artillery|Configuration: Assault|Configuration: Recon|Ironclad|Reconfigure]
+- **brigitte**
+  - minor[Combat Medic] description changed
+- **cassidy**
+  - minor perk names: [Bang Bang | Even The Odds] → [Bang Bang | Even the Odds]
+  - abilities list changed: [Combat Roll|Deadeye|Peacekeeper] → [Combat Roll|Deadeye|Fan the Hammer|Flashbang|Peacekeeper]
+- **domina**
+  - abilities list changed: [Barrier Array|Crystal Charge|Panopticon|Photon Magnum|Sonic Repulsors] → [Barrier Array|Crystal Charge|Panopticon|Photon Magnum|Reconstruction|Sonic Repulsors]
+- **doomfist**
+  - minor[One-Two] description changed
+  - abilities list changed: [Hand Cannon|Meteor Strike|Power Block|Rocket Punch|Seismic Slam] → [Hand Cannon|Meteor Strike|Power Block|Rocket Punch|Seismic Slam|The Best Defense...]
+- **dva**
+  - minor[Bunny Power] description changed
+  - major[Precision Fusion] description changed
+- **echo**
+  - minor[Focused Rush] description changed
+- **emre**
+  - minor[Suppressive Security] description changed
+  - minor[Enhanced Agility] description changed
+  - abilities list changed: [Altered Vitals|Cyber Frag|Override Protocol|Synthetic Burst Rifle] → [Altered Vitals|Cyber Frag|Override Protocol|Siphon Blaster|Synthetic Burst Rifle|Synthetic Burst Rifle (ADS)]
+- **freja**
+  - major[Rising Winds] description changed
+  - abilities list changed: [Bola Shot|Quick Dash|Take Aim|Updraft] → [Bola Shot|Bounty Hunting|Quick Dash|Revdraw Crossbow|Take Aim|Updraft]
+- **genji**
+  - abilities list changed: [Cyber-Agility|Deflect|Dragonblade|Shuriken|Swift Strike] → [Cyber-Agility|Deflect|Dragonblade|Shuriken|Shuriken Alt Fire|Swift Strike]
+- **hanzo**
+  - major[Frost Arrow] description changed
+- **hazard**
+  - minor[Deep Leap] description changed
+  - minor[Anarchic Zeal] description changed
+- **illari**
+  - minor[Summer Solstice] description changed
+  - major[Solar Flare] description changed
+  - abilities list changed: [Captive Sun|Healing Pylon|Outburst|Solar Rifle] → [Captive Sun|Healing Pylon|Outburst|Solar Rifle|Solar Rifle Alt Fire]
+- **jetpack-cat**
+  - minor[Ulterior Motive] description changed
+  - minor[Transport Shielding] description changed
+  - major[Headbutt] description changed
+  - major[Claws Out] description changed
+  - abilities list changed: [Biotic Pawjectiles|Catnapper|Frenetic Flight|Lifeline|Purr] → [Biotic Pawjectiles|Catnapper|Frenetic Flight|Jetpack|Lifeline|Purr]
+- **junker-queen**
+  - minor[Rampant Charge] description changed
+  - major[Willy-Willy] description changed
+  - abilities list changed: [Adrenaline Rush|Carnage|Commanding Shout|Rampage|Scattergun] → [Adrenaline Rush|Carnage|Commanding Shout|Jagged Blade|Rampage|Scattergun]
+- **junkrat**
+  - minor[Nitro Boost] description changed
+  - major[Frag Cannon] description changed
+- **juno**
+  - major perk names: [Lift Off | Faster Blaster] → [Faster Blaster | Lift Off]
+- **kiriko**
+  - minor[Urgent Care] description changed
+  - abilities list changed: [Healing Ofuda|Kitsune Rush|Kunai|Protection Suzu|Swift Step] → [Healing Ofuda|Kitsune Rush|Kunai|Protection Suzu|Swift Step|Wall Climb (Kiriko)]
+- **lifeweaver**
+  - minor[Dashing Escape] description changed
+  - major perk names: [Sow the Seed | Superbloom] → [Superbloom | Sow the Seed]
+- **lucio**
+  - minor[Beat Drop] description changed
+- **mauga**
+  - abilities list changed: [Berserker|Cage Fight|Cardiac Overdrive|Overrun] → [Berserker|Cage Fight|Cardiac Overdrive|Incendiary Chaingun|Overrun|Volatile Chaingun]
+- **mei**
+  - abilities list changed: [Blizzard|Cryo-Freeze|Endothermic Blaster|Ice Wall] → [Blizzard|Cryo-Freeze|Endothermic Blaster|Ice Wall|Icicle]
+- **mercy**
+  - minor[Divine Momentum] description changed
+  - major[Chain Boost] description changed
+  - abilities list changed: [Angelic Descent|Caduceus Blaster|Caduceus Staff|Guardian Angel|Resurrect|Valkyrie] → [Angelic Descent|Caduceus Blaster|Caduceus Staff|Flash Heal|Guardian Angel|Resurrect|Swift Recovery|Valkyrie]
+- **mizuki**
+  - minor[Wellspring] description changed
+- **moira**
+  - minor[Ethical Nourishment] description changed
+  - abilities list changed: [Biotic Grasp|Biotic Orb|Coalescence|Fade] → [Biotic Grasp|Biotic Grasp Alt Fire|Biotic Orb|Coalescence|Fade]
+- **orisa**
+  - major[Charged Javelin] description changed
+  - major[Protective Barrier] description changed
+- **pharah**
+  - major[Rocket Salvo] description changed
+- **ramattra**
+  - major perk names: [Void Surge | Nanite Repair] → [Nanite Repair | Void Surge]
+  - abilities list changed: [Annihilation|Pummel (Nemesis Form)|Ravenous Vortex|Void Accelerator (Omnic Form)|Void Barrier (Omnic Form)] → [Annihilation|Block|Nemesis Form|Pummel|Ravenous Vortex|Void Accelerator|Void Barrier]
+- **reaper**
+  - minor perk names: [Soul Reaving | Lingering Wraith] → [Lingering Wraith | Soul Reaving]
+  - abilities list changed: [Death Blossom|Hellfire Shotguns|Shadow Step|The Reaping|Wraith Form] → [Death Blossom|Dire Triggers|Hellfire Shotguns|Shadow Step|The Reaping|Wraith Form]
+- **reinhardt**
+  - minor[Crusader's Fire] description changed
+  - major[Shield Slam] description changed
+- **roadhog**
+  - abilities list changed: [Chain Hook|Scrap Gun|Take a Breather|Whole Hog] → [Chain Hook|Scrap Gun|Scrap Gun Alt Fire|Take a Breather|Whole Hog]
+- **sierra**
+  - major[Medi-Drone] description changed
+- **sigma**
+  - minor[Hyper Regeneration] description changed
+- **sojourn**
+  - minor perk names: [Overcharged | Deceleration Field] → [Deceleration Field | Overcharged]
+  - major perk names: [Friction Generators | Dual Thrusters] → [Dual Thrusters | Friction Generators]
+  - abilities list changed: [Disruptor Shot|Overclock|Power Slide|Railgun] → [Charged Shot|Disruptor Shot|Overclock|Power Slide|Railgun]
+- **sombra**
+  - major[High-Speed Bandwidth] description changed
+  - abilities list changed: [EMP|Hack|Machine Pistol|Translocator|Virus] → [EMP|Hack|Machine Pistol|Opportunist|Translocator|Virus]
+- **symmetra**
+  - major[Hovering Barrier] description changed
+  - abilities list changed: [Photon Barrier|Photon Projector|Sentry Turret|Teleporter] → [Photon Barrier|Photon Projector|Photon Projector Alt Fire|Sentry Turret|Teleporter]
+- **torbjorn**
+  - abilities list changed: [Deploy Turret|Forge Hammer|Molten Core|Overload|Rivet Gun] → [Deploy Turret|Forge Hammer|Molten Core|Overload|Rivet Gun|Rivet Gun Alt Fire]
+- **tracer**
+  - minor[Chronal Dash] description changed
+- **vendetta**
+  - minor perk names: [Extra Edge | Raging Storm] → [Raging Storm | Extra Edge]
+  - major perk names: [Siphoning Strike | Relentless] → [Relentless | Siphoning Strike]
+  - abilities list changed: [Palatine Fang|Projected Edge|Soaring Slice|Sundering Blade|Warding Stance|Whirlwind Dash] → [Onslaught|Palatine Fang|Projected Edge|Soaring Slice|Sundering Blade|Warding Stance|Whirlwind Dash]
+  - stats.health: 175 → 200
+- **venture**
+  - minor[Deep Burrow] description changed
+  - major perk names: [SMART Extender | Covered In Dirt] → [Smart Extender | Covered in Dirt]
+  - abilities list changed: [Burrow|Drill Dash|SMART Excavator|Tectonic Shock] → [Burrow|Clobber|Drill Dash|Explorer's Resolve|Smart Excavator|Tectonic Shock]
+- **widowmaker**
+  - major perk names: [Seeker Mine | Widow's Bite] → [Widow’s Bite | Seeker Mine]
+  - abilities list changed: [Grappling Hook|Infra-Sight|Venom Mine|Widow's Kiss] → [Grappling Hook|Infra-Sight|Venom Mine|Widow's Kiss|Widow's Kiss (ADS)]
+- **winston**
+  - minor[Electric Charge] description changed
+  - abilities list changed: [Barrier Projector|Jump Pack|Primal Rage|Tesla Cannon] → [Barrier Projector|Jump Pack|Primal Rage|Tesla Cannon|Tesla Cannon Alt Fire]
+- **wrecking-ball**
+  - minor[Multi-Ball] description changed
+- **wuyang**
+  - major[Falling Rain] description changed
+- **zarya**
+  - minor perk names: [Jump-Ups | Spotter] → [Spotter | Jump-Ups]
+  - major perk names: [Extra Oomph | Energy Lance] → [Energy Lance | Extra Oomph]
+  - abilities list changed: [Energy|Graviton Surge|Particle Barrier|Particle Cannon|Projected Barrier] → [Energy|Graviton Surge|Particle Barrier|Particle Cannon|Particle Cannon Alt Fire|Projected Barrier]
+- **zenyatta**
+  - minor[Discordant Repair] description changed
+  - major[Focused Destruction] description changed
+  - abilities list changed: [Orb of Destruction|Orb of Discord|Orb of Harmony|Snap Kick|Transcendence] → [Orb of Destruction|Orb of Destruction Alt Fire|Orb of Discord|Orb of Harmony|Snap Kick|Transcendence]
+
 ## 2026-04-20 — Overwatch Retail Patch Notes - April 17, 2026
 
 ### Changed

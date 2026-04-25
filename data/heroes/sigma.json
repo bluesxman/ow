@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T15:47:39.427Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,18 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
           "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.abilities.*"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Sigma",
@@ -49,16 +51,16 @@
         "description": "Launch two charges which implode after a short duration, dealing damage in an area."
       },
       {
+        "name": "Experimental Barrier",
+        "description": "Hold to propel a floating barrier; release to stop. Press again to recall the barrier to you."
+      },
+      {
         "name": "Kinetic Grasp",
         "description": "Absorb projectiles in front of you and convert them into extra health."
       },
       {
         "name": "Accretion",
         "description": "Gather a mass of debris and throw it at an enemy to knock them down."
-      },
-      {
-        "name": "Experimental Barrier",
-        "description": "Hold to propel a floating barrier; release to stop. Press again to recall the barrier to you."
       },
       {
         "name": "Gravitic Flux",
@@ -73,7 +75,7 @@
         },
         {
           "name": "Hyper Regeneration",
-          "description": "40% of Hyperspheres' damage restores Experimental Barrier's health."
+          "description": "40% of Hyperspheres' damage restores Experimental Barrier's Health."
         }
       ],
       "major": [
@@ -88,6 +90,8 @@
       ]
     },
     "stats": {
+      "health": 200,
+      "shields": 275,
       "abilities": {
         "Hyperspheres": {
           "ability_type": "Weapon",
@@ -105,7 +109,6 @@
         },
         "Experimental Barrier": {
           "ability_type": "Ability",
-          "key": "secondary fire",
           "health": 650,
           "projectile_speed": "20 m/s",
           "range": "∞",
@@ -114,14 +117,12 @@
         },
         "Kinetic Grasp": {
           "ability_type": "Ability",
-          "key": "ability 1",
           "cooldown": "12 seconds",
           "range": "3 meters",
           "duration": "2 seconds"
         },
         "Accretion": {
           "ability_type": "Ability",
-          "key": "ability 2",
           "cooldown": "10 seconds",
           "damage": "80 (direct) / 40 – 12 (splash, enemy) / 20 – 6 (splash, self)",
           "headshot": false,
@@ -136,27 +137,8 @@
           "duration": "5 seconds (targeting) / 1 second (activation delay) / 2.5 seconds (lift) / 0.6 seconds (high gravity)",
           "range": "35 meters",
           "radius": "8 meters"
-        },
-        "Kinetic Cycle": {
-          "ability_type": "Minor Perk"
-        },
-        "Hyper Regeneration": {
-          "ability_type": "Minor Perk"
-        },
-        "Hyper Strike": {
-          "ability_type": "Major Perk",
-          "key": "quick melee",
-          "damage": "50 over 0.37 seconds",
-          "duration": "1 second"
-        },
-        "Levitation": {
-          "ability_type": "Major Perk",
-          "key": "jump",
-          "duration": "1.75 seconds"
         }
-      },
-      "health": 200,
-      "shields": 275
+      }
     }
   }
 }

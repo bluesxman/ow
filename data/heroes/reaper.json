@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T15:47:39.427Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,18 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
           "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.abilities.*"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Reaper",
@@ -45,35 +47,39 @@
     "sub_role": "flanker",
     "abilities": [
       {
+        "name": "The Reaping",
+        "description": "Dealing damage heals you."
+      },
+      {
         "name": "Hellfire Shotguns",
         "description": "Short-range spread weapons."
       },
       {
-        "name": "Shadow Step",
-        "description": "Teleport to a targeted location."
+        "name": "Dire Triggers",
+        "description": "Use (RMB) to fire a volley with long range accuracy from both Hellfire shotguns."
       },
       {
         "name": "Wraith Form",
         "description": "Move faster and become invulnerable, but you cannot shoot."
       },
       {
-        "name": "Death Blossom",
-        "description": "Damage all nearby enemies."
+        "name": "Shadow Step",
+        "description": "Teleport to a targeted location."
       },
       {
-        "name": "The Reaping",
-        "description": "Dealing damage heals you."
+        "name": "Death Blossom",
+        "description": "Damage all nearby enemies."
       }
     ],
     "perks": {
       "minor": [
         {
-          "name": "Soul Reaving",
-          "description": "Collect Soul Globes from dead enemies to restore 50 health."
-        },
-        {
           "name": "Lingering Wraith",
           "description": "Leaving Wraith Form grants 40% movement speed for 2 seconds."
+        },
+        {
+          "name": "Soul Reaving",
+          "description": "Collect Soul Globes from dead enemies to restore 50 health."
         }
       ],
       "major": [
@@ -88,6 +94,7 @@
       ]
     },
     "stats": {
+      "health": 300,
       "abilities": {
         "The Reaping": {
           "ability_type": "Passive Ability",
@@ -104,29 +111,25 @@
           "reload": "1.5 seconds animation",
           "spread": "6 degrees",
           "projectile_radius": "0.04 meters",
-          "dps": "230 while firing (153.33 overall with reload)",
-          "modes": {
-            "Secondary Fire": {
-              "key": "secondary fire",
-              "cooldown": "6 seconds",
-              "damage": "3.45 - 1.035 (per pellet) / 69 - 20.7 (per blast) / 138 - 41.4 (both blasts)",
-              "headshot": true,
-              "falloff": "25 - 35 meters",
-              "pellets": "20 per blast / 2 blasts per shot",
-              "spread": "3 degrees"
-            }
-          }
+          "dps": "230 while firing (153.33 overall with reload)"
+        },
+        "Dire Triggers": {
+          "ability_type": "Ability",
+          "cooldown": "6 seconds",
+          "damage": "3.45 - 1.035 (per pellet) / 69 - 20.7 (per blast) / 138 - 41.4 (both blasts)",
+          "headshot": true,
+          "falloff": "25 - 35 meters",
+          "pellets": "20 per blast / 2 blasts per shot",
+          "spread": "3 degrees"
         },
         "Wraith Form": {
           "ability_type": "Ability",
-          "key": "ability 1",
           "cooldown": "8 seconds",
           "duration": "0.4 seconds (min) / 3 seconds (max)",
           "range": "23.1 meters"
         },
         "Shadow Step": {
           "ability_type": "Ability",
-          "key": "ability 2",
           "range": "35 meters",
           "cooldown": "10 seconds",
           "duration": "0.53 seconds (teleport) / 0.98 seconds (invulnerability)"
@@ -137,26 +140,8 @@
           "headshot": false,
           "radius": "8 meters",
           "duration": "3 seconds"
-        },
-        "Lingering Wraith": {
-          "ability_type": "Minor Perk"
-        },
-        "Soul Reaving": {
-          "ability_type": "Minor Perk",
-          "healing": 50,
-          "duration": "8 seconds"
-        },
-        "Shadow Blink": {
-          "ability_type": "Major Perk",
-          "cooldown": "10 → 7.5 seconds",
-          "range": "35 → 23.2 meters",
-          "duration": "0.5 → 0.8 seconds (teleportation) / 0.98 → 1.2 seconds (invulnerability)"
-        },
-        "Trigger Finger": {
-          "ability_type": "Major Perk"
         }
-      },
-      "health": 300
+      }
     }
   }
 }

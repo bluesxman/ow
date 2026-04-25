@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T15:47:39.427Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,18 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
           "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.abilities.*"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "heroes": {
     "ana": {
@@ -43,7 +45,11 @@
       "abilities": [
         {
           "name": "Biotic Rifle",
-          "description": "Long-range rifle that heals allies and damages enemies. Hold to zoom in."
+          "description": "Long-range rifle that heals allies and damages enemies."
+        },
+        {
+          "name": "Zoom (ADS)",
+          "description": "Hold to zoom in."
         },
         {
           "name": "Sleep Dart",
@@ -62,7 +68,7 @@
         "minor": [
           {
             "name": "Groggy",
-            "description": "Enemies waking from Sleep Dart are slowed and take 50 damage over 2 seconds."
+            "description": "Enemies waking up from Sleep Dart are slowed and take 50 damage for 2 seconds."
           },
           {
             "name": "Speed Serum",
@@ -71,16 +77,17 @@
         ],
         "major": [
           {
-            "name": "Biotic Bounce",
-            "description": "After exploding, Biotic Grenade bounces and explodes again for 60 damage and healing."
-          },
-          {
             "name": "Headhunter",
             "description": "Biotic Rifle can crit enemies."
+          },
+          {
+            "name": "Biotic Bounce",
+            "description": "After exploding, Biotic Grenade bounces and explodes again for 60 damage and healing."
           }
         ]
       },
       "stats": {
+        "health": 250,
         "abilities": {
           "Biotic Rifle": {
             "ability_type": "Weapon;;Hip Fire",
@@ -94,20 +101,17 @@
             "duration": "0.59 seconds effect",
             "projectile_radius": "0.15 meters",
             "spread": "None",
-            "dps": "while firing / overall w/ reload",
-            "modes": {
-              "ADS": {
-                "key": "secondary fire",
-                "headshot": false,
-                "projectile_radius": "0.07 meters (enemies) / 0.3 meters (allies)",
-                "spread": "None",
-                "dps": "while firing / overall w/ reload"
-              }
-            }
+            "dps": "while firing / overall w/ reload"
+          },
+          "Zoom (ADS)": {
+            "ability_type": "Weapon;;ADS",
+            "headshot": false,
+            "projectile_radius": "0.07 meters (enemies) / 0.3 meters (allies)",
+            "spread": "None",
+            "dps": "while firing / overall w/ reload"
           },
           "Sleep Dart": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "14 seconds",
             "damage": 5,
             "headshot": false,
@@ -117,7 +121,6 @@
           },
           "Biotic Grenade": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "cooldown": "12 seconds",
             "damage": 75,
             "headshot": false,
@@ -132,26 +135,8 @@
             "healing": 250,
             "duration": "8 seconds",
             "range": "40 meters"
-          },
-          "Groggy": {
-            "ability_type": "Minor Perk",
-            "damage": 50,
-            "duration": "2 seconds"
-          },
-          "Speed Serum": {
-            "ability_type": "Minor Perk"
-          },
-          "Headhunter": {
-            "ability_type": "Major Perk",
-            "headshot": true
-          },
-          "Biotic Bounce": {
-            "ability_type": "Major Perk",
-            "damage": 60,
-            "healing": 60
           }
-        },
-        "health": 250
+        }
       }
     },
     "anran": {
@@ -161,20 +146,24 @@
       "sub_role": "flanker",
       "abilities": [
         {
+          "name": "Ignition",
+          "description": "Hit enemies with fire attacks to burn them."
+        },
+        {
           "name": "Zhuque Fans",
           "description": "Hand fans that shoot fiery projectiles."
         },
         {
           "name": "Fan the Flames",
-          "description": "Hot wind blast that amplifies burning damage."
-        },
-        {
-          "name": "Dancing Blaze",
-          "description": "Dodge all damage while striking nearby enemies, healing yourself for each enemy hit."
+          "description": "Hot wind blasts that amplifies burning damage."
         },
         {
           "name": "Inferno Rush",
           "description": "Propel yourself forward and damage enemies you impact."
+        },
+        {
+          "name": "Dancing Blaze",
+          "description": "Dodge all damage while striking nearby enemies, healing yourself for each enemy hit."
         },
         {
           "name": "Vermillion Ascent",
@@ -183,10 +172,6 @@
         {
           "name": "Vermillion Revival",
           "description": "When dead, revive yourself in a fiery explosion."
-        },
-        {
-          "name": "Ignition",
-          "description": "Hit enemies with fire attacks to burn them."
         }
       ],
       "perks": {
@@ -212,6 +197,7 @@
         ]
       },
       "stats": {
+        "health": 250,
         "abilities": {
           "Ignition": {
             "ability_type": "Passive Ability",
@@ -231,7 +217,6 @@
           },
           "Fan the Flames": {
             "ability_type": "Weapon;;Secondary Fire",
-            "key": "secondary fire",
             "damage": "6 (per pellet) / 36 (base) / 72 (burning)",
             "projectile_speed": "90 m/s",
             "projectile_radius": "0.4 meters",
@@ -244,14 +229,12 @@
           },
           "Inferno Rush": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "8 seconds",
             "damage": 30,
             "duration": "1.3 seconds"
           },
           "Dancing Blaze": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "cooldown": "8 seconds",
             "damage": 50,
             "healing": "50 (initial target) / 25 (subsequent targets)",
@@ -270,22 +253,8 @@
             "damage": "10 damage over time / 55 - 30 (area of effect)",
             "duration": "3 seconds / 2.3 seconds (explosion) / 0.7 seconds (explosion animation)",
             "radius": "2.5 - 7 meters"
-          },
-          "Smoulder": {
-            "ability_type": "Minor Perk"
-          },
-          "Heat Shield": {
-            "ability_type": "Minor Perk"
-          },
-          "Short Fuse": {
-            "ability_type": "Major Perk"
-          },
-          "Hungering Blaze": {
-            "ability_type": "Major Perk",
-            "healing": "25 → 50 per subsequent enemy hit"
           }
-        },
-        "health": 250
+        }
       }
     },
     "ashe": {
@@ -296,7 +265,11 @@
       "abilities": [
         {
           "name": "The Viper",
-          "description": "Semi-automatic rifle. Hold to zoom in, increasing damage and accuracy but slowing rate of fire."
+          "description": "Semi-automatic rifle."
+        },
+        {
+          "name": "Take Aim (ADS)",
+          "description": "Hold to zoom in, increasing damage and accuracy but slowing rate of fire."
         },
         {
           "name": "Coach Gun",
@@ -315,11 +288,11 @@
         "minor": [
           {
             "name": "Remote Detonator",
-            "description": "After using Dynamite, pressing E again causes it to detonate after a 0.5 second delay."
+            "description": "After using Dynamite, pressing Ability 2 again causes it to explode after a 0.5 second delay."
           },
           {
             "name": "Double-Barreled",
-            "description": "Knocking an enemy back with Coach Gun briefly allows you to use it one more time with 25% less knockback."
+            "description": "Knocking an enemy back with Coach Gun briefly allows it to be used again with 25% reduced knockback."
           }
         ],
         "major": [
@@ -334,6 +307,7 @@
         ]
       },
       "stats": {
+        "health": 250,
         "abilities": {
           "The Viper": {
             "ability_type": "Weapon;;Hip Fire",
@@ -345,25 +319,22 @@
             "ammo": 12,
             "reload": "0.5 seconds (initial animation) / +0.25 seconds per bullet / 3.5 seconds (full reload animation)",
             "projectile_radius": "0.07 meters",
-            "dps": "136.5 while firing (63.86 overall w/ full reload, 34.78 w/ reload after each shot)",
-            "modes": {
-              "ADS": {
-                "key": "secondary fire",
-                "damage": "75 – 22.5",
-                "falloff": "35 – 55 meters",
-                "headshot": true,
-                "rate_of_fire": "1.52 shots/s",
-                "ammo": 12,
-                "reload": "0.5 seconds (initial animation) / +0.2 seconds per bullet / 2.9 seconds (full reload animation)",
-                "spread": "None",
-                "projectile_radius": "0.07 meters",
-                "dps": "114.33 while firing (41.3 overall w/ full reload, 32.98 w/ reload after each shot)"
-              }
-            }
+            "dps": "136.5 while firing (63.86 overall w/ full reload, 34.78 w/ reload after each shot)"
+          },
+          "Take Aim (ADS)": {
+            "ability_type": "Weapon;;ADS",
+            "damage": "75 – 22.5",
+            "falloff": "35 – 55 meters",
+            "headshot": true,
+            "rate_of_fire": "1.52 shots/s",
+            "ammo": 12,
+            "reload": "0.5 seconds (initial animation) / +0.2 seconds per bullet / 2.9 seconds (full reload animation)",
+            "spread": "None",
+            "projectile_radius": "0.07 meters",
+            "dps": "114.33 while firing (41.3 overall w/ full reload, 32.98 w/ reload after each shot)"
           },
           "Coach Gun": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "10 seconds",
             "damage": "6 per shot / 90 per volley",
             "headshot": false,
@@ -374,7 +345,6 @@
           },
           "Dynamite": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "cooldown": "12 seconds",
             "damage": "50 - 20 (explosion, enemy) / 100 over 5 seconds (burn, enemy) / 25 - 10 (explosion, self) / 50 over 5 seconds (burn, self)",
             "headshot": false,
@@ -391,26 +361,8 @@
             "rate_of_fire": "8 shots/s",
             "duration": "10 seconds (after stopping)",
             "spread": "1.45 degrees"
-          },
-          "Remote Detonator": {
-            "ability_type": "Minor Perk"
-          },
-          "Double-Barreled": {
-            "ability_type": "Minor Perk",
-            "duration": "1 second (Time to reuse Coach Gun)"
-          },
-          "Viper's Sting": {
-            "ability_type": "Major Perk",
-            "damage": 25,
-            "duration": "1 second",
-            "ammo": "+1 current ammo"
-          },
-          "Airburst": {
-            "ability_type": "Major Perk",
-            "radius": "5 → 7 meters"
           }
-        },
-        "health": 250
+        }
       }
     },
     "baptiste": {
@@ -420,8 +372,16 @@
       "sub_role": "tactician",
       "abilities": [
         {
+          "name": "Exo Boots",
+          "description": "Hold crouch to jump higher."
+        },
+        {
           "name": "Biotic Launcher",
-          "description": "Three-round burst gun. Lob a healing projectile that heals all allies near the impact."
+          "description": "Three-round burst gun."
+        },
+        {
+          "name": "Biotic Launcher Alt Fire",
+          "description": "Lob a healing projectile that heals all allies near the impact."
         },
         {
           "name": "Regenerative Burst",
@@ -433,40 +393,36 @@
         },
         {
           "name": "Amplification Matrix",
-          "description": "Project a matrix that doubles the damage and healing effects of allied projectiles."
-        },
-        {
-          "name": "Exo Boots",
-          "description": "Hold crouch to jump higher."
+          "description": "Project a matrix that doubles the damage and healing of allied projectiles."
         }
       ],
       "perks": {
         "minor": [
           {
-            "name": "Expanded Field",
-            "description": "Immortality Field's radius is 30% bigger."
-          },
-          {
             "name": "Assault Burst",
             "description": "Regenerative Burst now provides Baptiste with 20% increased attack speed for 3 seconds."
+          },
+          {
+            "name": "Expanded Field",
+            "description": "Immortality Field radius increased by 30%."
           }
         ],
         "major": [
           {
             "name": "Automated Healing",
-            "description": "Using any ability triggers Baptiste's Shoulder Turret, periodically firing up to 3 shots at allies, each restoring 40 health."
+            "description": "Using any ability triggers Baptiste's Shoulder Turret, periodically firing up to 3 shots at allies, each restoring 25 health."
           },
           {
             "name": "Rocket Boots",
-            "description": "While airborne from Exo Boots, use SPACE to dash horizontally."
+            "description": "While airborne from Exo Boots, use (SPACE) to dash horizontally."
           }
         ]
       },
       "stats": {
+        "health": 250,
         "abilities": {
           "Exo Boots": {
             "ability_type": "Passive Ability",
-            "key": "crouch",
             "range": "9.1 meters (full charge)"
           },
           "Biotic Launcher": {
@@ -479,23 +435,20 @@
             "ammo": 36,
             "reload": "1.5 seconds animation",
             "projectile_radius": "0.07 meters",
-            "dps": "127.5 while firing (109 overall w/reload)",
-            "modes": {
-              "Secondary Fire": {
-                "key": "secondary fire",
-                "healing": "30 (direct hit) / 60 (splash, ally)",
-                "radius": "3 meters",
-                "rate_of_fire": "1.11 shots/s",
-                "ammo": 10,
-                "reload": "1.5 seconds animation",
-                "projectile_radius": "None",
-                "projectile_speed": "60 m/s"
-              }
-            }
+            "dps": "127.5 while firing (109 overall w/reload)"
+          },
+          "Biotic Launcher Alt Fire": {
+            "ability_type": "Weapon;;Secondary Fire",
+            "healing": "30 (direct hit) / 60 (splash, ally)",
+            "radius": "3 meters",
+            "rate_of_fire": "1.11 shots/s",
+            "ammo": 10,
+            "reload": "1.5 seconds animation",
+            "projectile_radius": "None",
+            "projectile_speed": "60 m/s"
           },
           "Regenerative Burst": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "14 seconds",
             "healing": "40 (instant, >50% max HP) / 80 (instant, <50% max HP) / 40 over 4 seconds (HoT)",
             "radius": "12 meters",
@@ -503,7 +456,6 @@
           },
           "Immortality Field": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "cooldown": "22 seconds",
             "health": 125,
             "projectile_speed": "60 m/s",
@@ -515,28 +467,8 @@
             "ability_type": "Ultimate Ability",
             "range": "35 meters",
             "duration": "10 seconds"
-          },
-          "Assault Burst": {
-            "ability_type": "Minor Perk"
-          },
-          "Expanded Field": {
-            "ability_type": "Minor Perk",
-            "radius": "5 → 6.5 meters"
-          },
-          "Automated Healing": {
-            "ability_type": "Major Perk",
-            "healing": 40,
-            "ammo": 3,
-            "rate_of_fire": "1.33 shots/s",
-            "range": "60 meters"
-          },
-          "Rocket Boots": {
-            "ability_type": "Major Perk",
-            "key": "jump",
-            "cooldown": "6 seconds"
           }
-        },
-        "health": 250
+        }
       }
     },
     "bastion": {
@@ -546,8 +478,8 @@
       "sub_role": "specialist",
       "abilities": [
         {
-          "name": "Configuration: Assault",
-          "description": "A slow-moving tank with a powerful rotary cannon."
+          "name": "Ironclad",
+          "description": "Reduces damage taken while transformed."
         },
         {
           "name": "Configuration: Recon",
@@ -555,32 +487,36 @@
         },
         {
           "name": "A-36 Tactical Grenade",
-          "description": "Fire a bomb that bounces off walls and explodes when it impacts enemies or the ground."
+          "description": "Fire a bomb that bounces off walls and explodes when it hits enemies or the ground."
         },
         {
           "name": "Reconfigure",
           "description": "Switch between weapon configurations."
         },
         {
+          "name": "Configuration: Assault",
+          "description": "A slow moving tank with a powerful rotary cannon."
+        },
+        {
           "name": "Configuration: Artillery",
-          "description": "Become immobile and fire up to 3 powerful artillery shells."
+          "description": "Become immobile and fire up to three powerful artillery shells."
         }
       ],
       "perks": {
         "minor": [
           {
-            "name": "Armored Artillery",
-            "description": "Configuration: Artillery grants 300 temporary overhealth."
-          },
-          {
             "name": "Configuration Reload",
             "description": "Reduce the cooldown of A-36 Tactical Grenade by 4 seconds when changing configurations."
+          },
+          {
+            "name": "Armored Artillery",
+            "description": "Configuration: Artillery grants 300 temporary overhealth."
           }
         ],
         "major": [
           {
             "name": "Lindholm Explosives",
-            "description": "Configuration: Assault's weapon slowly fires explosive shells instead of a rotary cannon."
+            "description": "Configuration: Assault’s Weapon slowly fires explosive shells instead of a rotary cannon."
           },
           {
             "name": "Self-Repair",
@@ -589,10 +525,14 @@
         ]
       },
       "stats": {
+        "health": 250,
+        "armor": 100,
         "abilities": {
+          "Ironclad": {
+            "ability_type": "Passive Ability"
+          },
           "Configuration: Recon": {
             "ability_type": "Weapon;;Recon Form",
-            "key": "primary fire",
             "damage": "23 - 7.5",
             "falloff": "30 - 50 meters",
             "headshot": true,
@@ -605,7 +545,6 @@
           },
           "A-36 Tactical Grenade": {
             "ability_type": "Ability",
-            "key": "secondary fire",
             "damage": "15 (direct hit bonus) / 100 - 50 (splash, enemy) / 50 - 25 (splash, self)",
             "cooldown": "8 seconds",
             "projectile_speed": "40 m/s",
@@ -615,13 +554,11 @@
           },
           "Reconfigure": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "12 seconds",
             "duration": "6 seconds"
           },
           "Configuration: Assault": {
             "ability_type": "Weapon;;Assault Form",
-            "key": "primary fire",
             "damage": "12 - 3.6",
             "falloff": "30 - 50 meters",
             "rate_of_fire": "30 shots/s",
@@ -639,31 +576,8 @@
             "ammo": 3,
             "duration": "8 seconds (max targeting) / 1.25 seconds (impact delay) / 0.18 seconds (min between shots)",
             "projectile_radius": "0.015 meters"
-          },
-          "Configuration Reload": {
-            "ability_type": "Minor Perk"
-          },
-          "Armored Artillery": {
-            "ability_type": "Minor Perk"
-          },
-          "Lindholm Explosives": {
-            "ability_type": "Major Perk",
-            "damage": "50 (direct hit bonus) / 90 - 27 (splash, enemy) / 36 - 10.8 (splash, self)",
-            "rate_of_fire": "1.33 shots/s",
-            "radius": "3.5 meters (splash)",
-            "projectile_radius": "0.275 meters",
-            "projectile_speed": "100 m/s",
-            "dps": "186.2 while firing"
-          },
-          "Self-Repair": {
-            "ability_type": "Major Perk",
-            "key": "ability 2",
-            "healing": "90 per second",
-            "duration": "0.5 seconds (min) / 3.3 seconds (max)"
           }
-        },
-        "health": 250,
-        "armor": 100
+        }
       }
     },
     "brigitte": {
@@ -673,16 +587,12 @@
       "sub_role": "survivor",
       "abilities": [
         {
+          "name": "Inspire",
+          "description": "Dealing damage to enemies heals nearby allies."
+        },
+        {
           "name": "Rocket Flail",
           "description": "Melee weapon with extended range."
-        },
-        {
-          "name": "Repair Pack",
-          "description": "Heals an ally for a short duration."
-        },
-        {
-          "name": "Whip Shot",
-          "description": "Launch your flail forward to knock an enemy away from you."
         },
         {
           "name": "Barrier Shield",
@@ -693,19 +603,23 @@
           "description": "Available when Barrier Shield is deployed. Dash forward to knock back an enemy."
         },
         {
-          "name": "Rally",
-          "description": "Gain armor, empower Barrier Shield, and provide extra health to nearby allies."
+          "name": "Whip Shot",
+          "description": "Launch your flail forward to knock an enemy away from you."
         },
         {
-          "name": "Inspire",
-          "description": "Dealing damage to enemies heals nearby allies."
+          "name": "Repair Pack",
+          "description": "Heals an ally for a short duration."
+        },
+        {
+          "name": "Rally",
+          "description": "Gain armor, empower Barrier Shield and provide extra health to nearby allies."
         }
       ],
       "perks": {
         "minor": [
           {
             "name": "Combat Medic",
-            "description": "Melee attacks against enemies reduce the cooldown of Repair Pack by 0.75 seconds."
+            "description": "Melee attacks reduce the cooldown of Repair Pack by 0.75 seconds."
           },
           {
             "name": "Morale Boost",
@@ -724,6 +638,8 @@
         ]
       },
       "stats": {
+        "health": 200,
+        "armor": 50,
         "abilities": {
           "Inspire": {
             "ability_type": "Passive Ability",
@@ -742,13 +658,11 @@
           },
           "Barrier Shield": {
             "ability_type": "Ability",
-            "key": "secondary fire",
             "cooldown": "5 seconds (destroyed)",
             "health": "300 (default) / 750 (during Rally)"
           },
           "Shield Bash": {
             "ability_type": "Ability",
-            "key": "primary fire",
             "cooldown": "5 seconds",
             "damage": 70,
             "duration": "0.3 seconds",
@@ -757,7 +671,6 @@
           },
           "Whip Shot": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "4 seconds",
             "damage": 70,
             "headshot": false,
@@ -768,7 +681,6 @@
           },
           "Repair Pack": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "cooldown": "5 seconds",
             "healing": "25 (instantly) / 100 over 2 seconds (over time)",
             "duration": "2 seconds",
@@ -779,24 +691,8 @@
             "ability_type": "Ultimate Ability",
             "radius": "8 meters",
             "duration": "10 seconds (Rally) / 30 seconds (overhealth) / 0.75 seconds (Shield Bash stun)"
-          },
-          "Combat Medic": {
-            "ability_type": "Minor Perk"
-          },
-          "Morale Boost": {
-            "ability_type": "Minor Perk",
-            "duration": "4 → 7 seconds"
-          },
-          "Inspiring Strike": {
-            "ability_type": "Major Perk",
-            "duration": "2 seconds"
-          },
-          "Whiplash": {
-            "ability_type": "Major Perk"
           }
-        },
-        "health": 200,
-        "armor": 50
+        }
       }
     },
     "cassidy": {
@@ -807,15 +703,23 @@
       "abilities": [
         {
           "name": "Peacekeeper",
-          "description": "Accurate, powerful revolver. Wildly fire remaining rounds."
+          "description": "Accurate, powerful revolver."
+        },
+        {
+          "name": "Fan the Hammer",
+          "description": "Wildly fire remaining rounds."
         },
         {
           "name": "Combat Roll",
           "description": "Roll in the direction you're moving to take reduced damage and reload."
         },
         {
+          "name": "Flashbang",
+          "description": "Hinder enemies in front of you, slowing them and preventing them from using movement abilities."
+        },
+        {
           "name": "Deadeye",
-          "description": "Face off against your enemies. Press Q to lock on, then Q or ABILITY 3 to fire."
+          "description": "Face off against your enemies. Press to lock on, then or to fire."
         }
       ],
       "perks": {
@@ -825,7 +729,7 @@
             "description": "Cassidy throws a second Flashbang that travels farther, but both Flashbangs deal 40% reduced damage."
           },
           {
-            "name": "Even The Odds",
+            "name": "Even the Odds",
             "description": "Regenerate 30 health per second for each enemy targeted by Deadeye."
           }
         ],
@@ -841,6 +745,7 @@
         ]
       },
       "stats": {
+        "health": 250,
         "abilities": {
           "Peacekeeper": {
             "ability_type": "Weapon;;Primary Fire",
@@ -852,28 +757,36 @@
             "reload": "1.5 seconds animation",
             "spread": "None",
             "projectile_radius": "0.07 meters",
-            "dps": "140 while firing (93.33 overall w/reload)",
-            "modes": {
-              "Secondary Fire": {
-                "key": "secondary fire",
-                "damage": "50 - 15",
-                "falloff": "20 - 30 meters",
-                "headshot": false,
-                "rate_of_fire": "8.33 shots/s",
-                "ammo": 6,
-                "reload": "1.5 seconds animation",
-                "spread": "6 degrees",
-                "projectile_radius": "0.07 meters",
-                "dps": "416.67 while firing (135.14 overall w/reload)"
-              }
-            }
+            "dps": "140 while firing (93.33 overall w/reload)"
+          },
+          "Fan the Hammer": {
+            "ability_type": "Weapon;;Secondary Fire",
+            "damage": "50 - 15",
+            "falloff": "20 - 30 meters",
+            "headshot": false,
+            "rate_of_fire": "8.33 shots/s",
+            "ammo": 6,
+            "reload": "1.5 seconds animation",
+            "spread": "6 degrees",
+            "projectile_radius": "0.07 meters",
+            "dps": "416.67 while firing (135.14 overall w/reload)"
           },
           "Combat Roll": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "5 seconds",
             "range": "6.22 meters",
             "duration": "0.4 seconds"
+          },
+          "Flashbang": {
+            "ability_type": "Ability",
+            "cooldown": "12 seconds",
+            "damage": 75,
+            "headshot": false,
+            "duration": "0.23 seconds (max travel time) / 1.2 seconds (hinder)",
+            "radius": "3 meters",
+            "range": "7 meters",
+            "projectile_speed": "30 m/s",
+            "projectile_radius": "0.2 meters"
           },
           "Deadeye": {
             "ability_type": "Ultimate Ability",
@@ -881,31 +794,8 @@
             "duration": "2 seconds (warning time) / 7 seconds (max)",
             "range": "200 meters",
             "rate_of_fire": "8.93 shots/s"
-          },
-          "Bang Bang": {
-            "ability_type": "Minor Perk",
-            "damage": "→",
-            "pellets": "1 → 2",
-            "range": "10 meters (2nd grenade)"
-          },
-          "Even the Odds": {
-            "ability_type": "Minor Perk",
-            "healing": "30/s per target"
-          },
-          "Rollin' Round-Up": {
-            "ability_type": "Major Perk"
-          },
-          "Silver Bullet": {
-            "ability_type": "Major Perk",
-            "key": "Secondary Fire",
-            "cooldown": "8 seconds",
-            "damage": "70 - 21 (base) / 70 (bleed)",
-            "falloff": "25 - 35 meters",
-            "headshot": true,
-            "duration": "2.5 seconds (bleed)"
           }
-        },
-        "health": 250
+        }
       }
     },
     "domina": {
@@ -914,6 +804,10 @@
       "role": "tank",
       "sub_role": "stalwart",
       "abilities": [
+        {
+          "name": "Reconstruction",
+          "description": "Dealing damage from abilities restores shields."
+        },
         {
           "name": "Photon Magnum",
           "description": "Medium-range beam that culminates in a high impact shot."
@@ -958,7 +852,13 @@
         ]
       },
       "stats": {
+        "health": 100,
+        "shields": 400,
         "abilities": {
+          "Reconstruction": {
+            "ability_type": "Passive Ability",
+            "healing": "75% of ability damage dealt"
+          },
           "Photon Magnum": {
             "ability_type": "Weapon",
             "damage": "60 (over time) / 60 (hitscan shot)",
@@ -971,7 +871,6 @@
           },
           "Barrier Array": {
             "ability_type": "Ability",
-            "key": "secondary fire",
             "cooldown": "14 seconds",
             "range": "35 meters",
             "health": "225 (per barrier segment)",
@@ -979,7 +878,6 @@
           },
           "Sonic Repulsors": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "7 seconds",
             "damage": "40 (base) / 40 (wall impact)",
             "range": "8.5 meters",
@@ -987,7 +885,6 @@
           },
           "Crystal Charge": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "cooldown": "8 seconds",
             "damage": "50 (over time) / 100 - 50 (explosion)",
             "duration": "1 second (damage over time)",
@@ -1002,23 +899,8 @@
             "health": 450,
             "projectile_speed": "35 m/s",
             "projectile_radius": "1.5 meters (globule) / 0.2 meters (direct hit damage) / 0.2 meters (matrix interaction)"
-          },
-          "Efficient Design": {
-            "ability_type": "Minor Perk"
-          },
-          "Extended Power": {
-            "ability_type": "Minor Perk",
-            "range": "25 → 30 meters"
-          },
-          "Disruptive Detonation": {
-            "ability_type": "Major Perk"
-          },
-          "Power Move": {
-            "ability_type": "Major Perk"
           }
-        },
-        "health": 100,
-        "shields": 400
+        }
       }
     },
     "doomfist": {
@@ -1027,6 +909,10 @@
       "role": "tank",
       "sub_role": "initiator",
       "abilities": [
+        {
+          "name": "The Best Defense...",
+          "description": "Dealing damage with abilities creates temporary overhealth."
+        },
         {
           "name": "Hand Cannon",
           "description": "Short-range weapon with spread. Reloads automatically."
@@ -1037,7 +923,7 @@
         },
         {
           "name": "Seismic Slam",
-          "description": "Leap and smash the ground."
+          "description": "Leap forward and smash the ground."
         },
         {
           "name": "Power Block",
@@ -1045,14 +931,14 @@
         },
         {
           "name": "Meteor Strike",
-          "description": "Press Q to leap up into the air. Move the targeting circle, then press ABILITY 3 to strike the targeted area."
+          "description": "Press to leap up into the air. Move the targeting circle, then press to strike the targeted area."
         }
       ],
       "perks": {
         "minor": [
           {
             "name": "One-Two",
-            "description": "Hitting an enemy into a wall with Rocket Punch reloads Hand Cannon and overfills ammo by 2."
+            "description": "Hitting an enemy into a wall with Rocket Punch reloads all Hand Cannon and overfills ammo by 2."
           },
           {
             "name": "Survival of the Fittest",
@@ -1071,7 +957,12 @@
         ]
       },
       "stats": {
+        "health": 375,
         "abilities": {
+          "The Best Defense...": {
+            "ability_type": "Passive Ability",
+            "duration": "3 seconds"
+          },
           "Hand Cannon": {
             "ability_type": "Weapon",
             "headshot": true,
@@ -1088,7 +979,6 @@
           },
           "Rocket Punch": {
             "ability_type": "Ability",
-            "key": "secondary fire",
             "cooldown": "4 seconds",
             "damage": "25 - 75 (base, impact damage) / 10 - 40 (base, wall slam) / 38 - 113 (empowered, impact damage) / 15 - 60 (empowered, wall slam)",
             "duration": "0.5 seconds (max. travel time) / 0.5 seconds (stun, punch impact) / 0.15 seconds (stun, wall slam) / 0.15 - 0.6 seconds (stun, empowered wall slam) / 20 seconds (Empowered Rocket Punch max duration)",
@@ -1096,14 +986,12 @@
           },
           "Seismic Slam": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "6.5 seconds",
             "damage": 50,
             "radius": "15 meters"
           },
           "Power Block": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "cooldown": "7 seconds",
             "duration": "0.34 seconds (min) / 2.5 seconds (max)"
           },
@@ -1114,21 +1002,8 @@
             "falloff": "2 – 8 meters",
             "duration": "4 seconds (targeting, max) / 3 seconds (slow)",
             "radius": "2 meters (inner sphere) / 8 meters (outer sphere)"
-          },
-          "One-Two": {
-            "ability_type": "Minor Perk"
-          },
-          "Survival of the Fittest": {
-            "ability_type": "Minor Perk"
-          },
-          "Aftershock": {
-            "ability_type": "Major Perk"
-          },
-          "Power Matrix": {
-            "ability_type": "Major Perk"
           }
-        },
-        "health": 375
+        }
       }
     },
     "dva": {
@@ -1138,6 +1013,10 @@
       "sub_role": "initiator",
       "abilities": [
         {
+          "name": "Eject!",
+          "description": "Eject out of your mech when it's destroyed."
+        },
+        {
           "name": "Fusion Cannons",
           "description": "Automatic short-range spread weapons."
         },
@@ -1146,12 +1025,12 @@
           "description": "Automatic weapon."
         },
         {
-          "name": "Boosters",
-          "description": "Fly in the direction you are facing."
-        },
-        {
           "name": "Defense Matrix",
           "description": "Block projectiles in an area in front of you."
+        },
+        {
+          "name": "Boosters",
+          "description": "Fly in the direction you are facing."
         },
         {
           "name": "Micro Missiles",
@@ -1164,17 +1043,13 @@
         {
           "name": "Call Mech",
           "description": "Call down a new mech."
-        },
-        {
-          "name": "Eject!",
-          "description": "Eject out of your mech when it is destroyed."
         }
       ],
       "perks": {
         "minor": [
           {
             "name": "Bunny Power",
-            "description": "Eject grants 75 temporary overhealth and Call Mech’s damage radius is increased by 50%."
+            "description": "Eject grants 75 temporary overhealth and Call Mech's damage radius is increased by 50%."
           },
           {
             "name": "Extended Boosters",
@@ -1188,11 +1063,13 @@
           },
           {
             "name": "Precision Fusion",
-            "description": "Press R to reduce Fusion Cannons' spread by 75% for 3 seconds."
+            "description": "Press Reload to reduce Fusion Cannons' Spread by 75% for 3 seconds."
           }
         ]
       },
       "stats": {
+        "health": 175,
+        "armor": 325,
         "abilities": {
           "Eject!": {
             "ability_type": "Passive Ability",
@@ -1224,14 +1101,12 @@
           },
           "Defense Matrix": {
             "ability_type": "Ability;;Mech",
-            "key": "secondary fire",
             "cooldown": "1 second",
             "duration": "0.5 seconds (min) / 3 seconds (max) / 0.75 seconds (energy regen delay)",
             "range": "10.3 meters"
           },
           "Boosters": {
             "ability_type": "Ability;;Mech",
-            "key": "ability 1",
             "cooldown": "4 seconds",
             "damage": 25,
             "headshot": false,
@@ -1240,7 +1115,6 @@
           },
           "Micro Missiles": {
             "ability_type": "Ability;;Mech",
-            "key": "ability 2",
             "cooldown": "7 seconds",
             "damage": "3 (direct hit bonus) / 5.5 - 1.375 (splash, enemy) / 5.5 - 1.375 (splash, self)",
             "rate_of_fire": "11 shots/s",
@@ -1263,35 +1137,8 @@
             "headshot": false,
             "range": "1.5 meters",
             "radius": "3 meter radius"
-          },
-          "Bunny Power": {
-            "ability_type": "Minor Perk",
-            "radius": "4.5 meters",
-            "duration": "10 seconds"
-          },
-          "Extended Boosters": {
-            "ability_type": "Minor Perk"
-          },
-          "Shield System": {
-            "ability_type": "Major Perk",
-            "health": -150
-          },
-          "Precision Fusion": {
-            "key": "reload",
-            "ability_type": "Major Perk",
-            "cooldown": "8 seconds",
-            "damage": "2 - 0.6 → 1 - 0.3 (per projectile) / 22 - 6.6 → 11 - 3.3 (per volley)",
-            "falloff": "10 - 20 → 15 - 30 meters",
-            "headshot": true,
-            "ammo": "∞",
-            "rate_of_fire": "6.67 shots/s → 13.33 shots/s",
-            "pellets": "11 per shot",
-            "spread": "→ degrees",
-            "duration": "3 seconds"
           }
-        },
-        "health": 175,
-        "armor": 325
+        }
       }
     },
     "echo": {
@@ -1300,6 +1147,10 @@
       "role": "damage",
       "sub_role": "recon",
       "abilities": [
+        {
+          "name": "Glide",
+          "description": "Hold jump to glide while falling."
+        },
         {
           "name": "Tri-Shot",
           "description": "Fires 3 shots at once, in a triangle pattern."
@@ -1319,17 +1170,13 @@
         {
           "name": "Duplicate",
           "description": "Become a copy of the targeted hero. They cannot swap heroes for the duration."
-        },
-        {
-          "name": "Glide",
-          "description": "Hold jump to glide while falling."
         }
       ],
       "perks": {
         "minor": [
           {
             "name": "Focused Rush",
-            "description": "Focusing Beam's range is increased by 6 meters and movement speed is increased by 20% when active."
+            "description": "Focused Beam's range is increase by 6 meters and movement speed is increase by 20% when active."
           },
           {
             "name": "Partial Scan",
@@ -1348,10 +1195,11 @@
         ]
       },
       "stats": {
+        "health": 150,
+        "shields": 75,
         "abilities": {
           "Glide": {
-            "ability_type": "Passive Ability",
-            "key": "jump"
+            "ability_type": "Passive Ability"
           },
           "Tri-Shot": {
             "ability_type": "Weapon",
@@ -1368,7 +1216,6 @@
           },
           "Sticky Bombs": {
             "ability_type": "Ability",
-            "key": "secondary fire",
             "cooldown": "6 seconds",
             "damage": "5 (direct hit) / 25 (explosion, enemy) / 12.5 (explosion, self)",
             "headshot": false,
@@ -1380,13 +1227,11 @@
           },
           "Flight": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "6 seconds",
             "duration": "0.2 seconds (min) / 3 seconds (max)"
           },
           "Focusing Beam": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "cooldown": "8 seconds",
             "damage": "75 per second / 175 per second (target <50% hp)",
             "headshot": false,
@@ -1398,24 +1243,8 @@
             "ability_type": "Ultimate Ability",
             "range": "40 meters",
             "duration": "15 seconds (transformation) / 1.3 seconds (invulnerability, casting) / 1 second (invulnerability, ending)"
-          },
-          "Focused Rush": {
-            "ability_type": "Minor Perk",
-            "range": "16 → 22 meters"
-          },
-          "Partial Scan": {
-            "ability_type": "Minor Perk"
-          },
-          "Full Salvo": {
-            "ability_type": "Major Perk",
-            "pellets": "6 → 9"
-          },
-          "High Beams": {
-            "ability_type": "Major Perk"
           }
-        },
-        "health": 150,
-        "shields": 75
+        }
       }
     },
     "emre": {
@@ -1425,8 +1254,20 @@
       "sub_role": "specialist",
       "abilities": [
         {
+          "name": "Altered Vitals",
+          "description": "Passive health regeneration activates sooner and instantly restores 30 health when activated."
+        },
+        {
           "name": "Synthetic Burst Rifle",
-          "description": "Three-round burst weapon. Hold to zoom in, tightening accuracy and increasing fall off range."
+          "description": "Three-round burst weapon."
+        },
+        {
+          "name": "Synthetic Burst Rifle (ADS)",
+          "description": "Three-round burst weapon."
+        },
+        {
+          "name": "Siphon Blaster",
+          "description": "Temporarily wield a semi-automatic pistol with lifestealing explosive rounds. Move faster and jump higher while wielded."
         },
         {
           "name": "Cyber Frag",
@@ -1435,21 +1276,17 @@
         {
           "name": "Override Protocol",
           "description": "An override initiates, transforming you into a living weapon."
-        },
-        {
-          "name": "Altered Vitals",
-          "description": "Passive health regeneration activates sooner and instantly restores 30 health when activated."
         }
       ],
       "perks": {
         "minor": [
           {
             "name": "Suppressive Security",
-            "description": "Override Protocol’s light rounds slow enemies by 30% for 1 second."
+            "description": "Override Protocol's light rounds slow enemies by 30% for 1 second."
           },
           {
             "name": "Enhanced Agility",
-            "description": "Siphon Blaster’s movement speed bonus is increased by 20% while not firing."
+            "description": "Siphon Blaster's movement speed bonus is increased by 20% while not firing."
           }
         ],
         "major": [
@@ -1464,6 +1301,7 @@
         ]
       },
       "stats": {
+        "health": 250,
         "abilities": {
           "Altered Vitals": {
             "ability_type": "Passive Ability",
@@ -1472,7 +1310,6 @@
           },
           "Synthetic Burst Rifle": {
             "ability_type": "Weapon (Hip Fire)",
-            "key": "primary fire",
             "damage": "22 - 6.67 (per shot) / 66 - 20 (per round)",
             "falloff": "25 - 40 meters",
             "headshot": true,
@@ -1482,24 +1319,32 @@
             "reload": "1.8 seconds",
             "projectile_radius": "0.07 meters",
             "spread": "0.45 degrees (max)",
-            "dps": "while firing ( w/ reload)",
-            "modes": {
-              "ADS": {
-                "key": "secondary fire",
-                "damage": "22 - 6.67 (per shot) / 66 - 20 (per round)",
-                "falloff": "35 - 50 meters",
-                "headshot": true,
-                "rate_of_fire": "2.08 volleys/s",
-                "pellets": 3,
-                "ammo": 36,
-                "reload": "1.8 seconds",
-                "projectile_radius": "0.07 meters"
-              }
-            }
+            "dps": "while firing ( w/ reload)"
+          },
+          "Synthetic Burst Rifle (ADS)": {
+            "ability_type": "Weapon (ADS)",
+            "damage": "22 - 6.67 (per shot) / 66 - 20 (per round)",
+            "falloff": "35 - 50 meters",
+            "headshot": true,
+            "rate_of_fire": "2.08 volleys/s",
+            "pellets": 3,
+            "ammo": 36,
+            "reload": "1.8 seconds",
+            "projectile_radius": "0.07 meters"
+          },
+          "Siphon Blaster": {
+            "ability_type": "Ability",
+            "cooldown": "11 seconds",
+            "damage": "25 (direct hit) / 15 - 5 (area of effect)",
+            "headshot": false,
+            "healing": "80% of damage dealt",
+            "duration": "5 seconds",
+            "radius": "0.5 - 2.3 meters",
+            "projectile_speed": "100 m/s",
+            "projectile_radius": "0.2 meters"
           },
           "Cyber Frag": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "cooldown": "10 seconds",
             "damage": "110 - 55 (area of effect)",
             "duration": "0.6 seconds (explosion delay)",
@@ -1515,24 +1360,8 @@
             "radius": "1 - 2.3 meters (light round) / 2 - 6 meters (heavy round)",
             "projectile_speed": "100m/s (light round) / 70 m/s (heavy round)",
             "projectile_radius": "0.18 meters (light round) / 0.305 meters (heavy round)"
-          },
-          "Suppressive Security": {
-            "ability_type": "Minor Perk",
-            "duration": "1 second"
-          },
-          "Enhanced Agility": {
-            "ability_type": "Minor Perk"
-          },
-          "Heat Sink": {
-            "ability_type": "Major Perk"
-          },
-          "Cyber Adhesion": {
-            "ability_type": "Major Perk",
-            "damage": "40 (impact)",
-            "projectile_radius": "0.2 meters (stick size)"
           }
-        },
-        "health": 250
+        }
       }
     },
     "freja": {
@@ -1542,20 +1371,28 @@
       "sub_role": "recon",
       "abilities": [
         {
-          "name": "Bola Shot",
-          "description": "Fire an explosive bola. Hitting an enemy wraps them up and pulls in other nearby enemies."
+          "name": "Bounty Hunting",
+          "description": "Every 3 Final Blows, gain bonus ultimate charge."
+        },
+        {
+          "name": "Revdraw Crossbow",
+          "description": "Rapidly fire automatic bolts."
+        },
+        {
+          "name": "Take Aim",
+          "description": "Slow down your momentum to take aim with a high speed explosive bolt. Using Quick Dash refreshes Take Aim."
         },
         {
           "name": "Quick Dash",
           "description": "Vault in the direction you're moving and refresh Take Aim."
         },
         {
-          "name": "Take Aim",
-          "description": "Slow your momentum to take aim with a high speed explosive bolt. Using Quick Dash refreshes Take Aim."
-        },
-        {
           "name": "Updraft",
           "description": "Launch upward with a gust of wind."
+        },
+        {
+          "name": "Bola Shot",
+          "description": "Fire an explosive bola. Hitting an enemy wraps them up and pulls in other nearby enemies."
         }
       ],
       "perks": {
@@ -1576,15 +1413,30 @@
           },
           {
             "name": "Rising Winds",
-            "description": "Updraft gains an additional charge but has 20% decreased height."
+            "description": "Updraft gains an additional charge but has 20% reduced height."
           }
         ]
       },
       "stats": {
+        "health": 225,
         "abilities": {
+          "Bounty Hunting": {
+            "ability_type": "Passive Ability"
+          },
+          "Revdraw Crossbow": {
+            "ability_type": "Weapon;;Hip Fire",
+            "headshot": true,
+            "ammo": 15,
+            "damage": 30,
+            "rate_of_fire": "4.81 shots/s",
+            "reload": "1.6 seconds",
+            "spread": "1.5 degrees (max, horizontal only)",
+            "projectile_radius": "0.175 meters",
+            "projectile_speed": "125 m/s",
+            "dps": "120.19 while firing (79.45 overall w/ reload)"
+          },
           "Take Aim": {
             "ability_type": "Weapon;;ADS",
-            "key": "Secondary Fire",
             "headshot": true,
             "ammo": 1,
             "reload": "1.5 seconds",
@@ -1597,12 +1449,10 @@
           },
           "Quick Dash": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "4.5 seconds"
           },
           "Updraft": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "cooldown": "12 seconds"
           },
           "Bola Shot": {
@@ -1612,22 +1462,8 @@
             "radius": "2 - 5.5 meters (falloff start - max) / 5 meters (pull)",
             "projectile_radius": "0.77 meters",
             "projectile_speed": "70 m/s"
-          },
-          "Relentless Barrage": {
-            "ability_type": "Minor Perk"
-          },
-          "Momentum Boost": {
-            "ability_type": "Minor Perk"
-          },
-          "Aerial Recovery": {
-            "ability_type": "Major Perk",
-            "healing": "30 per second"
-          },
-          "Rising Winds": {
-            "ability_type": "Major Perk"
           }
-        },
-        "health": 225
+        }
       }
     },
     "genji": {
@@ -1637,24 +1473,28 @@
       "sub_role": "flanker",
       "abilities": [
         {
-          "name": "Shuriken",
-          "description": "Throw an accurate burst of 3 projectiles. Throw a fan of 3 projectiles in an arc."
+          "name": "Cyber-Agility",
+          "description": "Climb on walls and double jump."
         },
         {
-          "name": "Deflect",
-          "description": "Deflect incoming projectiles towards the direction you are aiming and block melee attacks."
+          "name": "Shuriken",
+          "description": "Throw an accurate burst of 3 projectiles."
+        },
+        {
+          "name": "Shuriken Alt Fire",
+          "description": "Throw a fan of 3 projectiles in an arc."
         },
         {
           "name": "Swift Strike",
           "description": "Rapidly dash forward and inflict damage on enemies. Eliminations reset the cooldown."
         },
         {
-          "name": "Dragonblade",
-          "description": "Unsheathe a deadly melee weapon."
+          "name": "Deflect",
+          "description": "Deflect incoming projectiles towards the direction you are aiming and block melee attacks."
         },
         {
-          "name": "Cyber-Agility",
-          "description": "Climb on walls and double jump."
+          "name": "Dragonblade",
+          "description": "Unsheathe a deadly melee weapon."
         }
       ],
       "perks": {
@@ -1680,10 +1520,10 @@
         ]
       },
       "stats": {
+        "health": 250,
         "abilities": {
           "Cyber-Agility": {
             "ability_type": "Passive Ability",
-            "key": "jump",
             "duration": "Up to 1 second"
           },
           "Shuriken": {
@@ -1697,25 +1537,22 @@
             "ammo": 30,
             "reload": "1.5 seconds",
             "spread": "None",
-            "dps": "92.05 while firing (85.94 overall w/reload)",
-            "modes": {
-              "Secondary Fire": {
-                "key": "secondary fire",
-                "damage": "(per shuriken) / (per shot)",
-                "headshot": true,
-                "projectile_speed": "m/s",
-                "projectile_radius": "0.125 meters",
-                "rate_of_fire": "1.47 shots/s",
-                "pellets": 3,
-                "reload": "1.5 seconds",
-                "spread": "4.5 degrees",
-                "dps": "119.12 while firing (109.09 overall w/reload)"
-              }
-            }
+            "dps": "92.05 while firing (85.94 overall w/reload)"
+          },
+          "Shuriken Alt Fire": {
+            "ability_type": "Weapon;;Secondary Fire",
+            "damage": "(per shuriken) / (per shot)",
+            "headshot": true,
+            "projectile_speed": "m/s",
+            "projectile_radius": "0.125 meters",
+            "rate_of_fire": "1.47 shots/s",
+            "pellets": 3,
+            "reload": "1.5 seconds",
+            "spread": "4.5 degrees",
+            "dps": "119.12 while firing (109.09 overall w/reload)"
           },
           "Swift Strike": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "8 seconds",
             "damage": 50,
             "headshot": false,
@@ -1724,7 +1561,6 @@
           },
           "Deflect": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "cooldown": "10 seconds",
             "duration": "0.27 seconds min. duration / 2 seconds max. duration / 0.192 seconds recovery"
           },
@@ -1736,25 +1572,8 @@
             "duration": "6 seconds",
             "range": "5 meters",
             "dps": "158.05 while swinging continuously"
-          },
-          "Swift Cuts": {
-            "ability_type": "Minor Perk"
-          },
-          "Dragon's Thirst": {
-            "ability_type": "Minor Perk",
-            "healing": "30% of damage dealt"
-          },
-          "Blade Twisting": {
-            "ability_type": "Major Perk",
-            "damage": "25 over time",
-            "duration": "1 second"
-          },
-          "Meditation": {
-            "ability_type": "Major Perk",
-            "healing": "35 per second"
           }
-        },
-        "health": 250
+        }
       }
     },
     "hanzo": {
@@ -1764,16 +1583,20 @@
       "sub_role": "sharpshooter",
       "abilities": [
         {
+          "name": "Wall Climb",
+          "description": "Jump at walls to climb up them."
+        },
+        {
           "name": "Storm Bow",
           "description": "Hold to charge then release to launch arrows further."
         },
         {
-          "name": "Storm Arrows",
-          "description": "The next 5 arrows ricochet and fire instantly at reduced damage."
-        },
-        {
           "name": "Sonic Arrow",
           "description": "Reveals enemies for a short time upon impact."
+        },
+        {
+          "name": "Storm Arrows",
+          "description": "The next 5 arrows ricochet and fire instantly at reduced damage."
         },
         {
           "name": "Lunge",
@@ -1782,10 +1605,6 @@
         {
           "name": "Dragonstrike",
           "description": "Launch a deadly Dragon Spirit that devastates enemies it passes through."
-        },
-        {
-          "name": "Wall Climb",
-          "description": "Jump at walls to climb up them."
         }
       ],
       "perks": {
@@ -1802,7 +1621,7 @@
         "major": [
           {
             "name": "Frost Arrow",
-            "description": "Press R to ready an explosive frost arrow, slowing enemies hit by 35% for 2 seconds."
+            "description": "Press Reload to ready an explosive frost arrow that slows enemies by 35% for 2 seconds."
           },
           {
             "name": "Scatter Arrows",
@@ -1811,11 +1630,11 @@
         ]
       },
       "stats": {
+        "health": 250,
         "abilities": {
           "Wall Climb": {
             "duration": "Up to 1 second",
-            "ability_type": "Passive Ability",
-            "key": "jump"
+            "ability_type": "Passive Ability"
           },
           "Storm Bow": {
             "ability_type": "Weapon",
@@ -1830,7 +1649,6 @@
           },
           "Sonic Arrow": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "12 seconds",
             "headshot": true,
             "radius": "9 meters",
@@ -1838,7 +1656,6 @@
           },
           "Storm Arrows": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "cooldown": "8 seconds",
             "damage": 75,
             "headshot": true,
@@ -1852,8 +1669,7 @@
           "Lunge": {
             "cooldown": "4 seconds",
             "range": "7.85 meters",
-            "ability_type": "Ability",
-            "key": "jump"
+            "ability_type": "Ability"
           },
           "Dragonstrike": {
             "ability_type": "Ultimate Ability",
@@ -1864,28 +1680,8 @@
             "radius": "4 meters (outer) / 2.4 meters (inner)",
             "range": "10 meters (initial arrow) / Infinite (dragons)",
             "duration": "0.5 seconds (initial arrow)"
-          },
-          "Sonic Disruption": {
-            "ability_type": "Minor Perk"
-          },
-          "Dragon Fury": {
-            "ability_type": "Major Perk"
-          },
-          "Frost Arrow": {
-            "ability_type": "Major Perk",
-            "key": "reload",
-            "duration": "2 seconds",
-            "radius": "4 meters",
-            "cooldown": "14 seconds"
-          },
-          "Scatter Arrows": {
-            "ability_type": "Major Perk",
-            "damage": "75 → 25 (after bounce)",
-            "pellets": "1 → 5 (after bounce)",
-            "headshot": false
           }
-        },
-        "health": 250
+        }
       }
     },
     "hazard": {
@@ -1895,16 +1691,20 @@
       "sub_role": "initiator",
       "abilities": [
         {
+          "name": "Vault",
+          "description": "Scale short walls and grab ledges."
+        },
+        {
           "name": "Bonespur",
           "description": "Fire a burst of spikes."
         },
         {
           "name": "Spike Guard",
-          "description": "Protect yourself from frontal damage, firing homing spikes at nearby enemies and regenerating ammo."
+          "description": "Protect yourself from frontal damage. Firing homing spikes at nearby enemies and regenerating ammo."
         },
         {
           "name": "Violent Leap",
-          "description": "Lunge forward. Activate again to slash at enemies, knocking them back."
+          "description": "Lunge forward. Activate again to slash enemies, knocking them back."
         },
         {
           "name": "Jagged Wall",
@@ -1912,22 +1712,18 @@
         },
         {
           "name": "Downpour",
-          "description": "Rain down a torrent of spikes, immobilizing enemies."
-        },
-        {
-          "name": "Vault",
-          "description": "Scale short walls and grab ledges."
+          "description": "Rain down a torrent of spikes, Immobilizing enemies."
         }
       ],
       "perks": {
         "minor": [
           {
             "name": "Deep Leap",
-            "description": "Violent Leap's range is increased by 15%."
+            "description": "Violent Leap’s range is increased by 15%."
           },
           {
             "name": "Anarchic Zeal",
-            "description": "Spike Guard's spikes gain 30% Lifesteal."
+            "description": "Spike Guard’s spikes gain 30% Lifesteal."
           }
         ],
         "major": [
@@ -1942,10 +1738,11 @@
         ]
       },
       "stats": {
+        "health": 275,
+        "armor": 225,
         "abilities": {
           "Vault": {
             "ability_type": "Passive Ability",
-            "key": "jump",
             "duration": "Up to 0.2 seconds"
           },
           "Bonespur": {
@@ -1964,7 +1761,6 @@
           },
           "Spike Guard": {
             "ability_type": "Ability",
-            "key": "secondary fire",
             "damage": "11.67 per projectile / 210.06 maximum",
             "headshot": false,
             "rate_of_fire": "6 shots/s",
@@ -1976,14 +1772,12 @@
           },
           "Violent Leap": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "5.5 seconds",
             "damage": "70 (slash)",
             "range": "14 meters (leap, aimed up) - 15 meters (leap, along ground) / 5.4 meters (slash)"
           },
           "Jagged Wall": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "cooldown": "12 seconds",
             "damage": 50,
             "health": 400,
@@ -1998,25 +1792,8 @@
             "headshot": false,
             "range": "30 meters",
             "duration": "2.8 seconds (trap)"
-          },
-          "Deep Leap": {
-            "ability_type": "Minor Perk"
-          },
-          "Anarchic Zeal": {
-            "ability_type": "Minor Perk",
-            "healing": "30% of damage dealt"
-          },
-          "Reconstitution": {
-            "ability_type": "Major Perk"
-          },
-          "Explosive Impalements": {
-            "ability_type": "Major Perk",
-            "damage": 40,
-            "duration": "4 seconds (counter timeout) / 8 seconds (spike)"
           }
-        },
-        "health": 275,
-        "armor": 225
+        }
       }
     },
     "illari": {
@@ -2027,19 +1804,23 @@
       "abilities": [
         {
           "name": "Solar Rifle",
-          "description": "Long range auto-charging rifle. Medium range healing beam that consumes solar energy."
+          "description": "Long-range auto charging rifle."
         },
         {
-          "name": "Captive Sun",
-          "description": "Fire an explosive ball of solar energy. Enemies hit are slowed and explode after taking significant damage."
+          "name": "Solar Rifle Alt Fire",
+          "description": "Medium range healing beam that consumes solar energy."
+        },
+        {
+          "name": "Outburst",
+          "description": "Launches you in the direction you are moving. Knocking back enemies. Hold jump to go higher."
         },
         {
           "name": "Healing Pylon",
           "description": "Deploy a pylon that heals allies."
         },
         {
-          "name": "Outburst",
-          "description": "Launches you in the direction you are moving, knocking back enemies. Hold jump to go higher."
+          "name": "Captive Sun",
+          "description": "Fire an explosive ball of solar energy. Enemies hit are slowed and explode after taking significant damage."
         }
       ],
       "perks": {
@@ -2050,13 +1831,13 @@
           },
           {
             "name": "Summer Solstice",
-            "description": "Captive Sun grants Illari 20% increased flight and attack speed, and extends her flight duration by 3 seconds."
+            "description": "Activating Captive Sun grants Illari 3 extra seconds of flight, 20% increased flight speed, and 20% increased attack speed."
           }
         ],
         "major": [
           {
             "name": "Solar Flare",
-            "description": "Press while using Solar Rifle's healing beam to heal all allies in front of Illari for 100 healing."
+            "description": "Press Primary Fire while using Solar Rifle's healing beam to heal all allies in front of Illari for 100 healing."
           },
           {
             "name": "Sunburn",
@@ -2065,6 +1846,7 @@
         ]
       },
       "stats": {
+        "health": 250,
         "abilities": {
           "Solar Rifle": {
             "ability_type": "Weapon;;Primary Fire",
@@ -2077,22 +1859,19 @@
             "spread": "None",
             "projectile_radius": "0.12 meters",
             "duration": "0.65 seconds (charge time) / 0.25 seconds (recovery)",
-            "dps": "(max charge): 77.7 while firing (68 overall w/ reload)",
-            "modes": {
-              "Secondary Fire": {
-                "key": "secondary fire",
-                "headshot": false,
-                "spread": "None",
-                "healing": "115 per second",
-                "range": "20 meters",
-                "projectile_radius": "0.25 meters",
-                "duration": "0.6 seconds (energy regen delay)"
-              }
-            }
+            "dps": "(max charge): 77.7 while firing (68 overall w/ reload)"
+          },
+          "Solar Rifle Alt Fire": {
+            "ability_type": "Weapon;;Secondary Fire",
+            "headshot": false,
+            "spread": "None",
+            "healing": "115 per second",
+            "range": "20 meters",
+            "projectile_radius": "0.25 meters",
+            "duration": "0.6 seconds (energy regen delay)"
           },
           "Outburst": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "8 seconds",
             "damage": 25,
             "headshot": false,
@@ -2100,7 +1879,6 @@
           },
           "Healing Pylon": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "cooldown": "7 seconds (default) / 14 seconds (under attack)",
             "health": 75,
             "healing": "40 over 0.45 seconds (allies) / 20 over 0.45 seconds (self)",
@@ -2118,29 +1896,8 @@
             "projectile_radius": "0.45 meters",
             "ammo": 1,
             "duration": "5.2 seconds (flight) / 6 seconds (Sunstruck debuff) / 0.8 seconds (explosion delay)"
-          },
-          "Rapid Construction": {
-            "ability_type": "Minor Perk",
-            "duration": "1.3 → 0.33 seconds (build time)",
-            "cooldown": "7 → 5.5 seconds (default) / 14 → 12.5 seconds (under attack)"
-          },
-          "Summer Solstice": {
-            "ability_type": "Minor Perk"
-          },
-          "Solar Flare": {
-            "ability_type": "Major Perk",
-            "key": "primary fire",
-            "cooldown": "10 seconds",
-            "healing": 100,
-            "radius": "20 meters"
-          },
-          "Sunburn": {
-            "ability_type": "Major Perk",
-            "damage": "16.67 per second / 50 total",
-            "duration": "3 seconds"
           }
-        },
-        "health": 250
+        }
       }
     },
     "jetpack-cat": {
@@ -2149,6 +1906,10 @@
       "role": "support",
       "sub_role": "tactician",
       "abilities": [
+        {
+          "name": "Jetpack",
+          "description": "Permanent flight."
+        },
         {
           "name": "Biotic Pawjectiles",
           "description": "Mid-range projectile spread that heals allies and damages enemies."
@@ -2174,29 +1935,32 @@
         "minor": [
           {
             "name": "Ulterior Motive",
-            "description": "15% of Biotic Pawjectiles healing recovers fuel."
+            "description": "15% of Biotic Pawjectiles healing is converted into fuel."
           },
           {
             "name": "Transport Shielding",
-            "description": "Gain up to 75 extra shield health while carrying another hero."
+            "description": "Gain up to 75 shield health while carrying another hero."
           }
         ],
         "major": [
           {
             "name": "Headbutt",
-            "description": "Frenetic Flight can knockback an enemy on impact when flying fast enough. Generate 25% fuel on knockback."
+            "description": "Frenetic Flight can knockback an enemy on impact when flying fast enough. Generate 25% fuel on knockback"
           },
           {
             "name": "Claws Out",
-            "description": "Quick melee becomes empowered every 6 seconds, wounding enemies for 40 damage and slowing them by 30% for 1 second."
+            "description": "Quick Melee becomes empowered every 6 seconds, wounding enemies for 40 damage and slowing them by 30% for 1 second."
           }
         ]
       },
       "stats": {
+        "health": 225,
         "abilities": {
+          "Jetpack": {
+            "ability_type": "Passive Ability"
+          },
           "Biotic Pawjectiles": {
             "ability_type": "Weapon",
-            "key": "primary fire",
             "damage": "24 (per volley) / 8 (center pellet) / 4 (per paw pellet)",
             "headshot": false,
             "healing": "24 (per volley)",
@@ -2212,19 +1976,16 @@
           },
           "Frenetic Flight": {
             "ability_type": "Ability",
-            "key": "secondary fire",
             "duration": "0.75 seconds (regen delay)"
           },
           "Lifeline": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "2 seconds",
             "radius": "4 meters (tether length)",
             "healing": "25 per second (ally)"
           },
           "Purr": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "cooldown": "12 seconds",
             "damage": 30,
             "healing": "30 (per pulse)",
@@ -2237,26 +1998,8 @@
             "duration": "1.5 seconds (stun) / 4 seconds (max ultimate duration)",
             "range": "25 meters",
             "radius": "6 meters"
-          },
-          "Ulterior Motive": {
-            "ability_type": "Minor Perk"
-          },
-          "Transport Shielding": {
-            "ability_type": "Minor Perk"
-          },
-          "Headbutt": {
-            "ability_type": "Major Perk",
-            "damage": 30
-          },
-          "Claws Out": {
-            "ability_type": "Major Perk",
-            "key": "quick melee",
-            "cooldown": "6 seconds.",
-            "damage": "40 (damage over time)",
-            "duration": "1 second"
           }
-        },
-        "health": 225
+        }
       }
     },
     "junker-queen": {
@@ -2266,8 +2009,16 @@
       "sub_role": "stalwart",
       "abilities": [
         {
+          "name": "Adrenaline Rush",
+          "description": "Heal from all damage over time dealt by wounds."
+        },
+        {
           "name": "Scattergun",
           "description": "Pump action shotgun."
+        },
+        {
+          "name": "Jagged Blade",
+          "description": "Active: Throw the blade. Re-activate to pull it back with any impaled enemy. / Passive: Wound enemies hit by Quick Melee or Throw, dealing damage over time."
         },
         {
           "name": "Commanding Shout",
@@ -2279,18 +2030,14 @@
         },
         {
           "name": "Rampage",
-          "description": "Charge forward. Wounds enemies, dealing damage over time and preventing them from being healed."
-        },
-        {
-          "name": "Adrenaline Rush",
-          "description": "Heal from all damage over time dealt by wounds."
+          "description": "Charge foward. Wounds enemies, dealing damage over time and preventing them from being healed."
         }
       ],
       "perks": {
         "minor": [
           {
             "name": "Rampant Charge",
-            "description": "Gain Unstoppable and reduce all cooldowns by 6 seconds when using Rampage."
+            "description": "Gain Unstoppable and refreshes all cooldowns by 6 seconds when using Rampage."
           },
           {
             "name": "Battle Shout",
@@ -2300,7 +2047,7 @@
         "major": [
           {
             "name": "Willy-Willy",
-            "description": "When recalling Jagged Blade, its radius is increased by 100% and it deals 30 additional impact damage."
+            "description": "When recalling Jagged Blade its radius is increased by 100% and it deals 30 additional impact damage."
           },
           {
             "name": "Savage Satiation",
@@ -2309,6 +2056,7 @@
         ]
       },
       "stats": {
+        "health": 375,
         "abilities": {
           "Adrenaline Rush": {
             "ability_type": "Passive Ability",
@@ -2325,31 +2073,27 @@
             "spread": "2.75 degrees",
             "reload": "1.5 seconds",
             "headshot": true,
-            "dps": "while firing ( w/ reload)",
-            "modes": {
-              "Secondary Fire": {
-                "key": "secondary fire",
-                "cooldown": "6 seconds",
-                "damage": "65 (thrown hit) / 30 over 3 seconds (wound, thrown hit) / 15 over 3 seconds (wound, return hit & melee)",
-                "range": "60 meters",
-                "duration": "3 seconds",
-                "projectile_speed": "40 m/s",
-                "projectile_radius": "0.27 meters",
-                "headshot": false,
-                "healing": "67.5 over 3 seconds (direct hit) / 33.75 over 3 seconds (recall/melee)"
-              }
-            }
+            "dps": "while firing ( w/ reload)"
+          },
+          "Jagged Blade": {
+            "ability_type": "Ability",
+            "cooldown": "6 seconds",
+            "damage": "65 (thrown hit) / 30 over 3 seconds (wound, thrown hit) / 15 over 3 seconds (wound, return hit & melee)",
+            "range": "60 meters",
+            "duration": "3 seconds",
+            "projectile_speed": "40 m/s",
+            "projectile_radius": "0.27 meters",
+            "headshot": false,
+            "healing": "67.5 over 3 seconds (direct hit) / 33.75 over 3 seconds (recall/melee)"
           },
           "Commanding Shout": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "12 seconds",
             "radius": "15 meters",
             "duration": "4 seconds"
           },
           "Carnage": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "cooldown": "9 seconds / -2 seconds per enemy hit",
             "damage": "105 (impact) / 40 over 3 seconds (wound)",
             "healing": "90 over 3 seconds",
@@ -2363,24 +2107,8 @@
             "radius": "5 meters",
             "range": "25 meters",
             "duration": "4.5 seconds (DoT) / 0.7 seconds (dash)"
-          },
-          "Rampant Charge": {
-            "ability_type": "Minor Perk"
-          },
-          "Battle Shout": {
-            "ability_type": "Minor Perk"
-          },
-          "Willy-Willy": {
-            "ability_type": "Major Perk",
-            "projectile_radius": "→",
-            "damage": "0 → 30 (return impact)"
-          },
-          "Savage Satiation": {
-            "ability_type": "Major Perk",
-            "healing": "0 → 100% of damage dealt (impact)"
           }
-        },
-        "health": 375
+        }
       }
     },
     "junkrat": {
@@ -2390,12 +2118,16 @@
       "sub_role": "specialist",
       "abilities": [
         {
+          "name": "Total Mayhem",
+          "description": "Deals no damage to self with explosives. Drop bombs on death."
+        },
+        {
           "name": "Frag Launcher",
           "description": "Bouncing explosive projectile weapon."
         },
         {
           "name": "Concussion Mine",
-          "description": "Throw a knockback mine with LSHIFT then detonate it with ABILITY 1."
+          "description": "Throw a knockback mine with then detonate it with ."
         },
         {
           "name": "Steel Trap",
@@ -2404,17 +2136,13 @@
         {
           "name": "RIP-Tire",
           "description": "Drive and detonate an exploding tire."
-        },
-        {
-          "name": "Total Mayhem",
-          "description": "Deals no damage to self with explosives. Drop bombs on death."
         }
       ],
       "perks": {
         "minor": [
           {
             "name": "Nitro Boost",
-            "description": "During RIP-Tire, use LSHIFT to gain a quick boost of speed. Doing so reduces RIP-Tire's damage by 50%."
+            "description": "During RIP-Tire, use (LSHIFT) to gain a quick boost of speed. Doing so reduces RIP-Tire’s damage by 50%."
           },
           {
             "name": "Bomb Voyage",
@@ -2428,11 +2156,12 @@
           },
           {
             "name": "Frag Cannon",
-            "description": "Frag Launcher's projectile speed is increased by 25%."
+            "description": "Frag Launcher’s projectile speed is increased by 25%"
           }
         ]
       },
       "stats": {
+        "health": 250,
         "abilities": {
           "Total Mayhem": {
             "ability_type": "Passive Ability",
@@ -2456,7 +2185,6 @@
           },
           "Concussion Mine": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "8 seconds",
             "damage": "120 – 55",
             "projectile_speed": "25 m/s",
@@ -2468,7 +2196,6 @@
           },
           "Steel Trap": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "damage": 100,
             "health": 100,
             "radius": "1 meter",
@@ -2485,21 +2212,8 @@
             "radius": "10 - 2 meters (falloff start - max)",
             "duration": "10 seconds (max)",
             "headshot": false
-          },
-          "Nitro Boost": {
-            "ability_type": "Minor Perk"
-          },
-          "Bomb Voyage": {
-            "ability_type": "Minor Perk"
-          },
-          "Mine Recycling": {
-            "ability_type": "Major Perk"
-          },
-          "Frag Cannon": {
-            "ability_type": "Major Perk"
           }
-        },
-        "health": 250
+        }
       }
     },
     "juno": {
@@ -2509,28 +2223,28 @@
       "sub_role": "survivor",
       "abilities": [
         {
+          "name": "Martian Overboots",
+          "description": "While airborne, press Jump to double jump and hold Jump to hover."
+        },
+        {
           "name": "Mediblaster",
           "description": "Burst fire weapon that heals allies and damages enemies."
         },
         {
           "name": "Pulsar Torpedoes",
-          "description": "Press to lock on, then SECONDARY FIRE to fire homing projectiles. Heals allies over time and damages enemies."
-        },
-        {
-          "name": "Orbital Ray",
-          "description": "Call down a ray that travels forward, healing allies and increasing their damage."
-        },
-        {
-          "name": "Hyper Ring",
-          "description": "Deploy a ring that increases movement speed of allies that pass through it."
+          "description": "Press Secondary Fire to lock on, then Primary Fire to fire homing projectiles. Heals allies over time and damages enemies."
         },
         {
           "name": "Glide Boost",
           "description": "Glide horizontally with increased movement speed."
         },
         {
-          "name": "Martian Overboots",
-          "description": "While airborne, press SPACE to double jump and hold SPACE to hover."
+          "name": "Hyper Ring",
+          "description": "Deploy a ring that increases movement speed of allies that pass through it."
+        },
+        {
+          "name": "Orbital Ray",
+          "description": "Call down a ray that travels forward, healing allies and increasing their damage."
         }
       ],
       "perks": {
@@ -2546,20 +2260,21 @@
         ],
         "major": [
           {
-            "name": "Lift Off",
-            "description": "Martian Overboots can now triple jump."
+            "name": "Faster Blaster",
+            "description": "While using Glide Boost, Mediblaster fires continuosly."
           },
           {
-            "name": "Faster Blaster",
-            "description": "While Glide Boost is active, Mediblaster fires continuously."
+            "name": "Lift Off",
+            "description": "Martian Overboots can now triple jump."
           }
         ]
       },
       "stats": {
+        "health": 75,
+        "shields": 150,
         "abilities": {
           "Martian Overboots": {
-            "ability_type": "Passive Ability",
-            "key": "jump"
+            "ability_type": "Passive Ability"
           },
           "Mediblaster": {
             "ability_type": "Weapon",
@@ -2577,7 +2292,6 @@
           },
           "Pulsar Torpedoes": {
             "ability_type": "Ability",
-            "key": "secondary fire",
             "cooldown": "10 seconds",
             "damage": 85,
             "healing": "85 (direct) / 50 (over time)",
@@ -2586,13 +2300,11 @@
           },
           "Glide Boost": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "6 seconds",
             "duration": "4 seconds"
           },
           "Hyper Ring": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "cooldown": "14 seconds",
             "duration": "6 seconds (ring) / 3 seconds (speed boost)",
             "range": "17 meters",
@@ -2605,24 +2317,8 @@
             "duration": "8 seconds",
             "range": "20 meters",
             "radius": "8 meters"
-          },
-          "Familiar Vitals": {
-            "ability_type": "Minor Perk"
-          },
-          "Locked On": {
-            "ability_type": "Minor Perk"
-          },
-          "Faster Blaster": {
-            "ability_type": "Major Perk",
-            "rate_of_fire": "20 shots/s",
-            "pellets": 1
-          },
-          "Lift Off": {
-            "ability_type": "Major Perk"
           }
-        },
-        "health": 75,
-        "shields": 150
+        }
       }
     },
     "kiriko": {
@@ -2631,6 +2327,10 @@
       "role": "support",
       "sub_role": "medic",
       "abilities": [
+        {
+          "name": "Wall Climb (Kiriko)",
+          "description": "Jump at walls to climb up them."
+        },
         {
           "name": "Healing Ofuda",
           "description": "Channel a burst of healing talismans that can seek targeted allies."
@@ -2649,14 +2349,14 @@
         },
         {
           "name": "Kitsune Rush",
-          "description": "Summon a fox spirit that rushes forward, accelerating the movement, attack speed, and cooldowns of allies that follow in its path."
+          "description": "Summon a fox spirit that rushes forward, accelerating the movement, attack speed, and cooldowns of allies that follow its path."
         }
       ],
       "perks": {
         "minor": [
           {
             "name": "Urgent Care",
-            "description": "Healing Ofuda projectile speed is increased by 50% when seeking allies below half health."
+            "description": "Healing Ofuda projectile speed is increased by 50% when seeking critical health allies."
           },
           {
             "name": "Fortune Teller",
@@ -2675,10 +2375,14 @@
         ]
       },
       "stats": {
+        "health": 225,
         "abilities": {
+          "Wall Climb (Kiriko)": {
+            "ability_type": "Passive Ability",
+            "duration": "Up to 1 second"
+          },
           "Healing Ofuda": {
             "ability_type": "Weapon;;Primary Fire",
-            "key": "primary fire",
             "healing": "13 (per talisman) / 26 (per burst)",
             "rate_of_fire": "0.2 seconds (per burst) / 1.42 seconds (full clip)",
             "reload": "0.9 seconds",
@@ -2690,7 +2394,6 @@
           },
           "Kunai": {
             "ability_type": "Weapon;;Secondary Fire",
-            "key": "secondary fire",
             "damage": 60,
             "headshot": true,
             "rate_of_fire": "2 shots/s",
@@ -2703,14 +2406,12 @@
           },
           "Swift Step": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "range": "30 meters",
             "duration": "0.25 second invulnerability",
             "cooldown": "7 seconds"
           },
           "Protection Suzu": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "cooldown": "14 seconds",
             "healing": "80 (no cleanse) / 110 (cleanse)",
             "projectile_speed": "37 m/s",
@@ -2722,24 +2423,8 @@
             "ability_type": "Ultimate Ability",
             "duration": "8 seconds (area) / 1 second (lingering buff)",
             "range": "32.2 meters"
-          },
-          "Urgent Care": {
-            "ability_type": "Minor Perk",
-            "projectile_speed": "30 → 42 m/s"
-          },
-          "Fortune Teller": {
-            "ability_type": "Minor Perk"
-          },
-          "Ready Step": {
-            "ability_type": "Major Perk",
-            "dps": "while firing ( w/ reload)"
-          },
-          "Foxtrot": {
-            "ability_type": "Major Perk",
-            "duration": "4 seconds"
           }
-        },
-        "health": 225
+        }
       }
     },
     "lifeweaver": {
@@ -2750,11 +2435,11 @@
       "abilities": [
         {
           "name": "Healing Blossom",
-          "description": "Hold to charge a healing burst. Release to heal a targeted ally. Passively charges at a reduced rate when not in use."
+          "description": "Hold to charge a healing burst. Release to heal a targeted ally. Passively charges at a reduced rate while not in use."
         },
         {
           "name": "Thorn Volley",
-          "description": "Rapidly fires pairs of projectiles."
+          "description": "Rapidly fire a spread of projectiles."
         },
         {
           "name": "Petal Platform",
@@ -2781,21 +2466,23 @@
           },
           {
             "name": "Dashing Escape",
-            "description": "Rejuvenating Dash's distance is increased by 30%."
+            "description": "Rejuvenating Dash distance increased by 30%."
           }
         ],
         "major": [
           {
-            "name": "Sow the Seed",
-            "description": "Quick Melee with Healing Blossom to throw a seed. Another ally can pick it up for overhealth and movement speed."
-          },
-          {
             "name": "Superbloom",
             "description": "Thorns detonate for 40 extra damage when enough stick within 2.5 seconds."
+          },
+          {
+            "name": "Sow the Seed",
+            "description": "Quick Melee with Healing Blossom equipped tosses a seed forward. Allies who pick up a seed gain 75 overhealth and 25% movement speed for 5 seconds."
           }
         ]
       },
       "stats": {
+        "health": 200,
+        "shields": 50,
         "abilities": {
           "Healing Blossom": {
             "ability_type": "Weapon;;Primary Fire",
@@ -2809,7 +2496,6 @@
           },
           "Thorn Volley": {
             "ability_type": "Weapon;;Secondary Fire",
-            "key": "secondary fire",
             "damage": "6 (per thorn) / 12 (per shot)",
             "headshot": true,
             "rate_of_fire": "11 volleys/s",
@@ -2823,7 +2509,6 @@
           },
           "Petal Platform": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "12 seconds",
             "health": 300,
             "projectile_speed": "40 m/s",
@@ -2834,13 +2519,11 @@
             "cooldown": "5 seconds",
             "healing": 55,
             "ability_type": "Ability",
-            "key": "jump",
             "range": "6.15 meters (along ground) / 6.9 meters (in air)",
             "duration": "0.3 seconds"
           },
           "Life Grip": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "cooldown": "18 seconds",
             "healing": "75 (ally)",
             "range": "30 meters"
@@ -2853,28 +2536,8 @@
             "duration": "15 seconds (tree) / 6 seconds (overhealth)",
             "range": "30 meters (targeting)",
             "radius": "12 meters (healing)"
-          },
-          "Petal Protection": {
-            "ability_type": "Minor Perk",
-            "healing": "20 per second"
-          },
-          "Dashing Escape": {
-            "ability_type": "Minor Perk",
-            "range": "8 meters (along ground) / 8.97 meters (in air)"
-          },
-          "Superbloom": {
-            "ability_type": "Major Perk",
-            "damage": 40,
-            "duration": "2.5 second window"
-          },
-          "Sow the Seed": {
-            "ability_type": "Major Perk",
-            "duration": "5 seconds",
-            "cooldown": "11 seconds"
           }
-        },
-        "health": 200,
-        "shields": 50
+        }
       }
     },
     "lucio": {
@@ -2884,8 +2547,16 @@
       "sub_role": "tactician",
       "abilities": [
         {
+          "name": "Wall Ride",
+          "description": "Jump onto a wall to ride along it."
+        },
+        {
           "name": "Sonic Amplifier",
           "description": "Sonic projectile launcher."
+        },
+        {
+          "name": "Soundwave",
+          "description": "Create a short-range blast wave to knock enemies away from you."
         },
         {
           "name": "Crossfade",
@@ -2896,16 +2567,8 @@
           "description": "Increase the effectiveness of your current song."
         },
         {
-          "name": "Soundwave",
-          "description": "Create a short-range blast wave to knock enemies away from you."
-        },
-        {
           "name": "Sound Barrier",
           "description": "Create temporary extra health for nearby allies."
-        },
-        {
-          "name": "Wall Ride",
-          "description": "Jump onto a wall to ride along it."
         }
       ],
       "perks": {
@@ -2916,7 +2579,7 @@
           },
           {
             "name": "Beat Drop",
-            "description": "Amp it Up is active during Sound Barrier."
+            "description": "Amp It Up is active during Sound Barrier."
           }
         ],
         "major": [
@@ -2931,6 +2594,7 @@
         ]
       },
       "stats": {
+        "health": 225,
         "abilities": {
           "Wall Ride": {
             "cooldown": "0.5 seconds",
@@ -2951,7 +2615,6 @@
           },
           "Soundwave": {
             "ability_type": "Ability",
-            "key": "secondary fire",
             "damage": 45,
             "range": "7 meters",
             "duration": "0.56 s. recovery for primary",
@@ -2960,14 +2623,12 @@
           },
           "Crossfade": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "healing": "20 per second (allies) / 14.4 per second (self)",
             "radius": "12 meters",
             "duration": "0.4 seconds (swap delay)"
           },
           "Amp It Up": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "healing": "56 per second",
             "radius": "12 meters",
             "cooldown": "12 seconds",
@@ -2977,28 +2638,8 @@
             "ability_type": "Ultimate Ability",
             "radius": "30 meters",
             "duration": "6 seconds"
-          },
-          "Soundwave Rider": {
-            "ability_type": "Minor Perk",
-            "damage": "45 → 67.5"
-          },
-          "Beat Drop": {
-            "ability_type": "Minor Perk"
-          },
-          "Noise Violation": {
-            "ability_type": "Major Perk",
-            "range": "20 meters",
-            "duration": "3 seconds"
-          },
-          "Accelerando": {
-            "ability_type": "Major Perk",
-            "rate_of_fire": "1.23 shots/s (base) / 1.55 shots/s (Amp It Up)",
-            "reload": "0.75 seconds animation",
-            "duration": "3 seconds",
-            "dps": "while firing ( w/ reload)"
           }
-        },
-        "health": 225
+        }
       }
     },
     "mauga": {
@@ -3008,20 +2649,28 @@
       "sub_role": "bruiser",
       "abilities": [
         {
+          "name": "Berserker",
+          "description": "Gain temporary health when dealing critical damage."
+        },
+        {
+          "name": "Incendiary Chaingun",
+          "description": "Automatic weapon that ignites enemies on repeated impacts."
+        },
+        {
+          "name": "Volatile Chaingun",
+          "description": "Automatic weapon that deals critical damage to burning enemies."
+        },
+        {
           "name": "Overrun",
-          "description": "Charge forward and stomp to launch enemies. You are unstoppable while charging."
+          "description": "Charge forward to stomp and launch enemies. You are unstoppable while charging."
         },
         {
           "name": "Cardiac Overdrive",
           "description": "Gain damage reduction and nearby allies heal themselves by dealing damage."
         },
         {
-          "name": "Berserker",
-          "description": "Gain temporary health when dealing critical damage."
-        },
-        {
           "name": "Cage Fight",
-          "description": "Deploy a barrier that traps yourself and enemies."
+          "description": "Deploy a barrier that traps yourself and enemies. Automatically reloads Mauga's Chainguns at the start of the ultimate."
         }
       ],
       "perks": {
@@ -3047,49 +2696,14 @@
         ]
       },
       "stats": {
+        "health": 425,
+        "armor": 150,
         "abilities": {
           "Berserker": {
             "ability_type": "Passive Ability",
             "duration": "2 seconds"
           },
-          "Overrun": {
-            "ability_type": "Ability",
-            "key": "ability 1",
-            "cooldown": "5 seconds",
-            "damage": "30 (collision) / 75 (stomp, outer radius) / 150 (stomp, inner radius)",
-            "duration": "0.32 seconds (charge, min) / 2 seconds (charge, max) / 0.6 seconds (stomp) / 1 second (knockdown)",
-            "range": "4.4 meters (charge, min) / 28 meters (charge, max) / 6.5 meters (stomp)",
-            "radius": "7 meters (stomp, max) / 2 meters (stomp, critical)",
-            "projectile_speed": "30 m/s (shockwave)"
-          },
-          "Cardiac Overdrive": {
-            "ability_type": "Ability",
-            "key": "ability 2",
-            "cooldown": "12 seconds",
-            "healing": "100% of damage dealt (self) / 50% of damage dealt (allies)",
-            "duration": "3 seconds",
-            "radius": "10.5 meter radius"
-          },
-          "Cage Fight": {
-            "ability_type": "Ultimate Ability",
-            "health": 1200,
-            "duration": "8 seconds",
-            "radius": "7.2 meters"
-          },
-          "Kinetic Bandolier": {
-            "ability_type": "Minor Perk"
-          },
-          "Pyromaniac": {
-            "ability_type": "Minor Perk"
-          },
-          "Firewalker": {
-            "ability_type": "Major Perk"
-          },
-          "Combat Fuel": {
-            "ability_type": "Major Perk"
-          },
           "Incendiary Chaingun": {
-            "key": "primary fire",
             "ability_type": "Weapon;;Primary Fire",
             "damage": "4 - 1.2 (direct) / 15 per second (damage over time)",
             "falloff": "30 - 40 meters / 15 - 20 meters (simultaneous fire)",
@@ -3100,25 +2714,43 @@
             "spread": "1 degree (base) / 4 degrees (simultaneous fire)",
             "projectile_radius": "0.04 meters",
             "duration": "4 seconds (damage over time)",
-            "dps": "72 while firing (64.7 w/ reload) 87 w/ damage over time 288 while firing both guns simultaneously 303 w/ damage over time",
-            "modes": {
-              "Secondary Fire": {
-                "key": "secondary fire",
-                "damage": "4 - 1.2",
-                "falloff": "30 - 40 meters / 15 - 20 meters (simultaneous fire)",
-                "headshot": true,
-                "ammo": 300,
-                "rate_of_fire": "18 shots/s",
-                "reload": "2 seconds",
-                "spread": "1 degree (base) / 4 degrees (simultaneous fire)",
-                "projectile_radius": "0.04 meters",
-                "dps": "72 while firing (64.7 w/ reload) 288 while firing both guns simultaneously 303 w/ damage over time"
-              }
-            }
+            "dps": "72 while firing (64.7 w/ reload) 87 w/ damage over time 288 while firing both guns simultaneously 303 w/ damage over time"
+          },
+          "Volatile Chaingun": {
+            "ability_type": "Weapon;;Secondary Fire",
+            "damage": "4 - 1.2",
+            "falloff": "30 - 40 meters / 15 - 20 meters (simultaneous fire)",
+            "headshot": true,
+            "ammo": 300,
+            "rate_of_fire": "18 shots/s",
+            "reload": "2 seconds",
+            "spread": "1 degree (base) / 4 degrees (simultaneous fire)",
+            "projectile_radius": "0.04 meters",
+            "dps": "72 while firing (64.7 w/ reload) 288 while firing both guns simultaneously 303 w/ damage over time"
+          },
+          "Overrun": {
+            "ability_type": "Ability",
+            "cooldown": "5 seconds",
+            "damage": "30 (collision) / 75 (stomp, outer radius) / 150 (stomp, inner radius)",
+            "duration": "0.32 seconds (charge, min) / 2 seconds (charge, max) / 0.6 seconds (stomp) / 1 second (knockdown)",
+            "range": "4.4 meters (charge, min) / 28 meters (charge, max) / 6.5 meters (stomp)",
+            "radius": "7 meters (stomp, max) / 2 meters (stomp, critical)",
+            "projectile_speed": "30 m/s (shockwave)"
+          },
+          "Cardiac Overdrive": {
+            "ability_type": "Ability",
+            "cooldown": "12 seconds",
+            "healing": "100% of damage dealt (self) / 50% of damage dealt (allies)",
+            "duration": "3 seconds",
+            "radius": "10.5 meter radius"
+          },
+          "Cage Fight": {
+            "ability_type": "Ultimate Ability",
+            "health": 1200,
+            "duration": "8 seconds",
+            "radius": "7.2 meters"
           }
-        },
-        "health": 425,
-        "armor": 150
+        }
       }
     },
     "mei": {
@@ -3129,7 +2761,11 @@
       "abilities": [
         {
           "name": "Endothermic Blaster",
-          "description": "Short-range spray weapon that slows enemies. Long-range icicle launcher."
+          "description": "Short-range spray weapon that slows enemies."
+        },
+        {
+          "name": "Icicle",
+          "description": "Long-range icicle launcher."
         },
         {
           "name": "Cryo-Freeze",
@@ -3167,6 +2803,7 @@
         ]
       },
       "stats": {
+        "health": 300,
         "abilities": {
           "Endothermic Blaster": {
             "ability_type": "Weapon;;Primary Fire",
@@ -3180,32 +2817,28 @@
             "projectile_speed": "40 m/s",
             "projectile_radius": "0.55 meters",
             "spread": "None",
-            "dps": "110 while firing (90.58 overall w/reload)",
-            "modes": {
-              "Secondary Fire": {
-                "key": "secondary fire",
-                "damage": 85,
-                "headshot": true,
-                "rate_of_fire": "1 shot per 0.8 seconds",
-                "ammo": 140,
-                "reload": "1.5 seconds animation",
-                "spread": "None",
-                "projectile_radius": "0.2 meters",
-                "projectile_speed": "115 m/s",
-                "dps": "106.25 while firing (94.44 overall w/reload)"
-              }
-            }
+            "dps": "110 while firing (90.58 overall w/reload)"
+          },
+          "Icicle": {
+            "ability_type": "Weapon;;Secondary Fire",
+            "damage": 85,
+            "headshot": true,
+            "rate_of_fire": "1 shot per 0.8 seconds",
+            "ammo": 140,
+            "reload": "1.5 seconds animation",
+            "spread": "None",
+            "projectile_radius": "0.2 meters",
+            "projectile_speed": "115 m/s",
+            "dps": "106.25 while firing (94.44 overall w/reload)"
           },
           "Cryo-Freeze": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "12 seconds",
             "healing": "62.5 per second",
             "duration": "0.44 seconds min. duration / 4 seconds max. duration / 0.24 seconds recovery"
           },
           "Ice Wall": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "cooldown": "12 seconds",
             "health": "250 per pillar / 5 pillars",
             "range": "25 meters",
@@ -3219,27 +2852,8 @@
             "projectile_radius": "None",
             "radius": "10 meters",
             "duration": "4.25 seconds"
-          },
-          "Skating Rink": {
-            "ability_type": "Minor Perk",
-            "healing": "50 per second"
-          },
-          "Glacial Propulsion": {
-            "ability_type": "Minor Perk",
-            "key": "jump",
-            "cooldown": "10 seconds"
-          },
-          "Deep Freeze": {
-            "ability_type": "Major Perk",
-            "duration": "1 second"
-          },
-          "Cryo-Storm": {
-            "ability_type": "Major Perk",
-            "damage": "70 per second",
-            "radius": "4.5 meters"
           }
-        },
-        "health": 300
+        }
       }
     },
     "mercy": {
@@ -3248,6 +2862,14 @@
       "role": "support",
       "sub_role": "medic",
       "abilities": [
+        {
+          "name": "Swift Recovery",
+          "description": "Begin regenerating health more quickly."
+        },
+        {
+          "name": "Angelic Descent",
+          "description": "Fall very slowly."
+        },
         {
           "name": "Caduceus Staff",
           "description": "Hold to heal an ally. Hold to increase an ally's damage inflicted."
@@ -3258,15 +2880,15 @@
         },
         {
           "name": "Guardian Angel",
-          "description": "Fly towards an ally. While in flight, Jump launches you forward, and Crouch launches you upward."
+          "description": "Fly towards an ally. While in flight, Jump launches you forward, and and Crouch launches you upward."
         },
         {
           "name": "Resurrect",
           "description": "Revive a dead teammate."
         },
         {
-          "name": "Angelic Descent",
-          "description": "Fall very slowly."
+          "name": "Flash Heal",
+          "description": "Heal Caduceus Staff's active target, healing is doubled on allies below half health."
         },
         {
           "name": "Valkyrie",
@@ -3281,13 +2903,13 @@
           },
           {
             "name": "Divine Momentum",
-            "description": "Increases Mercy’s travel speed by 15% after cancelling Guardian Angel."
+            "description": "Increases Mercy's travel speed by 15% after cancelling Guardian Angel."
           }
         ],
         "major": [
           {
             "name": "Chain Boost",
-            "description": "Caduceus Staff's secondary fire links to a second nearby ally."
+            "description": "Secondary fire links to a second nearby ally."
           },
           {
             "name": "Double Dose",
@@ -3296,11 +2918,14 @@
         ]
       },
       "stats": {
+        "health": 225,
         "abilities": {
+          "Swift Recovery": {
+            "ability_type": "Passive Ability"
+          },
           "Angelic Descent": {
             "duration": "Until cancelled",
-            "ability_type": "Passive Ability",
-            "key": "jump"
+            "ability_type": "Passive Ability"
           },
           "Caduceus Staff": {
             "ability_type": "Weapon",
@@ -3321,16 +2946,19 @@
           },
           "Guardian Angel": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "range": "30 meters",
             "cooldown": "1.5 seconds"
           },
           "Resurrect": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "healing": "Revives ally at full health",
             "range": "5.50 meters",
             "cooldown": "30 seconds"
+          },
+          "Flash Heal": {
+            "ability_type": "Ability",
+            "cooldown": "12 seconds",
+            "healing": "60 (default) / 120 (low health)"
           },
           "Valkyrie": {
             "ability_type": "Ultimate Ability",
@@ -3340,23 +2968,8 @@
             "ammo": "∞ (Blaster)",
             "duration": "15 seconds",
             "range": "10 meters (chain healing) / +100% range (Guardian Angel, Caduceus Staff)"
-          },
-          "Angelic Resurrection": {
-            "ability_type": "Minor Perk",
-            "duration": "2 seconds"
-          },
-          "Divine Momentum": {
-            "ability_type": "Minor Perk"
-          },
-          "Chain Boost": {
-            "ability_type": "Major Perk"
-          },
-          "Double Dose": {
-            "ability_type": "Major Perk",
-            "healing": "60 → 50 (default) / 120 → 100 (low health)"
           }
-        },
-        "health": 225
+        }
       }
     },
     "mizuki": {
@@ -3366,35 +2979,35 @@
       "sub_role": "survivor",
       "abilities": [
         {
+          "name": "Remedy Aura",
+          "description": "Heal nearby allies. Healing scales with resource generated by dealing damage and healing."
+        },
+        {
           "name": "Spirit Glaive",
-          "description": "Bouncing projectile that damages enemies."
+          "description": "Throw a spinning blade that impacts enemies and rapidly dealing damage."
         },
         {
           "name": "Healing Kasa",
-          "description": "Throw your hat to bounce it between allies, healing them."
-        },
-        {
-          "name": "Binding Chain",
-          "description": "Launch your chain at an enemy, hindering their movement."
+          "description": "Throw your hat to heal an ally, bouncing to nearby allies and healing you when it returns."
         },
         {
           "name": "Katashiro Return",
-          "description": "Leap forward, gaining increased movement speed. Reactivate to teleport back."
+          "description": "Leap forward, leaving behind a paper doll. Reactivate to return and gain increased movement speed while active."
+        },
+        {
+          "name": "Binding Chain",
+          "description": "Launch a tethering chain that hinders the first enemy hit."
         },
         {
           "name": "Kekkai Sanctuary",
           "description": "Create a sanctuary that heals allies and absorbs enemy projectiles from outside the area."
-        },
-        {
-          "name": "Remedy Aura",
-          "description": "Heal nearby allies. Grows stronger when damaging and healing others."
         }
       ],
       "perks": {
         "minor": [
           {
             "name": "Wellspring",
-            "description": "Remedy Aura generation is increased by 25%."
+            "description": "Remedy Aura resource generation increased by 25%."
           },
           {
             "name": "Exposed Soul",
@@ -3413,6 +3026,7 @@
         ]
       },
       "stats": {
+        "health": 250,
         "abilities": {
           "Remedy Aura": {
             "ability_type": "Passive Ability",
@@ -3422,7 +3036,6 @@
           },
           "Spirit Glaive": {
             "ability_type": "Weapon",
-            "key": "primary fire",
             "damage": "30 (base) / 30 (total damage over time)",
             "headshot": true,
             "rate_of_fire": "1.43 shots/s",
@@ -3435,7 +3048,6 @@
           },
           "Healing Kasa": {
             "ability_type": "Ability",
-            "key": "secondary fire",
             "cooldown": "6 seconds",
             "healing": "90 (1st bounce) / 70 (2nd bounce) / 50 (3rd bounce) / 30 (self)",
             "duration": "0.25 seconds (heal over time duration)",
@@ -3444,13 +3056,11 @@
           },
           "Katashiro Return": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "12 seconds",
             "duration": "4.5 seconds (paper doll) / 0.25 seconds (invulnerability) / 0.17 seconds (leap)"
           },
           "Binding Chain": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "cooldown": "12 seconds",
             "damage": 50,
             "duration": "1.6 seconds (hinder, non-tanks) / 1.2 seconds (hinder, tanks)",
@@ -3462,21 +3072,8 @@
             "ability_type": "Ultimate Ability",
             "healing": "100 (instant) / 50 per second",
             "duration": "7 seconds / 0.3 seconds (linger)"
-          },
-          "Wellspring": {
-            "ability_type": "Minor Perk"
-          },
-          "Exposed Soul": {
-            "ability_type": "Minor Perk"
-          },
-          "Resonant Return": {
-            "ability_type": "Major Perk"
-          },
-          "Quickstep": {
-            "ability_type": "Major Perk"
           }
-        },
-        "health": 250
+        }
       }
     },
     "moira": {
@@ -3487,15 +3084,19 @@
       "abilities": [
         {
           "name": "Biotic Grasp",
-          "description": "Hold to heal all allies in front of you. Consumes biotic energy. Long range beam weapon. Damage dealt heals you and replenishes your biotic energy."
+          "description": "Hold to heal all allies in front of you. Consumes biotic energy."
         },
         {
-          "name": "Biotic Orb",
-          "description": "Launch a bouncing sphere that either heals nearby allies or damages nearby enemies."
+          "name": "Biotic Grasp Alt Fire",
+          "description": "Long range beam weapon. Damage dealt heals you and replenishes your biotic energy."
         },
         {
           "name": "Fade",
           "description": "Disappear, move faster, and become invulnerable, but you cannot shoot."
+        },
+        {
+          "name": "Biotic Orb",
+          "description": "Launch a bouncing sphere that either heals nearby allies or damages nearby enemies."
         },
         {
           "name": "Coalescence",
@@ -3510,7 +3111,7 @@
           },
           {
             "name": "Ethical Nourishment",
-            "description": "Biotic Orb's first 30 healing is instant on each ally it encounters."
+            "description": "Biotic Orb’s first 30 healing is instant on each ally it encounters."
           }
         ],
         "major": [
@@ -3525,6 +3126,7 @@
         ]
       },
       "stats": {
+        "health": 225,
         "abilities": {
           "Biotic Grasp": {
             "ability_type": "Weapon;;Primary Fire",
@@ -3532,29 +3134,25 @@
             "duration": "3 seconds (HoT) / 0.45 seconds (energy regen delay)",
             "range": "15 meters",
             "projectile_radius": "None",
-            "projectile_speed": "40 m/s",
-            "modes": {
-              "Secondary Fire": {
-                "key": "secondary fire",
-                "damage": "65 per second",
-                "headshot": false,
-                "healing": "30 per second (self)",
-                "ammo": "∞",
-                "range": "20 meters",
-                "dps": "65 while firing"
-              }
-            }
+            "projectile_speed": "40 m/s"
+          },
+          "Biotic Grasp Alt Fire": {
+            "ability_type": "Weapon;;Secondary Fire",
+            "damage": "65 per second",
+            "headshot": false,
+            "healing": "30 per second (self)",
+            "ammo": "∞",
+            "range": "20 meters",
+            "dps": "65 while firing"
           },
           "Fade": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "6 seconds",
             "duration": "0.752 seconds + 0.048 s. recovery",
             "range": "15 meters (max)"
           },
           "Biotic Orb": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "damage": "50 per second, up to 200",
             "headshot": false,
             "healing": "65 per second, up to 300",
@@ -3571,24 +3169,8 @@
             "duration": "8 seconds",
             "projectile_radius": "1.375 meters",
             "range": "30 meters"
-          },
-          "Destruction's Divide": {
-            "ability_type": "Minor Perk",
-            "damage": "85 → 110.5 per second",
-            "healing": "140 → 182 per second (allies) / 55 → 71.5 per second (self)"
-          },
-          "Ethical Nourishment": {
-            "ability_type": "Minor Perk"
-          },
-          "Reversal": {
-            "ability_type": "Major Perk"
-          },
-          "Phantom Step": {
-            "ability_type": "Major Perk",
-            "duration": "0.75 → 1.25 seconds"
           }
-        },
-        "health": 225
+        }
       }
     },
     "orisa": {
@@ -3599,7 +3181,7 @@
       "abilities": [
         {
           "name": "Augmented Fusion Driver",
-          "description": "Automatic heat based weapon."
+          "description": "Automatic heat-based weapon."
         },
         {
           "name": "Energy Javelin",
@@ -3615,7 +3197,7 @@
         },
         {
           "name": "Terra Surge",
-          "description": "Sweep in enemies and anchor down, gaining the effects of Fortify and charging up a surge of damage. Use Q to unleash the surge early."
+          "description": "Sweep in enemies and anchor down, gaining the effects of Fortify and charging up a surge of damage. Use Primary Fire to unleash the surge early."
         }
       ],
       "perks": {
@@ -3632,15 +3214,17 @@
         "major": [
           {
             "name": "Charged Javelin",
-            "description": "Hold to charge Energy Javelin, increasing its knockback up to 25% and its projectile speed up to 100%. Pierces enemies at full power."
+            "description": "Energy Javelin can be charged to increase projectile speed and knockback. Pierces enemies at full power."
           },
           {
             "name": "Protective Barrier",
-            "description": "Convert Javelin Spin to instead launch a barrier."
+            "description": "Javelin Spin is replaced with a barrier."
           }
         ]
       },
       "stats": {
+        "health": 150,
+        "armor": 300,
         "abilities": {
           "Augmented Fusion Driver": {
             "ability_type": "Weapon",
@@ -3652,20 +3236,10 @@
             "ammo": "∞",
             "headshot": true,
             "spread": "0.75 degrees (max)",
-            "dps": "140 while firing (99.42 overall w/ recharge, 86.84 w/ overheat)",
-            "modes": {
-              "Secondary Fire": {
-                "key": "secondary fire",
-                "projectile_speed": "25 meters per second",
-                "radius": "5 meter radius",
-                "cooldown": "6 seconds",
-                "duration": "0.65 seconds (snare)"
-              }
-            }
+            "dps": "140 while firing (99.42 overall w/ recharge, 86.84 w/ overheat)"
           },
           "Energy Javelin": {
             "ability_type": "Ability",
-            "key": "secondary fire",
             "cooldown": "7 seconds",
             "damage": "70 (direct impact), 40 (wall collision)",
             "headshot": false,
@@ -3675,13 +3249,11 @@
           },
           "Fortify": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "15.5 seconds",
             "duration": "4 seconds"
           },
           "Javelin Spin": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "cooldown": "8 seconds",
             "damage": "20 (first hit) / 5.3 (subsequent hits)",
             "duration": "0.5 seconds (min) / 1.75 seconds (max) / 2 seconds (movement speed)",
@@ -3692,29 +3264,8 @@
             "damage": "18.8/s (periodic damage) / 72 - 500 (release)",
             "duration": "0.75 - 4 seconds (charge time)",
             "radius": "10.5 meters (initial pull) / 8.5 meter (damage and slow)"
-          },
-          "Defense Protocol": {
-            "ability_type": "Minor Perk",
-            "healing": "100 per second"
-          },
-          "Mobile Fortification": {
-            "ability_type": "Minor Perk"
-          },
-          "Charged Javelin": {
-            "ability_type": "Major Perk",
-            "projectile_speed": "72 m/s (min charge) / 140 m/s (max charge)"
-          },
-          "Protective Barrier": {
-            "key": "Ability 2",
-            "ability_type": "Major Perk",
-            "cooldown": "8 seconds",
-            "health": 600,
-            "duration": "6 seconds",
-            "radius": "7.4 meter width / 3.8 meter height / 2.9 meter depth"
           }
-        },
-        "health": 150,
-        "armor": 300
+        }
       }
     },
     "pharah": {
@@ -3723,6 +3274,10 @@
       "role": "damage",
       "sub_role": "recon",
       "abilities": [
+        {
+          "name": "Hover Jets",
+          "description": "Hold to hover."
+        },
         {
           "name": "Rocket Launcher",
           "description": "Long-range explosive projectile weapon."
@@ -3742,10 +3297,6 @@
         {
           "name": "Barrage",
           "description": "Hover in place and launch a continuous volley of mini-rockets."
-        },
-        {
-          "name": "Hover Jets",
-          "description": "Hold to hover. Slows falling when fuel is empty. Fuel only regenerates while on the ground."
         }
       ],
       "perks": {
@@ -3766,15 +3317,15 @@
           },
           {
             "name": "Rocket Salvo",
-            "description": "After using a movement ability, your next primary fire also shoots two spiraling mini-rockets, each exploding for 40 damage."
+            "description": "After using a movement ability, the next primary fire shoots two spiraling mini-rockets, each dealing 40 damage."
           }
         ]
       },
       "stats": {
+        "health": 225,
         "abilities": {
           "Hover Jets": {
             "ability_type": "Passive Ability",
-            "key": "jump",
             "duration": "Up to 2 seconds (continuous flight) / 0.3 seconds (energy regen delay)"
           },
           "Rocket Launcher": {
@@ -3792,20 +3343,17 @@
           },
           "Jet Dash": {
             "ability_type": "Ability",
-            "key": "Secondary Fire",
             "cooldown": "9 seconds",
             "duration": "0.85 seconds"
           },
           "Jump Jet": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "14 seconds",
             "duration": "0.85 seconds (launch) / 6 seconds (overfill)",
             "range": "8.4 meters (vertical)"
           },
           "Concussive Blast": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "cooldown": "7 seconds",
             "damage": "30 (direct hit only)",
             "headshot": false,
@@ -3823,22 +3371,8 @@
             "projectile_speed": "45 m/s",
             "projectile_radius": "0.075 meters",
             "spread": "8 degrees"
-          },
-          "Concussive Force": {
-            "ability_type": "Minor Perk"
-          },
-          "Helix Shields": {
-            "ability_type": "Minor Perk"
-          },
-          "Fuel Stores": {
-            "ability_type": "Major Perk"
-          },
-          "Rocket Salvo": {
-            "ability_type": "Major Perk",
-            "damage": "40 (per rocket) / 200 (direct hit if all rockets land)"
           }
-        },
-        "health": 225
+        }
       }
     },
     "ramattra": {
@@ -3848,20 +3382,28 @@
       "sub_role": "stalwart",
       "abilities": [
         {
-          "name": "Void Accelerator (Omnic Form)",
+          "name": "Void Accelerator",
           "description": "Fire a stream of projectiles."
         },
         {
-          "name": "Void Barrier (Omnic Form)",
+          "name": "Void Barrier",
           "description": "Create a barrier at the targeted location."
         },
         {
-          "name": "Pummel (Nemesis Form)",
+          "name": "Ravenous Vortex",
+          "description": "Fire a sphere of energy that creates a slowing vortex on the ground, slowing and pulling down enemies. Re-activate to detonate early."
+        },
+        {
+          "name": "Nemesis Form",
+          "description": "Transform into Nemesis Form, changing your attacks and gaining bonus armor."
+        },
+        {
+          "name": "Pummel",
           "description": "Punch, creating a wave of piercing energy with every swing."
         },
         {
-          "name": "Ravenous Vortex",
-          "description": "Fire a sphere of energy that detonates on the ground, slowing and pulling down enemies. Re-activate to detonate early."
+          "name": "Block",
+          "description": "Significantly reduces damage taken from the front and reduces movement speed."
         },
         {
           "name": "Annihilation",
@@ -3881,20 +3423,21 @@
         ],
         "major": [
           {
-            "name": "Void Surge",
-            "description": "Void Accelerator periodically releases a burst of 6 additional projectiles during continuous fire."
-          },
-          {
             "name": "Nanite Repair",
             "description": "Ramattra is healed for 75 health per second while within Ravenous Vortex."
+          },
+          {
+            "name": "Void Surge",
+            "description": "Void Accelerator periodically releases a burst of 6 additional projectiles during continuous fire."
           }
         ]
       },
       "stats": {
+        "health": 275,
+        "armor": 100,
         "abilities": {
-          "Void Accelerator (Omnic Form)": {
+          "Void Accelerator": {
             "ability_type": "Weapon;;Omnic Form",
-            "key": "primary fire",
             "damage": 5,
             "rate_of_fire": "25 shots/s",
             "ammo": 100,
@@ -3905,9 +3448,8 @@
             "spread": "None",
             "dps": "125 (100 overall w/ reload)"
           },
-          "Void Barrier (Omnic Form)": {
+          "Void Barrier": {
             "ability_type": "Ability;;Omnic Form",
-            "key": "secondary fire",
             "cooldown": "12 seconds",
             "health": 1000,
             "range": "35 meters",
@@ -3916,7 +3458,6 @@
           "Ravenous Vortex": {
             "ability_type": "Ability;;both forms",
             "cooldown": "11 seconds",
-            "key": "ability 2",
             "damage": "15 (explosion damage) / 23.3 per second / 70 total",
             "headshot": false,
             "duration": "3 seconds",
@@ -3924,9 +3465,13 @@
             "projectile_radius": "None",
             "radius": "4 meters"
           },
-          "Pummel (Nemesis Form)": {
+          "Nemesis Form": {
+            "ability_type": "Ability",
+            "cooldown": "8 seconds",
+            "duration": "8 seconds"
+          },
+          "Pummel": {
             "ability_type": "Weapon;;Nemesis Form",
-            "key": "primary fire",
             "damage": 65,
             "headshot": false,
             "rate_of_fire": "1.67 shots/s",
@@ -3935,44 +3480,21 @@
             "projectile_radius": "0.575 meters",
             "range": "10 meters",
             "spread": "None",
-            "dps": "108.33 while firing",
-            "modes": {
-              "Secondary Fire": {
-                "key": "secondary fire",
-                "cooldown": "1 second",
-                "duration": "0.2 seconds (min)"
-              }
-            }
+            "dps": "108.33 while firing"
+          },
+          "Block": {
+            "ability_type": "Ability;;Nemesis Form",
+            "cooldown": "1 second",
+            "duration": "0.2 seconds (min)"
           },
           "Annihilation": {
             "ability_type": "Ultimate Ability",
-            "key": "ability 3",
             "damage": "35 per second",
             "headshot": false,
             "radius": "13 meters",
             "duration": "3 - 20 seconds"
-          },
-          "Relentless Form": {
-            "ability_type": "Minor Perk"
-          },
-          "Prolonged Barrier": {
-            "ability_type": "Minor Perk",
-            "duration": "5 seconds"
-          },
-          "Nanite Repair": {
-            "ability_type": "Major Perk",
-            "healing": "75 per second"
-          },
-          "Void Surge": {
-            "ability_type": "Major Perk",
-            "damage": "5 (per pellet) / 30 (per burst)",
-            "pellets": 6,
-            "spread": "2.2 degrees",
-            "dps": "162.5 while firing"
           }
-        },
-        "health": 275,
-        "armor": 100
+        }
       }
     },
     "reaper": {
@@ -3982,35 +3504,39 @@
       "sub_role": "flanker",
       "abilities": [
         {
+          "name": "The Reaping",
+          "description": "Dealing damage heals you."
+        },
+        {
           "name": "Hellfire Shotguns",
           "description": "Short-range spread weapons."
         },
         {
-          "name": "Shadow Step",
-          "description": "Teleport to a targeted location."
+          "name": "Dire Triggers",
+          "description": "Use (RMB) to fire a volley with long range accuracy from both Hellfire shotguns."
         },
         {
           "name": "Wraith Form",
           "description": "Move faster and become invulnerable, but you cannot shoot."
         },
         {
-          "name": "Death Blossom",
-          "description": "Damage all nearby enemies."
+          "name": "Shadow Step",
+          "description": "Teleport to a targeted location."
         },
         {
-          "name": "The Reaping",
-          "description": "Dealing damage heals you."
+          "name": "Death Blossom",
+          "description": "Damage all nearby enemies."
         }
       ],
       "perks": {
         "minor": [
           {
-            "name": "Soul Reaving",
-            "description": "Collect Soul Globes from dead enemies to restore 50 health."
-          },
-          {
             "name": "Lingering Wraith",
             "description": "Leaving Wraith Form grants 40% movement speed for 2 seconds."
+          },
+          {
+            "name": "Soul Reaving",
+            "description": "Collect Soul Globes from dead enemies to restore 50 health."
           }
         ],
         "major": [
@@ -4025,6 +3551,7 @@
         ]
       },
       "stats": {
+        "health": 300,
         "abilities": {
           "The Reaping": {
             "ability_type": "Passive Ability",
@@ -4041,29 +3568,25 @@
             "reload": "1.5 seconds animation",
             "spread": "6 degrees",
             "projectile_radius": "0.04 meters",
-            "dps": "230 while firing (153.33 overall with reload)",
-            "modes": {
-              "Secondary Fire": {
-                "key": "secondary fire",
-                "cooldown": "6 seconds",
-                "damage": "3.45 - 1.035 (per pellet) / 69 - 20.7 (per blast) / 138 - 41.4 (both blasts)",
-                "headshot": true,
-                "falloff": "25 - 35 meters",
-                "pellets": "20 per blast / 2 blasts per shot",
-                "spread": "3 degrees"
-              }
-            }
+            "dps": "230 while firing (153.33 overall with reload)"
+          },
+          "Dire Triggers": {
+            "ability_type": "Ability",
+            "cooldown": "6 seconds",
+            "damage": "3.45 - 1.035 (per pellet) / 69 - 20.7 (per blast) / 138 - 41.4 (both blasts)",
+            "headshot": true,
+            "falloff": "25 - 35 meters",
+            "pellets": "20 per blast / 2 blasts per shot",
+            "spread": "3 degrees"
           },
           "Wraith Form": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "8 seconds",
             "duration": "0.4 seconds (min) / 3 seconds (max)",
             "range": "23.1 meters"
           },
           "Shadow Step": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "range": "35 meters",
             "cooldown": "10 seconds",
             "duration": "0.53 seconds (teleport) / 0.98 seconds (invulnerability)"
@@ -4074,26 +3597,8 @@
             "headshot": false,
             "radius": "8 meters",
             "duration": "3 seconds"
-          },
-          "Lingering Wraith": {
-            "ability_type": "Minor Perk"
-          },
-          "Soul Reaving": {
-            "ability_type": "Minor Perk",
-            "healing": 50,
-            "duration": "8 seconds"
-          },
-          "Shadow Blink": {
-            "ability_type": "Major Perk",
-            "cooldown": "10 → 7.5 seconds",
-            "range": "35 → 23.2 meters",
-            "duration": "0.5 → 0.8 seconds (teleportation) / 0.98 → 1.2 seconds (invulnerability)"
-          },
-          "Trigger Finger": {
-            "ability_type": "Major Perk"
           }
-        },
-        "health": 300
+        }
       }
     },
     "reinhardt": {
@@ -4107,16 +3612,16 @@
           "description": "Devastating melee weapon."
         },
         {
+          "name": "Barrier Field",
+          "description": "Hold to deploy a frontal energy barrier."
+        },
+        {
           "name": "Charge",
           "description": "Charge forward and smash an enemy against a wall."
         },
         {
           "name": "Fire Strike",
           "description": "Launch a fiery projectile."
-        },
-        {
-          "name": "Barrier Field",
-          "description": "Hold to deploy a frontal energy barrier."
         },
         {
           "name": "Earthshatter",
@@ -4127,7 +3632,7 @@
         "minor": [
           {
             "name": "Crusader's Fire",
-            "description": "Refund a charge of Fire Strike when you stun an enemy, overfilling up to 3."
+            "description": "Refund a charge of Fire Strike When you stun an enemy, overfilling up to 3."
           },
           {
             "name": "Crusader's Resolve",
@@ -4137,7 +3642,7 @@
         "major": [
           {
             "name": "Shield Slam",
-            "description": "While Barrier Field is active, use to damage and knockback enemies."
+            "description": "While Barrier Field is active, use Primary Fire to damage and knockback enemies."
           },
           {
             "name": "Ignited Fury",
@@ -4146,6 +3651,8 @@
         ]
       },
       "stats": {
+        "health": 250,
+        "armor": 300,
         "abilities": {
           "Rocket Hammer": {
             "ability_type": "Weapon",
@@ -4158,13 +3665,11 @@
           },
           "Barrier Field": {
             "ability_type": "Ability",
-            "key": "secondary fire",
             "health": 1500,
             "cooldown": "5 seconds (destroyed)"
           },
           "Charge": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "7 seconds",
             "damage": "300 (pinned to wall) / 50 (collision w/out pin)",
             "range": "50.2 meters",
@@ -4172,7 +3677,6 @@
           },
           "Fire Strike": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "cooldown": "6 seconds",
             "damage": 120,
             "headshot": false,
@@ -4185,26 +3689,8 @@
             "duration": "3 seconds (knockdown)",
             "radius": "1.5 meters (critical) / 25 meters (max)",
             "projectile_speed": "40 m/s"
-          },
-          "Crusader's Fire": {
-            "ability_type": "Minor Perk"
-          },
-          "Crusader's Resolve": {
-            "ability_type": "Minor Perk"
-          },
-          "Shield Slam": {
-            "ability_type": "Major Perk",
-            "key": "primary fire",
-            "cooldown": "6 seconds",
-            "damage": 50,
-            "range": "5.52 meters (dash) / 3.6 meters (hitbox)"
-          },
-          "Ignited Fury": {
-            "ability_type": "Major Perk"
           }
-        },
-        "health": 250,
-        "armor": 300
+        }
       }
     },
     "roadhog": {
@@ -4215,7 +3701,11 @@
       "abilities": [
         {
           "name": "Scrap Gun",
-          "description": "Short-range spread weapon. Medium-range projectile that explodes into the weapon's short-range primary fire."
+          "description": "Short-range spread weapon."
+        },
+        {
+          "name": "Scrap Gun Alt Fire",
+          "description": "Medium-range projectile that explodes into the weapon's short-range primary fire."
         },
         {
           "name": "Chain Hook",
@@ -4253,6 +3743,7 @@
         ]
       },
       "stats": {
+        "health": 600,
         "abilities": {
           "Scrap Gun": {
             "ability_type": "Weapon;;Primary Fire",
@@ -4266,29 +3757,26 @@
             "spread": "8 degrees",
             "projectile_speed": "80 m/s",
             "projectile_radius": "0.05 meters",
-            "dps": "203.13 while firing (154.76 overall w/ reload)",
-            "modes": {
-              "Secondary Fire": {
-                "key": "secondary fire",
-                "damage": "50 (pre-detonation) / 7 – 2.1 (post-detonation, per pellet) / 175 – 52.5 (post-detonation, per shot)",
-                "falloff": "None (pre-detonation) / 24 - 39 meters (post-detonation)",
-                "projectile_speed": "60 m/s (pre-detonation) / 80 m/s (post-detonation)",
-                "projectile_radius": "0.05 meters (pre-detonation) / 0.075 meters (post-detonation)",
-                "range": "9 meters (pre-detonation)",
-                "pellets": "1 (pre-detonation) / 25 (post-detonation)",
-                "rate_of_fire": "1.25 shots/s",
-                "ammo": 6,
-                "reload": "1.75 seconds animation",
-                "headshot": true,
-                "spread": "8 degrees",
-                "dps": "203.13 while firing (154.76 overall w/ reload)"
-              }
-            }
+            "dps": "203.13 while firing (154.76 overall w/ reload)"
+          },
+          "Scrap Gun Alt Fire": {
+            "ability_type": "Weapon;;Secondary Fire",
+            "damage": "50 (pre-detonation) / 7 – 2.1 (post-detonation, per pellet) / 175 – 52.5 (post-detonation, per shot)",
+            "falloff": "None (pre-detonation) / 24 - 39 meters (post-detonation)",
+            "projectile_speed": "60 m/s (pre-detonation) / 80 m/s (post-detonation)",
+            "projectile_radius": "0.05 meters (pre-detonation) / 0.075 meters (post-detonation)",
+            "range": "9 meters (pre-detonation)",
+            "pellets": "1 (pre-detonation) / 25 (post-detonation)",
+            "rate_of_fire": "1.25 shots/s",
+            "ammo": 6,
+            "reload": "1.75 seconds animation",
+            "headshot": true,
+            "spread": "8 degrees",
+            "dps": "203.13 while firing (154.76 overall w/ reload)"
           },
           "Chain Hook": {
             "ability_type": "Ability",
-            "key": "ability 1",
-            "cooldown": "8 seconds",
+            "cooldown": "7 seconds",
             "damage": 25,
             "headshot": false,
             "range": "20 meters",
@@ -4298,7 +3786,6 @@
           },
           "Take a Breather": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "cooldown": "1.25 seconds",
             "healing": "150 per second",
             "duration": "0.4 seconds (min) / 3 seconds (max) / 1.3 seconds (energy regen delay)"
@@ -4315,25 +3802,8 @@
             "duration": "7.5 seconds",
             "projectile_radius": "0.04 meters",
             "dps": "768 while firing"
-          },
-          "Scrap Hook": {
-            "ability_type": "Minor Perk"
-          },
-          "Shrapnel Launcher": {
-            "ability_type": "Minor Perk",
-            "spread": "8 → 6 degrees"
-          },
-          "Hogdrogen Exposure": {
-            "ability_type": "Major Perk",
-            "healing": "75/s",
-            "radius": "10 meters"
-          },
-          "Pulled Pork": {
-            "ability_type": "Major Perk",
-            "duration": "2 seconds"
           }
-        },
-        "health": 600
+        }
       }
     },
     "sierra": {
@@ -4351,12 +3821,12 @@
           "description": "Marks an enemy. Helix Rifle shots automatically track marked enemies."
         },
         {
-          "name": "Tremor Charge",
-          "description": "Throw a charge that creates a shockwave on impact."
+          "name": "Anchor Drone",
+          "description": "Launch an Anchor Drone. Reactivate to launch towards it."
         },
         {
-          "name": "Anchor Drone",
-          "description": "Launch an Anchor Drone. Reactivate to grapple to it."
+          "name": "Tremor Charge",
+          "description": "Throw a charge that creates a shockwave on impact."
         },
         {
           "name": "Trailblazer",
@@ -4377,7 +3847,7 @@
         "major": [
           {
             "name": "Medi-Drone",
-            "description": "Anchor Drones hold a medkit that can heal Sierra."
+            "description": "Anchor Drones hold a small medkit that can heal Sierra."
           },
           {
             "name": "Locked In",
@@ -4386,10 +3856,10 @@
         ]
       },
       "stats": {
+        "health": 250,
         "abilities": {
           "Helix Rifle": {
             "ability_type": "Weapon (Hip Fire)",
-            "key": "primary fire",
             "damage": "9 (per pellet) / 18 (per volley)",
             "headshot": true,
             "rate_of_fire": "10.45 shots/s",
@@ -4402,7 +3872,6 @@
           },
           "Tracking Shot": {
             "ability_type": "Ability",
-            "key": "secondary fire",
             "cooldown": "10 seconds",
             "damage": 35,
             "headshot": true,
@@ -4412,7 +3881,6 @@
           },
           "Anchor Drone": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "12 seconds",
             "health": 80,
             "duration": "10 seconds",
@@ -4420,7 +3888,6 @@
           },
           "Tremor Charge": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "cooldown": "8.5 seconds",
             "damage": "100 (inner shockwave) / 60 (outer shockwave)",
             "range": "12 meters",
@@ -4433,23 +3900,8 @@
             "ammo": "23 (total bombs)",
             "duration": "1 second (explosion delay)",
             "radius": "1 - 3 meters (per bomb)"
-          },
-          "Full Flight": {
-            "ability_type": "Minor Perk"
-          },
-          "Tight Grip": {
-            "ability_type": "Minor Perk"
-          },
-          "Medi-Drone": {
-            "ability_type": "Major Perk",
-            "healing": 100
-          },
-          "Locked In": {
-            "ability_type": "Major Perk",
-            "duration": "2 seconds"
           }
-        },
-        "health": 250
+        }
       }
     },
     "sigma": {
@@ -4463,16 +3915,16 @@
           "description": "Launch two charges which implode after a short duration, dealing damage in an area."
         },
         {
+          "name": "Experimental Barrier",
+          "description": "Hold to propel a floating barrier; release to stop. Press again to recall the barrier to you."
+        },
+        {
           "name": "Kinetic Grasp",
           "description": "Absorb projectiles in front of you and convert them into extra health."
         },
         {
           "name": "Accretion",
           "description": "Gather a mass of debris and throw it at an enemy to knock them down."
-        },
-        {
-          "name": "Experimental Barrier",
-          "description": "Hold to propel a floating barrier; release to stop. Press again to recall the barrier to you."
         },
         {
           "name": "Gravitic Flux",
@@ -4487,7 +3939,7 @@
           },
           {
             "name": "Hyper Regeneration",
-            "description": "40% of Hyperspheres' damage restores Experimental Barrier's health."
+            "description": "40% of Hyperspheres' damage restores Experimental Barrier's Health."
           }
         ],
         "major": [
@@ -4502,6 +3954,8 @@
         ]
       },
       "stats": {
+        "health": 200,
+        "shields": 275,
         "abilities": {
           "Hyperspheres": {
             "ability_type": "Weapon",
@@ -4519,7 +3973,6 @@
           },
           "Experimental Barrier": {
             "ability_type": "Ability",
-            "key": "secondary fire",
             "health": 650,
             "projectile_speed": "20 m/s",
             "range": "∞",
@@ -4528,14 +3981,12 @@
           },
           "Kinetic Grasp": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "12 seconds",
             "range": "3 meters",
             "duration": "2 seconds"
           },
           "Accretion": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "cooldown": "10 seconds",
             "damage": "80 (direct) / 40 – 12 (splash, enemy) / 20 – 6 (splash, self)",
             "headshot": false,
@@ -4550,27 +4001,8 @@
             "duration": "5 seconds (targeting) / 1 second (activation delay) / 2.5 seconds (lift) / 0.6 seconds (high gravity)",
             "range": "35 meters",
             "radius": "8 meters"
-          },
-          "Kinetic Cycle": {
-            "ability_type": "Minor Perk"
-          },
-          "Hyper Regeneration": {
-            "ability_type": "Minor Perk"
-          },
-          "Hyper Strike": {
-            "ability_type": "Major Perk",
-            "key": "quick melee",
-            "damage": "50 over 0.37 seconds",
-            "duration": "1 second"
-          },
-          "Levitation": {
-            "ability_type": "Major Perk",
-            "key": "jump",
-            "duration": "1.75 seconds"
           }
-        },
-        "health": 200,
-        "shields": 275
+        }
       }
     },
     "sojourn": {
@@ -4581,7 +4013,11 @@
       "abilities": [
         {
           "name": "Railgun",
-          "description": "Rapid firing projectiles that generate energy on hit. High impact shot that consumes stored energy and pierces enemies."
+          "description": "Rapid firing projectiles that generate energy on hit."
+        },
+        {
+          "name": "Charged Shot",
+          "description": "High impact shot that consumes stored energy and pierces enemies."
         },
         {
           "name": "Power Slide",
@@ -4599,26 +4035,27 @@
       "perks": {
         "minor": [
           {
-            "name": "Overcharged",
-            "description": "Railgun's maximum energy is increased by 50 while Overclock is active."
-          },
-          {
             "name": "Deceleration Field",
             "description": "Enemies hit by Disruptor Shot are slowed by 25%."
+          },
+          {
+            "name": "Overcharged",
+            "description": "Railgun’s maximum energy is increased by 50 while Overclock is active."
           }
         ],
         "major": [
           {
-            "name": "Friction Generators",
-            "description": "While sliding, Power Slide generates up to 50 energy."
-          },
-          {
             "name": "Dual Thrusters",
             "description": "Power Slide gains an additional charge and its jump height shifts to lateral movement."
+          },
+          {
+            "name": "Friction Generators",
+            "description": "While sliding, Power Slide generates up to 50 Energy."
           }
         ]
       },
       "stats": {
+        "health": 225,
         "abilities": {
           "Railgun": {
             "ability_type": "Weapon;;Primary Fire",
@@ -4631,29 +4068,25 @@
             "duration": "9 seconds (energy decay delay)",
             "reload": "1.2 seconds",
             "spread": "1.6 degrees (vertical, max) / 0.64 degrees (horizontal, max)",
-            "dps": "144 while firing (~100.93 overall w/reload)",
-            "modes": {
-              "Secondary Fire": {
-                "key": "secondary fire",
-                "damage": "120 - 60 (max charge) / 21 - 10.5 (min charge)",
-                "falloff": "40 – 60 meters",
-                "projectile_radius": "0.14 meters",
-                "cooldown": "None",
-                "headshot": true,
-                "spread": "None"
-              }
-            }
+            "dps": "144 while firing (~100.93 overall w/reload)"
+          },
+          "Charged Shot": {
+            "ability_type": "Weapon;;Secondary Fire",
+            "damage": "120 - 60 (max charge) / 21 - 10.5 (min charge)",
+            "falloff": "40 – 60 meters",
+            "projectile_radius": "0.14 meters",
+            "cooldown": "None",
+            "headshot": true,
+            "spread": "None"
           },
           "Power Slide": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "7 seconds",
             "duration": "1 second",
             "range": "13 meters (slide) / 11.7 meters (jump)"
           },
           "Disruptor Shot": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "cooldown": "15 seconds",
             "damage": "90 per second / 315 total",
             "headshot": false,
@@ -4666,21 +4099,8 @@
           "Overclock": {
             "ability_type": "Ultimate Ability",
             "duration": "8 seconds"
-          },
-          "Deceleration Field": {
-            "ability_type": "Minor Perk"
-          },
-          "Overcharged": {
-            "ability_type": "Minor Perk"
-          },
-          "Dual Thrusters": {
-            "ability_type": "Major Perk"
-          },
-          "Friction Generators": {
-            "ability_type": "Major Perk"
           }
-        },
-        "health": 225
+        }
       }
     },
     "soldier-76": {
@@ -4694,16 +4114,16 @@
           "description": "Automatic assault weapon."
         },
         {
+          "name": "Helix Rockets",
+          "description": "Launch a volley of explosive rockets."
+        },
+        {
           "name": "Sprint",
           "description": "Run faster while moving forward."
         },
         {
           "name": "Biotic Field",
           "description": "Deploy a field that heals you and your allies."
-        },
-        {
-          "name": "Helix Rockets",
-          "description": "Launch a volley of explosive rockets."
         },
         {
           "name": "Tactical Visor",
@@ -4733,6 +4153,7 @@
         ]
       },
       "stats": {
+        "health": 250,
         "abilities": {
           "Heavy Pulse Rifle": {
             "ability_type": "Weapon",
@@ -4748,7 +4169,6 @@
           },
           "Helix Rockets": {
             "ability_type": "Ability",
-            "key": "secondary fire",
             "cooldown": "6 seconds",
             "damage": "40 (direct hit bonus) / 80 – 40 (splash, enemy) / 40 – 20 (splash, self)",
             "headshot": false,
@@ -4758,12 +4178,10 @@
           },
           "Sprint": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "duration": "∞"
           },
           "Biotic Field": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "healing": "40 per second",
             "radius": "5 meters",
             "cooldown": "15 seconds",
@@ -4775,27 +4193,8 @@
             "duration": "6 seconds",
             "reload": "0.5 seconds",
             "range": "45 meters"
-          },
-          "Helix Propulsion": {
-            "ability_type": "Minor Perk",
-            "projectile_speed": "50 m/s → 75 m/s"
-          },
-          "Tactical Salvo": {
-            "ability_type": "Minor Perk",
-            "cooldown": "6 → 1.2 seconds"
-          },
-          "Full Stride": {
-            "ability_type": "Major Perk"
-          },
-          "Stim Pack": {
-            "ability_type": "Major Perk",
-            "key": "Ability 2",
-            "healing": "30 per second",
-            "duration": "5 seconds",
-            "cooldown": "10 seconds"
           }
-        },
-        "health": 250
+        }
       }
     },
     "sombra": {
@@ -4805,6 +4204,10 @@
       "sub_role": "recon",
       "abilities": [
         {
+          "name": "Opportunist",
+          "description": "You detect enemy ultimate abilities on nameplates, and deal more damage to hacked enemies."
+        },
+        {
           "name": "Machine Pistol",
           "description": "Short-range automatic weapon."
         },
@@ -4813,16 +4216,16 @@
           "description": "Hold to hack. Hacked enemies cannot use abilities and can be seen through walls. Hacked health packs spawn faster and can't be used by enemies. Taking damage interrupts the hack attempt."
         },
         {
+          "name": "Virus",
+          "description": "Infect enemies with a projectile that deals damage over time. Virus damages hacked targets at a faster rate."
+        },
+        {
           "name": "Translocator",
           "description": "Throw a beacon and teleport to it. Become stealthed for a short duration after teleporting."
         },
         {
-          "name": "Virus",
-          "description": "Infect enemies with a projectile that deals damage over time. Virus damages hacked enemies at a faster rate."
-        },
-        {
           "name": "EMP",
-          "description": "Deal damage to all nearby enemies equal to a percentage of their current health, hacking them and destroying barriers around you."
+          "description": "Deal damage to all nearby enemies based on their current health, hacking them and destroying barriers around you."
         }
       ],
       "perks": {
@@ -4839,7 +4242,7 @@
         "major": [
           {
             "name": "High-Speed Bandwidth",
-            "description": "Hacked health packs provide allies with 25% increased movement speed and 50 overhealth for 4 seconds."
+            "description": "Hacked health packs grant allies 25% movement speed and 50 overhealth for 4 seconds."
           },
           {
             "name": "Viral Replication",
@@ -4848,7 +4251,11 @@
         ]
       },
       "stats": {
+        "health": 225,
         "abilities": {
+          "Opportunist": {
+            "ability_type": "Passive Ability"
+          },
           "Machine Pistol": {
             "ability_type": "Weapon",
             "damage": "8 - 2.4",
@@ -4863,14 +4270,12 @@
           },
           "Hack": {
             "ability_type": "Ability",
-            "key": "secondary fire",
             "cooldown": "6 seconds (heroes) / 3 seconds (non-heroes)",
             "range": "15 meters",
             "duration": "8 seconds (reveal, heroes) / 1.0 seconds (ability disable, heroes) / 45 seconds (health packs) / 10 seconds (disable, objects) / 3 seconds (disable, B.O.B.)"
           },
           "Virus": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "6 seconds",
             "damage": "35 (impact, normal) / 70 (impact, hacked) / 75 (DoT)",
             "duration": "4 seconds (normal) / 2 seconds (hacked)",
@@ -4879,7 +4284,6 @@
           },
           "Translocator": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "cooldown": "6 seconds",
             "duration": "0.25 seconds (teleport delay) / 0.4 seconds (invulnerability) / 5 seconds (invisibility)",
             "projectile_speed": "72 m/s",
@@ -4890,23 +4294,8 @@
             "duration": "8 seconds (reveal, heroes) / 3 seconds (ability disable, heroes) / 45 seconds (health packs) / 10 seconds (disable, objects)",
             "radius": "15 meters",
             "damage": "25% of current health"
-          },
-          "Encrypted Upload": {
-            "ability_type": "Minor Perk"
-          },
-          "CTRL ALT ESC": {
-            "ability_type": "Minor Perk"
-          },
-          "High-Speed Bandwidth": {
-            "ability_type": "Major Perk",
-            "duration": "4 seconds"
-          },
-          "Viral Replication": {
-            "ability_type": "Major Perk",
-            "radius": "8 meters"
           }
-        },
-        "health": 225
+        }
       }
     },
     "symmetra": {
@@ -4917,7 +4306,11 @@
       "abilities": [
         {
           "name": "Photon Projector",
-          "description": "Short-range beam weapon with increasing damage. Hold to charge, release to fire explosive orb."
+          "description": "Short-range beam weapon with increasing damage."
+        },
+        {
+          "name": "Photon Projector Alt Fire",
+          "description": "Hold to charge, release to fire explosive orb."
         },
         {
           "name": "Sentry Turret",
@@ -4925,7 +4318,7 @@
         },
         {
           "name": "Teleporter",
-          "description": "Create two temporary teleporters that enable instant travel between them."
+          "description": "Create two temporary teleporters that enable instance travel between them."
         },
         {
           "name": "Photon Barrier",
@@ -4946,7 +4339,7 @@
         "major": [
           {
             "name": "Hovering Barrier",
-            "description": "Teleporter gains the option to create a forward moving barrier instead. Pressing E again slows down the barrier's movement."
+            "description": "Teleporter gains the option to create a forward moving barrier instead. Pressing Ability 2 again slows down the barrier's movement."
           },
           {
             "name": "Shield Battery",
@@ -4955,6 +4348,8 @@
         ]
       },
       "stats": {
+        "health": 125,
+        "shields": 150,
         "abilities": {
           "Photon Projector": {
             "ability_type": "Weapon;;Primary Fire",
@@ -4965,27 +4360,24 @@
             "ammo": 100,
             "reload": "1.5 seconds animation",
             "duration": "2 seconds (decay delay) / 1.7 seconds (decay per level)",
-            "dps": "60/120/180 while firing",
-            "modes": {
-              "Secondary Fire": {
-                "key": "secondary fire",
-                "damage": "5 - 100 (direct hit, min - max charge) / 2.5 - 50 (aoe at falloff start, min - max charge) / 2.5 - 12.5 (aoe at max radius, min - max charge)",
-                "projectile_radius": "0.115 - 0.475 meters (min - max charge)",
-                "radius": "0.5 meters (falloff start) / 0.5 - 2.0 meters (max radius, min - max charge)",
-                "duration": "1 second (to max charge)",
-                "rate_of_fire": "3.9 shots/s (min charge) / 0.8 shots/s (max charge)",
-                "projectile_speed": "50 m/s",
-                "ammo": 100,
-                "reload": "1.5 seconds animation",
-                "headshot": false,
-                "spread": "None",
-                "dps": "90.9 while firing (at full charge)"
-              }
-            }
+            "dps": "60/120/180 while firing"
+          },
+          "Photon Projector Alt Fire": {
+            "ability_type": "Weapon;;Secondary Fire",
+            "damage": "5 - 100 (direct hit, min - max charge) / 2.5 - 50 (aoe at falloff start, min - max charge) / 2.5 - 12.5 (aoe at max radius, min - max charge)",
+            "projectile_radius": "0.115 - 0.475 meters (min - max charge)",
+            "radius": "0.5 meters (falloff start) / 0.5 - 2.0 meters (max radius, min - max charge)",
+            "duration": "1 second (to max charge)",
+            "rate_of_fire": "3.9 shots/s (min charge) / 0.8 shots/s (max charge)",
+            "projectile_speed": "50 m/s",
+            "ammo": 100,
+            "reload": "1.5 seconds animation",
+            "headshot": false,
+            "spread": "None",
+            "dps": "90.9 while firing (at full charge)"
           },
           "Sentry Turret": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "10 seconds",
             "health": 40,
             "damage": "30 per second",
@@ -4996,7 +4388,6 @@
           },
           "Teleporter": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "health": 100,
             "duration": "10 seconds",
             "cooldown": "12 seconds",
@@ -5008,28 +4399,8 @@
             "health": 4000,
             "duration": "12 seconds",
             "range": "25 meters"
-          },
-          "Sentry Capacity": {
-            "ability_type": "Minor Perk"
-          },
-          "Perfect Alignment": {
-            "ability_type": "Minor Perk",
-            "range": "12 → 14.4"
-          },
-          "Hovering Barrier": {
-            "ability_type": "Major Perk",
-            "key": "Ability 2",
-            "cooldown": "12 seconds",
-            "health": 600,
-            "duration": "6 seconds",
-            "projectile_speed": "5.5 m/s"
-          },
-          "Shield Battery": {
-            "ability_type": "Major Perk"
           }
-        },
-        "health": 125,
-        "shields": 150
+        }
       }
     },
     "torbjorn": {
@@ -5040,7 +4411,11 @@
       "abilities": [
         {
           "name": "Rivet Gun",
-          "description": "Slow firing, long-ranged weapon. Inaccurate but powerful short-range weapon."
+          "description": "Slow firing, long-ranged weapon."
+        },
+        {
+          "name": "Rivet Gun Alt Fire",
+          "description": "Inaccurate but powerful short-range weapon."
         },
         {
           "name": "Forge Hammer",
@@ -5082,6 +4457,8 @@
         ]
       },
       "stats": {
+        "health": 225,
+        "armor": 75,
         "abilities": {
           "Rivet Gun": {
             "ability_type": "Weapon;;Primary Fire",
@@ -5093,23 +4470,21 @@
             "ammo": 18,
             "reload": "2 seconds",
             "spread": "None",
-            "dps": "137.25 while firing (112.7 overall w/reload)",
-            "modes": {
-              "Secondary Fire": {
-                "key": "secondary fire",
-                "damage": "12.5 - 3.75 per pellet / 125 - 37.5 per shot",
-                "falloff": "10 – 20 meters",
-                "headshot": true,
-                "rate_of_fire": "1.43 shots/s",
-                "ammo": 18,
-                "pellets": 10,
-                "reload": "2 seconds",
-                "spread": "4.5 degrees",
-                "projectile_speed": "120 m/s",
-                "projectile_radius": "0.05 meters",
-                "dps": "178.57 while firing (135.54 overall w/reload)"
-              }
-            }
+            "dps": "137.25 while firing (112.7 overall w/reload)"
+          },
+          "Rivet Gun Alt Fire": {
+            "ability_type": "Weapon;;Secondary Fire",
+            "damage": "12.5 - 3.75 per pellet / 125 - 37.5 per shot",
+            "falloff": "10 – 20 meters",
+            "headshot": true,
+            "rate_of_fire": "1.43 shots/s",
+            "ammo": 18,
+            "pellets": 10,
+            "reload": "2 seconds",
+            "spread": "4.5 degrees",
+            "projectile_speed": "120 m/s",
+            "projectile_radius": "0.05 meters",
+            "dps": "178.57 while firing (135.54 overall w/reload)"
           },
           "Forge Hammer": {
             "ability_type": "Weapon",
@@ -5123,7 +4498,6 @@
           },
           "Deploy Turret": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "5 seconds / 12 seconds (in combat)",
             "health": 225,
             "damage": 12,
@@ -5136,7 +4510,6 @@
           },
           "Overload": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "cooldown": "10 seconds",
             "rate_of_fire": "Rivet Gun: 0.4 second recovery (primary fire) / Rivet Gun: 0.5 second recovery (alternate fire) / Forge Hammer: 0.6 second recovery",
             "reload": "1.4 seconds (Rivet Gun)",
@@ -5152,25 +4525,8 @@
             "ammo": 10,
             "rate_of_fire": "1 ammo per 0.144 (if holding primary) / 1 ammo per 0.016 (manual rapid fire)",
             "dps": "190 per second (pools) +100 (pools, bonus against armor)"
-          },
-          "Hammer Time": {
-            "ability_type": "Minor Perk"
-          },
-          "Pre-Heated": {
-            "ability_type": "Minor Perk"
-          },
-          "Anchor Bolts": {
-            "ability_type": "Major Perk"
-          },
-          "Overloaded Turret": {
-            "ability_type": "Major Perk",
-            "health": "+150",
-            "damage": 30,
-            "duration": "5 seconds"
           }
-        },
-        "health": 225,
-        "armor": 75
+        }
       }
     },
     "tracer": {
@@ -5200,7 +4556,7 @@
         "minor": [
           {
             "name": "Chronal Dash",
-            "description": "Blink distance is increased by 20%."
+            "description": "Blink distance increased by 20%."
           },
           {
             "name": "Kinetic Reload",
@@ -5219,6 +4575,7 @@
         ]
       },
       "stats": {
+        "health": 175,
         "abilities": {
           "Pulse Pistols": {
             "ability_type": "Weapon",
@@ -5235,14 +4592,12 @@
           },
           "Blink": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "3 seconds",
             "range": "7.5 meters",
             "duration": "0.1 seconds recovery for reuse"
           },
           "Recall": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "cooldown": "13 seconds",
             "duration": "3 seconds (rewound time) / 0.9 seconds (invulnerablity)"
           },
@@ -5254,23 +4609,8 @@
             "duration": "1 second (explosion delay)",
             "projectile_speed": "15 m/s",
             "projectile_radius": "0.22 meters"
-          },
-          "Chronal Dash": {
-            "ability_type": "Minor Perk",
-            "range": "7.5 → 9 meters"
-          },
-          "Kinetic Reload": {
-            "ability_type": "Minor Perk"
-          },
-          "Blink Packs": {
-            "ability_type": "Major Perk"
-          },
-          "Quantum Entanglement": {
-            "ability_type": "Major Perk",
-            "duration": "6 seconds"
           }
-        },
-        "health": 175
+        }
       }
     },
     "vendetta": {
@@ -5280,12 +4620,20 @@
       "sub_role": "flanker",
       "abilities": [
         {
+          "name": "Onslaught",
+          "description": "Strike enemies to increase movement and attack speed."
+        },
+        {
           "name": "Palatine Fang",
           "description": "Hard-light greatsword. Combo swings to end with a destructive overhead slash."
         },
         {
           "name": "Warding Stance",
           "description": "Block with your sword, reducing frontal damage and deflecting melee attacks. Blocking damage depletes energy."
+        },
+        {
+          "name": "Projected Edge",
+          "description": "Available when Warding Stance is active. Consume energy to fire a wide projectile."
         },
         {
           "name": "Whirlwind Dash",
@@ -5296,10 +4644,6 @@
           "description": "Hurl your sword in the direction you are facing and then fly to it."
         },
         {
-          "name": "Projected Edge",
-          "description": "Available while Warding Stance is active. Consume energy to fire a wide projectile."
-        },
-        {
           "name": "Sundering Blade",
           "description": "Cleave through most defenses, dealing severe damage to enemies in front of you."
         }
@@ -5307,29 +4651,35 @@
       "perks": {
         "minor": [
           {
-            "name": "Extra Edge",
-            "description": "Projected Edge costs 25% less energy."
-          },
-          {
             "name": "Raging Storm",
             "description": "Whirlwind Dash continues to spin, hitting 3 more times for 30 damage in a wide area."
+          },
+          {
+            "name": "Extra Edge",
+            "description": "Projected Edge costs 25% less energy."
           }
         ],
         "major": [
           {
-            "name": "Siphoning Strike",
-            "description": "Overhead strikes gain 40% Lifesteal."
+            "name": "Relentless",
+            "description": "Onslaught can stack 3 more times, increasing attack speed by 5% and movement speed by 4% per stack."
           },
           {
-            "name": "Relentless",
-            "description": "Onslaught can stack 3 more times, increasing attack speed by 5% and movement speed by 2% per stack."
+            "name": "Siphoning Strike",
+            "description": "Overhead strikes gain 30% Lifesteal."
           }
         ]
       },
       "stats": {
+        "health": 200,
+        "armor": 75,
         "abilities": {
+          "Onslaught": {
+            "rate_of_fire": "+5% (per stack)",
+            "duration": "5.5 seconds",
+            "ability_type": "Passive Ability"
+          },
           "Palatine Fang": {
-            "key": "primary fire",
             "damage": "45 (swing) / 120 (overhead strike)",
             "duration": "0.75 seconds (combo input delay)",
             "rate_of_fire": "1.18 swings/s (average at 0 stacks)",
@@ -5339,19 +4689,16 @@
           "Warding Stance": {
             "cooldown": "0.5 seconds",
             "duration": "0.34 seconds (min duration) / 0.75 seconds (energy regen delay)",
-            "ability_type": "Ability",
-            "key": "secondary fire"
+            "ability_type": "Ability"
           },
           "Projected Edge": {
             "damage": 70,
             "projectile_speed": "37 m/s",
             "projectile_radius": "0.2 meters (inner) / 1.235 meters (outer)",
-            "ability_type": "Ability",
-            "key": "primary fire"
+            "ability_type": "Ability"
           },
           "Whirlwind Dash": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "10 seconds",
             "damage": "70 - 35",
             "falloff": "3.5 - 6.5 meters",
@@ -5366,34 +4713,16 @@
             "range": "15 meters",
             "projectile_speed": "50 m/s",
             "projectile_radius": "0.92 meters",
-            "ability_type": "Ability",
-            "key": "ability 2"
+            "ability_type": "Ability"
           },
           "Sundering Blade": {
             "damage": "100/50 (direct/indirect stage 1) / 200/100 (direct/indirect stage 2) / 400/200 (direct/indirect stage 3)",
             "duration": "1 second (charge time per stage) / 4 seconds (max)",
             "range": "8/16/24 meters (stage 1/2/3)",
             "radius": "2.1/2.8/3.2 meters (stage 1/2/3) / 2.5 meters (direct hit)",
-            "ability_type": "Ultimate Ability",
-            "key": "ultimate"
-          },
-          "Raging Storm": {
-            "ability_type": "Minor Perk",
-            "damage": 30
-          },
-          "Extra Edge": {
-            "ability_type": "Minor Perk"
-          },
-          "Relentless": {
-            "ability_type": "Major Perk"
-          },
-          "Siphoning Strike": {
-            "ability_type": "Major Perk",
-            "healing": "40% of damage dealt"
+            "ability_type": "Ultimate Ability"
           }
-        },
-        "health": 175,
-        "armor": 75
+        }
       }
     },
     "venture": {
@@ -5403,16 +4732,24 @@
       "sub_role": "flanker",
       "abilities": [
         {
-          "name": "SMART Excavator",
+          "name": "Clobber",
+          "description": "Quick melee deals more damage."
+        },
+        {
+          "name": "Explorer's Resolve",
+          "description": "Using abilities grants temporary shields."
+        },
+        {
+          "name": "Smart Excavator",
           "description": "Launch a seismic charge that bursts after a short distance."
         },
         {
           "name": "Drill Dash",
-          "description": "Dash forward while above or underground, pushing enemies back. The cooldown is accelerated while Burrow is active."
+          "description": "Dash forward while above or underground, pushing enemies back. The cooldown is accelerated while underground."
         },
         {
           "name": "Burrow",
-          "description": "Move underground and become invulnerable. Press or hold LSHIFT to emerge and damage enemies."
+          "description": "Move underground and become invulnerable. Emerge to deal damage."
         },
         {
           "name": "Tectonic Shock",
@@ -5423,7 +4760,7 @@
         "minor": [
           {
             "name": "Deep Burrow",
-            "description": "Drill Dash distance is 50% longer while burrowed."
+            "description": "Drill Dash distance is 50% longer while while burrowing."
           },
           {
             "name": "Excavation Exhilaration",
@@ -5432,17 +4769,28 @@
         ],
         "major": [
           {
-            "name": "SMART Extender",
+            "name": "Smart Extender",
             "description": "Empower SMART Excavator with E to increase its maximum projectile range by 100% for 4 seconds."
           },
           {
-            "name": "Covered In Dirt",
+            "name": "Covered in Dirt",
             "description": "Dealing damage with Clobber grants up to 30 Explorer's Resolve shields."
           }
         ]
       },
       "stats": {
+        "health": 250,
         "abilities": {
+          "Clobber": {
+            "ability_type": "Passive Ability",
+            "damage": "30 (impact) / 40 (over time)",
+            "duration": "0.7 seconds",
+            "range": "3 meters"
+          },
+          "Explorer's Resolve": {
+            "ability_type": "Passive Ability",
+            "duration": "3 seconds"
+          },
           "Smart Excavator": {
             "ability_type": "Weapon",
             "damage": "35 (direct hit bonus) / 40 - 12 (explosion)",
@@ -5459,7 +4807,6 @@
           },
           "Drill Dash": {
             "ability_type": "Ability",
-            "key": "Secondary Fire",
             "cooldown": "8 seconds",
             "damage": "30 (first hit) / 60 over 0.4 seconds (subsequent hits) / 5 (during Burrow)",
             "duration": "0.45 seconds (unburrowed) / 0.9 seconds (burrowed)",
@@ -5468,7 +4815,6 @@
           },
           "Burrow": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "8 seconds",
             "damage": "110 - 75 (max charge) / 55 - 37.5 (min charge)",
             "radius": "2 - 7 meters (max charge, falloff start - max) / 1 - 3.5 meters (min charge, falloff start - max)",
@@ -5482,27 +4828,8 @@
             "projectile_speed": "35 m/s (shockwave)",
             "rate_of_fire": "1.11 shots/s",
             "ammo": 4
-          },
-          "Deep Burrow": {
-            "ability_type": "Minor Perk",
-            "duration": "0.9 → 1.35 seconds (burrowed)",
-            "range": "15 → 22.5 meters (burrowed)"
-          },
-          "Excavation Exhilaration": {
-            "ability_type": "Minor Perk"
-          },
-          "Smart Extender": {
-            "ability_type": "Major Perk",
-            "key": "Ability 2",
-            "cooldown": "12 seconds",
-            "duration": "4 seconds",
-            "range": "16 → 32 meters (SMART Excavator)"
-          },
-          "Covered in Dirt": {
-            "ability_type": "Major Perk"
           }
-        },
-        "health": 250
+        }
       }
     },
     "widowmaker": {
@@ -5513,7 +4840,11 @@
       "abilities": [
         {
           "name": "Widow's Kiss",
-          "description": "Automatic assault weapon. Hold for long-ranged sniper weapon."
+          "description": "Automatic assault weapon."
+        },
+        {
+          "name": "Widow's Kiss (ADS)",
+          "description": "Hold for long-ranged sniper weapon."
         },
         {
           "name": "Grappling Hook",
@@ -5541,16 +4872,17 @@
         ],
         "major": [
           {
-            "name": "Seeker Mine",
-            "description": "Venom Mine now fires poison darts at enemies within 10 meters and remains active after triggered."
+            "name": "Widow’s Bite",
+            "description": "Scoped shots can charge up to 125%, piercing enemies when fully charged."
           },
           {
-            "name": "Widow's Bite",
-            "description": "Scoped shots can charge up to 125%, piercing enemies when fully charged."
+            "name": "Seeker Mine",
+            "description": "Venom Mine now fires poison darts at enemies within 10 meters and remains active after triggered."
           }
         ]
       },
       "stats": {
+        "health": 225,
         "abilities": {
           "Widow's Kiss": {
             "ability_type": "Weapon;;Hip Fire",
@@ -5562,31 +4894,27 @@
             "reload": "1.5 seconds animation",
             "spread": "3 degrees (max)",
             "projectile_radius": "0.07 meters",
-            "dps": "140 while firing (98 overall w/ reload)",
-            "modes": {
-              "ADS": {
-                "key": "secondary fire",
-                "damage": "12 - 6 (at 0% power) / 120 - 60 (at 100% power)",
-                "falloff": "50 - 70 meters",
-                "headshot": true,
-                "rate_of_fire": "0.5 second recovery",
-                "ammo": 35,
-                "reload": "1.5 seconds animation",
-                "spread": "None",
-                "projectile_radius": "None",
-                "dps": "80 while firing (full charge) (70 overall w/reload)"
-              }
-            }
+            "dps": "140 while firing (98 overall w/ reload)"
+          },
+          "Widow's Kiss (ADS)": {
+            "ability_type": "Weapon;;ADS",
+            "damage": "12 - 6 (at 0% power) / 120 - 60 (at 100% power)",
+            "falloff": "50 - 70 meters",
+            "headshot": true,
+            "rate_of_fire": "0.5 second recovery",
+            "ammo": 35,
+            "reload": "1.5 seconds animation",
+            "spread": "None",
+            "projectile_radius": "None",
+            "dps": "80 while firing (full charge) (70 overall w/reload)"
           },
           "Grappling Hook": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "10 seconds",
             "range": "20 meters"
           },
           "Venom Mine": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "cooldown": "15 seconds",
             "damage": "25 per second / 125 total",
             "headshot": false,
@@ -5600,22 +4928,8 @@
             "ability_type": "Ultimate Ability",
             "radius": "Global",
             "duration": "15 seconds"
-          },
-          "Scoped Efficiency": {
-            "ability_type": "Minor Perk"
-          },
-          "Sniper's Instinct": {
-            "ability_type": "Minor Perk",
-            "duration": "2 seconds"
-          },
-          "Seeker Mine": {
-            "ability_type": "Major Perk",
-            "damage": "10 per second / 75 total",
-            "duration": "5 seconds (poison) / 8.2 seconds (rearming time)",
-            "radius": "10 meters"
           }
-        },
-        "health": 225
+        }
       }
     },
     "winston": {
@@ -5626,7 +4940,11 @@
       "abilities": [
         {
           "name": "Tesla Cannon",
-          "description": "Electric frontal-cone weapon. Hold to charge, release to fire focused electricity."
+          "description": "Electric frontal-cone weapon."
+        },
+        {
+          "name": "Tesla Cannon Alt Fire",
+          "description": "Hold to charge, release to fire focused electricity"
         },
         {
           "name": "Jump Pack",
@@ -5645,7 +4963,7 @@
         "minor": [
           {
             "name": "Electric Charge",
-            "description": "Winston gains 10% movement speed for each enemy he is damaging with Tesla Cannon's primary fire, up to 30%."
+            "description": "Winston gains 10% movement speed for each enemy damaged by his primary fire, up to 30%."
           },
           {
             "name": "Heavy Landing",
@@ -5664,6 +4982,8 @@
         ]
       },
       "stats": {
+        "health": 275,
+        "armor": 200,
         "abilities": {
           "Tesla Cannon": {
             "ability_type": "Weapon;;Primary Fire",
@@ -5672,22 +4992,19 @@
             "range": "8 meters",
             "ammo": 120,
             "reload": "1.5 seconds animation",
-            "dps": "70 while firing (52.24 overall w/reload)",
-            "modes": {
-              "Secondary Fire": {
-                "key": "secondary fire",
-                "damage": "15.93 (min charge) / 60 (max charge)",
-                "headshot": false,
-                "range": "40 meters",
-                "projectile_radius": "0.33 meters",
-                "spread": "None",
-                "dps": "14.67, continuous fire at minimum charge 37.5, continuous fire at max charge 19.35, continuous fire with max hold"
-              }
-            }
+            "dps": "70 while firing (52.24 overall w/reload)"
+          },
+          "Tesla Cannon Alt Fire": {
+            "ability_type": "Weapon;;Secondary Fire",
+            "damage": "15.93 (min charge) / 60 (max charge)",
+            "headshot": false,
+            "range": "40 meters",
+            "projectile_radius": "0.33 meters",
+            "spread": "None",
+            "dps": "14.67, continuous fire at minimum charge 37.5, continuous fire at max charge 19.35, continuous fire with max hold"
           },
           "Jump Pack": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "5 seconds",
             "damage": "1 (collision) / 60 – 1 (landing)",
             "headshot": false,
@@ -5695,7 +5012,6 @@
           },
           "Barrier Projector": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "cooldown": "12 seconds",
             "health": 650,
             "duration": "8 seconds",
@@ -5710,27 +5026,8 @@
             "duration": "10 seconds (transformation)",
             "range": "4 meters (melee)",
             "dps": "76.22 while firing"
-          },
-          "Electric Charge": {
-            "ability_type": "Minor Perk"
-          },
-          "Heavy Landing": {
-            "ability_type": "Minor Perk",
-            "damage": "105 - 1",
-            "range": "9 meters"
-          },
-          "Chain Lightning": {
-            "ability_type": "Major Perk",
-            "damage": "48 (1st bounce) / 36 (2nd bounce)",
-            "range": "10 meters"
-          },
-          "Revitalizing Barrier": {
-            "ability_type": "Major Perk",
-            "healing": "30 per second"
           }
-        },
-        "health": 275,
-        "armor": 200
+        }
       }
     },
     "wrecking-ball": {
@@ -5752,12 +5049,12 @@
           "description": "Transform into a ball and increase maximum movement speed."
         },
         {
-          "name": "Piledriver",
-          "description": "Slam into the ground below to damage and launch enemies upward."
+          "name": "Adaptive Shield",
+          "description": "Create temporary extra health that increase with more nearby enemies. Some of the health can be transferred to allies."
         },
         {
-          "name": "Adaptive Shield",
-          "description": "Create temporary extra health that increases with more nearby enemies. Some of the health can be transferred to allies."
+          "name": "Piledriver",
+          "description": "Slam into the ground below to damage and launch enemies upward."
         },
         {
           "name": "Minefield",
@@ -5772,7 +5069,7 @@
           },
           {
             "name": "Multi-Ball",
-            "description": "Press Q within 5 seconds after using Minefield to deploy 7 additional mines."
+            "description": "Press Ultimate within 5 seconds after using Minefield to deploy 7 additional mines."
           }
         ],
         "major": [
@@ -5787,6 +5084,9 @@
         ]
       },
       "stats": {
+        "health": 300,
+        "armor": 125,
+        "shields": 150,
         "abilities": {
           "Quad Cannons": {
             "ability_type": "Weapon",
@@ -5802,27 +5102,23 @@
           },
           "Grappling Claw": {
             "ability_type": "Ability",
-            "key": "secondary fire",
             "cooldown": "5 seconds (after fireball) / 1 second (no fireball)",
             "damage": "60 (fireball collision)",
             "range": "22.2 meters (max) / 6 meters (retracted)",
             "duration": "8 seconds (max grapple time after fireball)"
           },
           "Roll": {
-            "key": "ability 1",
             "ability_type": "Ability",
             "cooldown": "0.4 seconds"
           },
           "Adaptive Shield": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "cooldown": "15 seconds",
             "radius": "13 meters",
             "duration": "7 seconds (self) / 4 seconds (allies)"
           },
           "Piledriver": {
             "ability_type": "Ability",
-            "key": "crouch",
             "cooldown": "8 seconds",
             "damage": "100 - 20",
             "radius": "1.5 - 8 meters",
@@ -5835,29 +5131,8 @@
             "duration": "16 seconds (on ground) / 1.25 seconds (arming time)",
             "radius": "1.5 meters (per mine)",
             "projectile_speed": "12 m/s"
-          },
-          "Steamroller": {
-            "ability_type": "Minor Perk",
-            "damage": "120 (Tanks)"
-          },
-          "Multi-Ball": {
-            "ability_type": "Minor Perk"
-          },
-          "Hang Time": {
-            "ability_type": "Major Perk",
-            "damage": "150 - 20",
-            "duration": "1.1 seconds (windup delay)"
-          },
-          "Adaptive Barrier": {
-            "ability_type": "Major Perk",
-            "duration": "1.5 seconds",
-            "health": 150,
-            "radius": "Approx. 1.5 meters"
           }
-        },
-        "health": 300,
-        "armor": 125,
-        "shields": 150
+        }
       }
     },
     "wuyang": {
@@ -5879,12 +5154,12 @@
           "description": "Ride water to move faster and jump higher."
         },
         {
-          "name": "Tidal Blast",
-          "description": "Protect an ally or yourself with water that detonates after a short duration. The explosion knocks down enemies and massively heals the host target."
-        },
-        {
           "name": "Guardian Wave",
           "description": "Send a water wave forward that increases the amount of healing received by allies and knocks back enemies."
+        },
+        {
+          "name": "Tidal Blast",
+          "description": "Protect an ally or yourself with water that detonates after a short duration. The explosion knocks down enemies and massively heals the host target."
         }
       ],
       "perks": {
@@ -5905,11 +5180,12 @@
           },
           {
             "name": "Falling Rain",
-            "description": "Simultaneously control 3 water orbs that deal 60% decreased damage and have 25% decreased empowered explosion radius."
+            "description": "Simultaneously control 3 water orbs that deal 60% decreased damage and have have 25% decreased empowered explosion radius."
           }
         ]
       },
       "stats": {
+        "health": 225,
         "abilities": {
           "Xuanwu Staff": {
             "ability_type": "Weapon",
@@ -5926,7 +5202,6 @@
             "dps": "Rapid fire of uncharged orbs: 90.91 while firing (74.07 overall w/ reload) Perfectly timed charged orbs: 158.73 while firing (128.21 overall w/ reload)"
           },
           "Restorative Stream": {
-            "key": "Secondary Fire",
             "ability_type": "Ability",
             "healing": "20 per second (passive) / 55 per second (bonus manual healing)",
             "range": "20 meters",
@@ -5934,14 +5209,12 @@
           },
           "Rushing Torrent": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "8 seconds",
             "range": "3.7 meters (vertical)",
             "duration": "3.5 seconds"
           },
           "Guardian Wave": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "cooldown": "14 seconds",
             "damage": "80 - 40",
             "healing": 80,
@@ -5957,28 +5230,8 @@
             "range": "35 meters",
             "radius": "7.5 meters",
             "duration": "3.5 seconds (explosion delay) / 1.5 seconds (knockdown)"
-          },
-          "Overflow": {
-            "ability_type": "Minor Perk"
-          },
-          "Balance": {
-            "ability_type": "Minor Perk",
-            "healing": "→ per second",
-            "duration": "2 seconds"
-          },
-          "Ebb and Flow": {
-            "ability_type": "Major Perk",
-            "damage": 40,
-            "healing": 40
-          },
-          "Falling Rain": {
-            "ability_type": "Major Perk",
-            "damage": "10 → 4 (direct hit bonus, uncharged) / 20 → 8 (splash, uncharged) / 40 → 16 (direct hit bonus, charged) / 60 → 24 (splash, charged)",
-            "pellets": "1 → 3",
-            "falloff": "2.7 → 2.0 meters (splash, charged)"
           }
-        },
-        "health": 225
+        }
       }
     },
     "zarya": {
@@ -5988,8 +5241,16 @@
       "sub_role": "bruiser",
       "abilities": [
         {
+          "name": "Energy",
+          "description": "Damage blocked by barriers increases Particle Cannon damage."
+        },
+        {
           "name": "Particle Cannon",
-          "description": "Short-range linear beam weapon. Energy grenade launcher."
+          "description": "Short-range linear beam weapon."
+        },
+        {
+          "name": "Particle Cannon Alt Fire",
+          "description": "Energy grenade launcher."
         },
         {
           "name": "Particle Barrier",
@@ -6002,35 +5263,33 @@
         {
           "name": "Graviton Surge",
           "description": "Launch a gravity well that pulls enemies to it."
-        },
-        {
-          "name": "Energy",
-          "description": "Damage blocked by barriers increases Particle Cannon damage."
         }
       ],
       "perks": {
         "minor": [
           {
-            "name": "Jump-Ups",
-            "description": "Secondary Fire's self-knockback is increased by 75%."
-          },
-          {
             "name": "Spotter",
             "description": "Projected Barrier activates ally health regeneration and increases their movement speed by 20%."
+          },
+          {
+            "name": "Jump-Ups",
+            "description": "Secondary Fire's self-knockback is increased by 75%."
           }
         ],
         "major": [
           {
-            "name": "Extra Oomph",
-            "description": "While a Barrier is active, dealing damage with Particle Cannon's beam generates energy."
-          },
-          {
             "name": "Energy Lance",
             "description": "Particle Cannon's beam pierces enemies."
+          },
+          {
+            "name": "Extra Oomph",
+            "description": "While a Barrier is active, dealing damage with Particle Cannon’s beam generates energy."
           }
         ]
       },
       "stats": {
+        "health": 175,
+        "shields": 225,
         "abilities": {
           "Energy": {
             "ability_type": "Passive Ability"
@@ -6043,26 +5302,23 @@
             "reload": "1.5 seconds animation",
             "projectile_radius": "0.2 meters",
             "range": "15 meters",
-            "dps": "95 while firing (0% charge) (73.07 overall w/reload)175 while firing (100% charge) (134.61 overall w/reload)",
-            "modes": {
-              "Secondary Fire": {
-                "key": "secondary fire",
-                "damage": "55 – 11 (enemy, 0% Energy) / 110 – 22 (enemy, 100% Energy) / 27.5 – 5.5 (self, 0% Energy) / 55 – 11 (self, 100% Energy)",
-                "headshot": false,
-                "rate_of_fire": "1 shot/s",
-                "ammo": 100,
-                "reload": "1.5 seconds",
-                "projectile_speed": "25 m/s",
-                "projectile_radius": "0.32 meters",
-                "radius": "0.5 - 2.5 meters",
-                "spread": "None",
-                "dps": "55 while firing (0% charge) (40 overall w/reload) 110 while firing (100% charge (80 overall w/reload)"
-              }
-            }
+            "dps": "95 while firing (0% charge) (73.07 overall w/reload)175 while firing (100% charge) (134.61 overall w/reload)"
+          },
+          "Particle Cannon Alt Fire": {
+            "ability_type": "Weapon;;Secondary Fire",
+            "damage": "55 – 11 (enemy, 0% Energy) / 110 – 22 (enemy, 100% Energy) / 27.5 – 5.5 (self, 0% Energy) / 55 – 11 (self, 100% Energy)",
+            "headshot": false,
+            "rate_of_fire": "1 shot/s",
+            "ammo": 100,
+            "reload": "1.5 seconds",
+            "projectile_speed": "25 m/s",
+            "projectile_radius": "0.32 meters",
+            "radius": "0.5 - 2.5 meters",
+            "spread": "None",
+            "dps": "55 while firing (0% charge) (40 overall w/reload) 110 while firing (100% charge (80 overall w/reload)"
           },
           "Particle Barrier": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "cooldown": "11 seconds",
             "health": 225,
             "duration": "2.25 seconds",
@@ -6070,7 +5326,6 @@
           },
           "Projected Barrier": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "cooldown": "9 seconds",
             "health": 225,
             "range": "30 meters",
@@ -6084,22 +5339,8 @@
             "radius": "7 meters",
             "projectile_speed": "25 m/s",
             "projectile_radius": "0.2 meters"
-          },
-          "Spotter": {
-            "ability_type": "Minor Perk"
-          },
-          "Jump-Ups": {
-            "ability_type": "Minor Perk"
-          },
-          "Energy Lance": {
-            "ability_type": "Major Perk"
-          },
-          "Extra Oomph": {
-            "ability_type": "Major Perk"
           }
-        },
-        "health": 175,
-        "shields": 225
+        }
       }
     },
     "zenyatta": {
@@ -6109,31 +5350,35 @@
       "sub_role": "tactician",
       "abilities": [
         {
-          "name": "Orb of Destruction",
-          "description": "Energy projectile weapon. Charge to release more projectiles."
+          "name": "Snap Kick",
+          "description": "Quick melee damage increased by 50%, and its knockback is significantly increased."
         },
         {
-          "name": "Orb of Discord",
-          "description": "Launch this orb at an enemy to increase the damage they take."
+          "name": "Orb of Destruction",
+          "description": "Energy projectile weapon."
+        },
+        {
+          "name": "Orb of Destruction Alt Fire",
+          "description": "Charge to release more projectiles."
         },
         {
           "name": "Orb of Harmony",
           "description": "Launch this orb at an ally to heal them."
         },
         {
-          "name": "Transcendence",
-          "description": "Become invulnerable, move faster, and heal nearby allies."
+          "name": "Orb of Discord",
+          "description": "Launch this orb at an enemy to increase the damage they take."
         },
         {
-          "name": "Snap Kick",
-          "description": "Quick melee damage increased by 50%, and its knockback is significantly increased."
+          "name": "Transcendence",
+          "description": "Become invulnerable, move faster, and heal nearby allies."
         }
       ],
       "perks": {
         "minor": [
           {
             "name": "Discordant Repair",
-            "description": "Zenyatta gains 10% lifesteal against enemies with Discord Orb."
+            "description": "Zenyatta gains 10% lifesteal against enemies affected by Discord Orb."
           },
           {
             "name": "Ascendance",
@@ -6143,7 +5388,7 @@
         "major": [
           {
             "name": "Focused Destruction",
-            "description": "Secondary Fire charges 20% faster and can store 1 extra Orb of Destruction."
+            "description": "Secondary fire charges 20% faster and can store 1 extra Orb of Destruction."
           },
           {
             "name": "Dual Harmony",
@@ -6152,11 +5397,12 @@
         ]
       },
       "stats": {
+        "health": 75,
+        "shields": 175,
         "abilities": {
           "Snap Kick": {
             "ability_type": "Passive Ability",
-            "damage": 60,
-            "key": "quick melee"
+            "damage": 60
           },
           "Orb of Destruction": {
             "ability_type": "Weapon;;Primary Fire",
@@ -6168,25 +5414,22 @@
             "spread": "None",
             "projectile_speed": "90 m/s",
             "projectile_radius": "0.225 meters",
-            "dps": "125 while firing (108.7 overall w/reload) 156.25 while firing w/ discord",
-            "modes": {
-              "Secondary Fire": {
-                "key": "secondary fire",
-                "damage": "50 per orb / 250 per volley",
-                "headshot": true,
-                "rate_of_fire": "1 orb per 0.524 seconds (charging) / 1 shot per 0.144 seconds (firing) / 0.6 seconds recovery",
-                "ammo": 25,
-                "reload": "1.5 seconds animation",
-                "spread": "None",
-                "projectile_speed": "90 m/s",
-                "projectile_radius": "0.225 meters",
-                "dps": "77.64 while firing (68.18 overall w/reload)"
-              }
-            }
+            "dps": "125 while firing (108.7 overall w/reload) 156.25 while firing w/ discord"
+          },
+          "Orb of Destruction Alt Fire": {
+            "ability_type": "Weapon;;Secondary Fire",
+            "damage": "50 per orb / 250 per volley",
+            "headshot": true,
+            "rate_of_fire": "1 orb per 0.524 seconds (charging) / 1 shot per 0.144 seconds (firing) / 0.6 seconds recovery",
+            "ammo": 25,
+            "reload": "1.5 seconds animation",
+            "spread": "None",
+            "projectile_speed": "90 m/s",
+            "projectile_radius": "0.225 meters",
+            "dps": "77.64 while firing (68.18 overall w/reload)"
           },
           "Orb of Harmony": {
             "ability_type": "Ability",
-            "key": "ability 1",
             "healing": "35 health per second",
             "range": "40 meters",
             "projectile_speed": "90 m/s",
@@ -6194,7 +5437,6 @@
           },
           "Orb of Discord": {
             "ability_type": "Ability",
-            "key": "ability 2",
             "projectile_speed": "90 m/s",
             "range": "40 meters",
             "duration": "1.5 seconds (if out of sight)"
@@ -6204,27 +5446,8 @@
             "healing": "400 health per second",
             "radius": "10 meters",
             "duration": "6 seconds"
-          },
-          "Discordant Repair": {
-            "ability_type": "Minor Perk",
-            "healing": "6.5 (bodyshot, per orb) / 13 (headshot, per orb)"
-          },
-          "Ascendance": {
-            "ability_type": "Minor Perk",
-            "key": "jump",
-            "duration": "3 seconds"
-          },
-          "Focused Destruction": {
-            "ability_type": "Major Perk",
-            "rate_of_fire": "1 orb per 0.42 seconds (charging) / 1 shot per 0.144 seconds (firing) / 0.6 seconds recovery"
-          },
-          "Dual Harmony": {
-            "ability_type": "Major Perk",
-            "healing": "35 → 24.5 per second"
           }
-        },
-        "health": 75,
-        "shields": 175
+        }
       }
     }
   }

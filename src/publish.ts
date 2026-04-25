@@ -261,11 +261,11 @@ async function writeAttribution(path: string, roster: RosterEntry[], metadata: M
   lines.push('# Attribution');
   lines.push('');
   lines.push(
-    'Hero combat stats (`stats.abilities.*`, `stats.health`, `stats.armor`, `stats.shields`, `sub_role`) are sourced from the [Overwatch Fandom Wiki](https://overwatch.fandom.com/) and are available under [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/).',
+    'Abilities, perks, sub-roles, and combat stats (`abilities[]`, `perks.minor`, `perks.major`, `sub_role`, `stats.health`, `stats.armor`, `stats.shields`, `stats.abilities.*`) are sourced from the [Overwatch Fandom Wiki](https://overwatch.fandom.com/) and are available under [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/).',
   );
   lines.push('');
   lines.push(
-    "Perks, ability descriptions, roles, and portraits are sourced from [Blizzard's official hero pages](https://overwatch.blizzard.com/en-us/heroes/).",
+    "Hero name, role, portrait, and the patch version are sourced from [Blizzard's official Overwatch site](https://overwatch.blizzard.com/en-us/heroes/). Patch-note text is also used to override Fandom values when Fandom is behind the live patch.",
   );
   lines.push('');
   lines.push(`Last generated: ${metadata.last_updated}`);

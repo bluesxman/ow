@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T15:47:39.427Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,18 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
           "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.abilities.*"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Wuyang",
@@ -57,12 +59,12 @@
         "description": "Ride water to move faster and jump higher."
       },
       {
-        "name": "Tidal Blast",
-        "description": "Protect an ally or yourself with water that detonates after a short duration. The explosion knocks down enemies and massively heals the host target."
-      },
-      {
         "name": "Guardian Wave",
         "description": "Send a water wave forward that increases the amount of healing received by allies and knocks back enemies."
+      },
+      {
+        "name": "Tidal Blast",
+        "description": "Protect an ally or yourself with water that detonates after a short duration. The explosion knocks down enemies and massively heals the host target."
       }
     ],
     "perks": {
@@ -83,11 +85,12 @@
         },
         {
           "name": "Falling Rain",
-          "description": "Simultaneously control 3 water orbs that deal 60% decreased damage and have 25% decreased empowered explosion radius."
+          "description": "Simultaneously control 3 water orbs that deal 60% decreased damage and have have 25% decreased empowered explosion radius."
         }
       ]
     },
     "stats": {
+      "health": 225,
       "abilities": {
         "Xuanwu Staff": {
           "ability_type": "Weapon",
@@ -104,7 +107,6 @@
           "dps": "Rapid fire of uncharged orbs: 90.91 while firing (74.07 overall w/ reload) Perfectly timed charged orbs: 158.73 while firing (128.21 overall w/ reload)"
         },
         "Restorative Stream": {
-          "key": "Secondary Fire",
           "ability_type": "Ability",
           "healing": "20 per second (passive) / 55 per second (bonus manual healing)",
           "range": "20 meters",
@@ -112,14 +114,12 @@
         },
         "Rushing Torrent": {
           "ability_type": "Ability",
-          "key": "ability 1",
           "cooldown": "8 seconds",
           "range": "3.7 meters (vertical)",
           "duration": "3.5 seconds"
         },
         "Guardian Wave": {
           "ability_type": "Ability",
-          "key": "ability 2",
           "cooldown": "14 seconds",
           "damage": "80 - 40",
           "healing": 80,
@@ -135,28 +135,8 @@
           "range": "35 meters",
           "radius": "7.5 meters",
           "duration": "3.5 seconds (explosion delay) / 1.5 seconds (knockdown)"
-        },
-        "Overflow": {
-          "ability_type": "Minor Perk"
-        },
-        "Balance": {
-          "ability_type": "Minor Perk",
-          "healing": "→ per second",
-          "duration": "2 seconds"
-        },
-        "Ebb and Flow": {
-          "ability_type": "Major Perk",
-          "damage": 40,
-          "healing": 40
-        },
-        "Falling Rain": {
-          "ability_type": "Major Perk",
-          "damage": "10 → 4 (direct hit bonus, uncharged) / 20 → 8 (splash, uncharged) / 40 → 16 (direct hit bonus, charged) / 60 → 24 (splash, charged)",
-          "pellets": "1 → 3",
-          "falloff": "2.7 → 2.0 meters (splash, charged)"
         }
-      },
-      "health": 225
+      }
     }
   }
 }

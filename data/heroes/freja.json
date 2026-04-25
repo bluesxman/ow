@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T15:47:39.427Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,18 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
           "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.abilities.*"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Freja",
@@ -45,20 +47,28 @@
     "sub_role": "recon",
     "abilities": [
       {
-        "name": "Bola Shot",
-        "description": "Fire an explosive bola. Hitting an enemy wraps them up and pulls in other nearby enemies."
+        "name": "Bounty Hunting",
+        "description": "Every 3 Final Blows, gain bonus ultimate charge."
+      },
+      {
+        "name": "Revdraw Crossbow",
+        "description": "Rapidly fire automatic bolts."
+      },
+      {
+        "name": "Take Aim",
+        "description": "Slow down your momentum to take aim with a high speed explosive bolt. Using Quick Dash refreshes Take Aim."
       },
       {
         "name": "Quick Dash",
         "description": "Vault in the direction you're moving and refresh Take Aim."
       },
       {
-        "name": "Take Aim",
-        "description": "Slow your momentum to take aim with a high speed explosive bolt. Using Quick Dash refreshes Take Aim."
-      },
-      {
         "name": "Updraft",
         "description": "Launch upward with a gust of wind."
+      },
+      {
+        "name": "Bola Shot",
+        "description": "Fire an explosive bola. Hitting an enemy wraps them up and pulls in other nearby enemies."
       }
     ],
     "perks": {
@@ -79,15 +89,30 @@
         },
         {
           "name": "Rising Winds",
-          "description": "Updraft gains an additional charge but has 20% decreased height."
+          "description": "Updraft gains an additional charge but has 20% reduced height."
         }
       ]
     },
     "stats": {
+      "health": 225,
       "abilities": {
+        "Bounty Hunting": {
+          "ability_type": "Passive Ability"
+        },
+        "Revdraw Crossbow": {
+          "ability_type": "Weapon;;Hip Fire",
+          "headshot": true,
+          "ammo": 15,
+          "damage": 30,
+          "rate_of_fire": "4.81 shots/s",
+          "reload": "1.6 seconds",
+          "spread": "1.5 degrees (max, horizontal only)",
+          "projectile_radius": "0.175 meters",
+          "projectile_speed": "125 m/s",
+          "dps": "120.19 while firing (79.45 overall w/ reload)"
+        },
         "Take Aim": {
           "ability_type": "Weapon;;ADS",
-          "key": "Secondary Fire",
           "headshot": true,
           "ammo": 1,
           "reload": "1.5 seconds",
@@ -100,12 +125,10 @@
         },
         "Quick Dash": {
           "ability_type": "Ability",
-          "key": "ability 1",
           "cooldown": "4.5 seconds"
         },
         "Updraft": {
           "ability_type": "Ability",
-          "key": "ability 2",
           "cooldown": "12 seconds"
         },
         "Bola Shot": {
@@ -115,22 +138,8 @@
           "radius": "2 - 5.5 meters (falloff start - max) / 5 meters (pull)",
           "projectile_radius": "0.77 meters",
           "projectile_speed": "70 m/s"
-        },
-        "Relentless Barrage": {
-          "ability_type": "Minor Perk"
-        },
-        "Momentum Boost": {
-          "ability_type": "Minor Perk"
-        },
-        "Aerial Recovery": {
-          "ability_type": "Major Perk",
-          "healing": "30 per second"
-        },
-        "Rising Winds": {
-          "ability_type": "Major Perk"
         }
-      },
-      "health": 225
+      }
     }
   }
 }

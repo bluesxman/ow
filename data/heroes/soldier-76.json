@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T15:47:39.427Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,18 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
           "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.abilities.*"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Soldier%3A_76",
@@ -49,16 +51,16 @@
         "description": "Automatic assault weapon."
       },
       {
+        "name": "Helix Rockets",
+        "description": "Launch a volley of explosive rockets."
+      },
+      {
         "name": "Sprint",
         "description": "Run faster while moving forward."
       },
       {
         "name": "Biotic Field",
         "description": "Deploy a field that heals you and your allies."
-      },
-      {
-        "name": "Helix Rockets",
-        "description": "Launch a volley of explosive rockets."
       },
       {
         "name": "Tactical Visor",
@@ -88,6 +90,7 @@
       ]
     },
     "stats": {
+      "health": 250,
       "abilities": {
         "Heavy Pulse Rifle": {
           "ability_type": "Weapon",
@@ -103,7 +106,6 @@
         },
         "Helix Rockets": {
           "ability_type": "Ability",
-          "key": "secondary fire",
           "cooldown": "6 seconds",
           "damage": "40 (direct hit bonus) / 80 – 40 (splash, enemy) / 40 – 20 (splash, self)",
           "headshot": false,
@@ -113,12 +115,10 @@
         },
         "Sprint": {
           "ability_type": "Ability",
-          "key": "ability 1",
           "duration": "∞"
         },
         "Biotic Field": {
           "ability_type": "Ability",
-          "key": "ability 2",
           "healing": "40 per second",
           "radius": "5 meters",
           "cooldown": "15 seconds",
@@ -130,27 +130,8 @@
           "duration": "6 seconds",
           "reload": "0.5 seconds",
           "range": "45 meters"
-        },
-        "Helix Propulsion": {
-          "ability_type": "Minor Perk",
-          "projectile_speed": "50 m/s → 75 m/s"
-        },
-        "Tactical Salvo": {
-          "ability_type": "Minor Perk",
-          "cooldown": "6 → 1.2 seconds"
-        },
-        "Full Stride": {
-          "ability_type": "Major Perk"
-        },
-        "Stim Pack": {
-          "ability_type": "Major Perk",
-          "key": "Ability 2",
-          "healing": "30 per second",
-          "duration": "5 seconds",
-          "cooldown": "10 seconds"
         }
-      },
-      "health": 250
+      }
     }
   }
 }

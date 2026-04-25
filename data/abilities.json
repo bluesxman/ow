@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T15:47:39.427Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,22 +23,29 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
           "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.abilities.*"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "heroes": {
     "ana": {
       "abilities": [
         {
           "name": "Biotic Rifle",
-          "description": "Long-range rifle that heals allies and damages enemies. Hold to zoom in."
+          "description": "Long-range rifle that heals allies and damages enemies."
+        },
+        {
+          "name": "Zoom (ADS)",
+          "description": "Hold to zoom in."
         },
         {
           "name": "Sleep Dart",
@@ -58,20 +64,24 @@
     "anran": {
       "abilities": [
         {
+          "name": "Ignition",
+          "description": "Hit enemies with fire attacks to burn them."
+        },
+        {
           "name": "Zhuque Fans",
           "description": "Hand fans that shoot fiery projectiles."
         },
         {
           "name": "Fan the Flames",
-          "description": "Hot wind blast that amplifies burning damage."
-        },
-        {
-          "name": "Dancing Blaze",
-          "description": "Dodge all damage while striking nearby enemies, healing yourself for each enemy hit."
+          "description": "Hot wind blasts that amplifies burning damage."
         },
         {
           "name": "Inferno Rush",
           "description": "Propel yourself forward and damage enemies you impact."
+        },
+        {
+          "name": "Dancing Blaze",
+          "description": "Dodge all damage while striking nearby enemies, healing yourself for each enemy hit."
         },
         {
           "name": "Vermillion Ascent",
@@ -80,10 +90,6 @@
         {
           "name": "Vermillion Revival",
           "description": "When dead, revive yourself in a fiery explosion."
-        },
-        {
-          "name": "Ignition",
-          "description": "Hit enemies with fire attacks to burn them."
         }
       ]
     },
@@ -91,7 +97,11 @@
       "abilities": [
         {
           "name": "The Viper",
-          "description": "Semi-automatic rifle. Hold to zoom in, increasing damage and accuracy but slowing rate of fire."
+          "description": "Semi-automatic rifle."
+        },
+        {
+          "name": "Take Aim (ADS)",
+          "description": "Hold to zoom in, increasing damage and accuracy but slowing rate of fire."
         },
         {
           "name": "Coach Gun",
@@ -110,8 +120,16 @@
     "baptiste": {
       "abilities": [
         {
+          "name": "Exo Boots",
+          "description": "Hold crouch to jump higher."
+        },
+        {
           "name": "Biotic Launcher",
-          "description": "Three-round burst gun. Lob a healing projectile that heals all allies near the impact."
+          "description": "Three-round burst gun."
+        },
+        {
+          "name": "Biotic Launcher Alt Fire",
+          "description": "Lob a healing projectile that heals all allies near the impact."
         },
         {
           "name": "Regenerative Burst",
@@ -123,19 +141,15 @@
         },
         {
           "name": "Amplification Matrix",
-          "description": "Project a matrix that doubles the damage and healing effects of allied projectiles."
-        },
-        {
-          "name": "Exo Boots",
-          "description": "Hold crouch to jump higher."
+          "description": "Project a matrix that doubles the damage and healing of allied projectiles."
         }
       ]
     },
     "bastion": {
       "abilities": [
         {
-          "name": "Configuration: Assault",
-          "description": "A slow-moving tank with a powerful rotary cannon."
+          "name": "Ironclad",
+          "description": "Reduces damage taken while transformed."
         },
         {
           "name": "Configuration: Recon",
@@ -143,31 +157,31 @@
         },
         {
           "name": "A-36 Tactical Grenade",
-          "description": "Fire a bomb that bounces off walls and explodes when it impacts enemies or the ground."
+          "description": "Fire a bomb that bounces off walls and explodes when it hits enemies or the ground."
         },
         {
           "name": "Reconfigure",
           "description": "Switch between weapon configurations."
         },
         {
+          "name": "Configuration: Assault",
+          "description": "A slow moving tank with a powerful rotary cannon."
+        },
+        {
           "name": "Configuration: Artillery",
-          "description": "Become immobile and fire up to 3 powerful artillery shells."
+          "description": "Become immobile and fire up to three powerful artillery shells."
         }
       ]
     },
     "brigitte": {
       "abilities": [
         {
+          "name": "Inspire",
+          "description": "Dealing damage to enemies heals nearby allies."
+        },
+        {
           "name": "Rocket Flail",
           "description": "Melee weapon with extended range."
-        },
-        {
-          "name": "Repair Pack",
-          "description": "Heals an ally for a short duration."
-        },
-        {
-          "name": "Whip Shot",
-          "description": "Launch your flail forward to knock an enemy away from you."
         },
         {
           "name": "Barrier Shield",
@@ -178,12 +192,16 @@
           "description": "Available when Barrier Shield is deployed. Dash forward to knock back an enemy."
         },
         {
-          "name": "Rally",
-          "description": "Gain armor, empower Barrier Shield, and provide extra health to nearby allies."
+          "name": "Whip Shot",
+          "description": "Launch your flail forward to knock an enemy away from you."
         },
         {
-          "name": "Inspire",
-          "description": "Dealing damage to enemies heals nearby allies."
+          "name": "Repair Pack",
+          "description": "Heals an ally for a short duration."
+        },
+        {
+          "name": "Rally",
+          "description": "Gain armor, empower Barrier Shield and provide extra health to nearby allies."
         }
       ]
     },
@@ -191,20 +209,32 @@
       "abilities": [
         {
           "name": "Peacekeeper",
-          "description": "Accurate, powerful revolver. Wildly fire remaining rounds."
+          "description": "Accurate, powerful revolver."
+        },
+        {
+          "name": "Fan the Hammer",
+          "description": "Wildly fire remaining rounds."
         },
         {
           "name": "Combat Roll",
           "description": "Roll in the direction you're moving to take reduced damage and reload."
         },
         {
+          "name": "Flashbang",
+          "description": "Hinder enemies in front of you, slowing them and preventing them from using movement abilities."
+        },
+        {
           "name": "Deadeye",
-          "description": "Face off against your enemies. Press Q to lock on, then Q or ABILITY 3 to fire."
+          "description": "Face off against your enemies. Press to lock on, then or to fire."
         }
       ]
     },
     "domina": {
       "abilities": [
+        {
+          "name": "Reconstruction",
+          "description": "Dealing damage from abilities restores shields."
+        },
         {
           "name": "Photon Magnum",
           "description": "Medium-range beam that culminates in a high impact shot."
@@ -230,6 +260,10 @@
     "doomfist": {
       "abilities": [
         {
+          "name": "The Best Defense...",
+          "description": "Dealing damage with abilities creates temporary overhealth."
+        },
+        {
           "name": "Hand Cannon",
           "description": "Short-range weapon with spread. Reloads automatically."
         },
@@ -239,7 +273,7 @@
         },
         {
           "name": "Seismic Slam",
-          "description": "Leap and smash the ground."
+          "description": "Leap forward and smash the ground."
         },
         {
           "name": "Power Block",
@@ -247,12 +281,16 @@
         },
         {
           "name": "Meteor Strike",
-          "description": "Press Q to leap up into the air. Move the targeting circle, then press ABILITY 3 to strike the targeted area."
+          "description": "Press to leap up into the air. Move the targeting circle, then press to strike the targeted area."
         }
       ]
     },
     "dva": {
       "abilities": [
+        {
+          "name": "Eject!",
+          "description": "Eject out of your mech when it's destroyed."
+        },
         {
           "name": "Fusion Cannons",
           "description": "Automatic short-range spread weapons."
@@ -262,12 +300,12 @@
           "description": "Automatic weapon."
         },
         {
-          "name": "Boosters",
-          "description": "Fly in the direction you are facing."
-        },
-        {
           "name": "Defense Matrix",
           "description": "Block projectiles in an area in front of you."
+        },
+        {
+          "name": "Boosters",
+          "description": "Fly in the direction you are facing."
         },
         {
           "name": "Micro Missiles",
@@ -280,15 +318,15 @@
         {
           "name": "Call Mech",
           "description": "Call down a new mech."
-        },
-        {
-          "name": "Eject!",
-          "description": "Eject out of your mech when it is destroyed."
         }
       ]
     },
     "echo": {
       "abilities": [
+        {
+          "name": "Glide",
+          "description": "Hold jump to glide while falling."
+        },
         {
           "name": "Tri-Shot",
           "description": "Fires 3 shots at once, in a triangle pattern."
@@ -308,18 +346,26 @@
         {
           "name": "Duplicate",
           "description": "Become a copy of the targeted hero. They cannot swap heroes for the duration."
-        },
-        {
-          "name": "Glide",
-          "description": "Hold jump to glide while falling."
         }
       ]
     },
     "emre": {
       "abilities": [
         {
+          "name": "Altered Vitals",
+          "description": "Passive health regeneration activates sooner and instantly restores 30 health when activated."
+        },
+        {
           "name": "Synthetic Burst Rifle",
-          "description": "Three-round burst weapon. Hold to zoom in, tightening accuracy and increasing fall off range."
+          "description": "Three-round burst weapon."
+        },
+        {
+          "name": "Synthetic Burst Rifle (ADS)",
+          "description": "Three-round burst weapon."
+        },
+        {
+          "name": "Siphon Blaster",
+          "description": "Temporarily wield a semi-automatic pistol with lifestealing explosive rounds. Move faster and jump higher while wielded."
         },
         {
           "name": "Cyber Frag",
@@ -328,70 +374,82 @@
         {
           "name": "Override Protocol",
           "description": "An override initiates, transforming you into a living weapon."
-        },
-        {
-          "name": "Altered Vitals",
-          "description": "Passive health regeneration activates sooner and instantly restores 30 health when activated."
         }
       ]
     },
     "freja": {
       "abilities": [
         {
-          "name": "Bola Shot",
-          "description": "Fire an explosive bola. Hitting an enemy wraps them up and pulls in other nearby enemies."
+          "name": "Bounty Hunting",
+          "description": "Every 3 Final Blows, gain bonus ultimate charge."
+        },
+        {
+          "name": "Revdraw Crossbow",
+          "description": "Rapidly fire automatic bolts."
+        },
+        {
+          "name": "Take Aim",
+          "description": "Slow down your momentum to take aim with a high speed explosive bolt. Using Quick Dash refreshes Take Aim."
         },
         {
           "name": "Quick Dash",
           "description": "Vault in the direction you're moving and refresh Take Aim."
         },
         {
-          "name": "Take Aim",
-          "description": "Slow your momentum to take aim with a high speed explosive bolt. Using Quick Dash refreshes Take Aim."
-        },
-        {
           "name": "Updraft",
           "description": "Launch upward with a gust of wind."
+        },
+        {
+          "name": "Bola Shot",
+          "description": "Fire an explosive bola. Hitting an enemy wraps them up and pulls in other nearby enemies."
         }
       ]
     },
     "genji": {
       "abilities": [
         {
-          "name": "Shuriken",
-          "description": "Throw an accurate burst of 3 projectiles. Throw a fan of 3 projectiles in an arc."
+          "name": "Cyber-Agility",
+          "description": "Climb on walls and double jump."
         },
         {
-          "name": "Deflect",
-          "description": "Deflect incoming projectiles towards the direction you are aiming and block melee attacks."
+          "name": "Shuriken",
+          "description": "Throw an accurate burst of 3 projectiles."
+        },
+        {
+          "name": "Shuriken Alt Fire",
+          "description": "Throw a fan of 3 projectiles in an arc."
         },
         {
           "name": "Swift Strike",
           "description": "Rapidly dash forward and inflict damage on enemies. Eliminations reset the cooldown."
         },
         {
-          "name": "Dragonblade",
-          "description": "Unsheathe a deadly melee weapon."
+          "name": "Deflect",
+          "description": "Deflect incoming projectiles towards the direction you are aiming and block melee attacks."
         },
         {
-          "name": "Cyber-Agility",
-          "description": "Climb on walls and double jump."
+          "name": "Dragonblade",
+          "description": "Unsheathe a deadly melee weapon."
         }
       ]
     },
     "hanzo": {
       "abilities": [
         {
+          "name": "Wall Climb",
+          "description": "Jump at walls to climb up them."
+        },
+        {
           "name": "Storm Bow",
           "description": "Hold to charge then release to launch arrows further."
         },
         {
-          "name": "Storm Arrows",
-          "description": "The next 5 arrows ricochet and fire instantly at reduced damage."
-        },
-        {
           "name": "Sonic Arrow",
           "description": "Reveals enemies for a short time upon impact."
+        },
+        {
+          "name": "Storm Arrows",
+          "description": "The next 5 arrows ricochet and fire instantly at reduced damage."
         },
         {
           "name": "Lunge",
@@ -400,26 +458,26 @@
         {
           "name": "Dragonstrike",
           "description": "Launch a deadly Dragon Spirit that devastates enemies it passes through."
-        },
-        {
-          "name": "Wall Climb",
-          "description": "Jump at walls to climb up them."
         }
       ]
     },
     "hazard": {
       "abilities": [
         {
+          "name": "Vault",
+          "description": "Scale short walls and grab ledges."
+        },
+        {
           "name": "Bonespur",
           "description": "Fire a burst of spikes."
         },
         {
           "name": "Spike Guard",
-          "description": "Protect yourself from frontal damage, firing homing spikes at nearby enemies and regenerating ammo."
+          "description": "Protect yourself from frontal damage. Firing homing spikes at nearby enemies and regenerating ammo."
         },
         {
           "name": "Violent Leap",
-          "description": "Lunge forward. Activate again to slash at enemies, knocking them back."
+          "description": "Lunge forward. Activate again to slash enemies, knocking them back."
         },
         {
           "name": "Jagged Wall",
@@ -427,11 +485,7 @@
         },
         {
           "name": "Downpour",
-          "description": "Rain down a torrent of spikes, immobilizing enemies."
-        },
-        {
-          "name": "Vault",
-          "description": "Scale short walls and grab ledges."
+          "description": "Rain down a torrent of spikes, Immobilizing enemies."
         }
       ]
     },
@@ -439,24 +493,32 @@
       "abilities": [
         {
           "name": "Solar Rifle",
-          "description": "Long range auto-charging rifle. Medium range healing beam that consumes solar energy."
+          "description": "Long-range auto charging rifle."
         },
         {
-          "name": "Captive Sun",
-          "description": "Fire an explosive ball of solar energy. Enemies hit are slowed and explode after taking significant damage."
+          "name": "Solar Rifle Alt Fire",
+          "description": "Medium range healing beam that consumes solar energy."
+        },
+        {
+          "name": "Outburst",
+          "description": "Launches you in the direction you are moving. Knocking back enemies. Hold jump to go higher."
         },
         {
           "name": "Healing Pylon",
           "description": "Deploy a pylon that heals allies."
         },
         {
-          "name": "Outburst",
-          "description": "Launches you in the direction you are moving, knocking back enemies. Hold jump to go higher."
+          "name": "Captive Sun",
+          "description": "Fire an explosive ball of solar energy. Enemies hit are slowed and explode after taking significant damage."
         }
       ]
     },
     "jetpack-cat": {
       "abilities": [
+        {
+          "name": "Jetpack",
+          "description": "Permanent flight."
+        },
         {
           "name": "Biotic Pawjectiles",
           "description": "Mid-range projectile spread that heals allies and damages enemies."
@@ -482,8 +544,16 @@
     "junker-queen": {
       "abilities": [
         {
+          "name": "Adrenaline Rush",
+          "description": "Heal from all damage over time dealt by wounds."
+        },
+        {
           "name": "Scattergun",
           "description": "Pump action shotgun."
+        },
+        {
+          "name": "Jagged Blade",
+          "description": "Active: Throw the blade. Re-activate to pull it back with any impaled enemy. / Passive: Wound enemies hit by Quick Melee or Throw, dealing damage over time."
         },
         {
           "name": "Commanding Shout",
@@ -495,23 +565,23 @@
         },
         {
           "name": "Rampage",
-          "description": "Charge forward. Wounds enemies, dealing damage over time and preventing them from being healed."
-        },
-        {
-          "name": "Adrenaline Rush",
-          "description": "Heal from all damage over time dealt by wounds."
+          "description": "Charge foward. Wounds enemies, dealing damage over time and preventing them from being healed."
         }
       ]
     },
     "junkrat": {
       "abilities": [
         {
+          "name": "Total Mayhem",
+          "description": "Deals no damage to self with explosives. Drop bombs on death."
+        },
+        {
           "name": "Frag Launcher",
           "description": "Bouncing explosive projectile weapon."
         },
         {
           "name": "Concussion Mine",
-          "description": "Throw a knockback mine with LSHIFT then detonate it with ABILITY 1."
+          "description": "Throw a knockback mine with then detonate it with ."
         },
         {
           "name": "Steel Trap",
@@ -520,43 +590,43 @@
         {
           "name": "RIP-Tire",
           "description": "Drive and detonate an exploding tire."
-        },
-        {
-          "name": "Total Mayhem",
-          "description": "Deals no damage to self with explosives. Drop bombs on death."
         }
       ]
     },
     "juno": {
       "abilities": [
         {
+          "name": "Martian Overboots",
+          "description": "While airborne, press Jump to double jump and hold Jump to hover."
+        },
+        {
           "name": "Mediblaster",
           "description": "Burst fire weapon that heals allies and damages enemies."
         },
         {
           "name": "Pulsar Torpedoes",
-          "description": "Press to lock on, then SECONDARY FIRE to fire homing projectiles. Heals allies over time and damages enemies."
-        },
-        {
-          "name": "Orbital Ray",
-          "description": "Call down a ray that travels forward, healing allies and increasing their damage."
-        },
-        {
-          "name": "Hyper Ring",
-          "description": "Deploy a ring that increases movement speed of allies that pass through it."
+          "description": "Press Secondary Fire to lock on, then Primary Fire to fire homing projectiles. Heals allies over time and damages enemies."
         },
         {
           "name": "Glide Boost",
           "description": "Glide horizontally with increased movement speed."
         },
         {
-          "name": "Martian Overboots",
-          "description": "While airborne, press SPACE to double jump and hold SPACE to hover."
+          "name": "Hyper Ring",
+          "description": "Deploy a ring that increases movement speed of allies that pass through it."
+        },
+        {
+          "name": "Orbital Ray",
+          "description": "Call down a ray that travels forward, healing allies and increasing their damage."
         }
       ]
     },
     "kiriko": {
       "abilities": [
+        {
+          "name": "Wall Climb (Kiriko)",
+          "description": "Jump at walls to climb up them."
+        },
         {
           "name": "Healing Ofuda",
           "description": "Channel a burst of healing talismans that can seek targeted allies."
@@ -575,7 +645,7 @@
         },
         {
           "name": "Kitsune Rush",
-          "description": "Summon a fox spirit that rushes forward, accelerating the movement, attack speed, and cooldowns of allies that follow in its path."
+          "description": "Summon a fox spirit that rushes forward, accelerating the movement, attack speed, and cooldowns of allies that follow its path."
         }
       ]
     },
@@ -583,11 +653,11 @@
       "abilities": [
         {
           "name": "Healing Blossom",
-          "description": "Hold to charge a healing burst. Release to heal a targeted ally. Passively charges at a reduced rate when not in use."
+          "description": "Hold to charge a healing burst. Release to heal a targeted ally. Passively charges at a reduced rate while not in use."
         },
         {
           "name": "Thorn Volley",
-          "description": "Rapidly fires pairs of projectiles."
+          "description": "Rapidly fire a spread of projectiles."
         },
         {
           "name": "Petal Platform",
@@ -610,8 +680,16 @@
     "lucio": {
       "abilities": [
         {
+          "name": "Wall Ride",
+          "description": "Jump onto a wall to ride along it."
+        },
+        {
           "name": "Sonic Amplifier",
           "description": "Sonic projectile launcher."
+        },
+        {
+          "name": "Soundwave",
+          "description": "Create a short-range blast wave to knock enemies away from you."
         },
         {
           "name": "Crossfade",
@@ -622,36 +700,36 @@
           "description": "Increase the effectiveness of your current song."
         },
         {
-          "name": "Soundwave",
-          "description": "Create a short-range blast wave to knock enemies away from you."
-        },
-        {
           "name": "Sound Barrier",
           "description": "Create temporary extra health for nearby allies."
-        },
-        {
-          "name": "Wall Ride",
-          "description": "Jump onto a wall to ride along it."
         }
       ]
     },
     "mauga": {
       "abilities": [
         {
+          "name": "Berserker",
+          "description": "Gain temporary health when dealing critical damage."
+        },
+        {
+          "name": "Incendiary Chaingun",
+          "description": "Automatic weapon that ignites enemies on repeated impacts."
+        },
+        {
+          "name": "Volatile Chaingun",
+          "description": "Automatic weapon that deals critical damage to burning enemies."
+        },
+        {
           "name": "Overrun",
-          "description": "Charge forward and stomp to launch enemies. You are unstoppable while charging."
+          "description": "Charge forward to stomp and launch enemies. You are unstoppable while charging."
         },
         {
           "name": "Cardiac Overdrive",
           "description": "Gain damage reduction and nearby allies heal themselves by dealing damage."
         },
         {
-          "name": "Berserker",
-          "description": "Gain temporary health when dealing critical damage."
-        },
-        {
           "name": "Cage Fight",
-          "description": "Deploy a barrier that traps yourself and enemies."
+          "description": "Deploy a barrier that traps yourself and enemies. Automatically reloads Mauga's Chainguns at the start of the ultimate."
         }
       ]
     },
@@ -659,7 +737,11 @@
       "abilities": [
         {
           "name": "Endothermic Blaster",
-          "description": "Short-range spray weapon that slows enemies. Long-range icicle launcher."
+          "description": "Short-range spray weapon that slows enemies."
+        },
+        {
+          "name": "Icicle",
+          "description": "Long-range icicle launcher."
         },
         {
           "name": "Cryo-Freeze",
@@ -678,6 +760,14 @@
     "mercy": {
       "abilities": [
         {
+          "name": "Swift Recovery",
+          "description": "Begin regenerating health more quickly."
+        },
+        {
+          "name": "Angelic Descent",
+          "description": "Fall very slowly."
+        },
+        {
           "name": "Caduceus Staff",
           "description": "Hold to heal an ally. Hold to increase an ally's damage inflicted."
         },
@@ -687,15 +777,15 @@
         },
         {
           "name": "Guardian Angel",
-          "description": "Fly towards an ally. While in flight, Jump launches you forward, and Crouch launches you upward."
+          "description": "Fly towards an ally. While in flight, Jump launches you forward, and and Crouch launches you upward."
         },
         {
           "name": "Resurrect",
           "description": "Revive a dead teammate."
         },
         {
-          "name": "Angelic Descent",
-          "description": "Fall very slowly."
+          "name": "Flash Heal",
+          "description": "Heal Caduceus Staff's active target, healing is doubled on allies below half health."
         },
         {
           "name": "Valkyrie",
@@ -706,28 +796,28 @@
     "mizuki": {
       "abilities": [
         {
+          "name": "Remedy Aura",
+          "description": "Heal nearby allies. Healing scales with resource generated by dealing damage and healing."
+        },
+        {
           "name": "Spirit Glaive",
-          "description": "Bouncing projectile that damages enemies."
+          "description": "Throw a spinning blade that impacts enemies and rapidly dealing damage."
         },
         {
           "name": "Healing Kasa",
-          "description": "Throw your hat to bounce it between allies, healing them."
-        },
-        {
-          "name": "Binding Chain",
-          "description": "Launch your chain at an enemy, hindering their movement."
+          "description": "Throw your hat to heal an ally, bouncing to nearby allies and healing you when it returns."
         },
         {
           "name": "Katashiro Return",
-          "description": "Leap forward, gaining increased movement speed. Reactivate to teleport back."
+          "description": "Leap forward, leaving behind a paper doll. Reactivate to return and gain increased movement speed while active."
+        },
+        {
+          "name": "Binding Chain",
+          "description": "Launch a tethering chain that hinders the first enemy hit."
         },
         {
           "name": "Kekkai Sanctuary",
           "description": "Create a sanctuary that heals allies and absorbs enemy projectiles from outside the area."
-        },
-        {
-          "name": "Remedy Aura",
-          "description": "Heal nearby allies. Grows stronger when damaging and healing others."
         }
       ]
     },
@@ -735,15 +825,19 @@
       "abilities": [
         {
           "name": "Biotic Grasp",
-          "description": "Hold to heal all allies in front of you. Consumes biotic energy. Long range beam weapon. Damage dealt heals you and replenishes your biotic energy."
+          "description": "Hold to heal all allies in front of you. Consumes biotic energy."
         },
         {
-          "name": "Biotic Orb",
-          "description": "Launch a bouncing sphere that either heals nearby allies or damages nearby enemies."
+          "name": "Biotic Grasp Alt Fire",
+          "description": "Long range beam weapon. Damage dealt heals you and replenishes your biotic energy."
         },
         {
           "name": "Fade",
           "description": "Disappear, move faster, and become invulnerable, but you cannot shoot."
+        },
+        {
+          "name": "Biotic Orb",
+          "description": "Launch a bouncing sphere that either heals nearby allies or damages nearby enemies."
         },
         {
           "name": "Coalescence",
@@ -755,7 +849,7 @@
       "abilities": [
         {
           "name": "Augmented Fusion Driver",
-          "description": "Automatic heat based weapon."
+          "description": "Automatic heat-based weapon."
         },
         {
           "name": "Energy Javelin",
@@ -771,12 +865,16 @@
         },
         {
           "name": "Terra Surge",
-          "description": "Sweep in enemies and anchor down, gaining the effects of Fortify and charging up a surge of damage. Use Q to unleash the surge early."
+          "description": "Sweep in enemies and anchor down, gaining the effects of Fortify and charging up a surge of damage. Use Primary Fire to unleash the surge early."
         }
       ]
     },
     "pharah": {
       "abilities": [
+        {
+          "name": "Hover Jets",
+          "description": "Hold to hover."
+        },
         {
           "name": "Rocket Launcher",
           "description": "Long-range explosive projectile weapon."
@@ -796,30 +894,34 @@
         {
           "name": "Barrage",
           "description": "Hover in place and launch a continuous volley of mini-rockets."
-        },
-        {
-          "name": "Hover Jets",
-          "description": "Hold to hover. Slows falling when fuel is empty. Fuel only regenerates while on the ground."
         }
       ]
     },
     "ramattra": {
       "abilities": [
         {
-          "name": "Void Accelerator (Omnic Form)",
+          "name": "Void Accelerator",
           "description": "Fire a stream of projectiles."
         },
         {
-          "name": "Void Barrier (Omnic Form)",
+          "name": "Void Barrier",
           "description": "Create a barrier at the targeted location."
         },
         {
-          "name": "Pummel (Nemesis Form)",
+          "name": "Ravenous Vortex",
+          "description": "Fire a sphere of energy that creates a slowing vortex on the ground, slowing and pulling down enemies. Re-activate to detonate early."
+        },
+        {
+          "name": "Nemesis Form",
+          "description": "Transform into Nemesis Form, changing your attacks and gaining bonus armor."
+        },
+        {
+          "name": "Pummel",
           "description": "Punch, creating a wave of piercing energy with every swing."
         },
         {
-          "name": "Ravenous Vortex",
-          "description": "Fire a sphere of energy that detonates on the ground, slowing and pulling down enemies. Re-activate to detonate early."
+          "name": "Block",
+          "description": "Significantly reduces damage taken from the front and reduces movement speed."
         },
         {
           "name": "Annihilation",
@@ -830,24 +932,28 @@
     "reaper": {
       "abilities": [
         {
+          "name": "The Reaping",
+          "description": "Dealing damage heals you."
+        },
+        {
           "name": "Hellfire Shotguns",
           "description": "Short-range spread weapons."
         },
         {
-          "name": "Shadow Step",
-          "description": "Teleport to a targeted location."
+          "name": "Dire Triggers",
+          "description": "Use (RMB) to fire a volley with long range accuracy from both Hellfire shotguns."
         },
         {
           "name": "Wraith Form",
           "description": "Move faster and become invulnerable, but you cannot shoot."
         },
         {
-          "name": "Death Blossom",
-          "description": "Damage all nearby enemies."
+          "name": "Shadow Step",
+          "description": "Teleport to a targeted location."
         },
         {
-          "name": "The Reaping",
-          "description": "Dealing damage heals you."
+          "name": "Death Blossom",
+          "description": "Damage all nearby enemies."
         }
       ]
     },
@@ -858,16 +964,16 @@
           "description": "Devastating melee weapon."
         },
         {
+          "name": "Barrier Field",
+          "description": "Hold to deploy a frontal energy barrier."
+        },
+        {
           "name": "Charge",
           "description": "Charge forward and smash an enemy against a wall."
         },
         {
           "name": "Fire Strike",
           "description": "Launch a fiery projectile."
-        },
-        {
-          "name": "Barrier Field",
-          "description": "Hold to deploy a frontal energy barrier."
         },
         {
           "name": "Earthshatter",
@@ -879,7 +985,11 @@
       "abilities": [
         {
           "name": "Scrap Gun",
-          "description": "Short-range spread weapon. Medium-range projectile that explodes into the weapon's short-range primary fire."
+          "description": "Short-range spread weapon."
+        },
+        {
+          "name": "Scrap Gun Alt Fire",
+          "description": "Medium-range projectile that explodes into the weapon's short-range primary fire."
         },
         {
           "name": "Chain Hook",
@@ -906,12 +1016,12 @@
           "description": "Marks an enemy. Helix Rifle shots automatically track marked enemies."
         },
         {
-          "name": "Tremor Charge",
-          "description": "Throw a charge that creates a shockwave on impact."
+          "name": "Anchor Drone",
+          "description": "Launch an Anchor Drone. Reactivate to launch towards it."
         },
         {
-          "name": "Anchor Drone",
-          "description": "Launch an Anchor Drone. Reactivate to grapple to it."
+          "name": "Tremor Charge",
+          "description": "Throw a charge that creates a shockwave on impact."
         },
         {
           "name": "Trailblazer",
@@ -926,16 +1036,16 @@
           "description": "Launch two charges which implode after a short duration, dealing damage in an area."
         },
         {
+          "name": "Experimental Barrier",
+          "description": "Hold to propel a floating barrier; release to stop. Press again to recall the barrier to you."
+        },
+        {
           "name": "Kinetic Grasp",
           "description": "Absorb projectiles in front of you and convert them into extra health."
         },
         {
           "name": "Accretion",
           "description": "Gather a mass of debris and throw it at an enemy to knock them down."
-        },
-        {
-          "name": "Experimental Barrier",
-          "description": "Hold to propel a floating barrier; release to stop. Press again to recall the barrier to you."
         },
         {
           "name": "Gravitic Flux",
@@ -947,7 +1057,11 @@
       "abilities": [
         {
           "name": "Railgun",
-          "description": "Rapid firing projectiles that generate energy on hit. High impact shot that consumes stored energy and pierces enemies."
+          "description": "Rapid firing projectiles that generate energy on hit."
+        },
+        {
+          "name": "Charged Shot",
+          "description": "High impact shot that consumes stored energy and pierces enemies."
         },
         {
           "name": "Power Slide",
@@ -970,16 +1084,16 @@
           "description": "Automatic assault weapon."
         },
         {
+          "name": "Helix Rockets",
+          "description": "Launch a volley of explosive rockets."
+        },
+        {
           "name": "Sprint",
           "description": "Run faster while moving forward."
         },
         {
           "name": "Biotic Field",
           "description": "Deploy a field that heals you and your allies."
-        },
-        {
-          "name": "Helix Rockets",
-          "description": "Launch a volley of explosive rockets."
         },
         {
           "name": "Tactical Visor",
@@ -990,6 +1104,10 @@
     "sombra": {
       "abilities": [
         {
+          "name": "Opportunist",
+          "description": "You detect enemy ultimate abilities on nameplates, and deal more damage to hacked enemies."
+        },
+        {
           "name": "Machine Pistol",
           "description": "Short-range automatic weapon."
         },
@@ -998,16 +1116,16 @@
           "description": "Hold to hack. Hacked enemies cannot use abilities and can be seen through walls. Hacked health packs spawn faster and can't be used by enemies. Taking damage interrupts the hack attempt."
         },
         {
+          "name": "Virus",
+          "description": "Infect enemies with a projectile that deals damage over time. Virus damages hacked targets at a faster rate."
+        },
+        {
           "name": "Translocator",
           "description": "Throw a beacon and teleport to it. Become stealthed for a short duration after teleporting."
         },
         {
-          "name": "Virus",
-          "description": "Infect enemies with a projectile that deals damage over time. Virus damages hacked enemies at a faster rate."
-        },
-        {
           "name": "EMP",
-          "description": "Deal damage to all nearby enemies equal to a percentage of their current health, hacking them and destroying barriers around you."
+          "description": "Deal damage to all nearby enemies based on their current health, hacking them and destroying barriers around you."
         }
       ]
     },
@@ -1015,7 +1133,11 @@
       "abilities": [
         {
           "name": "Photon Projector",
-          "description": "Short-range beam weapon with increasing damage. Hold to charge, release to fire explosive orb."
+          "description": "Short-range beam weapon with increasing damage."
+        },
+        {
+          "name": "Photon Projector Alt Fire",
+          "description": "Hold to charge, release to fire explosive orb."
         },
         {
           "name": "Sentry Turret",
@@ -1023,7 +1145,7 @@
         },
         {
           "name": "Teleporter",
-          "description": "Create two temporary teleporters that enable instant travel between them."
+          "description": "Create two temporary teleporters that enable instance travel between them."
         },
         {
           "name": "Photon Barrier",
@@ -1035,7 +1157,11 @@
       "abilities": [
         {
           "name": "Rivet Gun",
-          "description": "Slow firing, long-ranged weapon. Inaccurate but powerful short-range weapon."
+          "description": "Slow firing, long-ranged weapon."
+        },
+        {
+          "name": "Rivet Gun Alt Fire",
+          "description": "Inaccurate but powerful short-range weapon."
         },
         {
           "name": "Forge Hammer",
@@ -1078,12 +1204,20 @@
     "vendetta": {
       "abilities": [
         {
+          "name": "Onslaught",
+          "description": "Strike enemies to increase movement and attack speed."
+        },
+        {
           "name": "Palatine Fang",
           "description": "Hard-light greatsword. Combo swings to end with a destructive overhead slash."
         },
         {
           "name": "Warding Stance",
           "description": "Block with your sword, reducing frontal damage and deflecting melee attacks. Blocking damage depletes energy."
+        },
+        {
+          "name": "Projected Edge",
+          "description": "Available when Warding Stance is active. Consume energy to fire a wide projectile."
         },
         {
           "name": "Whirlwind Dash",
@@ -1094,10 +1228,6 @@
           "description": "Hurl your sword in the direction you are facing and then fly to it."
         },
         {
-          "name": "Projected Edge",
-          "description": "Available while Warding Stance is active. Consume energy to fire a wide projectile."
-        },
-        {
           "name": "Sundering Blade",
           "description": "Cleave through most defenses, dealing severe damage to enemies in front of you."
         }
@@ -1106,16 +1236,24 @@
     "venture": {
       "abilities": [
         {
-          "name": "SMART Excavator",
+          "name": "Clobber",
+          "description": "Quick melee deals more damage."
+        },
+        {
+          "name": "Explorer's Resolve",
+          "description": "Using abilities grants temporary shields."
+        },
+        {
+          "name": "Smart Excavator",
           "description": "Launch a seismic charge that bursts after a short distance."
         },
         {
           "name": "Drill Dash",
-          "description": "Dash forward while above or underground, pushing enemies back. The cooldown is accelerated while Burrow is active."
+          "description": "Dash forward while above or underground, pushing enemies back. The cooldown is accelerated while underground."
         },
         {
           "name": "Burrow",
-          "description": "Move underground and become invulnerable. Press or hold LSHIFT to emerge and damage enemies."
+          "description": "Move underground and become invulnerable. Emerge to deal damage."
         },
         {
           "name": "Tectonic Shock",
@@ -1127,7 +1265,11 @@
       "abilities": [
         {
           "name": "Widow's Kiss",
-          "description": "Automatic assault weapon. Hold for long-ranged sniper weapon."
+          "description": "Automatic assault weapon."
+        },
+        {
+          "name": "Widow's Kiss (ADS)",
+          "description": "Hold for long-ranged sniper weapon."
         },
         {
           "name": "Grappling Hook",
@@ -1147,7 +1289,11 @@
       "abilities": [
         {
           "name": "Tesla Cannon",
-          "description": "Electric frontal-cone weapon. Hold to charge, release to fire focused electricity."
+          "description": "Electric frontal-cone weapon."
+        },
+        {
+          "name": "Tesla Cannon Alt Fire",
+          "description": "Hold to charge, release to fire focused electricity"
         },
         {
           "name": "Jump Pack",
@@ -1178,12 +1324,12 @@
           "description": "Transform into a ball and increase maximum movement speed."
         },
         {
-          "name": "Piledriver",
-          "description": "Slam into the ground below to damage and launch enemies upward."
+          "name": "Adaptive Shield",
+          "description": "Create temporary extra health that increase with more nearby enemies. Some of the health can be transferred to allies."
         },
         {
-          "name": "Adaptive Shield",
-          "description": "Create temporary extra health that increases with more nearby enemies. Some of the health can be transferred to allies."
+          "name": "Piledriver",
+          "description": "Slam into the ground below to damage and launch enemies upward."
         },
         {
           "name": "Minefield",
@@ -1206,20 +1352,28 @@
           "description": "Ride water to move faster and jump higher."
         },
         {
-          "name": "Tidal Blast",
-          "description": "Protect an ally or yourself with water that detonates after a short duration. The explosion knocks down enemies and massively heals the host target."
-        },
-        {
           "name": "Guardian Wave",
           "description": "Send a water wave forward that increases the amount of healing received by allies and knocks back enemies."
+        },
+        {
+          "name": "Tidal Blast",
+          "description": "Protect an ally or yourself with water that detonates after a short duration. The explosion knocks down enemies and massively heals the host target."
         }
       ]
     },
     "zarya": {
       "abilities": [
         {
+          "name": "Energy",
+          "description": "Damage blocked by barriers increases Particle Cannon damage."
+        },
+        {
           "name": "Particle Cannon",
-          "description": "Short-range linear beam weapon. Energy grenade launcher."
+          "description": "Short-range linear beam weapon."
+        },
+        {
+          "name": "Particle Cannon Alt Fire",
+          "description": "Energy grenade launcher."
         },
         {
           "name": "Particle Barrier",
@@ -1232,34 +1386,34 @@
         {
           "name": "Graviton Surge",
           "description": "Launch a gravity well that pulls enemies to it."
-        },
-        {
-          "name": "Energy",
-          "description": "Damage blocked by barriers increases Particle Cannon damage."
         }
       ]
     },
     "zenyatta": {
       "abilities": [
         {
-          "name": "Orb of Destruction",
-          "description": "Energy projectile weapon. Charge to release more projectiles."
+          "name": "Snap Kick",
+          "description": "Quick melee damage increased by 50%, and its knockback is significantly increased."
         },
         {
-          "name": "Orb of Discord",
-          "description": "Launch this orb at an enemy to increase the damage they take."
+          "name": "Orb of Destruction",
+          "description": "Energy projectile weapon."
+        },
+        {
+          "name": "Orb of Destruction Alt Fire",
+          "description": "Charge to release more projectiles."
         },
         {
           "name": "Orb of Harmony",
           "description": "Launch this orb at an ally to heal them."
         },
         {
-          "name": "Transcendence",
-          "description": "Become invulnerable, move faster, and heal nearby allies."
+          "name": "Orb of Discord",
+          "description": "Launch this orb at an enemy to increase the damage they take."
         },
         {
-          "name": "Snap Kick",
-          "description": "Quick melee damage increased by 50%, and its knockback is significantly increased."
+          "name": "Transcendence",
+          "description": "Become invulnerable, move faster, and heal nearby allies."
         }
       ]
     }

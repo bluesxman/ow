@@ -11,7 +11,9 @@ effort: high
 
 Reads Blizzard's public patch notes, figures out which heroes and abilities in `data/heroes/*.json` are affected by quantitative changes, edits the per-hero JSONs in place, regenerates the aggregate files, and opens a PR for human review.
 
-Fandom's wiki (the source of `stats.*` fields) lags real patches. This skill is the human-in-the-loop bridge until the next full scrape catches up.
+Fandom's wiki (the source of every ability/perk/stat in the per-hero JSON) lags real patches by days or weeks. Blizzard's patch notes are authoritative — when they conflict with the Fandom-derived JSON, the patch notes win. This skill is the human-in-the-loop bridge that lets us ship corrected data before the next full Fandom-driven scrape catches up.
+
+When you bump `data/`, also bump `metadata.schema_version` per the semver policy in [AGENTS.md](../../../AGENTS.md#data-versioning-semver): patch-only changes (this skill's normal mode) get a **patch** bump.
 
 ## Preflight
 
@@ -79,9 +81,9 @@ If a patch repeatedly references a quantity that isn't tracked, that's a signal 
 
 ## Safety rails
 
-- **Do not touch** `metadata.last_updated`, `metadata.patch_version`, `metadata.hero_count`, `metadata.heroes_failed`, `metadata.fandom_failed`. Those are owned by the scrape pipeline; `rebuild-aggregates` carries the existing values through verbatim.
+- **Do not touch** `metadata.last_updated`, `metadata.patch_version`, `metadata.hero_count`, `metadata.heroes_failed`, `metadata.fandom_failed`. Those are owned by the scrape pipeline; `rebuild-aggregates` carries the existing values through verbatim. `metadata.schema_version` should be bumped to a new patch version (e.g. `5.0.0` → `5.0.1`) when this skill commits data changes — see [AGENTS.md](../../../AGENTS.md#data-versioning-semver).
 - **Do not touch** `data/ATTRIBUTION.md`, `data/CHANGELOG.md`, or `data/LICENSE`.
-- **Do not touch** Blizzard-sourced fields: `hero.abilities[*].description`, `hero.perks.*`, `hero.role`, `hero.portrait_url`. If a patch note rewrites ability behavior qualitatively, skip and note in the PR body — the next scrape will pick up Blizzard's new description.
+- **Do not touch** descriptive fields: `hero.abilities[*].description`, `hero.perks.*.name`, `hero.perks.*.description`, `hero.role`, `hero.portrait_url`. If a patch rewrites ability behavior qualitatively or renames an ability, skip and note in the PR body — the next Fandom-driven scrape will pick the new wording up.
 - If a bullet references a hero not in `data/heroes/` (PTR-only, removed, or new hero not yet scraped), skip and note.
 - If a percent delta is ambiguous about the base value, skip and note — don't guess.
 - Never merge the PR. Human review is the safety net.

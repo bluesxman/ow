@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T15:47:39.427Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,18 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
           "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.abilities.*"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Pharah",
@@ -44,6 +46,10 @@
     "role": "damage",
     "sub_role": "recon",
     "abilities": [
+      {
+        "name": "Hover Jets",
+        "description": "Hold to hover."
+      },
       {
         "name": "Rocket Launcher",
         "description": "Long-range explosive projectile weapon."
@@ -63,10 +69,6 @@
       {
         "name": "Barrage",
         "description": "Hover in place and launch a continuous volley of mini-rockets."
-      },
-      {
-        "name": "Hover Jets",
-        "description": "Hold to hover. Slows falling when fuel is empty. Fuel only regenerates while on the ground."
       }
     ],
     "perks": {
@@ -87,15 +89,15 @@
         },
         {
           "name": "Rocket Salvo",
-          "description": "After using a movement ability, your next primary fire also shoots two spiraling mini-rockets, each exploding for 40 damage."
+          "description": "After using a movement ability, the next primary fire shoots two spiraling mini-rockets, each dealing 40 damage."
         }
       ]
     },
     "stats": {
+      "health": 225,
       "abilities": {
         "Hover Jets": {
           "ability_type": "Passive Ability",
-          "key": "jump",
           "duration": "Up to 2 seconds (continuous flight) / 0.3 seconds (energy regen delay)"
         },
         "Rocket Launcher": {
@@ -113,20 +115,17 @@
         },
         "Jet Dash": {
           "ability_type": "Ability",
-          "key": "Secondary Fire",
           "cooldown": "9 seconds",
           "duration": "0.85 seconds"
         },
         "Jump Jet": {
           "ability_type": "Ability",
-          "key": "ability 1",
           "cooldown": "14 seconds",
           "duration": "0.85 seconds (launch) / 6 seconds (overfill)",
           "range": "8.4 meters (vertical)"
         },
         "Concussive Blast": {
           "ability_type": "Ability",
-          "key": "ability 2",
           "cooldown": "7 seconds",
           "damage": "30 (direct hit only)",
           "headshot": false,
@@ -144,22 +143,8 @@
           "projectile_speed": "45 m/s",
           "projectile_radius": "0.075 meters",
           "spread": "8 degrees"
-        },
-        "Concussive Force": {
-          "ability_type": "Minor Perk"
-        },
-        "Helix Shields": {
-          "ability_type": "Minor Perk"
-        },
-        "Fuel Stores": {
-          "ability_type": "Major Perk"
-        },
-        "Rocket Salvo": {
-          "ability_type": "Major Perk",
-          "damage": "40 (per rocket) / 200 (direct hit if all rockets land)"
         }
-      },
-      "health": 225
+      }
     }
   }
 }

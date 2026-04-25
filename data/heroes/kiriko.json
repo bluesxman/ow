@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T15:47:39.427Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,18 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
           "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.abilities.*"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Kiriko",
@@ -44,6 +46,10 @@
     "role": "support",
     "sub_role": "medic",
     "abilities": [
+      {
+        "name": "Wall Climb (Kiriko)",
+        "description": "Jump at walls to climb up them."
+      },
       {
         "name": "Healing Ofuda",
         "description": "Channel a burst of healing talismans that can seek targeted allies."
@@ -62,14 +68,14 @@
       },
       {
         "name": "Kitsune Rush",
-        "description": "Summon a fox spirit that rushes forward, accelerating the movement, attack speed, and cooldowns of allies that follow in its path."
+        "description": "Summon a fox spirit that rushes forward, accelerating the movement, attack speed, and cooldowns of allies that follow its path."
       }
     ],
     "perks": {
       "minor": [
         {
           "name": "Urgent Care",
-          "description": "Healing Ofuda projectile speed is increased by 50% when seeking allies below half health."
+          "description": "Healing Ofuda projectile speed is increased by 50% when seeking critical health allies."
         },
         {
           "name": "Fortune Teller",
@@ -88,10 +94,14 @@
       ]
     },
     "stats": {
+      "health": 225,
       "abilities": {
+        "Wall Climb (Kiriko)": {
+          "ability_type": "Passive Ability",
+          "duration": "Up to 1 second"
+        },
         "Healing Ofuda": {
           "ability_type": "Weapon;;Primary Fire",
-          "key": "primary fire",
           "healing": "13 (per talisman) / 26 (per burst)",
           "rate_of_fire": "0.2 seconds (per burst) / 1.42 seconds (full clip)",
           "reload": "0.9 seconds",
@@ -103,7 +113,6 @@
         },
         "Kunai": {
           "ability_type": "Weapon;;Secondary Fire",
-          "key": "secondary fire",
           "damage": 60,
           "headshot": true,
           "rate_of_fire": "2 shots/s",
@@ -116,14 +125,12 @@
         },
         "Swift Step": {
           "ability_type": "Ability",
-          "key": "ability 1",
           "range": "30 meters",
           "duration": "0.25 second invulnerability",
           "cooldown": "7 seconds"
         },
         "Protection Suzu": {
           "ability_type": "Ability",
-          "key": "ability 2",
           "cooldown": "14 seconds",
           "healing": "80 (no cleanse) / 110 (cleanse)",
           "projectile_speed": "37 m/s",
@@ -135,24 +142,8 @@
           "ability_type": "Ultimate Ability",
           "duration": "8 seconds (area) / 1 second (lingering buff)",
           "range": "32.2 meters"
-        },
-        "Urgent Care": {
-          "ability_type": "Minor Perk",
-          "projectile_speed": "30 → 42 m/s"
-        },
-        "Fortune Teller": {
-          "ability_type": "Minor Perk"
-        },
-        "Ready Step": {
-          "ability_type": "Major Perk",
-          "dps": "while firing ( w/ reload)"
-        },
-        "Foxtrot": {
-          "ability_type": "Major Perk",
-          "duration": "4 seconds"
         }
-      },
-      "health": 225
+      }
     }
   }
 }

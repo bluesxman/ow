@@ -4,7 +4,12 @@ This file is for AI agents working with this repository. Humans should start wit
 
 ## What this repo is
 
-A patch-tracking pipeline that scrapes [Blizzard's Overwatch hero pages](https://overwatch.blizzard.com/en-us/heroes/) and the [Overwatch Fandom Wiki](https://overwatch.fandom.com/) and publishes the result as static JSON under [`data/`](./data). The data is meant to be fetched by AI assistants that can't execute JavaScript on Blizzard's client-rendered perks UI.
+A patch-tracking pipeline that publishes Overwatch hero data as static JSON under [`data/`](./data). The data is meant to be fetched by AI assistants that can't execute JavaScript on Blizzard's client-rendered hero UI.
+
+Source-of-truth split:
+
+- **[Overwatch Fandom Wiki](https://overwatch.fandom.com/)** owns abilities, perks, sub-roles, HP, and per-ability combat stats. One naming authority for everything ability-shaped — keys in `stats.abilities` always match an entry in `abilities[]`.
+- **[Blizzard's Overwatch site](https://overwatch.blizzard.com/en-us/heroes/)** owns the roster (slug, display name, role, portrait) and the patch-notes feed used to override stale Fandom values.
 
 ## If you're consuming the data
 
@@ -20,6 +25,16 @@ A patch-tracking pipeline that scrapes [Blizzard's Overwatch hero pages](https:/
 Some agents (Claude.ai chat, for example) won't fetch arbitrary URLs — only ones that already appeared in a search result or a prior fetch. For those, [`links.md`](https://raw.githubusercontent.com/bluesxman/ow/main/data/links.md) is a flat markdown list of every published raw URL. Fetch that one URL once, and every other file in `data/` becomes reachable.
 
 The full file inventory and use-case guidance lives in the "Published files" section of [README.md](./README.md).
+
+## Data versioning (semver)
+
+`metadata.schema_version` follows semver. The version is the contract between this repo and downstream consumers. Bump it deliberately:
+
+- **Major** (`X.0.0`): breaking schema change. Renamed/removed fields, changed types, restructured shape, or any change that requires consumers to update parsing code. May include data changes too.
+- **Minor** (`X.Y.0`): non-breaking schema change. Added optional fields, new aggregate files, additional metadata. Existing consumers keep working unchanged. May include data changes.
+- **Patch** (`X.Y.Z`): data-only change. No schema change at all — same fields, same types, same shape. Routine refreshes from new patches go here.
+
+Edit the constant in [`src/config.ts`](./src/config.ts) (`SCHEMA_VERSION`) and call out the bump in the PR body. Routine `chore(data): refresh hero data` PRs should use a patch bump; the scrape workflow does not bump it automatically — set it explicitly when you intend a release.
 
 ## If you're modifying the code
 

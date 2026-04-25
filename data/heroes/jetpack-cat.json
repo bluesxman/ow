@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T15:47:39.427Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,18 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
           "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.abilities.*"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Jetpack_Cat",
@@ -44,6 +46,10 @@
     "role": "support",
     "sub_role": "tactician",
     "abilities": [
+      {
+        "name": "Jetpack",
+        "description": "Permanent flight."
+      },
       {
         "name": "Biotic Pawjectiles",
         "description": "Mid-range projectile spread that heals allies and damages enemies."
@@ -69,29 +75,32 @@
       "minor": [
         {
           "name": "Ulterior Motive",
-          "description": "15% of Biotic Pawjectiles healing recovers fuel."
+          "description": "15% of Biotic Pawjectiles healing is converted into fuel."
         },
         {
           "name": "Transport Shielding",
-          "description": "Gain up to 75 extra shield health while carrying another hero."
+          "description": "Gain up to 75 shield health while carrying another hero."
         }
       ],
       "major": [
         {
           "name": "Headbutt",
-          "description": "Frenetic Flight can knockback an enemy on impact when flying fast enough. Generate 25% fuel on knockback."
+          "description": "Frenetic Flight can knockback an enemy on impact when flying fast enough. Generate 25% fuel on knockback"
         },
         {
           "name": "Claws Out",
-          "description": "Quick melee becomes empowered every 6 seconds, wounding enemies for 40 damage and slowing them by 30% for 1 second."
+          "description": "Quick Melee becomes empowered every 6 seconds, wounding enemies for 40 damage and slowing them by 30% for 1 second."
         }
       ]
     },
     "stats": {
+      "health": 225,
       "abilities": {
+        "Jetpack": {
+          "ability_type": "Passive Ability"
+        },
         "Biotic Pawjectiles": {
           "ability_type": "Weapon",
-          "key": "primary fire",
           "damage": "24 (per volley) / 8 (center pellet) / 4 (per paw pellet)",
           "headshot": false,
           "healing": "24 (per volley)",
@@ -107,19 +116,16 @@
         },
         "Frenetic Flight": {
           "ability_type": "Ability",
-          "key": "secondary fire",
           "duration": "0.75 seconds (regen delay)"
         },
         "Lifeline": {
           "ability_type": "Ability",
-          "key": "ability 1",
           "cooldown": "2 seconds",
           "radius": "4 meters (tether length)",
           "healing": "25 per second (ally)"
         },
         "Purr": {
           "ability_type": "Ability",
-          "key": "ability 2",
           "cooldown": "12 seconds",
           "damage": 30,
           "healing": "30 (per pulse)",
@@ -132,26 +138,8 @@
           "duration": "1.5 seconds (stun) / 4 seconds (max ultimate duration)",
           "range": "25 meters",
           "radius": "6 meters"
-        },
-        "Ulterior Motive": {
-          "ability_type": "Minor Perk"
-        },
-        "Transport Shielding": {
-          "ability_type": "Minor Perk"
-        },
-        "Headbutt": {
-          "ability_type": "Major Perk",
-          "damage": 30
-        },
-        "Claws Out": {
-          "ability_type": "Major Perk",
-          "key": "quick melee",
-          "cooldown": "6 seconds.",
-          "damage": "40 (damage over time)",
-          "duration": "1 second"
         }
-      },
-      "health": 225
+      }
     }
   }
 }

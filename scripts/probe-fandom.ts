@@ -54,13 +54,14 @@ async function main(): Promise<void> {
   console.log(`  ability blocks parsed: ${abilities.length}`);
   console.log('');
 
-  const hero = normalizeFandomHero(infobox, abilities);
+  const hero = normalizeFandomHero(wikitext);
   console.log('--- normalized output ---');
   console.log(`  sub_role: ${hero.sub_role ?? '<none>'}`);
   console.log(`  health:   ${hero.stats.health ?? '<none>'}`);
   console.log(`  armor:    ${hero.stats.armor ?? '<none>'}`);
   console.log(`  shields:  ${hero.stats.shields ?? '<none>'}`);
-  console.log('  abilities:');
+  console.log(`  perks: minor=[${hero.perks.minor.map((p) => p.name).join(', ')}] major=[${hero.perks.major.map((p) => p.name).join(', ')}]`);
+  console.log(`  abilities (${hero.abilities.length}): ${hero.abilities.map((a) => a.name).join(' | ')}`);
   for (const [name, stats] of Object.entries(hero.stats.abilities ?? {})) {
     const summary = Object.entries(stats)
       .filter(([, v]) => v !== undefined && v !== '')

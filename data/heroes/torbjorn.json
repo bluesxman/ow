@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T15:47:39.427Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,18 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
           "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.abilities.*"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Torbj%C3%B6rn",
@@ -46,7 +48,11 @@
     "abilities": [
       {
         "name": "Rivet Gun",
-        "description": "Slow firing, long-ranged weapon. Inaccurate but powerful short-range weapon."
+        "description": "Slow firing, long-ranged weapon."
+      },
+      {
+        "name": "Rivet Gun Alt Fire",
+        "description": "Inaccurate but powerful short-range weapon."
       },
       {
         "name": "Forge Hammer",
@@ -88,6 +94,8 @@
       ]
     },
     "stats": {
+      "health": 225,
+      "armor": 75,
       "abilities": {
         "Rivet Gun": {
           "ability_type": "Weapon;;Primary Fire",
@@ -99,23 +107,21 @@
           "ammo": 18,
           "reload": "2 seconds",
           "spread": "None",
-          "dps": "137.25 while firing (112.7 overall w/reload)",
-          "modes": {
-            "Secondary Fire": {
-              "key": "secondary fire",
-              "damage": "12.5 - 3.75 per pellet / 125 - 37.5 per shot",
-              "falloff": "10 – 20 meters",
-              "headshot": true,
-              "rate_of_fire": "1.43 shots/s",
-              "ammo": 18,
-              "pellets": 10,
-              "reload": "2 seconds",
-              "spread": "4.5 degrees",
-              "projectile_speed": "120 m/s",
-              "projectile_radius": "0.05 meters",
-              "dps": "178.57 while firing (135.54 overall w/reload)"
-            }
-          }
+          "dps": "137.25 while firing (112.7 overall w/reload)"
+        },
+        "Rivet Gun Alt Fire": {
+          "ability_type": "Weapon;;Secondary Fire",
+          "damage": "12.5 - 3.75 per pellet / 125 - 37.5 per shot",
+          "falloff": "10 – 20 meters",
+          "headshot": true,
+          "rate_of_fire": "1.43 shots/s",
+          "ammo": 18,
+          "pellets": 10,
+          "reload": "2 seconds",
+          "spread": "4.5 degrees",
+          "projectile_speed": "120 m/s",
+          "projectile_radius": "0.05 meters",
+          "dps": "178.57 while firing (135.54 overall w/reload)"
         },
         "Forge Hammer": {
           "ability_type": "Weapon",
@@ -129,7 +135,6 @@
         },
         "Deploy Turret": {
           "ability_type": "Ability",
-          "key": "ability 1",
           "cooldown": "5 seconds / 12 seconds (in combat)",
           "health": 225,
           "damage": 12,
@@ -142,7 +147,6 @@
         },
         "Overload": {
           "ability_type": "Ability",
-          "key": "ability 2",
           "cooldown": "10 seconds",
           "rate_of_fire": "Rivet Gun: 0.4 second recovery (primary fire) / Rivet Gun: 0.5 second recovery (alternate fire) / Forge Hammer: 0.6 second recovery",
           "reload": "1.4 seconds (Rivet Gun)",
@@ -158,25 +162,8 @@
           "ammo": 10,
           "rate_of_fire": "1 ammo per 0.144 (if holding primary) / 1 ammo per 0.016 (manual rapid fire)",
           "dps": "190 per second (pools) +100 (pools, bonus against armor)"
-        },
-        "Hammer Time": {
-          "ability_type": "Minor Perk"
-        },
-        "Pre-Heated": {
-          "ability_type": "Minor Perk"
-        },
-        "Anchor Bolts": {
-          "ability_type": "Major Perk"
-        },
-        "Overloaded Turret": {
-          "ability_type": "Major Perk",
-          "health": "+150",
-          "damage": 30,
-          "duration": "5 seconds"
         }
-      },
-      "health": 225,
-      "armor": 75
+      }
     }
   }
 }

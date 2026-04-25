@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T15:47:39.427Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,18 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
           "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.abilities.*"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Mei",
@@ -46,7 +48,11 @@
     "abilities": [
       {
         "name": "Endothermic Blaster",
-        "description": "Short-range spray weapon that slows enemies. Long-range icicle launcher."
+        "description": "Short-range spray weapon that slows enemies."
+      },
+      {
+        "name": "Icicle",
+        "description": "Long-range icicle launcher."
       },
       {
         "name": "Cryo-Freeze",
@@ -84,6 +90,7 @@
       ]
     },
     "stats": {
+      "health": 300,
       "abilities": {
         "Endothermic Blaster": {
           "ability_type": "Weapon;;Primary Fire",
@@ -97,32 +104,28 @@
           "projectile_speed": "40 m/s",
           "projectile_radius": "0.55 meters",
           "spread": "None",
-          "dps": "110 while firing (90.58 overall w/reload)",
-          "modes": {
-            "Secondary Fire": {
-              "key": "secondary fire",
-              "damage": 85,
-              "headshot": true,
-              "rate_of_fire": "1 shot per 0.8 seconds",
-              "ammo": 140,
-              "reload": "1.5 seconds animation",
-              "spread": "None",
-              "projectile_radius": "0.2 meters",
-              "projectile_speed": "115 m/s",
-              "dps": "106.25 while firing (94.44 overall w/reload)"
-            }
-          }
+          "dps": "110 while firing (90.58 overall w/reload)"
+        },
+        "Icicle": {
+          "ability_type": "Weapon;;Secondary Fire",
+          "damage": 85,
+          "headshot": true,
+          "rate_of_fire": "1 shot per 0.8 seconds",
+          "ammo": 140,
+          "reload": "1.5 seconds animation",
+          "spread": "None",
+          "projectile_radius": "0.2 meters",
+          "projectile_speed": "115 m/s",
+          "dps": "106.25 while firing (94.44 overall w/reload)"
         },
         "Cryo-Freeze": {
           "ability_type": "Ability",
-          "key": "ability 1",
           "cooldown": "12 seconds",
           "healing": "62.5 per second",
           "duration": "0.44 seconds min. duration / 4 seconds max. duration / 0.24 seconds recovery"
         },
         "Ice Wall": {
           "ability_type": "Ability",
-          "key": "ability 2",
           "cooldown": "12 seconds",
           "health": "250 per pillar / 5 pillars",
           "range": "25 meters",
@@ -136,27 +139,8 @@
           "projectile_radius": "None",
           "radius": "10 meters",
           "duration": "4.25 seconds"
-        },
-        "Skating Rink": {
-          "ability_type": "Minor Perk",
-          "healing": "50 per second"
-        },
-        "Glacial Propulsion": {
-          "ability_type": "Minor Perk",
-          "key": "jump",
-          "cooldown": "10 seconds"
-        },
-        "Deep Freeze": {
-          "ability_type": "Major Perk",
-          "duration": "1 second"
-        },
-        "Cryo-Storm": {
-          "ability_type": "Major Perk",
-          "damage": "70 per second",
-          "radius": "4.5 meters"
         }
-      },
-      "health": 300
+      }
     }
   }
 }

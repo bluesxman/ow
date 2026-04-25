@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T15:47:39.427Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,18 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
           "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.abilities.*"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Echo",
@@ -44,6 +46,10 @@
     "role": "damage",
     "sub_role": "recon",
     "abilities": [
+      {
+        "name": "Glide",
+        "description": "Hold jump to glide while falling."
+      },
       {
         "name": "Tri-Shot",
         "description": "Fires 3 shots at once, in a triangle pattern."
@@ -63,17 +69,13 @@
       {
         "name": "Duplicate",
         "description": "Become a copy of the targeted hero. They cannot swap heroes for the duration."
-      },
-      {
-        "name": "Glide",
-        "description": "Hold jump to glide while falling."
       }
     ],
     "perks": {
       "minor": [
         {
           "name": "Focused Rush",
-          "description": "Focusing Beam's range is increased by 6 meters and movement speed is increased by 20% when active."
+          "description": "Focused Beam's range is increase by 6 meters and movement speed is increase by 20% when active."
         },
         {
           "name": "Partial Scan",
@@ -92,10 +94,11 @@
       ]
     },
     "stats": {
+      "health": 150,
+      "shields": 75,
       "abilities": {
         "Glide": {
-          "ability_type": "Passive Ability",
-          "key": "jump"
+          "ability_type": "Passive Ability"
         },
         "Tri-Shot": {
           "ability_type": "Weapon",
@@ -112,7 +115,6 @@
         },
         "Sticky Bombs": {
           "ability_type": "Ability",
-          "key": "secondary fire",
           "cooldown": "6 seconds",
           "damage": "5 (direct hit) / 25 (explosion, enemy) / 12.5 (explosion, self)",
           "headshot": false,
@@ -124,13 +126,11 @@
         },
         "Flight": {
           "ability_type": "Ability",
-          "key": "ability 1",
           "cooldown": "6 seconds",
           "duration": "0.2 seconds (min) / 3 seconds (max)"
         },
         "Focusing Beam": {
           "ability_type": "Ability",
-          "key": "ability 2",
           "cooldown": "8 seconds",
           "damage": "75 per second / 175 per second (target <50% hp)",
           "headshot": false,
@@ -142,24 +142,8 @@
           "ability_type": "Ultimate Ability",
           "range": "40 meters",
           "duration": "15 seconds (transformation) / 1.3 seconds (invulnerability, casting) / 1 second (invulnerability, ending)"
-        },
-        "Focused Rush": {
-          "ability_type": "Minor Perk",
-          "range": "16 → 22 meters"
-        },
-        "Partial Scan": {
-          "ability_type": "Minor Perk"
-        },
-        "Full Salvo": {
-          "ability_type": "Major Perk",
-          "pellets": "6 → 9"
-        },
-        "High Beams": {
-          "ability_type": "Major Perk"
         }
-      },
-      "health": 150,
-      "shields": 75
+      }
     }
   }
 }

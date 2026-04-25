@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T15:47:39.427Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,18 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
           "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.abilities.*"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/D.Va",
@@ -45,6 +47,10 @@
     "sub_role": "initiator",
     "abilities": [
       {
+        "name": "Eject!",
+        "description": "Eject out of your mech when it's destroyed."
+      },
+      {
         "name": "Fusion Cannons",
         "description": "Automatic short-range spread weapons."
       },
@@ -53,12 +59,12 @@
         "description": "Automatic weapon."
       },
       {
-        "name": "Boosters",
-        "description": "Fly in the direction you are facing."
-      },
-      {
         "name": "Defense Matrix",
         "description": "Block projectiles in an area in front of you."
+      },
+      {
+        "name": "Boosters",
+        "description": "Fly in the direction you are facing."
       },
       {
         "name": "Micro Missiles",
@@ -71,17 +77,13 @@
       {
         "name": "Call Mech",
         "description": "Call down a new mech."
-      },
-      {
-        "name": "Eject!",
-        "description": "Eject out of your mech when it is destroyed."
       }
     ],
     "perks": {
       "minor": [
         {
           "name": "Bunny Power",
-          "description": "Eject grants 75 temporary overhealth and Call Mech’s damage radius is increased by 50%."
+          "description": "Eject grants 75 temporary overhealth and Call Mech's damage radius is increased by 50%."
         },
         {
           "name": "Extended Boosters",
@@ -95,11 +97,13 @@
         },
         {
           "name": "Precision Fusion",
-          "description": "Press R to reduce Fusion Cannons' spread by 75% for 3 seconds."
+          "description": "Press Reload to reduce Fusion Cannons' Spread by 75% for 3 seconds."
         }
       ]
     },
     "stats": {
+      "health": 175,
+      "armor": 325,
       "abilities": {
         "Eject!": {
           "ability_type": "Passive Ability",
@@ -131,14 +135,12 @@
         },
         "Defense Matrix": {
           "ability_type": "Ability;;Mech",
-          "key": "secondary fire",
           "cooldown": "1 second",
           "duration": "0.5 seconds (min) / 3 seconds (max) / 0.75 seconds (energy regen delay)",
           "range": "10.3 meters"
         },
         "Boosters": {
           "ability_type": "Ability;;Mech",
-          "key": "ability 1",
           "cooldown": "4 seconds",
           "damage": 25,
           "headshot": false,
@@ -147,7 +149,6 @@
         },
         "Micro Missiles": {
           "ability_type": "Ability;;Mech",
-          "key": "ability 2",
           "cooldown": "7 seconds",
           "damage": "3 (direct hit bonus) / 5.5 - 1.375 (splash, enemy) / 5.5 - 1.375 (splash, self)",
           "rate_of_fire": "11 shots/s",
@@ -170,35 +171,8 @@
           "headshot": false,
           "range": "1.5 meters",
           "radius": "3 meter radius"
-        },
-        "Bunny Power": {
-          "ability_type": "Minor Perk",
-          "radius": "4.5 meters",
-          "duration": "10 seconds"
-        },
-        "Extended Boosters": {
-          "ability_type": "Minor Perk"
-        },
-        "Shield System": {
-          "ability_type": "Major Perk",
-          "health": -150
-        },
-        "Precision Fusion": {
-          "key": "reload",
-          "ability_type": "Major Perk",
-          "cooldown": "8 seconds",
-          "damage": "2 - 0.6 → 1 - 0.3 (per projectile) / 22 - 6.6 → 11 - 3.3 (per volley)",
-          "falloff": "10 - 20 → 15 - 30 meters",
-          "headshot": true,
-          "ammo": "∞",
-          "rate_of_fire": "6.67 shots/s → 13.33 shots/s",
-          "pellets": "11 per shot",
-          "spread": "→ degrees",
-          "duration": "3 seconds"
         }
-      },
-      "health": 175,
-      "armor": 325
+      }
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T15:47:39.427Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,18 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
           "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.abilities.*"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Bastion",
@@ -45,8 +47,8 @@
     "sub_role": "specialist",
     "abilities": [
       {
-        "name": "Configuration: Assault",
-        "description": "A slow-moving tank with a powerful rotary cannon."
+        "name": "Ironclad",
+        "description": "Reduces damage taken while transformed."
       },
       {
         "name": "Configuration: Recon",
@@ -54,32 +56,36 @@
       },
       {
         "name": "A-36 Tactical Grenade",
-        "description": "Fire a bomb that bounces off walls and explodes when it impacts enemies or the ground."
+        "description": "Fire a bomb that bounces off walls and explodes when it hits enemies or the ground."
       },
       {
         "name": "Reconfigure",
         "description": "Switch between weapon configurations."
       },
       {
+        "name": "Configuration: Assault",
+        "description": "A slow moving tank with a powerful rotary cannon."
+      },
+      {
         "name": "Configuration: Artillery",
-        "description": "Become immobile and fire up to 3 powerful artillery shells."
+        "description": "Become immobile and fire up to three powerful artillery shells."
       }
     ],
     "perks": {
       "minor": [
         {
-          "name": "Armored Artillery",
-          "description": "Configuration: Artillery grants 300 temporary overhealth."
-        },
-        {
           "name": "Configuration Reload",
           "description": "Reduce the cooldown of A-36 Tactical Grenade by 4 seconds when changing configurations."
+        },
+        {
+          "name": "Armored Artillery",
+          "description": "Configuration: Artillery grants 300 temporary overhealth."
         }
       ],
       "major": [
         {
           "name": "Lindholm Explosives",
-          "description": "Configuration: Assault's weapon slowly fires explosive shells instead of a rotary cannon."
+          "description": "Configuration: Assault’s Weapon slowly fires explosive shells instead of a rotary cannon."
         },
         {
           "name": "Self-Repair",
@@ -88,10 +94,14 @@
       ]
     },
     "stats": {
+      "health": 250,
+      "armor": 100,
       "abilities": {
+        "Ironclad": {
+          "ability_type": "Passive Ability"
+        },
         "Configuration: Recon": {
           "ability_type": "Weapon;;Recon Form",
-          "key": "primary fire",
           "damage": "23 - 7.5",
           "falloff": "30 - 50 meters",
           "headshot": true,
@@ -104,7 +114,6 @@
         },
         "A-36 Tactical Grenade": {
           "ability_type": "Ability",
-          "key": "secondary fire",
           "damage": "15 (direct hit bonus) / 100 - 50 (splash, enemy) / 50 - 25 (splash, self)",
           "cooldown": "8 seconds",
           "projectile_speed": "40 m/s",
@@ -114,13 +123,11 @@
         },
         "Reconfigure": {
           "ability_type": "Ability",
-          "key": "ability 1",
           "cooldown": "12 seconds",
           "duration": "6 seconds"
         },
         "Configuration: Assault": {
           "ability_type": "Weapon;;Assault Form",
-          "key": "primary fire",
           "damage": "12 - 3.6",
           "falloff": "30 - 50 meters",
           "rate_of_fire": "30 shots/s",
@@ -138,31 +145,8 @@
           "ammo": 3,
           "duration": "8 seconds (max targeting) / 1.25 seconds (impact delay) / 0.18 seconds (min between shots)",
           "projectile_radius": "0.015 meters"
-        },
-        "Configuration Reload": {
-          "ability_type": "Minor Perk"
-        },
-        "Armored Artillery": {
-          "ability_type": "Minor Perk"
-        },
-        "Lindholm Explosives": {
-          "ability_type": "Major Perk",
-          "damage": "50 (direct hit bonus) / 90 - 27 (splash, enemy) / 36 - 10.8 (splash, self)",
-          "rate_of_fire": "1.33 shots/s",
-          "radius": "3.5 meters (splash)",
-          "projectile_radius": "0.275 meters",
-          "projectile_speed": "100 m/s",
-          "dps": "186.2 while firing"
-        },
-        "Self-Repair": {
-          "ability_type": "Major Perk",
-          "key": "ability 2",
-          "healing": "90 per second",
-          "duration": "0.5 seconds (min) / 3.3 seconds (max)"
         }
-      },
-      "health": 250,
-      "armor": 100
+      }
     }
   }
 }

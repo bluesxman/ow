@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T15:47:39.427Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,18 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
           "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.abilities.*"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Junkrat",
@@ -45,12 +47,16 @@
     "sub_role": "specialist",
     "abilities": [
       {
+        "name": "Total Mayhem",
+        "description": "Deals no damage to self with explosives. Drop bombs on death."
+      },
+      {
         "name": "Frag Launcher",
         "description": "Bouncing explosive projectile weapon."
       },
       {
         "name": "Concussion Mine",
-        "description": "Throw a knockback mine with LSHIFT then detonate it with ABILITY 1."
+        "description": "Throw a knockback mine with then detonate it with ."
       },
       {
         "name": "Steel Trap",
@@ -59,17 +65,13 @@
       {
         "name": "RIP-Tire",
         "description": "Drive and detonate an exploding tire."
-      },
-      {
-        "name": "Total Mayhem",
-        "description": "Deals no damage to self with explosives. Drop bombs on death."
       }
     ],
     "perks": {
       "minor": [
         {
           "name": "Nitro Boost",
-          "description": "During RIP-Tire, use LSHIFT to gain a quick boost of speed. Doing so reduces RIP-Tire's damage by 50%."
+          "description": "During RIP-Tire, use (LSHIFT) to gain a quick boost of speed. Doing so reduces RIP-Tire’s damage by 50%."
         },
         {
           "name": "Bomb Voyage",
@@ -83,11 +85,12 @@
         },
         {
           "name": "Frag Cannon",
-          "description": "Frag Launcher's projectile speed is increased by 25%."
+          "description": "Frag Launcher’s projectile speed is increased by 25%"
         }
       ]
     },
     "stats": {
+      "health": 250,
       "abilities": {
         "Total Mayhem": {
           "ability_type": "Passive Ability",
@@ -111,7 +114,6 @@
         },
         "Concussion Mine": {
           "ability_type": "Ability",
-          "key": "ability 1",
           "cooldown": "8 seconds",
           "damage": "120 – 55",
           "projectile_speed": "25 m/s",
@@ -123,7 +125,6 @@
         },
         "Steel Trap": {
           "ability_type": "Ability",
-          "key": "ability 2",
           "damage": 100,
           "health": 100,
           "radius": "1 meter",
@@ -140,21 +141,8 @@
           "radius": "10 - 2 meters (falloff start - max)",
           "duration": "10 seconds (max)",
           "headshot": false
-        },
-        "Nitro Boost": {
-          "ability_type": "Minor Perk"
-        },
-        "Bomb Voyage": {
-          "ability_type": "Minor Perk"
-        },
-        "Mine Recycling": {
-          "ability_type": "Major Perk"
-        },
-        "Frag Cannon": {
-          "ability_type": "Major Perk"
         }
-      },
-      "health": 250
+      }
     }
   }
 }

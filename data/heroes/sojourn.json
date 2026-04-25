@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T15:47:39.427Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,18 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
           "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.abilities.*"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Sojourn",
@@ -46,7 +48,11 @@
     "abilities": [
       {
         "name": "Railgun",
-        "description": "Rapid firing projectiles that generate energy on hit. High impact shot that consumes stored energy and pierces enemies."
+        "description": "Rapid firing projectiles that generate energy on hit."
+      },
+      {
+        "name": "Charged Shot",
+        "description": "High impact shot that consumes stored energy and pierces enemies."
       },
       {
         "name": "Power Slide",
@@ -64,26 +70,27 @@
     "perks": {
       "minor": [
         {
-          "name": "Overcharged",
-          "description": "Railgun's maximum energy is increased by 50 while Overclock is active."
-        },
-        {
           "name": "Deceleration Field",
           "description": "Enemies hit by Disruptor Shot are slowed by 25%."
+        },
+        {
+          "name": "Overcharged",
+          "description": "Railgun’s maximum energy is increased by 50 while Overclock is active."
         }
       ],
       "major": [
         {
-          "name": "Friction Generators",
-          "description": "While sliding, Power Slide generates up to 50 energy."
-        },
-        {
           "name": "Dual Thrusters",
           "description": "Power Slide gains an additional charge and its jump height shifts to lateral movement."
+        },
+        {
+          "name": "Friction Generators",
+          "description": "While sliding, Power Slide generates up to 50 Energy."
         }
       ]
     },
     "stats": {
+      "health": 225,
       "abilities": {
         "Railgun": {
           "ability_type": "Weapon;;Primary Fire",
@@ -96,29 +103,25 @@
           "duration": "9 seconds (energy decay delay)",
           "reload": "1.2 seconds",
           "spread": "1.6 degrees (vertical, max) / 0.64 degrees (horizontal, max)",
-          "dps": "144 while firing (~100.93 overall w/reload)",
-          "modes": {
-            "Secondary Fire": {
-              "key": "secondary fire",
-              "damage": "120 - 60 (max charge) / 21 - 10.5 (min charge)",
-              "falloff": "40 – 60 meters",
-              "projectile_radius": "0.14 meters",
-              "cooldown": "None",
-              "headshot": true,
-              "spread": "None"
-            }
-          }
+          "dps": "144 while firing (~100.93 overall w/reload)"
+        },
+        "Charged Shot": {
+          "ability_type": "Weapon;;Secondary Fire",
+          "damage": "120 - 60 (max charge) / 21 - 10.5 (min charge)",
+          "falloff": "40 – 60 meters",
+          "projectile_radius": "0.14 meters",
+          "cooldown": "None",
+          "headshot": true,
+          "spread": "None"
         },
         "Power Slide": {
           "ability_type": "Ability",
-          "key": "ability 1",
           "cooldown": "7 seconds",
           "duration": "1 second",
           "range": "13 meters (slide) / 11.7 meters (jump)"
         },
         "Disruptor Shot": {
           "ability_type": "Ability",
-          "key": "ability 2",
           "cooldown": "15 seconds",
           "damage": "90 per second / 315 total",
           "headshot": false,
@@ -131,21 +134,8 @@
         "Overclock": {
           "ability_type": "Ultimate Ability",
           "duration": "8 seconds"
-        },
-        "Deceleration Field": {
-          "ability_type": "Minor Perk"
-        },
-        "Overcharged": {
-          "ability_type": "Minor Perk"
-        },
-        "Dual Thrusters": {
-          "ability_type": "Major Perk"
-        },
-        "Friction Generators": {
-          "ability_type": "Major Perk"
         }
-      },
-      "health": 225
+      }
     }
   }
 }

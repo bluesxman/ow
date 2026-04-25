@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T15:47:39.427Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,18 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
           "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.abilities.*"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Doomfist",
@@ -45,6 +47,10 @@
     "sub_role": "initiator",
     "abilities": [
       {
+        "name": "The Best Defense...",
+        "description": "Dealing damage with abilities creates temporary overhealth."
+      },
+      {
         "name": "Hand Cannon",
         "description": "Short-range weapon with spread. Reloads automatically."
       },
@@ -54,7 +60,7 @@
       },
       {
         "name": "Seismic Slam",
-        "description": "Leap and smash the ground."
+        "description": "Leap forward and smash the ground."
       },
       {
         "name": "Power Block",
@@ -62,14 +68,14 @@
       },
       {
         "name": "Meteor Strike",
-        "description": "Press Q to leap up into the air. Move the targeting circle, then press ABILITY 3 to strike the targeted area."
+        "description": "Press to leap up into the air. Move the targeting circle, then press to strike the targeted area."
       }
     ],
     "perks": {
       "minor": [
         {
           "name": "One-Two",
-          "description": "Hitting an enemy into a wall with Rocket Punch reloads Hand Cannon and overfills ammo by 2."
+          "description": "Hitting an enemy into a wall with Rocket Punch reloads all Hand Cannon and overfills ammo by 2."
         },
         {
           "name": "Survival of the Fittest",
@@ -88,7 +94,12 @@
       ]
     },
     "stats": {
+      "health": 375,
       "abilities": {
+        "The Best Defense...": {
+          "ability_type": "Passive Ability",
+          "duration": "3 seconds"
+        },
         "Hand Cannon": {
           "ability_type": "Weapon",
           "headshot": true,
@@ -105,7 +116,6 @@
         },
         "Rocket Punch": {
           "ability_type": "Ability",
-          "key": "secondary fire",
           "cooldown": "4 seconds",
           "damage": "25 - 75 (base, impact damage) / 10 - 40 (base, wall slam) / 38 - 113 (empowered, impact damage) / 15 - 60 (empowered, wall slam)",
           "duration": "0.5 seconds (max. travel time) / 0.5 seconds (stun, punch impact) / 0.15 seconds (stun, wall slam) / 0.15 - 0.6 seconds (stun, empowered wall slam) / 20 seconds (Empowered Rocket Punch max duration)",
@@ -113,14 +123,12 @@
         },
         "Seismic Slam": {
           "ability_type": "Ability",
-          "key": "ability 1",
           "cooldown": "6.5 seconds",
           "damage": 50,
           "radius": "15 meters"
         },
         "Power Block": {
           "ability_type": "Ability",
-          "key": "ability 2",
           "cooldown": "7 seconds",
           "duration": "0.34 seconds (min) / 2.5 seconds (max)"
         },
@@ -131,21 +139,8 @@
           "falloff": "2 – 8 meters",
           "duration": "4 seconds (targeting, max) / 3 seconds (slow)",
           "radius": "2 meters (inner sphere) / 8 meters (outer sphere)"
-        },
-        "One-Two": {
-          "ability_type": "Minor Perk"
-        },
-        "Survival of the Fittest": {
-          "ability_type": "Minor Perk"
-        },
-        "Aftershock": {
-          "ability_type": "Major Perk"
-        },
-        "Power Matrix": {
-          "ability_type": "Major Perk"
         }
-      },
-      "health": 375
+      }
     }
   }
 }

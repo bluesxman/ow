@@ -1,0 +1,4715 @@
+{
+  "metadata": {
+    "last_updated": "2026-04-25T17:30:00.000Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
+    "hero_count": 51,
+    "heroes_failed": [],
+    "fandom_failed": [],
+    "sources": [
+      {
+        "name": "Blizzard Entertainment",
+        "url": "https://overwatch.blizzard.com/en-us/news/patch-notes/",
+        "license": "Blizzard Terms of Service",
+        "fields": [
+          "patches[].title",
+          "patches[].date",
+          "patches[].sections[].changes[].raw.text"
+        ]
+      },
+      {
+        "name": "Claude (Anthropic)",
+        "url": "https://www.anthropic.com/claude",
+        "license": "AI-authored interpretation",
+        "fields": [
+          "patches[].sections[].mode",
+          "patches[].sections[].group_label",
+          "patches[].sections[].changes[].interpreted"
+        ]
+      }
+    ],
+    "schema_version": "5.0.0"
+  },
+  "patches": [
+    {
+      "date": "2026-04-23",
+      "title": "Overwatch Retail Patch Notes – April 23, 2026",
+      "url": null,
+      "sections": [
+        {
+          "title": "Major Bug Fixes",
+          "mode": "retail",
+          "group_label": null,
+          "changes": [
+            {
+              "raw": { "text": "Enemies can no longer prevent Mizuki from recalling by standing on Katashiro Return's starting point." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "mizuki",
+                "subject_name": "Katashiro Return",
+                "metric": "other",
+                "metric_phrase": "blocked-by-enemy bug",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Bug fix, not a balance change."
+              }
+            }
+          ]
+        },
+        {
+          "title": "Stadium Hero Updates",
+          "mode": "stadium",
+          "group_label": null,
+          "changes": [
+            {
+              "raw": { "text": "Damage decreased from 60 to 40." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "hazard",
+                "subject_name": "Hazard",
+                "metric": "damage",
+                "metric_phrase": "damage",
+                "from": 60,
+                "to": 40,
+                "delta": -20,
+                "blizzard_commentary": [],
+                "notes": "Hero-level Stadium tuning; specific weapon/ability not named in this bullet."
+              }
+            },
+            {
+              "raw": { "text": "Extra [Spike Guard] Resource reduced from 30% to 15%." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "hazard",
+                "subject_name": "Spike Guard",
+                "metric": "other",
+                "metric_phrase": "extra resource",
+                "from": "30%",
+                "to": "15%",
+                "delta": "-15%",
+                "blizzard_commentary": [],
+                "notes": "Stadium Power/Item modifier on Spike Guard."
+              }
+            },
+            {
+              "raw": { "text": "[Violent Leap] Hit Bonus Energy decreased from 15% to 10%." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "hazard",
+                "subject_name": "Violent Leap",
+                "metric": "energy",
+                "metric_phrase": "hit bonus energy",
+                "from": "15%",
+                "to": "10%",
+                "delta": "-5%",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Movement Speed penalty reduction decreased from 90% reduced to 50% reduced." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "hazard",
+                "subject_name": "Hazard",
+                "metric": "movement_speed",
+                "metric_phrase": "movement speed penalty reduction",
+                "from": "90% reduced",
+                "to": "50% reduced",
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Stadium item modifier — reduces a movement-speed penalty by less than before."
+              }
+            },
+            {
+              "raw": { "text": "Extra [Spike Guard] Resource bonus decreased from 50% to 25%." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "hazard",
+                "subject_name": "Spike Guard",
+                "metric": "other",
+                "metric_phrase": "extra resource bonus",
+                "from": "50%",
+                "to": "25%",
+                "delta": "-25%",
+                "blizzard_commentary": [],
+                "notes": "Different from the Spike Guard Resource line earlier — this is the bonus tier."
+              }
+            },
+            {
+              "raw": { "text": "[Jagged Wall] Hits Bonus Energy decreased from 25% to 15%." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "hazard",
+                "subject_name": "Jagged Wall",
+                "metric": "energy",
+                "metric_phrase": "hits bonus energy",
+                "from": "25%",
+                "to": "15%",
+                "delta": "-10%",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Wound damage decreased from 40 to 25." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "junker-queen",
+                "subject_name": "Junker Queen",
+                "metric": "damage",
+                "metric_phrase": "wound damage",
+                "from": 40,
+                "to": 25,
+                "delta": -15,
+                "blizzard_commentary": [],
+                "notes": "Wound is Junker Queen's bleed effect across multiple abilities; left unattributed at hero level."
+              }
+            },
+            {
+              "raw": { "text": "Healing reduced from 8% of Max Life per second to 5% of Max Life per second." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "orisa",
+                "subject_name": "Orisa",
+                "metric": "healing",
+                "metric_phrase": "healing",
+                "from": "8% of Max Life per second",
+                "to": "5% of Max Life per second",
+                "delta": "-3% of Max Life per second",
+                "blizzard_commentary": [],
+                "notes": "Stadium item self-healing tuning."
+              }
+            },
+            {
+              "raw": { "text": "Bonus damage decreased from 25% to 10%." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "orisa",
+                "subject_name": "Orisa",
+                "metric": "damage",
+                "metric_phrase": "bonus damage",
+                "from": "25%",
+                "to": "10%",
+                "delta": "-15%",
+                "blizzard_commentary": [],
+                "notes": "Stadium Power/Item bonus damage modifier."
+              }
+            },
+            {
+              "raw": { "text": "Attack Speed stat bonus decreased from 10% to 5%." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "orisa",
+                "subject_name": "Orisa",
+                "metric": "attack_speed",
+                "metric_phrase": "attack speed stat bonus",
+                "from": "10%",
+                "to": "5%",
+                "delta": "-5%",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Cost increased from 4000 to 5000." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "orisa",
+                "subject_name": "Orisa",
+                "metric": "cost",
+                "metric_phrase": "cost",
+                "from": 4000,
+                "to": 5000,
+                "delta": 1000,
+                "blizzard_commentary": [],
+                "notes": "Stadium Power/Item cost — referent in Blizzard's bullet is the most recent named subject (Orisa's Stadium tuning)."
+              }
+            },
+            {
+              "raw": { "text": "Maximum damage increased to 150." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "ramattra",
+                "subject_name": "Ramattra",
+                "metric": "damage",
+                "metric_phrase": "maximum damage",
+                "from": null,
+                "to": 150,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Stadium Power/Item-related max damage value. Specific subject (which power) not named in this bullet."
+              }
+            },
+            {
+              "raw": { "text": "[Annihilation] Duration bonus decreased from 2s to 1s." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Annihilation",
+                "metric": "duration",
+                "metric_phrase": "duration bonus",
+                "from": "2s",
+                "to": "1s",
+                "delta": "-1s",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Healing decreased from 50% to 25% of damage mitigated." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "ramattra",
+                "subject_name": "Ramattra",
+                "metric": "healing",
+                "metric_phrase": "healing from damage mitigated",
+                "from": "50% of damage mitigated",
+                "to": "25% of damage mitigated",
+                "delta": "-25% of damage mitigated",
+                "blizzard_commentary": [],
+                "notes": "Stadium Power/Item that converts mitigated damage to healing."
+              }
+            },
+            {
+              "raw": { "text": "[Nemesis Form] Cooldown Reduction per enemy hit by [Ravenous Vortex] reduced from 1s to 0.5s." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Nemesis Form",
+                "metric": "cooldown",
+                "metric_phrase": "cooldown reduction per enemy hit by Ravenous Vortex",
+                "from": "1s",
+                "to": "0.5s",
+                "delta": "-0.5s",
+                "blizzard_commentary": ["per enemy hit by Ravenous Vortex"],
+                "notes": "Cross-references Ravenous Vortex; primary subject is Nemesis Form."
+              }
+            },
+            {
+              "raw": { "text": "Void Blight damage increased from 20 to 30." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Void Blight",
+                "metric": "damage",
+                "metric_phrase": "damage",
+                "from": 20,
+                "to": 30,
+                "delta": 10,
+                "blizzard_commentary": [],
+                "notes": "Void Blight is a Ramattra Stadium-specific effect."
+              }
+            },
+            {
+              "raw": { "text": "Cost decreased from 12000 to 10000." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "ramattra",
+                "subject_name": "Ramattra",
+                "metric": "cost",
+                "metric_phrase": "cost",
+                "from": 12000,
+                "to": 10000,
+                "delta": -2000,
+                "blizzard_commentary": [],
+                "notes": "Stadium Power/Item cost reduction."
+              }
+            },
+            {
+              "raw": { "text": "Damage amplification increased from 10% to 15%." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "ramattra",
+                "subject_name": "Ramattra",
+                "metric": "damage",
+                "metric_phrase": "damage amplification",
+                "from": "10%",
+                "to": "15%",
+                "delta": "+5%",
+                "blizzard_commentary": [],
+                "notes": "Stadium Power/Item damage amp modifier."
+              }
+            },
+            {
+              "raw": { "text": "[Ravenous Vortex] cooldown reduction reduced from 100% to 75%." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Ravenous Vortex",
+                "metric": "cooldown",
+                "metric_phrase": "cooldown reduction",
+                "from": "100%",
+                "to": "75%",
+                "delta": "-25%",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Final Form healing reduced from 80 to 50." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Final Form",
+                "metric": "healing",
+                "metric_phrase": "healing",
+                "from": 80,
+                "to": 50,
+                "delta": -30,
+                "blizzard_commentary": [],
+                "notes": "Final Form is a Ramattra Stadium Power name."
+              }
+            },
+            {
+              "raw": { "text": "Re-enabled." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "ramattra",
+                "subject_name": "Ramattra",
+                "metric": null,
+                "metric_phrase": "re-enabled",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Hero re-enabled in Stadium after a temporary disable."
+              }
+            },
+            {
+              "raw": { "text": "Increased currency earned from Healing and Damage by 7.14%." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "zarya",
+                "subject_name": "Zarya",
+                "metric": "other",
+                "metric_phrase": "currency earned from healing and damage",
+                "from": null,
+                "to": null,
+                "delta": "+7.14%",
+                "blizzard_commentary": [],
+                "notes": "Stadium currency-rate buff."
+              }
+            },
+            {
+              "raw": { "text": "Additional bolt damage decreased from 50% reduced damage to 60% reduced damage." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "freja",
+                "subject_name": "Freja",
+                "metric": "damage",
+                "metric_phrase": "additional bolt damage",
+                "from": "50% reduced damage",
+                "to": "60% reduced damage",
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "More aggressive damage reduction on additional bolts; net nerf despite the words 'decreased'."
+              }
+            },
+            {
+              "raw": { "text": "Re-enabled." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "ana",
+                "subject_name": "Ana",
+                "metric": null,
+                "metric_phrase": "re-enabled",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Hero re-enabled in Stadium after a temporary disable."
+              }
+            },
+            {
+              "raw": { "text": "[Repair Pack] Duration bonus decreased from 50% to 25%." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "brigitte",
+                "subject_name": "Repair Pack",
+                "metric": "duration",
+                "metric_phrase": "duration bonus",
+                "from": "50%",
+                "to": "25%",
+                "delta": "-25%",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Critical damage increased from 175% to 200%." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "juno",
+                "subject_name": "Juno",
+                "metric": "damage",
+                "metric_phrase": "critical damage",
+                "from": "175%",
+                "to": "200%",
+                "delta": "+25%",
+                "blizzard_commentary": [],
+                "notes": "Stadium critical damage stat bonus."
+              }
+            },
+            {
+              "raw": { "text": "[Mediblaster] Falloff range bonus increased from 5m to 15m." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "juno",
+                "subject_name": "Mediblaster",
+                "metric": "range",
+                "metric_phrase": "falloff range bonus",
+                "from": "5m",
+                "to": "15m",
+                "delta": "+10m",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Re-enabled." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "juno",
+                "subject_name": "Juno",
+                "metric": null,
+                "metric_phrase": "re-enabled",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Hero re-enabled in Stadium after a temporary disable."
+              }
+            },
+            {
+              "raw": { "text": "Passive [Restoration Stream] Duration bonus reduced from 50% to 25%." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "wuyang",
+                "subject_name": "Restoration Stream",
+                "metric": "duration",
+                "metric_phrase": "passive duration bonus",
+                "from": "50%",
+                "to": "25%",
+                "delta": "-25%",
+                "blizzard_commentary": ["Passive"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Overhealth per second reduced from 10 to 5." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "wuyang",
+                "subject_name": "Wuyang",
+                "metric": "other",
+                "metric_phrase": "overhealth per second",
+                "from": 10,
+                "to": 5,
+                "delta": -5,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Max Overhealth decreased from 30 to 15." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "wuyang",
+                "subject_name": "Wuyang",
+                "metric": "other",
+                "metric_phrase": "max overhealth",
+                "from": 30,
+                "to": 15,
+                "delta": -15,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Cost increased from 4000 to 5000." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "wuyang",
+                "subject_name": "Wuyang",
+                "metric": "cost",
+                "metric_phrase": "cost",
+                "from": 4000,
+                "to": 5000,
+                "delta": 1000,
+                "blizzard_commentary": [],
+                "notes": "Stadium Power/Item cost on a Wuyang line."
+              }
+            }
+          ]
+        },
+        {
+          "title": "Bug Fixes",
+          "mode": "retail",
+          "group_label": null,
+          "changes": [
+            {
+              "raw": { "text": "In a previous update, fixed an issue where custom bindings would not be saved." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Custom Bindings",
+                "metric": null,
+                "metric_phrase": null,
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": ["In a previous update"],
+                "notes": "Retroactively-noted fix from a prior hotfix."
+              }
+            },
+            {
+              "raw": { "text": "In a previous update, fixed an issue causing the framerate limit on Nintendo Switch 2 to be lower than intended." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Nintendo Switch 2 framerate limit",
+                "metric": null,
+                "metric_phrase": null,
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": ["In a previous update"],
+                "notes": "Platform-specific bug fix."
+              }
+            },
+            {
+              "raw": { "text": "In a previous update, fixed an issue with Reaper's Trigger Finger Perk that allowed for an unintended animation cancel." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "reaper",
+                "subject_name": "Trigger Finger",
+                "metric": null,
+                "metric_phrase": null,
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": ["In a previous update"],
+                "notes": "Animation-cancel exploit fix on Reaper's Major Perk."
+              }
+            },
+            {
+              "raw": { "text": "In a previous update, fixed a bug with Sierra's Tight Grip Perk erroneously granting cooldown reduction on Tremor Charge." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "sierra",
+                "subject_name": "Tight Grip",
+                "metric": null,
+                "metric_phrase": null,
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": ["In a previous update"],
+                "notes": "Sierra perk fix; affected Tremor Charge cooldown."
+              }
+            },
+            {
+              "raw": { "text": "In a previous update, fixed a bug with Mercy's Double Dose Perk not correctly reducing the healing on Flash Heal." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "mercy",
+                "subject_name": "Double Dose",
+                "metric": null,
+                "metric_phrase": null,
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": ["In a previous update"],
+                "notes": "Mercy Major Perk fix."
+              }
+            },
+            {
+              "raw": { "text": "Fixed an issue where players could be kicked for inactivity during the Armoury Phase." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Armoury Phase",
+                "metric": null,
+                "metric_phrase": null,
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Stadium bug fix nested inside the retail Bug Fixes section under a Stadium sub-block."
+              }
+            },
+            {
+              "raw": { "text": "Fixed a bug where Ramattra's Insatiable Spiral bonus [Ravenous Vortex] damage was calculated additively instead of multiplicatively." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Ravenous Vortex",
+                "metric": "damage",
+                "metric_phrase": "Insatiable Spiral bonus damage calculation",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": ["Insatiable Spiral"],
+                "notes": "Stadium-specific Power calc bug. Insatiable Spiral is the Power, Ravenous Vortex is the affected ability."
+              }
+            },
+            {
+              "raw": { "text": "Fixed a bug where Ramattra's Void Blight applied to barriers." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Void Blight",
+                "metric": null,
+                "metric_phrase": null,
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Void Blight is a Ramattra Stadium effect."
+              }
+            },
+            {
+              "raw": { "text": "Fixed a bug where Ramattra's Void Blight could not be cleansed." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Void Blight",
+                "metric": null,
+                "metric_phrase": null,
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Fixed an issue where Ramattra's Nano-Mender could heal enemies." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Nano-Mender",
+                "metric": null,
+                "metric_phrase": null,
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Nano-Mender is a Ramattra Stadium Power."
+              }
+            },
+            {
+              "raw": { "text": "Fixed an issue where Gloomgauntlet's Melee Damage stat bonus did not apply to Ramattra's [Pummel]." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Pummel",
+                "metric": "damage",
+                "metric_phrase": "melee damage stat bonus",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": ["Gloomgauntlet"],
+                "notes": "Gloomgauntlet is a Stadium Item."
+              }
+            },
+            {
+              "raw": { "text": "Fixed a bug where Vendetta's Overloaded Strike's [Sundering Blade] strike incorrectly calculated the 50% bonus damage additively and not multiplicatively." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "vendetta",
+                "subject_name": "Sundering Blade",
+                "metric": "damage",
+                "metric_phrase": "Overloaded Strike bonus damage calculation",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": ["Overloaded Strike"],
+                "notes": "Overloaded Strike is the Stadium Power; Sundering Blade is the affected ability."
+              }
+            },
+            {
+              "raw": { "text": "Fixed a bug where Ana's Cluster Core Hero Item would count certain non-player entities towards Cluster Core's cooldown reduction." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": "ana",
+                "subject_name": "Cluster Core",
+                "metric": null,
+                "metric_phrase": null,
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": ["Cluster Core Hero Item"],
+                "notes": "Cluster Core is an Ana Stadium Hero Item."
+              }
+            },
+            {
+              "raw": { "text": "Fixed a bug where Juno's Heal Formation would heal more than intended." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "juno",
+                "subject_name": "Heal Formation",
+                "metric": "healing",
+                "metric_phrase": null,
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Heal Formation is a Juno Stadium Power."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-17",
+      "title": "Overwatch Retail Patch Notes - April 17, 2026",
+      "url": null,
+      "sections": [
+        {
+          "title": "Damage",
+          "mode": "retail",
+          "group_label": null,
+          "changes": [
+            {
+              "raw": { "text": "Ultimate cost increased by 30%." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "sierra",
+                "subject_name": "Trailblazer",
+                "metric": "ultimate_cost",
+                "metric_phrase": "ultimate cost",
+                "from": null,
+                "to": null,
+                "delta": "+30%",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Damage per projectile increased from 7 to 9." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "sierra",
+                "subject_name": "Helix Rifle",
+                "metric": "damage",
+                "metric_phrase": "damage per projectile",
+                "from": 7,
+                "to": 9,
+                "delta": 2,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Damage per projectile increased from 7 to 9." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "sierra",
+                "subject_name": "Tracking Shot",
+                "metric": "damage",
+                "metric_phrase": "damage per projectile",
+                "from": 7,
+                "to": 9,
+                "delta": 2,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Health increased from 30 to 80." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "sierra",
+                "subject_name": "Anchor Drone",
+                "metric": "health",
+                "metric_phrase": "health",
+                "from": 30,
+                "to": 80,
+                "delta": 50,
+                "blizzard_commentary": [],
+                "notes": "Deployable health on Sierra's Anchor Drone."
+              }
+            },
+            {
+              "raw": { "text": "Grapple move speed increased from 20 to 22." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "sierra",
+                "subject_name": "Anchor Drone",
+                "metric": "movement_speed",
+                "metric_phrase": "grapple move speed",
+                "from": 20,
+                "to": 22,
+                "delta": 2,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Healing increased from 75 to 100." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "sierra",
+                "subject_name": "Medi-Drone",
+                "metric": "healing",
+                "metric_phrase": "healing",
+                "from": 75,
+                "to": 100,
+                "delta": 25,
+                "blizzard_commentary": ["Major Perk"],
+                "notes": "Sierra Major Perk."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-14",
+      "title": "Overwatch Retail Patch Notes - April 14, 2026",
+      "url": null,
+      "sections": [
+        {
+          "title": "Season 2: Summit Patch Notes",
+          "mode": "retail",
+          "group_label": "Season opener / events",
+          "changes": [
+            {
+              "raw": { "text": "In Week 1, you will have access to Tier 1 challenges which grant you progress on your event Rewards Pass. Also available are tougher Meta challenges; these take longer to complete than typical challenges, but completing them nets you better rewards." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Operation: Grand Mesa event",
+                "metric": null,
+                "metric_phrase": null,
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Event challenge structure prose; not a balance change."
+              }
+            },
+            {
+              "raw": { "text": "Also available are tougher Meta challenges; these take longer to complete than typical challenges, but completing them nets you better rewards." },
+              "interpreted": null
+            },
+            {
+              "raw": { "text": "In Week 2, Tier 2 challenges unlock (provided you've completed all non-Meta Tier 1 challenges)." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Operation: Grand Mesa event",
+                "metric": null,
+                "metric_phrase": null,
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "As you progress your event Rewards Pass, you'll also unlock additional lore entries and insights that shine a light on the story." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Operation: Grand Mesa event",
+                "metric": null,
+                "metric_phrase": null,
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "You have all 3 weeks that the event runs to complete every Tier 1, Tier 2, and Meta challenge, giving you plenty of time to snag every reward and unlock all lore pieces." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Operation: Grand Mesa event",
+                "metric": null,
+                "metric_phrase": null,
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "1 Epic Lootbox" },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Operation: Grand Mesa rewards",
+                "metric": null,
+                "metric_phrase": null,
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Reward listing; no balance change."
+              }
+            },
+            {
+              "raw": { "text": "1 Legendary Lootbox" },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Operation: Grand Mesa rewards",
+                "metric": null,
+                "metric_phrase": null,
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "1 Rare Title" },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Operation: Grand Mesa rewards",
+                "metric": null,
+                "metric_phrase": null,
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "3 Battle Pass Tier Skips" },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Operation: Grand Mesa rewards",
+                "metric": null,
+                "metric_phrase": null,
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Rewards for all-new hero, Sierra! 2 Sierra voicelines 1 Sierra Spray 1 Sierra Avatar 1 Sierra Namecard" },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": "sierra",
+                "subject_name": "Sierra cosmetic rewards",
+                "metric": null,
+                "metric_phrase": null,
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "2 Sierra voicelines" },
+              "interpreted": null
+            },
+            {
+              "raw": { "text": "1 Sierra Spray" },
+              "interpreted": null
+            },
+            {
+              "raw": { "text": "1 Sierra Avatar" },
+              "interpreted": null
+            },
+            {
+              "raw": { "text": "1 Sierra Namecard" },
+              "interpreted": null
+            },
+            {
+              "raw": { "text": "Junkrat's Loot Hunt is back again, running from May 8 - 11! Earn lootboxes by completing challenges that unlock as you play!" },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Junkrat's Loot Hunt event",
+                "metric": null,
+                "metric_phrase": null,
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Limited-time event May 8-11."
+              }
+            },
+            {
+              "raw": { "text": "Our Nintendo Switch 2 version has officially launched! Please be sure to download the correct version for your platform from the Nintendo eShop." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Nintendo Switch 2 launch",
+                "metric": null,
+                "metric_phrase": null,
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Platform launch announcement."
+              }
+            }
+          ]
+        },
+        {
+          "title": "General Updates",
+          "mode": "retail",
+          "group_label": null,
+          "changes": [
+            {
+              "raw": { "text": "Tags have been added for New Maps and Reworked Maps. Any map with a New or Reworked tag gives bonus Battle Pass XP in Quick Play and an automatic +10 Competitive Points in Competitive Play. The penalty for losing in Competitive Play on a map with one of these tags is also reduced, so give them a shot and don’t worry as much about losing!" },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Map Voting",
+                "metric": null,
+                "metric_phrase": "new/reworked map tagging",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Map Voting system feature addition."
+              }
+            },
+            {
+              "raw": { "text": "A new Random Map option has been added as a 4th choice. The Random Map will never be one of the 3 visible maps." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Map Voting",
+                "metric": null,
+                "metric_phrase": "random map option",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "When a map has 6 or more votes than any other map it wins by a Landslide, skipping the roll entirely. For example, King’s Row with 7 votes does not win by a Landslide against Dorado with 2 votes, because King’s Row only has 5 more votes than Dorado. 8 votes ensures a Landslide in 5v5 and 9 votes in 6v6. Even the Random Map option can win by a Landslide!" },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Map Voting",
+                "metric": null,
+                "metric_phrase": "landslide rule",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "New Attack and Defend icons have been added to map cards for Hybrid and Escort, allowing players in Quick Play to know which side they’ll play if this map wins. In Competitive Play these just let players know which side they’ll play first." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Map Voting",
+                "metric": null,
+                "metric_phrase": "attack/defend icons",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "At least 2 different game modes will now be offered across the 3 visible maps." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Map Voting",
+                "metric": null,
+                "metric_phrase": null,
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "When you vote for a map that loses, this map will be offered to you sooner in future Map Votes." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Map Voting",
+                "metric": null,
+                "metric_phrase": null,
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "When no one votes for a map that loses, this map won’t be offered as soon in future Map Votes to anyone in this match." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Map Voting",
+                "metric": null,
+                "metric_phrase": null,
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "While voting, it is no longer possible to determine which of your teammates voted for which map." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Map Voting",
+                "metric": null,
+                "metric_phrase": null,
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Mystery Heroes is now 6v6" },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Mystery Heroes",
+                "metric": null,
+                "metric_phrase": "team size",
+                "from": "5v5",
+                "to": "6v6",
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Map Voting is disabled" },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Mystery Heroes",
+                "metric": null,
+                "metric_phrase": "map voting disabled",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "In Mystery Heroes mode."
+              }
+            },
+            {
+              "raw": { "text": "Perks are disabled" },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Mystery Heroes",
+                "metric": null,
+                "metric_phrase": "perks disabled",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "In Mystery Heroes mode."
+              }
+            },
+            {
+              "raw": { "text": "Tanks now use their 6v6 balance tuning" },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Mystery Heroes",
+                "metric": null,
+                "metric_phrase": "tank tuning",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "In Mystery Heroes mode."
+              }
+            }
+          ]
+        },
+        {
+          "title": "Hero Updates",
+          "mode": "retail",
+          "group_label": null,
+          "changes": [
+            {
+              "raw": { "text": "Sierra has been added to the Damage roster." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": "sierra",
+                "subject_name": "Sierra",
+                "metric": null,
+                "metric_phrase": "roster addition",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "New hero release."
+              }
+            },
+            {
+              "raw": { "text": "Hitscan Auto Assist strength reduced by 4% to more closely match its pre–Season 20 values." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Console Aim Assist",
+                "metric": "other",
+                "metric_phrase": "hitscan auto assist strength",
+                "from": null,
+                "to": null,
+                "delta": "-4%",
+                "blizzard_commentary": ["to more closely match its pre–Season 20 values"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "This change does not affect Legacy Strength Mode." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Console Aim Assist",
+                "metric": null,
+                "metric_phrase": null,
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Caveat for the prior Auto Assist change."
+              }
+            },
+            {
+              "raw": { "text": "Vision duration on low-health enemies reduced from 5 to 3.5 seconds." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "role",
+                "hero_slug": null,
+                "subject_name": "Recon Subrole Passive",
+                "metric": "duration",
+                "metric_phrase": "vision duration on low-health enemies",
+                "from": "5 seconds",
+                "to": "3.5 seconds",
+                "delta": "-1.5 seconds",
+                "blizzard_commentary": [],
+                "notes": "Recon subrole passive — affects all heroes with the Recon subrole."
+              }
+            }
+          ]
+        },
+        {
+          "title": "Tank",
+          "mode": "retail",
+          "group_label": null,
+          "changes": [
+            {
+              "raw": { "text": "Now restores barrier health only when damaging enemy heroes." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "sigma",
+                "subject_name": "Hyper Regeneration",
+                "metric": null,
+                "metric_phrase": "barrier-health restore condition",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": ["Minor Perk"],
+                "notes": "Sigma Minor Perk — now restricts to damage-vs-heroes only."
+              }
+            },
+            {
+              "raw": { "text": "(6v6) Maximum health reduced from 650 to 600." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "sigma",
+                "subject_name": "Experimental Barrier",
+                "metric": "health",
+                "metric_phrase": "maximum health",
+                "from": 650,
+                "to": 600,
+                "delta": -50,
+                "blizzard_commentary": ["(6v6)"],
+                "notes": "6v6-specific tuning; not applied in 5v5."
+              }
+            },
+            {
+              "raw": { "text": "Vengeful Vortex moved from Perk to Baseline ability." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Ravenous Vortex",
+                "metric": null,
+                "metric_phrase": "perk-to-baseline conversion",
+                "from": "Perk",
+                "to": "Baseline ability",
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Vengeful Vortex's behavior folded into the baseline Ravenous Vortex ability."
+              }
+            },
+            {
+              "raw": { "text": "Projectile now explodes on contact with the ground." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Ravenous Vortex",
+                "metric": null,
+                "metric_phrase": "projectile ground-contact behavior",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Explosion can now be manually detonated while airborne." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Ravenous Vortex",
+                "metric": null,
+                "metric_phrase": "manual detonation",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Explosion damage reduced from 50 to 15." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Ravenous Vortex",
+                "metric": "damage",
+                "metric_phrase": "explosion damage",
+                "from": 50,
+                "to": 15,
+                "delta": -35,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Added." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "ramattra",
+                "subject_name": "Prolonged Barrier",
+                "metric": null,
+                "metric_phrase": "perk added",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": ["Minor Perk"],
+                "notes": "New Ramattra Minor Perk."
+              }
+            },
+            {
+              "raw": { "text": "Void Barrier duration and size increased by 25%." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "ramattra",
+                "subject_name": "Prolonged Barrier",
+                "metric": "other",
+                "metric_phrase": "Void Barrier duration and size",
+                "from": null,
+                "to": null,
+                "delta": "+25% (both)",
+                "blizzard_commentary": [],
+                "notes": "Effect of the new Prolonged Barrier Minor Perk."
+              }
+            },
+            {
+              "raw": { "text": "Removed." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "ramattra",
+                "subject_name": "Vengeful Vortex",
+                "metric": null,
+                "metric_phrase": "perk removed",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": ["Major Perk"],
+                "notes": "Vengeful Vortex Major Perk removed (its effect was folded into baseline Ravenous Vortex)."
+              }
+            },
+            {
+              "raw": { "text": "Moved from Minor to Major Perk." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "ramattra",
+                "subject_name": "Void Surge",
+                "metric": null,
+                "metric_phrase": "perk tier change",
+                "from": "Minor Perk",
+                "to": "Major Perk",
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Delay between bursts reduced from 0.75 to 0.6 seconds." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "ramattra",
+                "subject_name": "Void Surge",
+                "metric": "other",
+                "metric_phrase": "delay between bursts",
+                "from": "0.75 seconds",
+                "to": "0.6 seconds",
+                "delta": "-0.15 seconds",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Added a custom setting allowing Shield Slam to be bound to Quick Melee, enabling free look while the perk is equipped." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "reinhardt",
+                "subject_name": "Shield Slam",
+                "metric": null,
+                "metric_phrase": "custom binding option",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": ["Minor Perk"],
+                "notes": "Reinhardt Minor Perk: new accessibility option."
+              }
+            },
+            {
+              "raw": { "text": "Reload time increased from 1.5 to 1.75 seconds." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "roadhog",
+                "subject_name": "Scrap Gun",
+                "metric": "reload",
+                "metric_phrase": "reload time",
+                "from": "1.5 seconds",
+                "to": "1.75 seconds",
+                "delta": "+0.25 seconds",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Cooldown increased from 6 to 8 seconds." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "roadhog",
+                "subject_name": "Chain Hook",
+                "metric": "cooldown",
+                "metric_phrase": "cooldown",
+                "from": "6 seconds",
+                "to": "8 seconds",
+                "delta": "+2 seconds",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Removed." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "roadhog",
+                "subject_name": "Invigorate",
+                "metric": null,
+                "metric_phrase": "perk removed",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": ["Major Perk"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Added." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "roadhog",
+                "subject_name": "Hogdrogen Exposure",
+                "metric": null,
+                "metric_phrase": "perk added",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": ["Major Perk"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Take a Breather now heals nearby allies for 50% of its healing amount." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "roadhog",
+                "subject_name": "Hogdrogen Exposure",
+                "metric": null,
+                "metric_phrase": "Take a Breather ally healing",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Effect of the new Hogdrogen Exposure Major Perk."
+              }
+            },
+            {
+              "raw": { "text": "Deals 50% increased damage to deployables." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "winston",
+                "subject_name": "Tesla Cannon",
+                "metric": "damage",
+                "metric_phrase": "damage to deployables",
+                "from": null,
+                "to": null,
+                "delta": "+50% vs deployables",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "(6v6) Base health reduced from 350 to 325. (Total health including armor and shields reduced from 550 to 525.)" },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "hero_general",
+                "hero_slug": "winston",
+                "subject_name": "Winston",
+                "metric": "health",
+                "metric_phrase": "base health",
+                "from": 350,
+                "to": 325,
+                "delta": -25,
+                "blizzard_commentary": ["(6v6)", "Total health including armor and shields reduced from 550 to 525"],
+                "notes": "6v6-specific tuning."
+              }
+            },
+            {
+              "raw": { "text": "(6v6) Base health reduced from 475 to 450. (Total health including armor and shields reduced from 575 to 550.)" },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "hero_general",
+                "hero_slug": "wrecking-ball",
+                "subject_name": "Wrecking Ball",
+                "metric": "health",
+                "metric_phrase": "base health",
+                "from": 475,
+                "to": 450,
+                "delta": -25,
+                "blizzard_commentary": ["(6v6)", "Total health including armor and shields reduced from 575 to 550"],
+                "notes": "6v6-specific tuning."
+              }
+            }
+          ]
+        },
+        {
+          "title": "Damage",
+          "mode": "retail",
+          "group_label": null,
+          "changes": [
+            {
+              "raw": { "text": "Impact damage increased from 5 to 6." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "anran",
+                "subject_name": "Fan the Flames",
+                "metric": "damage",
+                "metric_phrase": "impact damage",
+                "from": 5,
+                "to": 6,
+                "delta": 1,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Impact damage reduced from 50 to 30." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "anran",
+                "subject_name": "Inferno Rush",
+                "metric": "damage",
+                "metric_phrase": "impact damage",
+                "from": 50,
+                "to": 30,
+                "delta": -20,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Now heals Anran for 50 health on the first target hit and 25 health for each subsequent target." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "anran",
+                "subject_name": "Dancing Blaze",
+                "metric": "healing",
+                "metric_phrase": "self-healing on hit",
+                "from": null,
+                "to": "50 first / 25 each subsequent",
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "New self-heal effect on Dancing Blaze."
+              }
+            },
+            {
+              "raw": { "text": "Changed." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "anran",
+                "subject_name": "Hungering Blaze",
+                "metric": null,
+                "metric_phrase": "perk changed",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": ["Major Perk"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Increases the healing of Dancing Blaze’s subsequent strikes by 25." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "anran",
+                "subject_name": "Hungering Blaze",
+                "metric": "healing",
+                "metric_phrase": "Dancing Blaze subsequent-strike heal bonus",
+                "from": null,
+                "to": null,
+                "delta": "+25",
+                "blizzard_commentary": [],
+                "notes": "Hungering Blaze (Major Perk) updated effect."
+              }
+            },
+            {
+              "raw": { "text": "Minor Perk cost reduced by 7%." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "hero_general",
+                "hero_slug": "anran",
+                "subject_name": "Anran",
+                "metric": "cost",
+                "metric_phrase": "Minor Perk cost",
+                "from": null,
+                "to": null,
+                "delta": "-7%",
+                "blizzard_commentary": [],
+                "notes": "Hero-level perk-cost line. This is a Stadium currency cost adjustment per the patch-notes skill scope notes — but Blizzard publishes these under retail Hero Updates."
+              }
+            },
+            {
+              "raw": { "text": "Major Perk cost reduced by 5%." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "hero_general",
+                "hero_slug": "anran",
+                "subject_name": "Anran",
+                "metric": "cost",
+                "metric_phrase": "Major Perk cost",
+                "from": null,
+                "to": null,
+                "delta": "-5%",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Time required to retrigger Coach Gun increased from 1 to 2 seconds." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "ashe",
+                "subject_name": "Double Barreled",
+                "metric": "cooldown",
+                "metric_phrase": "Coach Gun retrigger time",
+                "from": "1 second",
+                "to": "2 seconds",
+                "delta": "+1 second",
+                "blizzard_commentary": ["Minor Perk"],
+                "notes": "Ashe Minor Perk."
+              }
+            },
+            {
+              "raw": { "text": "No longer fully refunds cooldown." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "bastion",
+                "subject_name": "Configuration Reload",
+                "metric": "cooldown",
+                "metric_phrase": "cooldown refund",
+                "from": "full refund",
+                "to": "partial refund",
+                "delta": null,
+                "blizzard_commentary": ["Minor Perk"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Now reduces cooldown by 4 seconds." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "bastion",
+                "subject_name": "Configuration Reload",
+                "metric": "cooldown",
+                "metric_phrase": "cooldown reduction amount",
+                "from": null,
+                "to": "4 seconds",
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Replaces the prior full-refund behavior."
+              }
+            },
+            {
+              "raw": { "text": "Overhealth degeneration reduced from 100 to 50 per second." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "bastion",
+                "subject_name": "Armored Artillery",
+                "metric": "other",
+                "metric_phrase": "overhealth degeneration",
+                "from": "100 per second",
+                "to": "50 per second",
+                "delta": "-50 per second",
+                "blizzard_commentary": ["Minor Perk"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Minor Perk cost increased by 10%." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "hero_general",
+                "hero_slug": "bastion",
+                "subject_name": "Bastion",
+                "metric": "cost",
+                "metric_phrase": "Minor Perk cost",
+                "from": null,
+                "to": null,
+                "delta": "+10%",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Major Perk cost increased by 6%." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "hero_general",
+                "hero_slug": "bastion",
+                "subject_name": "Bastion",
+                "metric": "cost",
+                "metric_phrase": "Major Perk cost",
+                "from": null,
+                "to": null,
+                "delta": "+6%",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Can now duplicate allied heroes." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "echo",
+                "subject_name": "Duplicate",
+                "metric": null,
+                "metric_phrase": "ally targeting",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Behavioral change — Duplicate can target allies."
+              }
+            },
+            {
+              "raw": { "text": "Range increased from 4 to 6 meters." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "echo",
+                "subject_name": "Focused Rush",
+                "metric": "range",
+                "metric_phrase": "range",
+                "from": "4 meters",
+                "to": "6 meters",
+                "delta": "+2 meters",
+                "blizzard_commentary": ["Minor Perk"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Added an accessibility option which allows players to hold Secondary Fire to automatically fire Siphon Blaster at a reduced fire rate." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "emre",
+                "subject_name": "Siphon Blaster",
+                "metric": null,
+                "metric_phrase": "accessibility option",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Heat generated from direct hits reduced from 100% to 60%." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "emre",
+                "subject_name": "Heat Sink",
+                "metric": "other",
+                "metric_phrase": "heat generated from direct hits",
+                "from": "100%",
+                "to": "60%",
+                "delta": "-40%",
+                "blizzard_commentary": ["Major Perk"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Moved from Minor to Major Perk." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "junkrat",
+                "subject_name": "Mine Recycling",
+                "metric": null,
+                "metric_phrase": "perk tier change",
+                "from": "Minor Perk",
+                "to": "Major Perk",
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Eliminations with Concussion Mine restore one charge." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "junkrat",
+                "subject_name": "Mine Recycling",
+                "metric": null,
+                "metric_phrase": "charge restore on elimination",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Moved from Major to Minor Perk." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "junkrat",
+                "subject_name": "Bomb Voyage",
+                "metric": null,
+                "metric_phrase": "perk tier change",
+                "from": "Major Perk",
+                "to": "Minor Perk",
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Attack speed bonus reduced from 35% to 25%." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "junkrat",
+                "subject_name": "Bomb Voyage",
+                "metric": "attack_speed",
+                "metric_phrase": "attack speed bonus",
+                "from": "35%",
+                "to": "25%",
+                "delta": "-10%",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Bonus movement speed reduced from 40% to 30%." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "pharah",
+                "subject_name": "Hover Jets",
+                "metric": "movement_speed",
+                "metric_phrase": "bonus movement speed",
+                "from": "40%",
+                "to": "30%",
+                "delta": "-10%",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Pharah can now move while using Barrage." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "pharah",
+                "subject_name": "Barrage",
+                "metric": null,
+                "metric_phrase": "movement during ultimate",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Explosion damage reduced from 30 to 25." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "pharah",
+                "subject_name": "Barrage",
+                "metric": "damage",
+                "metric_phrase": "explosion damage",
+                "from": 30,
+                "to": 25,
+                "delta": -5,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Removed." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "pharah",
+                "subject_name": "Drift Thrusters",
+                "metric": null,
+                "metric_phrase": "perk removed",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": ["Minor Perk"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Added." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "pharah",
+                "subject_name": "Concussive Force",
+                "metric": null,
+                "metric_phrase": "perk added",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": ["Minor Perk"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Concussive Blast deals up to 50 explosion damage." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "pharah",
+                "subject_name": "Concussive Force",
+                "metric": "damage",
+                "metric_phrase": "Concussive Blast explosion damage",
+                "from": null,
+                "to": "up to 50",
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Effect of the new Concussive Force Minor Perk."
+              }
+            },
+            {
+              "raw": { "text": "Moved from Perk to Baseline ability." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "reaper",
+                "subject_name": "Dire Triggers",
+                "metric": null,
+                "metric_phrase": "perk-to-baseline conversion",
+                "from": "Perk",
+                "to": "Baseline ability",
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Cooldown increased from 3 to 6 seconds." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "reaper",
+                "subject_name": "Dire Triggers",
+                "metric": "cooldown",
+                "metric_phrase": "cooldown",
+                "from": "3 seconds",
+                "to": "6 seconds",
+                "delta": "+3 seconds",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Added." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "reaper",
+                "subject_name": "Trigger Finger",
+                "metric": null,
+                "metric_phrase": "perk added",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": ["Major Perk"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Using an ability or reloading refreshes Dire Triggers’ cooldown." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "reaper",
+                "subject_name": "Trigger Finger",
+                "metric": null,
+                "metric_phrase": "cooldown refresh trigger",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Effect of the new Trigger Finger Major Perk."
+              }
+            },
+            {
+              "raw": { "text": "Can now reload while sprinting." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "soldier-76",
+                "subject_name": "Sprint",
+                "metric": null,
+                "metric_phrase": "reload while sprinting",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Reloading while sprinting reduces Sprint’s movement speed bonus by 50%, diminishing over the duration." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "soldier-76",
+                "subject_name": "Sprint",
+                "metric": "movement_speed",
+                "metric_phrase": "movement-speed bonus while reloading",
+                "from": null,
+                "to": null,
+                "delta": "-50% (diminishing)",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Added a custom setting allowing Sprint to cancel reload." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "soldier-76",
+                "subject_name": "Sprint",
+                "metric": null,
+                "metric_phrase": "custom binding option",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Removed." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "soldier-76",
+                "subject_name": "Agility Training",
+                "metric": null,
+                "metric_phrase": "perk removed",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": ["Major Perk"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "New." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "soldier-76",
+                "subject_name": "Full Stride",
+                "metric": null,
+                "metric_phrase": "perk added",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": ["Major Perk"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Sprint’s movement speed bonus gradually increases by an additional 25% over 2 seconds." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "soldier-76",
+                "subject_name": "Full Stride",
+                "metric": "movement_speed",
+                "metric_phrase": "additional sprint speed over time",
+                "from": null,
+                "to": "+25% over 2s",
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Effect of the new Full Stride Major Perk."
+              }
+            },
+            {
+              "raw": { "text": "Movement speed bonus reduced by 50% while revealed by damage." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "sombra",
+                "subject_name": "Stealth",
+                "metric": "movement_speed",
+                "metric_phrase": "movement speed bonus while revealed",
+                "from": null,
+                "to": null,
+                "delta": "-50%",
+                "blizzard_commentary": ["while revealed by damage"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Minor Perk cost reduced by 6%." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "hero_general",
+                "hero_slug": "sombra",
+                "subject_name": "Sombra",
+                "metric": "cost",
+                "metric_phrase": "Minor Perk cost",
+                "from": null,
+                "to": null,
+                "delta": "-6%",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Major Perk cost reduced by 5%." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "hero_general",
+                "hero_slug": "sombra",
+                "subject_name": "Sombra",
+                "metric": "cost",
+                "metric_phrase": "Major Perk cost",
+                "from": null,
+                "to": null,
+                "delta": "-5%",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Minor Perk cost reduced by 10%." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "hero_general",
+                "hero_slug": "tracer",
+                "subject_name": "Tracer",
+                "metric": "cost",
+                "metric_phrase": "Minor Perk cost",
+                "from": null,
+                "to": null,
+                "delta": "-10%",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Major Perk cost reduced by 7%." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "hero_general",
+                "hero_slug": "tracer",
+                "subject_name": "Tracer",
+                "metric": "cost",
+                "metric_phrase": "Major Perk cost",
+                "from": null,
+                "to": null,
+                "delta": "-7%",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Movement speed per stack reduced from 4% to 2%." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "vendetta",
+                "subject_name": "Onslaught",
+                "metric": "movement_speed",
+                "metric_phrase": "movement speed per stack",
+                "from": "4%",
+                "to": "2%",
+                "delta": "-2%",
+                "blizzard_commentary": ["Passive"],
+                "notes": "Onslaught is Vendetta's passive."
+              }
+            },
+            {
+              "raw": { "text": "Overhead swing bonus range reduced from 2.5 to 2.0 meters." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "vendetta",
+                "subject_name": "Palatine Fang",
+                "metric": "range",
+                "metric_phrase": "overhead swing bonus range",
+                "from": "2.5 meters",
+                "to": "2.0 meters",
+                "delta": "-0.5 meters",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Armor reduced from 100 to 75." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "hero_general",
+                "hero_slug": "vendetta",
+                "subject_name": "Vendetta",
+                "metric": "armor",
+                "metric_phrase": "armor",
+                "from": 100,
+                "to": 75,
+                "delta": -25,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Minor Perk cost reduced by 6%." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "hero_general",
+                "hero_slug": "vendetta",
+                "subject_name": "Vendetta",
+                "metric": "cost",
+                "metric_phrase": "Minor Perk cost",
+                "from": null,
+                "to": null,
+                "delta": "-6%",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Major Perk cost reduced by 5%." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "hero_general",
+                "hero_slug": "vendetta",
+                "subject_name": "Vendetta",
+                "metric": "cost",
+                "metric_phrase": "Major Perk cost",
+                "from": null,
+                "to": null,
+                "delta": "-5%",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Minor Perk cost reduced by 6%." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "hero_general",
+                "hero_slug": "widowmaker",
+                "subject_name": "Widowmaker",
+                "metric": "cost",
+                "metric_phrase": "Minor Perk cost",
+                "from": null,
+                "to": null,
+                "delta": "-6%",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Major Perk cost reduced by 4%." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "hero_general",
+                "hero_slug": "widowmaker",
+                "subject_name": "Widowmaker",
+                "metric": "cost",
+                "metric_phrase": "Major Perk cost",
+                "from": null,
+                "to": null,
+                "delta": "-4%",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            }
+          ]
+        },
+        {
+          "title": "Support",
+          "mode": "retail",
+          "group_label": null,
+          "changes": [
+            {
+              "raw": { "text": "Cooldown reduced from 14 to 12 seconds." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "ana",
+                "subject_name": "Biotic Grenade",
+                "metric": "cooldown",
+                "metric_phrase": "cooldown",
+                "from": "14 seconds",
+                "to": "12 seconds",
+                "delta": "-2 seconds",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Health increased from 250 to 300." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "brigitte",
+                "subject_name": "Barrier Shield",
+                "metric": "health",
+                "metric_phrase": "health",
+                "from": 250,
+                "to": 300,
+                "delta": 50,
+                "blizzard_commentary": [],
+                "notes": "Brigitte's Barrier Shield deployable health."
+              }
+            },
+            {
+              "raw": { "text": "Cooldown refunded increased from 0.5 to 0.75 seconds." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "brigitte",
+                "subject_name": "Combat Medic",
+                "metric": "cooldown",
+                "metric_phrase": "cooldown refunded",
+                "from": "0.5 seconds",
+                "to": "0.75 seconds",
+                "delta": "+0.25 seconds",
+                "blizzard_commentary": ["Minor Perk"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Acceleration reduced by 11%." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "jetpack-cat",
+                "subject_name": "Frenetic Flight",
+                "metric": "other",
+                "metric_phrase": "acceleration",
+                "from": null,
+                "to": null,
+                "delta": "-11%",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Cooldown reductions now apply to the Claws Out cooldown." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "jetpack-cat",
+                "subject_name": "Claws Out",
+                "metric": null,
+                "metric_phrase": "cooldown-reduction targeting",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": ["Major Perk"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "(6v6) Cooldown increased from 10 to 12 seconds." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "juno",
+                "subject_name": "Pulsar Torpedoes",
+                "metric": "cooldown",
+                "metric_phrase": "cooldown",
+                "from": "10 seconds",
+                "to": "12 seconds",
+                "delta": "+2 seconds",
+                "blizzard_commentary": ["(6v6)"],
+                "notes": "6v6-specific tuning."
+              }
+            },
+            {
+              "raw": { "text": "Movement speed bonus reduced from 50% to 40%." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "juno",
+                "subject_name": "Glide Boost",
+                "metric": "movement_speed",
+                "metric_phrase": "movement speed bonus",
+                "from": "50%",
+                "to": "40%",
+                "delta": "-10%",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Maximum healing increased from 80 to 90." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "lifeweaver",
+                "subject_name": "Healing Blossom",
+                "metric": "healing",
+                "metric_phrase": "maximum healing",
+                "from": 80,
+                "to": 90,
+                "delta": 10,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Healing increased from 45 to 55." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "lifeweaver",
+                "subject_name": "Rejuvenating Dash",
+                "metric": "healing",
+                "metric_phrase": "healing",
+                "from": 45,
+                "to": 55,
+                "delta": 10,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Now cleanses allies when pulled." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "lifeweaver",
+                "subject_name": "Life Grip",
+                "metric": null,
+                "metric_phrase": "cleanse on pull",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Cooldown reduced from 14 to 11 seconds." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "lifeweaver",
+                "subject_name": "Sow the Seed",
+                "metric": "cooldown",
+                "metric_phrase": "cooldown",
+                "from": "14 seconds",
+                "to": "11 seconds",
+                "delta": "-3 seconds",
+                "blizzard_commentary": ["Major Perk"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "(6v6) Healing reduced from 20 to 18." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "lucio",
+                "subject_name": "Crossfade",
+                "metric": "healing",
+                "metric_phrase": "healing",
+                "from": 20,
+                "to": 18,
+                "delta": -2,
+                "blizzard_commentary": ["(6v6)"],
+                "notes": "6v6-specific tuning."
+              }
+            },
+            {
+              "raw": { "text": "Changed." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "lucio",
+                "subject_name": "Accelerando",
+                "metric": null,
+                "metric_phrase": "perk changed",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": ["Major Perk"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Gain 15% attack speed while Lucio's Speed Song is active, tripled during Amp It Up." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "lucio",
+                "subject_name": "Accelerando",
+                "metric": "attack_speed",
+                "metric_phrase": "attack speed bonus",
+                "from": null,
+                "to": "15% (45% during Amp It Up)",
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "New Accelerando effect."
+              }
+            },
+            {
+              "raw": { "text": "Can no longer be charged before a round begins." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "lucio",
+                "subject_name": "Soundwave Rider",
+                "metric": null,
+                "metric_phrase": "pre-round charge",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": ["Minor Perk"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Teleport range reduced from 35 to 30 meters." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "kiriko",
+                "subject_name": "Swift Step",
+                "metric": "range",
+                "metric_phrase": "teleport range",
+                "from": "35 meters",
+                "to": "30 meters",
+                "delta": "-5 meters",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Fire rate increased from 5 to 7 per second." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "kiriko",
+                "subject_name": "Healing Ofuda",
+                "metric": "rate_of_fire",
+                "metric_phrase": "fire rate",
+                "from": "5/s",
+                "to": "7/s",
+                "delta": "+2/s",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "(6v6) Minimum Healing Reduced from 5 to 4.5." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "mizuki",
+                "subject_name": "Remedy Aura",
+                "metric": "healing",
+                "metric_phrase": "minimum healing",
+                "from": 5,
+                "to": 4.5,
+                "delta": -0.5,
+                "blizzard_commentary": ["(6v6)"],
+                "notes": "6v6-specific tuning."
+              }
+            },
+            {
+              "raw": { "text": "(6v6) Maximum Healing reduced from 20 to 18." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "mizuki",
+                "subject_name": "Remedy Aura",
+                "metric": "healing",
+                "metric_phrase": "maximum healing",
+                "from": 20,
+                "to": 18,
+                "delta": -2,
+                "blizzard_commentary": ["(6v6)"],
+                "notes": "6v6-specific tuning."
+              }
+            },
+            {
+              "raw": { "text": "No longer spawns if Mizuki is eliminated during the cast time." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "mizuki",
+                "subject_name": "Kekkai Sanctuary",
+                "metric": null,
+                "metric_phrase": "spawn-during-elim behavior",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Can now activate return while other animations are active, excluding Kekkai Sanctuary's cast animation." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "mizuki",
+                "subject_name": "Katashiro Return",
+                "metric": null,
+                "metric_phrase": "animation interaction",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Movement speed bonus reduced from 35% to 30%." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "mizuki",
+                "subject_name": "Katashiro Return",
+                "metric": "movement_speed",
+                "metric_phrase": "movement speed bonus",
+                "from": "35%",
+                "to": "30%",
+                "delta": "-5%",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Minor Perk cost increased by 16%." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "hero_general",
+                "hero_slug": "mizuki",
+                "subject_name": "Mizuki",
+                "metric": "cost",
+                "metric_phrase": "Minor Perk cost",
+                "from": null,
+                "to": null,
+                "delta": "+16%",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Major Perk cost increased by 10%." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "hero_general",
+                "hero_slug": "mizuki",
+                "subject_name": "Mizuki",
+                "metric": "cost",
+                "metric_phrase": "Major Perk cost",
+                "from": null,
+                "to": null,
+                "delta": "+10%",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Flash Heal moved from Perk to Baseline ability." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "mercy",
+                "subject_name": "Flash Heal",
+                "metric": null,
+                "metric_phrase": "perk-to-baseline conversion",
+                "from": "Perk",
+                "to": "Baseline ability",
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Cooldown reduced from 15 to 12 seconds." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "mercy",
+                "subject_name": "Flash Heal",
+                "metric": "cooldown",
+                "metric_phrase": "cooldown",
+                "from": "15 seconds",
+                "to": "12 seconds",
+                "delta": "-3 seconds",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Base healing increased from 50 to 60." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "mercy",
+                "subject_name": "Flash Heal",
+                "metric": "healing",
+                "metric_phrase": "base healing",
+                "from": 50,
+                "to": 60,
+                "delta": 10,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Healing multiplier on allies below 50% health reduced from 3x to 2x." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "mercy",
+                "subject_name": "Flash Heal",
+                "metric": "healing",
+                "metric_phrase": "healing multiplier on low-HP allies",
+                "from": "3x",
+                "to": "2x",
+                "delta": "-1x",
+                "blizzard_commentary": ["allies below 50% health"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Healing reduced from 60 to 55." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "mercy",
+                "subject_name": "Caduceus Staff",
+                "metric": "healing",
+                "metric_phrase": "healing",
+                "from": 60,
+                "to": 55,
+                "delta": -5,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Launch speed reduced by 10%." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "mercy",
+                "subject_name": "Guardian Angel",
+                "metric": "movement_speed",
+                "metric_phrase": "launch speed",
+                "from": null,
+                "to": null,
+                "delta": "-10%",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "New." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "mercy",
+                "subject_name": "Double Dose",
+                "metric": null,
+                "metric_phrase": "perk added",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": ["Major Perk"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Flash Heal gains an additional charge but its base healing is reduced by 10." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "mercy",
+                "subject_name": "Double Dose",
+                "metric": null,
+                "metric_phrase": "Flash Heal charge/healing tradeoff",
+                "from": null,
+                "to": null,
+                "delta": "+1 charge, -10 base healing",
+                "blizzard_commentary": [],
+                "notes": "Effect of the new Double Dose Major Perk."
+              }
+            },
+            {
+              "raw": { "text": "Duration reduced from 4 to 3.5 seconds." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "wuyang",
+                "subject_name": "Rushing Torrent",
+                "metric": "duration",
+                "metric_phrase": "duration",
+                "from": "4 seconds",
+                "to": "3.5 seconds",
+                "delta": "-0.5 seconds",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "(6v6) Damage amplification reduced from 30% to 25%." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "zenyatta",
+                "subject_name": "Orb of Discord",
+                "metric": "damage",
+                "metric_phrase": "damage amplification",
+                "from": "30%",
+                "to": "25%",
+                "delta": "-5%",
+                "blizzard_commentary": ["(6v6)"],
+                "notes": "6v6-specific tuning."
+              }
+            }
+          ]
+        },
+        {
+          "title": "Stadium Updates",
+          "mode": "stadium",
+          "group_label": "Stadium-mode boundary",
+          "changes": [
+            {
+              "raw": { "text": "Contender: Start from Novice (5 Divisions down)." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Stadium Division Start",
+                "metric": null,
+                "metric_phrase": null,
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Stadium ranked-system: Contender placement starts at Novice (5 Divisions below previous)."
+              }
+            },
+            {
+              "raw": { "text": "Elite: Start from Contender (5 Divisions down)." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Stadium Division Start",
+                "metric": null,
+                "metric_phrase": null,
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Pro: Start from Elite (5 Divisions down)." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Stadium Division Start",
+                "metric": null,
+                "metric_phrase": null,
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "All Star: Start from Elite (10 Divisions down)." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Stadium Division Start",
+                "metric": null,
+                "metric_phrase": null,
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Legend: Start from Elite (15 Divisions down)." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Stadium Division Start",
+                "metric": null,
+                "metric_phrase": null,
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            }
+          ]
+        },
+        {
+          "title": "Tank",
+          "mode": "stadium",
+          "group_label": "Stadium tank tuning (after Stadium Updates header)",
+          "changes": [
+            {
+              "raw": { "text": "Added to the Stadium roster." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "ramattra",
+                "subject_name": "Ramattra",
+                "metric": null,
+                "metric_phrase": "roster addition",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Ramattra now playable in Stadium mode. The bullets that follow are Ramattra's full Stadium Power/Item kit and were published as a flat hero-level list rather than per-Power groupings."
+              }
+            },
+            {
+              "raw": { "text": "[Void Accelerator] infects enemies with nanites which explode for 20(WP) damage after dealing 100 damage." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Void Accelerator",
+                "metric": "damage",
+                "metric_phrase": "nanite explosion damage (Power effect)",
+                "from": null,
+                "to": "20 (Weapon Power scaled)",
+                "delta": null,
+                "blizzard_commentary": ["20(WP) damage", "after dealing 100 damage"],
+                "notes": "WP = Weapon Power (Stadium scaling stat). One of Ramattra's Stadium Powers."
+              }
+            },
+            {
+              "raw": { "text": "[Void Accelerator] periodically releases a burst of 6 additional projectiles during continuous fire." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Void Accelerator",
+                "metric": "pellets",
+                "metric_phrase": "burst of additional projectiles",
+                "from": null,
+                "to": "6 additional",
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Stadium Power."
+              }
+            },
+            {
+              "raw": { "text": "[Void Barrier] gains an additional charge." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Void Barrier",
+                "metric": null,
+                "metric_phrase": "charges",
+                "from": null,
+                "to": "+1 charge",
+                "delta": "+1",
+                "blizzard_commentary": [],
+                "notes": "Stadium Power."
+              }
+            },
+            {
+              "raw": { "text": "+25% [Void Barrier] size. [Void Accelerator] projectile and [Pummel] that passes through the [Void Barrier] gain 10% increased damage." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Void Barrier",
+                "metric": "other",
+                "metric_phrase": "size + pass-through damage bonus",
+                "from": null,
+                "to": "+25% size, +10% damage on pass-through",
+                "delta": null,
+                "blizzard_commentary": ["affects Void Accelerator", "affects Pummel"],
+                "notes": "Stadium Power combining barrier size and a synergy bonus."
+              }
+            },
+            {
+              "raw": { "text": "While [Nemesis Form] is active, Ramattra is healed for 80 per second while within [Ravenous Vortex]." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Nemesis Form",
+                "metric": "healing",
+                "metric_phrase": "self-heal while in Ravenous Vortex",
+                "from": null,
+                "to": "80/s",
+                "delta": null,
+                "blizzard_commentary": ["while within Ravenous Vortex"],
+                "notes": "Stadium Power synergy between Nemesis Form and Ravenous Vortex."
+              }
+            },
+            {
+              "raw": { "text": "When [Nemesis Form] is activated, reduce the cooldown of [Ravenous Vortex] by 100%." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Nemesis Form",
+                "metric": "cooldown",
+                "metric_phrase": "Ravenous Vortex cooldown on activation",
+                "from": null,
+                "to": "0",
+                "delta": "-100%",
+                "blizzard_commentary": [],
+                "notes": "Stadium Power."
+              }
+            },
+            {
+              "raw": { "text": "While blocking in [Nemesis Form], use [Pummel] to perform a dashing punch. (4s Cooldown)" },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Pummel",
+                "metric": "cooldown",
+                "metric_phrase": "dashing punch ability (Power)",
+                "from": null,
+                "to": "4s cooldown",
+                "delta": null,
+                "blizzard_commentary": ["4s Cooldown"],
+                "notes": "Stadium Power adds a dashing-punch variant to Pummel during Block in Nemesis Form."
+              }
+            },
+            {
+              "raw": { "text": "[Block] heals Ramattra for 50% of damage mitigated over 3s." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Block",
+                "metric": "healing",
+                "metric_phrase": "self-heal from mitigation",
+                "from": null,
+                "to": "50% of damage mitigated over 3s",
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Stadium Power."
+              }
+            },
+            {
+              "raw": { "text": "Releasing [Block] deals damage equal to 100% of the amount mitigated, up to 100 to enemies within 6m." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Block",
+                "metric": "damage",
+                "metric_phrase": "release-damage from mitigation",
+                "from": null,
+                "to": "100% of mitigated, capped at 100, 6m radius",
+                "delta": null,
+                "blizzard_commentary": ["up to 100", "within 6m"],
+                "notes": "Stadium Power."
+              }
+            },
+            {
+              "raw": { "text": "+50% [Ravenous Vortex] Radius, +30% [Ravenous Vortex] Damage" },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Ravenous Vortex",
+                "metric": "other",
+                "metric_phrase": "radius + damage bonus",
+                "from": null,
+                "to": "+50% radius, +30% damage",
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Stadium Power line."
+              }
+            },
+            {
+              "raw": { "text": "When [Ravenous Vortex] is detonated, deal 50 damage and gain 2% Ultimate Charge per enemy hit." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Ravenous Vortex",
+                "metric": "damage",
+                "metric_phrase": "detonation damage + ult charge per hit",
+                "from": null,
+                "to": "50 damage + 2% ult charge per enemy",
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Stadium Power."
+              }
+            },
+            {
+              "raw": { "text": "+50% [Annihilation] Damage, +2s [Annihilation] Duration" },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Annihilation",
+                "metric": "other",
+                "metric_phrase": "damage + duration bonus",
+                "from": null,
+                "to": "+50% damage, +2s duration",
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Stadium Power."
+              }
+            },
+            {
+              "raw": { "text": "5% Attack Speed" },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": "ramattra",
+                "subject_name": "Stadium Item stat",
+                "metric": "attack_speed",
+                "metric_phrase": "attack speed",
+                "from": null,
+                "to": "+5%",
+                "delta": "+5%",
+                "blizzard_commentary": [],
+                "notes": "Stadium Item attribute (typically a single stat line on a Power/Item)."
+              }
+            },
+            {
+              "raw": { "text": "When [Block] mititgates damage, gain 15% Attack Speed for 3s." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Block",
+                "metric": "attack_speed",
+                "metric_phrase": "attack speed buff from mitigation",
+                "from": null,
+                "to": "+15% for 3s on mitigation",
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Stadium Power. Note Blizzard's typo 'mititgates'."
+              }
+            },
+            {
+              "raw": { "text": "4000 Cost" },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": "ramattra",
+                "subject_name": "Stadium Power/Item cost",
+                "metric": "cost",
+                "metric_phrase": "cost",
+                "from": null,
+                "to": 4000,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Cost line for the most-recently-named Power/Item above. Without per-Power grouping, the specific referent is ambiguous."
+              }
+            },
+            {
+              "raw": { "text": "10% Weapon Power" },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": "ramattra",
+                "subject_name": "Stadium Item stat",
+                "metric": "other",
+                "metric_phrase": "Weapon Power",
+                "from": null,
+                "to": "+10%",
+                "delta": "+10%",
+                "blizzard_commentary": [],
+                "notes": "Stadium Item attribute."
+              }
+            },
+            {
+              "raw": { "text": "50% [Void Accelerator] projectile size" },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Void Accelerator",
+                "metric": "projectile_speed",
+                "metric_phrase": "projectile size",
+                "from": null,
+                "to": "+50%",
+                "delta": "+50%",
+                "blizzard_commentary": [],
+                "notes": "Stadium Power. Metric is closest to projectile geometry; using `projectile_speed` enum as nearest match — may want a `projectile_size` enum value in future."
+              }
+            },
+            {
+              "raw": { "text": "4500 Cost" },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": "ramattra",
+                "subject_name": "Stadium Power/Item cost",
+                "metric": "cost",
+                "metric_phrase": "cost",
+                "from": null,
+                "to": 4500,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "10% Weapon Power" },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": "ramattra",
+                "subject_name": "Stadium Item stat",
+                "metric": "other",
+                "metric_phrase": "Weapon Power",
+                "from": null,
+                "to": "+10%",
+                "delta": "+10%",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "25% [Pummel] Range" },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Pummel",
+                "metric": "range",
+                "metric_phrase": "range",
+                "from": null,
+                "to": "+25%",
+                "delta": "+25%",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "4500 Cost" },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": "ramattra",
+                "subject_name": "Stadium Power/Item cost",
+                "metric": "cost",
+                "metric_phrase": "cost",
+                "from": null,
+                "to": 4500,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "5% Weapon Power" },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": "ramattra",
+                "subject_name": "Stadium Item stat",
+                "metric": "other",
+                "metric_phrase": "Weapon Power",
+                "from": null,
+                "to": "+5%",
+                "delta": "+5%",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "50% [Void Accelerator] Projectile Speed" },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Void Accelerator",
+                "metric": "projectile_speed",
+                "metric_phrase": "projectile speed",
+                "from": null,
+                "to": "+50%",
+                "delta": "+50%",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "While continuously shooting [Void Accelerator], gain up to 20% Weapon Power over 3s." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Void Accelerator",
+                "metric": "other",
+                "metric_phrase": "Weapon Power ramp on continuous fire",
+                "from": null,
+                "to": "up to +20% over 3s",
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Stadium Power."
+              }
+            },
+            {
+              "raw": { "text": "12500 Cost" },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": "ramattra",
+                "subject_name": "Stadium Power/Item cost",
+                "metric": "cost",
+                "metric_phrase": "cost",
+                "from": null,
+                "to": 12500,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "10% Ability Power" },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": "ramattra",
+                "subject_name": "Stadium Item stat",
+                "metric": "other",
+                "metric_phrase": "Ability Power",
+                "from": null,
+                "to": "+10%",
+                "delta": "+10%",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "10% Attack Speed" },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": "ramattra",
+                "subject_name": "Stadium Item stat",
+                "metric": "attack_speed",
+                "metric_phrase": "attack speed",
+                "from": null,
+                "to": "+10%",
+                "delta": "+10%",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "[Pummel] damage is also increased by Ability Power." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Pummel",
+                "metric": "damage",
+                "metric_phrase": "Ability Power scaling",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Stadium Power: Pummel now scales with Ability Power."
+              }
+            },
+            {
+              "raw": { "text": "13000 Cost" },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": "ramattra",
+                "subject_name": "Stadium Power/Item cost",
+                "metric": "cost",
+                "metric_phrase": "cost",
+                "from": null,
+                "to": 13000,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Damage Absorbed threshold for Attack Speed reduced to 50 (Down from 100)." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "sigma",
+                "subject_name": "Sigma",
+                "metric": "attack_speed",
+                "metric_phrase": "damage-absorbed threshold for attack-speed bonus",
+                "from": 100,
+                "to": 50,
+                "delta": -50,
+                "blizzard_commentary": ["Down from 100"],
+                "notes": "Stadium Power threshold tuning on Sigma."
+              }
+            },
+            {
+              "raw": { "text": "Currency from damage and healing increased by 12.5%." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "winston",
+                "subject_name": "Winston",
+                "metric": "other",
+                "metric_phrase": "currency earned from damage and healing",
+                "from": null,
+                "to": null,
+                "delta": "+12.5%",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Bounce Damage increased to 75% (Up from 50%)." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "winston",
+                "subject_name": "Winston",
+                "metric": "damage",
+                "metric_phrase": "bounce damage",
+                "from": "50%",
+                "to": "75%",
+                "delta": "+25%",
+                "blizzard_commentary": ["Up from 50%"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Critical Damage increased to 200% (Up from 175%)." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "winston",
+                "subject_name": "Winston",
+                "metric": "damage",
+                "metric_phrase": "critical damage",
+                "from": "175%",
+                "to": "200%",
+                "delta": "+25%",
+                "blizzard_commentary": ["Up from 175%"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Added \"+25% Starting Ultimate Charge\"." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "winston",
+                "subject_name": "Winston",
+                "metric": "other",
+                "metric_phrase": "starting ultimate charge",
+                "from": null,
+                "to": "+25%",
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Stadium Power/Item adding starting ult charge."
+              }
+            }
+          ]
+        },
+        {
+          "title": "Damage",
+          "mode": "stadium",
+          "group_label": "Stadium damage tuning (after Stadium Updates header)",
+          "changes": [
+            {
+              "raw": { "text": "Max Ammo restore reduced to 30% (Down from 40%)." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "freja",
+                "subject_name": "Freja",
+                "metric": "ammo",
+                "metric_phrase": "max ammo restore",
+                "from": "40%",
+                "to": "30%",
+                "delta": "-10%",
+                "blizzard_commentary": ["Down from 40%"],
+                "notes": "Stadium Power/Item nerf."
+              }
+            },
+            {
+              "raw": { "text": "Max Life Healing reduced to 6% (Down from 8%)." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "freja",
+                "subject_name": "Freja",
+                "metric": "healing",
+                "metric_phrase": "max-life healing",
+                "from": "8%",
+                "to": "6%",
+                "delta": "-2%",
+                "blizzard_commentary": ["Down from 8%"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Removed 5% Weapon Power." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "junkrat",
+                "subject_name": "Junkrat",
+                "metric": "other",
+                "metric_phrase": "Weapon Power",
+                "from": "+5%",
+                "to": null,
+                "delta": "-5%",
+                "blizzard_commentary": [],
+                "notes": "Stadium Item stat removed."
+              }
+            },
+            {
+              "raw": { "text": "Max Life Overhealth Scaling reduced to 6% (Down from 8%)." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "junkrat",
+                "subject_name": "Junkrat",
+                "metric": "other",
+                "metric_phrase": "max-life overhealth scaling",
+                "from": "8%",
+                "to": "6%",
+                "delta": "-2%",
+                "blizzard_commentary": ["Down from 8%"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Removed 10% Weapon Power." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "junkrat",
+                "subject_name": "Junkrat",
+                "metric": "other",
+                "metric_phrase": "Weapon Power",
+                "from": "+10%",
+                "to": null,
+                "delta": "-10%",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Ability Power increased to 15% (Up from 10%)." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "junkrat",
+                "subject_name": "Junkrat",
+                "metric": "other",
+                "metric_phrase": "Ability Power",
+                "from": "10%",
+                "to": "15%",
+                "delta": "+5%",
+                "blizzard_commentary": ["Up from 10%"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Cooldown Reduction upon self detonating Concussion Mine reduced to 10% (Down from 15%)." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "junkrat",
+                "subject_name": "Concussion Mine",
+                "metric": "cooldown",
+                "metric_phrase": "self-detonate cooldown reduction",
+                "from": "15%",
+                "to": "10%",
+                "delta": "-5%",
+                "blizzard_commentary": ["Down from 15%"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Currency from damage and healing increased by 5%." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "vendetta",
+                "subject_name": "Vendetta",
+                "metric": "other",
+                "metric_phrase": "currency from damage and healing",
+                "from": null,
+                "to": null,
+                "delta": "+5%",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Whirlwind Dash Damage during additional duration increased to 75% (Up from 50%)." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "vendetta",
+                "subject_name": "Whirlwind Dash",
+                "metric": "damage",
+                "metric_phrase": "damage during additional duration",
+                "from": "50%",
+                "to": "75%",
+                "delta": "+25%",
+                "blizzard_commentary": ["Up from 50%"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Whirlwind Dash reactivation damage increased to 75% (Up from 50%)." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "vendetta",
+                "subject_name": "Whirlwind Dash",
+                "metric": "damage",
+                "metric_phrase": "reactivation damage",
+                "from": "50%",
+                "to": "75%",
+                "delta": "+25%",
+                "blizzard_commentary": ["Up from 50%"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Free Projected Edge damage increased to 75% (Up from 50%)." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "vendetta",
+                "subject_name": "Projected Edge",
+                "metric": "damage",
+                "metric_phrase": "free Projected Edge damage",
+                "from": "50%",
+                "to": "75%",
+                "delta": "+25%",
+                "blizzard_commentary": ["Up from 50%"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Mini Sundering Blade damage increased to 50% increased damage (Up from 25%)." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "vendetta",
+                "subject_name": "Sundering Blade",
+                "metric": "damage",
+                "metric_phrase": "mini Sundering Blade damage",
+                "from": "+25%",
+                "to": "+50%",
+                "delta": "+25%",
+                "blizzard_commentary": ["Up from 25%"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Explosion Damage increased to 30 (Up from 20)." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "vendetta",
+                "subject_name": "Vendetta",
+                "metric": "damage",
+                "metric_phrase": "explosion damage",
+                "from": 20,
+                "to": 30,
+                "delta": 10,
+                "blizzard_commentary": ["Up from 20"],
+                "notes": "Stadium Power explosion-damage line; specific Power not named."
+              }
+            }
+          ]
+        },
+        {
+          "title": "Support",
+          "mode": "stadium",
+          "group_label": "Stadium support tuning (after Stadium Updates header)",
+          "changes": [
+            {
+              "raw": { "text": "Nano Boost Duration increased to 25% (Up from 15%)." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "ana",
+                "subject_name": "Nano Boost",
+                "metric": "duration",
+                "metric_phrase": "duration bonus",
+                "from": "15%",
+                "to": "25%",
+                "delta": "+10%",
+                "blizzard_commentary": ["Up from 15%"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Critical Multiplier decreased to 175% (Down from 200%)." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "juno",
+                "subject_name": "Juno",
+                "metric": "damage",
+                "metric_phrase": "critical multiplier",
+                "from": "200%",
+                "to": "175%",
+                "delta": "-25%",
+                "blizzard_commentary": ["Down from 200%"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Tooltip now correctly states that it also allows you to crit on allies." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "juno",
+                "subject_name": "Juno",
+                "metric": null,
+                "metric_phrase": "tooltip fix",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Tooltip-only fix; behavior unchanged."
+              }
+            },
+            {
+              "raw": { "text": "New" },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": "juno",
+                "subject_name": "Stadium Power",
+                "metric": null,
+                "metric_phrase": "new Power added",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Marker for the new Power that follows in the next bullet."
+              }
+            },
+            {
+              "raw": { "text": "While affected by [Hyper Ring], [Medi-Blaster] has a fully automatic fire rate." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "juno",
+                "subject_name": "Mediblaster",
+                "metric": "rate_of_fire",
+                "metric_phrase": "automatic fire while in Hyper Ring",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": ["Hyper Ring synergy"],
+                "notes": "Effect of the new Power introduced by the prior 'New' marker."
+              }
+            },
+            {
+              "raw": { "text": "New" },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": "juno",
+                "subject_name": "Stadium Power",
+                "metric": null,
+                "metric_phrase": "new Power added",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Marker for another new Power."
+              }
+            },
+            {
+              "raw": { "text": "Allies affected by [Hyper Ring] are healed for 40% of any damage you do." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "juno",
+                "subject_name": "Hyper Ring",
+                "metric": "healing",
+                "metric_phrase": "ally healing from your damage",
+                "from": null,
+                "to": "40%",
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "New Power."
+              }
+            },
+            {
+              "raw": { "text": "Added \"While using [Glide Boost] or hovering, gain 100% more Ultimate Charge from Damage or Healing.\"" },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "juno",
+                "subject_name": "Glide Boost",
+                "metric": "other",
+                "metric_phrase": "ult charge multiplier while glide-boosting/hovering",
+                "from": null,
+                "to": "+100%",
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "New Power effect."
+              }
+            },
+            {
+              "raw": { "text": "Removed" },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": "juno",
+                "subject_name": "Stadium Power",
+                "metric": null,
+                "metric_phrase": "Power removed",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Marker that the next bullet describes a removed Power. Specific Power name not given."
+              }
+            },
+            {
+              "raw": { "text": "Removed" },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": "juno",
+                "subject_name": "Stadium Power",
+                "metric": null,
+                "metric_phrase": "Power removed",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Marker; another removed Power."
+              }
+            },
+            {
+              "raw": { "text": "Removed Attack Speed after using Pulsar Torpedoes." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "juno",
+                "subject_name": "Pulsar Torpedoes",
+                "metric": "attack_speed",
+                "metric_phrase": "post-cast attack speed bonus",
+                "from": "(present)",
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Added \"+35% Ally Lock On Speed\"." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "juno",
+                "subject_name": "Juno",
+                "metric": "other",
+                "metric_phrase": "ally lock-on speed",
+                "from": null,
+                "to": "+35%",
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "New Stadium item attribute."
+              }
+            },
+            {
+              "raw": { "text": "Cost decreased to 10000 (Down from 11000)." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": "juno",
+                "subject_name": "Stadium Power/Item cost",
+                "metric": "cost",
+                "metric_phrase": "cost",
+                "from": 11000,
+                "to": 10000,
+                "delta": -1000,
+                "blizzard_commentary": ["Down from 11000"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Removed \"[Mediblaster] deals 15% increased damage and healing to targets farther than 12m away.\"" },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "juno",
+                "subject_name": "Mediblaster",
+                "metric": null,
+                "metric_phrase": "long-range damage/healing bonus",
+                "from": "+15% beyond 12m",
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Stadium Power effect removed."
+              }
+            },
+            {
+              "raw": { "text": "Added \"[Mediblaster] has 5m increased falloff range.\"" },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "juno",
+                "subject_name": "Mediblaster",
+                "metric": "range",
+                "metric_phrase": "increased falloff range",
+                "from": null,
+                "to": "+5m",
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Replaces the prior long-range damage/healing Power."
+              }
+            },
+            {
+              "raw": { "text": "Cost decreased to 9000 (Down from 10000)." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": "juno",
+                "subject_name": "Stadium Power/Item cost",
+                "metric": "cost",
+                "metric_phrase": "cost",
+                "from": 10000,
+                "to": 9000,
+                "delta": -1000,
+                "blizzard_commentary": ["Down from 10000"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Ability Power decreased to 5% (Down from 10%)." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": "juno",
+                "subject_name": "Stadium Item stat",
+                "metric": "other",
+                "metric_phrase": "Ability Power",
+                "from": "10%",
+                "to": "5%",
+                "delta": "-5%",
+                "blizzard_commentary": ["Down from 10%"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Added 5% Weapon Power." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": "juno",
+                "subject_name": "Stadium Item stat",
+                "metric": "other",
+                "metric_phrase": "Weapon Power",
+                "from": null,
+                "to": "+5%",
+                "delta": "+5%",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "New" },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": "juno",
+                "subject_name": "Stadium Power",
+                "metric": null,
+                "metric_phrase": "new Power added",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Marker for another new Power."
+              }
+            },
+            {
+              "raw": { "text": "Activating Glide Boost as you pass through Hyper Ring reduces cooldown of Glide Boost by 50%." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "juno",
+                "subject_name": "Glide Boost",
+                "metric": "cooldown",
+                "metric_phrase": "Hyper Ring synergy cooldown reduction",
+                "from": null,
+                "to": "-50% on Hyper Ring pass-through",
+                "delta": "-50%",
+                "blizzard_commentary": [],
+                "notes": "New Stadium Power."
+              }
+            },
+            {
+              "raw": { "text": "5000 Cost" },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": "juno",
+                "subject_name": "Stadium Power/Item cost",
+                "metric": "cost",
+                "metric_phrase": "cost",
+                "from": null,
+                "to": 5000,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Cost decreased to 9500 (Down from 12000)." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": "juno",
+                "subject_name": "Stadium Power/Item cost",
+                "metric": "cost",
+                "metric_phrase": "cost",
+                "from": 12000,
+                "to": 9500,
+                "delta": -2500,
+                "blizzard_commentary": ["Down from 12000"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Non-empowered Primary Fire projectile speed increased to 150% (Up from 100%)." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "wuyang",
+                "subject_name": "Wuyang",
+                "metric": "projectile_speed",
+                "metric_phrase": "non-empowered primary fire projectile speed",
+                "from": "100%",
+                "to": "150%",
+                "delta": "+50%",
+                "blizzard_commentary": ["Up from 100%"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Active Restorative Stream self healing increased to 100% (Up from 75%)." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "wuyang",
+                "subject_name": "Restorative Stream",
+                "metric": "healing",
+                "metric_phrase": "active self healing",
+                "from": "75%",
+                "to": "100%",
+                "delta": "+25%",
+                "blizzard_commentary": ["Up from 75%"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Healing based on damage dealt reduced to 30% (Down from 35%)." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "zenyatta",
+                "subject_name": "Zenyatta",
+                "metric": "healing",
+                "metric_phrase": "healing from damage dealt",
+                "from": "35%",
+                "to": "30%",
+                "delta": "-5%",
+                "blizzard_commentary": ["Down from 35%"],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Homing Health Threshold increased to 50% (Up from 35%)." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "zenyatta",
+                "subject_name": "Zenyatta",
+                "metric": "other",
+                "metric_phrase": "homing health threshold",
+                "from": "35%",
+                "to": "50%",
+                "delta": "+15%",
+                "blizzard_commentary": ["Up from 35%"],
+                "notes": "Stadium Power threshold."
+              }
+            }
+          ]
+        },
+        {
+          "title": "Map Updates",
+          "mode": "retail",
+          "group_label": null,
+          "changes": [
+            {
+              "raw": { "text": "Lijang: Night Market has been added to the Stadium map roster." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "map",
+                "hero_slug": null,
+                "subject_name": "Lijang: Night Market",
+                "metric": null,
+                "metric_phrase": "added to Stadium roster",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Map added to Stadium mode pool. Section title was 'Map Updates' (mode-neutral) but content explicitly says Stadium."
+              }
+            }
+          ]
+        },
+        {
+          "title": "Bug Fixes",
+          "mode": "retail",
+          "group_label": null,
+          "changes": [
+            {
+              "raw": { "text": "Fixed an issue that caused a delay when switching between Lifeweaver's primary and secondary fire animations." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "hero_general",
+                "hero_slug": "lifeweaver",
+                "subject_name": "Lifeweaver",
+                "metric": null,
+                "metric_phrase": null,
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Animation switch bug fix."
+              }
+            },
+            {
+              "raw": { "text": "Fixed an issue where Mizuki did not receive credit for the \"Enemies Hindered\" stat when Binding Chain was used on a Zenyatta in Transcendence." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "mizuki",
+                "subject_name": "Binding Chain",
+                "metric": null,
+                "metric_phrase": "stat credit",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Fixed an issue where Mizuki's Kekkai Sanctuary could disappear if it was cast and its position was modified." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "mizuki",
+                "subject_name": "Kekkai Sanctuary",
+                "metric": null,
+                "metric_phrase": null,
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Fixed an issue causing Wuyang's orb control time to default to zero in custom games." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "hero_general",
+                "hero_slug": "wuyang",
+                "subject_name": "Wuyang",
+                "metric": null,
+                "metric_phrase": "custom games orb control time",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Fixed an issue where Juno's sound effects would not play for eliminations when her mythic weapon was equipped." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "hero_general",
+                "hero_slug": "juno",
+                "subject_name": "Juno",
+                "metric": null,
+                "metric_phrase": "mythic weapon SFX",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Fixed an issue where the Jetpack Cat's Purr ability would cancel after dropping users attached to Lifeline." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "jetpack-cat",
+                "subject_name": "Purr",
+                "metric": null,
+                "metric_phrase": "cancel-on-drop bug",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Fixed an issue where the prompt text for Ashe's Remote Detonator perk would remain onscreen even while dead." },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "ashe",
+                "subject_name": "Remote Detonator",
+                "metric": null,
+                "metric_phrase": "lingering UI prompt",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Fixed an issue where Vendetta's Overhead Slash could sometimes not align with the reticle while moving in third person." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "vendetta",
+                "subject_name": "Overhead Slash",
+                "metric": null,
+                "metric_phrase": "third-person aim alignment",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "In the Stadium Bug Fixes sub-block; Stadium-specific."
+              }
+            },
+            {
+              "raw": { "text": "Fixed an issue where Ana would incorrectly apply The Closer's reveal effect when not performing a headshot." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": "ana",
+                "subject_name": "The Closer",
+                "metric": null,
+                "metric_phrase": null,
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "The Closer is an Ana Stadium Power."
+              }
+            },
+            {
+              "raw": { "text": "Fixed an issue where the Overhealth from Ana's Lethal Dose Item was not scaling properly with Ability Power." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": "ana",
+                "subject_name": "Lethal Dose",
+                "metric": null,
+                "metric_phrase": "Ability Power scaling",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Lethal Dose is a Stadium Item."
+              }
+            },
+            {
+              "raw": { "text": "Fixed an issue where Biotic Grenades created from Ana's Fountain of Soothe Power granted the same Overhealth as baseline Biotic Grenades with the Home Remedy Power equipped." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "ana",
+                "subject_name": "Biotic Grenade",
+                "metric": null,
+                "metric_phrase": "Overhealth via Fountain of Soothe + Home Remedy",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": ["Fountain of Soothe", "Home Remedy"],
+                "notes": "Two named Stadium Powers in the bug context."
+              }
+            },
+            {
+              "raw": { "text": "Fixed an issue where bonus damage from Junker Queen's Blade Parade Power would persist after unequipping it." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": "junker-queen",
+                "subject_name": "Blade Parade",
+                "metric": null,
+                "metric_phrase": "persist-after-unequip bug",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Blade Parade is a Junker Queen Stadium Power."
+              }
+            },
+            {
+              "raw": { "text": "Fixed an issue where the prompt from Ashe's Controlled Boom Power stays on screen after main dynamite has exploded when the Out With a Bang Power is also equipped." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": "ashe",
+                "subject_name": "Controlled Boom",
+                "metric": null,
+                "metric_phrase": "stale UI prompt",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": ["Out With a Bang"],
+                "notes": "Controlled Boom + Out With a Bang are Ashe Stadium Powers."
+              }
+            },
+            {
+              "raw": { "text": "Fixed an issue where Ashe's Incendiary Blastpaper item would apply bonus Burning damage twice if multiple Coach Gun pellets hit." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": "ashe",
+                "subject_name": "Incendiary Blastpaper",
+                "metric": null,
+                "metric_phrase": "double-application bug",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Incendiary Blastpaper is a Stadium Item."
+              }
+            },
+            {
+              "raw": { "text": "Fixed an issue where the Iron Eyes mod would not reduce critical damage from Vendetta." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": "vendetta",
+                "subject_name": "Iron Eyes (Stadium Item)",
+                "metric": null,
+                "metric_phrase": null,
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Iron Eyes is a Stadium Item that reduces critical damage taken; bug was that Vendetta crits weren't reduced."
+              }
+            },
+            {
+              "raw": { "text": "Fixed an issue where Vendetta's Cataclisma power would also damage teammates." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": "vendetta",
+                "subject_name": "Cataclisma",
+                "metric": null,
+                "metric_phrase": "friendly-fire bug",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Cataclisma is a Vendetta Stadium Power."
+              }
+            },
+            {
+              "raw": { "text": "Fixed an issue where D.Va's Busan Blaster mod would incorrectly generate ultimate charge." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": "dva",
+                "subject_name": "Busan Blaster",
+                "metric": null,
+                "metric_phrase": "incorrect ult charge gen",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Busan Blaster is a D.Va Stadium Item/mod."
+              }
+            },
+            {
+              "raw": { "text": "Fixed an issue where Zenyatta's Circle of Strife would not apply Discord Orbs to enemies within the additional radius granted by Satya's Solution." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": "zenyatta",
+                "subject_name": "Circle of Strife",
+                "metric": null,
+                "metric_phrase": "radius-stacking bug",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": ["Satya's Solution"],
+                "notes": "Both Powers are Zenyatta Stadium Powers."
+              }
+            },
+            {
+              "raw": { "text": "Fixed an issue where the Salvaged Slugs general item was not healing Moira when damaging Barriers." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": "moira",
+                "subject_name": "Salvaged Slugs (Stadium Item)",
+                "metric": null,
+                "metric_phrase": null,
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": { "text": "Fixed an issue where Moira's Multiball Power spawned orbs with less capacity than intended." },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": "moira",
+                "subject_name": "Multiball",
+                "metric": null,
+                "metric_phrase": "orb capacity",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Multiball is a Moira Stadium Power."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

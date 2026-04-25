@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T17:28:20.254Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,17 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
-          "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.shields"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Illari",
@@ -46,19 +47,62 @@
     "abilities": [
       {
         "name": "Solar Rifle",
-        "description": "Long range auto-charging rifle. Medium range healing beam that consumes solar energy."
+        "description": "Long-range auto charging rifle.",
+        "ability_type": "Weapon;;Primary Fire",
+        "damage": "75 - 22.5 (max charge) / 25 - 7.5 (min charge)",
+        "falloff": "30 - 50 meters",
+        "headshot": true,
+        "rate_of_fire": "1.11 shot/s (max charge) / 2.00 shots/s (min charge)",
+        "ammo": 14,
+        "reload": "1.5 seconds",
+        "spread": "None",
+        "projectile_radius": "0.12 meters",
+        "duration": "0.65 seconds (charge time) / 0.25 seconds (recovery)",
+        "dps": "(max charge): 77.7 while firing (68 overall w/ reload)"
       },
       {
-        "name": "Captive Sun",
-        "description": "Fire an explosive ball of solar energy. Enemies hit are slowed and explode after taking significant damage."
-      },
-      {
-        "name": "Healing Pylon",
-        "description": "Deploy a pylon that heals allies."
+        "name": "Solar Rifle Alt Fire",
+        "description": "Medium range healing beam that consumes solar energy.",
+        "ability_type": "Weapon;;Secondary Fire",
+        "headshot": false,
+        "spread": "None",
+        "healing": "115 per second",
+        "range": "20 meters",
+        "projectile_radius": "0.25 meters",
+        "duration": "0.6 seconds (energy regen delay)"
       },
       {
         "name": "Outburst",
-        "description": "Launches you in the direction you are moving, knocking back enemies. Hold jump to go higher."
+        "description": "Launches you in the direction you are moving. Knocking back enemies. Hold jump to go higher.",
+        "ability_type": "Ability",
+        "cooldown": "8 seconds",
+        "damage": 25,
+        "headshot": false,
+        "radius": "8 meters"
+      },
+      {
+        "name": "Healing Pylon",
+        "description": "Deploy a pylon that heals allies.",
+        "ability_type": "Ability",
+        "cooldown": "7 seconds (default) / 14 seconds (under attack)",
+        "health": 75,
+        "healing": "40 over 0.45 seconds (allies) / 20 over 0.45 seconds (self)",
+        "range": "15 meters",
+        "projectile_speed": "25 m/s",
+        "rate_of_fire": "1.25 shots/s",
+        "duration": "Until destroyed / 1.3 seconds (build time)"
+      },
+      {
+        "name": "Captive Sun",
+        "description": "Fire an explosive ball of solar energy. Enemies hit are slowed and explode after taking significant damage.",
+        "ability_type": "Ultimate Ability",
+        "damage": "5 (direct hit) / 50 (splash) / 160 - 120 (Sunstruck explosion)",
+        "headshot": false,
+        "projectile_speed": "30 m/s",
+        "radius": "10 meters (impact) / 1 - 5 meters (Sunstruck explosion, falloff start - max)",
+        "projectile_radius": "0.45 meters",
+        "ammo": 1,
+        "duration": "5.2 seconds (flight) / 6 seconds (Sunstruck debuff) / 0.8 seconds (explosion delay)"
       }
     ],
     "perks": {
@@ -69,13 +113,13 @@
         },
         {
           "name": "Summer Solstice",
-          "description": "Captive Sun grants Illari 20% increased flight and attack speed, and extends her flight duration by 3 seconds."
+          "description": "Activating Captive Sun grants Illari 3 extra seconds of flight, 20% increased flight speed, and 20% increased attack speed."
         }
       ],
       "major": [
         {
           "name": "Solar Flare",
-          "description": "Press while using Solar Rifle's healing beam to heal all allies in front of Illari for 100 healing."
+          "description": "Press Primary Fire while using Solar Rifle's healing beam to heal all allies in front of Illari for 100 healing."
         },
         {
           "name": "Sunburn",
@@ -84,81 +128,6 @@
       ]
     },
     "stats": {
-      "abilities": {
-        "Solar Rifle": {
-          "ability_type": "Weapon;;Primary Fire",
-          "damage": "75 - 22.5 (max charge) / 25 - 7.5 (min charge)",
-          "falloff": "30 - 50 meters",
-          "headshot": true,
-          "rate_of_fire": "1.11 shot/s (max charge) / 2.00 shots/s (min charge)",
-          "ammo": 14,
-          "reload": "1.5 seconds",
-          "spread": "None",
-          "projectile_radius": "0.12 meters",
-          "duration": "0.65 seconds (charge time) / 0.25 seconds (recovery)",
-          "dps": "(max charge): 77.7 while firing (68 overall w/ reload)",
-          "modes": {
-            "Secondary Fire": {
-              "key": "secondary fire",
-              "headshot": false,
-              "spread": "None",
-              "healing": "115 per second",
-              "range": "20 meters",
-              "projectile_radius": "0.25 meters",
-              "duration": "0.6 seconds (energy regen delay)"
-            }
-          }
-        },
-        "Outburst": {
-          "ability_type": "Ability",
-          "key": "ability 1",
-          "cooldown": "8 seconds",
-          "damage": 25,
-          "headshot": false,
-          "radius": "8 meters"
-        },
-        "Healing Pylon": {
-          "ability_type": "Ability",
-          "key": "ability 2",
-          "cooldown": "7 seconds (default) / 14 seconds (under attack)",
-          "health": 75,
-          "healing": "40 over 0.45 seconds (allies) / 20 over 0.45 seconds (self)",
-          "range": "15 meters",
-          "projectile_speed": "25 m/s",
-          "rate_of_fire": "1.25 shots/s",
-          "duration": "Until destroyed / 1.3 seconds (build time)"
-        },
-        "Captive Sun": {
-          "ability_type": "Ultimate Ability",
-          "damage": "5 (direct hit) / 50 (splash) / 160 - 120 (Sunstruck explosion)",
-          "headshot": false,
-          "projectile_speed": "30 m/s",
-          "radius": "10 meters (impact) / 1 - 5 meters (Sunstruck explosion, falloff start - max)",
-          "projectile_radius": "0.45 meters",
-          "ammo": 1,
-          "duration": "5.2 seconds (flight) / 6 seconds (Sunstruck debuff) / 0.8 seconds (explosion delay)"
-        },
-        "Rapid Construction": {
-          "ability_type": "Minor Perk",
-          "duration": "1.3 → 0.33 seconds (build time)",
-          "cooldown": "7 → 5.5 seconds (default) / 14 → 12.5 seconds (under attack)"
-        },
-        "Summer Solstice": {
-          "ability_type": "Minor Perk"
-        },
-        "Solar Flare": {
-          "ability_type": "Major Perk",
-          "key": "primary fire",
-          "cooldown": "10 seconds",
-          "healing": 100,
-          "radius": "20 meters"
-        },
-        "Sunburn": {
-          "ability_type": "Major Perk",
-          "damage": "16.67 per second / 50 total",
-          "duration": "3 seconds"
-        }
-      },
       "health": 250
     }
   }

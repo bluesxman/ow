@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T17:28:20.254Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,17 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
-          "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.shields"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Mercy",
@@ -45,28 +46,69 @@
     "sub_role": "medic",
     "abilities": [
       {
-        "name": "Caduceus Staff",
-        "description": "Hold to heal an ally. Hold to increase an ally's damage inflicted."
-      },
-      {
-        "name": "Caduceus Blaster",
-        "description": "Automatic weapon."
-      },
-      {
-        "name": "Guardian Angel",
-        "description": "Fly towards an ally. While in flight, Jump launches you forward, and Crouch launches you upward."
-      },
-      {
-        "name": "Resurrect",
-        "description": "Revive a dead teammate."
+        "name": "Swift Recovery",
+        "description": "Begin regenerating health more quickly.",
+        "ability_type": "Passive Ability"
       },
       {
         "name": "Angelic Descent",
-        "description": "Fall very slowly."
+        "description": "Fall very slowly.",
+        "duration": "Until cancelled",
+        "ability_type": "Passive Ability"
+      },
+      {
+        "name": "Caduceus Staff",
+        "description": "Hold to heal an ally. Hold to increase an ally's damage inflicted.",
+        "ability_type": "Weapon",
+        "healing": "55 per second",
+        "range": "15 meters"
+      },
+      {
+        "name": "Caduceus Blaster",
+        "description": "Automatic weapon.",
+        "ability_type": "Weapon",
+        "damage": 20,
+        "headshot": true,
+        "projectile_speed": "50 m/s",
+        "projectile_radius": "0.275 meters",
+        "rate_of_fire": "5 shots/s",
+        "ammo": 25,
+        "reload": "1.4 seconds",
+        "spread": "None",
+        "dps": "100 while firing (78 overall w/reload)"
+      },
+      {
+        "name": "Guardian Angel",
+        "description": "Fly towards an ally. While in flight, Jump launches you forward, and and Crouch launches you upward.",
+        "ability_type": "Ability",
+        "range": "30 meters",
+        "cooldown": "1.5 seconds"
+      },
+      {
+        "name": "Resurrect",
+        "description": "Revive a dead teammate.",
+        "ability_type": "Ability",
+        "healing": "Revives ally at full health",
+        "range": "5.50 meters",
+        "cooldown": "30 seconds"
+      },
+      {
+        "name": "Flash Heal",
+        "description": "Heal Caduceus Staff's active target, healing is doubled on allies below half health.",
+        "ability_type": "Ability",
+        "cooldown": "12 seconds",
+        "healing": "60 (default) / 120 (low health)"
       },
       {
         "name": "Valkyrie",
-        "description": "Gain the ability to fly. Abilities are enhanced."
+        "description": "Gain the ability to fly. Abilities are enhanced.",
+        "ability_type": "Ultimate Ability",
+        "healing": "65 per second per target",
+        "damage": "Chain-damage boost (30% per target)",
+        "projectile_speed": "100 m/s (Blaster)",
+        "ammo": "∞ (Blaster)",
+        "duration": "15 seconds",
+        "range": "10 meters (chain healing) / +100% range (Guardian Angel, Caduceus Staff)"
       }
     ],
     "perks": {
@@ -77,13 +119,13 @@
         },
         {
           "name": "Divine Momentum",
-          "description": "Increases Mercy’s travel speed by 15% after cancelling Guardian Angel."
+          "description": "Increases Mercy's travel speed by 15% after cancelling Guardian Angel."
         }
       ],
       "major": [
         {
           "name": "Chain Boost",
-          "description": "Caduceus Staff's secondary fire links to a second nearby ally."
+          "description": "Secondary fire links to a second nearby ally."
         },
         {
           "name": "Double Dose",
@@ -92,66 +134,6 @@
       ]
     },
     "stats": {
-      "abilities": {
-        "Angelic Descent": {
-          "duration": "Until cancelled",
-          "ability_type": "Passive Ability",
-          "key": "jump"
-        },
-        "Caduceus Staff": {
-          "ability_type": "Weapon",
-          "healing": "55 per second",
-          "range": "15 meters"
-        },
-        "Caduceus Blaster": {
-          "ability_type": "Weapon",
-          "damage": 20,
-          "headshot": true,
-          "projectile_speed": "50 m/s",
-          "projectile_radius": "0.275 meters",
-          "rate_of_fire": "5 shots/s",
-          "ammo": 25,
-          "reload": "1.4 seconds",
-          "spread": "None",
-          "dps": "100 while firing (78 overall w/reload)"
-        },
-        "Guardian Angel": {
-          "ability_type": "Ability",
-          "key": "ability 1",
-          "range": "30 meters",
-          "cooldown": "1.5 seconds"
-        },
-        "Resurrect": {
-          "ability_type": "Ability",
-          "key": "ability 2",
-          "healing": "Revives ally at full health",
-          "range": "5.50 meters",
-          "cooldown": "30 seconds"
-        },
-        "Valkyrie": {
-          "ability_type": "Ultimate Ability",
-          "healing": "65 per second per target",
-          "damage": "Chain-damage boost (30% per target)",
-          "projectile_speed": "100 m/s (Blaster)",
-          "ammo": "∞ (Blaster)",
-          "duration": "15 seconds",
-          "range": "10 meters (chain healing) / +100% range (Guardian Angel, Caduceus Staff)"
-        },
-        "Angelic Resurrection": {
-          "ability_type": "Minor Perk",
-          "duration": "2 seconds"
-        },
-        "Divine Momentum": {
-          "ability_type": "Minor Perk"
-        },
-        "Chain Boost": {
-          "ability_type": "Major Perk"
-        },
-        "Double Dose": {
-          "ability_type": "Major Perk",
-          "healing": "60 → 50 (default) / 120 → 100 (low health)"
-        }
-      },
       "health": 225
     }
   }

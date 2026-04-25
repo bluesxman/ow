@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T17:28:20.254Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,17 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
-          "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.shields"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Echo",
@@ -45,35 +46,69 @@
     "sub_role": "recon",
     "abilities": [
       {
+        "name": "Glide",
+        "description": "Hold jump to glide while falling.",
+        "ability_type": "Passive Ability"
+      },
+      {
         "name": "Tri-Shot",
-        "description": "Fires 3 shots at once, in a triangle pattern."
+        "description": "Fires 3 shots at once, in a triangle pattern.",
+        "ability_type": "Weapon",
+        "damage": "17 (per pellet) / 51 (per shot)",
+        "headshot": true,
+        "projectile_speed": "75 m/s",
+        "projectile_radius": "0.175 meters",
+        "pellets": 3,
+        "rate_of_fire": "2.97 shots/s",
+        "ammo": 12,
+        "reload": "1.5 seconds",
+        "spread": "1.1 degrees",
+        "dps": "151.79 while firing (110.63 overall w/reload)"
       },
       {
         "name": "Sticky Bombs",
-        "description": "Fire a volley of sticky bombs that detonate after a delay."
+        "description": "Fire a volley of sticky bombs that detonate after a delay.",
+        "ability_type": "Ability",
+        "cooldown": "6 seconds",
+        "damage": "5 (direct hit) / 25 (explosion, enemy) / 12.5 (explosion, self)",
+        "headshot": false,
+        "pellets": 6,
+        "duration": "1 second (explosion delay)",
+        "radius": "2 meters (explosion)",
+        "projectile_speed": "50 m/s",
+        "projectile_radius": "0.27 meters"
       },
       {
         "name": "Flight",
-        "description": "Fly forward quickly and then free-fly briefly."
+        "description": "Fly forward quickly and then free-fly briefly.",
+        "ability_type": "Ability",
+        "cooldown": "6 seconds",
+        "duration": "0.2 seconds (min) / 3 seconds (max)"
       },
       {
         "name": "Focusing Beam",
-        "description": "Channel a beam for a few seconds. Deals very high damage to targets under half health."
+        "description": "Channel a beam for a few seconds. Deals very high damage to targets under half health.",
+        "ability_type": "Ability",
+        "cooldown": "8 seconds",
+        "damage": "75 per second / 175 per second (target <50% hp)",
+        "headshot": false,
+        "range": "16 meters",
+        "duration": "0.24 seconds (min) / 2 seconds (max)",
+        "projectile_radius": "0.25 meters"
       },
       {
         "name": "Duplicate",
-        "description": "Become a copy of the targeted hero. They cannot swap heroes for the duration."
-      },
-      {
-        "name": "Glide",
-        "description": "Hold jump to glide while falling."
+        "description": "Become a copy of the targeted hero. They cannot swap heroes for the duration.",
+        "ability_type": "Ultimate Ability",
+        "range": "40 meters",
+        "duration": "15 seconds (transformation) / 1.3 seconds (invulnerability, casting) / 1 second (invulnerability, ending)"
       }
     ],
     "perks": {
       "minor": [
         {
           "name": "Focused Rush",
-          "description": "Focusing Beam's range is increased by 6 meters and movement speed is increased by 20% when active."
+          "description": "Focused Beam's range is increase by 6 meters and movement speed is increase by 20% when active."
         },
         {
           "name": "Partial Scan",
@@ -92,72 +127,6 @@
       ]
     },
     "stats": {
-      "abilities": {
-        "Glide": {
-          "ability_type": "Passive Ability",
-          "key": "jump"
-        },
-        "Tri-Shot": {
-          "ability_type": "Weapon",
-          "damage": "17 (per pellet) / 51 (per shot)",
-          "headshot": true,
-          "projectile_speed": "75 m/s",
-          "projectile_radius": "0.175 meters",
-          "pellets": 3,
-          "rate_of_fire": "2.97 shots/s",
-          "ammo": 12,
-          "reload": "1.5 seconds",
-          "spread": "1.1 degrees",
-          "dps": "151.79 while firing (110.63 overall w/reload)"
-        },
-        "Sticky Bombs": {
-          "ability_type": "Ability",
-          "key": "secondary fire",
-          "cooldown": "6 seconds",
-          "damage": "5 (direct hit) / 25 (explosion, enemy) / 12.5 (explosion, self)",
-          "headshot": false,
-          "pellets": 6,
-          "duration": "1 second (explosion delay)",
-          "radius": "2 meters (explosion)",
-          "projectile_speed": "50 m/s",
-          "projectile_radius": "0.27 meters"
-        },
-        "Flight": {
-          "ability_type": "Ability",
-          "key": "ability 1",
-          "cooldown": "6 seconds",
-          "duration": "0.2 seconds (min) / 3 seconds (max)"
-        },
-        "Focusing Beam": {
-          "ability_type": "Ability",
-          "key": "ability 2",
-          "cooldown": "8 seconds",
-          "damage": "75 per second / 175 per second (target <50% hp)",
-          "headshot": false,
-          "range": "16 meters",
-          "duration": "0.24 seconds (min) / 2 seconds (max)",
-          "projectile_radius": "0.25 meters"
-        },
-        "Duplicate": {
-          "ability_type": "Ultimate Ability",
-          "range": "40 meters",
-          "duration": "15 seconds (transformation) / 1.3 seconds (invulnerability, casting) / 1 second (invulnerability, ending)"
-        },
-        "Focused Rush": {
-          "ability_type": "Minor Perk",
-          "range": "16 → 22 meters"
-        },
-        "Partial Scan": {
-          "ability_type": "Minor Perk"
-        },
-        "Full Salvo": {
-          "ability_type": "Major Perk",
-          "pellets": "6 → 9"
-        },
-        "High Beams": {
-          "ability_type": "Major Perk"
-        }
-      },
       "health": 150,
       "shields": 75
     }

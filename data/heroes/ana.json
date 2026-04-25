@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T17:28:20.254Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,17 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
-          "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.shields"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Ana",
@@ -46,26 +47,67 @@
     "abilities": [
       {
         "name": "Biotic Rifle",
-        "description": "Long-range rifle that heals allies and damages enemies. Hold to zoom in."
+        "description": "Long-range rifle that heals allies and damages enemies.",
+        "ability_type": "Weapon;;Hip Fire",
+        "damage": "75 over 0.59 seconds",
+        "headshot": false,
+        "healing": "75 over 0.59 seconds",
+        "projectile_speed": "125 m/s",
+        "rate_of_fire": "1.25 shots/s",
+        "ammo": 15,
+        "reload": "1.5 seconds",
+        "duration": "0.59 seconds effect",
+        "projectile_radius": "0.15 meters",
+        "spread": "None",
+        "dps": "while firing / overall w/ reload"
+      },
+      {
+        "name": "Zoom (ADS)",
+        "description": "Hold to zoom in.",
+        "ability_type": "Weapon;;ADS",
+        "headshot": false,
+        "projectile_radius": "0.07 meters (enemies) / 0.3 meters (allies)",
+        "spread": "None",
+        "dps": "while firing / overall w/ reload"
       },
       {
         "name": "Sleep Dart",
-        "description": "Fires a dart that puts an enemy to sleep."
+        "description": "Fires a dart that puts an enemy to sleep.",
+        "ability_type": "Ability",
+        "cooldown": "14 seconds",
+        "damage": 5,
+        "headshot": false,
+        "duration": "0.5 seconds (sleep min) / 5 seconds (sleep max, non-tanks) / 3.5 seconds (sleep max, tanks) / 0.5 seconds (wakeup)",
+        "projectile_speed": "60 m/s",
+        "projectile_radius": "0.2 meters"
       },
       {
         "name": "Biotic Grenade",
-        "description": "Throws a grenade that heals and increases healing on allies, while damaging and preventing healing on enemies."
+        "description": "Throws a grenade that heals and increases healing on allies, while damaging and preventing healing on enemies.",
+        "ability_type": "Ability",
+        "cooldown": "12 seconds",
+        "damage": 75,
+        "headshot": false,
+        "healing": 75,
+        "projectile_speed": "30 m/s",
+        "projectile_radius": "0.275 meters",
+        "radius": "4 meters",
+        "duration": "3 seconds"
       },
       {
         "name": "Nano Boost",
-        "description": "Increases an ally's damage, while reducing damage taken."
+        "description": "Increases an ally's damage, while reducing damage taken.",
+        "ability_type": "Ultimate Ability",
+        "healing": 250,
+        "duration": "8 seconds",
+        "range": "40 meters"
       }
     ],
     "perks": {
       "minor": [
         {
           "name": "Groggy",
-          "description": "Enemies waking from Sleep Dart are slowed and take 50 damage over 2 seconds."
+          "description": "Enemies waking up from Sleep Dart are slowed and take 50 damage for 2 seconds."
         },
         {
           "name": "Speed Serum",
@@ -74,86 +116,16 @@
       ],
       "major": [
         {
-          "name": "Biotic Bounce",
-          "description": "After exploding, Biotic Grenade bounces and explodes again for 60 damage and healing."
-        },
-        {
           "name": "Headhunter",
           "description": "Biotic Rifle can crit enemies."
+        },
+        {
+          "name": "Biotic Bounce",
+          "description": "After exploding, Biotic Grenade bounces and explodes again for 60 damage and healing."
         }
       ]
     },
     "stats": {
-      "abilities": {
-        "Biotic Rifle": {
-          "ability_type": "Weapon;;Hip Fire",
-          "damage": "75 over 0.59 seconds",
-          "headshot": false,
-          "healing": "75 over 0.59 seconds",
-          "projectile_speed": "125 m/s",
-          "rate_of_fire": "1.25 shots/s",
-          "ammo": 15,
-          "reload": "1.5 seconds",
-          "duration": "0.59 seconds effect",
-          "projectile_radius": "0.15 meters",
-          "spread": "None",
-          "dps": "while firing / overall w/ reload",
-          "modes": {
-            "ADS": {
-              "key": "secondary fire",
-              "headshot": false,
-              "projectile_radius": "0.07 meters (enemies) / 0.3 meters (allies)",
-              "spread": "None",
-              "dps": "while firing / overall w/ reload"
-            }
-          }
-        },
-        "Sleep Dart": {
-          "ability_type": "Ability",
-          "key": "ability 1",
-          "cooldown": "14 seconds",
-          "damage": 5,
-          "headshot": false,
-          "duration": "0.5 seconds (sleep min) / 5 seconds (sleep max, non-tanks) / 3.5 seconds (sleep max, tanks) / 0.5 seconds (wakeup)",
-          "projectile_speed": "60 m/s",
-          "projectile_radius": "0.2 meters"
-        },
-        "Biotic Grenade": {
-          "ability_type": "Ability",
-          "key": "ability 2",
-          "cooldown": "12 seconds",
-          "damage": 75,
-          "headshot": false,
-          "healing": 75,
-          "projectile_speed": "30 m/s",
-          "projectile_radius": "0.275 meters",
-          "radius": "4 meters",
-          "duration": "3 seconds"
-        },
-        "Nano Boost": {
-          "ability_type": "Ultimate Ability",
-          "healing": 250,
-          "duration": "8 seconds",
-          "range": "40 meters"
-        },
-        "Groggy": {
-          "ability_type": "Minor Perk",
-          "damage": 50,
-          "duration": "2 seconds"
-        },
-        "Speed Serum": {
-          "ability_type": "Minor Perk"
-        },
-        "Headhunter": {
-          "ability_type": "Major Perk",
-          "headshot": true
-        },
-        "Biotic Bounce": {
-          "ability_type": "Major Perk",
-          "damage": 60,
-          "healing": 60
-        }
-      },
       "health": 250
     }
   }

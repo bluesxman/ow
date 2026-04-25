@@ -1,10 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm run patch-notes:fetch)",
-      "Bash(npm run patch-notes:fetch -- *)",
-      "Bash(npm run patch-notes:affected)",
-      "Bash(npm run patch-notes:rebuild-aggregates)",
+      "Bash(npm run patch-notes:*)",
+      "Bash(npm run typecheck)",
+      "Bash(npm run lint)",
+      "Bash(npm test)",
       "Bash(cat .run/*)",
       "Bash(jq *)",
       "Bash(git status)",
@@ -13,7 +13,7 @@
       "Bash(git log *)",
       "Bash(git rev-parse *)",
       "Bash(git checkout -b *)",
-      "Bash(git add data/)",
+      "Bash(git add *)",
       "Bash(git commit -m *)",
       "Bash(git push -u origin *)",
       "Bash(gh pr create *)"

@@ -2,10 +2,10 @@ import { mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import { z } from 'zod';
 import { PUBLISHED_RAW_BASE } from './config.js';
-import type { Hero, Metadata, RosterEntry } from './types.js';
+import type { Hero, Metadata, ParsedPatch, RosterEntry } from './types.js';
 import { isEmptyDiff, renderDiffMarkdown, type HeroDiff } from './diff.js';
 import { slugToBlizzardUrl, slugToFandomUrl } from './sources/slugToFandomTitle.js';
-import { HeroSchema } from './validate.js';
+import { HeroSchema, PatchNotesDocSchema } from './validate.js';
 
 export interface PublishPaths {
   dataDir: string;
@@ -14,6 +14,7 @@ export interface PublishPaths {
   attributionPath: string;
   licensePath: string;
   linksPath: string;
+  patchNotesPath: string;
 }
 
 export function buildPaths(root: string): PublishPaths {
@@ -25,6 +26,7 @@ export function buildPaths(root: string): PublishPaths {
     attributionPath: join(dataDir, 'ATTRIBUTION.md'),
     licensePath: join(dataDir, 'LICENSE'),
     linksPath: join(dataDir, 'links.md'),
+    patchNotesPath: join(dataDir, 'patch-notes.json'),
   };
 }
 
@@ -37,6 +39,30 @@ export async function readPreviousHeroes(paths: PublishPaths): Promise<Record<st
   } catch {
     return {};
   }
+}
+
+export async function readPreviousPatches(paths: PublishPaths): Promise<ParsedPatch[]> {
+  try {
+    const raw = await readFile(paths.patchNotesPath, 'utf8');
+    const parsed = JSON.parse(raw) as { patches?: ParsedPatch[] };
+    return Array.isArray(parsed.patches) ? parsed.patches : [];
+  } catch {
+    return [];
+  }
+}
+
+// Merge prior patches with the freshly-scraped list, keyed by `date`. The
+// freshly-scraped entry wins on conflict (Blizzard occasionally edits notes),
+// but prior entries with no fresh counterpart are preserved — this is how the
+// history accumulates across scrapes after Blizzard's page rotates older
+// patches off the rolling feed. Output is sorted newest-first.
+export function mergePatches(prior: ParsedPatch[], fresh: ParsedPatch[]): ParsedPatch[] {
+  const byDate = new Map<string, ParsedPatch>();
+  for (const p of prior) byDate.set(p.date, p);
+  for (const p of fresh) byDate.set(p.date, p);
+  const out = Array.from(byDate.values());
+  out.sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
+  return out;
 }
 
 async function writeJson(path: string, value: unknown): Promise<void> {
@@ -69,6 +95,7 @@ export interface Aggregates {
   statsDoc: unknown;
   allDoc: unknown;
   schemaDoc: unknown;
+  patchNotesSchemaDoc: unknown;
   links: PublishedLinks;
 }
 
@@ -109,6 +136,14 @@ export function buildAggregates(
       path: 'schema.json',
       description: 'JSON Schema (draft-2020-12) for the per-hero record. Generated from src/validate.ts HeroSchema.',
     },
+    patch_notes: {
+      path: 'patch-notes.json',
+      description: 'Structured history of Blizzard patch notes from OW2 Season 20 (2025-12-09) onward. Each patch carries a date, title, and sections of hero/general changes. Produced manually via the refresh-patch-notes skill (Claude Code), not by the automated scrape pipeline — interpretation of natural-language patch notes requires AI judgment.',
+    },
+    patch_notes_schema: {
+      path: 'patch-notes-schema.json',
+      description: 'JSON Schema (draft-2020-12) for patch-notes.json. Generated from src/validate.ts PatchNotesDocSchema.',
+    },
     attribution: {
       path: 'ATTRIBUTION.md',
       description: 'Per-hero source URLs + CC-BY-SA 3.0 share-alike notice.',
@@ -148,6 +183,8 @@ export function buildAggregates(
       stats: `${PUBLISHED_RAW_BASE}/stats.json`,
       all: `${PUBLISHED_RAW_BASE}/all.json`,
       schema: `${PUBLISHED_RAW_BASE}/schema.json`,
+      patch_notes: `${PUBLISHED_RAW_BASE}/patch-notes.json`,
+      patch_notes_schema: `${PUBLISHED_RAW_BASE}/patch-notes-schema.json`,
       attribution: `${PUBLISHED_RAW_BASE}/ATTRIBUTION.md`,
       license: `${PUBLISHED_RAW_BASE}/LICENSE`,
       links: `${PUBLISHED_RAW_BASE}/links.md`,
@@ -179,14 +216,39 @@ export function buildAggregates(
     heroes: Object.fromEntries(slugs.map((s) => [s, { perks: heroes[s]!.perks }])),
   };
 
+  // Projection: descriptive subset of each ability — name + description only.
   const abilitiesDoc = {
     metadata,
-    heroes: Object.fromEntries(slugs.map((s) => [s, { abilities: heroes[s]!.abilities }])),
+    heroes: Object.fromEntries(
+      slugs.map((s) => [
+        s,
+        {
+          abilities: heroes[s]!.abilities.map((a) => ({ name: a.name, description: a.description })),
+        },
+      ]),
+    ),
   };
 
+  // Projection: numeric subset — health/armor/shields plus per-ability numeric
+  // stats with descriptions stripped.
   const statsDoc = {
     metadata,
-    heroes: Object.fromEntries(slugs.map((s) => [s, { stats: heroes[s]!.stats }])),
+    heroes: Object.fromEntries(
+      slugs.map((s) => {
+        const h = heroes[s]!;
+        return [
+          s,
+          {
+            stats: h.stats,
+            abilities: h.abilities.map((a) => {
+              const { description: _d, ...rest } = a;
+              void _d;
+              return rest;
+            }),
+          },
+        ];
+      }),
+    ),
   };
 
   const allDoc = {
@@ -194,7 +256,26 @@ export function buildAggregates(
     heroes: Object.fromEntries(slugs.map((s) => [s, heroes[s]!])),
   };
 
-  return { indexDoc, heroesDoc, perksDoc, abilitiesDoc, statsDoc, allDoc, schemaDoc, links };
+  const patchNotesSchemaDoc = {
+    $schema: 'https://json-schema.org/draft/2020-12/schema',
+    $id: `${PUBLISHED_RAW_BASE}/patch-notes-schema.json`,
+    title: 'Overwatch Patch Notes',
+    description: 'Schema for the structured patch-notes history published in data/patch-notes.json. Each patch carries a date, title, and sections of hero/general changes.',
+    metadata,
+    schema: z.toJSONSchema(PatchNotesDocSchema, { target: 'draft-2020-12' }),
+  };
+
+  return {
+    indexDoc,
+    heroesDoc,
+    perksDoc,
+    abilitiesDoc,
+    statsDoc,
+    allDoc,
+    schemaDoc,
+    patchNotesSchemaDoc,
+    links,
+  };
 }
 
 export async function publish(input: PublishInput): Promise<{ paths: PublishPaths; filesWritten: string[] }> {
@@ -205,20 +286,23 @@ export async function publish(input: PublishInput): Promise<{ paths: PublishPath
   const slugs = Object.keys(heroes).sort();
   const rosterSorted = [...roster].sort((a, b) => a.slug.localeCompare(b.slug));
 
-  const { indexDoc, heroesDoc, perksDoc, abilitiesDoc, statsDoc, allDoc, schemaDoc, links } = buildAggregates(
-    heroes,
-    roster,
-    metadata,
-  );
+  const {
+    indexDoc, heroesDoc, perksDoc, abilitiesDoc, statsDoc, allDoc, schemaDoc,
+    patchNotesSchemaDoc, links,
+  } = buildAggregates(heroes, roster, metadata);
 
   if (dryRun) {
-    console.log(`[dry-run] would write ${slugs.length} per-hero files + 7 top-level files + ATTRIBUTION.md + links.md`);
+    console.log(`[dry-run] would write ${slugs.length} per-hero files + 8 top-level files + ATTRIBUTION.md + links.md`);
     return { paths, filesWritten: [] };
   }
 
   await mkdir(paths.dataDir, { recursive: true });
   await mkdir(paths.heroesDir, { recursive: true });
 
+  // patch-notes.json is intentionally NOT written here — it's maintained by
+  // the refresh-patch-notes Claude Code skill, which interprets Blizzard's
+  // natural-language patch notes into structured form. The auto-pipeline only
+  // publishes the schema (a static contract definition).
   const topLevel: Array<[string, unknown]> = [
     [join(paths.dataDir, 'index.json'), indexDoc],
     [join(paths.dataDir, 'heroes.json'), heroesDoc],
@@ -227,6 +311,7 @@ export async function publish(input: PublishInput): Promise<{ paths: PublishPath
     [join(paths.dataDir, 'stats.json'), statsDoc],
     [join(paths.dataDir, 'all.json'), allDoc],
     [join(paths.dataDir, 'schema.json'), schemaDoc],
+    [join(paths.dataDir, 'patch-notes-schema.json'), patchNotesSchemaDoc],
   ];
 
   for (const [path, value] of topLevel) {
@@ -261,11 +346,11 @@ async function writeAttribution(path: string, roster: RosterEntry[], metadata: M
   lines.push('# Attribution');
   lines.push('');
   lines.push(
-    'Hero combat stats (`stats.abilities.*`, `stats.health`, `stats.armor`, `stats.shields`, `sub_role`) are sourced from the [Overwatch Fandom Wiki](https://overwatch.fandom.com/) and are available under [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/).',
+    'Abilities, perks, sub-roles, and combat stats (`abilities[]` including all numeric fields, `perks.minor`, `perks.major`, `sub_role`, `stats.health`, `stats.armor`, `stats.shields`) are sourced from the [Overwatch Fandom Wiki](https://overwatch.fandom.com/) and are available under [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/).',
   );
   lines.push('');
   lines.push(
-    "Perks, ability descriptions, roles, and portraits are sourced from [Blizzard's official hero pages](https://overwatch.blizzard.com/en-us/heroes/).",
+    "Hero name, role, portrait, and the patch version are sourced from [Blizzard's official Overwatch site](https://overwatch.blizzard.com/en-us/heroes/). Patch-note text is also used to override Fandom values when Fandom is behind the live patch.",
   );
   lines.push('');
   lines.push(`Last generated: ${metadata.last_updated}`);

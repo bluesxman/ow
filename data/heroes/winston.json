@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T17:28:20.254Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,17 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
-          "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.shields"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Winston",
@@ -46,26 +47,62 @@
     "abilities": [
       {
         "name": "Tesla Cannon",
-        "description": "Electric frontal-cone weapon. Hold to charge, release to fire focused electricity."
+        "description": "Electric frontal-cone weapon.",
+        "ability_type": "Weapon;;Primary Fire",
+        "damage": "70 per second",
+        "headshot": false,
+        "range": "8 meters",
+        "ammo": 120,
+        "reload": "1.5 seconds animation",
+        "dps": "70 while firing (52.24 overall w/reload)"
+      },
+      {
+        "name": "Tesla Cannon Alt Fire",
+        "description": "Hold to charge, release to fire focused electricity",
+        "ability_type": "Weapon;;Secondary Fire",
+        "damage": "15.93 (min charge) / 60 (max charge)",
+        "headshot": false,
+        "range": "40 meters",
+        "projectile_radius": "0.33 meters",
+        "spread": "None",
+        "dps": "14.67, continuous fire at minimum charge 37.5, continuous fire at max charge 19.35, continuous fire with max hold"
       },
       {
         "name": "Jump Pack",
-        "description": "Leap forward into the air. Landing on an enemy damages them."
+        "description": "Leap forward into the air. Landing on an enemy damages them.",
+        "ability_type": "Ability",
+        "cooldown": "5 seconds",
+        "damage": "1 (collision) / 60 – 1 (landing)",
+        "headshot": false,
+        "radius": "1.3 - 5 meters (falloff start - max)"
       },
       {
         "name": "Barrier Projector",
-        "description": "Deploy a protective energy dome."
+        "description": "Deploy a protective energy dome.",
+        "ability_type": "Ability",
+        "cooldown": "12 seconds",
+        "health": 650,
+        "duration": "8 seconds",
+        "radius": "5 meters"
       },
       {
         "name": "Primal Rage",
-        "description": "Gain immense health, but you can only leap and punch enemies."
+        "description": "Gain immense health, but you can only leap and punch enemies.",
+        "ability_type": "Ultimate Ability",
+        "health": "700 max health, fully restore HP",
+        "damage": "50 (melee)",
+        "headshot": false,
+        "rate_of_fire": "1 swing per 0.656 seconds",
+        "duration": "10 seconds (transformation)",
+        "range": "4 meters (melee)",
+        "dps": "76.22 while firing"
       }
     ],
     "perks": {
       "minor": [
         {
           "name": "Electric Charge",
-          "description": "Winston gains 10% movement speed for each enemy he is damaging with Tesla Cannon's primary fire, up to 30%."
+          "description": "Winston gains 10% movement speed for each enemy damaged by his primary fire, up to 30%."
         },
         {
           "name": "Heavy Landing",
@@ -84,71 +121,6 @@
       ]
     },
     "stats": {
-      "abilities": {
-        "Tesla Cannon": {
-          "ability_type": "Weapon;;Primary Fire",
-          "damage": "70 per second",
-          "headshot": false,
-          "range": "8 meters",
-          "ammo": 120,
-          "reload": "1.5 seconds animation",
-          "dps": "70 while firing (52.24 overall w/reload)",
-          "modes": {
-            "Secondary Fire": {
-              "key": "secondary fire",
-              "damage": "15.93 (min charge) / 60 (max charge)",
-              "headshot": false,
-              "range": "40 meters",
-              "projectile_radius": "0.33 meters",
-              "spread": "None",
-              "dps": "14.67, continuous fire at minimum charge 37.5, continuous fire at max charge 19.35, continuous fire with max hold"
-            }
-          }
-        },
-        "Jump Pack": {
-          "ability_type": "Ability",
-          "key": "ability 1",
-          "cooldown": "5 seconds",
-          "damage": "1 (collision) / 60 – 1 (landing)",
-          "headshot": false,
-          "radius": "1.3 - 5 meters (falloff start - max)"
-        },
-        "Barrier Projector": {
-          "ability_type": "Ability",
-          "key": "ability 2",
-          "cooldown": "12 seconds",
-          "health": 650,
-          "duration": "8 seconds",
-          "radius": "5 meters"
-        },
-        "Primal Rage": {
-          "ability_type": "Ultimate Ability",
-          "health": "700 max health, fully restore HP",
-          "damage": "50 (melee)",
-          "headshot": false,
-          "rate_of_fire": "1 swing per 0.656 seconds",
-          "duration": "10 seconds (transformation)",
-          "range": "4 meters (melee)",
-          "dps": "76.22 while firing"
-        },
-        "Electric Charge": {
-          "ability_type": "Minor Perk"
-        },
-        "Heavy Landing": {
-          "ability_type": "Minor Perk",
-          "damage": "105 - 1",
-          "range": "9 meters"
-        },
-        "Chain Lightning": {
-          "ability_type": "Major Perk",
-          "damage": "48 (1st bounce) / 36 (2nd bounce)",
-          "range": "10 meters"
-        },
-        "Revitalizing Barrier": {
-          "ability_type": "Major Perk",
-          "healing": "30 per second"
-        }
-      },
       "health": 275,
       "armor": 200
     }

@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T17:28:20.254Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,17 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
-          "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.shields"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Baptiste",
@@ -45,122 +46,88 @@
     "sub_role": "tactician",
     "abilities": [
       {
+        "name": "Exo Boots",
+        "description": "Hold crouch to jump higher.",
+        "ability_type": "Passive Ability",
+        "range": "9.1 meters (full charge)"
+      },
+      {
         "name": "Biotic Launcher",
-        "description": "Three-round burst gun. Lob a healing projectile that heals all allies near the impact."
+        "description": "Three-round burst gun.",
+        "ability_type": "Weapon;;Primary Fire",
+        "damage": "25 - 7.2 (per shot) / 75 - 21.6 (per round)",
+        "falloff": "25 - 45 meters",
+        "headshot": true,
+        "rate_of_fire": "1.7 shots/s",
+        "pellets": 3,
+        "ammo": 36,
+        "reload": "1.5 seconds animation",
+        "projectile_radius": "0.07 meters",
+        "dps": "127.5 while firing (109 overall w/reload)"
+      },
+      {
+        "name": "Biotic Launcher Alt Fire",
+        "description": "Lob a healing projectile that heals all allies near the impact.",
+        "ability_type": "Weapon;;Secondary Fire",
+        "healing": "30 (direct hit) / 60 (splash, ally)",
+        "radius": "3 meters",
+        "rate_of_fire": "1.11 shots/s",
+        "ammo": 10,
+        "reload": "1.5 seconds animation",
+        "projectile_radius": "None",
+        "projectile_speed": "60 m/s"
       },
       {
         "name": "Regenerative Burst",
-        "description": "Activate to heal yourself and nearby allies instantly, with additional healing over time. Instant heal is doubled for targets less than half health."
+        "description": "Activate to heal yourself and nearby allies instantly, with additional healing over time. Instant heal is doubled for targets less than half health.",
+        "ability_type": "Ability",
+        "cooldown": "14 seconds",
+        "healing": "40 (instant, >50% max HP) / 80 (instant, <50% max HP) / 40 over 4 seconds (HoT)",
+        "radius": "12 meters",
+        "duration": "4 seconds"
       },
       {
         "name": "Immortality Field",
-        "description": "Toss a device that prevents allies from dying. The device can be destroyed."
+        "description": "Toss a device that prevents allies from dying. The device can be destroyed.",
+        "ability_type": "Ability",
+        "cooldown": "22 seconds",
+        "health": 125,
+        "projectile_speed": "60 m/s",
+        "healing": "Any deficit from 20% HP",
+        "radius": "6 meters",
+        "duration": "5 seconds (generator) / 5.5 seconds (field)"
       },
       {
         "name": "Amplification Matrix",
-        "description": "Project a matrix that doubles the damage and healing effects of allied projectiles."
-      },
-      {
-        "name": "Exo Boots",
-        "description": "Hold crouch to jump higher."
+        "description": "Project a matrix that doubles the damage and healing of allied projectiles.",
+        "ability_type": "Ultimate Ability",
+        "range": "35 meters",
+        "duration": "10 seconds"
       }
     ],
     "perks": {
       "minor": [
         {
-          "name": "Expanded Field",
-          "description": "Immortality Field's radius is 30% bigger."
-        },
-        {
           "name": "Assault Burst",
           "description": "Regenerative Burst now provides Baptiste with 20% increased attack speed for 3 seconds."
+        },
+        {
+          "name": "Expanded Field",
+          "description": "Immortality Field radius increased by 30%."
         }
       ],
       "major": [
         {
           "name": "Automated Healing",
-          "description": "Using any ability triggers Baptiste's Shoulder Turret, periodically firing up to 3 shots at allies, each restoring 40 health."
+          "description": "Using any ability triggers Baptiste's Shoulder Turret, periodically firing up to 3 shots at allies, each restoring 25 health."
         },
         {
           "name": "Rocket Boots",
-          "description": "While airborne from Exo Boots, use SPACE to dash horizontally."
+          "description": "While airborne from Exo Boots, use (SPACE) to dash horizontally."
         }
       ]
     },
     "stats": {
-      "abilities": {
-        "Exo Boots": {
-          "ability_type": "Passive Ability",
-          "key": "crouch",
-          "range": "9.1 meters (full charge)"
-        },
-        "Biotic Launcher": {
-          "ability_type": "Weapon;;Primary Fire",
-          "damage": "25 - 7.2 (per shot) / 75 - 21.6 (per round)",
-          "falloff": "25 - 45 meters",
-          "headshot": true,
-          "rate_of_fire": "1.7 shots/s",
-          "pellets": 3,
-          "ammo": 36,
-          "reload": "1.5 seconds animation",
-          "projectile_radius": "0.07 meters",
-          "dps": "127.5 while firing (109 overall w/reload)",
-          "modes": {
-            "Secondary Fire": {
-              "key": "secondary fire",
-              "healing": "30 (direct hit) / 60 (splash, ally)",
-              "radius": "3 meters",
-              "rate_of_fire": "1.11 shots/s",
-              "ammo": 10,
-              "reload": "1.5 seconds animation",
-              "projectile_radius": "None",
-              "projectile_speed": "60 m/s"
-            }
-          }
-        },
-        "Regenerative Burst": {
-          "ability_type": "Ability",
-          "key": "ability 1",
-          "cooldown": "14 seconds",
-          "healing": "40 (instant, >50% max HP) / 80 (instant, <50% max HP) / 40 over 4 seconds (HoT)",
-          "radius": "12 meters",
-          "duration": "4 seconds"
-        },
-        "Immortality Field": {
-          "ability_type": "Ability",
-          "key": "ability 2",
-          "cooldown": "22 seconds",
-          "health": 125,
-          "projectile_speed": "60 m/s",
-          "healing": "Any deficit from 20% HP",
-          "radius": "6 meters",
-          "duration": "5 seconds (generator) / 5.5 seconds (field)"
-        },
-        "Amplification Matrix": {
-          "ability_type": "Ultimate Ability",
-          "range": "35 meters",
-          "duration": "10 seconds"
-        },
-        "Assault Burst": {
-          "ability_type": "Minor Perk"
-        },
-        "Expanded Field": {
-          "ability_type": "Minor Perk",
-          "radius": "5 → 6.5 meters"
-        },
-        "Automated Healing": {
-          "ability_type": "Major Perk",
-          "healing": 40,
-          "ammo": 3,
-          "rate_of_fire": "1.33 shots/s",
-          "range": "60 meters"
-        },
-        "Rocket Boots": {
-          "ability_type": "Major Perk",
-          "key": "jump",
-          "cooldown": "6 seconds"
-        }
-      },
       "health": 250
     }
   }

@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T17:28:20.254Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,17 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
-          "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.shields"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "usage": {
     "start_here": "data/heroes/{slug}.json",
@@ -74,6 +75,14 @@
       "path": "schema.json",
       "description": "JSON Schema (draft-2020-12) for the per-hero record. Generated from src/validate.ts HeroSchema."
     },
+    "patch_notes": {
+      "path": "patch-notes.json",
+      "description": "Structured history of Blizzard patch notes from OW2 Season 20 (2025-12-09) onward. Each patch carries a date, title, and sections of hero/general changes. Produced manually via the refresh-patch-notes skill (Claude Code), not by the automated scrape pipeline — interpretation of natural-language patch notes requires AI judgment."
+    },
+    "patch_notes_schema": {
+      "path": "patch-notes-schema.json",
+      "description": "JSON Schema (draft-2020-12) for patch-notes.json. Generated from src/validate.ts PatchNotesDocSchema."
+    },
     "attribution": {
       "path": "ATTRIBUTION.md",
       "description": "Per-hero source URLs + CC-BY-SA 3.0 share-alike notice."
@@ -96,6 +105,8 @@
       "stats": "https://raw.githubusercontent.com/bluesxman/ow/main/data/stats.json",
       "all": "https://raw.githubusercontent.com/bluesxman/ow/main/data/all.json",
       "schema": "https://raw.githubusercontent.com/bluesxman/ow/main/data/schema.json",
+      "patch_notes": "https://raw.githubusercontent.com/bluesxman/ow/main/data/patch-notes.json",
+      "patch_notes_schema": "https://raw.githubusercontent.com/bluesxman/ow/main/data/patch-notes-schema.json",
       "attribution": "https://raw.githubusercontent.com/bluesxman/ow/main/data/ATTRIBUTION.md",
       "license": "https://raw.githubusercontent.com/bluesxman/ow/main/data/LICENSE",
       "links": "https://raw.githubusercontent.com/bluesxman/ow/main/data/links.md"

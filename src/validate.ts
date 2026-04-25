@@ -10,18 +10,20 @@ const PerkSchema = z.object({
   description: z.string().min(1),
 });
 
+const StatValue = z.union([z.number(), z.string(), z.boolean()]);
+
+// Mode entries (ADS / Zoomed / Secondary Fire / form variants) carry the same
+// numeric fields as the base ability but never nest further.
+const AbilityModeSchema = z.record(z.string(), StatValue.optional());
+
 const AbilitySchema = z.object({
   name: z.string().min(1),
   description: z.string().min(1),
-});
-
-const StatValue = z.union([z.number(), z.string(), z.boolean()]);
-
-const AbilityStatModeSchema = z.record(z.string(), StatValue.optional());
-
-const AbilityStatSchema = z.record(
-  z.string(),
-  z.union([StatValue, z.record(z.string(), AbilityStatModeSchema)]).optional(),
+}).catchall(
+  // Anything beyond name/description is either a numeric/string/boolean stat
+  // or the `modes` record. Catchall keeps the schema permissive — Fandom adds
+  // new template params over time and we don't want to break on them.
+  z.union([StatValue, z.record(z.string(), AbilityModeSchema)]).optional(),
 );
 
 export const HeroSchema = z.object({
@@ -39,11 +41,113 @@ export const HeroSchema = z.object({
     health: z.number().optional(),
     armor: z.number().optional(),
     shields: z.number().optional(),
-    abilities: z.record(z.string(), AbilityStatSchema).optional(),
   }),
 });
 
 export type ValidatedHero = z.infer<typeof HeroSchema>;
+
+// Patch-notes schema — validates the shape of data/patch-notes.json.
+// Each change carries a {raw, interpreted} pair: the deterministic raw text
+// from Blizzard plus AI-authored interpretation (mode, subject, metric, deltas).
+// The interpreted layer is nullable when the AI couldn't make a confident call.
+
+const SourceAttributionSchema = z.object({
+  name: z.string(),
+  url: z.string(),
+  license: z.string(),
+  license_url: z.string().optional(),
+  fields: z.array(z.string()),
+});
+
+const MetadataSchema = z.object({
+  last_updated: z.string(),
+  patch_version: z.string(),
+  hero_count: z.number(),
+  heroes_failed: z.array(z.string()),
+  fandom_failed: z.array(z.string()),
+  sources: z.array(SourceAttributionSchema),
+  schema_version: z.string(),
+});
+
+const PatchModeSchema = z.enum(['retail', 'stadium', 'mixed', 'unknown']);
+
+const PatchSubjectKindSchema = z.enum([
+  'hero_general',
+  'ability',
+  'perk',
+  'role',
+  'system',
+  'map',
+  'unknown',
+]);
+
+const PatchMetricSchema = z.enum([
+  'damage',
+  'cooldown',
+  'duration',
+  'range',
+  'radius',
+  'healing',
+  'health',
+  'shields',
+  'armor',
+  'ammo',
+  'reload',
+  'rate_of_fire',
+  'movement_speed',
+  'spread',
+  'projectile_speed',
+  'pellets',
+  'cost',
+  'ultimate_cost',
+  'attack_speed',
+  'energy',
+  'other',
+]);
+
+const NumericOrString = z.union([z.number(), z.string()]);
+
+const PatchChangeRawSchema = z.object({
+  text: z.string().min(1),
+});
+
+const PatchChangeInterpretedSchema = z.object({
+  mode: PatchModeSchema,
+  subject_kind: PatchSubjectKindSchema,
+  hero_slug: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/).nullable(),
+  subject_name: z.string().nullable(),
+  metric: PatchMetricSchema.nullable(),
+  metric_phrase: z.string().nullable(),
+  from: NumericOrString.nullable(),
+  to: NumericOrString.nullable(),
+  delta: NumericOrString.nullable(),
+  blizzard_commentary: z.array(z.string()),
+  notes: z.string(),
+});
+
+const PatchChangeSchema = z.object({
+  raw: PatchChangeRawSchema,
+  interpreted: PatchChangeInterpretedSchema.nullable(),
+});
+
+const PatchSectionSchema = z.object({
+  title: z.string().min(1),
+  mode: PatchModeSchema,
+  group_label: z.string().nullable(),
+  changes: z.array(PatchChangeSchema),
+});
+
+const PatchSchema = z.object({
+  date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+  title: z.string().min(1),
+  url: z.string().nullable(),
+  sections: z.array(PatchSectionSchema),
+});
+
+export const PatchNotesDocSchema = z.object({
+  metadata: MetadataSchema,
+  patches: z.array(PatchSchema),
+});
 
 export function validateHero(hero: unknown): { ok: true; value: Hero } | { ok: false; error: string } {
   const result = HeroSchema.safeParse(hero);
@@ -58,9 +162,7 @@ interface ValidationFixture {
     slug: string;
     role?: 'tank' | 'damage' | 'support';
     perks?: { minor: string[]; major: string[] };
-    stats?: {
-      abilities?: Record<string, Record<string, string | number>>;
-    };
+    abilities?: Record<string, Record<string, string | number>>;
   }>;
 }
 
@@ -123,24 +225,24 @@ export async function checkAgainstFixture(heroes: Record<string, Hero>): Promise
       }
     }
 
-    if (expected.stats?.abilities) {
-      for (const [abilityName, expectedFields] of Object.entries(expected.stats.abilities)) {
-        const actualAbility = hero.stats.abilities?.[abilityName];
+    if (expected.abilities) {
+      for (const [abilityName, expectedFields] of Object.entries(expected.abilities)) {
+        const actualAbility = hero.abilities.find((a) => a.name === abilityName);
         if (!actualAbility) {
           mismatches.push({
             slug: expected.slug,
-            tier: `stats.${abilityName}`,
+            tier: `abilities.${abilityName}`,
             expected: [`<ability present with fields ${Object.keys(expectedFields).join(', ')}>`],
             got: ['<ability missing>'],
           });
           continue;
         }
         for (const [field, expectedVal] of Object.entries(expectedFields)) {
-          const m = checkStatField(actualAbility, field, expectedVal);
+          const m = checkStatField(actualAbility as Record<string, unknown>, field, expectedVal);
           if (m) {
             mismatches.push({
               slug: expected.slug,
-              tier: `stats.${abilityName}.${field}`,
+              tier: `abilities.${abilityName}.${field}`,
               expected: [String(expectedVal)],
               got: [m.actual],
             });

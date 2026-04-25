@@ -1,6 +1,5 @@
 import { describe, it, expect } from 'vitest';
-// @ts-expect-error — mjs script, no type declarations
-import { parsePatchMarkdown, buildAffected, nameToSlug } from '../../.claude/skills/process-patch-notes/scripts/list-affected-heroes.mjs';
+import { parsePatchMarkdown, buildAffected, nameToSlug } from '../../.claude/skills/process-patch-notes/scripts/list-affected-heroes.js';
 import type { Hero } from '../types.js';
 
 function cassidy(): Hero {
@@ -9,28 +8,21 @@ function cassidy(): Hero {
     name: 'Cassidy',
     role: 'damage',
     abilities: [
-      { name: 'Peacekeeper', description: '' },
-      { name: 'Combat Roll', description: '' },
-      { name: 'Deadeye', description: '' },
+      { name: 'Peacekeeper', description: 'd', damage: 75 },
+      { name: 'Combat Roll', description: 'd', cooldown: '6 seconds' },
+      { name: 'Deadeye', description: 'd', cooldown: '120 seconds' },
     ],
     perks: {
       minor: [
-        { name: 'Bang Bang', description: '' },
-        { name: 'Even The Odds', description: '' },
+        { name: 'Bang Bang', description: 'd' },
+        { name: 'Even The Odds', description: 'd' },
       ],
       major: [
-        { name: "Rollin' Round-Up", description: '' },
-        { name: 'Silver Bullet', description: '' },
+        { name: "Rollin' Round-Up", description: 'd' },
+        { name: 'Silver Bullet', description: 'd' },
       ],
     },
-    stats: {
-      health: 225,
-      abilities: {
-        Peacekeeper: { damage: 75 },
-        'Combat Roll': { cooldown: '6 seconds' },
-        Deadeye: { cooldown: '120 seconds' },
-      },
-    },
+    stats: { health: 225 },
   };
 }
 
@@ -62,8 +54,8 @@ describe('parsePatchMarkdown', () => {
     const parsed = parsePatchMarkdown(SAMPLE_MD);
     const cass = parsed.get('Cassidy');
     expect(cass).toBeDefined();
-    expect([...cass.abilities]).toEqual(['Peacekeeper', 'Combat Roll']);
-    expect(cass.heroLevel).toEqual(["Cassidy's health increased from 225 to 250."]);
+    expect([...cass!.abilities]).toEqual(['Peacekeeper', 'Combat Roll']);
+    expect(cass!.heroLevel).toEqual(["Cassidy's health increased from 225 to 250."]);
   });
 });
 
@@ -78,7 +70,7 @@ describe('buildAffected', () => {
       abilities: ['Peacekeeper', 'Combat Roll'],
       skipped_abilities: [],
     });
-    expect(report.affected[0].hero_level_bullets).toEqual([
+    expect(report.affected[0]!.hero_level_bullets).toEqual([
       "Cassidy's health increased from 225 to 250.",
     ]);
   });
@@ -104,8 +96,8 @@ describe('buildAffected', () => {
   - this ability was removed.
 `);
     const report = buildAffected(parsed, { cassidy: cassidy() });
-    expect(report.affected[0].abilities).toEqual(['Deadeye']);
-    expect(report.affected[0].skipped_abilities).toEqual(['Flashbang (old)']);
+    expect(report.affected[0]!.abilities).toEqual(['Deadeye']);
+    expect(report.affected[0]!.skipped_abilities).toEqual(['Flashbang (old)']);
   });
 
   it('matches perk mentions via "X – Major Perk" suffix', () => {
@@ -119,7 +111,7 @@ describe('buildAffected', () => {
   - Bleed duration tweaked.
 `);
     const report = buildAffected(parsed, { cassidy: cassidy() });
-    expect(report.affected[0].abilities).toContain('Silver Bullet');
+    expect(report.affected[0]!.abilities).toContain('Silver Bullet');
   });
 
   it('matches ability names wrapped in [brackets]', () => {
@@ -133,7 +125,7 @@ describe('buildAffected', () => {
   - Damage tweaked.
 `);
     const report = buildAffected(parsed, { cassidy: cassidy() });
-    expect(report.affected[0].abilities).toContain('Peacekeeper');
+    expect(report.affected[0]!.abilities).toContain('Peacekeeper');
   });
 });
 

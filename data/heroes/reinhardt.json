@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T17:28:20.254Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,17 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
-          "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.shields"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Reinhardt",
@@ -46,30 +47,56 @@
     "abilities": [
       {
         "name": "Rocket Hammer",
-        "description": "Devastating melee weapon."
-      },
-      {
-        "name": "Charge",
-        "description": "Charge forward and smash an enemy against a wall."
-      },
-      {
-        "name": "Fire Strike",
-        "description": "Launch a fiery projectile."
+        "description": "Devastating melee weapon.",
+        "ability_type": "Weapon",
+        "damage": 100,
+        "headshot": false,
+        "rate_of_fire": "1.04 shots/s",
+        "duration": "0.208 seconds (hitbox active)",
+        "range": "4 meters",
+        "dps": "104 while swinging"
       },
       {
         "name": "Barrier Field",
-        "description": "Hold to deploy a frontal energy barrier."
+        "description": "Hold to deploy a frontal energy barrier.",
+        "ability_type": "Ability",
+        "health": 1500,
+        "cooldown": "5 seconds (destroyed)"
+      },
+      {
+        "name": "Charge",
+        "description": "Charge forward and smash an enemy against a wall.",
+        "ability_type": "Ability",
+        "cooldown": "7 seconds",
+        "damage": "300 (pinned to wall) / 50 (collision w/out pin)",
+        "range": "50.2 meters",
+        "duration": "3 seconds (charge, max) / 0.3 seconds (charge, min) / 0.65 seconds (stun on wall hit)"
+      },
+      {
+        "name": "Fire Strike",
+        "description": "Launch a fiery projectile.",
+        "ability_type": "Ability",
+        "cooldown": "6 seconds",
+        "damage": 120,
+        "headshot": false,
+        "projectile_speed": "30 m/s",
+        "projectile_radius": "0.85 meters"
       },
       {
         "name": "Earthshatter",
-        "description": "Knock down all enemies in front of you."
+        "description": "Knock down all enemies in front of you.",
+        "ability_type": "Ultimate Ability",
+        "damage": "50 (base) / 200 (critical)",
+        "duration": "3 seconds (knockdown)",
+        "radius": "1.5 meters (critical) / 25 meters (max)",
+        "projectile_speed": "40 m/s"
       }
     ],
     "perks": {
       "minor": [
         {
           "name": "Crusader's Fire",
-          "description": "Refund a charge of Fire Strike when you stun an enemy, overfilling up to 3."
+          "description": "Refund a charge of Fire Strike When you stun an enemy, overfilling up to 3."
         },
         {
           "name": "Crusader's Resolve",
@@ -79,7 +106,7 @@
       "major": [
         {
           "name": "Shield Slam",
-          "description": "While Barrier Field is active, use to damage and knockback enemies."
+          "description": "While Barrier Field is active, use Primary Fire to damage and knockback enemies."
         },
         {
           "name": "Ignited Fury",
@@ -88,63 +115,6 @@
       ]
     },
     "stats": {
-      "abilities": {
-        "Rocket Hammer": {
-          "ability_type": "Weapon",
-          "damage": 100,
-          "headshot": false,
-          "rate_of_fire": "1.04 shots/s",
-          "duration": "0.208 seconds (hitbox active)",
-          "range": "4 meters",
-          "dps": "104 while swinging"
-        },
-        "Barrier Field": {
-          "ability_type": "Ability",
-          "key": "secondary fire",
-          "health": 1500,
-          "cooldown": "5 seconds (destroyed)"
-        },
-        "Charge": {
-          "ability_type": "Ability",
-          "key": "ability 1",
-          "cooldown": "7 seconds",
-          "damage": "300 (pinned to wall) / 50 (collision w/out pin)",
-          "range": "50.2 meters",
-          "duration": "3 seconds (charge, max) / 0.3 seconds (charge, min) / 0.65 seconds (stun on wall hit)"
-        },
-        "Fire Strike": {
-          "ability_type": "Ability",
-          "key": "ability 2",
-          "cooldown": "6 seconds",
-          "damage": 120,
-          "headshot": false,
-          "projectile_speed": "30 m/s",
-          "projectile_radius": "0.85 meters"
-        },
-        "Earthshatter": {
-          "ability_type": "Ultimate Ability",
-          "damage": "50 (base) / 200 (critical)",
-          "duration": "3 seconds (knockdown)",
-          "radius": "1.5 meters (critical) / 25 meters (max)",
-          "projectile_speed": "40 m/s"
-        },
-        "Crusader's Fire": {
-          "ability_type": "Minor Perk"
-        },
-        "Crusader's Resolve": {
-          "ability_type": "Minor Perk"
-        },
-        "Shield Slam": {
-          "ability_type": "Major Perk",
-          "key": "primary fire",
-          "cooldown": "6 seconds",
-          "damage": 50,
-          "range": "5.52 meters (dash) / 3.6 meters (hitbox)"
-        },
-        "Ignited Fury": {
-          "ability_type": "Major Perk"
-        }
-      },
       "health": 250,
       "armor": 300
     }

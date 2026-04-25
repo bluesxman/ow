@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T17:28:20.254Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,17 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
-          "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.shields"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Kiriko",
@@ -45,31 +46,70 @@
     "sub_role": "medic",
     "abilities": [
       {
+        "name": "Wall Climb (Kiriko)",
+        "description": "Jump at walls to climb up them.",
+        "ability_type": "Passive Ability",
+        "duration": "Up to 1 second"
+      },
+      {
         "name": "Healing Ofuda",
-        "description": "Channel a burst of healing talismans that can seek targeted allies."
+        "description": "Channel a burst of healing talismans that can seek targeted allies.",
+        "ability_type": "Weapon;;Primary Fire",
+        "healing": "13 (per talisman) / 26 (per burst)",
+        "rate_of_fire": "0.2 seconds (per burst) / 1.42 seconds (full clip)",
+        "reload": "0.9 seconds",
+        "pellets": 2,
+        "ammo": 10,
+        "projectile_speed": "30 m/s (homing) / 24 m/s (non-homing)",
+        "projectile_radius": "None",
+        "range": "35 meters (lock on)"
       },
       {
         "name": "Kunai",
-        "description": "Thrown long-ranged projectile."
+        "description": "Thrown long-ranged projectile.",
+        "ability_type": "Weapon;;Secondary Fire",
+        "damage": 60,
+        "headshot": true,
+        "rate_of_fire": "2 shots/s",
+        "reload": "1.3 seconds",
+        "ammo": 15,
+        "projectile_speed": "90 m/s",
+        "projectile_radius": "0.195 meters",
+        "spread": "None",
+        "dps": "120 while firing (105.88 overall w/reload)"
       },
       {
         "name": "Swift Step",
-        "description": "Teleport directly to an ally."
+        "description": "Teleport directly to an ally.",
+        "ability_type": "Ability",
+        "range": "30 meters",
+        "duration": "0.25 second invulnerability",
+        "cooldown": "7 seconds"
       },
       {
         "name": "Protection Suzu",
-        "description": "Throw a protective charm to make allies become briefly invulnerable and cleansed of most negative effects."
+        "description": "Throw a protective charm to make allies become briefly invulnerable and cleansed of most negative effects.",
+        "ability_type": "Ability",
+        "cooldown": "14 seconds",
+        "healing": "80 (no cleanse) / 110 (cleanse)",
+        "projectile_speed": "37 m/s",
+        "projectile_radius": "0.2 meters",
+        "radius": "5 meters",
+        "duration": "0.65 seconds (invulnerability)"
       },
       {
         "name": "Kitsune Rush",
-        "description": "Summon a fox spirit that rushes forward, accelerating the movement, attack speed, and cooldowns of allies that follow in its path."
+        "description": "Summon a fox spirit that rushes forward, accelerating the movement, attack speed, and cooldowns of allies that follow its path.",
+        "ability_type": "Ultimate Ability",
+        "duration": "8 seconds (area) / 1 second (lingering buff)",
+        "range": "32.2 meters"
       }
     ],
     "perks": {
       "minor": [
         {
           "name": "Urgent Care",
-          "description": "Healing Ofuda projectile speed is increased by 50% when seeking allies below half health."
+          "description": "Healing Ofuda projectile speed is increased by 50% when seeking critical health allies."
         },
         {
           "name": "Fortune Teller",
@@ -88,70 +128,6 @@
       ]
     },
     "stats": {
-      "abilities": {
-        "Healing Ofuda": {
-          "ability_type": "Weapon;;Primary Fire",
-          "key": "primary fire",
-          "healing": "13 (per talisman) / 26 (per burst)",
-          "rate_of_fire": "0.2 seconds (per burst) / 1.42 seconds (full clip)",
-          "reload": "0.9 seconds",
-          "pellets": 2,
-          "ammo": 10,
-          "projectile_speed": "30 m/s (homing) / 24 m/s (non-homing)",
-          "projectile_radius": "None",
-          "range": "35 meters (lock on)"
-        },
-        "Kunai": {
-          "ability_type": "Weapon;;Secondary Fire",
-          "key": "secondary fire",
-          "damage": 60,
-          "headshot": true,
-          "rate_of_fire": "2 shots/s",
-          "reload": "1.3 seconds",
-          "ammo": 15,
-          "projectile_speed": "90 m/s",
-          "projectile_radius": "0.195 meters",
-          "spread": "None",
-          "dps": "120 while firing (105.88 overall w/reload)"
-        },
-        "Swift Step": {
-          "ability_type": "Ability",
-          "key": "ability 1",
-          "range": "30 meters",
-          "duration": "0.25 second invulnerability",
-          "cooldown": "7 seconds"
-        },
-        "Protection Suzu": {
-          "ability_type": "Ability",
-          "key": "ability 2",
-          "cooldown": "14 seconds",
-          "healing": "80 (no cleanse) / 110 (cleanse)",
-          "projectile_speed": "37 m/s",
-          "projectile_radius": "0.2 meters",
-          "radius": "5 meters",
-          "duration": "0.65 seconds (invulnerability)"
-        },
-        "Kitsune Rush": {
-          "ability_type": "Ultimate Ability",
-          "duration": "8 seconds (area) / 1 second (lingering buff)",
-          "range": "32.2 meters"
-        },
-        "Urgent Care": {
-          "ability_type": "Minor Perk",
-          "projectile_speed": "30 → 42 m/s"
-        },
-        "Fortune Teller": {
-          "ability_type": "Minor Perk"
-        },
-        "Ready Step": {
-          "ability_type": "Major Perk",
-          "dps": "while firing ( w/ reload)"
-        },
-        "Foxtrot": {
-          "ability_type": "Major Perk",
-          "duration": "4 seconds"
-        }
-      },
       "health": 225
     }
   }

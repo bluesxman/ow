@@ -1,0 +1,393 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/bluesxman/ow/main/data/patch-notes-schema.json",
+  "title": "Overwatch Patch Notes",
+  "description": "Schema for the structured patch-notes history published in data/patch-notes.json. Each patch carries a date, title, and sections of hero/general changes.",
+  "metadata": {
+    "last_updated": "2026-04-25T17:28:20.254Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
+    "hero_count": 51,
+    "heroes_failed": [],
+    "fandom_failed": [],
+    "sources": [
+      {
+        "name": "Blizzard Entertainment",
+        "url": "https://overwatch.blizzard.com/en-us/heroes/",
+        "license": "Blizzard Terms of Service",
+        "fields": [
+          "name",
+          "role",
+          "portrait_url",
+          "patch_version"
+        ]
+      },
+      {
+        "name": "Overwatch Fandom Wiki",
+        "url": "https://overwatch.fandom.com/",
+        "license": "CC-BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
+          "stats.health",
+          "stats.armor",
+          "stats.shields"
+        ]
+      }
+    ],
+    "schema_version": "5.0.0"
+  },
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "metadata": {
+        "type": "object",
+        "properties": {
+          "last_updated": {
+            "type": "string"
+          },
+          "patch_version": {
+            "type": "string"
+          },
+          "hero_count": {
+            "type": "number"
+          },
+          "heroes_failed": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "fandom_failed": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "license": {
+                  "type": "string"
+                },
+                "license_url": {
+                  "type": "string"
+                },
+                "fields": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "name",
+                "url",
+                "license",
+                "fields"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "schema_version": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "last_updated",
+          "patch_version",
+          "hero_count",
+          "heroes_failed",
+          "fandom_failed",
+          "sources",
+          "schema_version"
+        ],
+        "additionalProperties": false
+      },
+      "patches": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "date": {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+            },
+            "title": {
+              "type": "string",
+              "minLength": 1
+            },
+            "url": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "sections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "mode": {
+                    "type": "string",
+                    "enum": [
+                      "retail",
+                      "stadium",
+                      "mixed",
+                      "unknown"
+                    ]
+                  },
+                  "group_label": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "changes": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "raw": {
+                          "type": "object",
+                          "properties": {
+                            "text": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "text"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "interpreted": {
+                          "anyOf": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "mode": {
+                                  "type": "string",
+                                  "enum": [
+                                    "retail",
+                                    "stadium",
+                                    "mixed",
+                                    "unknown"
+                                  ]
+                                },
+                                "subject_kind": {
+                                  "type": "string",
+                                  "enum": [
+                                    "hero_general",
+                                    "ability",
+                                    "perk",
+                                    "role",
+                                    "system",
+                                    "map",
+                                    "unknown"
+                                  ]
+                                },
+                                "hero_slug": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string",
+                                      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+                                    },
+                                    {
+                                      "type": "null"
+                                    }
+                                  ]
+                                },
+                                "subject_name": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string"
+                                    },
+                                    {
+                                      "type": "null"
+                                    }
+                                  ]
+                                },
+                                "metric": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string",
+                                      "enum": [
+                                        "damage",
+                                        "cooldown",
+                                        "duration",
+                                        "range",
+                                        "radius",
+                                        "healing",
+                                        "health",
+                                        "shields",
+                                        "armor",
+                                        "ammo",
+                                        "reload",
+                                        "rate_of_fire",
+                                        "movement_speed",
+                                        "spread",
+                                        "projectile_speed",
+                                        "pellets",
+                                        "cost",
+                                        "ultimate_cost",
+                                        "attack_speed",
+                                        "energy",
+                                        "other"
+                                      ]
+                                    },
+                                    {
+                                      "type": "null"
+                                    }
+                                  ]
+                                },
+                                "metric_phrase": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string"
+                                    },
+                                    {
+                                      "type": "null"
+                                    }
+                                  ]
+                                },
+                                "from": {
+                                  "anyOf": [
+                                    {
+                                      "anyOf": [
+                                        {
+                                          "type": "number"
+                                        },
+                                        {
+                                          "type": "string"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "null"
+                                    }
+                                  ]
+                                },
+                                "to": {
+                                  "anyOf": [
+                                    {
+                                      "anyOf": [
+                                        {
+                                          "type": "number"
+                                        },
+                                        {
+                                          "type": "string"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "null"
+                                    }
+                                  ]
+                                },
+                                "delta": {
+                                  "anyOf": [
+                                    {
+                                      "anyOf": [
+                                        {
+                                          "type": "number"
+                                        },
+                                        {
+                                          "type": "string"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "null"
+                                    }
+                                  ]
+                                },
+                                "blizzard_commentary": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                },
+                                "notes": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "mode",
+                                "subject_kind",
+                                "hero_slug",
+                                "subject_name",
+                                "metric",
+                                "metric_phrase",
+                                "from",
+                                "to",
+                                "delta",
+                                "blizzard_commentary",
+                                "notes"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "raw",
+                        "interpreted"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "title",
+                  "mode",
+                  "group_label",
+                  "changes"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "date",
+            "title",
+            "url",
+            "sections"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "metadata",
+      "patches"
+    ],
+    "additionalProperties": false
+  }
+}

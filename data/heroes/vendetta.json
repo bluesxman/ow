@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T17:28:20.254Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,17 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
-          "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.shields"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Vendetta",
@@ -45,119 +46,92 @@
     "sub_role": "flanker",
     "abilities": [
       {
+        "name": "Onslaught",
+        "description": "Strike enemies to increase movement and attack speed.",
+        "rate_of_fire": "+5% (per stack)",
+        "duration": "5.5 seconds",
+        "ability_type": "Passive Ability"
+      },
+      {
         "name": "Palatine Fang",
-        "description": "Hard-light greatsword. Combo swings to end with a destructive overhead slash."
+        "description": "Hard-light greatsword. Combo swings to end with a destructive overhead slash.",
+        "damage": "45 (swing) / 120 (overhead strike)",
+        "duration": "0.75 seconds (combo input delay)",
+        "rate_of_fire": "1.18 swings/s (average at 0 stacks)",
+        "range": "4.3 meters (swing) / 6.3 meters (overhead critical)",
+        "ability_type": "Weapon"
       },
       {
         "name": "Warding Stance",
-        "description": "Block with your sword, reducing frontal damage and deflecting melee attacks. Blocking damage depletes energy."
-      },
-      {
-        "name": "Whirlwind Dash",
-        "description": "Rush forward into a circular slash."
-      },
-      {
-        "name": "Soaring Slice",
-        "description": "Hurl your sword in the direction you are facing and then fly to it."
+        "description": "Block with your sword, reducing frontal damage and deflecting melee attacks. Blocking damage depletes energy.",
+        "cooldown": "0.5 seconds",
+        "duration": "0.34 seconds (min duration) / 0.75 seconds (energy regen delay)",
+        "ability_type": "Ability"
       },
       {
         "name": "Projected Edge",
-        "description": "Available while Warding Stance is active. Consume energy to fire a wide projectile."
+        "description": "Available when Warding Stance is active. Consume energy to fire a wide projectile.",
+        "damage": 70,
+        "projectile_speed": "37 m/s",
+        "projectile_radius": "0.2 meters (inner) / 1.235 meters (outer)",
+        "ability_type": "Ability"
+      },
+      {
+        "name": "Whirlwind Dash",
+        "description": "Rush forward into a circular slash.",
+        "ability_type": "Ability",
+        "cooldown": "10 seconds",
+        "damage": "70 - 35",
+        "falloff": "3.5 - 6.5 meters",
+        "range": "11.4 meters",
+        "radius": "6.5 meters / 4 meters (height)",
+        "duration": "0.6 seconds"
+      },
+      {
+        "name": "Soaring Slice",
+        "description": "Hurl your sword in the direction you are facing and then fly to it.",
+        "cooldown": "7 seconds",
+        "duration": "0.6 seconds (throw)",
+        "damage": 50,
+        "range": "15 meters",
+        "projectile_speed": "50 m/s",
+        "projectile_radius": "0.92 meters",
+        "ability_type": "Ability"
       },
       {
         "name": "Sundering Blade",
-        "description": "Cleave through most defenses, dealing severe damage to enemies in front of you."
+        "description": "Cleave through most defenses, dealing severe damage to enemies in front of you.",
+        "damage": "100/50 (direct/indirect stage 1) / 200/100 (direct/indirect stage 2) / 400/200 (direct/indirect stage 3)",
+        "duration": "1 second (charge time per stage) / 4 seconds (max)",
+        "range": "8/16/24 meters (stage 1/2/3)",
+        "radius": "2.1/2.8/3.2 meters (stage 1/2/3) / 2.5 meters (direct hit)",
+        "ability_type": "Ultimate Ability"
       }
     ],
     "perks": {
       "minor": [
         {
-          "name": "Extra Edge",
-          "description": "Projected Edge costs 25% less energy."
-        },
-        {
           "name": "Raging Storm",
           "description": "Whirlwind Dash continues to spin, hitting 3 more times for 30 damage in a wide area."
+        },
+        {
+          "name": "Extra Edge",
+          "description": "Projected Edge costs 25% less energy."
         }
       ],
       "major": [
         {
-          "name": "Siphoning Strike",
-          "description": "Overhead strikes gain 40% Lifesteal."
+          "name": "Relentless",
+          "description": "Onslaught can stack 3 more times, increasing attack speed by 5% and movement speed by 4% per stack."
         },
         {
-          "name": "Relentless",
-          "description": "Onslaught can stack 3 more times, increasing attack speed by 5% and movement speed by 2% per stack."
+          "name": "Siphoning Strike",
+          "description": "Overhead strikes gain 30% Lifesteal."
         }
       ]
     },
     "stats": {
-      "abilities": {
-        "Palatine Fang": {
-          "key": "primary fire",
-          "damage": "45 (swing) / 120 (overhead strike)",
-          "duration": "0.75 seconds (combo input delay)",
-          "rate_of_fire": "1.18 swings/s (average at 0 stacks)",
-          "range": "4.3 meters (swing) / 6.3 meters (overhead critical)",
-          "ability_type": "Weapon"
-        },
-        "Warding Stance": {
-          "cooldown": "0.5 seconds",
-          "duration": "0.34 seconds (min duration) / 0.75 seconds (energy regen delay)",
-          "ability_type": "Ability",
-          "key": "secondary fire"
-        },
-        "Projected Edge": {
-          "damage": 70,
-          "projectile_speed": "37 m/s",
-          "projectile_radius": "0.2 meters (inner) / 1.235 meters (outer)",
-          "ability_type": "Ability",
-          "key": "primary fire"
-        },
-        "Whirlwind Dash": {
-          "ability_type": "Ability",
-          "key": "ability 1",
-          "cooldown": "10 seconds",
-          "damage": "70 - 35",
-          "falloff": "3.5 - 6.5 meters",
-          "range": "11.4 meters",
-          "radius": "6.5 meters / 4 meters (height)",
-          "duration": "0.6 seconds"
-        },
-        "Soaring Slice": {
-          "cooldown": "7 seconds",
-          "duration": "0.6 seconds (throw)",
-          "damage": 50,
-          "range": "15 meters",
-          "projectile_speed": "50 m/s",
-          "projectile_radius": "0.92 meters",
-          "ability_type": "Ability",
-          "key": "ability 2"
-        },
-        "Sundering Blade": {
-          "damage": "100/50 (direct/indirect stage 1) / 200/100 (direct/indirect stage 2) / 400/200 (direct/indirect stage 3)",
-          "duration": "1 second (charge time per stage) / 4 seconds (max)",
-          "range": "8/16/24 meters (stage 1/2/3)",
-          "radius": "2.1/2.8/3.2 meters (stage 1/2/3) / 2.5 meters (direct hit)",
-          "ability_type": "Ultimate Ability",
-          "key": "ultimate"
-        },
-        "Raging Storm": {
-          "ability_type": "Minor Perk",
-          "damage": 30
-        },
-        "Extra Edge": {
-          "ability_type": "Minor Perk"
-        },
-        "Relentless": {
-          "ability_type": "Major Perk"
-        },
-        "Siphoning Strike": {
-          "ability_type": "Major Perk",
-          "healing": "40% of damage dealt"
-        }
-      },
-      "health": 175,
+      "health": 200,
       "armor": 75
     }
   }

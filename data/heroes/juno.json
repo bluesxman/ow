@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T17:28:20.254Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,17 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
-          "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.shields"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Juno",
@@ -45,28 +46,61 @@
     "sub_role": "survivor",
     "abilities": [
       {
+        "name": "Martian Overboots",
+        "description": "While airborne, press Jump to double jump and hold Jump to hover.",
+        "ability_type": "Passive Ability"
+      },
+      {
         "name": "Mediblaster",
-        "description": "Burst fire weapon that heals allies and damages enemies."
+        "description": "Burst fire weapon that heals allies and damages enemies.",
+        "ability_type": "Weapon",
+        "falloff": "25 - 35 meters (damage and healing)",
+        "damage": "7.5 - 2.25 (per round) / 90 - 27 (per burst)",
+        "healing": "6 - 1.8 (per round) / 72 - 21.6 (per burst)",
+        "headshot": true,
+        "rate_of_fire": "1.29 shots/s",
+        "pellets": 12,
+        "ammo": 180,
+        "reload": "1.5 seconds",
+        "projectile_radius": "0.04 meters",
+        "spread": "0.85 degrees",
+        "dps": "116.28 (overall w/ reload 98.3)"
       },
       {
         "name": "Pulsar Torpedoes",
-        "description": "Press to lock on, then SECONDARY FIRE to fire homing projectiles. Heals allies over time and damages enemies."
-      },
-      {
-        "name": "Orbital Ray",
-        "description": "Call down a ray that travels forward, healing allies and increasing their damage."
-      },
-      {
-        "name": "Hyper Ring",
-        "description": "Deploy a ring that increases movement speed of allies that pass through it."
+        "description": "Press Secondary Fire to lock on, then Primary Fire to fire homing projectiles. Heals allies over time and damages enemies.",
+        "ability_type": "Ability",
+        "cooldown": "10 seconds",
+        "damage": 85,
+        "healing": "85 (direct) / 50 (over time)",
+        "duration": "2.5 seconds (HoT) / 0.5 - 1 seconds (lock-on) / 0.38 - 4 seconds (targeting)",
+        "range": "40 meters (targeting)"
       },
       {
         "name": "Glide Boost",
-        "description": "Glide horizontally with increased movement speed."
+        "description": "Glide horizontally with increased movement speed.",
+        "ability_type": "Ability",
+        "cooldown": "6 seconds",
+        "duration": "4 seconds"
       },
       {
-        "name": "Martian Overboots",
-        "description": "While airborne, press SPACE to double jump and hold SPACE to hover."
+        "name": "Hyper Ring",
+        "description": "Deploy a ring that increases movement speed of allies that pass through it.",
+        "ability_type": "Ability",
+        "cooldown": "14 seconds",
+        "duration": "6 seconds (ring) / 3 seconds (speed boost)",
+        "range": "17 meters",
+        "projectile_radius": "None",
+        "radius": "4 meters"
+      },
+      {
+        "name": "Orbital Ray",
+        "description": "Call down a ray that travels forward, healing allies and increasing their damage.",
+        "ability_type": "Ultimate Ability",
+        "healing": "85 per second",
+        "duration": "8 seconds",
+        "range": "20 meters",
+        "radius": "8 meters"
       }
     ],
     "perks": {
@@ -82,81 +116,16 @@
       ],
       "major": [
         {
-          "name": "Lift Off",
-          "description": "Martian Overboots can now triple jump."
+          "name": "Faster Blaster",
+          "description": "While using Glide Boost, Mediblaster fires continuosly."
         },
         {
-          "name": "Faster Blaster",
-          "description": "While Glide Boost is active, Mediblaster fires continuously."
+          "name": "Lift Off",
+          "description": "Martian Overboots can now triple jump."
         }
       ]
     },
     "stats": {
-      "abilities": {
-        "Martian Overboots": {
-          "ability_type": "Passive Ability",
-          "key": "jump"
-        },
-        "Mediblaster": {
-          "ability_type": "Weapon",
-          "falloff": "25 - 35 meters (damage and healing)",
-          "damage": "7.5 - 2.25 (per round) / 90 - 27 (per burst)",
-          "healing": "6 - 1.8 (per round) / 72 - 21.6 (per burst)",
-          "headshot": true,
-          "rate_of_fire": "1.29 shots/s",
-          "pellets": 12,
-          "ammo": 180,
-          "reload": "1.5 seconds",
-          "projectile_radius": "0.04 meters",
-          "spread": "0.85 degrees",
-          "dps": "116.28 (overall w/ reload 98.3)"
-        },
-        "Pulsar Torpedoes": {
-          "ability_type": "Ability",
-          "key": "secondary fire",
-          "cooldown": "10 seconds",
-          "damage": 85,
-          "healing": "85 (direct) / 50 (over time)",
-          "duration": "2.5 seconds (HoT) / 0.5 - 1 seconds (lock-on) / 0.38 - 4 seconds (targeting)",
-          "range": "40 meters (targeting)"
-        },
-        "Glide Boost": {
-          "ability_type": "Ability",
-          "key": "ability 1",
-          "cooldown": "6 seconds",
-          "duration": "4 seconds"
-        },
-        "Hyper Ring": {
-          "ability_type": "Ability",
-          "key": "ability 2",
-          "cooldown": "14 seconds",
-          "duration": "6 seconds (ring) / 3 seconds (speed boost)",
-          "range": "17 meters",
-          "projectile_radius": "None",
-          "radius": "4 meters"
-        },
-        "Orbital Ray": {
-          "ability_type": "Ultimate Ability",
-          "healing": "85 per second",
-          "duration": "8 seconds",
-          "range": "20 meters",
-          "radius": "8 meters"
-        },
-        "Familiar Vitals": {
-          "ability_type": "Minor Perk"
-        },
-        "Locked On": {
-          "ability_type": "Minor Perk"
-        },
-        "Faster Blaster": {
-          "ability_type": "Major Perk",
-          "rate_of_fire": "20 shots/s",
-          "pellets": 1
-        },
-        "Lift Off": {
-          "ability_type": "Major Perk"
-        }
-      },
       "health": 75,
       "shields": 150
     }

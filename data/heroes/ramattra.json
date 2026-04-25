@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T17:28:20.254Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,17 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
-          "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.shields"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Ramattra",
@@ -45,24 +46,76 @@
     "sub_role": "stalwart",
     "abilities": [
       {
-        "name": "Void Accelerator (Omnic Form)",
-        "description": "Fire a stream of projectiles."
+        "name": "Void Accelerator",
+        "description": "Fire a stream of projectiles.",
+        "ability_type": "Weapon;;Omnic Form",
+        "damage": 5,
+        "rate_of_fire": "25 shots/s",
+        "ammo": 100,
+        "projectile_speed": "80 m/s",
+        "projectile_radius": "0.15 meters",
+        "reload": "1 second",
+        "headshot": true,
+        "spread": "None",
+        "dps": "125 (100 overall w/ reload)"
       },
       {
-        "name": "Void Barrier (Omnic Form)",
-        "description": "Create a barrier at the targeted location."
-      },
-      {
-        "name": "Pummel (Nemesis Form)",
-        "description": "Punch, creating a wave of piercing energy with every swing."
+        "name": "Void Barrier",
+        "description": "Create a barrier at the targeted location.",
+        "ability_type": "Ability;;Omnic Form",
+        "cooldown": "12 seconds",
+        "health": 1000,
+        "range": "35 meters",
+        "duration": "4 seconds"
       },
       {
         "name": "Ravenous Vortex",
-        "description": "Fire a sphere of energy that detonates on the ground, slowing and pulling down enemies. Re-activate to detonate early."
+        "description": "Fire a sphere of energy that creates a slowing vortex on the ground, slowing and pulling down enemies. Re-activate to detonate early.",
+        "ability_type": "Ability;;both forms",
+        "cooldown": "11 seconds",
+        "damage": "15 (explosion damage) / 23.3 per second / 70 total",
+        "headshot": false,
+        "duration": "3 seconds",
+        "projectile_speed": "30 m/s",
+        "projectile_radius": "None",
+        "radius": "4 meters"
+      },
+      {
+        "name": "Nemesis Form",
+        "description": "Transform into Nemesis Form, changing your attacks and gaining bonus armor.",
+        "ability_type": "Ability",
+        "cooldown": "8 seconds",
+        "duration": "8 seconds"
+      },
+      {
+        "name": "Pummel",
+        "description": "Punch, creating a wave of piercing energy with every swing.",
+        "ability_type": "Weapon;;Nemesis Form",
+        "damage": 65,
+        "headshot": false,
+        "rate_of_fire": "1.67 shots/s",
+        "ammo": "∞",
+        "projectile_speed": "105 m/s",
+        "projectile_radius": "0.575 meters",
+        "range": "10 meters",
+        "spread": "None",
+        "dps": "108.33 while firing"
+      },
+      {
+        "name": "Block",
+        "description": "Significantly reduces damage taken from the front and reduces movement speed.",
+        "ability_type": "Ability;;Nemesis Form",
+        "cooldown": "1 second",
+        "duration": "0.2 seconds (min)"
       },
       {
         "name": "Annihilation",
-        "description": "Enter Nemesis Form and create a deadly swarm that lashes out at nearby enemies, persisting longer when damaging enemies."
+        "description": "Enter Nemesis Form and create a deadly swarm that lashes out at nearby enemies, persisting longer when damaging enemies.",
+        "ability_type": "Ultimate Ability",
+        "damage": "35 per second",
+        "headshot": false,
+        "radius": "13 meters",
+        "duration": "3 - 20 seconds"
       }
     ],
     "perks": {
@@ -78,96 +131,16 @@
       ],
       "major": [
         {
-          "name": "Void Surge",
-          "description": "Void Accelerator periodically releases a burst of 6 additional projectiles during continuous fire."
-        },
-        {
           "name": "Nanite Repair",
           "description": "Ramattra is healed for 75 health per second while within Ravenous Vortex."
+        },
+        {
+          "name": "Void Surge",
+          "description": "Void Accelerator periodically releases a burst of 6 additional projectiles during continuous fire."
         }
       ]
     },
     "stats": {
-      "abilities": {
-        "Void Accelerator (Omnic Form)": {
-          "ability_type": "Weapon;;Omnic Form",
-          "key": "primary fire",
-          "damage": 5,
-          "rate_of_fire": "25 shots/s",
-          "ammo": 100,
-          "projectile_speed": "80 m/s",
-          "projectile_radius": "0.15 meters",
-          "reload": "1 second",
-          "headshot": true,
-          "spread": "None",
-          "dps": "125 (100 overall w/ reload)"
-        },
-        "Void Barrier (Omnic Form)": {
-          "ability_type": "Ability;;Omnic Form",
-          "key": "secondary fire",
-          "cooldown": "12 seconds",
-          "health": 1000,
-          "range": "35 meters",
-          "duration": "4 seconds"
-        },
-        "Ravenous Vortex": {
-          "ability_type": "Ability;;both forms",
-          "cooldown": "11 seconds",
-          "key": "ability 2",
-          "damage": "15 (explosion damage) / 23.3 per second / 70 total",
-          "headshot": false,
-          "duration": "3 seconds",
-          "projectile_speed": "30 m/s",
-          "projectile_radius": "None",
-          "radius": "4 meters"
-        },
-        "Pummel (Nemesis Form)": {
-          "ability_type": "Weapon;;Nemesis Form",
-          "key": "primary fire",
-          "damage": 65,
-          "headshot": false,
-          "rate_of_fire": "1.67 shots/s",
-          "ammo": "∞",
-          "projectile_speed": "105 m/s",
-          "projectile_radius": "0.575 meters",
-          "range": "10 meters",
-          "spread": "None",
-          "dps": "108.33 while firing",
-          "modes": {
-            "Secondary Fire": {
-              "key": "secondary fire",
-              "cooldown": "1 second",
-              "duration": "0.2 seconds (min)"
-            }
-          }
-        },
-        "Annihilation": {
-          "ability_type": "Ultimate Ability",
-          "key": "ability 3",
-          "damage": "35 per second",
-          "headshot": false,
-          "radius": "13 meters",
-          "duration": "3 - 20 seconds"
-        },
-        "Relentless Form": {
-          "ability_type": "Minor Perk"
-        },
-        "Prolonged Barrier": {
-          "ability_type": "Minor Perk",
-          "duration": "5 seconds"
-        },
-        "Nanite Repair": {
-          "ability_type": "Major Perk",
-          "healing": "75 per second"
-        },
-        "Void Surge": {
-          "ability_type": "Major Perk",
-          "damage": "5 (per pellet) / 30 (per burst)",
-          "pellets": 6,
-          "spread": "2.2 degrees",
-          "dps": "162.5 while firing"
-        }
-      },
       "health": 275,
       "armor": 100
     }

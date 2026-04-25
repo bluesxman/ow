@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T14:55:03.899Z",
-    "patch_version": "Overwatch Retail Patch Notes - April 17, 2026",
+    "last_updated": "2026-04-25T17:28:20.254Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -14,8 +14,7 @@
           "name",
           "role",
           "portrait_url",
-          "perks",
-          "abilities.description"
+          "patch_version"
         ]
       },
       {
@@ -24,15 +23,17 @@
         "license": "CC-BY-SA 3.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
           "stats.health",
           "stats.armor",
-          "stats.shields",
-          "stats.abilities.*",
-          "sub_role"
+          "stats.shields"
         ]
       }
     ],
-    "schema_version": "4.1.0"
+    "schema_version": "5.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Emre",
@@ -45,31 +46,85 @@
     "sub_role": "specialist",
     "abilities": [
       {
+        "name": "Altered Vitals",
+        "description": "Passive health regeneration activates sooner and instantly restores 30 health when activated.",
+        "ability_type": "Passive Ability",
+        "healing": 30,
+        "duration": "4 seconds (out-of-combat delay)"
+      },
+      {
         "name": "Synthetic Burst Rifle",
-        "description": "Three-round burst weapon. Hold to zoom in, tightening accuracy and increasing fall off range."
+        "description": "Three-round burst weapon.",
+        "ability_type": "Weapon (Hip Fire)",
+        "damage": "22 - 6.67 (per shot) / 66 - 20 (per round)",
+        "falloff": "25 - 40 meters",
+        "headshot": true,
+        "rate_of_fire": "2.08 volleys/s",
+        "pellets": 3,
+        "ammo": 36,
+        "reload": "1.8 seconds",
+        "projectile_radius": "0.07 meters",
+        "spread": "0.45 degrees (max)",
+        "dps": "while firing ( w/ reload)"
+      },
+      {
+        "name": "Synthetic Burst Rifle (ADS)",
+        "description": "Three-round burst weapon.",
+        "ability_type": "Weapon (ADS)",
+        "damage": "22 - 6.67 (per shot) / 66 - 20 (per round)",
+        "falloff": "35 - 50 meters",
+        "headshot": true,
+        "rate_of_fire": "2.08 volleys/s",
+        "pellets": 3,
+        "ammo": 36,
+        "reload": "1.8 seconds",
+        "projectile_radius": "0.07 meters"
+      },
+      {
+        "name": "Siphon Blaster",
+        "description": "Temporarily wield a semi-automatic pistol with lifestealing explosive rounds. Move faster and jump higher while wielded.",
+        "ability_type": "Ability",
+        "cooldown": "11 seconds",
+        "damage": "25 (direct hit) / 15 - 5 (area of effect)",
+        "headshot": false,
+        "healing": "80% of damage dealt",
+        "duration": "5 seconds",
+        "radius": "0.5 - 2.3 meters",
+        "projectile_speed": "100 m/s",
+        "projectile_radius": "0.2 meters"
       },
       {
         "name": "Cyber Frag",
-        "description": "Throw a grenade that detonates shortly after bouncing."
+        "description": "Throw a grenade that detonates shortly after bouncing.",
+        "ability_type": "Ability",
+        "cooldown": "10 seconds",
+        "damage": "110 - 55 (area of effect)",
+        "duration": "0.6 seconds (explosion delay)",
+        "radius": "2 - 4 meters",
+        "projectile_speed": "35 m/s",
+        "projectile_radius": "0.16 meters"
       },
       {
         "name": "Override Protocol",
-        "description": "An override initiates, transforming you into a living weapon."
-      },
-      {
-        "name": "Altered Vitals",
-        "description": "Passive health regeneration activates sooner and instantly restores 30 health when activated."
+        "description": "An override initiates, transforming you into a living weapon.",
+        "ability_type": "Ultimate Ability",
+        "cooldown": "2.5 seconds (heavy round)",
+        "damage": "45 (light round direct hit) / 30 - 9 (light round area of effect) / 175 (heavy round direct hit) / 140 - 70 (heavy round area of effect)",
+        "duration": "8.8 seconds",
+        "radius": "1 - 2.3 meters (light round) / 2 - 6 meters (heavy round)",
+        "projectile_speed": "100m/s (light round) / 70 m/s (heavy round)",
+        "projectile_radius": "0.18 meters (light round) / 0.305 meters (heavy round)"
       }
     ],
     "perks": {
       "minor": [
         {
           "name": "Suppressive Security",
-          "description": "Override Protocol’s light rounds slow enemies by 30% for 1 second."
+          "description": "Override Protocol's light rounds slow enemies by 30% for 1 second."
         },
         {
           "name": "Enhanced Agility",
-          "description": "Siphon Blaster’s movement speed bonus is increased by 20% while not firing."
+          "description": "Siphon Blaster's movement speed bonus is increased by 20% while not firing."
         }
       ],
       "major": [
@@ -84,74 +139,6 @@
       ]
     },
     "stats": {
-      "abilities": {
-        "Altered Vitals": {
-          "ability_type": "Passive Ability",
-          "healing": 30,
-          "duration": "4 seconds (out-of-combat delay)"
-        },
-        "Synthetic Burst Rifle": {
-          "ability_type": "Weapon (Hip Fire)",
-          "key": "primary fire",
-          "damage": "22 - 6.67 (per shot) / 66 - 20 (per round)",
-          "falloff": "25 - 40 meters",
-          "headshot": true,
-          "rate_of_fire": "2.08 volleys/s",
-          "pellets": 3,
-          "ammo": 36,
-          "reload": "1.8 seconds",
-          "projectile_radius": "0.07 meters",
-          "spread": "0.45 degrees (max)",
-          "dps": "while firing ( w/ reload)",
-          "modes": {
-            "ADS": {
-              "key": "secondary fire",
-              "damage": "22 - 6.67 (per shot) / 66 - 20 (per round)",
-              "falloff": "35 - 50 meters",
-              "headshot": true,
-              "rate_of_fire": "2.08 volleys/s",
-              "pellets": 3,
-              "ammo": 36,
-              "reload": "1.8 seconds",
-              "projectile_radius": "0.07 meters"
-            }
-          }
-        },
-        "Cyber Frag": {
-          "ability_type": "Ability",
-          "key": "ability 2",
-          "cooldown": "10 seconds",
-          "damage": "110 - 55 (area of effect)",
-          "duration": "0.6 seconds (explosion delay)",
-          "radius": "2 - 4 meters",
-          "projectile_speed": "35 m/s",
-          "projectile_radius": "0.16 meters"
-        },
-        "Override Protocol": {
-          "ability_type": "Ultimate Ability",
-          "cooldown": "2.5 seconds (heavy round)",
-          "damage": "45 (light round direct hit) / 30 - 9 (light round area of effect) / 175 (heavy round direct hit) / 140 - 70 (heavy round area of effect)",
-          "duration": "8.8 seconds",
-          "radius": "1 - 2.3 meters (light round) / 2 - 6 meters (heavy round)",
-          "projectile_speed": "100m/s (light round) / 70 m/s (heavy round)",
-          "projectile_radius": "0.18 meters (light round) / 0.305 meters (heavy round)"
-        },
-        "Suppressive Security": {
-          "ability_type": "Minor Perk",
-          "duration": "1 second"
-        },
-        "Enhanced Agility": {
-          "ability_type": "Minor Perk"
-        },
-        "Heat Sink": {
-          "ability_type": "Major Perk"
-        },
-        "Cyber Adhesion": {
-          "ability_type": "Major Perk",
-          "damage": "40 (impact)",
-          "projectile_radius": "0.2 meters (stick size)"
-        }
-      },
       "health": 250
     }
   }

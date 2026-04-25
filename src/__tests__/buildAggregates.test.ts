@@ -19,18 +19,18 @@ function hero(slug: string, role: Hero['role']): Hero {
     slug,
     name: slug.charAt(0).toUpperCase() + slug.slice(1),
     role,
-    abilities: [{ name: 'Cool', description: 'does stuff' }],
+    abilities: [{ name: 'Cool', description: 'does stuff', damage: 10 }],
     perks: {
       minor: [
-        { name: 'm1', description: '' },
-        { name: 'm2', description: '' },
+        { name: 'm1', description: 'd1' },
+        { name: 'm2', description: 'd2' },
       ],
       major: [
-        { name: 'M1', description: '' },
-        { name: 'M2', description: '' },
+        { name: 'M1', description: 'D1' },
+        { name: 'M2', description: 'D2' },
       ],
     },
-    stats: { health: 200, abilities: { Cool: { damage: 10 } } },
+    stats: { health: 200 },
   };
 }
 
@@ -51,8 +51,14 @@ describe('buildAggregates', () => {
     const heroesDoc = agg.heroesDoc as { heroes: RosterEntry[] };
     expect(heroesDoc.heroes.map((h) => h.slug)).toEqual(['ana', 'cassidy']);
 
-    const statsDoc = agg.statsDoc as { heroes: Record<string, { stats: unknown }> };
+    const statsDoc = agg.statsDoc as { heroes: Record<string, { stats: unknown; abilities: Array<Record<string, unknown>> }> };
     expect(statsDoc.heroes.cassidy?.stats).toEqual(heroes.cassidy.stats);
+    expect(statsDoc.heroes.cassidy?.abilities[0]).toEqual({ name: 'Cool', damage: 10 });
+    expect(statsDoc.heroes.cassidy?.abilities[0]).not.toHaveProperty('description');
+
+    const abilitiesDoc = agg.abilitiesDoc as { heroes: Record<string, { abilities: Array<Record<string, unknown>> }> };
+    expect(abilitiesDoc.heroes.cassidy?.abilities[0]).toEqual({ name: 'Cool', description: 'does stuff' });
+    expect(abilitiesDoc.heroes.cassidy?.abilities[0]).not.toHaveProperty('damage');
 
     const allDoc = agg.allDoc as { heroes: Record<string, Hero> };
     expect(allDoc.heroes.ana).toEqual(heroes.ana);

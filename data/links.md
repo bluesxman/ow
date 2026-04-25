@@ -2,7 +2,7 @@
 
 Flat list of every published raw URL. Paste this file once into any agent with a URL-allowlisted webfetch (e.g., Claude.ai chat) to unlock fetches for every other file in `data/`.
 
-Last generated: 2026-04-25T14:55:03.899Z
+Last generated: 2026-04-25T17:28:20.254Z
 
 ## Top-level files
 
@@ -13,6 +13,8 @@ Last generated: 2026-04-25T14:55:03.899Z
 - **stats** — https://raw.githubusercontent.com/bluesxman/ow/main/data/stats.json
 - **all** — https://raw.githubusercontent.com/bluesxman/ow/main/data/all.json
 - **schema** — https://raw.githubusercontent.com/bluesxman/ow/main/data/schema.json
+- **patch_notes** — https://raw.githubusercontent.com/bluesxman/ow/main/data/patch-notes.json
+- **patch_notes_schema** — https://raw.githubusercontent.com/bluesxman/ow/main/data/patch-notes-schema.json
 - **attribution** — https://raw.githubusercontent.com/bluesxman/ow/main/data/ATTRIBUTION.md
 - **license** — https://raw.githubusercontent.com/bluesxman/ow/main/data/LICENSE
 - **links** — https://raw.githubusercontent.com/bluesxman/ow/main/data/links.md

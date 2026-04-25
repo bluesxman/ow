@@ -42,6 +42,9 @@ async function main(): Promise<void> {
 
   const aggregates = buildAggregates(heroesBySlug, roster, index.metadata);
 
+  // patch-notes.json is intentionally left alone — it's owned by the
+  // refresh-patch-notes skill, not by this hero-stats skill. We do regenerate
+  // patch-notes-schema.json since it's a static contract definition.
   const outputs: Array<[string, unknown]> = [
     [join(paths.dataDir, 'index.json'), aggregates.indexDoc],
     [join(paths.dataDir, 'heroes.json'), aggregates.heroesDoc],
@@ -50,6 +53,7 @@ async function main(): Promise<void> {
     [join(paths.dataDir, 'stats.json'), aggregates.statsDoc],
     [join(paths.dataDir, 'all.json'), aggregates.allDoc],
     [join(paths.dataDir, 'schema.json'), aggregates.schemaDoc],
+    [join(paths.dataDir, 'patch-notes-schema.json'), aggregates.patchNotesSchemaDoc],
   ];
 
   for (const [path, value] of outputs) {

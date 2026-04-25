@@ -7,11 +7,9 @@
         "minor": ["Soul Reaving", "Lingering Wraith"],
         "major": ["Shadow Blink", "Trigger Finger"]
       },
-      "stats": {
-        "abilities": {
-          "Hellfire Shotguns": { "ammo": 8, "pellets": 20 },
-          "Shadow Step": { "cooldown_contains": "10" }
-        }
+      "abilities": {
+        "Hellfire Shotguns": { "ammo": 8, "pellets": 20 },
+        "Shadow Step": { "cooldown_contains": "10" }
       }
     },
     {
@@ -25,10 +23,8 @@
     {
       "slug": "soldier-76",
       "role": "damage",
-      "stats": {
-        "abilities": {
-          "Heavy Pulse Rifle": { "ammo": 30, "falloff_contains": "30" }
-        }
+      "abilities": {
+        "Heavy Pulse Rifle": { "ammo": 30, "falloff_contains": "30" }
       }
     },
     {

@@ -1,10 +1,10 @@
 # Attribution
 
-Hero combat stats (`stats.abilities.*`, `stats.health`, `stats.armor`, `stats.shields`, `sub_role`) are sourced from the [Overwatch Fandom Wiki](https://overwatch.fandom.com/) and are available under [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/).
+Abilities, perks, sub-roles, and combat stats (`abilities[]` including all numeric fields, `perks.minor`, `perks.major`, `sub_role`, `stats.health`, `stats.armor`, `stats.shields`) are sourced from the [Overwatch Fandom Wiki](https://overwatch.fandom.com/) and are available under [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/).
 
-Perks, ability descriptions, roles, and portraits are sourced from [Blizzard's official hero pages](https://overwatch.blizzard.com/en-us/heroes/).
+Hero name, role, portrait, and the patch version are sourced from [Blizzard's official Overwatch site](https://overwatch.blizzard.com/en-us/heroes/). Patch-note text is also used to override Fandom values when Fandom is behind the live patch.
 
-Last generated: 2026-04-25T14:55:03.899Z
+Last generated: 2026-04-25T17:28:20.254Z
 
 ## Per-hero source pages
 

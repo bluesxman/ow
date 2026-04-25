@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.1.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Domina",
@@ -46,12 +46,14 @@
     "sub_role": "stalwart",
     "abilities": [
       {
+        "slug": "reconstruction",
         "name": "Reconstruction",
         "description": "Dealing damage from abilities restores shields.",
         "ability_type": "Passive Ability",
         "healing": "75% of ability damage dealt"
       },
       {
+        "slug": "photon-magnum",
         "name": "Photon Magnum",
         "description": "Medium-range beam that culminates in a high impact shot.",
         "ability_type": "Weapon",
@@ -64,6 +66,7 @@
         "projectile_radius": "0.15 meters"
       },
       {
+        "slug": "barrier-array",
         "name": "Barrier Array",
         "description": "Construct a segmented barrier.",
         "ability_type": "Ability",
@@ -73,6 +76,7 @@
         "duration": "8 seconds"
       },
       {
+        "slug": "sonic-repulsors",
         "name": "Sonic Repulsors",
         "description": "Push enemies back, stunning them if they hit a wall.",
         "ability_type": "Ability",
@@ -82,6 +86,7 @@
         "duration": "0.5 seconds (Immobilization) / 0.5 seconds (stun)"
       },
       {
+        "slug": "crystal-charge",
         "name": "Crystal Charge",
         "description": "Project an explosive crystal and reactivate to detonate it.",
         "ability_type": "Ability",
@@ -93,6 +98,7 @@
         "projectile_speed": "25 m/s"
       },
       {
+        "slug": "panopticon",
         "name": "Panopticon",
         "description": "Fire a hard-light barrier that imprisons enemies and detonates on expiration.",
         "ability_type": "Ultimate Ability",
@@ -106,20 +112,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "efficient-design",
           "name": "Efficient Design",
           "description": "After using Barrier Array, restore 50 shields and activate passive health regeneration."
         },
         {
+          "slug": "extended-power",
           "name": "Extended Power",
           "description": "Increase the range of Photon Magnum by 20%."
         }
       ],
       "major": [
         {
+          "slug": "disruptive-detonation",
           "name": "Disruptive Detonation",
           "description": "Enemies hit by Crystal Charge's explosion are slowed by 30% for 2 seconds."
         },
         {
+          "slug": "power-move",
           "name": "Power Move",
           "description": "Barrier Array can be used as a wall to stun enemies with Sonic Repulsors with a 100% damage increase."
         }

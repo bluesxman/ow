@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.1.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Kiriko",
@@ -46,12 +46,14 @@
     "sub_role": "medic",
     "abilities": [
       {
+        "slug": "wall-climb-kiriko",
         "name": "Wall Climb (Kiriko)",
         "description": "Jump at walls to climb up them.",
         "ability_type": "Passive Ability",
         "duration": "Up to 1 second"
       },
       {
+        "slug": "healing-ofuda",
         "name": "Healing Ofuda",
         "description": "Channel a burst of healing talismans that can seek targeted allies.",
         "ability_type": "Weapon;;Primary Fire",
@@ -65,6 +67,7 @@
         "range": "35 meters (lock on)"
       },
       {
+        "slug": "kunai",
         "name": "Kunai",
         "description": "Thrown long-ranged projectile.",
         "ability_type": "Weapon;;Secondary Fire",
@@ -79,6 +82,7 @@
         "dps": "120 while firing (105.88 overall w/reload)"
       },
       {
+        "slug": "swift-step",
         "name": "Swift Step",
         "description": "Teleport directly to an ally.",
         "ability_type": "Ability",
@@ -87,6 +91,7 @@
         "cooldown": "7 seconds"
       },
       {
+        "slug": "protection-suzu",
         "name": "Protection Suzu",
         "description": "Throw a protective charm to make allies become briefly invulnerable and cleansed of most negative effects.",
         "ability_type": "Ability",
@@ -98,6 +103,7 @@
         "duration": "0.65 seconds (invulnerability)"
       },
       {
+        "slug": "kitsune-rush",
         "name": "Kitsune Rush",
         "description": "Summon a fox spirit that rushes forward, accelerating the movement, attack speed, and cooldowns of allies that follow its path.",
         "ability_type": "Ultimate Ability",
@@ -108,20 +114,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "urgent-care",
           "name": "Urgent Care",
           "description": "Healing Ofuda projectile speed is increased by 50% when seeking critical health allies."
         },
         {
+          "slug": "fortune-teller",
           "name": "Fortune Teller",
           "description": "Kunai hits launch 2 Healing Ofuda to an ally in front of you."
         }
       ],
       "major": [
         {
+          "slug": "ready-step",
           "name": "Ready Step",
           "description": "Swift Step grants Kiriko 40% increased attack and reload speed for 3 seconds."
         },
         {
+          "slug": "foxtrot",
           "name": "Foxtrot",
           "description": "Protection Suzu grants allies 30% increased movement speed for 4 seconds."
         }

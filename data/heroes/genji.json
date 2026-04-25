@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.1.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Genji",
@@ -46,12 +46,14 @@
     "sub_role": "flanker",
     "abilities": [
       {
+        "slug": "cyber-agility",
         "name": "Cyber-Agility",
         "description": "Climb on walls and double jump.",
         "ability_type": "Passive Ability",
         "duration": "Up to 1 second"
       },
       {
+        "slug": "shuriken",
         "name": "Shuriken",
         "description": "Throw an accurate burst of 3 projectiles.",
         "ability_type": "Weapon;;Primary Fire",
@@ -67,6 +69,7 @@
         "dps": "92.05 while firing (85.94 overall w/reload)"
       },
       {
+        "slug": "shuriken-alt-fire",
         "name": "Shuriken Alt Fire",
         "description": "Throw a fan of 3 projectiles in an arc.",
         "ability_type": "Weapon;;Secondary Fire",
@@ -81,6 +84,7 @@
         "dps": "119.12 while firing (109.09 overall w/reload)"
       },
       {
+        "slug": "swift-strike",
         "name": "Swift Strike",
         "description": "Rapidly dash forward and inflict damage on enemies. Eliminations reset the cooldown.",
         "ability_type": "Ability",
@@ -91,6 +95,7 @@
         "range": "15 meters"
       },
       {
+        "slug": "deflect",
         "name": "Deflect",
         "description": "Deflect incoming projectiles towards the direction you are aiming and block melee attacks.",
         "ability_type": "Ability",
@@ -98,6 +103,7 @@
         "duration": "0.27 seconds min. duration / 2 seconds max. duration / 0.192 seconds recovery"
       },
       {
+        "slug": "dragonblade",
         "name": "Dragonblade",
         "description": "Unsheathe a deadly melee weapon.",
         "ability_type": "Ultimate Ability",
@@ -112,20 +118,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "swift-cuts",
           "name": "Swift Cuts",
           "description": "Quick Melee reduces the cooldown of Swift Strike by 3 seconds."
         },
         {
+          "slug": "dragons-thirst",
           "name": "Dragon's Thirst",
           "description": "Dragonblade swings gain 30% lifesteal."
         }
       ],
       "major": [
         {
+          "slug": "blade-twisting",
           "name": "Blade Twisting",
           "description": "Swift Strike deals 25 additional damage over time if the enemy is below half health."
         },
         {
+          "slug": "meditation",
           "name": "Meditation",
           "description": "Regenerate 35 health per second while Deflect is active."
         }

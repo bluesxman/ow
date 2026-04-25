@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.1.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Mercy",
@@ -46,17 +46,20 @@
     "sub_role": "medic",
     "abilities": [
       {
+        "slug": "swift-recovery",
         "name": "Swift Recovery",
         "description": "Begin regenerating health more quickly.",
         "ability_type": "Passive Ability"
       },
       {
+        "slug": "angelic-descent",
         "name": "Angelic Descent",
         "description": "Fall very slowly.",
         "duration": "Until cancelled",
         "ability_type": "Passive Ability"
       },
       {
+        "slug": "caduceus-staff",
         "name": "Caduceus Staff",
         "description": "Hold to heal an ally. Hold to increase an ally's damage inflicted.",
         "ability_type": "Weapon",
@@ -64,6 +67,7 @@
         "range": "15 meters"
       },
       {
+        "slug": "caduceus-blaster",
         "name": "Caduceus Blaster",
         "description": "Automatic weapon.",
         "ability_type": "Weapon",
@@ -78,6 +82,7 @@
         "dps": "100 while firing (78 overall w/reload)"
       },
       {
+        "slug": "guardian-angel",
         "name": "Guardian Angel",
         "description": "Fly towards an ally. While in flight, Jump launches you forward, and and Crouch launches you upward.",
         "ability_type": "Ability",
@@ -85,6 +90,7 @@
         "cooldown": "1.5 seconds"
       },
       {
+        "slug": "resurrect",
         "name": "Resurrect",
         "description": "Revive a dead teammate.",
         "ability_type": "Ability",
@@ -93,6 +99,7 @@
         "cooldown": "30 seconds"
       },
       {
+        "slug": "flash-heal",
         "name": "Flash Heal",
         "description": "Heal Caduceus Staff's active target, healing is doubled on allies below half health.",
         "ability_type": "Ability",
@@ -100,6 +107,7 @@
         "healing": "60 (default) / 120 (low health)"
       },
       {
+        "slug": "valkyrie",
         "name": "Valkyrie",
         "description": "Gain the ability to fly. Abilities are enhanced.",
         "ability_type": "Ultimate Ability",
@@ -114,20 +122,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "angelic-resurrection",
           "name": "Angelic Resurrection",
           "description": "Mercy gains 100 overhealth after casting Resurrect."
         },
         {
+          "slug": "divine-momentum",
           "name": "Divine Momentum",
           "description": "Increases Mercy's travel speed by 15% after cancelling Guardian Angel."
         }
       ],
       "major": [
         {
+          "slug": "chain-boost",
           "name": "Chain Boost",
           "description": "Secondary fire links to a second nearby ally."
         },
         {
+          "slug": "double-dose",
           "name": "Double Dose",
           "description": "Flash Heal gains an additional charge but its base healing is reduced by 10."
         }

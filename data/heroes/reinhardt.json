@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.1.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Reinhardt",
@@ -46,6 +46,7 @@
     "sub_role": "stalwart",
     "abilities": [
       {
+        "slug": "rocket-hammer",
         "name": "Rocket Hammer",
         "description": "Devastating melee weapon.",
         "ability_type": "Weapon",
@@ -57,6 +58,7 @@
         "dps": "104 while swinging"
       },
       {
+        "slug": "barrier-field",
         "name": "Barrier Field",
         "description": "Hold to deploy a frontal energy barrier.",
         "ability_type": "Ability",
@@ -64,6 +66,7 @@
         "cooldown": "5 seconds (destroyed)"
       },
       {
+        "slug": "charge",
         "name": "Charge",
         "description": "Charge forward and smash an enemy against a wall.",
         "ability_type": "Ability",
@@ -73,6 +76,7 @@
         "duration": "3 seconds (charge, max) / 0.3 seconds (charge, min) / 0.65 seconds (stun on wall hit)"
       },
       {
+        "slug": "fire-strike",
         "name": "Fire Strike",
         "description": "Launch a fiery projectile.",
         "ability_type": "Ability",
@@ -83,6 +87,7 @@
         "projectile_radius": "0.85 meters"
       },
       {
+        "slug": "earthshatter",
         "name": "Earthshatter",
         "description": "Knock down all enemies in front of you.",
         "ability_type": "Ultimate Ability",
@@ -95,20 +100,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "crusaders-fire",
           "name": "Crusader's Fire",
           "description": "Refund a charge of Fire Strike When you stun an enemy, overfilling up to 3."
         },
         {
+          "slug": "crusaders-resolve",
           "name": "Crusader's Resolve",
           "description": "While using Barrier Field, your passive health regeneration triggers 75% sooner."
         }
       ],
       "major": [
         {
+          "slug": "shield-slam",
           "name": "Shield Slam",
           "description": "While Barrier Field is active, use Primary Fire to damage and knockback enemies."
         },
         {
+          "slug": "ignited-fury",
           "name": "Ignited Fury",
           "description": "For each enemy you hit with Fire Strike, gain 2 seconds of 25% increased attack speed."
         }

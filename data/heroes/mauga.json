@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.1.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Mauga",
@@ -46,12 +46,14 @@
     "sub_role": "bruiser",
     "abilities": [
       {
+        "slug": "berserker",
         "name": "Berserker",
         "description": "Gain temporary health when dealing critical damage.",
         "ability_type": "Passive Ability",
         "duration": "2 seconds"
       },
       {
+        "slug": "incendiary-chaingun",
         "name": "Incendiary Chaingun",
         "description": "Automatic weapon that ignites enemies on repeated impacts.",
         "ability_type": "Weapon;;Primary Fire",
@@ -67,6 +69,7 @@
         "dps": "72 while firing (64.7 w/ reload) 87 w/ damage over time 288 while firing both guns simultaneously 303 w/ damage over time"
       },
       {
+        "slug": "volatile-chaingun",
         "name": "Volatile Chaingun",
         "description": "Automatic weapon that deals critical damage to burning enemies.",
         "ability_type": "Weapon;;Secondary Fire",
@@ -81,6 +84,7 @@
         "dps": "72 while firing (64.7 w/ reload) 288 while firing both guns simultaneously 303 w/ damage over time"
       },
       {
+        "slug": "overrun",
         "name": "Overrun",
         "description": "Charge forward to stomp and launch enemies. You are unstoppable while charging.",
         "ability_type": "Ability",
@@ -92,6 +96,7 @@
         "projectile_speed": "30 m/s (shockwave)"
       },
       {
+        "slug": "cardiac-overdrive",
         "name": "Cardiac Overdrive",
         "description": "Gain damage reduction and nearby allies heal themselves by dealing damage.",
         "ability_type": "Ability",
@@ -101,6 +106,7 @@
         "radius": "10.5 meter radius"
       },
       {
+        "slug": "cage-fight",
         "name": "Cage Fight",
         "description": "Deploy a barrier that traps yourself and enemies. Automatically reloads Mauga's Chainguns at the start of the ultimate.",
         "ability_type": "Ultimate Ability",
@@ -112,20 +118,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "kinetic-bandolier",
           "name": "Kinetic Bandolier",
           "description": "Overrun reloads up to 150 ammo during the first second of charging."
         },
         {
+          "slug": "pyromaniac",
           "name": "Pyromaniac",
           "description": "Igniting enemies with Incendiary Chaingun grants 50 overhealth."
         }
       ],
       "major": [
         {
+          "slug": "firewalker",
           "name": "Firewalker",
           "description": "Overrun ignites enemies hit."
         },
         {
+          "slug": "combat-fuel",
           "name": "Combat Fuel",
           "description": "Critical hits grant Mauga 3 temporary overhealth on Cardiac Overdrive's next use, up to 150 overhealth."
         }

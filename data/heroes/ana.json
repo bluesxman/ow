@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.1.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Ana",
@@ -46,6 +46,7 @@
     "sub_role": "tactician",
     "abilities": [
       {
+        "slug": "biotic-rifle",
         "name": "Biotic Rifle",
         "description": "Long-range rifle that heals allies and damages enemies.",
         "ability_type": "Weapon;;Hip Fire",
@@ -62,6 +63,7 @@
         "dps": "while firing / overall w/ reload"
       },
       {
+        "slug": "zoom-ads",
         "name": "Zoom (ADS)",
         "description": "Hold to zoom in.",
         "ability_type": "Weapon;;ADS",
@@ -71,6 +73,7 @@
         "dps": "while firing / overall w/ reload"
       },
       {
+        "slug": "sleep-dart",
         "name": "Sleep Dart",
         "description": "Fires a dart that puts an enemy to sleep.",
         "ability_type": "Ability",
@@ -82,6 +85,7 @@
         "projectile_radius": "0.2 meters"
       },
       {
+        "slug": "biotic-grenade",
         "name": "Biotic Grenade",
         "description": "Throws a grenade that heals and increases healing on allies, while damaging and preventing healing on enemies.",
         "ability_type": "Ability",
@@ -95,6 +99,7 @@
         "duration": "3 seconds"
       },
       {
+        "slug": "nano-boost",
         "name": "Nano Boost",
         "description": "Increases an ally's damage, while reducing damage taken.",
         "ability_type": "Ultimate Ability",
@@ -106,20 +111,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "groggy",
           "name": "Groggy",
           "description": "Enemies waking up from Sleep Dart are slowed and take 50 damage for 2 seconds."
         },
         {
+          "slug": "speed-serum",
           "name": "Speed Serum",
           "description": "Nano Boost grants a 40% movement speed boost to both Ana and her target."
         }
       ],
       "major": [
         {
+          "slug": "headhunter",
           "name": "Headhunter",
           "description": "Biotic Rifle can crit enemies."
         },
         {
+          "slug": "biotic-bounce",
           "name": "Biotic Bounce",
           "description": "After exploding, Biotic Grenade bounces and explodes again for 60 damage and healing."
         }

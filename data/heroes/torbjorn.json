@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.1.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Torbj%C3%B6rn",
@@ -46,6 +46,7 @@
     "sub_role": "specialist",
     "abilities": [
       {
+        "slug": "rivet-gun",
         "name": "Rivet Gun",
         "description": "Slow firing, long-ranged weapon.",
         "ability_type": "Weapon;;Primary Fire",
@@ -60,6 +61,7 @@
         "dps": "137.25 while firing (112.7 overall w/reload)"
       },
       {
+        "slug": "rivet-gun-alt-fire",
         "name": "Rivet Gun Alt Fire",
         "description": "Inaccurate but powerful short-range weapon.",
         "ability_type": "Weapon;;Secondary Fire",
@@ -76,6 +78,7 @@
         "dps": "178.57 while firing (135.54 overall w/reload)"
       },
       {
+        "slug": "forge-hammer",
         "name": "Forge Hammer",
         "description": "Swing to repair your turret or damage an enemy.",
         "ability_type": "Weapon",
@@ -88,6 +91,7 @@
         "dps": "100 while firing"
       },
       {
+        "slug": "deploy-turret",
         "name": "Deploy Turret",
         "description": "Deploy a self-building turret.",
         "ability_type": "Ability",
@@ -102,6 +106,7 @@
         "projectile_radius": "0.35 meters (deploying turret)"
       },
       {
+        "slug": "overload",
         "name": "Overload",
         "description": "Gain additional extra health as well as improved attack, movement, and reload speed.",
         "ability_type": "Ability",
@@ -111,6 +116,7 @@
         "duration": "6 seconds"
       },
       {
+        "slug": "molten-core",
         "name": "Molten Core",
         "description": "Create pools of molten slag that damage enemies. Deals additional damage to armor.",
         "ability_type": "Ultimate Ability",
@@ -127,20 +133,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "hammer-time",
           "name": "Hammer Time",
           "description": "Move 20% faster while Forge Hammer is equipped."
         },
         {
+          "slug": "pre-heated",
           "name": "Pre-Heated",
           "description": "Molten Core activates Overload."
         }
       ],
       "major": [
         {
+          "slug": "anchor-bolts",
           "name": "Anchor Bolts",
           "description": "Deploy Turret's throw range is increased by 50% and it can now attach to walls and ceilings."
         },
         {
+          "slug": "overloaded-turret",
           "name": "Overloaded Turret",
           "description": "Overload upgrades your Turret for 5 seconds, increasing its health and damage."
         }

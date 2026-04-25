@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.1.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Reaper",
@@ -46,12 +46,14 @@
     "sub_role": "flanker",
     "abilities": [
       {
+        "slug": "the-reaping",
         "name": "The Reaping",
         "description": "Dealing damage heals you.",
         "ability_type": "Passive Ability",
         "healing": "25% of damage dealt"
       },
       {
+        "slug": "hellfire-shotguns",
         "name": "Hellfire Shotguns",
         "description": "Short-range spread weapons.",
         "ability_type": "Weapon",
@@ -67,6 +69,7 @@
         "dps": "230 while firing (153.33 overall with reload)"
       },
       {
+        "slug": "dire-triggers",
         "name": "Dire Triggers",
         "description": "Use (RMB) to fire a volley with long range accuracy from both Hellfire shotguns.",
         "ability_type": "Ability",
@@ -78,6 +81,7 @@
         "spread": "3 degrees"
       },
       {
+        "slug": "wraith-form",
         "name": "Wraith Form",
         "description": "Move faster and become invulnerable, but you cannot shoot.",
         "ability_type": "Ability",
@@ -86,6 +90,7 @@
         "range": "23.1 meters"
       },
       {
+        "slug": "shadow-step",
         "name": "Shadow Step",
         "description": "Teleport to a targeted location.",
         "ability_type": "Ability",
@@ -94,6 +99,7 @@
         "duration": "0.53 seconds (teleport) / 0.98 seconds (invulnerability)"
       },
       {
+        "slug": "death-blossom",
         "name": "Death Blossom",
         "description": "Damage all nearby enemies.",
         "ability_type": "Ultimate Ability",
@@ -106,20 +112,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "lingering-wraith",
           "name": "Lingering Wraith",
           "description": "Leaving Wraith Form grants 40% movement speed for 2 seconds."
         },
         {
+          "slug": "soul-reaving",
           "name": "Soul Reaving",
           "description": "Collect Soul Globes from dead enemies to restore 50 health."
         }
       ],
       "major": [
         {
+          "slug": "shadow-blink",
           "name": "Shadow Blink",
           "description": "Shadow Step's cast time and cooldown are 25% faster, but the range is reduced by 25%."
         },
         {
+          "slug": "trigger-finger",
           "name": "Trigger Finger",
           "description": "Refresh Dire Triggers' cooldown whenever using an ability or reloading."
         }

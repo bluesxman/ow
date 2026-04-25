@@ -21,11 +21,22 @@ Source-of-truth split:
 6. **Check `metadata.last_updated`** before trusting the data. Refreshes happen manually on Overwatch patch days (no cron).
 7. **Honor attribution.** Fandom-derived fields are CC-BY-SA 3.0 — see [`ATTRIBUTION.md`](https://raw.githubusercontent.com/bluesxman/ow/main/data/ATTRIBUTION.md) and the `metadata.sources` block in every JSON file.
 
+### Slugs as foreign keys
+
+Every hero, ability, and perk carries a `slug` field — a stable, lowercase, hyphen-separated identifier derived from the display name at scrape time. Slugs are the join key for cross-references; display names are for humans.
+
+- `data/heroes/{slug}.json` filename uses the hero slug.
+- `abilities[].slug` and `perks.minor[*].slug` / `perks.major[*].slug` carry per-entry slugs.
+- `abilities[].modifies[].target_ability_slug` references another ability on the same hero.
+- `data/patch-notes.json` `interpreted.subject_slug` references the affected ability/perk by slug.
+
+When matching across files (e.g., "which ability does this patch note refer to?"), join by slug — exact match, no normalization needed. Display names occasionally drift between sources or change in patches; slugs are pinned at scrape time and only change if a name is consciously migrated.
+
 ### Cross-ability effects: `abilities[].modifies`
 
 Some abilities change another ability's stats or behavior — e.g. Sierra's `Tracking Shot` marks an enemy and the marked target is then tracked by `Helix Rifle` follow-up shots, with their own damage value distinct from `Helix Rifle`'s baseline. The `modifies?: AbilityModifies[]` field on an ability captures this.
 
-Each entry carries `target_ability` (name of the affected ability on the same hero), an optional `description`, and any stat fields (`damage`, `cooldown`, `duration`, etc.) that apply when the modifier is in play. Consumers should read top-level ability fields as the ability's own primary effect, and `modifies[]` as secondary effects that apply to other named abilities.
+Each entry carries `target_ability_slug` (slug of the affected ability on the same hero), an optional `description`, and any stat fields (`damage`, `cooldown`, `duration`, etc.) that apply when the modifier is in play. Consumers read top-level ability fields as the ability's own primary effect, and `modifies[]` as secondary effects that apply to other abilities (joined by slug).
 
 The field is optional — most abilities don't have cross-effects and won't carry it. The Fandom scrape doesn't populate it; it's filled in by AI judgment via the patch-day workflow when patch notes reveal interactions.
 

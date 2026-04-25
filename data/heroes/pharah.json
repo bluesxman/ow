@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.1.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Pharah",
@@ -46,12 +46,14 @@
     "sub_role": "recon",
     "abilities": [
       {
+        "slug": "hover-jets",
         "name": "Hover Jets",
         "description": "Hold to hover.",
         "ability_type": "Passive Ability",
         "duration": "Up to 2 seconds (continuous flight) / 0.3 seconds (energy regen delay)"
       },
       {
+        "slug": "rocket-launcher",
         "name": "Rocket Launcher",
         "description": "Long-range explosive projectile weapon.",
         "ability_type": "Weapon",
@@ -67,6 +69,7 @@
         "dps": "150 while firing (114 overall w/reload)"
       },
       {
+        "slug": "jet-dash",
         "name": "Jet Dash",
         "description": "Boost horizontally.",
         "ability_type": "Ability",
@@ -74,6 +77,7 @@
         "duration": "0.85 seconds"
       },
       {
+        "slug": "jump-jet",
         "name": "Jump Jet",
         "description": "Fly rapidly upwards. Grants some fuel.",
         "ability_type": "Ability",
@@ -82,6 +86,7 @@
         "range": "8.4 meters (vertical)"
       },
       {
+        "slug": "concussive-blast",
         "name": "Concussive Blast",
         "description": "Launch an explosive blast to knock back enemies.",
         "ability_type": "Ability",
@@ -93,6 +98,7 @@
         "projectile_speed": "60 m/s"
       },
       {
+        "slug": "barrage",
         "name": "Barrage",
         "description": "Hover in place and launch a continuous volley of mini-rockets.",
         "ability_type": "Ultimate Ability",
@@ -109,20 +115,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "concussive-force",
           "name": "Concussive Force",
           "description": "Concussive Blast deals up to 50 explosion damage."
         },
         {
+          "slug": "helix-shields",
           "name": "Helix Shields",
           "description": "Convert 125 health to shields. Direct hits with the Rocket Launcher triggers passive shield regeneration."
         }
       ],
       "major": [
         {
+          "slug": "fuel-stores",
           "name": "Fuel Stores",
           "description": "Jet Dash grants 50% fuel. Maximum overfuel is increased by 100%."
         },
         {
+          "slug": "rocket-salvo",
           "name": "Rocket Salvo",
           "description": "After using a movement ability, the next primary fire shoots two spiraling mini-rockets, each dealing 40 damage."
         }

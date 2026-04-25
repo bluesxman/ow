@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.1.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Doomfist",
@@ -46,12 +46,14 @@
     "sub_role": "initiator",
     "abilities": [
       {
+        "slug": "the-best-defense",
         "name": "The Best Defense...",
         "description": "Dealing damage with abilities creates temporary overhealth.",
         "ability_type": "Passive Ability",
         "duration": "3 seconds"
       },
       {
+        "slug": "hand-cannon",
         "name": "Hand Cannon",
         "description": "Short-range weapon with spread. Reloads automatically.",
         "ability_type": "Weapon",
@@ -68,6 +70,7 @@
         "dps": "73.3 while firing continuously, 165 burst from full ammo."
       },
       {
+        "slug": "rocket-punch",
         "name": "Rocket Punch",
         "description": "Hold to charge then release to launch forward and knock an enemy back. Damage increases if the enemy hits a wall.",
         "ability_type": "Ability",
@@ -77,6 +80,7 @@
         "range": "6.3 - 19.7 meters (self) / 9.3 - 29.4 meters (self, empowered) / 5.5 - 13.2 meters (knockback)"
       },
       {
+        "slug": "seismic-slam",
         "name": "Seismic Slam",
         "description": "Leap forward and smash the ground.",
         "ability_type": "Ability",
@@ -85,6 +89,7 @@
         "radius": "15 meters"
       },
       {
+        "slug": "power-block",
         "name": "Power Block",
         "description": "Protect yourself from frontal attacks. Blocking heavy damage empowers Rocket Punch.",
         "ability_type": "Ability",
@@ -92,6 +97,7 @@
         "duration": "0.34 seconds (min) / 2.5 seconds (max)"
       },
       {
+        "slug": "meteor-strike",
         "name": "Meteor Strike",
         "description": "Press to leap up into the air. Move the targeting circle, then press to strike the targeted area.",
         "ability_type": "Ultimate Ability",
@@ -105,20 +111,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "one-two",
           "name": "One-Two",
           "description": "Hitting an enemy into a wall with Rocket Punch reloads all Hand Cannon and overfills ammo by 2."
         },
         {
+          "slug": "survival-of-the-fittest",
           "name": "Survival of the Fittest",
           "description": "The Best Defense grants 25 overhealth from eliminations and its max overhealth is increased by 50."
         }
       ],
       "major": [
         {
+          "slug": "aftershock",
           "name": "Aftershock",
           "description": "Enemies hit by Seismic Slam are slowed by 40% for 2 seconds."
         },
         {
+          "slug": "power-matrix",
           "name": "Power Matrix",
           "description": "Power Block absorbs projectiles for the first second of its duration."
         }

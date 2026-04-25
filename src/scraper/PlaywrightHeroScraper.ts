@@ -133,7 +133,7 @@ export class PlaywrightHeroScraper implements HeroScraper {
     }
   }
 
-  async scrapeAll(roster: RosterEntry[]): Promise<ScrapeResult> {
+  async scrapeAll(roster: RosterEntry[], previousHeroes?: Record<string, Hero>): Promise<ScrapeResult> {
     await this.init();
     const heroes: Record<string, Hero> = {};
     const failed: Array<{ slug: string; reason: string }> = [];
@@ -146,7 +146,7 @@ export class PlaywrightHeroScraper implements HeroScraper {
       const started = Date.now();
       const prefix = `[${i + 1}/${total}] ${entry.slug}`;
       try {
-        const hero = await this.scrapeOne(entry);
+        const hero = await this.scrapeOne(entry, previousHeroes?.[entry.slug]);
         heroes[hero.slug] = hero;
         console.log(`${prefix} ok (${Date.now() - started}ms)`);
       } catch (err) {
@@ -173,7 +173,7 @@ export class PlaywrightHeroScraper implements HeroScraper {
     }
   }
 
-  private async scrapeOne(entry: RosterEntry): Promise<Hero> {
+  private async scrapeOne(entry: RosterEntry, previous?: Hero): Promise<Hero> {
     const title = slugToFandomTitle(entry.slug);
     const wikitext = await this.fandomClient.getWikitext(title);
     const fandom = normalizeFandomHero(wikitext);
@@ -185,6 +185,6 @@ export class PlaywrightHeroScraper implements HeroScraper {
         `Fandom perk count mismatch: minor=${fandom.perks.minor.length}, major=${fandom.perks.major.length}`,
       );
     }
-    return buildHeroFromFandom(entry, fandom);
+    return buildHeroFromFandom(entry, fandom, previous);
   }
 }

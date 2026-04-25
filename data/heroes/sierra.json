@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.1.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Sierra",
@@ -46,6 +46,7 @@
     "sub_role": "recon",
     "abilities": [
       {
+        "slug": "helix-rifle",
         "name": "Helix Rifle",
         "description": "Automatic assault weapon. Shoots in a spiral pattern, gaining accuracy with sustained fire.",
         "ability_type": "Weapon (Hip Fire)",
@@ -60,25 +61,27 @@
         "dps": "* while firing ( w/ reload)"
       },
       {
+        "slug": "tracking-shot",
         "name": "Tracking Shot",
         "description": "Marks an enemy. Helix Rifle shots automatically track marked enemies.",
+        "modifies": [
+          {
+            "target_ability_slug": "helix-rifle",
+            "description": "While the marker is active, Helix Rifle shots automatically track the marked enemy.",
+            "damage": 9,
+            "duration": "3 seconds"
+          }
+        ],
         "ability_type": "Ability",
         "cooldown": "10 seconds",
         "damage": 35,
         "headshot": true,
         "duration": "3 seconds (tracking)",
         "projectile_speed": "140 m/s",
-        "projectile_radius": "0.26 meters",
-        "modifies": [
-          {
-            "target_ability": "Helix Rifle",
-            "description": "While the marker is active, Helix Rifle shots automatically track the marked enemy.",
-            "damage": 9,
-            "duration": "3 seconds"
-          }
-        ]
+        "projectile_radius": "0.26 meters"
       },
       {
+        "slug": "anchor-drone",
         "name": "Anchor Drone",
         "description": "Launch an Anchor Drone. Reactivate to launch towards it.",
         "ability_type": "Ability",
@@ -88,6 +91,7 @@
         "range": "14 meters (deploy range) / 17 meters (grapple)"
       },
       {
+        "slug": "tremor-charge",
         "name": "Tremor Charge",
         "description": "Throw a charge that creates a shockwave on impact.",
         "ability_type": "Ability",
@@ -98,6 +102,7 @@
         "projectile_radius": "0.12 meters"
       },
       {
+        "slug": "trailblazer",
         "name": "Trailblazer",
         "description": "Deploy a drone that flies forward and drops explosives.",
         "ability_type": "Ultimate Ability",
@@ -110,20 +115,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "full-flight",
           "name": "Full Flight",
           "description": "Increase Anchor Drone flight and grapple ranges by 25%."
         },
         {
+          "slug": "tight-grip",
           "name": "Tight Grip",
           "description": "Helix Rifle's bullet spread tightens 100% faster and widens 30% slower."
         }
       ],
       "major": [
         {
+          "slug": "medi-drone",
           "name": "Medi-Drone",
           "description": "Anchor Drones hold a small medkit that can heal Sierra."
         },
         {
+          "slug": "locked-in",
           "name": "Locked In",
           "description": "Firing Tracking Shot increases your attack speed by 20% for 2 seconds."
         }

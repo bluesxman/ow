@@ -1,4 +1,5 @@
 import type { Ability, AbilityMode, Hero, HeroStats, Perk } from '../types.js';
+import { toSlug } from '../slug.js';
 import { extractTopLevelTemplates, type ParsedTemplate } from './fandomWikitext.js';
 
 // Stat fields we lift from Fandom's Ability_details template params onto the
@@ -230,6 +231,7 @@ function buildAbilities(blocks: ParsedAbilityBlock[]): Ability[] {
     const baseIdx = pickBaseIndex(group);
     const baseBlock = group[baseIdx]!;
     const ability: Ability = {
+      slug: toSlug(name),
       name,
       description: baseBlock.description || '(no description on Fandom)',
       ...baseBlock.stats,
@@ -276,10 +278,12 @@ export function normalizeFandomHero(wikitext: string): FandomHeroFields {
 
   const perks = {
     minor: sections.minorPerks.map((p) => ({
+      slug: toSlug(p.name),
       name: p.name,
       description: p.description || '(no description on Fandom)',
     })),
     major: sections.majorPerks.map((p) => ({
+      slug: toSlug(p.name),
       name: p.name,
       description: p.description || '(no description on Fandom)',
     })),
@@ -310,15 +314,23 @@ function parseNumber(value: string | undefined): number | undefined {
 // Compose a full Hero from the roster entry (Blizzard) + Fandom-derived fields.
 // The roster supplies slug, display name, role, optional sub_role and portrait;
 // Fandom supplies abilities, perks, and stats.
+//
+// `previous` is the prior version of this hero on disk (when present).
+// It's used to preserve AI-authored fields that the Fandom scrape can't
+// reproduce — currently `abilities[].modifies[]`. Cross-ability effects are
+// only filled in via the patch-notes skill on patch days; the deterministic
+// scrape must not overwrite them.
 export function buildHeroFromFandom(
   roster: { slug: string; name: string; role: 'tank' | 'damage' | 'support'; sub_role?: string; portrait_url?: string },
   fandom: FandomHeroFields,
+  previous?: Hero,
 ): Hero {
+  const abilities = mergeAbilityModifies(fandom.abilities, previous?.abilities);
   const hero: Hero = {
     slug: roster.slug,
     name: roster.name,
     role: roster.role,
-    abilities: fandom.abilities,
+    abilities,
     perks: fandom.perks,
     stats: fandom.stats,
   };
@@ -326,4 +338,28 @@ export function buildHeroFromFandom(
   if (subRole) hero.sub_role = subRole;
   if (roster.portrait_url) hero.portrait_url = roster.portrait_url;
   return hero;
+}
+
+// Carry `modifies[]` from the previous version of each ability over to the
+// freshly-scraped Fandom data. Match by slug — Fandom can't produce the
+// modifies metadata itself, so without preservation the scrape would erase
+// AI-authored cross-ability effects every time.
+function mergeAbilityModifies(fresh: import('../types.js').Ability[], previous?: import('../types.js').Ability[]): import('../types.js').Ability[] {
+  if (!previous || previous.length === 0) return fresh;
+  const previousBySlug = new Map<string, import('../types.js').Ability>();
+  for (const a of previous) {
+    if (a.slug) previousBySlug.set(a.slug, a);
+  }
+  return fresh.map((a) => {
+    const prior = previousBySlug.get(a.slug);
+    if (prior?.modifies && prior.modifies.length > 0) {
+      // Strip any pre-existing modifies (shouldn't be one — Fandom doesn't
+      // produce it — but defensive), then re-attach at the end so JSON key
+      // order remains: slug → name → description → stats → modifies.
+      const { modifies: _existing, ...rest } = a;
+      void _existing;
+      return { ...rest, modifies: prior.modifies };
+    }
+    return a;
+  });
 }

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.1.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Junker_Queen",
@@ -46,12 +46,14 @@
     "sub_role": "stalwart",
     "abilities": [
       {
+        "slug": "adrenaline-rush",
         "name": "Adrenaline Rush",
         "description": "Heal from all damage over time dealt by wounds.",
         "ability_type": "Passive Ability",
         "healing": "225% of wound damage dealt"
       },
       {
+        "slug": "scattergun",
         "name": "Scattergun",
         "description": "Pump action shotgun.",
         "ability_type": "Weapon",
@@ -67,6 +69,7 @@
         "dps": "while firing ( w/ reload)"
       },
       {
+        "slug": "jagged-blade",
         "name": "Jagged Blade",
         "description": "Active: Throw the blade. Re-activate to pull it back with any impaled enemy. / Passive: Wound enemies hit by Quick Melee or Throw, dealing damage over time.",
         "ability_type": "Ability",
@@ -80,6 +83,7 @@
         "healing": "67.5 over 3 seconds (direct hit) / 33.75 over 3 seconds (recall/melee)"
       },
       {
+        "slug": "commanding-shout",
         "name": "Commanding Shout",
         "description": "Grants temporary health and movement speed to yourself and allies.",
         "ability_type": "Ability",
@@ -88,6 +92,7 @@
         "duration": "4 seconds"
       },
       {
+        "slug": "carnage",
         "name": "Carnage",
         "description": "Wound all enemies in front of you, dealing damage over time and reducing the cooldown for each enemy hit.",
         "ability_type": "Ability",
@@ -98,6 +103,7 @@
         "range": "4.5 meters"
       },
       {
+        "slug": "rampage",
         "name": "Rampage",
         "description": "Charge foward. Wounds enemies, dealing damage over time and preventing them from being healed.",
         "ability_type": "Ultimate Ability",
@@ -111,20 +117,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "rampant-charge",
           "name": "Rampant Charge",
           "description": "Gain Unstoppable and refreshes all cooldowns by 6 seconds when using Rampage."
         },
         {
+          "slug": "battle-shout",
           "name": "Battle Shout",
           "description": "Commanding Shout fully reloads Scatter Gun and increases allied reload speed by 50%."
         }
       ],
       "major": [
         {
+          "slug": "willy-willy",
           "name": "Willy-Willy",
           "description": "When recalling Jagged Blade its radius is increased by 100% and it deals 30 additional impact damage."
         },
         {
+          "slug": "savage-satiation",
           "name": "Savage Satiation",
           "description": "Carnage's impact damage gains 100% lifesteal."
         }

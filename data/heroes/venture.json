@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.1.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Venture",
@@ -46,6 +46,7 @@
     "sub_role": "flanker",
     "abilities": [
       {
+        "slug": "clobber",
         "name": "Clobber",
         "description": "Quick melee deals more damage.",
         "ability_type": "Passive Ability",
@@ -54,12 +55,14 @@
         "range": "3 meters"
       },
       {
+        "slug": "explorers-resolve",
         "name": "Explorer's Resolve",
         "description": "Using abilities grants temporary shields.",
         "ability_type": "Passive Ability",
         "duration": "3 seconds"
       },
       {
+        "slug": "smart-excavator",
         "name": "Smart Excavator",
         "description": "Launch a seismic charge that bursts after a short distance.",
         "ability_type": "Weapon",
@@ -76,6 +79,7 @@
         "dps": "125 while firing (95.24 overall w/reload)"
       },
       {
+        "slug": "drill-dash",
         "name": "Drill Dash",
         "description": "Dash forward while above or underground, pushing enemies back. The cooldown is accelerated while underground.",
         "ability_type": "Ability",
@@ -86,6 +90,7 @@
         "range": "10 meters (regular) / 15 meters (burrowed)"
       },
       {
+        "slug": "burrow",
         "name": "Burrow",
         "description": "Move underground and become invulnerable. Emerge to deal damage.",
         "ability_type": "Ability",
@@ -95,6 +100,7 @@
         "duration": "4 seconds (burrowed) / 0.2 seconds (emerging, min charge) / 0.65 seconds (emerging, max charge) / 1.3 seconds (emerging, max delay))"
       },
       {
+        "slug": "tectonic-shock",
         "name": "Tectonic Shock",
         "description": "Send out damaging shockwaves.",
         "ability_type": "Ultimate Ability",
@@ -109,20 +115,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "deep-burrow",
           "name": "Deep Burrow",
           "description": "Drill Dash distance is 50% longer while while burrowing."
         },
         {
+          "slug": "excavation-exhilaration",
           "name": "Excavation Exhilaration",
           "description": "While Tectonic Shock is active, cooldowns refresh 300% faster."
         }
       ],
       "major": [
         {
+          "slug": "smart-extender",
           "name": "Smart Extender",
           "description": "Empower SMART Excavator with E to increase its maximum projectile range by 100% for 4 seconds."
         },
         {
+          "slug": "covered-in-dirt",
           "name": "Covered in Dirt",
           "description": "Dealing damage with Clobber grants up to 30 Explorer's Resolve shields."
         }

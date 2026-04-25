@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.1.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Bastion",
@@ -46,11 +46,13 @@
     "sub_role": "specialist",
     "abilities": [
       {
+        "slug": "ironclad",
         "name": "Ironclad",
         "description": "Reduces damage taken while transformed.",
         "ability_type": "Passive Ability"
       },
       {
+        "slug": "configuration-recon",
         "name": "Configuration: Recon",
         "description": "Mobile, with a lightweight and highly accurate weapon.",
         "ability_type": "Weapon;;Recon Form",
@@ -65,6 +67,7 @@
         "dps": "150 while firing (115.38 overall w/reload)"
       },
       {
+        "slug": "a-36-tactical-grenade",
         "name": "A-36 Tactical Grenade",
         "description": "Fire a bomb that bounces off walls and explodes when it hits enemies or the ground.",
         "ability_type": "Ability",
@@ -76,6 +79,7 @@
         "duration": "0.37 seconds (explosion delay)"
       },
       {
+        "slug": "reconfigure",
         "name": "Reconfigure",
         "description": "Switch between weapon configurations.",
         "ability_type": "Ability",
@@ -83,6 +87,7 @@
         "duration": "6 seconds"
       },
       {
+        "slug": "configuration-assault",
         "name": "Configuration: Assault",
         "description": "A slow moving tank with a powerful rotary cannon.",
         "ability_type": "Weapon;;Assault Form",
@@ -96,6 +101,7 @@
         "dps": "360 while firing"
       },
       {
+        "slug": "configuration-artillery",
         "name": "Configuration: Artillery",
         "description": "Become immobile and fire up to three powerful artillery shells.",
         "ability_type": "Ultimate Ability",
@@ -110,20 +116,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "configuration-reload",
           "name": "Configuration Reload",
           "description": "Reduce the cooldown of A-36 Tactical Grenade by 4 seconds when changing configurations."
         },
         {
+          "slug": "armored-artillery",
           "name": "Armored Artillery",
           "description": "Configuration: Artillery grants 300 temporary overhealth."
         }
       ],
       "major": [
         {
+          "slug": "lindholm-explosives",
           "name": "Lindholm Explosives",
           "description": "Configuration: Assault’s Weapon slowly fires explosive shells instead of a rotary cannon."
         },
         {
+          "slug": "self-repair",
           "name": "Self-Repair",
           "description": "Press E to rapidly heal yourself."
         }

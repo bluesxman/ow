@@ -233,6 +233,20 @@ describe('normalizeFandomHero on Reaper fixture', () => {
     expect(hellfire!.description).toContain('Short-range');
   });
 
+  it('emits a slug derived from the ability name', () => {
+    const hellfire = hero.abilities.find((a) => a.name === 'Hellfire Shotguns');
+    expect(hellfire!.slug).toBe('hellfire-shotguns');
+    const wraith = hero.abilities.find((a) => a.name === 'Wraith Form');
+    expect(wraith!.slug).toBe('wraith-form');
+  });
+
+  it('emits slugs on perks', () => {
+    for (const p of [...hero.perks.minor, ...hero.perks.major]) {
+      expect(p.slug).toMatch(/^[a-z0-9]+(-[a-z0-9]+)*$/);
+      expect(p.slug.length).toBeGreaterThan(0);
+    }
+  });
+
   it('captures Hellfire Shotguns combat stats on the ability entry', () => {
     const hellfire = hero.abilities.find((a) => a.name === 'Hellfire Shotguns');
     expect(hellfire).toBeDefined();

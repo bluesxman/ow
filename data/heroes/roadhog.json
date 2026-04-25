@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.1.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Roadhog",
@@ -46,6 +46,7 @@
     "sub_role": "bruiser",
     "abilities": [
       {
+        "slug": "scrap-gun",
         "name": "Scrap Gun",
         "description": "Short-range spread weapon.",
         "ability_type": "Weapon;;Primary Fire",
@@ -62,6 +63,7 @@
         "dps": "203.13 while firing (154.76 overall w/ reload)"
       },
       {
+        "slug": "scrap-gun-alt-fire",
         "name": "Scrap Gun Alt Fire",
         "description": "Medium-range projectile that explodes into the weapon's short-range primary fire.",
         "ability_type": "Weapon;;Secondary Fire",
@@ -79,6 +81,7 @@
         "dps": "203.13 while firing (154.76 overall w/ reload)"
       },
       {
+        "slug": "chain-hook",
         "name": "Chain Hook",
         "description": "Drag a targeted enemy to you.",
         "ability_type": "Ability",
@@ -91,6 +94,7 @@
         "projectile_radius": "0.5 meters (vs enemy) / None (vs wall or barrier)"
       },
       {
+        "slug": "take-a-breather",
         "name": "Take a Breather",
         "description": "Heal yourself and reduce damage taken.",
         "ability_type": "Ability",
@@ -99,6 +103,7 @@
         "duration": "0.4 seconds (min) / 3 seconds (max) / 1.3 seconds (energy regen delay)"
       },
       {
+        "slug": "whole-hog",
         "name": "Whole Hog",
         "description": "Damage and knock back enemies in front of you.",
         "ability_type": "Ultimate Ability",
@@ -117,20 +122,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "scrap-hook",
           "name": "Scrap Hook",
           "description": "Chain Hook hits reload 2 ammo."
         },
         {
+          "slug": "shrapnel-launcher",
           "name": "Shrapnel Launcher",
           "description": "Extend the range of Scrap Gun's secondary fire by 50% and tighten its burst spread by 25%."
         }
       ],
       "major": [
         {
+          "slug": "hogdrogen-exposure",
           "name": "Hogdrogen Exposure",
           "description": "Take A Breather also heals nearby allies for 50% of its healing."
         },
         {
+          "slug": "pulled-pork",
           "name": "Pulled Pork",
           "description": "Gain overhealth based on how far you pull enemies with Chain Hook, up to 300."
         }

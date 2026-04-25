@@ -8,18 +8,18 @@ function cassidy(): Hero {
     name: 'Cassidy',
     role: 'damage',
     abilities: [
-      { name: 'Peacekeeper', description: 'd', damage: 75 },
-      { name: 'Combat Roll', description: 'd', cooldown: '6 seconds' },
-      { name: 'Deadeye', description: 'd', cooldown: '120 seconds' },
+      { slug: 'peacekeeper', name: 'Peacekeeper', description: 'd', damage: 75 },
+      { slug: 'combat-roll', name: 'Combat Roll', description: 'd', cooldown: '6 seconds' },
+      { slug: 'deadeye', name: 'Deadeye', description: 'd', cooldown: '120 seconds' },
     ],
     perks: {
       minor: [
-        { name: 'Bang Bang', description: 'd' },
-        { name: 'Even The Odds', description: 'd' },
+        { slug: 'bang-bang', name: 'Bang Bang', description: 'd' },
+        { slug: 'even-the-odds', name: 'Even The Odds', description: 'd' },
       ],
       major: [
-        { name: "Rollin' Round-Up", description: 'd' },
-        { name: 'Silver Bullet', description: 'd' },
+        { slug: 'rollin-round-up', name: "Rollin' Round-Up", description: 'd' },
+        { slug: 'silver-bullet', name: 'Silver Bullet', description: 'd' },
       ],
     },
     stats: { health: 225 },

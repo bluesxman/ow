@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.1.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Brigitte",
@@ -46,6 +46,7 @@
     "sub_role": "survivor",
     "abilities": [
       {
+        "slug": "inspire",
         "name": "Inspire",
         "description": "Dealing damage to enemies heals nearby allies.",
         "ability_type": "Passive Ability",
@@ -54,6 +55,7 @@
         "radius": "20 meters"
       },
       {
+        "slug": "rocket-flail",
         "name": "Rocket Flail",
         "description": "Melee weapon with extended range.",
         "ability_type": "Weapon",
@@ -65,6 +67,7 @@
         "dps": "75 while swinging"
       },
       {
+        "slug": "barrier-shield",
         "name": "Barrier Shield",
         "description": "Hold to deploy a frontal energy barrier.",
         "ability_type": "Ability",
@@ -72,6 +75,7 @@
         "health": "300 (default) / 750 (during Rally)"
       },
       {
+        "slug": "shield-bash",
         "name": "Shield Bash",
         "description": "Available when Barrier Shield is deployed. Dash forward to knock back an enemy.",
         "ability_type": "Ability",
@@ -82,6 +86,7 @@
         "radius": "1.4 meters (hitbox)"
       },
       {
+        "slug": "whip-shot",
         "name": "Whip Shot",
         "description": "Launch your flail forward to knock an enemy away from you.",
         "ability_type": "Ability",
@@ -94,6 +99,7 @@
         "projectile_speed": "80 m/s"
       },
       {
+        "slug": "repair-pack",
         "name": "Repair Pack",
         "description": "Heals an ally for a short duration.",
         "ability_type": "Ability",
@@ -104,6 +110,7 @@
         "projectile_speed": "45 m/s"
       },
       {
+        "slug": "rally",
         "name": "Rally",
         "description": "Gain armor, empower Barrier Shield and provide extra health to nearby allies.",
         "ability_type": "Ultimate Ability",
@@ -114,20 +121,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "combat-medic",
           "name": "Combat Medic",
           "description": "Melee attacks reduce the cooldown of Repair Pack by 0.75 seconds."
         },
         {
+          "slug": "morale-boost",
           "name": "Morale Boost",
           "description": "Inspire lasts 3 seconds longer when activated by Whip Shot."
         }
       ],
       "major": [
         {
+          "slug": "inspiring-strike",
           "name": "Inspiring Strike",
           "description": "Shield Bash grants 30% increased movement speed for 2 seconds. Inspire's healing is instant when activated by Shield Bash."
         },
         {
+          "slug": "whiplash",
           "name": "Whiplash",
           "description": "Whip Shot's knockback can slam enemies into walls, dealing 50 extra damage."
         }

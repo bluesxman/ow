@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.1.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Mei",
@@ -46,6 +46,7 @@
     "sub_role": "specialist",
     "abilities": [
       {
+        "slug": "endothermic-blaster",
         "name": "Endothermic Blaster",
         "description": "Short-range spray weapon that slows enemies.",
         "ability_type": "Weapon;;Primary Fire",
@@ -62,6 +63,7 @@
         "dps": "110 while firing (90.58 overall w/reload)"
       },
       {
+        "slug": "icicle",
         "name": "Icicle",
         "description": "Long-range icicle launcher.",
         "ability_type": "Weapon;;Secondary Fire",
@@ -76,6 +78,7 @@
         "dps": "106.25 while firing (94.44 overall w/reload)"
       },
       {
+        "slug": "cryo-freeze",
         "name": "Cryo-Freeze",
         "description": "Become invulnerable and heal yourself.",
         "ability_type": "Ability",
@@ -84,6 +87,7 @@
         "duration": "0.44 seconds min. duration / 4 seconds max. duration / 0.24 seconds recovery"
       },
       {
+        "slug": "ice-wall",
         "name": "Ice Wall",
         "description": "Create a wall in front of you.",
         "ability_type": "Ability",
@@ -93,6 +97,7 @@
         "duration": "Up to 5 seconds / 0.5 seconds recovery"
       },
       {
+        "slug": "blizzard",
         "name": "Blizzard",
         "description": "Launch a weather control drone that freezes enemies in a wide area.",
         "ability_type": "Ultimate Ability",
@@ -107,20 +112,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "skating-rink",
           "name": "Skating Rink",
           "description": "Allies within Blizzard gain 25% increased movement speed and heal for 50 health per second."
         },
         {
+          "slug": "glacial-propulsion",
           "name": "Glacial Propulsion",
           "description": "Double jumping creates a small ice pillar that launches Mei into the air."
         }
       ],
       "major": [
         {
+          "slug": "deep-freeze",
           "name": "Deep Freeze",
           "description": "Continuously hitting enemies with primary fire freezes them for a short time."
         },
         {
+          "slug": "cryo-storm",
           "name": "Cryo-Storm",
           "description": "Cryo-Freeze slows and deals 70 damage per second to nearby enemies."
         }

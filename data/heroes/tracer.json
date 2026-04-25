@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.1.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Tracer",
@@ -46,6 +46,7 @@
     "sub_role": "flanker",
     "abilities": [
       {
+        "slug": "pulse-pistols",
         "name": "Pulse Pistols",
         "description": "Short-range automatic weapons.",
         "ability_type": "Weapon",
@@ -61,6 +62,7 @@
         "dps": "230 while firing (120 overall w/reload)"
       },
       {
+        "slug": "blink",
         "name": "Blink",
         "description": "Teleport in the direction you are moving.",
         "ability_type": "Ability",
@@ -69,6 +71,7 @@
         "duration": "0.1 seconds recovery for reuse"
       },
       {
+        "slug": "recall",
         "name": "Recall",
         "description": "Travel back in time to your previous location and health.",
         "ability_type": "Ability",
@@ -76,6 +79,7 @@
         "duration": "3 seconds (rewound time) / 0.9 seconds (invulnerablity)"
       },
       {
+        "slug": "pulse-bomb",
         "name": "Pulse Bomb",
         "description": "Throw out a powerful sticky explosive.",
         "ability_type": "Ultimate Ability",
@@ -90,20 +94,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "chronal-dash",
           "name": "Chronal Dash",
           "description": "Blink distance increased by 20%."
         },
         {
+          "slug": "kinetic-reload",
           "name": "Kinetic Reload",
           "description": "Melee hits grant 20 ammo."
         }
       ],
       "major": [
         {
+          "slug": "blink-packs",
           "name": "Blink Packs",
           "description": "Health Packs restore 1 Blink charge."
         },
         {
+          "slug": "quantum-entanglement",
           "name": "Quantum Entanglement",
           "description": "Recall grants 50 overhealth and 20 ammo that decays over time."
         }

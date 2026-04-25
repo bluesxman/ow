@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.1.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Cassidy",
@@ -46,6 +46,7 @@
     "sub_role": "sharpshooter",
     "abilities": [
       {
+        "slug": "peacekeeper",
         "name": "Peacekeeper",
         "description": "Accurate, powerful revolver.",
         "ability_type": "Weapon;;Primary Fire",
@@ -60,6 +61,7 @@
         "dps": "140 while firing (93.33 overall w/reload)"
       },
       {
+        "slug": "fan-the-hammer",
         "name": "Fan the Hammer",
         "description": "Wildly fire remaining rounds.",
         "ability_type": "Weapon;;Secondary Fire",
@@ -74,6 +76,7 @@
         "dps": "416.67 while firing (135.14 overall w/reload)"
       },
       {
+        "slug": "combat-roll",
         "name": "Combat Roll",
         "description": "Roll in the direction you're moving to take reduced damage and reload.",
         "ability_type": "Ability",
@@ -82,6 +85,7 @@
         "duration": "0.4 seconds"
       },
       {
+        "slug": "flashbang",
         "name": "Flashbang",
         "description": "Hinder enemies in front of you, slowing them and preventing them from using movement abilities.",
         "ability_type": "Ability",
@@ -95,6 +99,7 @@
         "projectile_radius": "0.2 meters"
       },
       {
+        "slug": "deadeye",
         "name": "Deadeye",
         "description": "Face off against your enemies. Press to lock on, then or to fire.",
         "ability_type": "Ultimate Ability",
@@ -107,20 +112,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "bang-bang",
           "name": "Bang Bang",
           "description": "Cassidy throws a second Flashbang that travels farther, but both Flashbangs deal 40% reduced damage."
         },
         {
+          "slug": "even-the-odds",
           "name": "Even the Odds",
           "description": "Regenerate 30 health per second for each enemy targeted by Deadeye."
         }
       ],
       "major": [
         {
+          "slug": "rollin-round-up",
           "name": "Rollin' Round-Up",
           "description": "Combat Roll also heals 15 health for each bullet reloaded."
         },
         {
+          "slug": "silver-bullet",
           "name": "Silver Bullet",
           "description": "Peacekeeper's secondary fire is replaced with a piercing shot that inflicts bleeding. Combat Roll and Deadeye reset its cooldown."
         }

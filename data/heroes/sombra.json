@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.1.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Sombra",
@@ -46,11 +46,13 @@
     "sub_role": "recon",
     "abilities": [
       {
+        "slug": "opportunist",
         "name": "Opportunist",
         "description": "You detect enemy ultimate abilities on nameplates, and deal more damage to hacked enemies.",
         "ability_type": "Passive Ability"
       },
       {
+        "slug": "machine-pistol",
         "name": "Machine Pistol",
         "description": "Short-range automatic weapon.",
         "ability_type": "Weapon",
@@ -65,6 +67,7 @@
         "dps": "Damage per second: 160 while firing (114.3 overall w/reload) 192 while firing w/ opportunist"
       },
       {
+        "slug": "hack",
         "name": "Hack",
         "description": "Hold to hack. Hacked enemies cannot use abilities and can be seen through walls. Hacked health packs spawn faster and can't be used by enemies. Taking damage interrupts the hack attempt.",
         "ability_type": "Ability",
@@ -73,6 +76,7 @@
         "duration": "8 seconds (reveal, heroes) / 1.0 seconds (ability disable, heroes) / 45 seconds (health packs) / 10 seconds (disable, objects) / 3 seconds (disable, B.O.B.)"
       },
       {
+        "slug": "virus",
         "name": "Virus",
         "description": "Infect enemies with a projectile that deals damage over time. Virus damages hacked targets at a faster rate.",
         "ability_type": "Ability",
@@ -83,6 +87,7 @@
         "projectile_radius": "0.5 meters"
       },
       {
+        "slug": "translocator",
         "name": "Translocator",
         "description": "Throw a beacon and teleport to it. Become stealthed for a short duration after teleporting.",
         "ability_type": "Ability",
@@ -92,6 +97,7 @@
         "radius": "4 meters (detection)"
       },
       {
+        "slug": "emp",
         "name": "EMP",
         "description": "Deal damage to all nearby enemies based on their current health, hacking them and destroying barriers around you.",
         "ability_type": "Ultimate Ability",
@@ -103,20 +109,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "encrypted-upload",
           "name": "Encrypted Upload",
           "description": "Hack can be used while invisible, successful hacks increase the duration of stealth by 3 seconds."
         },
         {
+          "slug": "ctrl-alt-esc",
           "name": "CTRL ALT ESC",
           "description": "Teleporting with Translocator while below half health initiates passive health regeneration."
         }
       ],
       "major": [
         {
+          "slug": "high-speed-bandwidth",
           "name": "High-Speed Bandwidth",
           "description": "Hacked health packs grant allies 25% movement speed and 50 overhealth for 4 seconds."
         },
         {
+          "slug": "viral-replication",
           "name": "Viral Replication",
           "description": "Hitting a hacked enemy with Virus spreads Virus to enemies within 8 meters."
         }

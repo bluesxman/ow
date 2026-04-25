@@ -5,7 +5,11 @@ import { z } from 'zod';
 import type { Hero } from './types.js';
 import { normalizeForCompare } from './normalize.js';
 
+// Slug pattern shared with Hero slugs — lowercase alnum + hyphens only.
+const SlugSchema = z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/);
+
 const PerkSchema = z.object({
+  slug: SlugSchema,
   name: z.string().min(1),
   description: z.string().min(1),
 });
@@ -21,22 +25,25 @@ const AbilityModeSchema = z.record(z.string(), StatValue.optional());
 // follow-up shots track the marker — Tracking Shot's "modifies" entry
 // references Helix Rifle with the tracked-shot damage value).
 //
-// `target_ability` is the name of the affected ability on the same hero.
-// Stat fields (damage, cooldown, etc.) carry the values that apply when this
-// ability is in play, distinct from the affected ability's baseline stats.
+// `target_ability_slug` is the slug of the affected ability on the same hero.
+// Slug-based foreign key — stable across rename events, joinable by code
+// without string normalization. Stat fields (damage, cooldown, etc.) carry
+// the values that apply when this ability is in play, distinct from the
+// affected ability's baseline stats.
 const ModifiesEntrySchema = z.object({
-  target_ability: z.string().min(1),
+  target_ability_slug: SlugSchema,
   description: z.string().optional(),
 }).catchall(StatValue.optional());
 
 const AbilitySchema = z.object({
+  slug: SlugSchema,
   name: z.string().min(1),
   description: z.string().min(1),
   modifies: z.array(ModifiesEntrySchema).optional(),
 }).catchall(
-  // Anything beyond name/description/modifies is either a numeric/string/boolean
-  // stat or the `modes` record. Catchall keeps the schema permissive — Fandom
-  // adds new template params over time and we don't want to break on them.
+  // Anything beyond slug/name/description/modifies is either a numeric/string/
+  // boolean stat or the `modes` record. Catchall keeps the schema permissive
+  // — Fandom adds new template params over time and we don't want to break.
   z.union([StatValue, z.record(z.string(), AbilityModeSchema)]).optional(),
 );
 
@@ -128,8 +135,16 @@ const PatchChangeRawSchema = z.object({
 const PatchChangeInterpretedSchema = z.object({
   mode: PatchModeSchema,
   subject_kind: PatchSubjectKindSchema,
-  hero_slug: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/).nullable(),
+  hero_slug: SlugSchema.nullable(),
+  // Display label for the subject — ability name, perk name, hero name, or
+  // a system/map/role label. Always set when `interpreted` is non-null;
+  // human-readable, not a join key.
   subject_name: z.string().nullable(),
+  // Foreign key into `data/heroes/<hero_slug>.json` — joinable to
+  // `abilities[].slug` (when subject_kind === "ability") or
+  // `perks.minor[*].slug` / `perks.major[*].slug` (when "perk").
+  // Required when subject_kind is "ability" or "perk"; null otherwise.
+  subject_slug: SlugSchema.nullable(),
   metric: PatchMetricSchema.nullable(),
   metric_phrase: z.string().nullable(),
   from: NumericOrString.nullable(),

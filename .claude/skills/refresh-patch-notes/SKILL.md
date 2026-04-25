@@ -82,6 +82,11 @@ The dump script writes the raw deterministic parse to `.run/patch-notes-raw.json
    - **General items (`kind: general`)**: one change per bullet.
      - When the item carries a `title`, use it as `subject_name` and set `subject_kind: 'system'` (or `'map'` for map sections, `'role'` for role passive bullets).
      - When `title` is empty, treat as a flat section bullet — `subject_name: null`, `subject_kind: 'system'`.
+   - **`subject_slug` field** (foreign key into the affected hero's data):
+     - When `subject_kind` is `'ability'`: look up the ability in `data/heroes/<hero_slug>.json`'s `abilities[]` and copy its `slug` field. Don't derive — read.
+     - When `subject_kind` is `'perk'`: look up in `perks.minor[*]` / `perks.major[*]` of the same hero and copy its `slug`.
+     - When `subject_kind` is anything else (`hero_general`, `system`, `map`, `role`, `unknown`): set `subject_slug: null`.
+     - If lookup fails (e.g. the patch mentions an ability not in the current scrape — common for new heroes mid-cycle, removed abilities, or post-patch renames), set `subject_slug: null` and add a note in the `notes` field. The `process-patch-notes` skill will skip such entries with "Skipped (ability not found)" — that's the correct fail-safe.
 
 5. **Metric extraction** (per change). Apply when the bullet states a quantitative change clearly:
    - `damage per projectile reduced from 75 to 70` → `metric: 'damage'`, `from: 75`, `to: 70`, `delta: -5`, `metric_phrase: 'damage per projectile'`.

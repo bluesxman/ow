@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.1.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Echo",
@@ -46,11 +46,13 @@
     "sub_role": "recon",
     "abilities": [
       {
+        "slug": "glide",
         "name": "Glide",
         "description": "Hold jump to glide while falling.",
         "ability_type": "Passive Ability"
       },
       {
+        "slug": "tri-shot",
         "name": "Tri-Shot",
         "description": "Fires 3 shots at once, in a triangle pattern.",
         "ability_type": "Weapon",
@@ -66,6 +68,7 @@
         "dps": "151.79 while firing (110.63 overall w/reload)"
       },
       {
+        "slug": "sticky-bombs",
         "name": "Sticky Bombs",
         "description": "Fire a volley of sticky bombs that detonate after a delay.",
         "ability_type": "Ability",
@@ -79,6 +82,7 @@
         "projectile_radius": "0.27 meters"
       },
       {
+        "slug": "flight",
         "name": "Flight",
         "description": "Fly forward quickly and then free-fly briefly.",
         "ability_type": "Ability",
@@ -86,6 +90,7 @@
         "duration": "0.2 seconds (min) / 3 seconds (max)"
       },
       {
+        "slug": "focusing-beam",
         "name": "Focusing Beam",
         "description": "Channel a beam for a few seconds. Deals very high damage to targets under half health.",
         "ability_type": "Ability",
@@ -97,6 +102,7 @@
         "projectile_radius": "0.25 meters"
       },
       {
+        "slug": "duplicate",
         "name": "Duplicate",
         "description": "Become a copy of the targeted hero. They cannot swap heroes for the duration.",
         "ability_type": "Ultimate Ability",
@@ -107,20 +113,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "focused-rush",
           "name": "Focused Rush",
           "description": "Focused Beam's range is increase by 6 meters and movement speed is increase by 20% when active."
         },
         {
+          "slug": "partial-scan",
           "name": "Partial Scan",
           "description": "Duplicate starts with 50% of its ultimate charge."
         }
       ],
       "major": [
         {
+          "slug": "full-salvo",
           "name": "Full Salvo",
           "description": "Sticky Bombs fires 50% more projectiles."
         },
         {
+          "slug": "high-beams",
           "name": "High Beams",
           "description": "Focusing Beam eliminations reset Flight's cooldown."
         }

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.1.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/D.Va",
@@ -46,12 +46,14 @@
     "sub_role": "initiator",
     "abilities": [
       {
+        "slug": "eject",
         "name": "Eject!",
         "description": "Eject out of your mech when it's destroyed.",
         "ability_type": "Passive Ability",
         "health": 150
       },
       {
+        "slug": "fusion-cannons",
         "name": "Fusion Cannons",
         "description": "Automatic short-range spread weapons.",
         "ability_type": "Weapon;;Mech",
@@ -66,6 +68,7 @@
         "dps": "146 while firing"
       },
       {
+        "slug": "light-gun",
         "name": "Light Gun",
         "description": "Automatic weapon.",
         "ability_type": "Weapon;;Pilot",
@@ -80,6 +83,7 @@
         "dps": "98 while firing (65.77 overall w/ reload)"
       },
       {
+        "slug": "defense-matrix",
         "name": "Defense Matrix",
         "description": "Block projectiles in an area in front of you.",
         "ability_type": "Ability;;Mech",
@@ -88,6 +92,7 @@
         "range": "10.3 meters"
       },
       {
+        "slug": "boosters",
         "name": "Boosters",
         "description": "Fly in the direction you are facing.",
         "ability_type": "Ability;;Mech",
@@ -98,6 +103,7 @@
         "range": "24 meters"
       },
       {
+        "slug": "micro-missiles",
         "name": "Micro Missiles",
         "description": "Launch a volley of explosive rockets.",
         "ability_type": "Ability;;Mech",
@@ -111,6 +117,7 @@
         "radius": "0.1 - 1.5 meters (splash)"
       },
       {
+        "slug": "self-destruct",
         "name": "Self-Destruct",
         "description": "Eject and overload your mech, causing it to explode after a short time.",
         "ability_type": "Ultimate Ability;;Mech",
@@ -120,6 +127,7 @@
         "radius": "6 - 21 meters"
       },
       {
+        "slug": "call-mech",
         "name": "Call Mech",
         "description": "Call down a new mech.",
         "ability_type": "Ultimate Ability;;Pilot",
@@ -132,20 +140,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "bunny-power",
           "name": "Bunny Power",
           "description": "Eject grants 75 temporary overhealth and Call Mech's damage radius is increased by 50%."
         },
         {
+          "slug": "extended-boosters",
           "name": "Extended Boosters",
           "description": "Hitting an enemy with Boosters deals 40% increased damage and extends the duration by 0.5 seconds."
         }
       ],
       "major": [
         {
+          "slug": "shield-system",
           "name": "Shield System",
           "description": "Convert 150 health to shields. Defense Matrix restores shields based on 25% of its damage absorbed."
         },
         {
+          "slug": "precision-fusion",
           "name": "Precision Fusion",
           "description": "Press Reload to reduce Fusion Cannons' Spread by 75% for 3 seconds."
         }

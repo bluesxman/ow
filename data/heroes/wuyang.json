@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.1.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Wuyang",
@@ -46,6 +46,7 @@
     "sub_role": "survivor",
     "abilities": [
       {
+        "slug": "xuanwu-staff",
         "name": "Xuanwu Staff",
         "description": "Fire a damaging water orb. Hold to control its trajectory and empower its explosion.",
         "ability_type": "Weapon",
@@ -62,6 +63,7 @@
         "dps": "Rapid fire of uncharged orbs: 90.91 while firing (74.07 overall w/ reload) Perfectly timed charged orbs: 158.73 while firing (128.21 overall w/ reload)"
       },
       {
+        "slug": "restorative-stream",
         "name": "Restorative Stream",
         "description": "Place a passive healing stream on an ally. Hold on the target to manually heal at an improved rate, consuming resource.",
         "ability_type": "Ability",
@@ -70,6 +72,7 @@
         "duration": "5 seconds (LoS timeout, passive) / 1 second (LoS timeout, manual) / 2 seconds (recharge delay)"
       },
       {
+        "slug": "rushing-torrent",
         "name": "Rushing Torrent",
         "description": "Ride water to move faster and jump higher.",
         "ability_type": "Ability",
@@ -78,6 +81,7 @@
         "duration": "3.5 seconds"
       },
       {
+        "slug": "guardian-wave",
         "name": "Guardian Wave",
         "description": "Send a water wave forward that increases the amount of healing received by allies and knocks back enemies.",
         "ability_type": "Ability",
@@ -90,6 +94,7 @@
         "projectile_speed": "30 m/s"
       },
       {
+        "slug": "tidal-blast",
         "name": "Tidal Blast",
         "description": "Protect an ally or yourself with water that detonates after a short duration. The explosion knocks down enemies and massively heals the host target.",
         "ability_type": "Ultimate Ability",
@@ -103,20 +108,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "overflow",
           "name": "Overflow",
           "description": "Gain 10 ammo and 50% healing resource when Rushing Torrent is activated."
         },
         {
+          "slug": "balance",
           "name": "Balance",
           "description": "When you deal damage with water orbs, increase Restorative Stream's passive healing by 30% for 2 seconds."
         }
       ],
       "major": [
         {
+          "slug": "ebb-and-flow",
           "name": "Ebb and Flow",
           "description": "Guardian Wave rewinds to its starting location. Has 50% less effectiveness while rewinding."
         },
         {
+          "slug": "falling-rain",
           "name": "Falling Rain",
           "description": "Simultaneously control 3 water orbs that deal 60% decreased damage and have have 25% decreased empowered explosion radius."
         }

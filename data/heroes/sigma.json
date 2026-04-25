@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.1.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Sigma",
@@ -46,6 +46,7 @@
     "sub_role": "stalwart",
     "abilities": [
       {
+        "slug": "hyperspheres",
         "name": "Hyperspheres",
         "description": "Launch two charges which implode after a short duration, dealing damage in an area.",
         "ability_type": "Weapon",
@@ -62,6 +63,7 @@
         "dps": "73.3 while firing"
       },
       {
+        "slug": "experimental-barrier",
         "name": "Experimental Barrier",
         "description": "Hold to propel a floating barrier; release to stop. Press again to recall the barrier to you.",
         "ability_type": "Ability",
@@ -72,6 +74,7 @@
         "cooldown": "1 second (recalled) / 5 seconds (destroyed)"
       },
       {
+        "slug": "kinetic-grasp",
         "name": "Kinetic Grasp",
         "description": "Absorb projectiles in front of you and convert them into extra health.",
         "ability_type": "Ability",
@@ -80,6 +83,7 @@
         "duration": "2 seconds"
       },
       {
+        "slug": "accretion",
         "name": "Accretion",
         "description": "Gather a mass of debris and throw it at an enemy to knock them down.",
         "ability_type": "Ability",
@@ -92,6 +96,7 @@
         "projectile_radius": "0.9 meters"
       },
       {
+        "slug": "gravitic-flux",
         "name": "Gravitic Flux",
         "description": "Manipulate gravity to lift enemies into the air and slam them back down.",
         "ability_type": "Ultimate Ability",
@@ -104,20 +109,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "kinetic-cycle",
           "name": "Kinetic Cycle",
           "description": "Absorbing projectiles with Kinetic Grasp also reduces Accretion's cooldown."
         },
         {
+          "slug": "hyper-regeneration",
           "name": "Hyper Regeneration",
           "description": "40% of Hyperspheres' damage restores Experimental Barrier's Health."
         }
       ],
       "major": [
         {
+          "slug": "hyper-strike",
           "name": "Hyper Strike",
           "description": "Every 5 direct hits with Hyperspheres, your next successful Quick Melee levitates and knocks away enemies."
         },
         {
+          "slug": "levitation",
           "name": "Levitation",
           "description": "Activate and hold Double Jump to briefly levitate upward."
         }

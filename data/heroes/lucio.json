@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.1.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/L%C3%BAcio",
@@ -46,12 +46,14 @@
     "sub_role": "tactician",
     "abilities": [
       {
+        "slug": "wall-ride",
         "name": "Wall Ride",
         "description": "Jump onto a wall to ride along it.",
         "cooldown": "0.5 seconds",
         "ability_type": "Passive Ability"
       },
       {
+        "slug": "sonic-amplifier",
         "name": "Sonic Amplifier",
         "description": "Sonic projectile launcher.",
         "ability_type": "Weapon",
@@ -67,6 +69,7 @@
         "dps": "85.56 while firing (64.78 overall w/reload)"
       },
       {
+        "slug": "soundwave",
         "name": "Soundwave",
         "description": "Create a short-range blast wave to knock enemies away from you.",
         "ability_type": "Ability",
@@ -77,6 +80,7 @@
         "headshot": false
       },
       {
+        "slug": "crossfade",
         "name": "Crossfade",
         "description": "Switches between two songs: Healing Boost heals nearby allies, and Speed Boost makes nearby allies move faster.",
         "ability_type": "Ability",
@@ -85,6 +89,7 @@
         "duration": "0.4 seconds (swap delay)"
       },
       {
+        "slug": "amp-it-up",
         "name": "Amp It Up",
         "description": "Increase the effectiveness of your current song.",
         "ability_type": "Ability",
@@ -94,6 +99,7 @@
         "duration": "3 seconds"
       },
       {
+        "slug": "sound-barrier",
         "name": "Sound Barrier",
         "description": "Create temporary extra health for nearby allies.",
         "ability_type": "Ultimate Ability",
@@ -104,20 +110,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "soundwave-rider",
           "name": "Soundwave Rider",
           "description": "Wall Riding empowers your next Soundwave, increasing its knockback by 25% and damage by 50%."
         },
         {
+          "slug": "beat-drop",
           "name": "Beat Drop",
           "description": "Amp It Up is active during Sound Barrier."
         }
       ],
       "major": [
         {
+          "slug": "noise-violation",
           "name": "Noise Violation",
           "description": "Crossfade's range is increased by 150% while Amp It Up is active."
         },
         {
+          "slug": "accelerando",
           "name": "Accelerando",
           "description": "Gain 15% attack speed while Lucio's Speed Song is active, tripled during Amp It Up."
         }

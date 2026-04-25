@@ -1,6 +1,11 @@
 export type Role = 'tank' | 'damage' | 'support';
 
 export interface Perk {
+  // Stable identifier derived from `name` via toSlug() at scrape time.
+  // Used by the patch-notes skill (`interpreted.subject_slug`) to reference
+  // perks across files. If Blizzard renames a perk, slug stays unless the
+  // rename is intentional and references are migrated together.
+  slug: string;
   name: string;
   description: string;
 }
@@ -33,8 +38,11 @@ export interface AbilityMode {
 // zod schema. Used when one ability changes another ability's stats or
 // behavior (e.g. Sierra's Tracking Shot marks an enemy; Helix Rifle follow-up
 // shots track the marker with their own damage value).
+//
+// `target_ability_slug` references another ability on the same hero by its
+// slug field — a stable foreign key. Consumers join via slug, not display name.
 export interface AbilityModifies {
-  target_ability: string;
+  target_ability_slug: string;
   description?: string;
   damage?: number | string;
   cooldown?: number | string;
@@ -48,6 +56,10 @@ export interface AbilityModifies {
 }
 
 export interface Ability {
+  // Stable identifier derived from `name` via toSlug() at scrape time.
+  // Used as a foreign key by `modifies[].target_ability_slug` and by the
+  // patch-notes skill's `interpreted.subject_slug`.
+  slug: string;
   name: string;
   description: string;
   ability_type?: string;
@@ -202,8 +214,15 @@ export interface PatchChangeInterpreted {
   hero_slug: string | null;
   // Display name of the specific subject — ability name, perk name, hero name
   // for hero-general, or whatever Blizzard's bracketed prefix points at.
-  // Null when the subject is structural (system / unknown).
+  // Null when the subject is structural (system / unknown). Human-readable;
+  // not a join key — use subject_slug for that.
   subject_name: string | null;
+  // Foreign key into the affected hero's data file:
+  //   - subject_kind === 'ability' → matches `abilities[].slug`
+  //   - subject_kind === 'perk'    → matches `perks.minor[*].slug` / `perks.major[*].slug`
+  // Null for subject_kinds that don't map to a slug-bearing entity
+  // (hero_general / system / map / role / unknown).
+  subject_slug: string | null;
 
   // What's changing (when extractable). Free-form `metric` falls back to
   // "other" with the natural-language phrase preserved in `metric_phrase`.

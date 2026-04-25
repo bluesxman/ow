@@ -4,7 +4,7 @@
   "title": "Overwatch Hero",
   "description": "Schema for a single hero record as published in data/heroes/{slug}.json (under the \"hero\" key) and inside the \"heroes\" map of data/all.json.",
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -37,7 +37,7 @@
         ]
       }
     ],
-    "schema_version": "5.1.0"
+    "schema_version": "6.0.0"
   },
   "schema": {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -72,6 +72,10 @@
         "items": {
           "type": "object",
           "properties": {
+            "slug": {
+              "type": "string",
+              "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+            },
             "name": {
               "type": "string",
               "minLength": 1
@@ -85,16 +89,16 @@
               "items": {
                 "type": "object",
                 "properties": {
-                  "target_ability": {
+                  "target_ability_slug": {
                     "type": "string",
-                    "minLength": 1
+                    "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
                   },
                   "description": {
                     "type": "string"
                   }
                 },
                 "required": [
-                  "target_ability"
+                  "target_ability_slug"
                 ],
                 "additionalProperties": {
                   "anyOf": [
@@ -113,6 +117,7 @@
             }
           },
           "required": [
+            "slug",
             "name",
             "description"
           ],
@@ -170,6 +175,10 @@
             "items": {
               "type": "object",
               "properties": {
+                "slug": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+                },
                 "name": {
                   "type": "string",
                   "minLength": 1
@@ -180,6 +189,7 @@
                 }
               },
               "required": [
+                "slug",
                 "name",
                 "description"
               ],
@@ -193,6 +203,10 @@
             "items": {
               "type": "object",
               "properties": {
+                "slug": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+                },
                 "name": {
                   "type": "string",
                   "minLength": 1
@@ -203,6 +217,7 @@
                 }
               },
               "required": [
+                "slug",
                 "name",
                 "description"
               ],

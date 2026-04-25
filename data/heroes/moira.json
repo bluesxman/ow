@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.1.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Moira",
@@ -46,6 +46,7 @@
     "sub_role": "medic",
     "abilities": [
       {
+        "slug": "biotic-grasp",
         "name": "Biotic Grasp",
         "description": "Hold to heal all allies in front of you. Consumes biotic energy.",
         "ability_type": "Weapon;;Primary Fire",
@@ -56,6 +57,7 @@
         "projectile_speed": "40 m/s"
       },
       {
+        "slug": "biotic-grasp-alt-fire",
         "name": "Biotic Grasp Alt Fire",
         "description": "Long range beam weapon. Damage dealt heals you and replenishes your biotic energy.",
         "ability_type": "Weapon;;Secondary Fire",
@@ -67,6 +69,7 @@
         "dps": "65 while firing"
       },
       {
+        "slug": "fade",
         "name": "Fade",
         "description": "Disappear, move faster, and become invulnerable, but you cannot shoot.",
         "ability_type": "Ability",
@@ -75,6 +78,7 @@
         "range": "15 meters (max)"
       },
       {
+        "slug": "biotic-orb",
         "name": "Biotic Orb",
         "description": "Launch a bouncing sphere that either heals nearby allies or damages nearby enemies.",
         "ability_type": "Ability",
@@ -87,6 +91,7 @@
         "range": "4 meters (damage) / 5 meters (healing)"
       },
       {
+        "slug": "coalescence",
         "name": "Coalescence",
         "description": "Fire a beam that heals allies and damages enemies.",
         "ability_type": "Ultimate Ability",
@@ -101,20 +106,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "destructions-divide",
           "name": "Destruction's Divide",
           "description": "Coalescence can be toggled between pure healing or pure damage, with 30% greater effect."
         },
         {
+          "slug": "ethical-nourishment",
           "name": "Ethical Nourishment",
           "description": "Biotic Orb’s first 30 healing is instant on each ally it encounters."
         }
       ],
       "major": [
         {
+          "slug": "reversal",
           "name": "Reversal",
           "description": "Reactivating Biotic Orb reverses its direction."
         },
         {
+          "slug": "phantom-step",
           "name": "Phantom Step",
           "description": "Fade lasts 0.5 seconds longer and boosts jump height by 50%."
         }

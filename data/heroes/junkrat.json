@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.1.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Junkrat",
@@ -46,6 +46,7 @@
     "sub_role": "specialist",
     "abilities": [
       {
+        "slug": "total-mayhem",
         "name": "Total Mayhem",
         "description": "Deals no damage to self with explosives. Drop bombs on death.",
         "ability_type": "Passive Ability",
@@ -55,6 +56,7 @@
         "headshot": false
       },
       {
+        "slug": "frag-launcher",
         "name": "Frag Launcher",
         "description": "Bouncing explosive projectile weapon.",
         "ability_type": "Weapon",
@@ -70,6 +72,7 @@
         "dps": "180 while firing (124.13 overall w/reload)"
       },
       {
+        "slug": "concussion-mine",
         "name": "Concussion Mine",
         "description": "Throw a knockback mine with then detonate it with .",
         "ability_type": "Ability",
@@ -83,6 +86,7 @@
         "headshot": false
       },
       {
+        "slug": "steel-trap",
         "name": "Steel Trap",
         "description": "Place an immobilizing trap.",
         "ability_type": "Ability",
@@ -96,6 +100,7 @@
         "headshot": false
       },
       {
+        "slug": "rip-tire",
         "name": "RIP-Tire",
         "description": "Drive and detonate an exploding tire.",
         "ability_type": "Ultimate Ability",
@@ -109,20 +114,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "nitro-boost",
           "name": "Nitro Boost",
           "description": "During RIP-Tire, use (LSHIFT) to gain a quick boost of speed. Doing so reduces RIP-Tire’s damage by 50%."
         },
         {
+          "slug": "bomb-voyage",
           "name": "Bomb Voyage",
           "description": "After launching with Concussion Mine, Junkrat gains 25% increased attack speed for 3 seconds."
         }
       ],
       "major": [
         {
+          "slug": "mine-recycling",
           "name": "Mine Recycling",
           "description": "Eliminations with Concussion Mine restore one charge."
         },
         {
+          "slug": "frag-cannon",
           "name": "Frag Cannon",
           "description": "Frag Launcher’s projectile speed is increased by 25%"
         }

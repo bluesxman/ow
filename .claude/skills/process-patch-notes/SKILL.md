@@ -1,7 +1,7 @@
 ---
 name: process-patch-notes
 description: Apply Blizzard patch-note stat changes to data/heroes/*.json. Reads data/patch-notes.json (the structured, AI-interpreted patch history produced by refresh-patch-notes) and applies retail quantitative changes to per-hero JSON. Manually invoked on patch days, after refresh-patch-notes has been run and reviewed. Opens a PR for human review.
-disable-model-invocation: true
+disable-model-invocation: false
 allowed-tools: Bash(npm run patch-notes:*) Bash(npm run typecheck) Bash(npm run lint) Bash(npm test) Bash(jq *) Bash(git *) Bash(gh pr *) Read Edit Grep Glob
 argument-hint: [--since=YYYY-MM-DD]
 effort: high

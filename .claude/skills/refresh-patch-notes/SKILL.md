@@ -1,7 +1,7 @@
 ---
 name: refresh-patch-notes
 description: Refresh data/patch-notes.json with the latest Blizzard patch notes, applying AI judgment to interpret each natural-language change into structured fields (mode, subject, metric, from/to, etc.). First step of the patch-day flow — followed by process-patch-notes for hero stat updates. Manually invoked on patch days. Opens a PR for human review.
-disable-model-invocation: true
+disable-model-invocation: false
 allowed-tools: Bash(npm run patch-notes:*) Bash(npm run typecheck) Bash(npm run lint) Bash(npm test) Bash(jq *) Bash(git *) Bash(gh pr *) Read Edit Write Grep Glob
 effort: high
 ---

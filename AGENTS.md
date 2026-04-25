@@ -16,9 +16,10 @@ Source-of-truth split:
 1. **Start at [`index.json`](https://raw.githubusercontent.com/bluesxman/ow/main/data/index.json).** It carries `metadata` (freshness + source attribution + `schema_version`), a `usage` block with a recommended workflow, a `files` map describing every published file, a `links` block with raw URLs for every published file (top-level + per-hero), and a roster of all 51 heroes.
 2. **For one hero**, fetch `https://raw.githubusercontent.com/bluesxman/ow/main/data/heroes/{slug}.json` — cheapest fetch, includes its own per-hero `attribution` block.
 3. **For roster-wide queries**, fetch the topical aggregate ([`perks.json`](https://raw.githubusercontent.com/bluesxman/ow/main/data/perks.json), [`abilities.json`](https://raw.githubusercontent.com/bluesxman/ow/main/data/abilities.json), [`stats.json`](https://raw.githubusercontent.com/bluesxman/ow/main/data/stats.json)) instead of [`all.json`](https://raw.githubusercontent.com/bluesxman/ow/main/data/all.json).
-4. **For schema/validation**, fetch [`schema.json`](https://raw.githubusercontent.com/bluesxman/ow/main/data/schema.json) — JSON Schema (draft-2020-12) describing the per-hero record. Generated at publish time from the zod schema in `src/validate.ts`.
-5. **Check `metadata.last_updated`** before trusting the data. Refreshes happen manually on Overwatch patch days (no cron).
-6. **Honor attribution.** Fandom-derived fields are CC-BY-SA 3.0 — see [`ATTRIBUTION.md`](https://raw.githubusercontent.com/bluesxman/ow/main/data/ATTRIBUTION.md) and the `metadata.sources` block in every JSON file.
+4. **For patch history**, fetch [`patch-notes.json`](https://raw.githubusercontent.com/bluesxman/ow/main/data/patch-notes.json) — structured Blizzard patch notes from 2025-12-09 onward (OW2 Season 20: Vendetta and later).
+5. **For schema/validation**, fetch [`schema.json`](https://raw.githubusercontent.com/bluesxman/ow/main/data/schema.json) (per-hero) or [`patch-notes-schema.json`](https://raw.githubusercontent.com/bluesxman/ow/main/data/patch-notes-schema.json) (patch notes) — JSON Schema (draft-2020-12) generated at publish time from zod schemas in `src/validate.ts`.
+6. **Check `metadata.last_updated`** before trusting the data. Refreshes happen manually on Overwatch patch days (no cron).
+7. **Honor attribution.** Fandom-derived fields are CC-BY-SA 3.0 — see [`ATTRIBUTION.md`](https://raw.githubusercontent.com/bluesxman/ow/main/data/ATTRIBUTION.md) and the `metadata.sources` block in every JSON file.
 
 ### If your webfetch only follows URLs from previously-fetched content
 

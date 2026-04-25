@@ -4,7 +4,7 @@ Abilities, perks, sub-roles, and combat stats (`abilities[]` including all numer
 
 Hero name, role, portrait, and the patch version are sourced from [Blizzard's official Overwatch site](https://overwatch.blizzard.com/en-us/heroes/). Patch-note text is also used to override Fandom values when Fandom is behind the live patch.
 
-Last generated: 2026-04-25T16:09:21.865Z
+Last generated: 2026-04-25T16:41:57.846Z
 
 ## Per-hero source pages
 

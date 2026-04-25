@@ -24,6 +24,8 @@ https://raw.githubusercontent.com/bluesxman/ow/main/data/<file>
 | `stats.json` | You need HP, damage, rate of fire, falloff, cooldowns, ammo, reload, etc. |
 | `all.json` | You need everything in one fetch. |
 | `heroes/<slug>.json` | You only care about one hero — cheapest fetch. |
+| `patch-notes.json` | You need a structured history of Blizzard's patch notes from 2025-12-09 onward (OW2 Season 20: Vendetta and later). |
+| `patch-notes-schema.json` | You want to validate or generate types for `patch-notes.json`. JSON Schema (draft-2020-12), generated from `src/validate.ts`. |
 | `ATTRIBUTION.md` | Per-hero source URLs + CC-BY-SA 3.0 notice. |
 | `LICENSE` | CC-BY-SA 3.0, covering all data in this directory. |
 | `links.md` | You're working with an agent (e.g., Claude.ai chat) whose webfetch only follows URLs that appear in fetched content. Paste this single URL once to unlock fetches for every other file. The same URL list also lives under `links` in `index.json`. |

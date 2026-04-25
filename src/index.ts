@@ -105,6 +105,7 @@ async function main(): Promise<void> {
         diff,
         dryRun: args.dryRun,
         root,
+        patches: result.patches,
       });
       console.log(args.dryRun ? 'Dry run complete.' : 'Published.');
     }

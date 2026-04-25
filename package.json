@@ -19,8 +19,8 @@
     "lint": "eslint .",
     "test": "vitest run",
     "test:watch": "vitest",
-    "patch-notes:fetch": "node .claude/skills/process-patch-notes/scripts/fetch-blizzard-patches.mjs",
-    "patch-notes:affected": "node .claude/skills/process-patch-notes/scripts/list-affected-heroes.mjs",
+    "patch-notes:fetch": "tsx .claude/skills/process-patch-notes/scripts/fetch-blizzard-patches.ts",
+    "patch-notes:affected": "tsx .claude/skills/process-patch-notes/scripts/list-affected-heroes.ts",
     "patch-notes:rebuild-aggregates": "tsx .claude/skills/process-patch-notes/scripts/rebuild-aggregates.ts"
   },
   "dependencies": {

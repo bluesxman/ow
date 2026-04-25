@@ -110,6 +110,46 @@ export interface ScrapeResult {
   heroes: Record<string, Hero>;
   failed: Array<{ slug: string; reason: string }>;
   patchVersion: string;
+  patches: ParsedPatch[];
+}
+
+// Patch-notes types — see src/sources/blizzardPatchNotes.ts for the parser
+// that produces values of this shape from Blizzard's HTML.
+export interface AbilityChange {
+  ability: string;
+  bullets: string[];
+}
+
+export interface HeroPatchItem {
+  kind: 'hero';
+  hero: string;
+  hero_slug: string;
+  abilities: AbilityChange[];
+  hero_level: string[];
+}
+
+export interface GeneralPatchItem {
+  kind: 'general';
+  title: string;
+  bullets: string[];
+}
+
+export type PatchSectionItem = HeroPatchItem | GeneralPatchItem;
+
+export interface PatchSection {
+  title: string;
+  items: PatchSectionItem[];
+}
+
+export interface ParsedPatch {
+  date: string;
+  title: string;
+  sections: PatchSection[];
+}
+
+export interface PatchNotesDoc {
+  metadata: Metadata;
+  patches: ParsedPatch[];
 }
 
 export type SelectorTier = 1 | 2 | 3;

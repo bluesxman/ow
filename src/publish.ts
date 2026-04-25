@@ -2,10 +2,10 @@ import { mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import { z } from 'zod';
 import { PUBLISHED_RAW_BASE } from './config.js';
-import type { Hero, Metadata, RosterEntry } from './types.js';
+import type { Hero, Metadata, ParsedPatch, RosterEntry } from './types.js';
 import { isEmptyDiff, renderDiffMarkdown, type HeroDiff } from './diff.js';
 import { slugToBlizzardUrl, slugToFandomUrl } from './sources/slugToFandomTitle.js';
-import { HeroSchema } from './validate.js';
+import { HeroSchema, PatchNotesDocSchema } from './validate.js';
 
 export interface PublishPaths {
   dataDir: string;
@@ -14,6 +14,7 @@ export interface PublishPaths {
   attributionPath: string;
   licensePath: string;
   linksPath: string;
+  patchNotesPath: string;
 }
 
 export function buildPaths(root: string): PublishPaths {
@@ -25,6 +26,7 @@ export function buildPaths(root: string): PublishPaths {
     attributionPath: join(dataDir, 'ATTRIBUTION.md'),
     licensePath: join(dataDir, 'LICENSE'),
     linksPath: join(dataDir, 'links.md'),
+    patchNotesPath: join(dataDir, 'patch-notes.json'),
   };
 }
 
@@ -37,6 +39,30 @@ export async function readPreviousHeroes(paths: PublishPaths): Promise<Record<st
   } catch {
     return {};
   }
+}
+
+export async function readPreviousPatches(paths: PublishPaths): Promise<ParsedPatch[]> {
+  try {
+    const raw = await readFile(paths.patchNotesPath, 'utf8');
+    const parsed = JSON.parse(raw) as { patches?: ParsedPatch[] };
+    return Array.isArray(parsed.patches) ? parsed.patches : [];
+  } catch {
+    return [];
+  }
+}
+
+// Merge prior patches with the freshly-scraped list, keyed by `date`. The
+// freshly-scraped entry wins on conflict (Blizzard occasionally edits notes),
+// but prior entries with no fresh counterpart are preserved — this is how the
+// history accumulates across scrapes after Blizzard's page rotates older
+// patches off the rolling feed. Output is sorted newest-first.
+export function mergePatches(prior: ParsedPatch[], fresh: ParsedPatch[]): ParsedPatch[] {
+  const byDate = new Map<string, ParsedPatch>();
+  for (const p of prior) byDate.set(p.date, p);
+  for (const p of fresh) byDate.set(p.date, p);
+  const out = Array.from(byDate.values());
+  out.sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
+  return out;
 }
 
 async function writeJson(path: string, value: unknown): Promise<void> {
@@ -54,6 +80,7 @@ export interface PublishInput {
   diff: HeroDiff;
   dryRun: boolean;
   root: string;
+  patches: ParsedPatch[];
 }
 
 export interface PublishedLinks {
@@ -69,6 +96,8 @@ export interface Aggregates {
   statsDoc: unknown;
   allDoc: unknown;
   schemaDoc: unknown;
+  patchNotesDoc: unknown;
+  patchNotesSchemaDoc: unknown;
   links: PublishedLinks;
 }
 
@@ -76,6 +105,7 @@ export function buildAggregates(
   heroes: Record<string, Hero>,
   roster: RosterEntry[],
   metadata: Metadata,
+  patches: ParsedPatch[] = [],
 ): Aggregates {
   const slugs = Object.keys(heroes).sort();
   const rosterSorted = [...roster].sort((a, b) => a.slug.localeCompare(b.slug));
@@ -108,6 +138,14 @@ export function buildAggregates(
     schema: {
       path: 'schema.json',
       description: 'JSON Schema (draft-2020-12) for the per-hero record. Generated from src/validate.ts HeroSchema.',
+    },
+    patch_notes: {
+      path: 'patch-notes.json',
+      description: 'Structured history of Blizzard patch notes from OW2 Season 20 (2025-12-09) onward. Each patch carries a date, title, and sections of hero/general changes.',
+    },
+    patch_notes_schema: {
+      path: 'patch-notes-schema.json',
+      description: 'JSON Schema (draft-2020-12) for patch-notes.json. Generated from src/validate.ts PatchNotesDocSchema.',
     },
     attribution: {
       path: 'ATTRIBUTION.md',
@@ -148,6 +186,8 @@ export function buildAggregates(
       stats: `${PUBLISHED_RAW_BASE}/stats.json`,
       all: `${PUBLISHED_RAW_BASE}/all.json`,
       schema: `${PUBLISHED_RAW_BASE}/schema.json`,
+      patch_notes: `${PUBLISHED_RAW_BASE}/patch-notes.json`,
+      patch_notes_schema: `${PUBLISHED_RAW_BASE}/patch-notes-schema.json`,
       attribution: `${PUBLISHED_RAW_BASE}/ATTRIBUTION.md`,
       license: `${PUBLISHED_RAW_BASE}/LICENSE`,
       links: `${PUBLISHED_RAW_BASE}/links.md`,
@@ -219,25 +259,51 @@ export function buildAggregates(
     heroes: Object.fromEntries(slugs.map((s) => [s, heroes[s]!])),
   };
 
-  return { indexDoc, heroesDoc, perksDoc, abilitiesDoc, statsDoc, allDoc, schemaDoc, links };
+  const patchNotesDoc = { metadata, patches };
+
+  const patchNotesSchemaDoc = {
+    $schema: 'https://json-schema.org/draft/2020-12/schema',
+    $id: `${PUBLISHED_RAW_BASE}/patch-notes-schema.json`,
+    title: 'Overwatch Patch Notes',
+    description: 'Schema for the structured patch-notes history published in data/patch-notes.json. Each patch carries a date, title, and sections of hero/general changes.',
+    metadata,
+    schema: z.toJSONSchema(PatchNotesDocSchema, { target: 'draft-2020-12' }),
+  };
+
+  return {
+    indexDoc,
+    heroesDoc,
+    perksDoc,
+    abilitiesDoc,
+    statsDoc,
+    allDoc,
+    schemaDoc,
+    patchNotesDoc,
+    patchNotesSchemaDoc,
+    links,
+  };
 }
 
 export async function publish(input: PublishInput): Promise<{ paths: PublishPaths; filesWritten: string[] }> {
-  const { heroes, roster, metadata, diff, dryRun, root } = input;
+  const { heroes, roster, metadata, diff, dryRun, root, patches } = input;
   const paths = buildPaths(root);
   const filesWritten: string[] = [];
 
   const slugs = Object.keys(heroes).sort();
   const rosterSorted = [...roster].sort((a, b) => a.slug.localeCompare(b.slug));
 
-  const { indexDoc, heroesDoc, perksDoc, abilitiesDoc, statsDoc, allDoc, schemaDoc, links } = buildAggregates(
-    heroes,
-    roster,
-    metadata,
-  );
+  // Merge incoming patches with whatever's already on disk so history grows
+  // monotonically as Blizzard's rolling feed cycles older patches off.
+  const priorPatches = await readPreviousPatches(paths);
+  const mergedPatches = mergePatches(priorPatches, patches);
+
+  const {
+    indexDoc, heroesDoc, perksDoc, abilitiesDoc, statsDoc, allDoc, schemaDoc,
+    patchNotesDoc, patchNotesSchemaDoc, links,
+  } = buildAggregates(heroes, roster, metadata, mergedPatches);
 
   if (dryRun) {
-    console.log(`[dry-run] would write ${slugs.length} per-hero files + 7 top-level files + ATTRIBUTION.md + links.md`);
+    console.log(`[dry-run] would write ${slugs.length} per-hero files + 9 top-level files + ATTRIBUTION.md + links.md`);
     return { paths, filesWritten: [] };
   }
 
@@ -252,6 +318,8 @@ export async function publish(input: PublishInput): Promise<{ paths: PublishPath
     [join(paths.dataDir, 'stats.json'), statsDoc],
     [join(paths.dataDir, 'all.json'), allDoc],
     [join(paths.dataDir, 'schema.json'), schemaDoc],
+    [paths.patchNotesPath, patchNotesDoc],
+    [join(paths.dataDir, 'patch-notes-schema.json'), patchNotesSchemaDoc],
   ];
 
   for (const [path, value] of topLevel) {

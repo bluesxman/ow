@@ -152,6 +152,35 @@ async function main(): Promise<void> {
   }
   console.log(`stats.json: ${heroesWithFandomStats}/${Object.keys(statsAgg.heroes).length} heroes have Fandom-derived stats`);
 
+  // Patch-notes: assert the file is fetchable, has at least one patch, and
+  // every patch is on or after the documented cutoff.
+  const PATCH_HISTORY_CUTOFF = '2025-12-09';
+  console.log(`Fetching ${BASE}/patch-notes.json`);
+  const patchNotes = await fetchJson<{
+    metadata: FetchedMetadata;
+    patches: Array<{ date: string; title: string; sections: unknown[] }>;
+  }>(`${BASE}/patch-notes.json`);
+  assertSources('patch-notes.json', patchNotes.metadata);
+  if (!Array.isArray(patchNotes.patches) || patchNotes.patches.length === 0) {
+    throw new Error('patch-notes.json: patches[] is empty or missing');
+  }
+  for (const p of patchNotes.patches) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(p.date)) {
+      throw new Error(`patch-notes.json: malformed date "${p.date}"`);
+    }
+    if (p.date < PATCH_HISTORY_CUTOFF) {
+      throw new Error(`patch-notes.json: patch dated ${p.date} predates cutoff ${PATCH_HISTORY_CUTOFF}`);
+    }
+  }
+  console.log(`patch-notes.json: ${patchNotes.patches.length} patches, oldest ${patchNotes.patches[patchNotes.patches.length - 1]!.date}`);
+
+  // Patch-notes schema: must be valid JSON with the JSON Schema shape.
+  console.log(`Fetching ${BASE}/patch-notes-schema.json`);
+  const patchNotesSchema = await fetchJson<{ schema?: { type?: string } }>(`${BASE}/patch-notes-schema.json`);
+  if (patchNotesSchema.schema?.type !== 'object') {
+    throw new Error('patch-notes-schema.json: missing or malformed schema.type');
+  }
+
   for (const [slug, expected] of Object.entries(EXPECTED)) {
     const url = `${BASE}/heroes/${slug}.json`;
     console.log(`Fetching ${url}`);

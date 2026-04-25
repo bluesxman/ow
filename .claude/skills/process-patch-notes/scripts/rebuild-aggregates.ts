@@ -6,7 +6,7 @@
 
 import { readFile, readdir, writeFile } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
-import { buildAggregates, buildPaths, writeLinks } from '../../../../src/publish.js';
+import { buildAggregates, buildPaths, readPreviousPatches, writeLinks } from '../../../../src/publish.js';
 import type { Hero, Metadata, RosterEntry } from '../../../../src/types.js';
 
 interface IndexDoc {
@@ -40,7 +40,10 @@ async function main(): Promise<void> {
     return entry;
   });
 
-  const aggregates = buildAggregates(heroesBySlug, roster, index.metadata);
+  // Carry the existing patch-notes history through verbatim — this skill edits
+  // hero stats only, so patches should never be touched.
+  const priorPatches = await readPreviousPatches(paths);
+  const aggregates = buildAggregates(heroesBySlug, roster, index.metadata, priorPatches);
 
   const outputs: Array<[string, unknown]> = [
     [join(paths.dataDir, 'index.json'), aggregates.indexDoc],
@@ -50,6 +53,8 @@ async function main(): Promise<void> {
     [join(paths.dataDir, 'stats.json'), aggregates.statsDoc],
     [join(paths.dataDir, 'all.json'), aggregates.allDoc],
     [join(paths.dataDir, 'schema.json'), aggregates.schemaDoc],
+    [paths.patchNotesPath, aggregates.patchNotesDoc],
+    [join(paths.dataDir, 'patch-notes-schema.json'), aggregates.patchNotesSchemaDoc],
   ];
 
   for (const [path, value] of outputs) {

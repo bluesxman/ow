@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T16:09:21.865Z",
+    "last_updated": "2026-04-25T16:41:57.846Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -75,6 +75,14 @@
       "path": "schema.json",
       "description": "JSON Schema (draft-2020-12) for the per-hero record. Generated from src/validate.ts HeroSchema."
     },
+    "patch_notes": {
+      "path": "patch-notes.json",
+      "description": "Structured history of Blizzard patch notes from OW2 Season 20 (2025-12-09) onward. Each patch carries a date, title, and sections of hero/general changes."
+    },
+    "patch_notes_schema": {
+      "path": "patch-notes-schema.json",
+      "description": "JSON Schema (draft-2020-12) for patch-notes.json. Generated from src/validate.ts PatchNotesDocSchema."
+    },
     "attribution": {
       "path": "ATTRIBUTION.md",
       "description": "Per-hero source URLs + CC-BY-SA 3.0 share-alike notice."
@@ -97,6 +105,8 @@
       "stats": "https://raw.githubusercontent.com/bluesxman/ow/main/data/stats.json",
       "all": "https://raw.githubusercontent.com/bluesxman/ow/main/data/all.json",
       "schema": "https://raw.githubusercontent.com/bluesxman/ow/main/data/schema.json",
+      "patch_notes": "https://raw.githubusercontent.com/bluesxman/ow/main/data/patch-notes.json",
+      "patch_notes_schema": "https://raw.githubusercontent.com/bluesxman/ow/main/data/patch-notes-schema.json",
       "attribution": "https://raw.githubusercontent.com/bluesxman/ow/main/data/ATTRIBUTION.md",
       "license": "https://raw.githubusercontent.com/bluesxman/ow/main/data/LICENSE",
       "links": "https://raw.githubusercontent.com/bluesxman/ow/main/data/links.md"

@@ -46,6 +46,62 @@ export const HeroSchema = z.object({
 
 export type ValidatedHero = z.infer<typeof HeroSchema>;
 
+// Patch-notes schema — validates the shape of data/patch-notes.json.
+// The discriminated union matches the parser output in src/sources/blizzardPatchNotes.ts.
+
+const SourceAttributionSchema = z.object({
+  name: z.string(),
+  url: z.string(),
+  license: z.string(),
+  license_url: z.string().optional(),
+  fields: z.array(z.string()),
+});
+
+const MetadataSchema = z.object({
+  last_updated: z.string(),
+  patch_version: z.string(),
+  hero_count: z.number(),
+  heroes_failed: z.array(z.string()),
+  fandom_failed: z.array(z.string()),
+  sources: z.array(SourceAttributionSchema),
+  schema_version: z.string(),
+});
+
+const AbilityChangeSchema = z.object({
+  ability: z.string().min(1),
+  bullets: z.array(z.string()),
+});
+
+const HeroPatchItemSchema = z.object({
+  kind: z.literal('hero'),
+  hero: z.string().min(1),
+  hero_slug: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/),
+  abilities: z.array(AbilityChangeSchema),
+  hero_level: z.array(z.string()),
+});
+
+const GeneralPatchItemSchema = z.object({
+  kind: z.literal('general'),
+  title: z.string(),
+  bullets: z.array(z.string()),
+});
+
+const PatchSectionSchema = z.object({
+  title: z.string().min(1),
+  items: z.array(z.discriminatedUnion('kind', [HeroPatchItemSchema, GeneralPatchItemSchema])),
+});
+
+const PatchSchema = z.object({
+  date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+  title: z.string().min(1),
+  sections: z.array(PatchSectionSchema),
+});
+
+export const PatchNotesDocSchema = z.object({
+  metadata: MetadataSchema,
+  patches: z.array(PatchSchema),
+});
+
 export function validateHero(hero: unknown): { ok: true; value: Hero } | { ok: false; error: string } {
   const result = HeroSchema.safeParse(hero);
   if (!result.success) {

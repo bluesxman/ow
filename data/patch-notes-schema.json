@@ -1,0 +1,249 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/bluesxman/ow/main/data/patch-notes-schema.json",
+  "title": "Overwatch Patch Notes",
+  "description": "Schema for the structured patch-notes history published in data/patch-notes.json. Each patch carries a date, title, and sections of hero/general changes.",
+  "metadata": {
+    "last_updated": "2026-04-25T16:41:57.846Z",
+    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
+    "hero_count": 51,
+    "heroes_failed": [],
+    "fandom_failed": [],
+    "sources": [
+      {
+        "name": "Blizzard Entertainment",
+        "url": "https://overwatch.blizzard.com/en-us/heroes/",
+        "license": "Blizzard Terms of Service",
+        "fields": [
+          "name",
+          "role",
+          "portrait_url",
+          "patch_version"
+        ]
+      },
+      {
+        "name": "Overwatch Fandom Wiki",
+        "url": "https://overwatch.fandom.com/",
+        "license": "CC-BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "fields": [
+          "sub_role",
+          "abilities",
+          "perks.minor",
+          "perks.major",
+          "stats.health",
+          "stats.armor",
+          "stats.shields"
+        ]
+      }
+    ],
+    "schema_version": "5.0.0"
+  },
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "metadata": {
+        "type": "object",
+        "properties": {
+          "last_updated": {
+            "type": "string"
+          },
+          "patch_version": {
+            "type": "string"
+          },
+          "hero_count": {
+            "type": "number"
+          },
+          "heroes_failed": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "fandom_failed": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "license": {
+                  "type": "string"
+                },
+                "license_url": {
+                  "type": "string"
+                },
+                "fields": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "name",
+                "url",
+                "license",
+                "fields"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "schema_version": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "last_updated",
+          "patch_version",
+          "hero_count",
+          "heroes_failed",
+          "fandom_failed",
+          "sources",
+          "schema_version"
+        ],
+        "additionalProperties": false
+      },
+      "patches": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "date": {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+            },
+            "title": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "oneOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "kind": {
+                              "type": "string",
+                              "const": "hero"
+                            },
+                            "hero": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "hero_slug": {
+                              "type": "string",
+                              "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+                            },
+                            "abilities": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "ability": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "bullets": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string"
+                                    }
+                                  }
+                                },
+                                "required": [
+                                  "ability",
+                                  "bullets"
+                                ],
+                                "additionalProperties": false
+                              }
+                            },
+                            "hero_level": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "required": [
+                            "kind",
+                            "hero",
+                            "hero_slug",
+                            "abilities",
+                            "hero_level"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "kind": {
+                              "type": "string",
+                              "const": "general"
+                            },
+                            "title": {
+                              "type": "string"
+                            },
+                            "bullets": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "required": [
+                            "kind",
+                            "title",
+                            "bullets"
+                          ],
+                          "additionalProperties": false
+                        }
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "title",
+                  "items"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "date",
+            "title",
+            "sections"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "metadata",
+      "patches"
+    ],
+    "additionalProperties": false
+  }
+}

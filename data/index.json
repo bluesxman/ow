@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T16:41:57.846Z",
+    "last_updated": "2026-04-25T17:28:20.254Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -77,7 +77,7 @@
     },
     "patch_notes": {
       "path": "patch-notes.json",
-      "description": "Structured history of Blizzard patch notes from OW2 Season 20 (2025-12-09) onward. Each patch carries a date, title, and sections of hero/general changes."
+      "description": "Structured history of Blizzard patch notes from OW2 Season 20 (2025-12-09) onward. Each patch carries a date, title, and sections of hero/general changes. Produced manually via the refresh-patch-notes skill (Claude Code), not by the automated scrape pipeline — interpretation of natural-language patch notes requires AI judgment."
     },
     "patch_notes_schema": {
       "path": "patch-notes-schema.json",

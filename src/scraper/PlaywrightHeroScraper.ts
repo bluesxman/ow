@@ -19,7 +19,6 @@ import { isValidSlug, toSlug } from '../slug.js';
 import type { Hero, RosterEntry, Role, ScrapeResult } from '../types.js';
 import { FandomClient } from '../sources/FandomClient.js';
 import { buildHeroFromFandom, normalizeFandomHero } from '../sources/fandomNormalize.js';
-import { parsePatchNotes, type ParsedPatch } from '../sources/blizzardPatchNotes.js';
 import { slugToFandomTitle } from '../sources/slugToFandomTitle.js';
 import type { HeroScraper } from './HeroScraper.js';
 
@@ -139,10 +138,7 @@ export class PlaywrightHeroScraper implements HeroScraper {
     const heroes: Record<string, Hero> = {};
     const failed: Array<{ slug: string; reason: string }> = [];
 
-    const { version: patchVersion, patches } = await this.readPatchNotes().catch(() => ({
-      version: new Date().toISOString().slice(0, 10),
-      patches: [] as ParsedPatch[],
-    }));
+    const patchVersion = await this.readPatchVersion().catch(() => new Date().toISOString().slice(0, 10));
 
     const total = roster.length;
     for (let i = 0; i < total; i++) {
@@ -163,21 +159,15 @@ export class PlaywrightHeroScraper implements HeroScraper {
       }
     }
 
-    return { heroes, failed, patchVersion, patches };
+    return { heroes, failed, patchVersion };
   }
 
-  private async readPatchNotes(): Promise<{ version: string; patches: ParsedPatch[] }> {
+  private async readPatchVersion(): Promise<string> {
     const page = await this.newPage();
     try {
       await page.goto(PATCH_NOTES_URL, { waitUntil: 'domcontentloaded' });
-      // Extract the canonical version string and the full HTML in one page load.
       const version = (await page.evaluate(PATCH_EXTRACTOR_SOURCE)) as string;
-      const html = await page.content();
-      const patches = parsePatchNotes(html);
-      return {
-        version: version || new Date().toISOString().slice(0, 10),
-        patches,
-      };
+      return version || new Date().toISOString().slice(0, 10);
     } finally {
       await page.close();
     }

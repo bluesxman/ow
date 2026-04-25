@@ -47,7 +47,9 @@ export const HeroSchema = z.object({
 export type ValidatedHero = z.infer<typeof HeroSchema>;
 
 // Patch-notes schema — validates the shape of data/patch-notes.json.
-// The discriminated union matches the parser output in src/sources/blizzardPatchNotes.ts.
+// Each change carries a {raw, interpreted} pair: the deterministic raw text
+// from Blizzard plus AI-authored interpretation (mode, subject, metric, deltas).
+// The interpreted layer is nullable when the AI couldn't make a confident call.
 
 const SourceAttributionSchema = z.object({
   name: z.string(),
@@ -67,33 +69,78 @@ const MetadataSchema = z.object({
   schema_version: z.string(),
 });
 
-const AbilityChangeSchema = z.object({
-  ability: z.string().min(1),
-  bullets: z.array(z.string()),
+const PatchModeSchema = z.enum(['retail', 'stadium', 'mixed', 'unknown']);
+
+const PatchSubjectKindSchema = z.enum([
+  'hero_general',
+  'ability',
+  'perk',
+  'role',
+  'system',
+  'map',
+  'unknown',
+]);
+
+const PatchMetricSchema = z.enum([
+  'damage',
+  'cooldown',
+  'duration',
+  'range',
+  'radius',
+  'healing',
+  'health',
+  'shields',
+  'armor',
+  'ammo',
+  'reload',
+  'rate_of_fire',
+  'movement_speed',
+  'spread',
+  'projectile_speed',
+  'pellets',
+  'cost',
+  'ultimate_cost',
+  'attack_speed',
+  'energy',
+  'other',
+]);
+
+const NumericOrString = z.union([z.number(), z.string()]);
+
+const PatchChangeRawSchema = z.object({
+  text: z.string().min(1),
 });
 
-const HeroPatchItemSchema = z.object({
-  kind: z.literal('hero'),
-  hero: z.string().min(1),
-  hero_slug: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/),
-  abilities: z.array(AbilityChangeSchema),
-  hero_level: z.array(z.string()),
+const PatchChangeInterpretedSchema = z.object({
+  mode: PatchModeSchema,
+  subject_kind: PatchSubjectKindSchema,
+  hero_slug: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/).nullable(),
+  subject_name: z.string().nullable(),
+  metric: PatchMetricSchema.nullable(),
+  metric_phrase: z.string().nullable(),
+  from: NumericOrString.nullable(),
+  to: NumericOrString.nullable(),
+  delta: NumericOrString.nullable(),
+  blizzard_commentary: z.array(z.string()),
+  notes: z.string(),
 });
 
-const GeneralPatchItemSchema = z.object({
-  kind: z.literal('general'),
-  title: z.string(),
-  bullets: z.array(z.string()),
+const PatchChangeSchema = z.object({
+  raw: PatchChangeRawSchema,
+  interpreted: PatchChangeInterpretedSchema.nullable(),
 });
 
 const PatchSectionSchema = z.object({
   title: z.string().min(1),
-  items: z.array(z.discriminatedUnion('kind', [HeroPatchItemSchema, GeneralPatchItemSchema])),
+  mode: PatchModeSchema,
+  group_label: z.string().nullable(),
+  changes: z.array(PatchChangeSchema),
 });
 
 const PatchSchema = z.object({
   date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
   title: z.string().min(1),
+  url: z.string().nullable(),
   sections: z.array(PatchSectionSchema),
 });
 

@@ -110,40 +110,135 @@ export interface ScrapeResult {
   heroes: Record<string, Hero>;
   failed: Array<{ slug: string; reason: string }>;
   patchVersion: string;
-  patches: ParsedPatch[];
 }
 
-// Patch-notes types — see src/sources/blizzardPatchNotes.ts for the parser
-// that produces values of this shape from Blizzard's HTML.
-export interface AbilityChange {
-  ability: string;
-  bullets: string[];
+// ---------------------------------------------------------------------------
+// Patch-notes types
+//
+// Two layers per change item:
+//   - `raw`: exactly what Blizzard wrote — preserved verbatim so we can re-derive
+//     interpretation later if it changes.
+//   - `interpreted`: AI judgment about what the bullet refers to. Conservative;
+//     may be null when the source is too ambiguous.
+//
+// The deterministic scrape pipeline only produces the `raw` layer (and section
+// boundaries). The interpreted layer is filled in by the refresh-patch-notes
+// Claude Code skill, which reads the raw scrape output and applies AI judgment.
+// ---------------------------------------------------------------------------
+
+// What the change is being applied to. `hero_general` covers hero-level
+// bullets that aren't tied to a single ability (e.g. "Re-enabled.", role
+// passives, hero-wide perk-cost lines). `unknown` is the escape hatch when
+// the AI can't determine the subject confidently.
+export type PatchSubjectKind =
+  | 'hero_general'
+  | 'ability'
+  | 'perk'
+  | 'role'
+  | 'system'
+  | 'map'
+  | 'unknown';
+
+// Game mode the change applies to. Stadium is a separate game mode with
+// different Powers/Items/costs; retail covers Quick Play / Competitive /
+// Mystery Heroes / etc. `mixed` is rare but appears for cross-mode changes.
+export type PatchMode = 'retail' | 'stadium' | 'mixed' | 'unknown';
+
+// Common metrics we extract from "X reduced from A to B"-style bullets.
+// Free-form `metric` is allowed for anything outside this list.
+export type PatchMetric =
+  | 'damage'
+  | 'cooldown'
+  | 'duration'
+  | 'range'
+  | 'radius'
+  | 'healing'
+  | 'health'
+  | 'shields'
+  | 'armor'
+  | 'ammo'
+  | 'reload'
+  | 'rate_of_fire'
+  | 'movement_speed'
+  | 'spread'
+  | 'projectile_speed'
+  | 'pellets'
+  | 'cost'
+  | 'ultimate_cost'
+  | 'attack_speed'
+  | 'energy'
+  | 'other';
+
+export interface PatchChangeRaw {
+  // The bullet text exactly as Blizzard published it.
+  text: string;
 }
 
-export interface HeroPatchItem {
-  kind: 'hero';
-  hero: string;
-  hero_slug: string;
-  abilities: AbilityChange[];
-  hero_level: string[];
+export interface PatchChangeInterpreted {
+  // What is this change about?
+  mode: PatchMode;
+  subject_kind: PatchSubjectKind;
+  // Hero this change applies to (slug). Null when the subject isn't a hero
+  // (system updates, map changes, etc.) or when context isn't clear.
+  hero_slug: string | null;
+  // Display name of the specific subject — ability name, perk name, hero name
+  // for hero-general, or whatever Blizzard's bracketed prefix points at.
+  // Null when the subject is structural (system / unknown).
+  subject_name: string | null;
+
+  // What's changing (when extractable). Free-form `metric` falls back to
+  // "other" with the natural-language phrase preserved in `metric_phrase`.
+  metric: PatchMetric | null;
+  metric_phrase: string | null;
+
+  // Numeric deltas when the bullet states them clearly. Strings allowed
+  // because Blizzard often writes percentages, ranges, or composite values
+  // (e.g. "300 / 750 (during Rally)"). Null when the bullet is qualitative.
+  from: number | string | null;
+  to: number | string | null;
+  delta: number | string | null;
+
+  // Surface any inline Blizzard commentary the AI extracted from the bullet
+  // (e.g. dev notes, parenthetical caveats, "(6v6)" qualifiers). Empty array
+  // when no commentary is present.
+  blizzard_commentary: string[];
+
+  // AI-authored note explaining the call when the source is ambiguous —
+  // e.g. "subject inferred from surrounding bullets in the same hero block",
+  // "Stadium-mode bullet, no specific power named". Empty string when the
+  // interpretation is unambiguous.
+  notes: string;
 }
 
-export interface GeneralPatchItem {
-  kind: 'general';
-  title: string;
-  bullets: string[];
+export interface PatchChange {
+  raw: PatchChangeRaw;
+  // Null when the AI couldn't derive a confident interpretation. Consumers
+  // should always fall back to `raw.text`.
+  interpreted: PatchChangeInterpreted | null;
 }
-
-export type PatchSectionItem = HeroPatchItem | GeneralPatchItem;
 
 export interface PatchSection {
+  // Section title as it appears on Blizzard's page (e.g. "Damage", "Stadium
+  // Hero Updates", "Bug Fixes").
   title: string;
-  items: PatchSectionItem[];
+  // Section-level mode hint. Set by the AI based on the title and context.
+  // Items inside still carry their own `interpreted.mode` because a Stadium
+  // bullet can sometimes appear inside a "Bug Fixes" section.
+  mode: PatchMode;
+  // Optional subject grouping label — typically a hero name when the section
+  // groups all changes for that hero, or a general topic ("Map Voting Updates").
+  // Null when the section is a flat list with no grouping.
+  group_label: string | null;
+  changes: PatchChange[];
 }
 
 export interface ParsedPatch {
+  // ISO yyyy-mm-dd.
   date: string;
+  // Title as Blizzard published it.
   title: string;
+  // Optional URL to the patch notes article (when Blizzard links one).
+  url: string | null;
   sections: PatchSection[];
 }
 

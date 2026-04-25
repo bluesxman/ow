@@ -1,14 +1,21 @@
-// Parses Blizzard's public patch-notes page into a structured form. The same
-// HTML feed serves two consumers:
-//   1. The scrape pipeline, which publishes data/patch-notes.json (history).
-//   2. The process-patch-notes skill, which renders a windowed markdown summary
-//      to .run/patch-notes.md.
-// Both go through this module so the parser is a single source of truth.
+// Parses Blizzard's public patch-notes page into a *raw* structured form.
+//
+// This module produces the deterministic input that the refresh-patch-notes
+// Claude Code skill consumes. The output is not the published shape — it's
+// pre-interpretation; the AI skill maps it onto the richer published JSON
+// (`data/patch-notes.json`) where each change carries a {raw, interpreted}
+// pair. See src/types.ts for the published shape.
+//
+// Two consumers share this module:
+//   1. The refresh-patch-notes skill, which calls fetchAndParse() to get the
+//      raw input and then writes data/patch-notes.json with AI judgment.
+//   2. The process-patch-notes skill (separate, for hero-stat patching),
+//      which calls fetchAndParse() + renderMarkdown() to get the windowed
+//      .run/patch-notes.md it traditionally consumes.
 
 import { parse, type HTMLElement } from 'node-html-parser';
 import { PATCH_NOTES_URL, USER_AGENT } from '../config.js';
 import { toSlug } from '../slug.js';
-import type { AbilityChange, ParsedPatch, PatchSection, PatchSectionItem } from '../types.js';
 
 // Earliest patch we publish. Coincides with OW2 Season 20: Vendetta — the
 // last season before the 2026 Overwatch rebrand. Older patches are still
@@ -17,7 +24,46 @@ export const PATCH_HISTORY_CUTOFF_DATE = '2025-12-09';
 
 const PATCH_NOTES_FETCH_TIMEOUT_MS = 20_000;
 
-export type { AbilityChange, ParsedPatch, PatchSection, PatchSectionItem };
+// ---------------------------------------------------------------------------
+// Raw scrape types — what the deterministic parser produces.
+// These are intentionally structural only — no mode/subject/metric inference.
+// The AI skill is responsible for that interpretation.
+// ---------------------------------------------------------------------------
+
+export interface RawAbilityChange {
+  ability: string;
+  bullets: string[];
+}
+
+export interface RawHeroPatchItem {
+  kind: 'hero';
+  hero: string;
+  hero_slug: string;
+  abilities: RawAbilityChange[];
+  // Hero-level bullets — not nested under any specific ability heading.
+  hero_level: string[];
+}
+
+export interface RawGeneralPatchItem {
+  kind: 'general';
+  // Sub-title when present (e.g. "Mystery Heroes Updates"); empty string for
+  // bare section bullets without a sub-title.
+  title: string;
+  bullets: string[];
+}
+
+export type RawPatchSectionItem = RawHeroPatchItem | RawGeneralPatchItem;
+
+export interface RawPatchSection {
+  title: string;
+  items: RawPatchSectionItem[];
+}
+
+export interface RawParsedPatch {
+  date: string; // ISO yyyy-mm-dd
+  title: string;
+  sections: RawPatchSection[];
+}
 
 function liText(el: HTMLElement): string {
   return el.text.replace(/\s+/g, ' ').trim();
@@ -34,9 +80,9 @@ function parsePatchDate(title: string): string | null {
 
 // Parses the patch-notes HTML into structured patches, sorted newest-first.
 // Drops patches before PATCH_HISTORY_CUTOFF_DATE.
-export function parsePatchNotes(html: string): ParsedPatch[] {
+export function parsePatchNotes(html: string): RawParsedPatch[] {
   const root = parse(html);
-  const out: ParsedPatch[] = [];
+  const out: RawParsedPatch[] = [];
 
   for (const patch of root.querySelectorAll('.PatchNotes-patch')) {
     const titleEl = patch.querySelector('.PatchNotes-patchTitle, .PatchNotes-patch-title, h3');
@@ -45,14 +91,14 @@ export function parsePatchNotes(html: string): ParsedPatch[] {
     if (!date || !title) continue;
     if (date < PATCH_HISTORY_CUTOFF_DATE) continue;
 
-    const sections: PatchSection[] = [];
+    const sections: RawPatchSection[] = [];
 
     for (const section of patch.querySelectorAll('.PatchNotes-section')) {
       const sectionTitleEl = section.querySelector('.PatchNotes-sectionTitle, h4');
       const sectionTitle = sectionTitleEl ? sectionTitleEl.text.trim() : '';
       if (!sectionTitle) continue;
 
-      const items: PatchSectionItem[] = [];
+      const items: RawPatchSectionItem[] = [];
 
       const sectionBullets = section
         .querySelectorAll(':scope > .PatchNotes-sectionDescription > ul > li')
@@ -83,7 +129,7 @@ export function parsePatchNotes(html: string): ParsedPatch[] {
           .map(liText)
           .filter((b) => b.length > 0);
 
-        const abilities: AbilityChange[] = [];
+        const abilities: RawAbilityChange[] = [];
         for (const ability of hero.querySelectorAll('.PatchNotesAbilityUpdate')) {
           const abNameEl = ability.querySelector('.PatchNotesAbilityUpdate-name, h6');
           const abName = abNameEl ? abNameEl.text.trim() : '';
@@ -122,10 +168,7 @@ export interface FetchOptions {
   timeoutMs?: number;
 }
 
-// Fetches Blizzard's patch-notes HTML and parses it. Used by both the scrape
-// pipeline (via PlaywrightHeroScraper indirectly — it already has the HTML in
-// hand) and the standalone skill script.
-export async function fetchAndParse(opts: FetchOptions = {}): Promise<ParsedPatch[]> {
+export async function fetchAndParse(opts: FetchOptions = {}): Promise<RawParsedPatch[]> {
   const url = opts.url ?? PATCH_NOTES_URL;
   const timeoutMs = opts.timeoutMs ?? PATCH_NOTES_FETCH_TIMEOUT_MS;
   const controller = new AbortController();
@@ -143,8 +186,6 @@ export async function fetchAndParse(opts: FetchOptions = {}): Promise<ParsedPatc
   }
 }
 
-// Resolves "30d" / ISO-date / yyyy-mm-dd into an ISO yyyy-mm-dd cutoff for
-// windowed markdown rendering. Used by the skill script.
 export function resolveSinceWindow(since: string, now = new Date()): string {
   const m = since.match(/^(\d+)d$/i);
   if (m) {
@@ -158,12 +199,12 @@ export function resolveSinceWindow(since: string, now = new Date()): string {
   return iso.toISOString().slice(0, 10);
 }
 
-// Renders parsed patches as the markdown shape that .run/patch-notes.md has
-// historically used. The skill's list-affected-heroes.mjs parses this exact
-// shape (#### Hero, - **Ability**, nested bullets), so any change here must
-// stay compatible.
+// Render raw patches as the markdown shape that .run/patch-notes.md has
+// historically used. The process-patch-notes skill's list-affected-heroes
+// parses this exact shape (#### Hero, - **Ability**, nested bullets), so any
+// change here must stay compatible.
 export function renderMarkdown(
-  patches: ParsedPatch[],
+  patches: RawParsedPatch[],
   windowStart: string,
   windowEnd: string,
 ): string {

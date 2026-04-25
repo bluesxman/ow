@@ -45,37 +45,31 @@ describe('z.toJSONSchema(PatchNotesDocSchema) — published patch-notes schema c
     expect(required).toContain('patches');
   });
 
-  it('parses a minimal valid document', () => {
+  const baseMetadata = {
+    last_updated: '2026-04-25T00:00:00.000Z',
+    patch_version: 'Test Patch',
+    hero_count: 1,
+    heroes_failed: [],
+    fandom_failed: [],
+    sources: [],
+    schema_version: '5.0.0',
+  };
+
+  it('parses a minimal valid document with raw + null interpreted', () => {
     const minimal = {
-      metadata: {
-        last_updated: '2026-04-25T00:00:00.000Z',
-        patch_version: 'Test Patch',
-        hero_count: 1,
-        heroes_failed: [],
-        fandom_failed: [],
-        sources: [],
-        schema_version: '5.0.0',
-      },
+      metadata: baseMetadata,
       patches: [
         {
           date: '2026-04-17',
           title: 'Overwatch Retail Patch Notes - April 17, 2026',
+          url: null,
           sections: [
             {
               title: 'Damage',
-              items: [
-                {
-                  kind: 'hero',
-                  hero: 'Cassidy',
-                  hero_slug: 'cassidy',
-                  abilities: [{ ability: 'Peacekeeper', bullets: ['x'] }],
-                  hero_level: [],
-                },
-                {
-                  kind: 'general',
-                  title: '',
-                  bullets: ['general note'],
-                },
+              mode: 'retail',
+              group_label: null,
+              changes: [
+                { raw: { text: 'Cassidy Peacekeeper damage reduced.' }, interpreted: null },
               ],
             },
           ],
@@ -85,31 +79,74 @@ describe('z.toJSONSchema(PatchNotesDocSchema) — published patch-notes schema c
     expect(PatchNotesDocSchema.safeParse(minimal).success).toBe(true);
   });
 
-  it('rejects a hero item with an invalid slug', () => {
-    const bad = {
-      metadata: {
-        last_updated: '2026-04-25T00:00:00.000Z',
-        patch_version: 'Test Patch',
-        hero_count: 1,
-        heroes_failed: [],
-        fandom_failed: [],
-        sources: [],
-        schema_version: '5.0.0',
-      },
+  it('parses a fully-interpreted change with mode/subject/metric/from/to', () => {
+    const fullyInterpreted = {
+      metadata: baseMetadata,
       patches: [
         {
           date: '2026-04-17',
           title: 'Test',
+          url: null,
           sections: [
             {
               title: 'Damage',
-              items: [
+              mode: 'retail',
+              group_label: 'Cassidy',
+              changes: [
                 {
-                  kind: 'hero',
-                  hero: 'Cassidy',
-                  hero_slug: 'BAD SLUG',
-                  abilities: [],
-                  hero_level: [],
+                  raw: { text: 'Damage per projectile reduced from 75 to 70.' },
+                  interpreted: {
+                    mode: 'retail',
+                    subject_kind: 'ability',
+                    hero_slug: 'cassidy',
+                    subject_name: 'Peacekeeper',
+                    metric: 'damage',
+                    metric_phrase: 'damage per projectile',
+                    from: 75,
+                    to: 70,
+                    delta: -5,
+                    blizzard_commentary: [],
+                    notes: '',
+                  },
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    };
+    expect(PatchNotesDocSchema.safeParse(fullyInterpreted).success).toBe(true);
+  });
+
+  it('rejects an interpreted block with an invalid hero slug', () => {
+    const bad = {
+      metadata: baseMetadata,
+      patches: [
+        {
+          date: '2026-04-17',
+          title: 'Test',
+          url: null,
+          sections: [
+            {
+              title: 'Damage',
+              mode: 'retail',
+              group_label: null,
+              changes: [
+                {
+                  raw: { text: 'x' },
+                  interpreted: {
+                    mode: 'retail',
+                    subject_kind: 'ability',
+                    hero_slug: 'BAD SLUG',
+                    subject_name: 'Peacekeeper',
+                    metric: 'damage',
+                    metric_phrase: null,
+                    from: null,
+                    to: null,
+                    delta: null,
+                    blizzard_commentary: [],
+                    notes: '',
+                  },
                 },
               ],
             },
@@ -122,16 +159,8 @@ describe('z.toJSONSchema(PatchNotesDocSchema) — published patch-notes schema c
 
   it('rejects a malformed patch date', () => {
     const bad = {
-      metadata: {
-        last_updated: '2026-04-25T00:00:00.000Z',
-        patch_version: 'Test Patch',
-        hero_count: 0,
-        heroes_failed: [],
-        fandom_failed: [],
-        sources: [],
-        schema_version: '5.0.0',
-      },
-      patches: [{ date: 'April 17, 2026', title: 'Test', sections: [] }],
+      metadata: baseMetadata,
+      patches: [{ date: 'April 17, 2026', title: 'Test', url: null, sections: [] }],
     };
     expect(PatchNotesDocSchema.safeParse(bad).success).toBe(false);
   });

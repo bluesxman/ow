@@ -80,7 +80,6 @@ export interface PublishInput {
   diff: HeroDiff;
   dryRun: boolean;
   root: string;
-  patches: ParsedPatch[];
 }
 
 export interface PublishedLinks {
@@ -96,7 +95,6 @@ export interface Aggregates {
   statsDoc: unknown;
   allDoc: unknown;
   schemaDoc: unknown;
-  patchNotesDoc: unknown;
   patchNotesSchemaDoc: unknown;
   links: PublishedLinks;
 }
@@ -105,7 +103,6 @@ export function buildAggregates(
   heroes: Record<string, Hero>,
   roster: RosterEntry[],
   metadata: Metadata,
-  patches: ParsedPatch[] = [],
 ): Aggregates {
   const slugs = Object.keys(heroes).sort();
   const rosterSorted = [...roster].sort((a, b) => a.slug.localeCompare(b.slug));
@@ -141,7 +138,7 @@ export function buildAggregates(
     },
     patch_notes: {
       path: 'patch-notes.json',
-      description: 'Structured history of Blizzard patch notes from OW2 Season 20 (2025-12-09) onward. Each patch carries a date, title, and sections of hero/general changes.',
+      description: 'Structured history of Blizzard patch notes from OW2 Season 20 (2025-12-09) onward. Each patch carries a date, title, and sections of hero/general changes. Produced manually via the refresh-patch-notes skill (Claude Code), not by the automated scrape pipeline — interpretation of natural-language patch notes requires AI judgment.',
     },
     patch_notes_schema: {
       path: 'patch-notes-schema.json',
@@ -259,8 +256,6 @@ export function buildAggregates(
     heroes: Object.fromEntries(slugs.map((s) => [s, heroes[s]!])),
   };
 
-  const patchNotesDoc = { metadata, patches };
-
   const patchNotesSchemaDoc = {
     $schema: 'https://json-schema.org/draft/2020-12/schema',
     $id: `${PUBLISHED_RAW_BASE}/patch-notes-schema.json`,
@@ -278,38 +273,36 @@ export function buildAggregates(
     statsDoc,
     allDoc,
     schemaDoc,
-    patchNotesDoc,
     patchNotesSchemaDoc,
     links,
   };
 }
 
 export async function publish(input: PublishInput): Promise<{ paths: PublishPaths; filesWritten: string[] }> {
-  const { heroes, roster, metadata, diff, dryRun, root, patches } = input;
+  const { heroes, roster, metadata, diff, dryRun, root } = input;
   const paths = buildPaths(root);
   const filesWritten: string[] = [];
 
   const slugs = Object.keys(heroes).sort();
   const rosterSorted = [...roster].sort((a, b) => a.slug.localeCompare(b.slug));
 
-  // Merge incoming patches with whatever's already on disk so history grows
-  // monotonically as Blizzard's rolling feed cycles older patches off.
-  const priorPatches = await readPreviousPatches(paths);
-  const mergedPatches = mergePatches(priorPatches, patches);
-
   const {
     indexDoc, heroesDoc, perksDoc, abilitiesDoc, statsDoc, allDoc, schemaDoc,
-    patchNotesDoc, patchNotesSchemaDoc, links,
-  } = buildAggregates(heroes, roster, metadata, mergedPatches);
+    patchNotesSchemaDoc, links,
+  } = buildAggregates(heroes, roster, metadata);
 
   if (dryRun) {
-    console.log(`[dry-run] would write ${slugs.length} per-hero files + 9 top-level files + ATTRIBUTION.md + links.md`);
+    console.log(`[dry-run] would write ${slugs.length} per-hero files + 8 top-level files + ATTRIBUTION.md + links.md`);
     return { paths, filesWritten: [] };
   }
 
   await mkdir(paths.dataDir, { recursive: true });
   await mkdir(paths.heroesDir, { recursive: true });
 
+  // patch-notes.json is intentionally NOT written here — it's maintained by
+  // the refresh-patch-notes Claude Code skill, which interprets Blizzard's
+  // natural-language patch notes into structured form. The auto-pipeline only
+  // publishes the schema (a static contract definition).
   const topLevel: Array<[string, unknown]> = [
     [join(paths.dataDir, 'index.json'), indexDoc],
     [join(paths.dataDir, 'heroes.json'), heroesDoc],
@@ -318,7 +311,6 @@ export async function publish(input: PublishInput): Promise<{ paths: PublishPath
     [join(paths.dataDir, 'stats.json'), statsDoc],
     [join(paths.dataDir, 'all.json'), allDoc],
     [join(paths.dataDir, 'schema.json'), schemaDoc],
-    [paths.patchNotesPath, patchNotesDoc],
     [join(paths.dataDir, 'patch-notes-schema.json'), patchNotesSchemaDoc],
   ];
 

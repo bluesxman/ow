@@ -21,7 +21,9 @@
     "test:watch": "vitest",
     "patch-notes:fetch": "tsx .claude/skills/process-patch-notes/scripts/fetch-blizzard-patches.ts",
     "patch-notes:affected": "tsx .claude/skills/process-patch-notes/scripts/list-affected-heroes.ts",
-    "patch-notes:rebuild-aggregates": "tsx .claude/skills/process-patch-notes/scripts/rebuild-aggregates.ts"
+    "patch-notes:rebuild-aggregates": "tsx .claude/skills/process-patch-notes/scripts/rebuild-aggregates.ts",
+    "patch-notes:dump-raw": "tsx .claude/skills/refresh-patch-notes/scripts/dump-raw-patches.ts",
+    "patch-notes:validate": "tsx .claude/skills/refresh-patch-notes/scripts/validate-patch-notes.ts"
   },
   "dependencies": {
     "playwright": "^1.59.0",

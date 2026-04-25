@@ -4,7 +4,7 @@
   "title": "Overwatch Patch Notes",
   "description": "Schema for the structured patch-notes history published in data/patch-notes.json. Each patch carries a date, title, and sections of hero/general changes.",
   "metadata": {
-    "last_updated": "2026-04-25T16:41:57.846Z",
+    "last_updated": "2026-04-25T17:28:20.254Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -128,6 +128,16 @@
               "type": "string",
               "minLength": 1
             },
+            "url": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
             "sections": {
               "type": "array",
               "items": {
@@ -137,95 +147,228 @@
                     "type": "string",
                     "minLength": 1
                   },
-                  "items": {
+                  "mode": {
+                    "type": "string",
+                    "enum": [
+                      "retail",
+                      "stadium",
+                      "mixed",
+                      "unknown"
+                    ]
+                  },
+                  "group_label": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "changes": {
                     "type": "array",
                     "items": {
-                      "oneOf": [
-                        {
+                      "type": "object",
+                      "properties": {
+                        "raw": {
                           "type": "object",
                           "properties": {
-                            "kind": {
-                              "type": "string",
-                              "const": "hero"
-                            },
-                            "hero": {
+                            "text": {
                               "type": "string",
                               "minLength": 1
-                            },
-                            "hero_slug": {
-                              "type": "string",
-                              "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
-                            },
-                            "abilities": {
-                              "type": "array",
-                              "items": {
-                                "type": "object",
-                                "properties": {
-                                  "ability": {
-                                    "type": "string",
-                                    "minLength": 1
-                                  },
-                                  "bullets": {
-                                    "type": "array",
-                                    "items": {
-                                      "type": "string"
-                                    }
-                                  }
-                                },
-                                "required": [
-                                  "ability",
-                                  "bullets"
-                                ],
-                                "additionalProperties": false
-                              }
-                            },
-                            "hero_level": {
-                              "type": "array",
-                              "items": {
-                                "type": "string"
-                              }
                             }
                           },
                           "required": [
-                            "kind",
-                            "hero",
-                            "hero_slug",
-                            "abilities",
-                            "hero_level"
+                            "text"
                           ],
                           "additionalProperties": false
                         },
-                        {
-                          "type": "object",
-                          "properties": {
-                            "kind": {
-                              "type": "string",
-                              "const": "general"
+                        "interpreted": {
+                          "anyOf": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "mode": {
+                                  "type": "string",
+                                  "enum": [
+                                    "retail",
+                                    "stadium",
+                                    "mixed",
+                                    "unknown"
+                                  ]
+                                },
+                                "subject_kind": {
+                                  "type": "string",
+                                  "enum": [
+                                    "hero_general",
+                                    "ability",
+                                    "perk",
+                                    "role",
+                                    "system",
+                                    "map",
+                                    "unknown"
+                                  ]
+                                },
+                                "hero_slug": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string",
+                                      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+                                    },
+                                    {
+                                      "type": "null"
+                                    }
+                                  ]
+                                },
+                                "subject_name": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string"
+                                    },
+                                    {
+                                      "type": "null"
+                                    }
+                                  ]
+                                },
+                                "metric": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string",
+                                      "enum": [
+                                        "damage",
+                                        "cooldown",
+                                        "duration",
+                                        "range",
+                                        "radius",
+                                        "healing",
+                                        "health",
+                                        "shields",
+                                        "armor",
+                                        "ammo",
+                                        "reload",
+                                        "rate_of_fire",
+                                        "movement_speed",
+                                        "spread",
+                                        "projectile_speed",
+                                        "pellets",
+                                        "cost",
+                                        "ultimate_cost",
+                                        "attack_speed",
+                                        "energy",
+                                        "other"
+                                      ]
+                                    },
+                                    {
+                                      "type": "null"
+                                    }
+                                  ]
+                                },
+                                "metric_phrase": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string"
+                                    },
+                                    {
+                                      "type": "null"
+                                    }
+                                  ]
+                                },
+                                "from": {
+                                  "anyOf": [
+                                    {
+                                      "anyOf": [
+                                        {
+                                          "type": "number"
+                                        },
+                                        {
+                                          "type": "string"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "null"
+                                    }
+                                  ]
+                                },
+                                "to": {
+                                  "anyOf": [
+                                    {
+                                      "anyOf": [
+                                        {
+                                          "type": "number"
+                                        },
+                                        {
+                                          "type": "string"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "null"
+                                    }
+                                  ]
+                                },
+                                "delta": {
+                                  "anyOf": [
+                                    {
+                                      "anyOf": [
+                                        {
+                                          "type": "number"
+                                        },
+                                        {
+                                          "type": "string"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "null"
+                                    }
+                                  ]
+                                },
+                                "blizzard_commentary": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                },
+                                "notes": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "mode",
+                                "subject_kind",
+                                "hero_slug",
+                                "subject_name",
+                                "metric",
+                                "metric_phrase",
+                                "from",
+                                "to",
+                                "delta",
+                                "blizzard_commentary",
+                                "notes"
+                              ],
+                              "additionalProperties": false
                             },
-                            "title": {
-                              "type": "string"
-                            },
-                            "bullets": {
-                              "type": "array",
-                              "items": {
-                                "type": "string"
-                              }
+                            {
+                              "type": "null"
                             }
-                          },
-                          "required": [
-                            "kind",
-                            "title",
-                            "bullets"
-                          ],
-                          "additionalProperties": false
+                          ]
                         }
-                      ]
+                      },
+                      "required": [
+                        "raw",
+                        "interpreted"
+                      ],
+                      "additionalProperties": false
                     }
                   }
                 },
                 "required": [
                   "title",
-                  "items"
+                  "mode",
+                  "group_label",
+                  "changes"
                 ],
                 "additionalProperties": false
               }
@@ -234,6 +377,7 @@
           "required": [
             "date",
             "title",
+            "url",
             "sections"
           ],
           "additionalProperties": false

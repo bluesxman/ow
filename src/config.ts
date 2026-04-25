@@ -13,7 +13,7 @@ export const MAX_HERO_FAILURES_BEFORE_ABORT = 5;
 
 // Semver. Major: breaking schema change. Minor: non-breaking schema change.
 // Patch: data only, no schema change. See AGENTS.md for the full policy.
-export const SCHEMA_VERSION = '5.0.0';
+export const SCHEMA_VERSION = '6.0.0';
 
 export const PUBLISHED_RAW_BASE = 'https://raw.githubusercontent.com/bluesxman/ow/main/data';
 

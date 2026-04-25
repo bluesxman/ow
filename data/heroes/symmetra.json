@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.0.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Symmetra",
@@ -46,6 +46,7 @@
     "sub_role": "specialist",
     "abilities": [
       {
+        "slug": "photon-projector",
         "name": "Photon Projector",
         "description": "Short-range beam weapon with increasing damage.",
         "ability_type": "Weapon;;Primary Fire",
@@ -59,6 +60,7 @@
         "dps": "60/120/180 while firing"
       },
       {
+        "slug": "photon-projector-alt-fire",
         "name": "Photon Projector Alt Fire",
         "description": "Hold to charge, release to fire explosive orb.",
         "ability_type": "Weapon;;Secondary Fire",
@@ -75,6 +77,7 @@
         "dps": "90.9 while firing (at full charge)"
       },
       {
+        "slug": "sentry-turret",
         "name": "Sentry Turret",
         "description": "Deploy a small turret that damages and slows enemies.",
         "ability_type": "Ability",
@@ -87,6 +90,7 @@
         "range": "10 meters (turret beam)"
       },
       {
+        "slug": "teleporter",
         "name": "Teleporter",
         "description": "Create two temporary teleporters that enable instance travel between them.",
         "ability_type": "Ability",
@@ -97,6 +101,7 @@
         "radius": "1.5 meter (interact range)"
       },
       {
+        "slug": "photon-barrier",
         "name": "Photon Barrier",
         "description": "Deploy a massive energy barrier.",
         "ability_type": "Ultimate Ability",
@@ -108,20 +113,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "sentry-capacity",
           "name": "Sentry Capacity",
           "description": "Sentry Turret gains an additional charge."
         },
         {
+          "slug": "perfect-alignment",
           "name": "Perfect Alignment",
           "description": "Increase the range of Photon Projector's primary fire by 20%."
         }
       ],
       "major": [
         {
+          "slug": "hovering-barrier",
           "name": "Hovering Barrier",
           "description": "Teleporter gains the option to create a forward moving barrier instead. Pressing Ability 2 again slows down the barrier's movement."
         },
         {
+          "slug": "shield-battery",
           "name": "Shield Battery",
           "description": "Symmetra regenerates 20 shields per second while within 10 meters of her teleporter."
         }

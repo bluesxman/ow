@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.0.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Lifeweaver",
@@ -46,6 +46,7 @@
     "sub_role": "medic",
     "abilities": [
       {
+        "slug": "healing-blossom",
         "name": "Healing Blossom",
         "description": "Hold to charge a healing burst. Release to heal a targeted ally. Passively charges at a reduced rate while not in use.",
         "ability_type": "Weapon;;Primary Fire",
@@ -58,6 +59,7 @@
         "projectile_radius": "0.25 meters"
       },
       {
+        "slug": "thorn-volley",
         "name": "Thorn Volley",
         "description": "Rapidly fire a spread of projectiles.",
         "ability_type": "Weapon;;Secondary Fire",
@@ -73,6 +75,7 @@
         "dps": "131.87 while firing (99.17 overall w/ reload)"
       },
       {
+        "slug": "petal-platform",
         "name": "Petal Platform",
         "description": "Throw a platform that springs upwards when stepped on. Resets when not in use.",
         "ability_type": "Ability",
@@ -83,6 +86,7 @@
         "projectile_radius": "0.15 meters"
       },
       {
+        "slug": "rejuvenating-dash",
         "name": "Rejuvenating Dash",
         "description": "Dash towards your traveling direction and lightly heal yourself.",
         "cooldown": "5 seconds",
@@ -92,6 +96,7 @@
         "duration": "0.3 seconds"
       },
       {
+        "slug": "life-grip",
         "name": "Life Grip",
         "description": "Pull an ally to your location, protecting them as they travel.",
         "ability_type": "Ability",
@@ -100,6 +105,7 @@
         "range": "30 meters"
       },
       {
+        "slug": "tree-of-life",
         "name": "Tree of Life",
         "description": "Place a tree that instantly heals allies upon sprouting and continues healing periodically as it lives.",
         "ability_type": "Ultimate Ability",
@@ -114,20 +120,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "petal-protection",
           "name": "Petal Protection",
           "description": "Allies heal 20 health per second while standing on Petal Platform."
         },
         {
+          "slug": "dashing-escape",
           "name": "Dashing Escape",
           "description": "Rejuvenating Dash distance increased by 30%."
         }
       ],
       "major": [
         {
+          "slug": "superbloom",
           "name": "Superbloom",
           "description": "Thorns detonate for 40 extra damage when enough stick within 2.5 seconds."
         },
         {
+          "slug": "sow-the-seed",
           "name": "Sow the Seed",
           "description": "Quick Melee with Healing Blossom equipped tosses a seed forward. Allies who pick up a seed gain 75 overhealth and 25% movement speed for 5 seconds."
         }

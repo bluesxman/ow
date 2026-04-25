@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.0.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Hanzo",
@@ -46,12 +46,14 @@
     "sub_role": "sharpshooter",
     "abilities": [
       {
+        "slug": "wall-climb",
         "name": "Wall Climb",
         "description": "Jump at walls to climb up them.",
         "duration": "Up to 1 second",
         "ability_type": "Passive Ability"
       },
       {
+        "slug": "storm-bow",
         "name": "Storm Bow",
         "description": "Hold to charge then release to launch arrows further.",
         "ability_type": "Weapon",
@@ -65,6 +67,7 @@
         "dps": "102.46 at full charge, 50 at min charge"
       },
       {
+        "slug": "sonic-arrow",
         "name": "Sonic Arrow",
         "description": "Reveals enemies for a short time upon impact.",
         "ability_type": "Ability",
@@ -74,6 +77,7 @@
         "duration": "6 seconds"
       },
       {
+        "slug": "storm-arrows",
         "name": "Storm Arrows",
         "description": "The next 5 arrows ricochet and fire instantly at reduced damage.",
         "ability_type": "Ability",
@@ -88,6 +92,7 @@
         "spread": "None"
       },
       {
+        "slug": "lunge",
         "name": "Lunge",
         "description": "Double Jump.",
         "cooldown": "4 seconds",
@@ -95,6 +100,7 @@
         "ability_type": "Ability"
       },
       {
+        "slug": "dragonstrike",
         "name": "Dragonstrike",
         "description": "Launch a deadly Dragon Spirit that devastates enemies it passes through.",
         "ability_type": "Ultimate Ability",
@@ -110,20 +116,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "sonic-disruption",
           "name": "Sonic Disruption",
           "description": "Sonic Arrow hacks nearby Health Packs for 30 seconds."
         },
         {
+          "slug": "dragon-fury",
           "name": "Dragon Fury",
           "description": "After hitting an enemy with Primary Fire, gain 20% attack speed for 1.5 seconds."
         }
       ],
       "major": [
         {
+          "slug": "frost-arrow",
           "name": "Frost Arrow",
           "description": "Press Reload to ready an explosive frost arrow that slows enemies by 35% for 2 seconds."
         },
         {
+          "slug": "scatter-arrows",
           "name": "Scatter Arrows",
           "description": "On first ricochet, Storm Arrows split into 5 shots dealing 33% damage and bounce 1 extra time."
         }

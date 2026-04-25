@@ -33,6 +33,25 @@ describe('z.toJSONSchema(HeroSchema) — published schema contract', () => {
   it('exposes the slug pattern so external validators reject malformed slugs', () => {
     expect(properties.slug).toEqual(expect.objectContaining({ type: 'string', pattern: expect.stringContaining('a-z0-9') }));
   });
+
+  it('requires slug on every ability', () => {
+    const abilities = properties.abilities as Record<string, unknown>;
+    const items = abilities.items as Record<string, unknown>;
+    const itemRequired = items.required as string[];
+    expect(itemRequired).toContain('slug');
+    expect(itemRequired).toContain('name');
+    expect(itemRequired).toContain('description');
+  });
+
+  it('requires slug on every perk', () => {
+    const perks = properties.perks as Record<string, unknown>;
+    const perkProps = perks.properties as Record<string, Record<string, unknown>>;
+    const minorItems = (perkProps.minor as Record<string, unknown>).items as Record<string, unknown>;
+    const minorRequired = minorItems.required as string[];
+    expect(minorRequired).toContain('slug');
+    expect(minorRequired).toContain('name');
+    expect(minorRequired).toContain('description');
+  });
 });
 
 describe('z.toJSONSchema(PatchNotesDocSchema) — published patch-notes schema contract', () => {
@@ -52,7 +71,7 @@ describe('z.toJSONSchema(PatchNotesDocSchema) — published patch-notes schema c
     heroes_failed: [],
     fandom_failed: [],
     sources: [],
-    schema_version: '5.0.0',
+    schema_version: '6.0.0',
   };
 
   it('parses a minimal valid document with raw + null interpreted', () => {
@@ -100,6 +119,7 @@ describe('z.toJSONSchema(PatchNotesDocSchema) — published patch-notes schema c
                     subject_kind: 'ability',
                     hero_slug: 'cassidy',
                     subject_name: 'Peacekeeper',
+                    subject_slug: 'peacekeeper',
                     metric: 'damage',
                     metric_phrase: 'damage per projectile',
                     from: 75,
@@ -139,6 +159,7 @@ describe('z.toJSONSchema(PatchNotesDocSchema) — published patch-notes schema c
                     subject_kind: 'ability',
                     hero_slug: 'BAD SLUG',
                     subject_name: 'Peacekeeper',
+                    subject_slug: 'peacekeeper',
                     metric: 'damage',
                     metric_phrase: null,
                     from: null,

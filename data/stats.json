@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.0.0"
+    "schema_version": "6.0.0"
   },
   "heroes": {
     "ana": {
@@ -42,6 +42,7 @@
       },
       "abilities": [
         {
+          "slug": "biotic-rifle",
           "name": "Biotic Rifle",
           "ability_type": "Weapon;;Hip Fire",
           "damage": "75 over 0.59 seconds",
@@ -57,6 +58,7 @@
           "dps": "while firing / overall w/ reload"
         },
         {
+          "slug": "zoom-ads",
           "name": "Zoom (ADS)",
           "ability_type": "Weapon;;ADS",
           "headshot": false,
@@ -65,6 +67,7 @@
           "dps": "while firing / overall w/ reload"
         },
         {
+          "slug": "sleep-dart",
           "name": "Sleep Dart",
           "ability_type": "Ability",
           "cooldown": "14 seconds",
@@ -75,6 +78,7 @@
           "projectile_radius": "0.2 meters"
         },
         {
+          "slug": "biotic-grenade",
           "name": "Biotic Grenade",
           "ability_type": "Ability",
           "cooldown": "12 seconds",
@@ -87,6 +91,7 @@
           "duration": "3 seconds"
         },
         {
+          "slug": "nano-boost",
           "name": "Nano Boost",
           "ability_type": "Ultimate Ability",
           "healing": 250,
@@ -101,12 +106,14 @@
       },
       "abilities": [
         {
+          "slug": "ignition",
           "name": "Ignition",
           "ability_type": "Passive Ability",
           "damage": "10 per second (base) / 20 per second (fan the flames)",
           "duration": "3 seconds"
         },
         {
+          "slug": "zhuque-fans",
           "name": "Zhuque Fans",
           "ability_type": "Weapon;;Primary Fire",
           "damage": "22 (per shot) / 44 (per volley)",
@@ -119,6 +126,7 @@
           "dps": "while firing ( w/ reload)"
         },
         {
+          "slug": "fan-the-flames",
           "name": "Fan the Flames",
           "ability_type": "Weapon;;Secondary Fire",
           "damage": "6 (per pellet) / 36 (base) / 72 (burning)",
@@ -132,6 +140,7 @@
           "reload": "1.5 seconds"
         },
         {
+          "slug": "inferno-rush",
           "name": "Inferno Rush",
           "ability_type": "Ability",
           "cooldown": "8 seconds",
@@ -139,6 +148,7 @@
           "duration": "1.3 seconds"
         },
         {
+          "slug": "dancing-blaze",
           "name": "Dancing Blaze",
           "ability_type": "Ability",
           "cooldown": "8 seconds",
@@ -148,6 +158,7 @@
           "radius": "8 meters"
         },
         {
+          "slug": "vermillion-ascent",
           "name": "Vermillion Ascent",
           "ability_type": "Ultimate Ability",
           "damage": "165 - 90",
@@ -156,6 +167,7 @@
           "range": "40 meters"
         },
         {
+          "slug": "vermillion-revival",
           "name": "Vermillion Revival",
           "ability_type": "Ultimate Ability",
           "damage": "10 damage over time / 55 - 30 (area of effect)",
@@ -170,6 +182,7 @@
       },
       "abilities": [
         {
+          "slug": "the-viper",
           "name": "The Viper",
           "ability_type": "Weapon;;Hip Fire",
           "damage": "35 – 10.5",
@@ -183,6 +196,7 @@
           "dps": "136.5 while firing (63.86 overall w/ full reload, 34.78 w/ reload after each shot)"
         },
         {
+          "slug": "take-aim-ads",
           "name": "Take Aim (ADS)",
           "ability_type": "Weapon;;ADS",
           "damage": "75 – 22.5",
@@ -196,6 +210,7 @@
           "dps": "114.33 while firing (41.3 overall w/ full reload, 32.98 w/ reload after each shot)"
         },
         {
+          "slug": "coach-gun",
           "name": "Coach Gun",
           "ability_type": "Ability",
           "cooldown": "10 seconds",
@@ -207,6 +222,7 @@
           "spread": "20 degrees"
         },
         {
+          "slug": "dynamite",
           "name": "Dynamite",
           "ability_type": "Ability",
           "cooldown": "12 seconds",
@@ -218,6 +234,7 @@
           "projectile_radius": "None"
         },
         {
+          "slug": "b-o-b",
           "name": "B.O.B.",
           "ability_type": "Ultimate Ability",
           "health": "1000 / 1150x18px|sub|class=inline-icon invert-image|link=Roles#Role:Tank",
@@ -235,11 +252,13 @@
       },
       "abilities": [
         {
+          "slug": "exo-boots",
           "name": "Exo Boots",
           "ability_type": "Passive Ability",
           "range": "9.1 meters (full charge)"
         },
         {
+          "slug": "biotic-launcher",
           "name": "Biotic Launcher",
           "ability_type": "Weapon;;Primary Fire",
           "damage": "25 - 7.2 (per shot) / 75 - 21.6 (per round)",
@@ -253,6 +272,7 @@
           "dps": "127.5 while firing (109 overall w/reload)"
         },
         {
+          "slug": "biotic-launcher-alt-fire",
           "name": "Biotic Launcher Alt Fire",
           "ability_type": "Weapon;;Secondary Fire",
           "healing": "30 (direct hit) / 60 (splash, ally)",
@@ -264,6 +284,7 @@
           "projectile_speed": "60 m/s"
         },
         {
+          "slug": "regenerative-burst",
           "name": "Regenerative Burst",
           "ability_type": "Ability",
           "cooldown": "14 seconds",
@@ -272,6 +293,7 @@
           "duration": "4 seconds"
         },
         {
+          "slug": "immortality-field",
           "name": "Immortality Field",
           "ability_type": "Ability",
           "cooldown": "22 seconds",
@@ -282,6 +304,7 @@
           "duration": "5 seconds (generator) / 5.5 seconds (field)"
         },
         {
+          "slug": "amplification-matrix",
           "name": "Amplification Matrix",
           "ability_type": "Ultimate Ability",
           "range": "35 meters",
@@ -296,10 +319,12 @@
       },
       "abilities": [
         {
+          "slug": "ironclad",
           "name": "Ironclad",
           "ability_type": "Passive Ability"
         },
         {
+          "slug": "configuration-recon",
           "name": "Configuration: Recon",
           "ability_type": "Weapon;;Recon Form",
           "damage": "23 - 7.5",
@@ -313,6 +338,7 @@
           "dps": "150 while firing (115.38 overall w/reload)"
         },
         {
+          "slug": "a-36-tactical-grenade",
           "name": "A-36 Tactical Grenade",
           "ability_type": "Ability",
           "damage": "15 (direct hit bonus) / 100 - 50 (splash, enemy) / 50 - 25 (splash, self)",
@@ -323,12 +349,14 @@
           "duration": "0.37 seconds (explosion delay)"
         },
         {
+          "slug": "reconfigure",
           "name": "Reconfigure",
           "ability_type": "Ability",
           "cooldown": "12 seconds",
           "duration": "6 seconds"
         },
         {
+          "slug": "configuration-assault",
           "name": "Configuration: Assault",
           "ability_type": "Weapon;;Assault Form",
           "damage": "12 - 3.6",
@@ -341,6 +369,7 @@
           "dps": "360 while firing"
         },
         {
+          "slug": "configuration-artillery",
           "name": "Configuration: Artillery",
           "ability_type": "Ultimate Ability",
           "damage": "550 (center) / 250 – 50 (area of effect)",
@@ -359,6 +388,7 @@
       },
       "abilities": [
         {
+          "slug": "inspire",
           "name": "Inspire",
           "ability_type": "Passive Ability",
           "duration": "4 seconds",
@@ -366,6 +396,7 @@
           "radius": "20 meters"
         },
         {
+          "slug": "rocket-flail",
           "name": "Rocket Flail",
           "ability_type": "Weapon",
           "damage": 45,
@@ -376,12 +407,14 @@
           "dps": "75 while swinging"
         },
         {
+          "slug": "barrier-shield",
           "name": "Barrier Shield",
           "ability_type": "Ability",
           "cooldown": "5 seconds (destroyed)",
           "health": "300 (default) / 750 (during Rally)"
         },
         {
+          "slug": "shield-bash",
           "name": "Shield Bash",
           "ability_type": "Ability",
           "cooldown": "5 seconds",
@@ -391,6 +424,7 @@
           "radius": "1.4 meters (hitbox)"
         },
         {
+          "slug": "whip-shot",
           "name": "Whip Shot",
           "ability_type": "Ability",
           "cooldown": "4 seconds",
@@ -402,6 +436,7 @@
           "projectile_speed": "80 m/s"
         },
         {
+          "slug": "repair-pack",
           "name": "Repair Pack",
           "ability_type": "Ability",
           "cooldown": "5 seconds",
@@ -411,6 +446,7 @@
           "projectile_speed": "45 m/s"
         },
         {
+          "slug": "rally",
           "name": "Rally",
           "ability_type": "Ultimate Ability",
           "radius": "8 meters",
@@ -424,6 +460,7 @@
       },
       "abilities": [
         {
+          "slug": "peacekeeper",
           "name": "Peacekeeper",
           "ability_type": "Weapon;;Primary Fire",
           "damage": "70 - 21",
@@ -437,6 +474,7 @@
           "dps": "140 while firing (93.33 overall w/reload)"
         },
         {
+          "slug": "fan-the-hammer",
           "name": "Fan the Hammer",
           "ability_type": "Weapon;;Secondary Fire",
           "damage": "50 - 15",
@@ -450,6 +488,7 @@
           "dps": "416.67 while firing (135.14 overall w/reload)"
         },
         {
+          "slug": "combat-roll",
           "name": "Combat Roll",
           "ability_type": "Ability",
           "cooldown": "5 seconds",
@@ -457,6 +496,7 @@
           "duration": "0.4 seconds"
         },
         {
+          "slug": "flashbang",
           "name": "Flashbang",
           "ability_type": "Ability",
           "cooldown": "12 seconds",
@@ -469,6 +509,7 @@
           "projectile_radius": "0.2 meters"
         },
         {
+          "slug": "deadeye",
           "name": "Deadeye",
           "ability_type": "Ultimate Ability",
           "damage": "150 per second (during warning) / 300 per second (remaining duration)",
@@ -485,11 +526,13 @@
       },
       "abilities": [
         {
+          "slug": "reconstruction",
           "name": "Reconstruction",
           "ability_type": "Passive Ability",
           "healing": "75% of ability damage dealt"
         },
         {
+          "slug": "photon-magnum",
           "name": "Photon Magnum",
           "ability_type": "Weapon",
           "damage": "60 (over time) / 60 (hitscan shot)",
@@ -501,6 +544,7 @@
           "projectile_radius": "0.15 meters"
         },
         {
+          "slug": "barrier-array",
           "name": "Barrier Array",
           "ability_type": "Ability",
           "cooldown": "14 seconds",
@@ -509,6 +553,7 @@
           "duration": "8 seconds"
         },
         {
+          "slug": "sonic-repulsors",
           "name": "Sonic Repulsors",
           "ability_type": "Ability",
           "cooldown": "7 seconds",
@@ -517,6 +562,7 @@
           "duration": "0.5 seconds (Immobilization) / 0.5 seconds (stun)"
         },
         {
+          "slug": "crystal-charge",
           "name": "Crystal Charge",
           "ability_type": "Ability",
           "cooldown": "8 seconds",
@@ -527,6 +573,7 @@
           "projectile_speed": "25 m/s"
         },
         {
+          "slug": "panopticon",
           "name": "Panopticon",
           "ability_type": "Ultimate Ability",
           "damage": "75 (piercing hit) / 300 - 100 (barrier health-based implosion)",
@@ -543,11 +590,13 @@
       },
       "abilities": [
         {
+          "slug": "the-best-defense",
           "name": "The Best Defense...",
           "ability_type": "Passive Ability",
           "duration": "3 seconds"
         },
         {
+          "slug": "hand-cannon",
           "name": "Hand Cannon",
           "ability_type": "Weapon",
           "headshot": true,
@@ -563,6 +612,7 @@
           "dps": "73.3 while firing continuously, 165 burst from full ammo."
         },
         {
+          "slug": "rocket-punch",
           "name": "Rocket Punch",
           "ability_type": "Ability",
           "cooldown": "4 seconds",
@@ -571,6 +621,7 @@
           "range": "6.3 - 19.7 meters (self) / 9.3 - 29.4 meters (self, empowered) / 5.5 - 13.2 meters (knockback)"
         },
         {
+          "slug": "seismic-slam",
           "name": "Seismic Slam",
           "ability_type": "Ability",
           "cooldown": "6.5 seconds",
@@ -578,12 +629,14 @@
           "radius": "15 meters"
         },
         {
+          "slug": "power-block",
           "name": "Power Block",
           "ability_type": "Ability",
           "cooldown": "7 seconds",
           "duration": "0.34 seconds (min) / 2.5 seconds (max)"
         },
         {
+          "slug": "meteor-strike",
           "name": "Meteor Strike",
           "ability_type": "Ultimate Ability",
           "healing": "90 per second (while targeting)",
@@ -601,11 +654,13 @@
       },
       "abilities": [
         {
+          "slug": "eject",
           "name": "Eject!",
           "ability_type": "Passive Ability",
           "health": 150
         },
         {
+          "slug": "fusion-cannons",
           "name": "Fusion Cannons",
           "ability_type": "Weapon;;Mech",
           "damage": "2 – 0.6 (per projectile) / 22 - 6.6 (per volley)",
@@ -619,6 +674,7 @@
           "dps": "146 while firing"
         },
         {
+          "slug": "light-gun",
           "name": "Light Gun",
           "ability_type": "Weapon;;Pilot",
           "damage": 14,
@@ -632,6 +688,7 @@
           "dps": "98 while firing (65.77 overall w/ reload)"
         },
         {
+          "slug": "defense-matrix",
           "name": "Defense Matrix",
           "ability_type": "Ability;;Mech",
           "cooldown": "1 second",
@@ -639,6 +696,7 @@
           "range": "10.3 meters"
         },
         {
+          "slug": "boosters",
           "name": "Boosters",
           "ability_type": "Ability;;Mech",
           "cooldown": "4 seconds",
@@ -648,6 +706,7 @@
           "range": "24 meters"
         },
         {
+          "slug": "micro-missiles",
           "name": "Micro Missiles",
           "ability_type": "Ability;;Mech",
           "cooldown": "7 seconds",
@@ -660,6 +719,7 @@
           "radius": "0.1 - 1.5 meters (splash)"
         },
         {
+          "slug": "self-destruct",
           "name": "Self-Destruct",
           "ability_type": "Ultimate Ability;;Mech",
           "damage": "1000 - 100",
@@ -668,6 +728,7 @@
           "radius": "6 - 21 meters"
         },
         {
+          "slug": "call-mech",
           "name": "Call Mech",
           "ability_type": "Ultimate Ability;;Pilot",
           "damage": 250,
@@ -684,10 +745,12 @@
       },
       "abilities": [
         {
+          "slug": "glide",
           "name": "Glide",
           "ability_type": "Passive Ability"
         },
         {
+          "slug": "tri-shot",
           "name": "Tri-Shot",
           "ability_type": "Weapon",
           "damage": "17 (per pellet) / 51 (per shot)",
@@ -702,6 +765,7 @@
           "dps": "151.79 while firing (110.63 overall w/reload)"
         },
         {
+          "slug": "sticky-bombs",
           "name": "Sticky Bombs",
           "ability_type": "Ability",
           "cooldown": "6 seconds",
@@ -714,12 +778,14 @@
           "projectile_radius": "0.27 meters"
         },
         {
+          "slug": "flight",
           "name": "Flight",
           "ability_type": "Ability",
           "cooldown": "6 seconds",
           "duration": "0.2 seconds (min) / 3 seconds (max)"
         },
         {
+          "slug": "focusing-beam",
           "name": "Focusing Beam",
           "ability_type": "Ability",
           "cooldown": "8 seconds",
@@ -730,6 +796,7 @@
           "projectile_radius": "0.25 meters"
         },
         {
+          "slug": "duplicate",
           "name": "Duplicate",
           "ability_type": "Ultimate Ability",
           "range": "40 meters",
@@ -743,12 +810,14 @@
       },
       "abilities": [
         {
+          "slug": "altered-vitals",
           "name": "Altered Vitals",
           "ability_type": "Passive Ability",
           "healing": 30,
           "duration": "4 seconds (out-of-combat delay)"
         },
         {
+          "slug": "synthetic-burst-rifle",
           "name": "Synthetic Burst Rifle",
           "ability_type": "Weapon (Hip Fire)",
           "damage": "22 - 6.67 (per shot) / 66 - 20 (per round)",
@@ -763,6 +832,7 @@
           "dps": "while firing ( w/ reload)"
         },
         {
+          "slug": "synthetic-burst-rifle-ads",
           "name": "Synthetic Burst Rifle (ADS)",
           "ability_type": "Weapon (ADS)",
           "damage": "22 - 6.67 (per shot) / 66 - 20 (per round)",
@@ -775,6 +845,7 @@
           "projectile_radius": "0.07 meters"
         },
         {
+          "slug": "siphon-blaster",
           "name": "Siphon Blaster",
           "ability_type": "Ability",
           "cooldown": "11 seconds",
@@ -787,6 +858,7 @@
           "projectile_radius": "0.2 meters"
         },
         {
+          "slug": "cyber-frag",
           "name": "Cyber Frag",
           "ability_type": "Ability",
           "cooldown": "10 seconds",
@@ -797,6 +869,7 @@
           "projectile_radius": "0.16 meters"
         },
         {
+          "slug": "override-protocol",
           "name": "Override Protocol",
           "ability_type": "Ultimate Ability",
           "cooldown": "2.5 seconds (heavy round)",
@@ -814,10 +887,12 @@
       },
       "abilities": [
         {
+          "slug": "bounty-hunting",
           "name": "Bounty Hunting",
           "ability_type": "Passive Ability"
         },
         {
+          "slug": "revdraw-crossbow",
           "name": "Revdraw Crossbow",
           "ability_type": "Weapon;;Hip Fire",
           "headshot": true,
@@ -831,6 +906,7 @@
           "dps": "120.19 while firing (79.45 overall w/ reload)"
         },
         {
+          "slug": "take-aim",
           "name": "Take Aim",
           "ability_type": "Weapon;;ADS",
           "headshot": true,
@@ -844,16 +920,19 @@
           "spread": "None"
         },
         {
+          "slug": "quick-dash",
           "name": "Quick Dash",
           "ability_type": "Ability",
           "cooldown": "4.5 seconds"
         },
         {
+          "slug": "updraft",
           "name": "Updraft",
           "ability_type": "Ability",
           "cooldown": "12 seconds"
         },
         {
+          "slug": "bola-shot",
           "name": "Bola Shot",
           "ability_type": "Ultimate Ability",
           "damage": "25 (direct hit) / 75 (over time) / 100 - 60 (explosion, enemy) / 50 - 30 (explosion, self)",
@@ -870,11 +949,13 @@
       },
       "abilities": [
         {
+          "slug": "cyber-agility",
           "name": "Cyber-Agility",
           "ability_type": "Passive Ability",
           "duration": "Up to 1 second"
         },
         {
+          "slug": "shuriken",
           "name": "Shuriken",
           "ability_type": "Weapon;;Primary Fire",
           "damage": "27 (per shuriken) / 81 (per shot)",
@@ -889,6 +970,7 @@
           "dps": "92.05 while firing (85.94 overall w/reload)"
         },
         {
+          "slug": "shuriken-alt-fire",
           "name": "Shuriken Alt Fire",
           "ability_type": "Weapon;;Secondary Fire",
           "damage": "(per shuriken) / (per shot)",
@@ -902,6 +984,7 @@
           "dps": "119.12 while firing (109.09 overall w/reload)"
         },
         {
+          "slug": "swift-strike",
           "name": "Swift Strike",
           "ability_type": "Ability",
           "cooldown": "8 seconds",
@@ -911,12 +994,14 @@
           "range": "15 meters"
         },
         {
+          "slug": "deflect",
           "name": "Deflect",
           "ability_type": "Ability",
           "cooldown": "10 seconds",
           "duration": "0.27 seconds min. duration / 2 seconds max. duration / 0.192 seconds recovery"
         },
         {
+          "slug": "dragonblade",
           "name": "Dragonblade",
           "ability_type": "Ultimate Ability",
           "damage": 110,
@@ -934,11 +1019,13 @@
       },
       "abilities": [
         {
+          "slug": "wall-climb",
           "name": "Wall Climb",
           "duration": "Up to 1 second",
           "ability_type": "Passive Ability"
         },
         {
+          "slug": "storm-bow",
           "name": "Storm Bow",
           "ability_type": "Weapon",
           "damage": "125 (max charge) / 25 (min charge)",
@@ -951,6 +1038,7 @@
           "dps": "102.46 at full charge, 50 at min charge"
         },
         {
+          "slug": "sonic-arrow",
           "name": "Sonic Arrow",
           "ability_type": "Ability",
           "cooldown": "12 seconds",
@@ -959,6 +1047,7 @@
           "duration": "6 seconds"
         },
         {
+          "slug": "storm-arrows",
           "name": "Storm Arrows",
           "ability_type": "Ability",
           "cooldown": "8 seconds",
@@ -972,12 +1061,14 @@
           "spread": "None"
         },
         {
+          "slug": "lunge",
           "name": "Lunge",
           "cooldown": "4 seconds",
           "range": "7.85 meters",
           "ability_type": "Ability"
         },
         {
+          "slug": "dragonstrike",
           "name": "Dragonstrike",
           "ability_type": "Ultimate Ability",
           "damage": "125 (initial arrow) / 200 per second (outer) / 400 per second (inner)",
@@ -997,11 +1088,13 @@
       },
       "abilities": [
         {
+          "slug": "vault",
           "name": "Vault",
           "ability_type": "Passive Ability",
           "duration": "Up to 0.2 seconds"
         },
         {
+          "slug": "bonespur",
           "name": "Bonespur",
           "ability_type": "Weapon",
           "falloff": "15 - 35 meters",
@@ -1017,6 +1110,7 @@
           "dps": "131.58 while firing (87.46 overall with reload)"
         },
         {
+          "slug": "spike-guard",
           "name": "Spike Guard",
           "ability_type": "Ability",
           "damage": "11.67 per projectile / 210.06 maximum",
@@ -1029,6 +1123,7 @@
           "projectile_speed": "20 m/s"
         },
         {
+          "slug": "violent-leap",
           "name": "Violent Leap",
           "ability_type": "Ability",
           "cooldown": "5.5 seconds",
@@ -1036,6 +1131,7 @@
           "range": "14 meters (leap, aimed up) - 15 meters (leap, along ground) / 5.4 meters (slash)"
         },
         {
+          "slug": "jagged-wall",
           "name": "Jagged Wall",
           "ability_type": "Ability",
           "cooldown": "12 seconds",
@@ -1047,6 +1143,7 @@
           "projectile_speed": "60 m/s"
         },
         {
+          "slug": "downpour",
           "name": "Downpour",
           "ability_type": "Ultimate Ability",
           "damage": "90 over 0.3 seconds",
@@ -1062,6 +1159,7 @@
       },
       "abilities": [
         {
+          "slug": "solar-rifle",
           "name": "Solar Rifle",
           "ability_type": "Weapon;;Primary Fire",
           "damage": "75 - 22.5 (max charge) / 25 - 7.5 (min charge)",
@@ -1076,6 +1174,7 @@
           "dps": "(max charge): 77.7 while firing (68 overall w/ reload)"
         },
         {
+          "slug": "solar-rifle-alt-fire",
           "name": "Solar Rifle Alt Fire",
           "ability_type": "Weapon;;Secondary Fire",
           "headshot": false,
@@ -1086,6 +1185,7 @@
           "duration": "0.6 seconds (energy regen delay)"
         },
         {
+          "slug": "outburst",
           "name": "Outburst",
           "ability_type": "Ability",
           "cooldown": "8 seconds",
@@ -1094,6 +1194,7 @@
           "radius": "8 meters"
         },
         {
+          "slug": "healing-pylon",
           "name": "Healing Pylon",
           "ability_type": "Ability",
           "cooldown": "7 seconds (default) / 14 seconds (under attack)",
@@ -1105,6 +1206,7 @@
           "duration": "Until destroyed / 1.3 seconds (build time)"
         },
         {
+          "slug": "captive-sun",
           "name": "Captive Sun",
           "ability_type": "Ultimate Ability",
           "damage": "5 (direct hit) / 50 (splash) / 160 - 120 (Sunstruck explosion)",
@@ -1123,10 +1225,12 @@
       },
       "abilities": [
         {
+          "slug": "jetpack",
           "name": "Jetpack",
           "ability_type": "Passive Ability"
         },
         {
+          "slug": "biotic-pawjectiles",
           "name": "Biotic Pawjectiles",
           "ability_type": "Weapon",
           "damage": "24 (per volley) / 8 (center pellet) / 4 (per paw pellet)",
@@ -1143,11 +1247,13 @@
           "dps": "while firing ( w/ reload)"
         },
         {
+          "slug": "frenetic-flight",
           "name": "Frenetic Flight",
           "ability_type": "Ability",
           "duration": "0.75 seconds (regen delay)"
         },
         {
+          "slug": "lifeline",
           "name": "Lifeline",
           "ability_type": "Ability",
           "cooldown": "2 seconds",
@@ -1155,6 +1261,7 @@
           "healing": "25 per second (ally)"
         },
         {
+          "slug": "purr",
           "name": "Purr",
           "ability_type": "Ability",
           "cooldown": "12 seconds",
@@ -1164,6 +1271,7 @@
           "range": "10 meters (healing and damage)"
         },
         {
+          "slug": "catnapper",
           "name": "Catnapper",
           "ability_type": "Ultimate Ability",
           "damage": 25,
@@ -1179,11 +1287,13 @@
       },
       "abilities": [
         {
+          "slug": "adrenaline-rush",
           "name": "Adrenaline Rush",
           "ability_type": "Passive Ability",
           "healing": "225% of wound damage dealt"
         },
         {
+          "slug": "scattergun",
           "name": "Scattergun",
           "ability_type": "Weapon",
           "damage": "8 – 2.4 (per shot) / 80 – 24 (per volley)",
@@ -1198,6 +1308,7 @@
           "dps": "while firing ( w/ reload)"
         },
         {
+          "slug": "jagged-blade",
           "name": "Jagged Blade",
           "ability_type": "Ability",
           "cooldown": "6 seconds",
@@ -1210,6 +1321,7 @@
           "healing": "67.5 over 3 seconds (direct hit) / 33.75 over 3 seconds (recall/melee)"
         },
         {
+          "slug": "commanding-shout",
           "name": "Commanding Shout",
           "ability_type": "Ability",
           "cooldown": "12 seconds",
@@ -1217,6 +1329,7 @@
           "duration": "4 seconds"
         },
         {
+          "slug": "carnage",
           "name": "Carnage",
           "ability_type": "Ability",
           "cooldown": "9 seconds / -2 seconds per enemy hit",
@@ -1226,6 +1339,7 @@
           "range": "4.5 meters"
         },
         {
+          "slug": "rampage",
           "name": "Rampage",
           "ability_type": "Ultimate Ability",
           "damage": "40 impact / 90 over 4.5 seconds",
@@ -1242,6 +1356,7 @@
       },
       "abilities": [
         {
+          "slug": "total-mayhem",
           "name": "Total Mayhem",
           "ability_type": "Passive Ability",
           "damage": 50,
@@ -1250,6 +1365,7 @@
           "headshot": false
         },
         {
+          "slug": "frag-launcher",
           "name": "Frag Launcher",
           "ability_type": "Weapon",
           "damage": "45 (direct hit) / 80 - 10 (splash, enemy)",
@@ -1264,6 +1380,7 @@
           "dps": "180 while firing (124.13 overall w/reload)"
         },
         {
+          "slug": "concussion-mine",
           "name": "Concussion Mine",
           "ability_type": "Ability",
           "cooldown": "8 seconds",
@@ -1276,6 +1393,7 @@
           "headshot": false
         },
         {
+          "slug": "steel-trap",
           "name": "Steel Trap",
           "ability_type": "Ability",
           "damage": 100,
@@ -1288,6 +1406,7 @@
           "headshot": false
         },
         {
+          "slug": "rip-tire",
           "name": "RIP-Tire",
           "ability_type": "Ultimate Ability",
           "health": 100,
@@ -1305,10 +1424,12 @@
       },
       "abilities": [
         {
+          "slug": "martian-overboots",
           "name": "Martian Overboots",
           "ability_type": "Passive Ability"
         },
         {
+          "slug": "mediblaster",
           "name": "Mediblaster",
           "ability_type": "Weapon",
           "falloff": "25 - 35 meters (damage and healing)",
@@ -1324,6 +1445,7 @@
           "dps": "116.28 (overall w/ reload 98.3)"
         },
         {
+          "slug": "pulsar-torpedoes",
           "name": "Pulsar Torpedoes",
           "ability_type": "Ability",
           "cooldown": "10 seconds",
@@ -1333,12 +1455,14 @@
           "range": "40 meters (targeting)"
         },
         {
+          "slug": "glide-boost",
           "name": "Glide Boost",
           "ability_type": "Ability",
           "cooldown": "6 seconds",
           "duration": "4 seconds"
         },
         {
+          "slug": "hyper-ring",
           "name": "Hyper Ring",
           "ability_type": "Ability",
           "cooldown": "14 seconds",
@@ -1348,6 +1472,7 @@
           "radius": "4 meters"
         },
         {
+          "slug": "orbital-ray",
           "name": "Orbital Ray",
           "ability_type": "Ultimate Ability",
           "healing": "85 per second",
@@ -1363,15 +1488,17 @@
       },
       "abilities": [
         {
+          "slug": "wall-climb-kiriko",
           "name": "Wall Climb (Kiriko)",
           "ability_type": "Passive Ability",
           "duration": "Up to 1 second"
         },
         {
+          "slug": "healing-ofuda",
           "name": "Healing Ofuda",
           "ability_type": "Weapon;;Primary Fire",
           "healing": "13 (per talisman) / 26 (per burst)",
-          "rate_of_fire": "0.2 seconds (per burst) / 1.42 seconds (full clip)",
+          "rate_of_fire": "0.143 seconds (per burst) / 1.42 seconds (full clip)",
           "reload": "0.9 seconds",
           "pellets": 2,
           "ammo": 10,
@@ -1380,6 +1507,7 @@
           "range": "35 meters (lock on)"
         },
         {
+          "slug": "kunai",
           "name": "Kunai",
           "ability_type": "Weapon;;Secondary Fire",
           "damage": 60,
@@ -1393,6 +1521,7 @@
           "dps": "120 while firing (105.88 overall w/reload)"
         },
         {
+          "slug": "swift-step",
           "name": "Swift Step",
           "ability_type": "Ability",
           "range": "30 meters",
@@ -1400,6 +1529,7 @@
           "cooldown": "7 seconds"
         },
         {
+          "slug": "protection-suzu",
           "name": "Protection Suzu",
           "ability_type": "Ability",
           "cooldown": "14 seconds",
@@ -1410,6 +1540,7 @@
           "duration": "0.65 seconds (invulnerability)"
         },
         {
+          "slug": "kitsune-rush",
           "name": "Kitsune Rush",
           "ability_type": "Ultimate Ability",
           "duration": "8 seconds (area) / 1 second (lingering buff)",
@@ -1424,6 +1555,7 @@
       },
       "abilities": [
         {
+          "slug": "healing-blossom",
           "name": "Healing Blossom",
           "ability_type": "Weapon;;Primary Fire",
           "reload": "1.75 seconds",
@@ -1435,6 +1567,7 @@
           "projectile_radius": "0.25 meters"
         },
         {
+          "slug": "thorn-volley",
           "name": "Thorn Volley",
           "ability_type": "Weapon;;Secondary Fire",
           "damage": "6 (per thorn) / 12 (per shot)",
@@ -1449,6 +1582,7 @@
           "dps": "131.87 while firing (99.17 overall w/ reload)"
         },
         {
+          "slug": "petal-platform",
           "name": "Petal Platform",
           "ability_type": "Ability",
           "cooldown": "12 seconds",
@@ -1458,6 +1592,7 @@
           "projectile_radius": "0.15 meters"
         },
         {
+          "slug": "rejuvenating-dash",
           "name": "Rejuvenating Dash",
           "cooldown": "5 seconds",
           "healing": 55,
@@ -1466,6 +1601,7 @@
           "duration": "0.3 seconds"
         },
         {
+          "slug": "life-grip",
           "name": "Life Grip",
           "ability_type": "Ability",
           "cooldown": "18 seconds",
@@ -1473,6 +1609,7 @@
           "range": "30 meters"
         },
         {
+          "slug": "tree-of-life",
           "name": "Tree of Life",
           "ability_type": "Ultimate Ability",
           "health": 1200,
@@ -1490,11 +1627,13 @@
       },
       "abilities": [
         {
+          "slug": "wall-ride",
           "name": "Wall Ride",
           "cooldown": "0.5 seconds",
           "ability_type": "Passive Ability"
         },
         {
+          "slug": "sonic-amplifier",
           "name": "Sonic Amplifier",
           "ability_type": "Weapon",
           "damage": "20 (per round) / 80 (per volley)",
@@ -1509,6 +1648,7 @@
           "dps": "85.56 while firing (64.78 overall w/reload)"
         },
         {
+          "slug": "soundwave",
           "name": "Soundwave",
           "ability_type": "Ability",
           "damage": 45,
@@ -1518,6 +1658,7 @@
           "headshot": false
         },
         {
+          "slug": "crossfade",
           "name": "Crossfade",
           "ability_type": "Ability",
           "healing": "20 per second (allies) / 14.4 per second (self)",
@@ -1525,6 +1666,7 @@
           "duration": "0.4 seconds (swap delay)"
         },
         {
+          "slug": "amp-it-up",
           "name": "Amp It Up",
           "ability_type": "Ability",
           "healing": "56 per second",
@@ -1533,6 +1675,7 @@
           "duration": "3 seconds"
         },
         {
+          "slug": "sound-barrier",
           "name": "Sound Barrier",
           "ability_type": "Ultimate Ability",
           "radius": "30 meters",
@@ -1547,11 +1690,13 @@
       },
       "abilities": [
         {
+          "slug": "berserker",
           "name": "Berserker",
           "ability_type": "Passive Ability",
           "duration": "2 seconds"
         },
         {
+          "slug": "incendiary-chaingun",
           "name": "Incendiary Chaingun",
           "ability_type": "Weapon;;Primary Fire",
           "damage": "4 - 1.2 (direct) / 15 per second (damage over time)",
@@ -1566,6 +1711,7 @@
           "dps": "72 while firing (64.7 w/ reload) 87 w/ damage over time 288 while firing both guns simultaneously 303 w/ damage over time"
         },
         {
+          "slug": "volatile-chaingun",
           "name": "Volatile Chaingun",
           "ability_type": "Weapon;;Secondary Fire",
           "damage": "4 - 1.2",
@@ -1579,6 +1725,7 @@
           "dps": "72 while firing (64.7 w/ reload) 288 while firing both guns simultaneously 303 w/ damage over time"
         },
         {
+          "slug": "overrun",
           "name": "Overrun",
           "ability_type": "Ability",
           "cooldown": "5 seconds",
@@ -1589,6 +1736,7 @@
           "projectile_speed": "30 m/s (shockwave)"
         },
         {
+          "slug": "cardiac-overdrive",
           "name": "Cardiac Overdrive",
           "ability_type": "Ability",
           "cooldown": "12 seconds",
@@ -1597,6 +1745,7 @@
           "radius": "10.5 meter radius"
         },
         {
+          "slug": "cage-fight",
           "name": "Cage Fight",
           "ability_type": "Ultimate Ability",
           "health": 1200,
@@ -1611,6 +1760,7 @@
       },
       "abilities": [
         {
+          "slug": "endothermic-blaster",
           "name": "Endothermic Blaster",
           "ability_type": "Weapon;;Primary Fire",
           "damage": 5.5,
@@ -1626,6 +1776,7 @@
           "dps": "110 while firing (90.58 overall w/reload)"
         },
         {
+          "slug": "icicle",
           "name": "Icicle",
           "ability_type": "Weapon;;Secondary Fire",
           "damage": 85,
@@ -1639,6 +1790,7 @@
           "dps": "106.25 while firing (94.44 overall w/reload)"
         },
         {
+          "slug": "cryo-freeze",
           "name": "Cryo-Freeze",
           "ability_type": "Ability",
           "cooldown": "12 seconds",
@@ -1646,6 +1798,7 @@
           "duration": "0.44 seconds min. duration / 4 seconds max. duration / 0.24 seconds recovery"
         },
         {
+          "slug": "ice-wall",
           "name": "Ice Wall",
           "ability_type": "Ability",
           "cooldown": "12 seconds",
@@ -1654,6 +1807,7 @@
           "duration": "Up to 5 seconds / 0.5 seconds recovery"
         },
         {
+          "slug": "blizzard",
           "name": "Blizzard",
           "ability_type": "Ultimate Ability",
           "damage": "20 per second",
@@ -1671,21 +1825,25 @@
       },
       "abilities": [
         {
+          "slug": "swift-recovery",
           "name": "Swift Recovery",
           "ability_type": "Passive Ability"
         },
         {
+          "slug": "angelic-descent",
           "name": "Angelic Descent",
           "duration": "Until cancelled",
           "ability_type": "Passive Ability"
         },
         {
+          "slug": "caduceus-staff",
           "name": "Caduceus Staff",
           "ability_type": "Weapon",
           "healing": "55 per second",
           "range": "15 meters"
         },
         {
+          "slug": "caduceus-blaster",
           "name": "Caduceus Blaster",
           "ability_type": "Weapon",
           "damage": 20,
@@ -1699,12 +1857,14 @@
           "dps": "100 while firing (78 overall w/reload)"
         },
         {
+          "slug": "guardian-angel",
           "name": "Guardian Angel",
           "ability_type": "Ability",
           "range": "30 meters",
           "cooldown": "1.5 seconds"
         },
         {
+          "slug": "resurrect",
           "name": "Resurrect",
           "ability_type": "Ability",
           "healing": "Revives ally at full health",
@@ -1712,12 +1872,14 @@
           "cooldown": "30 seconds"
         },
         {
+          "slug": "flash-heal",
           "name": "Flash Heal",
           "ability_type": "Ability",
           "cooldown": "12 seconds",
           "healing": "60 (default) / 120 (low health)"
         },
         {
+          "slug": "valkyrie",
           "name": "Valkyrie",
           "ability_type": "Ultimate Ability",
           "healing": "65 per second per target",
@@ -1735,6 +1897,7 @@
       },
       "abilities": [
         {
+          "slug": "remedy-aura",
           "name": "Remedy Aura",
           "ability_type": "Passive Ability",
           "healing": "14 - 3.5 per second (self) / 20 - 5 per second (allies)",
@@ -1742,6 +1905,7 @@
           "range": "12 meters"
         },
         {
+          "slug": "spirit-glaive",
           "name": "Spirit Glaive",
           "ability_type": "Weapon",
           "damage": "30 (base) / 30 (total damage over time)",
@@ -1755,6 +1919,7 @@
           "projectile_speed": "60 m/s"
         },
         {
+          "slug": "healing-kasa",
           "name": "Healing Kasa",
           "ability_type": "Ability",
           "cooldown": "6 seconds",
@@ -1764,12 +1929,14 @@
           "projectile_speed": "40 m/s"
         },
         {
+          "slug": "katashiro-return",
           "name": "Katashiro Return",
           "ability_type": "Ability",
           "cooldown": "12 seconds",
           "duration": "4.5 seconds (paper doll) / 0.25 seconds (invulnerability) / 0.17 seconds (leap)"
         },
         {
+          "slug": "binding-chain",
           "name": "Binding Chain",
           "ability_type": "Ability",
           "cooldown": "12 seconds",
@@ -1780,6 +1947,7 @@
           "projectile_speed": "60 m/s"
         },
         {
+          "slug": "kekkai-sanctuary",
           "name": "Kekkai Sanctuary",
           "ability_type": "Ultimate Ability",
           "healing": "100 (instant) / 50 per second",
@@ -1793,6 +1961,7 @@
       },
       "abilities": [
         {
+          "slug": "biotic-grasp",
           "name": "Biotic Grasp",
           "ability_type": "Weapon;;Primary Fire",
           "healing": "80 per second (impact) / 17 per second (over time)",
@@ -1802,6 +1971,7 @@
           "projectile_speed": "40 m/s"
         },
         {
+          "slug": "biotic-grasp-alt-fire",
           "name": "Biotic Grasp Alt Fire",
           "ability_type": "Weapon;;Secondary Fire",
           "damage": "65 per second",
@@ -1812,6 +1982,7 @@
           "dps": "65 while firing"
         },
         {
+          "slug": "fade",
           "name": "Fade",
           "ability_type": "Ability",
           "cooldown": "6 seconds",
@@ -1819,6 +1990,7 @@
           "range": "15 meters (max)"
         },
         {
+          "slug": "biotic-orb",
           "name": "Biotic Orb",
           "ability_type": "Ability",
           "damage": "50 per second, up to 200",
@@ -1830,6 +2002,7 @@
           "range": "4 meters (damage) / 5 meters (healing)"
         },
         {
+          "slug": "coalescence",
           "name": "Coalescence",
           "ability_type": "Ultimate Ability",
           "damage": "85 per second",
@@ -1848,6 +2021,7 @@
       },
       "abilities": [
         {
+          "slug": "augmented-fusion-driver",
           "name": "Augmented Fusion Driver",
           "ability_type": "Weapon",
           "damage": 14,
@@ -1861,6 +2035,7 @@
           "dps": "140 while firing (99.42 overall w/ recharge, 86.84 w/ overheat)"
         },
         {
+          "slug": "energy-javelin",
           "name": "Energy Javelin",
           "ability_type": "Ability",
           "cooldown": "7 seconds",
@@ -1871,12 +2046,14 @@
           "projectile_radius": "0.5 meters"
         },
         {
+          "slug": "fortify",
           "name": "Fortify",
           "ability_type": "Ability",
           "cooldown": "15.5 seconds",
           "duration": "4 seconds"
         },
         {
+          "slug": "javelin-spin",
           "name": "Javelin Spin",
           "ability_type": "Ability",
           "cooldown": "8 seconds",
@@ -1885,6 +2062,7 @@
           "range": "3.5 meters / 180° (matrix angle)"
         },
         {
+          "slug": "terra-surge",
           "name": "Terra Surge",
           "ability_type": "Ultimate Ability",
           "damage": "18.8/s (periodic damage) / 72 - 500 (release)",
@@ -1899,11 +2077,13 @@
       },
       "abilities": [
         {
+          "slug": "hover-jets",
           "name": "Hover Jets",
           "ability_type": "Passive Ability",
           "duration": "Up to 2 seconds (continuous flight) / 0.3 seconds (energy regen delay)"
         },
         {
+          "slug": "rocket-launcher",
           "name": "Rocket Launcher",
           "ability_type": "Weapon",
           "damage": "140 (direct hit) / 80 – 24.6 (splash, enemy) / 20 – 6.15 (splash, self)",
@@ -1918,12 +2098,14 @@
           "dps": "150 while firing (114 overall w/reload)"
         },
         {
+          "slug": "jet-dash",
           "name": "Jet Dash",
           "ability_type": "Ability",
           "cooldown": "9 seconds",
           "duration": "0.85 seconds"
         },
         {
+          "slug": "jump-jet",
           "name": "Jump Jet",
           "ability_type": "Ability",
           "cooldown": "14 seconds",
@@ -1931,6 +2113,7 @@
           "range": "8.4 meters (vertical)"
         },
         {
+          "slug": "concussive-blast",
           "name": "Concussive Blast",
           "ability_type": "Ability",
           "cooldown": "7 seconds",
@@ -1941,6 +2124,7 @@
           "projectile_speed": "60 m/s"
         },
         {
+          "slug": "barrage",
           "name": "Barrage",
           "ability_type": "Ultimate Ability",
           "damage": "10 (direct hit) / 25 – 7.5 (splash, enemy) / 12.5 – 3.75 (splash, self)",
@@ -1961,6 +2145,7 @@
       },
       "abilities": [
         {
+          "slug": "void-accelerator",
           "name": "Void Accelerator",
           "ability_type": "Weapon;;Omnic Form",
           "damage": 5,
@@ -1974,6 +2159,7 @@
           "dps": "125 (100 overall w/ reload)"
         },
         {
+          "slug": "void-barrier",
           "name": "Void Barrier",
           "ability_type": "Ability;;Omnic Form",
           "cooldown": "12 seconds",
@@ -1982,6 +2168,7 @@
           "duration": "4 seconds"
         },
         {
+          "slug": "ravenous-vortex",
           "name": "Ravenous Vortex",
           "ability_type": "Ability;;both forms",
           "cooldown": "11 seconds",
@@ -1993,12 +2180,14 @@
           "radius": "4 meters"
         },
         {
+          "slug": "nemesis-form",
           "name": "Nemesis Form",
           "ability_type": "Ability",
           "cooldown": "8 seconds",
           "duration": "8 seconds"
         },
         {
+          "slug": "pummel",
           "name": "Pummel",
           "ability_type": "Weapon;;Nemesis Form",
           "damage": 65,
@@ -2012,12 +2201,14 @@
           "dps": "108.33 while firing"
         },
         {
+          "slug": "block",
           "name": "Block",
           "ability_type": "Ability;;Nemesis Form",
           "cooldown": "1 second",
           "duration": "0.2 seconds (min)"
         },
         {
+          "slug": "annihilation",
           "name": "Annihilation",
           "ability_type": "Ultimate Ability",
           "damage": "35 per second",
@@ -2033,11 +2224,13 @@
       },
       "abilities": [
         {
+          "slug": "the-reaping",
           "name": "The Reaping",
           "ability_type": "Passive Ability",
           "healing": "25% of damage dealt"
         },
         {
+          "slug": "hellfire-shotguns",
           "name": "Hellfire Shotguns",
           "ability_type": "Weapon",
           "damage": "5.75 – 1.725 per pellet / 115 – 34.5 per shot",
@@ -2052,6 +2245,7 @@
           "dps": "230 while firing (153.33 overall with reload)"
         },
         {
+          "slug": "dire-triggers",
           "name": "Dire Triggers",
           "ability_type": "Ability",
           "cooldown": "6 seconds",
@@ -2062,6 +2256,7 @@
           "spread": "3 degrees"
         },
         {
+          "slug": "wraith-form",
           "name": "Wraith Form",
           "ability_type": "Ability",
           "cooldown": "8 seconds",
@@ -2069,6 +2264,7 @@
           "range": "23.1 meters"
         },
         {
+          "slug": "shadow-step",
           "name": "Shadow Step",
           "ability_type": "Ability",
           "range": "35 meters",
@@ -2076,6 +2272,7 @@
           "duration": "0.53 seconds (teleport) / 0.98 seconds (invulnerability)"
         },
         {
+          "slug": "death-blossom",
           "name": "Death Blossom",
           "ability_type": "Ultimate Ability",
           "damage": "185/s per enemy",
@@ -2092,6 +2289,7 @@
       },
       "abilities": [
         {
+          "slug": "rocket-hammer",
           "name": "Rocket Hammer",
           "ability_type": "Weapon",
           "damage": 100,
@@ -2102,12 +2300,14 @@
           "dps": "104 while swinging"
         },
         {
+          "slug": "barrier-field",
           "name": "Barrier Field",
           "ability_type": "Ability",
           "health": 1500,
           "cooldown": "5 seconds (destroyed)"
         },
         {
+          "slug": "charge",
           "name": "Charge",
           "ability_type": "Ability",
           "cooldown": "7 seconds",
@@ -2116,6 +2316,7 @@
           "duration": "3 seconds (charge, max) / 0.3 seconds (charge, min) / 0.65 seconds (stun on wall hit)"
         },
         {
+          "slug": "fire-strike",
           "name": "Fire Strike",
           "ability_type": "Ability",
           "cooldown": "6 seconds",
@@ -2125,6 +2326,7 @@
           "projectile_radius": "0.85 meters"
         },
         {
+          "slug": "earthshatter",
           "name": "Earthshatter",
           "ability_type": "Ultimate Ability",
           "damage": "50 (base) / 200 (critical)",
@@ -2140,6 +2342,7 @@
       },
       "abilities": [
         {
+          "slug": "scrap-gun",
           "name": "Scrap Gun",
           "ability_type": "Weapon;;Primary Fire",
           "damage": "7 – 2.1 (per pellet) / 175 – 52.5 (per shot)",
@@ -2155,6 +2358,7 @@
           "dps": "203.13 while firing (154.76 overall w/ reload)"
         },
         {
+          "slug": "scrap-gun-alt-fire",
           "name": "Scrap Gun Alt Fire",
           "ability_type": "Weapon;;Secondary Fire",
           "damage": "50 (pre-detonation) / 7 – 2.1 (post-detonation, per pellet) / 175 – 52.5 (post-detonation, per shot)",
@@ -2171,6 +2375,7 @@
           "dps": "203.13 while firing (154.76 overall w/ reload)"
         },
         {
+          "slug": "chain-hook",
           "name": "Chain Hook",
           "ability_type": "Ability",
           "cooldown": "7 seconds",
@@ -2182,6 +2387,7 @@
           "projectile_radius": "0.5 meters (vs enemy) / None (vs wall or barrier)"
         },
         {
+          "slug": "take-a-breather",
           "name": "Take a Breather",
           "ability_type": "Ability",
           "cooldown": "1.25 seconds",
@@ -2189,6 +2395,7 @@
           "duration": "0.4 seconds (min) / 3 seconds (max) / 1.3 seconds (energy regen delay)"
         },
         {
+          "slug": "whole-hog",
           "name": "Whole Hog",
           "ability_type": "Ultimate Ability",
           "damage": "7 – 2.1",
@@ -2210,6 +2417,7 @@
       },
       "abilities": [
         {
+          "slug": "helix-rifle",
           "name": "Helix Rifle",
           "ability_type": "Weapon (Hip Fire)",
           "damage": "9 (per pellet) / 18 (per volley)",
@@ -2223,7 +2431,16 @@
           "dps": "* while firing ( w/ reload)"
         },
         {
+          "slug": "tracking-shot",
           "name": "Tracking Shot",
+          "modifies": [
+            {
+              "target_ability_slug": "helix-rifle",
+              "description": "While the marker is active, Helix Rifle shots automatically track the marked enemy.",
+              "damage": 9,
+              "duration": "3 seconds"
+            }
+          ],
           "ability_type": "Ability",
           "cooldown": "10 seconds",
           "damage": 35,
@@ -2233,6 +2450,7 @@
           "projectile_radius": "0.26 meters"
         },
         {
+          "slug": "anchor-drone",
           "name": "Anchor Drone",
           "ability_type": "Ability",
           "cooldown": "12 seconds",
@@ -2241,6 +2459,7 @@
           "range": "14 meters (deploy range) / 17 meters (grapple)"
         },
         {
+          "slug": "tremor-charge",
           "name": "Tremor Charge",
           "ability_type": "Ability",
           "cooldown": "8.5 seconds",
@@ -2250,6 +2469,7 @@
           "projectile_radius": "0.12 meters"
         },
         {
+          "slug": "trailblazer",
           "name": "Trailblazer",
           "ability_type": "Ultimate Ability",
           "damage": "180 - 72 (area of effect)",
@@ -2266,6 +2486,7 @@
       },
       "abilities": [
         {
+          "slug": "hyperspheres",
           "name": "Hyperspheres",
           "ability_type": "Weapon",
           "damage": "20 (direct hit bonus) / 40 – 12 (splash, enemy)",
@@ -2281,6 +2502,7 @@
           "dps": "73.3 while firing"
         },
         {
+          "slug": "experimental-barrier",
           "name": "Experimental Barrier",
           "ability_type": "Ability",
           "health": 650,
@@ -2290,6 +2512,7 @@
           "cooldown": "1 second (recalled) / 5 seconds (destroyed)"
         },
         {
+          "slug": "kinetic-grasp",
           "name": "Kinetic Grasp",
           "ability_type": "Ability",
           "cooldown": "12 seconds",
@@ -2297,6 +2520,7 @@
           "duration": "2 seconds"
         },
         {
+          "slug": "accretion",
           "name": "Accretion",
           "ability_type": "Ability",
           "cooldown": "10 seconds",
@@ -2308,6 +2532,7 @@
           "projectile_radius": "0.9 meters"
         },
         {
+          "slug": "gravitic-flux",
           "name": "Gravitic Flux",
           "ability_type": "Ultimate Ability",
           "damage": "50 (lift) / 50% max HP (slam)",
@@ -2323,6 +2548,7 @@
       },
       "abilities": [
         {
+          "slug": "railgun",
           "name": "Railgun",
           "ability_type": "Weapon;;Primary Fire",
           "damage": 9,
@@ -2337,6 +2563,7 @@
           "dps": "144 while firing (~100.93 overall w/reload)"
         },
         {
+          "slug": "charged-shot",
           "name": "Charged Shot",
           "ability_type": "Weapon;;Secondary Fire",
           "damage": "120 - 60 (max charge) / 21 - 10.5 (min charge)",
@@ -2347,6 +2574,7 @@
           "spread": "None"
         },
         {
+          "slug": "power-slide",
           "name": "Power Slide",
           "ability_type": "Ability",
           "cooldown": "7 seconds",
@@ -2354,6 +2582,7 @@
           "range": "13 meters (slide) / 11.7 meters (jump)"
         },
         {
+          "slug": "disruptor-shot",
           "name": "Disruptor Shot",
           "ability_type": "Ability",
           "cooldown": "15 seconds",
@@ -2366,6 +2595,7 @@
           "range": "30 meters"
         },
         {
+          "slug": "overclock",
           "name": "Overclock",
           "ability_type": "Ultimate Ability",
           "duration": "8 seconds"
@@ -2378,6 +2608,7 @@
       },
       "abilities": [
         {
+          "slug": "heavy-pulse-rifle",
           "name": "Heavy Pulse Rifle",
           "ability_type": "Weapon",
           "damage": "19 - 5.7",
@@ -2391,6 +2622,7 @@
           "dps": "171 while firing (117.9 overall w/ reload)"
         },
         {
+          "slug": "helix-rockets",
           "name": "Helix Rockets",
           "ability_type": "Ability",
           "cooldown": "6 seconds",
@@ -2401,11 +2633,13 @@
           "projectile_speed": "50 m/s"
         },
         {
+          "slug": "sprint",
           "name": "Sprint",
           "ability_type": "Ability",
           "duration": "∞"
         },
         {
+          "slug": "biotic-field",
           "name": "Biotic Field",
           "ability_type": "Ability",
           "healing": "40 per second",
@@ -2414,6 +2648,7 @@
           "duration": "5 seconds"
         },
         {
+          "slug": "tactical-visor",
           "name": "Tactical Visor",
           "ability_type": "Ultimate Ability",
           "headshot": true,
@@ -2429,10 +2664,12 @@
       },
       "abilities": [
         {
+          "slug": "opportunist",
           "name": "Opportunist",
           "ability_type": "Passive Ability"
         },
         {
+          "slug": "machine-pistol",
           "name": "Machine Pistol",
           "ability_type": "Weapon",
           "damage": "8 - 2.4",
@@ -2446,6 +2683,7 @@
           "dps": "Damage per second: 160 while firing (114.3 overall w/reload) 192 while firing w/ opportunist"
         },
         {
+          "slug": "hack",
           "name": "Hack",
           "ability_type": "Ability",
           "cooldown": "6 seconds (heroes) / 3 seconds (non-heroes)",
@@ -2453,6 +2691,7 @@
           "duration": "8 seconds (reveal, heroes) / 1.0 seconds (ability disable, heroes) / 45 seconds (health packs) / 10 seconds (disable, objects) / 3 seconds (disable, B.O.B.)"
         },
         {
+          "slug": "virus",
           "name": "Virus",
           "ability_type": "Ability",
           "cooldown": "6 seconds",
@@ -2462,6 +2701,7 @@
           "projectile_radius": "0.5 meters"
         },
         {
+          "slug": "translocator",
           "name": "Translocator",
           "ability_type": "Ability",
           "cooldown": "6 seconds",
@@ -2470,6 +2710,7 @@
           "radius": "4 meters (detection)"
         },
         {
+          "slug": "emp",
           "name": "EMP",
           "ability_type": "Ultimate Ability",
           "duration": "8 seconds (reveal, heroes) / 3 seconds (ability disable, heroes) / 45 seconds (health packs) / 10 seconds (disable, objects)",
@@ -2485,6 +2726,7 @@
       },
       "abilities": [
         {
+          "slug": "photon-projector",
           "name": "Photon Projector",
           "ability_type": "Weapon;;Primary Fire",
           "damage": "60/120/180 per second (level 1/2/3)",
@@ -2497,6 +2739,7 @@
           "dps": "60/120/180 while firing"
         },
         {
+          "slug": "photon-projector-alt-fire",
           "name": "Photon Projector Alt Fire",
           "ability_type": "Weapon;;Secondary Fire",
           "damage": "5 - 100 (direct hit, min - max charge) / 2.5 - 50 (aoe at falloff start, min - max charge) / 2.5 - 12.5 (aoe at max radius, min - max charge)",
@@ -2512,6 +2755,7 @@
           "dps": "90.9 while firing (at full charge)"
         },
         {
+          "slug": "sentry-turret",
           "name": "Sentry Turret",
           "ability_type": "Ability",
           "cooldown": "10 seconds",
@@ -2523,6 +2767,7 @@
           "range": "10 meters (turret beam)"
         },
         {
+          "slug": "teleporter",
           "name": "Teleporter",
           "ability_type": "Ability",
           "health": 100,
@@ -2532,6 +2777,7 @@
           "radius": "1.5 meter (interact range)"
         },
         {
+          "slug": "photon-barrier",
           "name": "Photon Barrier",
           "ability_type": "Ultimate Ability",
           "health": 4000,
@@ -2547,6 +2793,7 @@
       },
       "abilities": [
         {
+          "slug": "rivet-gun",
           "name": "Rivet Gun",
           "ability_type": "Weapon;;Primary Fire",
           "damage": 70,
@@ -2560,6 +2807,7 @@
           "dps": "137.25 while firing (112.7 overall w/reload)"
         },
         {
+          "slug": "rivet-gun-alt-fire",
           "name": "Rivet Gun Alt Fire",
           "ability_type": "Weapon;;Secondary Fire",
           "damage": "12.5 - 3.75 per pellet / 125 - 37.5 per shot",
@@ -2575,6 +2823,7 @@
           "dps": "178.57 while firing (135.54 overall w/reload)"
         },
         {
+          "slug": "forge-hammer",
           "name": "Forge Hammer",
           "ability_type": "Weapon",
           "damage": 70,
@@ -2586,6 +2835,7 @@
           "dps": "100 while firing"
         },
         {
+          "slug": "deploy-turret",
           "name": "Deploy Turret",
           "ability_type": "Ability",
           "cooldown": "5 seconds / 12 seconds (in combat)",
@@ -2599,6 +2849,7 @@
           "projectile_radius": "0.35 meters (deploying turret)"
         },
         {
+          "slug": "overload",
           "name": "Overload",
           "ability_type": "Ability",
           "cooldown": "10 seconds",
@@ -2607,6 +2858,7 @@
           "duration": "6 seconds"
         },
         {
+          "slug": "molten-core",
           "name": "Molten Core",
           "ability_type": "Ultimate Ability",
           "damage": "25 (impact) / 190 per second (pools, base) / +100 (pools, bonus against armor)",
@@ -2626,6 +2878,7 @@
       },
       "abilities": [
         {
+          "slug": "pulse-pistols",
           "name": "Pulse Pistols",
           "ability_type": "Weapon",
           "damage": "5.75 - 1.725 (per bullet) / 11.5 - 3.45 (per shot)",
@@ -2640,6 +2893,7 @@
           "dps": "230 while firing (120 overall w/reload)"
         },
         {
+          "slug": "blink",
           "name": "Blink",
           "ability_type": "Ability",
           "cooldown": "3 seconds",
@@ -2647,12 +2901,14 @@
           "duration": "0.1 seconds recovery for reuse"
         },
         {
+          "slug": "recall",
           "name": "Recall",
           "ability_type": "Ability",
           "cooldown": "13 seconds",
           "duration": "3 seconds (rewound time) / 0.9 seconds (invulnerablity)"
         },
         {
+          "slug": "pulse-bomb",
           "name": "Pulse Bomb",
           "ability_type": "Ultimate Ability",
           "damage": "5 (stick) / 350 - 70 (explosion, enemy) / 175 - 35 (explosion, self)",
@@ -2671,12 +2927,14 @@
       },
       "abilities": [
         {
+          "slug": "onslaught",
           "name": "Onslaught",
           "rate_of_fire": "+5% (per stack)",
           "duration": "5.5 seconds",
           "ability_type": "Passive Ability"
         },
         {
+          "slug": "palatine-fang",
           "name": "Palatine Fang",
           "damage": "45 (swing) / 120 (overhead strike)",
           "duration": "0.75 seconds (combo input delay)",
@@ -2685,12 +2943,14 @@
           "ability_type": "Weapon"
         },
         {
+          "slug": "warding-stance",
           "name": "Warding Stance",
           "cooldown": "0.5 seconds",
           "duration": "0.34 seconds (min duration) / 0.75 seconds (energy regen delay)",
           "ability_type": "Ability"
         },
         {
+          "slug": "projected-edge",
           "name": "Projected Edge",
           "damage": 70,
           "projectile_speed": "37 m/s",
@@ -2698,6 +2958,7 @@
           "ability_type": "Ability"
         },
         {
+          "slug": "whirlwind-dash",
           "name": "Whirlwind Dash",
           "ability_type": "Ability",
           "cooldown": "10 seconds",
@@ -2708,6 +2969,7 @@
           "duration": "0.6 seconds"
         },
         {
+          "slug": "soaring-slice",
           "name": "Soaring Slice",
           "cooldown": "7 seconds",
           "duration": "0.6 seconds (throw)",
@@ -2718,6 +2980,7 @@
           "ability_type": "Ability"
         },
         {
+          "slug": "sundering-blade",
           "name": "Sundering Blade",
           "damage": "100/50 (direct/indirect stage 1) / 200/100 (direct/indirect stage 2) / 400/200 (direct/indirect stage 3)",
           "duration": "1 second (charge time per stage) / 4 seconds (max)",
@@ -2733,6 +2996,7 @@
       },
       "abilities": [
         {
+          "slug": "clobber",
           "name": "Clobber",
           "ability_type": "Passive Ability",
           "damage": "30 (impact) / 40 (over time)",
@@ -2740,11 +3004,13 @@
           "range": "3 meters"
         },
         {
+          "slug": "explorers-resolve",
           "name": "Explorer's Resolve",
           "ability_type": "Passive Ability",
           "duration": "3 seconds"
         },
         {
+          "slug": "smart-excavator",
           "name": "Smart Excavator",
           "ability_type": "Weapon",
           "damage": "35 (direct hit bonus) / 40 - 12 (explosion)",
@@ -2760,6 +3026,7 @@
           "dps": "125 while firing (95.24 overall w/reload)"
         },
         {
+          "slug": "drill-dash",
           "name": "Drill Dash",
           "ability_type": "Ability",
           "cooldown": "8 seconds",
@@ -2769,6 +3036,7 @@
           "range": "10 meters (regular) / 15 meters (burrowed)"
         },
         {
+          "slug": "burrow",
           "name": "Burrow",
           "ability_type": "Ability",
           "cooldown": "8 seconds",
@@ -2777,6 +3045,7 @@
           "duration": "4 seconds (burrowed) / 0.2 seconds (emerging, min charge) / 0.65 seconds (emerging, max charge) / 1.3 seconds (emerging, max delay))"
         },
         {
+          "slug": "tectonic-shock",
           "name": "Tectonic Shock",
           "ability_type": "Ultimate Ability",
           "duration": "7 seconds",
@@ -2794,6 +3063,7 @@
       },
       "abilities": [
         {
+          "slug": "widows-kiss",
           "name": "Widow's Kiss",
           "ability_type": "Weapon;;Hip Fire",
           "damage": "14 - 4.2",
@@ -2807,6 +3077,7 @@
           "dps": "140 while firing (98 overall w/ reload)"
         },
         {
+          "slug": "widows-kiss-ads",
           "name": "Widow's Kiss (ADS)",
           "ability_type": "Weapon;;ADS",
           "damage": "12 - 6 (at 0% power) / 120 - 60 (at 100% power)",
@@ -2820,12 +3091,14 @@
           "dps": "80 while firing (full charge) (70 overall w/reload)"
         },
         {
+          "slug": "grappling-hook",
           "name": "Grappling Hook",
           "ability_type": "Ability",
           "cooldown": "10 seconds",
           "range": "20 meters"
         },
         {
+          "slug": "venom-mine",
           "name": "Venom Mine",
           "ability_type": "Ability",
           "cooldown": "15 seconds",
@@ -2838,6 +3111,7 @@
           "duration": "Until replaced or destroyed (mine) / 1.4 seconds (arming time) / 5 seconds (poison)"
         },
         {
+          "slug": "infra-sight",
           "name": "Infra-Sight",
           "ability_type": "Ultimate Ability",
           "radius": "Global",
@@ -2852,6 +3126,7 @@
       },
       "abilities": [
         {
+          "slug": "tesla-cannon",
           "name": "Tesla Cannon",
           "ability_type": "Weapon;;Primary Fire",
           "damage": "70 per second",
@@ -2862,6 +3137,7 @@
           "dps": "70 while firing (52.24 overall w/reload)"
         },
         {
+          "slug": "tesla-cannon-alt-fire",
           "name": "Tesla Cannon Alt Fire",
           "ability_type": "Weapon;;Secondary Fire",
           "damage": "15.93 (min charge) / 60 (max charge)",
@@ -2872,6 +3148,7 @@
           "dps": "14.67, continuous fire at minimum charge 37.5, continuous fire at max charge 19.35, continuous fire with max hold"
         },
         {
+          "slug": "jump-pack",
           "name": "Jump Pack",
           "ability_type": "Ability",
           "cooldown": "5 seconds",
@@ -2880,6 +3157,7 @@
           "radius": "1.3 - 5 meters (falloff start - max)"
         },
         {
+          "slug": "barrier-projector",
           "name": "Barrier Projector",
           "ability_type": "Ability",
           "cooldown": "12 seconds",
@@ -2888,6 +3166,7 @@
           "radius": "5 meters"
         },
         {
+          "slug": "primal-rage",
           "name": "Primal Rage",
           "ability_type": "Ultimate Ability",
           "health": "700 max health, fully restore HP",
@@ -2908,6 +3187,7 @@
       },
       "abilities": [
         {
+          "slug": "quad-cannons",
           "name": "Quad Cannons",
           "ability_type": "Weapon",
           "damage": "5 – 1.5 per shot",
@@ -2921,6 +3201,7 @@
           "dps": "125 while firing (83.33 overall w/reload)"
         },
         {
+          "slug": "grappling-claw",
           "name": "Grappling Claw",
           "ability_type": "Ability",
           "cooldown": "5 seconds (after fireball) / 1 second (no fireball)",
@@ -2929,11 +3210,13 @@
           "duration": "8 seconds (max grapple time after fireball)"
         },
         {
+          "slug": "roll",
           "name": "Roll",
           "ability_type": "Ability",
           "cooldown": "0.4 seconds"
         },
         {
+          "slug": "adaptive-shield",
           "name": "Adaptive Shield",
           "ability_type": "Ability",
           "cooldown": "15 seconds",
@@ -2941,6 +3224,7 @@
           "duration": "7 seconds (self) / 4 seconds (allies)"
         },
         {
+          "slug": "piledriver",
           "name": "Piledriver",
           "ability_type": "Ability",
           "cooldown": "8 seconds",
@@ -2949,6 +3233,7 @@
           "duration": "0.8 seconds (windup delay) / 0.75 seconds (enemy air lock)"
         },
         {
+          "slug": "minefield",
           "name": "Minefield",
           "ability_type": "Ultimate Ability",
           "health": 60,
@@ -2965,6 +3250,7 @@
       },
       "abilities": [
         {
+          "slug": "xuanwu-staff",
           "name": "Xuanwu Staff",
           "ability_type": "Weapon",
           "damage": "10 (direct hit bonus, uncharged) / 20 (splash, uncharged) / 40 (direct hit bonus, charged) / 60 (splash, charged)",
@@ -2980,6 +3266,7 @@
           "dps": "Rapid fire of uncharged orbs: 90.91 while firing (74.07 overall w/ reload) Perfectly timed charged orbs: 158.73 while firing (128.21 overall w/ reload)"
         },
         {
+          "slug": "restorative-stream",
           "name": "Restorative Stream",
           "ability_type": "Ability",
           "healing": "20 per second (passive) / 55 per second (bonus manual healing)",
@@ -2987,6 +3274,7 @@
           "duration": "5 seconds (LoS timeout, passive) / 1 second (LoS timeout, manual) / 2 seconds (recharge delay)"
         },
         {
+          "slug": "rushing-torrent",
           "name": "Rushing Torrent",
           "ability_type": "Ability",
           "cooldown": "8 seconds",
@@ -2994,6 +3282,7 @@
           "duration": "3.5 seconds"
         },
         {
+          "slug": "guardian-wave",
           "name": "Guardian Wave",
           "ability_type": "Ability",
           "cooldown": "14 seconds",
@@ -3005,6 +3294,7 @@
           "projectile_speed": "30 m/s"
         },
         {
+          "slug": "tidal-blast",
           "name": "Tidal Blast",
           "ability_type": "Ultimate Ability",
           "healing": 250,
@@ -3022,10 +3312,12 @@
       },
       "abilities": [
         {
+          "slug": "energy",
           "name": "Energy",
           "ability_type": "Passive Ability"
         },
         {
+          "slug": "particle-cannon",
           "name": "Particle Cannon",
           "ability_type": "Weapon;;Primary Fire",
           "damage": "95 per second (at 0%) / 175 per second (100% Energy)",
@@ -3037,6 +3329,7 @@
           "dps": "95 while firing (0% charge) (73.07 overall w/reload)175 while firing (100% charge) (134.61 overall w/reload)"
         },
         {
+          "slug": "particle-cannon-alt-fire",
           "name": "Particle Cannon Alt Fire",
           "ability_type": "Weapon;;Secondary Fire",
           "damage": "55 – 11 (enemy, 0% Energy) / 110 – 22 (enemy, 100% Energy) / 27.5 – 5.5 (self, 0% Energy) / 55 – 11 (self, 100% Energy)",
@@ -3051,6 +3344,7 @@
           "dps": "55 while firing (0% charge) (40 overall w/reload) 110 while firing (100% charge (80 overall w/reload)"
         },
         {
+          "slug": "particle-barrier",
           "name": "Particle Barrier",
           "ability_type": "Ability",
           "cooldown": "11 seconds",
@@ -3059,6 +3353,7 @@
           "radius": "1.5 meters"
         },
         {
+          "slug": "projected-barrier",
           "name": "Projected Barrier",
           "ability_type": "Ability",
           "cooldown": "9 seconds",
@@ -3068,6 +3363,7 @@
           "duration": "2.25 seconds"
         },
         {
+          "slug": "graviton-surge",
           "name": "Graviton Surge",
           "ability_type": "Ultimate Ability",
           "damage": "5 (impact) / 5 per second (over time)",
@@ -3085,11 +3381,13 @@
       },
       "abilities": [
         {
+          "slug": "snap-kick",
           "name": "Snap Kick",
           "ability_type": "Passive Ability",
           "damage": 60
         },
         {
+          "slug": "orb-of-destruction",
           "name": "Orb of Destruction",
           "ability_type": "Weapon;;Primary Fire",
           "damage": 50,
@@ -3103,6 +3401,7 @@
           "dps": "125 while firing (108.7 overall w/reload) 156.25 while firing w/ discord"
         },
         {
+          "slug": "orb-of-destruction-alt-fire",
           "name": "Orb of Destruction Alt Fire",
           "ability_type": "Weapon;;Secondary Fire",
           "damage": "50 per orb / 250 per volley",
@@ -3116,6 +3415,7 @@
           "dps": "77.64 while firing (68.18 overall w/reload)"
         },
         {
+          "slug": "orb-of-harmony",
           "name": "Orb of Harmony",
           "ability_type": "Ability",
           "healing": "35 health per second",
@@ -3124,6 +3424,7 @@
           "duration": "5 seconds (if out of sight)"
         },
         {
+          "slug": "orb-of-discord",
           "name": "Orb of Discord",
           "ability_type": "Ability",
           "projectile_speed": "90 m/s",
@@ -3131,6 +3432,7 @@
           "duration": "1.5 seconds (if out of sight)"
         },
         {
+          "slug": "transcendence",
           "name": "Transcendence",
           "ability_type": "Ultimate Ability",
           "healing": "400 health per second",

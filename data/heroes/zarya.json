@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.0.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Zarya",
@@ -46,11 +46,13 @@
     "sub_role": "bruiser",
     "abilities": [
       {
+        "slug": "energy",
         "name": "Energy",
         "description": "Damage blocked by barriers increases Particle Cannon damage.",
         "ability_type": "Passive Ability"
       },
       {
+        "slug": "particle-cannon",
         "name": "Particle Cannon",
         "description": "Short-range linear beam weapon.",
         "ability_type": "Weapon;;Primary Fire",
@@ -63,6 +65,7 @@
         "dps": "95 while firing (0% charge) (73.07 overall w/reload)175 while firing (100% charge) (134.61 overall w/reload)"
       },
       {
+        "slug": "particle-cannon-alt-fire",
         "name": "Particle Cannon Alt Fire",
         "description": "Energy grenade launcher.",
         "ability_type": "Weapon;;Secondary Fire",
@@ -78,6 +81,7 @@
         "dps": "55 while firing (0% charge) (40 overall w/reload) 110 while firing (100% charge (80 overall w/reload)"
       },
       {
+        "slug": "particle-barrier",
         "name": "Particle Barrier",
         "description": "Create a damage barrier around you.",
         "ability_type": "Ability",
@@ -87,6 +91,7 @@
         "radius": "1.5 meters"
       },
       {
+        "slug": "projected-barrier",
         "name": "Projected Barrier",
         "description": "Create a damage barrier around an ally.",
         "ability_type": "Ability",
@@ -97,6 +102,7 @@
         "duration": "2.25 seconds"
       },
       {
+        "slug": "graviton-surge",
         "name": "Graviton Surge",
         "description": "Launch a gravity well that pulls enemies to it.",
         "ability_type": "Ultimate Ability",
@@ -110,20 +116,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "spotter",
           "name": "Spotter",
           "description": "Projected Barrier activates ally health regeneration and increases their movement speed by 20%."
         },
         {
+          "slug": "jump-ups",
           "name": "Jump-Ups",
           "description": "Secondary Fire's self-knockback is increased by 75%."
         }
       ],
       "major": [
         {
+          "slug": "energy-lance",
           "name": "Energy Lance",
           "description": "Particle Cannon's beam pierces enemies."
         },
         {
+          "slug": "extra-oomph",
           "name": "Extra Oomph",
           "description": "While a Barrier is active, dealing damage with Particle Cannon’s beam generates energy."
         }

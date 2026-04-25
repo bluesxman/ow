@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.0.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Juno",
@@ -46,11 +46,13 @@
     "sub_role": "survivor",
     "abilities": [
       {
+        "slug": "martian-overboots",
         "name": "Martian Overboots",
         "description": "While airborne, press Jump to double jump and hold Jump to hover.",
         "ability_type": "Passive Ability"
       },
       {
+        "slug": "mediblaster",
         "name": "Mediblaster",
         "description": "Burst fire weapon that heals allies and damages enemies.",
         "ability_type": "Weapon",
@@ -67,6 +69,7 @@
         "dps": "116.28 (overall w/ reload 98.3)"
       },
       {
+        "slug": "pulsar-torpedoes",
         "name": "Pulsar Torpedoes",
         "description": "Press Secondary Fire to lock on, then Primary Fire to fire homing projectiles. Heals allies over time and damages enemies.",
         "ability_type": "Ability",
@@ -77,6 +80,7 @@
         "range": "40 meters (targeting)"
       },
       {
+        "slug": "glide-boost",
         "name": "Glide Boost",
         "description": "Glide horizontally with increased movement speed.",
         "ability_type": "Ability",
@@ -84,6 +88,7 @@
         "duration": "4 seconds"
       },
       {
+        "slug": "hyper-ring",
         "name": "Hyper Ring",
         "description": "Deploy a ring that increases movement speed of allies that pass through it.",
         "ability_type": "Ability",
@@ -94,6 +99,7 @@
         "radius": "4 meters"
       },
       {
+        "slug": "orbital-ray",
         "name": "Orbital Ray",
         "description": "Call down a ray that travels forward, healing allies and increasing their damage.",
         "ability_type": "Ultimate Ability",
@@ -106,20 +112,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "familiar-vitals",
           "name": "Familiar Vitals",
           "description": "Pulsar Torpedoes lock onto allies 35% faster."
         },
         {
+          "slug": "locked-on",
           "name": "Locked On",
           "description": "Reduce the cooldown of Pulsar Torpedoes by 1 second for each enemy hit."
         }
       ],
       "major": [
         {
+          "slug": "faster-blaster",
           "name": "Faster Blaster",
           "description": "While using Glide Boost, Mediblaster fires continuosly."
         },
         {
+          "slug": "lift-off",
           "name": "Lift Off",
           "description": "Martian Overboots can now triple jump."
         }

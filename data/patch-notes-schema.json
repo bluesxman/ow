@@ -4,7 +4,7 @@
   "title": "Overwatch Patch Notes",
   "description": "Schema for the structured patch-notes history published in data/patch-notes.json. Each patch carries a date, title, and sections of hero/general changes.",
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -37,7 +37,7 @@
         ]
       }
     ],
-    "schema_version": "5.0.0"
+    "schema_version": "6.0.0"
   },
   "schema": {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -231,6 +231,17 @@
                                     }
                                   ]
                                 },
+                                "subject_slug": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string",
+                                      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+                                    },
+                                    {
+                                      "type": "null"
+                                    }
+                                  ]
+                                },
                                 "metric": {
                                   "anyOf": [
                                     {
@@ -340,6 +351,7 @@
                                 "subject_kind",
                                 "hero_slug",
                                 "subject_name",
+                                "subject_slug",
                                 "metric",
                                 "metric_phrase",
                                 "from",

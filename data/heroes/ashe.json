@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.0.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Ashe",
@@ -46,6 +46,7 @@
     "sub_role": "sharpshooter",
     "abilities": [
       {
+        "slug": "the-viper",
         "name": "The Viper",
         "description": "Semi-automatic rifle.",
         "ability_type": "Weapon;;Hip Fire",
@@ -60,6 +61,7 @@
         "dps": "136.5 while firing (63.86 overall w/ full reload, 34.78 w/ reload after each shot)"
       },
       {
+        "slug": "take-aim-ads",
         "name": "Take Aim (ADS)",
         "description": "Hold to zoom in, increasing damage and accuracy but slowing rate of fire.",
         "ability_type": "Weapon;;ADS",
@@ -74,6 +76,7 @@
         "dps": "114.33 while firing (41.3 overall w/ full reload, 32.98 w/ reload after each shot)"
       },
       {
+        "slug": "coach-gun",
         "name": "Coach Gun",
         "description": "Blast enemies in front of you and knock yourself backwards.",
         "ability_type": "Ability",
@@ -86,6 +89,7 @@
         "spread": "20 degrees"
       },
       {
+        "slug": "dynamite",
         "name": "Dynamite",
         "description": "Throw an explosive that detonates after a short delay or immediately when shot.",
         "ability_type": "Ability",
@@ -98,6 +102,7 @@
         "projectile_radius": "None"
       },
       {
+        "slug": "b-o-b",
         "name": "B.O.B.",
         "description": "Deploy Bob. He charges forward and knocks enemies into the air, then attacks with his arm cannons.",
         "ability_type": "Ultimate Ability",
@@ -112,20 +117,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "remote-detonator",
           "name": "Remote Detonator",
           "description": "After using Dynamite, pressing Ability 2 again causes it to explode after a 0.5 second delay."
         },
         {
+          "slug": "double-barreled",
           "name": "Double-Barreled",
           "description": "Knocking an enemy back with Coach Gun briefly allows it to be used again with 25% reduced knockback."
         }
       ],
       "major": [
         {
+          "slug": "vipers-sting",
           "name": "Viper's Sting",
           "description": "Hitting 2 consecutive scoped shots on a target deals 25 extra damage and reloads 1 ammo."
         },
         {
+          "slug": "airburst",
           "name": "Airburst",
           "description": "Dynamite has a 40% increased detonation radius while airborne and refunds 3 ammo when thrown."
         }

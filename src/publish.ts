@@ -216,14 +216,15 @@ export function buildAggregates(
     heroes: Object.fromEntries(slugs.map((s) => [s, { perks: heroes[s]!.perks }])),
   };
 
-  // Projection: descriptive subset of each ability — name + description only.
+  // Projection: descriptive subset of each ability — slug + name + description.
+  // Slug is preserved as the foreign key consumers join against.
   const abilitiesDoc = {
     metadata,
     heroes: Object.fromEntries(
       slugs.map((s) => [
         s,
         {
-          abilities: heroes[s]!.abilities.map((a) => ({ name: a.name, description: a.description })),
+          abilities: heroes[s]!.abilities.map((a) => ({ slug: a.slug, name: a.name, description: a.description })),
         },
       ]),
     ),

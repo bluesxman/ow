@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.0.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Vendetta",
@@ -46,6 +46,7 @@
     "sub_role": "flanker",
     "abilities": [
       {
+        "slug": "onslaught",
         "name": "Onslaught",
         "description": "Strike enemies to increase movement and attack speed.",
         "rate_of_fire": "+5% (per stack)",
@@ -53,6 +54,7 @@
         "ability_type": "Passive Ability"
       },
       {
+        "slug": "palatine-fang",
         "name": "Palatine Fang",
         "description": "Hard-light greatsword. Combo swings to end with a destructive overhead slash.",
         "damage": "45 (swing) / 120 (overhead strike)",
@@ -62,6 +64,7 @@
         "ability_type": "Weapon"
       },
       {
+        "slug": "warding-stance",
         "name": "Warding Stance",
         "description": "Block with your sword, reducing frontal damage and deflecting melee attacks. Blocking damage depletes energy.",
         "cooldown": "0.5 seconds",
@@ -69,6 +72,7 @@
         "ability_type": "Ability"
       },
       {
+        "slug": "projected-edge",
         "name": "Projected Edge",
         "description": "Available when Warding Stance is active. Consume energy to fire a wide projectile.",
         "damage": 70,
@@ -77,6 +81,7 @@
         "ability_type": "Ability"
       },
       {
+        "slug": "whirlwind-dash",
         "name": "Whirlwind Dash",
         "description": "Rush forward into a circular slash.",
         "ability_type": "Ability",
@@ -88,6 +93,7 @@
         "duration": "0.6 seconds"
       },
       {
+        "slug": "soaring-slice",
         "name": "Soaring Slice",
         "description": "Hurl your sword in the direction you are facing and then fly to it.",
         "cooldown": "7 seconds",
@@ -99,6 +105,7 @@
         "ability_type": "Ability"
       },
       {
+        "slug": "sundering-blade",
         "name": "Sundering Blade",
         "description": "Cleave through most defenses, dealing severe damage to enemies in front of you.",
         "damage": "100/50 (direct/indirect stage 1) / 200/100 (direct/indirect stage 2) / 400/200 (direct/indirect stage 3)",
@@ -111,20 +118,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "raging-storm",
           "name": "Raging Storm",
           "description": "Whirlwind Dash continues to spin, hitting 3 more times for 30 damage in a wide area."
         },
         {
+          "slug": "extra-edge",
           "name": "Extra Edge",
           "description": "Projected Edge costs 25% less energy."
         }
       ],
       "major": [
         {
+          "slug": "relentless",
           "name": "Relentless",
           "description": "Onslaught can stack 3 more times, increasing attack speed by 5% and movement speed by 4% per stack."
         },
         {
+          "slug": "siphoning-strike",
           "name": "Siphoning Strike",
           "description": "Overhead strikes gain 30% Lifesteal."
         }

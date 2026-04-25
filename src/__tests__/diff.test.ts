@@ -7,15 +7,15 @@ function h(slug: string, overrides: Partial<Hero> = {}): Hero {
     slug,
     name: slug,
     role: 'damage',
-    abilities: [{ name: 'A', description: 'desc' }],
+    abilities: [{ slug: 'a', name: 'A', description: 'desc' }],
     perks: {
       minor: [
-        { name: 'M1', description: 'x' },
-        { name: 'M2', description: 'y' },
+        { slug: 'm1', name: 'M1', description: 'x' },
+        { slug: 'm2', name: 'M2', description: 'y' },
       ],
       major: [
-        { name: 'J1', description: 'x' },
-        { name: 'J2', description: 'y' },
+        { slug: 'j1', name: 'J1', description: 'x' },
+        { slug: 'j2', name: 'J2', description: 'y' },
       ],
     },
     stats: { health: 200 },
@@ -41,12 +41,12 @@ describe('diffHeroes', () => {
       reaper: h('reaper', {
         perks: {
           minor: [
-            { name: 'M1', description: 'x' },
-            { name: 'NEW', description: 'y' },
+            { slug: 'm1', name: 'M1', description: 'x' },
+            { slug: 'new', name: 'NEW', description: 'y' },
           ],
           major: [
-            { name: 'J1', description: 'x' },
-            { name: 'J2', description: 'y' },
+            { slug: 'j1', name: 'J1', description: 'x' },
+            { slug: 'j2', name: 'J2', description: 'y' },
           ],
         },
       }),

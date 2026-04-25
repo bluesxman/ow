@@ -58,11 +58,14 @@ async function main(): Promise<void> {
     }
     console.log(`Found ${fullRoster.length} heroes${args.hero ? ` (filtered to 1)` : ''}`);
 
+    // Read previous data first so the scrape can preserve AI-authored fields
+    // (currently `abilities[].modifies[]`) that Fandom doesn't reproduce.
+    const previous = await readPreviousHeroes(paths);
+
     console.log('Fetching hero data from Fandom…');
-    const result = await scraper.scrapeAll(roster);
+    const result = await scraper.scrapeAll(roster, previous);
     console.log(`Fetched ${Object.keys(result.heroes).length} heroes, ${result.failed.length} failures`);
 
-    const previous = await readPreviousHeroes(paths);
     const merged: Record<string, Hero> = { ...previous };
     const validHeroes: Record<string, Hero> = {};
     for (const [slug, hero] of Object.entries(result.heroes)) {

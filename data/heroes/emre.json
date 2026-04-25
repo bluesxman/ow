@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.0.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Emre",
@@ -46,6 +46,7 @@
     "sub_role": "specialist",
     "abilities": [
       {
+        "slug": "altered-vitals",
         "name": "Altered Vitals",
         "description": "Passive health regeneration activates sooner and instantly restores 30 health when activated.",
         "ability_type": "Passive Ability",
@@ -53,6 +54,7 @@
         "duration": "4 seconds (out-of-combat delay)"
       },
       {
+        "slug": "synthetic-burst-rifle",
         "name": "Synthetic Burst Rifle",
         "description": "Three-round burst weapon.",
         "ability_type": "Weapon (Hip Fire)",
@@ -68,6 +70,7 @@
         "dps": "while firing ( w/ reload)"
       },
       {
+        "slug": "synthetic-burst-rifle-ads",
         "name": "Synthetic Burst Rifle (ADS)",
         "description": "Three-round burst weapon.",
         "ability_type": "Weapon (ADS)",
@@ -81,6 +84,7 @@
         "projectile_radius": "0.07 meters"
       },
       {
+        "slug": "siphon-blaster",
         "name": "Siphon Blaster",
         "description": "Temporarily wield a semi-automatic pistol with lifestealing explosive rounds. Move faster and jump higher while wielded.",
         "ability_type": "Ability",
@@ -94,6 +98,7 @@
         "projectile_radius": "0.2 meters"
       },
       {
+        "slug": "cyber-frag",
         "name": "Cyber Frag",
         "description": "Throw a grenade that detonates shortly after bouncing.",
         "ability_type": "Ability",
@@ -105,6 +110,7 @@
         "projectile_radius": "0.16 meters"
       },
       {
+        "slug": "override-protocol",
         "name": "Override Protocol",
         "description": "An override initiates, transforming you into a living weapon.",
         "ability_type": "Ultimate Ability",
@@ -119,20 +125,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "suppressive-security",
           "name": "Suppressive Security",
           "description": "Override Protocol's light rounds slow enemies by 30% for 1 second."
         },
         {
+          "slug": "enhanced-agility",
           "name": "Enhanced Agility",
           "description": "Siphon Blaster's movement speed bonus is increased by 20% while not firing."
         }
       ],
       "major": [
         {
+          "slug": "heat-sink",
           "name": "Heat Sink",
           "description": "Direct hits with Siphon Blaster refunds 60% heat and increase its duration by 0.1 seconds."
         },
         {
+          "slug": "cyber-adhesion",
           "name": "Cyber Adhesion",
           "description": "Cyber Frag now sticks on contact, dealing 40 extra damage to stuck enemies."
         }

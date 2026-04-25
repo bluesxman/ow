@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.0.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Orisa",
@@ -46,6 +46,7 @@
     "sub_role": "bruiser",
     "abilities": [
       {
+        "slug": "augmented-fusion-driver",
         "name": "Augmented Fusion Driver",
         "description": "Automatic heat-based weapon.",
         "ability_type": "Weapon",
@@ -60,6 +61,7 @@
         "dps": "140 while firing (99.42 overall w/ recharge, 86.84 w/ overheat)"
       },
       {
+        "slug": "energy-javelin",
         "name": "Energy Javelin",
         "description": "Launch your javelin at an enemy to stun and knock them back. More effective if the enemy hits a wall.",
         "ability_type": "Ability",
@@ -71,6 +73,7 @@
         "projectile_radius": "0.5 meters"
       },
       {
+        "slug": "fortify",
         "name": "Fortify",
         "description": "Gain temporary health, reducing all damage taken and becoming unstoppable.",
         "ability_type": "Ability",
@@ -78,6 +81,7 @@
         "duration": "4 seconds"
       },
       {
+        "slug": "javelin-spin",
         "name": "Javelin Spin",
         "description": "Spin your javelin to destroy projectiles and block melee attacks, while also pushing enemies and increasing forward speed.",
         "ability_type": "Ability",
@@ -87,6 +91,7 @@
         "range": "3.5 meters / 180° (matrix angle)"
       },
       {
+        "slug": "terra-surge",
         "name": "Terra Surge",
         "description": "Sweep in enemies and anchor down, gaining the effects of Fortify and charging up a surge of damage. Use Primary Fire to unleash the surge early.",
         "ability_type": "Ultimate Ability",
@@ -98,20 +103,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "defense-protocol",
           "name": "Defense Protocol",
           "description": "Regenerate 100 health per second while charging Terra Surge."
         },
         {
+          "slug": "mobile-fortification",
           "name": "Mobile Fortification",
           "description": "While Fortify is active, Orisa has no movement speed reduction and no heat generation."
         }
       ],
       "major": [
         {
+          "slug": "charged-javelin",
           "name": "Charged Javelin",
           "description": "Energy Javelin can be charged to increase projectile speed and knockback. Pierces enemies at full power."
         },
         {
+          "slug": "protective-barrier",
           "name": "Protective Barrier",
           "description": "Javelin Spin is replaced with a barrier."
         }

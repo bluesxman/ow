@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.0.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Wrecking_Ball",
@@ -46,6 +46,7 @@
     "sub_role": "initiator",
     "abilities": [
       {
+        "slug": "quad-cannons",
         "name": "Quad Cannons",
         "description": "Automatic assault weapons.",
         "ability_type": "Weapon",
@@ -60,6 +61,7 @@
         "dps": "125 while firing (83.33 overall w/reload)"
       },
       {
+        "slug": "grappling-claw",
         "name": "Grappling Claw",
         "description": "Launch a grappling claw to rapidly swing around the area. Enables high speed collisions to damage and knockback enemies.",
         "ability_type": "Ability",
@@ -69,12 +71,14 @@
         "duration": "8 seconds (max grapple time after fireball)"
       },
       {
+        "slug": "roll",
         "name": "Roll",
         "description": "Transform into a ball and increase maximum movement speed.",
         "ability_type": "Ability",
         "cooldown": "0.4 seconds"
       },
       {
+        "slug": "adaptive-shield",
         "name": "Adaptive Shield",
         "description": "Create temporary extra health that increase with more nearby enemies. Some of the health can be transferred to allies.",
         "ability_type": "Ability",
@@ -83,6 +87,7 @@
         "duration": "7 seconds (self) / 4 seconds (allies)"
       },
       {
+        "slug": "piledriver",
         "name": "Piledriver",
         "description": "Slam into the ground below to damage and launch enemies upward.",
         "ability_type": "Ability",
@@ -92,6 +97,7 @@
         "duration": "0.8 seconds (windup delay) / 0.75 seconds (enemy air lock)"
       },
       {
+        "slug": "minefield",
         "name": "Minefield",
         "description": "Deploy a massive field of proximity mines.",
         "ability_type": "Ultimate Ability",
@@ -105,20 +111,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "steamroller",
           "name": "Steamroller",
           "description": "Roll impacts deal 100% more damage to Tanks."
         },
         {
+          "slug": "multi-ball",
           "name": "Multi-Ball",
           "description": "Press Ultimate within 5 seconds after using Minefield to deploy 7 additional mines."
         }
       ],
       "major": [
         {
+          "slug": "hang-time",
           "name": "Hang Time",
           "description": "Piledriver winds up longer, gaining air control and dealing up to 50% more damage."
         },
         {
+          "slug": "adaptive-barrier",
           "name": "Adaptive Barrier",
           "description": "Adaptive Shield generates a 1.5 second barrier on activation."
         }

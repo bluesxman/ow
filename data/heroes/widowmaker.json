@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.0.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Widowmaker",
@@ -46,6 +46,7 @@
     "sub_role": "sharpshooter",
     "abilities": [
       {
+        "slug": "widows-kiss",
         "name": "Widow's Kiss",
         "description": "Automatic assault weapon.",
         "ability_type": "Weapon;;Hip Fire",
@@ -60,6 +61,7 @@
         "dps": "140 while firing (98 overall w/ reload)"
       },
       {
+        "slug": "widows-kiss-ads",
         "name": "Widow's Kiss (ADS)",
         "description": "Hold for long-ranged sniper weapon.",
         "ability_type": "Weapon;;ADS",
@@ -74,6 +76,7 @@
         "dps": "80 while firing (full charge) (70 overall w/reload)"
       },
       {
+        "slug": "grappling-hook",
         "name": "Grappling Hook",
         "description": "Launch a hook that pulls you towards a ledge.",
         "ability_type": "Ability",
@@ -81,6 +84,7 @@
         "range": "20 meters"
       },
       {
+        "slug": "venom-mine",
         "name": "Venom Mine",
         "description": "Launch a poison trap.",
         "ability_type": "Ability",
@@ -94,6 +98,7 @@
         "duration": "Until replaced or destroyed (mine) / 1.4 seconds (arming time) / 5 seconds (poison)"
       },
       {
+        "slug": "infra-sight",
         "name": "Infra-Sight",
         "description": "Provide your team with a view of the enemy's location.",
         "ability_type": "Ultimate Ability",
@@ -104,20 +109,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "scoped-efficiency",
           "name": "Scoped Efficiency",
           "description": "Scoped shots cost 3 ammo instead of 5."
         },
         {
+          "slug": "snipers-instinct",
           "name": "Sniper's Instinct",
           "description": "Scoped shots charge 100% faster for 2 seconds after using Grappling Hook."
         }
       ],
       "major": [
         {
+          "slug": "widow-s-bite",
           "name": "Widow’s Bite",
           "description": "Scoped shots can charge up to 125%, piercing enemies when fully charged."
         },
         {
+          "slug": "seeker-mine",
           "name": "Seeker Mine",
           "description": "Venom Mine now fires poison darts at enemies within 10 meters and remains active after triggered."
         }

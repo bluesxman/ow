@@ -1,16 +1,20 @@
 #!/usr/bin/env tsx
-// Fetches Blizzard's patch-notes page, runs the deterministic parser, and
-// writes the raw structured output to .run/patch-notes-raw.json. This is the
-// input the refresh-patch-notes skill (Claude Code) reads to produce the
-// final, AI-interpreted data/patch-notes.json.
+// Fetches Blizzard's patch-notes page and writes a faithful Markdown
+// document at .run/patch-notes-raw.md — one section per patch, in source
+// order (newest-first, post-cutoff).
 //
-// Intentionally does no interpretation — mode/subject/metric inference belongs
-// to the AI, not deterministic code.
+// This is the input the refresh-patch-notes skill (Claude Code) reads to
+// produce data/patch-notes.json. The deterministic layer's job is to fetch
+// and convert HTML to markdown; *all* interpretation lives in the AI skill.
 
 import { mkdir, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import process from 'node:process';
-import { fetchAndParse, PATCH_HISTORY_CUTOFF_DATE } from '../../../../src/sources/blizzardPatchNotes.js';
+import {
+  fetchAndRender,
+  PATCH_HISTORY_CUTOFF_DATE,
+  renderCombined,
+} from '../../../../src/sources/blizzardPatchNotes.js';
 
 interface ParsedArgs {
   out: string;
@@ -18,7 +22,7 @@ interface ParsedArgs {
 }
 
 function parseArgs(argv: string[]): ParsedArgs {
-  const args: ParsedArgs = { out: '.run/patch-notes-raw.json' };
+  const args: ParsedArgs = { out: '.run/patch-notes-raw.md' };
   for (const a of argv.slice(2)) {
     const m = a.match(/^--([^=]+)=(.*)$/);
     if (!m) continue;
@@ -34,15 +38,17 @@ function parseArgs(argv: string[]): ParsedArgs {
 async function main(): Promise<void> {
   const args = parseArgs(process.argv);
   const fetchOpts = args.url ? { url: args.url } : {};
-  const patches = await fetchAndParse(fetchOpts);
+  const patches = await fetchAndRender(fetchOpts);
+  const header = [
+    `<!-- fetched_at: ${new Date().toISOString()} -->`,
+    `<!-- cutoff_date: ${PATCH_HISTORY_CUTOFF_DATE} -->`,
+    `<!-- patch_count: ${patches.length} -->`,
+    '',
+  ].join('\n');
+  const body = renderCombined(patches);
   const outPath = resolve(process.cwd(), args.out);
   await mkdir(dirname(outPath), { recursive: true });
-  const body = {
-    fetched_at: new Date().toISOString(),
-    cutoff_date: PATCH_HISTORY_CUTOFF_DATE,
-    patches,
-  };
-  await writeFile(outPath, JSON.stringify(body, null, 2) + '\n', 'utf8');
+  await writeFile(outPath, header + body, 'utf8');
   console.log(`wrote ${outPath} (${patches.length} patches, cutoff ${PATCH_HISTORY_CUTOFF_DATE})`);
 }
 

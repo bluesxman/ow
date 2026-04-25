@@ -1,21 +1,22 @@
-// Parses Blizzard's public patch-notes page into a *raw* structured form.
+// Fetches Blizzard's public patch-notes page and emits a Markdown document.
 //
-// This module produces the deterministic input that the refresh-patch-notes
-// Claude Code skill consumes. The output is not the published shape — it's
-// pre-interpretation; the AI skill maps it onto the richer published JSON
-// (`data/patch-notes.json`) where each change carries a {raw, interpreted}
-// pair. See src/types.ts for the published shape.
+// Design choice: the only deterministic concern here is identifying patch
+// boundaries (date + title) and applying the post-2025-12-09 cutoff. Inside
+// each patch we do a faithful HTML→Markdown pass that preserves *whatever*
+// section/hero/ability structure Blizzard published — without trying to
+// classify items into hero vs. general buckets. That classification work
+// belongs to the AI layer (the refresh-patch-notes skill), which interprets
+// the markdown and writes data/patch-notes.json.
 //
-// Two consumers share this module:
-//   1. The refresh-patch-notes skill, which calls fetchAndParse() to get the
-//      raw input and then writes data/patch-notes.json with AI judgment.
-//   2. The process-patch-notes skill (separate, for hero-stat patching),
-//      which calls fetchAndParse() + renderMarkdown() to get the windowed
-//      .run/patch-notes.md it traditionally consumes.
+// Why not pre-classify here? Blizzard's HTML structure shifts (April 23, 2026
+// hotfix split a single logical section into two sibling DOM blocks; that
+// silently dropped Roadhog/Sombra/Vendetta balance changes from the old
+// pre-classifying parser). The fewer pattern-matches we hard-code, the less
+// likely a layout shift makes us silently lose data. Faithful markdown is
+// strictly more information than pre-classified JSON.
 
-import { parse, type HTMLElement } from 'node-html-parser';
+import { parse, type HTMLElement, type Node } from 'node-html-parser';
 import { PATCH_NOTES_URL, USER_AGENT } from '../config.js';
-import { toSlug } from '../slug.js';
 
 // Earliest patch we publish. Coincides with OW2 Season 20: Vendetta — the
 // last season before the 2026 Overwatch rebrand. Older patches are still
@@ -24,49 +25,10 @@ export const PATCH_HISTORY_CUTOFF_DATE = '2025-12-09';
 
 const PATCH_NOTES_FETCH_TIMEOUT_MS = 20_000;
 
-// ---------------------------------------------------------------------------
-// Raw scrape types — what the deterministic parser produces.
-// These are intentionally structural only — no mode/subject/metric inference.
-// The AI skill is responsible for that interpretation.
-// ---------------------------------------------------------------------------
-
-export interface RawAbilityChange {
-  ability: string;
-  bullets: string[];
-}
-
-export interface RawHeroPatchItem {
-  kind: 'hero';
-  hero: string;
-  hero_slug: string;
-  abilities: RawAbilityChange[];
-  // Hero-level bullets — not nested under any specific ability heading.
-  hero_level: string[];
-}
-
-export interface RawGeneralPatchItem {
-  kind: 'general';
-  // Sub-title when present (e.g. "Mystery Heroes Updates"); empty string for
-  // bare section bullets without a sub-title.
-  title: string;
-  bullets: string[];
-}
-
-export type RawPatchSectionItem = RawHeroPatchItem | RawGeneralPatchItem;
-
-export interface RawPatchSection {
-  title: string;
-  items: RawPatchSectionItem[];
-}
-
-export interface RawParsedPatch {
+export interface PatchMarkdown {
   date: string; // ISO yyyy-mm-dd
   title: string;
-  sections: RawPatchSection[];
-}
-
-function liText(el: HTMLElement): string {
-  return el.text.replace(/\s+/g, ' ').trim();
+  markdown: string; // body rendered as markdown, no leading title heading
 }
 
 function parsePatchDate(title: string): string | null {
@@ -78,11 +40,173 @@ function parsePatchDate(title: string): string | null {
   return d.toISOString().slice(0, 10);
 }
 
-// Parses the patch-notes HTML into structured patches, sorted newest-first.
-// Drops patches before PATCH_HISTORY_CUTOFF_DATE.
-export function parsePatchNotes(html: string): RawParsedPatch[] {
+function isHTMLElement(n: Node): n is HTMLElement {
+  return (n as HTMLElement).tagName !== undefined;
+}
+
+// Inline conversion: walk children producing a single line of text with
+// minimal inline formatting (bold, emphasis, links, line breaks). Whitespace
+// is collapsed except for line breaks.
+function renderInline(el: HTMLElement): string {
+  const parts: string[] = [];
+  for (const child of el.childNodes) {
+    if (!isHTMLElement(child)) {
+      parts.push(child.text);
+      continue;
+    }
+    const tag = child.tagName?.toLowerCase() ?? '';
+    switch (tag) {
+      case 'br':
+        parts.push('\n');
+        break;
+      case 'strong':
+      case 'b':
+        parts.push(`**${renderInline(child)}**`);
+        break;
+      case 'em':
+      case 'i':
+        parts.push(`*${renderInline(child)}*`);
+        break;
+      case 'a': {
+        const href = child.getAttribute('href') ?? '';
+        const text = renderInline(child);
+        parts.push(href ? `[${text}](${href})` : text);
+        break;
+      }
+      case 'code':
+        parts.push(`\`${renderInline(child)}\``);
+        break;
+      default:
+        parts.push(renderInline(child));
+        break;
+    }
+  }
+  return parts.join('').replace(/[ \t]+\n/g, '\n').replace(/[ \t]{2,}/g, ' ').trim();
+}
+
+// Block conversion: walk an element's children producing markdown blocks,
+// each separated by blank lines. Lists are rendered with two-space-indented
+// sub-bullets so nested ULs/OLs are preserved. Heading levels are mapped
+// 1:1 from h1..h6 — this preserves the document hierarchy verbatim.
+function renderBlocks(el: HTMLElement, indent: number = 0): string[] {
+  const out: string[] = [];
+  const pad = '  '.repeat(indent);
+
+  for (const child of el.childNodes) {
+    if (!isHTMLElement(child)) {
+      const text = child.text.trim();
+      if (text) out.push(pad + text.replace(/\s+/g, ' '));
+      continue;
+    }
+    const tag = child.tagName?.toLowerCase() ?? '';
+    switch (tag) {
+      case 'h1':
+      case 'h2':
+      case 'h3':
+      case 'h4':
+      case 'h5':
+      case 'h6': {
+        const level = Number(tag[1]);
+        const text = renderInline(child);
+        if (text) out.push(`${'#'.repeat(level)} ${text}`);
+        break;
+      }
+      case 'p': {
+        const text = renderInline(child);
+        if (text) out.push(pad + text);
+        break;
+      }
+      case 'ul':
+      case 'ol': {
+        let i = 1;
+        for (const li of child.querySelectorAll(':scope > li')) {
+          const marker = tag === 'ol' ? `${i}.` : '-';
+          // First, render the immediate inline content of the li (text +
+          // inline tags before any nested block-level element).
+          const inlineFragments: string[] = [];
+          const blockTail: HTMLElement[] = [];
+          let seenBlock = false;
+          for (const sub of li.childNodes) {
+            if (!isHTMLElement(sub)) {
+              if (!seenBlock) inlineFragments.push(sub.text);
+              continue;
+            }
+            const subTag = sub.tagName?.toLowerCase() ?? '';
+            if (
+              subTag === 'ul' ||
+              subTag === 'ol' ||
+              subTag === 'p' ||
+              subTag === 'div' ||
+              /^h[1-6]$/.test(subTag)
+            ) {
+              seenBlock = true;
+              blockTail.push(sub);
+            } else if (!seenBlock) {
+              // Inline child — render via a synthetic wrapper.
+              const wrapped = parse(`<span>${sub.outerHTML ?? sub.toString()}</span>`).querySelector('span');
+              if (wrapped) inlineFragments.push(renderInline(wrapped));
+            }
+          }
+          const head = inlineFragments.join('').replace(/\s+/g, ' ').trim();
+          out.push(`${pad}${marker} ${head}`);
+          for (const block of blockTail) {
+            const sub = renderBlocks(block, indent + 1);
+            for (const s of sub) out.push(s);
+          }
+          i++;
+        }
+        break;
+      }
+      case 'br':
+        // Standalone <br> at block scope — ignore.
+        break;
+      case 'img':
+      case 'svg':
+      case 'figure':
+      case 'picture':
+        // Decorative; drop entirely.
+        break;
+      case 'div':
+      case 'section':
+      case 'article':
+      case 'aside':
+      case 'header':
+      case 'footer':
+      case 'main':
+      case 'nav': {
+        // Recurse into structural containers without emitting anything for
+        // the wrapper itself.
+        const sub = renderBlocks(child, indent);
+        for (const s of sub) out.push(s);
+        break;
+      }
+      default: {
+        // Unknown tag — try inline rendering. If it produces text, emit
+        // as its own line; otherwise recurse.
+        const inlineText = renderInline(child);
+        if (inlineText) {
+          out.push(pad + inlineText);
+        } else {
+          const sub = renderBlocks(child, indent);
+          for (const s of sub) out.push(s);
+        }
+        break;
+      }
+    }
+  }
+  return out;
+}
+
+function htmlToMarkdown(el: HTMLElement): string {
+  const blocks = renderBlocks(el).map((b) => b.replace(/\s+$/g, '')).filter((b) => b.length > 0);
+  return blocks.join('\n\n').trim();
+}
+
+// Parses the patch-notes HTML into per-patch markdown documents, sorted
+// newest-first. Drops patches before PATCH_HISTORY_CUTOFF_DATE.
+export function parsePatchNotesMarkdown(html: string): PatchMarkdown[] {
   const root = parse(html);
-  const out: RawParsedPatch[] = [];
+  const out: PatchMarkdown[] = [];
 
   for (const patch of root.querySelectorAll('.PatchNotes-patch')) {
     const titleEl = patch.querySelector('.PatchNotes-patchTitle, .PatchNotes-patch-title, h3');
@@ -91,72 +215,13 @@ export function parsePatchNotes(html: string): RawParsedPatch[] {
     if (!date || !title) continue;
     if (date < PATCH_HISTORY_CUTOFF_DATE) continue;
 
-    const sections: RawPatchSection[] = [];
+    // Render everything inside the patch container *except* the patch title
+    // itself — we surface the title separately so the caller controls the
+    // top-level heading level in the combined document.
+    if (titleEl) titleEl.remove();
+    const markdown = htmlToMarkdown(patch);
 
-    for (const section of patch.querySelectorAll('.PatchNotes-section')) {
-      const sectionTitleEl = section.querySelector('.PatchNotes-sectionTitle, h4');
-      const sectionTitle = sectionTitleEl ? sectionTitleEl.text.trim() : '';
-      if (!sectionTitle) continue;
-
-      const items: RawPatchSectionItem[] = [];
-
-      const sectionBullets = section
-        .querySelectorAll(':scope > .PatchNotes-sectionDescription > ul > li')
-        .map(liText)
-        .filter((b) => b.length > 0);
-      if (sectionBullets.length > 0) {
-        items.push({ kind: 'general', title: '', bullets: sectionBullets });
-      }
-
-      for (const generic of section.querySelectorAll(':scope > .PatchNotesGeneralUpdate')) {
-        const gtitle = generic.querySelector('.PatchNotesGeneralUpdate-title');
-        const glabel = gtitle ? gtitle.text.trim() : '';
-        const bullets = generic
-          .querySelectorAll('.PatchNotesGeneralUpdate-description li')
-          .map(liText)
-          .filter((b) => b.length > 0);
-        if (bullets.length === 0 && !glabel) continue;
-        items.push({ kind: 'general', title: glabel, bullets });
-      }
-
-      for (const hero of section.querySelectorAll('.PatchNotesHeroUpdate')) {
-        const nameEl = hero.querySelector('.PatchNotesHeroUpdate-name, h5');
-        const heroName = nameEl ? nameEl.text.trim() : '';
-        if (!heroName) continue;
-
-        const heroLevel = hero
-          .querySelectorAll('.PatchNotesHeroUpdate-generalUpdatesList li, .PatchNotesHeroUpdate-generalUpdates li')
-          .map(liText)
-          .filter((b) => b.length > 0);
-
-        const abilities: RawAbilityChange[] = [];
-        for (const ability of hero.querySelectorAll('.PatchNotesAbilityUpdate')) {
-          const abNameEl = ability.querySelector('.PatchNotesAbilityUpdate-name, h6');
-          const abName = abNameEl ? abNameEl.text.trim() : '';
-          if (!abName) continue;
-          const bullets = ability
-            .querySelectorAll('li')
-            .map(liText)
-            .filter((b) => b.length > 0);
-          abilities.push({ ability: abName, bullets });
-        }
-
-        if (heroLevel.length === 0 && abilities.length === 0) continue;
-
-        items.push({
-          kind: 'hero',
-          hero: heroName,
-          hero_slug: toSlug(heroName),
-          abilities,
-          hero_level: heroLevel,
-        });
-      }
-
-      if (items.length === 0) continue;
-      sections.push({ title: sectionTitle, items });
-    }
-
-    out.push({ date, title, sections });
+    out.push({ date, title, markdown });
   }
 
   out.sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
@@ -168,7 +233,7 @@ export interface FetchOptions {
   timeoutMs?: number;
 }
 
-export async function fetchAndParse(opts: FetchOptions = {}): Promise<RawParsedPatch[]> {
+export async function fetchPatchHtml(opts: FetchOptions = {}): Promise<string> {
   const url = opts.url ?? PATCH_NOTES_URL;
   const timeoutMs = opts.timeoutMs ?? PATCH_NOTES_FETCH_TIMEOUT_MS;
   const controller = new AbortController();
@@ -179,65 +244,24 @@ export async function fetchAndParse(opts: FetchOptions = {}): Promise<RawParsedP
       signal: controller.signal,
     });
     if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
-    const html = await res.text();
-    return parsePatchNotes(html);
+    return await res.text();
   } finally {
     clearTimeout(timer);
   }
 }
 
-export function resolveSinceWindow(since: string, now = new Date()): string {
-  const m = since.match(/^(\d+)d$/i);
-  if (m) {
-    const days = Number(m[1]);
-    const d = new Date(now);
-    d.setUTCDate(d.getUTCDate() - days);
-    return d.toISOString().slice(0, 10);
-  }
-  const iso = new Date(since);
-  if (Number.isNaN(iso.getTime())) throw new Error(`invalid since window: ${since}`);
-  return iso.toISOString().slice(0, 10);
+export async function fetchAndRender(opts: FetchOptions = {}): Promise<PatchMarkdown[]> {
+  const html = await fetchPatchHtml(opts);
+  return parsePatchNotesMarkdown(html);
 }
 
-// Render raw patches as the markdown shape that .run/patch-notes.md has
-// historically used. The process-patch-notes skill's list-affected-heroes
-// parses this exact shape (#### Hero, - **Ability**, nested bullets), so any
-// change here must stay compatible.
-export function renderMarkdown(
-  patches: RawParsedPatch[],
-  windowStart: string,
-  windowEnd: string,
-): string {
-  const header = `# Patch Notes — window: ${windowStart} to ${windowEnd}`;
-  const inWindow = patches.filter((p) => p.date >= windowStart);
-  if (inWindow.length === 0) return `${header}\n\n_No patches found in this window._\n`;
-
+// Render a list of per-patch markdown blobs as one document. Each patch is
+// introduced with `# <title>` so AI consumers see clear patch boundaries.
+export function renderCombined(patches: PatchMarkdown[]): string {
+  if (patches.length === 0) return '_No patches found._\n';
   const blocks: string[] = [];
-  for (const patch of inWindow) {
-    const lines: string[] = [];
-    lines.push(`## ${patch.title}`);
-    for (const section of patch.sections) {
-      lines.push('');
-      lines.push(`### ${section.title}`);
-      for (const item of section.items) {
-        if (item.kind === 'general') {
-          if (item.title) {
-            lines.push('');
-            lines.push(`#### ${item.title}`);
-          }
-          for (const b of item.bullets) lines.push(`- ${b}`);
-        } else {
-          lines.push('');
-          lines.push(`#### ${item.hero}`);
-          for (const b of item.hero_level) lines.push(`- ${b}`);
-          for (const ab of item.abilities) {
-            lines.push(`- **${ab.ability}**`);
-            for (const b of ab.bullets) lines.push(`  - ${b}`);
-          }
-        }
-      }
-    }
-    blocks.push(lines.join('\n'));
+  for (const p of patches) {
+    blocks.push(`# ${p.title}\n\n${p.markdown}`);
   }
-  return `${header}\n\n${blocks.join('\n\n')}\n`;
+  return blocks.join('\n\n---\n\n') + '\n';
 }

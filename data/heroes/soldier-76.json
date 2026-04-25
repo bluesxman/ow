@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.0.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Soldier%3A_76",
@@ -46,6 +46,7 @@
     "sub_role": "specialist",
     "abilities": [
       {
+        "slug": "heavy-pulse-rifle",
         "name": "Heavy Pulse Rifle",
         "description": "Automatic assault weapon.",
         "ability_type": "Weapon",
@@ -60,6 +61,7 @@
         "dps": "171 while firing (117.9 overall w/ reload)"
       },
       {
+        "slug": "helix-rockets",
         "name": "Helix Rockets",
         "description": "Launch a volley of explosive rockets.",
         "ability_type": "Ability",
@@ -71,12 +73,14 @@
         "projectile_speed": "50 m/s"
       },
       {
+        "slug": "sprint",
         "name": "Sprint",
         "description": "Run faster while moving forward.",
         "ability_type": "Ability",
         "duration": "∞"
       },
       {
+        "slug": "biotic-field",
         "name": "Biotic Field",
         "description": "Deploy a field that heals you and your allies.",
         "ability_type": "Ability",
@@ -86,6 +90,7 @@
         "duration": "5 seconds"
       },
       {
+        "slug": "tactical-visor",
         "name": "Tactical Visor",
         "description": "Automatically aims your weapon at targets in view.",
         "ability_type": "Ultimate Ability",
@@ -98,20 +103,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "helix-propulsion",
           "name": "Helix Propulsion",
           "description": "Helix Rockets' projectile speed is increased by 50%."
         },
         {
+          "slug": "tactical-salvo",
           "name": "Tactical Salvo",
           "description": "During Tactical Visor, Helix Rockets' cooldown is reduced by 80% and no longer interrupts firing Heavy Pulse Rifle."
         }
       ],
       "major": [
         {
+          "slug": "full-stride",
           "name": "Full Stride",
           "description": "Sprint's movement speed bonus gradually increases by an additional 25% over 2 seconds."
         },
         {
+          "slug": "stim-pack",
           "name": "Stim Pack",
           "description": "Stim Pack replaces Biotic Field. On use, Soldier: 76 heals for 30 health per second and gains 20% increased attack speed for 5 seconds."
         }

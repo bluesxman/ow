@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.0.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Jetpack_Cat",
@@ -46,11 +46,13 @@
     "sub_role": "tactician",
     "abilities": [
       {
+        "slug": "jetpack",
         "name": "Jetpack",
         "description": "Permanent flight.",
         "ability_type": "Passive Ability"
       },
       {
+        "slug": "biotic-pawjectiles",
         "name": "Biotic Pawjectiles",
         "description": "Mid-range projectile spread that heals allies and damages enemies.",
         "ability_type": "Weapon",
@@ -68,12 +70,14 @@
         "dps": "while firing ( w/ reload)"
       },
       {
+        "slug": "frenetic-flight",
         "name": "Frenetic Flight",
         "description": "Accelerate in your movement direction. Fuel recovery is slower while carrying another player.",
         "ability_type": "Ability",
         "duration": "0.75 seconds (regen delay)"
       },
       {
+        "slug": "lifeline",
         "name": "Lifeline",
         "description": "Toggle into transport mode, allowing an ally to be towed. Increases movement speed and heals your ally.",
         "ability_type": "Ability",
@@ -82,6 +86,7 @@
         "healing": "25 per second (ally)"
       },
       {
+        "slug": "purr",
         "name": "Purr",
         "description": "Pulsing area heal that increases in frequency over time. Knockback nearby enemies when activated.",
         "ability_type": "Ability",
@@ -92,6 +97,7 @@
         "range": "10 meters (healing and damage)"
       },
       {
+        "slug": "catnapper",
         "name": "Catnapper",
         "description": "Dive towards a ground location, knocking down enemies and tethering the nearest one to you.",
         "ability_type": "Ultimate Ability",
@@ -104,20 +110,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "ulterior-motive",
           "name": "Ulterior Motive",
           "description": "15% of Biotic Pawjectiles healing is converted into fuel."
         },
         {
+          "slug": "transport-shielding",
           "name": "Transport Shielding",
           "description": "Gain up to 75 shield health while carrying another hero."
         }
       ],
       "major": [
         {
+          "slug": "headbutt",
           "name": "Headbutt",
           "description": "Frenetic Flight can knockback an enemy on impact when flying fast enough. Generate 25% fuel on knockback"
         },
         {
+          "slug": "claws-out",
           "name": "Claws Out",
           "description": "Quick Melee becomes empowered every 6 seconds, wounding enemies for 40 damage and slowing them by 30% for 1 second."
         }

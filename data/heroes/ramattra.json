@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.0.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Ramattra",
@@ -46,6 +46,7 @@
     "sub_role": "stalwart",
     "abilities": [
       {
+        "slug": "void-accelerator",
         "name": "Void Accelerator",
         "description": "Fire a stream of projectiles.",
         "ability_type": "Weapon;;Omnic Form",
@@ -60,6 +61,7 @@
         "dps": "125 (100 overall w/ reload)"
       },
       {
+        "slug": "void-barrier",
         "name": "Void Barrier",
         "description": "Create a barrier at the targeted location.",
         "ability_type": "Ability;;Omnic Form",
@@ -69,6 +71,7 @@
         "duration": "4 seconds"
       },
       {
+        "slug": "ravenous-vortex",
         "name": "Ravenous Vortex",
         "description": "Fire a sphere of energy that creates a slowing vortex on the ground, slowing and pulling down enemies. Re-activate to detonate early.",
         "ability_type": "Ability;;both forms",
@@ -81,6 +84,7 @@
         "radius": "4 meters"
       },
       {
+        "slug": "nemesis-form",
         "name": "Nemesis Form",
         "description": "Transform into Nemesis Form, changing your attacks and gaining bonus armor.",
         "ability_type": "Ability",
@@ -88,6 +92,7 @@
         "duration": "8 seconds"
       },
       {
+        "slug": "pummel",
         "name": "Pummel",
         "description": "Punch, creating a wave of piercing energy with every swing.",
         "ability_type": "Weapon;;Nemesis Form",
@@ -102,6 +107,7 @@
         "dps": "108.33 while firing"
       },
       {
+        "slug": "block",
         "name": "Block",
         "description": "Significantly reduces damage taken from the front and reduces movement speed.",
         "ability_type": "Ability;;Nemesis Form",
@@ -109,6 +115,7 @@
         "duration": "0.2 seconds (min)"
       },
       {
+        "slug": "annihilation",
         "name": "Annihilation",
         "description": "Enter Nemesis Form and create a deadly swarm that lashes out at nearby enemies, persisting longer when damaging enemies.",
         "ability_type": "Ultimate Ability",
@@ -121,20 +128,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "relentless-form",
           "name": "Relentless Form",
           "description": "While Nemesis Form is active, eliminations extend the duration by 1 second."
         },
         {
+          "slug": "prolonged-barrier",
           "name": "Prolonged Barrier",
           "description": "Void Barrier's duration and size is increased by 25%."
         }
       ],
       "major": [
         {
+          "slug": "nanite-repair",
           "name": "Nanite Repair",
           "description": "Ramattra is healed for 75 health per second while within Ravenous Vortex."
         },
         {
+          "slug": "void-surge",
           "name": "Void Surge",
           "description": "Void Accelerator periodically releases a burst of 6 additional projectiles during continuous fire."
         }

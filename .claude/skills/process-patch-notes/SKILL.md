@@ -56,9 +56,9 @@ For each patch in `data/patch-notes.json` (newest first), for each section, for 
 
 2. **Apply the change** when none of the skip rules fire:
    - Read `data/heroes/<change.interpreted.hero_slug>.json`.
-   - **Ability change** (`subject_kind === "ability"`): locate the entry in `hero.abilities[]` whose `name` matches `change.interpreted.subject_name`. Set the field named `change.interpreted.metric` to `change.interpreted.to`.
+   - **Ability change** (`subject_kind === "ability"`): locate the entry in `hero.abilities[]` whose `slug` equals `change.interpreted.subject_slug` (exact match — the slug is a foreign key, not a normalized display name). Set the field named `change.interpreted.metric` to `change.interpreted.to`.
      - Composite-string slice handling: when the existing field value is a slash-separated string (e.g. `"10 (direct hit) / 25 - 7.5 (splash, enemy) / 12.5 - 3.75 (splash, self)"`), rewrite **only** the matching slice based on `change.interpreted.metric_phrase` (e.g. `"explosion damage"` → splash slice). If the slice mapping is ambiguous, skip the change and surface under "Skipped (composite-slice ambiguity)".
-     - If `change.interpreted.subject_name` doesn't match any ability in `hero.abilities[]`, surface under "Skipped (ability not found)" — this shouldn't happen if `refresh-patch-notes` interpreted correctly, so flag for the human to spot-check.
+     - If `change.interpreted.subject_slug` doesn't match any ability in `hero.abilities[]`, surface under "Skipped (ability not found)" — this shouldn't happen if `refresh-patch-notes` interpreted correctly, so flag for the human to spot-check. Cross-check against `change.raw.text` and `change.interpreted.subject_name` (display label) before assuming the patch-notes interpretation is wrong.
    - **Hero-level change** (`subject_kind === "hero_general"`): only when `change.interpreted.metric` is one of `health`, `armor`, `shields`. Set `hero.stats.<metric>` to `change.interpreted.to`. Skip other metrics (e.g. `damage`, `cooldown` at hero-general level usually means a passive — not in the schema today).
 
 3. **Preserve JSON shape**: do not reorder keys, do not add fields, do not remove fields.

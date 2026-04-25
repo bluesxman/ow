@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.0.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Sojourn",
@@ -46,6 +46,7 @@
     "sub_role": "sharpshooter",
     "abilities": [
       {
+        "slug": "railgun",
         "name": "Railgun",
         "description": "Rapid firing projectiles that generate energy on hit.",
         "ability_type": "Weapon;;Primary Fire",
@@ -61,6 +62,7 @@
         "dps": "144 while firing (~100.93 overall w/reload)"
       },
       {
+        "slug": "charged-shot",
         "name": "Charged Shot",
         "description": "High impact shot that consumes stored energy and pierces enemies.",
         "ability_type": "Weapon;;Secondary Fire",
@@ -72,6 +74,7 @@
         "spread": "None"
       },
       {
+        "slug": "power-slide",
         "name": "Power Slide",
         "description": "Ground slide that can cancel into a high jump.",
         "ability_type": "Ability",
@@ -80,6 +83,7 @@
         "range": "13 meters (slide) / 11.7 meters (jump)"
       },
       {
+        "slug": "disruptor-shot",
         "name": "Disruptor Shot",
         "description": "Launch an energy burst that deals damage to enemies within it.",
         "ability_type": "Ability",
@@ -93,6 +97,7 @@
         "range": "30 meters"
       },
       {
+        "slug": "overclock",
         "name": "Overclock",
         "description": "Railgun energy auto-charges for a short duration.",
         "ability_type": "Ultimate Ability",
@@ -102,20 +107,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "deceleration-field",
           "name": "Deceleration Field",
           "description": "Enemies hit by Disruptor Shot are slowed by 25%."
         },
         {
+          "slug": "overcharged",
           "name": "Overcharged",
           "description": "Railgun’s maximum energy is increased by 50 while Overclock is active."
         }
       ],
       "major": [
         {
+          "slug": "dual-thrusters",
           "name": "Dual Thrusters",
           "description": "Power Slide gains an additional charge and its jump height shifts to lateral movement."
         },
         {
+          "slug": "friction-generators",
           "name": "Friction Generators",
           "description": "While sliding, Power Slide generates up to 50 Energy."
         }

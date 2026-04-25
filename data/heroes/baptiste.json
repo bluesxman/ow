@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.0.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Baptiste",
@@ -46,12 +46,14 @@
     "sub_role": "tactician",
     "abilities": [
       {
+        "slug": "exo-boots",
         "name": "Exo Boots",
         "description": "Hold crouch to jump higher.",
         "ability_type": "Passive Ability",
         "range": "9.1 meters (full charge)"
       },
       {
+        "slug": "biotic-launcher",
         "name": "Biotic Launcher",
         "description": "Three-round burst gun.",
         "ability_type": "Weapon;;Primary Fire",
@@ -66,6 +68,7 @@
         "dps": "127.5 while firing (109 overall w/reload)"
       },
       {
+        "slug": "biotic-launcher-alt-fire",
         "name": "Biotic Launcher Alt Fire",
         "description": "Lob a healing projectile that heals all allies near the impact.",
         "ability_type": "Weapon;;Secondary Fire",
@@ -78,6 +81,7 @@
         "projectile_speed": "60 m/s"
       },
       {
+        "slug": "regenerative-burst",
         "name": "Regenerative Burst",
         "description": "Activate to heal yourself and nearby allies instantly, with additional healing over time. Instant heal is doubled for targets less than half health.",
         "ability_type": "Ability",
@@ -87,6 +91,7 @@
         "duration": "4 seconds"
       },
       {
+        "slug": "immortality-field",
         "name": "Immortality Field",
         "description": "Toss a device that prevents allies from dying. The device can be destroyed.",
         "ability_type": "Ability",
@@ -98,6 +103,7 @@
         "duration": "5 seconds (generator) / 5.5 seconds (field)"
       },
       {
+        "slug": "amplification-matrix",
         "name": "Amplification Matrix",
         "description": "Project a matrix that doubles the damage and healing of allied projectiles.",
         "ability_type": "Ultimate Ability",
@@ -108,20 +114,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "assault-burst",
           "name": "Assault Burst",
           "description": "Regenerative Burst now provides Baptiste with 20% increased attack speed for 3 seconds."
         },
         {
+          "slug": "expanded-field",
           "name": "Expanded Field",
           "description": "Immortality Field radius increased by 30%."
         }
       ],
       "major": [
         {
+          "slug": "automated-healing",
           "name": "Automated Healing",
           "description": "Using any ability triggers Baptiste's Shoulder Turret, periodically firing up to 3 shots at allies, each restoring 25 health."
         },
         {
+          "slug": "rocket-boots",
           "name": "Rocket Boots",
           "description": "While airborne from Exo Boots, use (SPACE) to dash horizontally."
         }

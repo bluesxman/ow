@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T17:28:20.254Z",
+    "last_updated": "2026-04-25T19:12:33.183Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "5.0.0"
+    "schema_version": "6.0.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Freja",
@@ -46,11 +46,13 @@
     "sub_role": "recon",
     "abilities": [
       {
+        "slug": "bounty-hunting",
         "name": "Bounty Hunting",
         "description": "Every 3 Final Blows, gain bonus ultimate charge.",
         "ability_type": "Passive Ability"
       },
       {
+        "slug": "revdraw-crossbow",
         "name": "Revdraw Crossbow",
         "description": "Rapidly fire automatic bolts.",
         "ability_type": "Weapon;;Hip Fire",
@@ -65,6 +67,7 @@
         "dps": "120.19 while firing (79.45 overall w/ reload)"
       },
       {
+        "slug": "take-aim",
         "name": "Take Aim",
         "description": "Slow down your momentum to take aim with a high speed explosive bolt. Using Quick Dash refreshes Take Aim.",
         "ability_type": "Weapon;;ADS",
@@ -79,18 +82,21 @@
         "spread": "None"
       },
       {
+        "slug": "quick-dash",
         "name": "Quick Dash",
         "description": "Vault in the direction you're moving and refresh Take Aim.",
         "ability_type": "Ability",
         "cooldown": "4.5 seconds"
       },
       {
+        "slug": "updraft",
         "name": "Updraft",
         "description": "Launch upward with a gust of wind.",
         "ability_type": "Ability",
         "cooldown": "12 seconds"
       },
       {
+        "slug": "bola-shot",
         "name": "Bola Shot",
         "description": "Fire an explosive bola. Hitting an enemy wraps them up and pulls in other nearby enemies.",
         "ability_type": "Ultimate Ability",
@@ -104,20 +110,24 @@
     "perks": {
       "minor": [
         {
+          "slug": "relentless-barrage",
           "name": "Relentless Barrage",
           "description": "Direct hits with Take Aim refund 8 automatic bolt ammo."
         },
         {
+          "slug": "momentum-boost",
           "name": "Momentum Boost",
           "description": "Quick Dash distance is increased by 20%."
         }
       ],
       "major": [
         {
+          "slug": "aerial-recovery",
           "name": "Aerial Recovery",
           "description": "After using Updraft, heal for 30 health per second until Freja touches the ground."
         },
         {
+          "slug": "rising-winds",
           "name": "Rising Winds",
           "description": "Updraft gains an additional charge but has 20% reduced height."
         }

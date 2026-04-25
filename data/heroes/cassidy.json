@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T15:47:39.427Z",
+    "last_updated": "2026-04-25T16:09:21.865Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -29,8 +29,7 @@
           "perks.major",
           "stats.health",
           "stats.armor",
-          "stats.shields",
-          "stats.abilities.*"
+          "stats.shields"
         ]
       }
     ],
@@ -48,23 +47,61 @@
     "abilities": [
       {
         "name": "Peacekeeper",
-        "description": "Accurate, powerful revolver."
+        "description": "Accurate, powerful revolver.",
+        "ability_type": "Weapon;;Primary Fire",
+        "damage": "70 - 21",
+        "falloff": "25 - 35 meters",
+        "headshot": true,
+        "rate_of_fire": "2 shots/s",
+        "ammo": 6,
+        "reload": "1.5 seconds animation",
+        "spread": "None",
+        "projectile_radius": "0.07 meters",
+        "dps": "140 while firing (93.33 overall w/reload)"
       },
       {
         "name": "Fan the Hammer",
-        "description": "Wildly fire remaining rounds."
+        "description": "Wildly fire remaining rounds.",
+        "ability_type": "Weapon;;Secondary Fire",
+        "damage": "50 - 15",
+        "falloff": "20 - 30 meters",
+        "headshot": false,
+        "rate_of_fire": "8.33 shots/s",
+        "ammo": 6,
+        "reload": "1.5 seconds animation",
+        "spread": "6 degrees",
+        "projectile_radius": "0.07 meters",
+        "dps": "416.67 while firing (135.14 overall w/reload)"
       },
       {
         "name": "Combat Roll",
-        "description": "Roll in the direction you're moving to take reduced damage and reload."
+        "description": "Roll in the direction you're moving to take reduced damage and reload.",
+        "ability_type": "Ability",
+        "cooldown": "5 seconds",
+        "range": "6.22 meters",
+        "duration": "0.4 seconds"
       },
       {
         "name": "Flashbang",
-        "description": "Hinder enemies in front of you, slowing them and preventing them from using movement abilities."
+        "description": "Hinder enemies in front of you, slowing them and preventing them from using movement abilities.",
+        "ability_type": "Ability",
+        "cooldown": "12 seconds",
+        "damage": 75,
+        "headshot": false,
+        "duration": "0.23 seconds (max travel time) / 1.2 seconds (hinder)",
+        "radius": "3 meters",
+        "range": "7 meters",
+        "projectile_speed": "30 m/s",
+        "projectile_radius": "0.2 meters"
       },
       {
         "name": "Deadeye",
-        "description": "Face off against your enemies. Press to lock on, then or to fire."
+        "description": "Face off against your enemies. Press to lock on, then or to fire.",
+        "ability_type": "Ultimate Ability",
+        "damage": "150 per second (during warning) / 300 per second (remaining duration)",
+        "duration": "2 seconds (warning time) / 7 seconds (max)",
+        "range": "200 meters",
+        "rate_of_fire": "8.93 shots/s"
       }
     ],
     "perks": {
@@ -90,57 +127,7 @@
       ]
     },
     "stats": {
-      "health": 250,
-      "abilities": {
-        "Peacekeeper": {
-          "ability_type": "Weapon;;Primary Fire",
-          "damage": "70 - 21",
-          "falloff": "25 - 35 meters",
-          "headshot": true,
-          "rate_of_fire": "2 shots/s",
-          "ammo": 6,
-          "reload": "1.5 seconds animation",
-          "spread": "None",
-          "projectile_radius": "0.07 meters",
-          "dps": "140 while firing (93.33 overall w/reload)"
-        },
-        "Fan the Hammer": {
-          "ability_type": "Weapon;;Secondary Fire",
-          "damage": "50 - 15",
-          "falloff": "20 - 30 meters",
-          "headshot": false,
-          "rate_of_fire": "8.33 shots/s",
-          "ammo": 6,
-          "reload": "1.5 seconds animation",
-          "spread": "6 degrees",
-          "projectile_radius": "0.07 meters",
-          "dps": "416.67 while firing (135.14 overall w/reload)"
-        },
-        "Combat Roll": {
-          "ability_type": "Ability",
-          "cooldown": "5 seconds",
-          "range": "6.22 meters",
-          "duration": "0.4 seconds"
-        },
-        "Flashbang": {
-          "ability_type": "Ability",
-          "cooldown": "12 seconds",
-          "damage": 75,
-          "headshot": false,
-          "duration": "0.23 seconds (max travel time) / 1.2 seconds (hinder)",
-          "radius": "3 meters",
-          "range": "7 meters",
-          "projectile_speed": "30 m/s",
-          "projectile_radius": "0.2 meters"
-        },
-        "Deadeye": {
-          "ability_type": "Ultimate Ability",
-          "damage": "150 per second (during warning) / 300 per second (remaining duration)",
-          "duration": "2 seconds (warning time) / 7 seconds (max)",
-          "range": "200 meters",
-          "rate_of_fire": "8.93 shots/s"
-        }
-      }
+      "health": 250
     }
   }
 }

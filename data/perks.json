@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T15:47:39.427Z",
+    "last_updated": "2026-04-25T16:09:21.865Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -29,8 +29,7 @@
           "perks.major",
           "stats.health",
           "stats.armor",
-          "stats.shields",
-          "stats.abilities.*"
+          "stats.shields"
         ]
       }
     ],

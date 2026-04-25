@@ -34,6 +34,8 @@ The full file inventory and use-case guidance lives in the "Published files" sec
 - **Minor** (`X.Y.0`): non-breaking schema change. Added optional fields, new aggregate files, additional metadata. Existing consumers keep working unchanged. May include data changes.
 - **Patch** (`X.Y.Z`): data-only change. No schema change at all — same fields, same types, same shape. Routine refreshes from new patches go here.
 
+The version reflects what's currently on `main`, not what's in flight. Don't bump until the schema change actually merges. While a PR is WIP, multiple breaking changes can accumulate under the same prospective bump — set `SCHEMA_VERSION` once for the whole batch when the PR is ready to merge. Don't add a "5.0.0" commit, then a "6.0.0" commit, then a "7.0.0" commit on the same unmerged branch — that churns the published contract for no reason and confuses reviewers.
+
 Edit the constant in [`src/config.ts`](./src/config.ts) (`SCHEMA_VERSION`) and call out the bump in the PR body. Routine `chore(data): refresh hero data` PRs should use a patch bump; the scrape workflow does not bump it automatically — set it explicitly when you intend a release.
 
 ## If you're modifying the code

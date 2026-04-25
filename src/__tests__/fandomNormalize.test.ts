@@ -233,8 +233,8 @@ describe('normalizeFandomHero on Reaper fixture', () => {
     expect(hellfire!.description).toContain('Short-range');
   });
 
-  it('captures Hellfire Shotguns combat stats', () => {
-    const hellfire = hero.stats.abilities?.['Hellfire Shotguns'];
+  it('captures Hellfire Shotguns combat stats on the ability entry', () => {
+    const hellfire = hero.abilities.find((a) => a.name === 'Hellfire Shotguns');
     expect(hellfire).toBeDefined();
     expect(hellfire!.ammo).toBe(8);
     expect(hellfire!.pellets).toBe(20);
@@ -246,7 +246,7 @@ describe('normalizeFandomHero on Reaper fixture', () => {
   });
 
   it('captures Shadow Step cooldown', () => {
-    const shadow = hero.stats.abilities?.['Shadow Step'];
+    const shadow = hero.abilities.find((a) => a.name === 'Shadow Step');
     expect(shadow).toBeDefined();
     expect(String(shadow!.cooldown ?? '')).toContain('10');
   });
@@ -273,15 +273,11 @@ describe('normalizeFandomHero on Soldier: 76 fixture', () => {
   const wt = loadFixtureWikitext('fandom-soldier-76.json');
   const hero = normalizeFandomHero(wt);
 
-  it('captures Heavy Pulse Rifle stats', () => {
-    const rifle = hero.stats.abilities?.['Heavy Pulse Rifle'];
+  it('captures Heavy Pulse Rifle stats on the ability entry', () => {
+    const rifle = hero.abilities.find((a) => a.name === 'Heavy Pulse Rifle');
     expect(rifle).toBeDefined();
     expect(rifle!.ammo).toBe(30);
     expect(String(rifle!.falloff ?? '')).toContain('30');
-  });
-
-  it('emits Heavy Pulse Rifle in abilities[]', () => {
-    expect(hero.abilities.find((a) => a.name === 'Heavy Pulse Rifle')).toBeDefined();
   });
 });
 
@@ -289,9 +285,10 @@ describe('normalizeFandomHero on Freja fixture (space-variant template)', () => 
   const wt = loadFixtureWikitext('fandom-freja.json');
   const hero = normalizeFandomHero(wt);
 
-  it('still extracts ability stats despite "Ability details" template variant', () => {
-    expect(Object.keys(hero.stats.abilities ?? {}).length).toBeGreaterThan(0);
+  it('still extracts abilities despite "Ability details" template variant', () => {
     expect(hero.abilities.length).toBeGreaterThan(0);
+    const withStats = hero.abilities.filter((a) => Object.keys(a).length > 2);
+    expect(withStats.length).toBeGreaterThan(0);
   });
 });
 
@@ -300,7 +297,7 @@ describe('normalizeFandomHero on Emre fixture (same-name dual-mode rifle)', () =
   const hero = normalizeFandomHero(wt);
 
   it('captures Hip Fire stats on the base Synthetic Burst Rifle entry', () => {
-    const rifle = hero.stats.abilities?.['Synthetic Burst Rifle'];
+    const rifle = hero.abilities.find((a) => a.name === 'Synthetic Burst Rifle');
     expect(rifle).toBeDefined();
     expect(rifle!.ability_type).toBe('Weapon;;Hip Fire');
     expect(rifle!.ammo).toBe(36);
@@ -310,7 +307,7 @@ describe('normalizeFandomHero on Emre fixture (same-name dual-mode rifle)', () =
   });
 
   it('nests Zoomed stats under modes with ability_type stripped', () => {
-    const rifle = hero.stats.abilities?.['Synthetic Burst Rifle'];
+    const rifle = hero.abilities.find((a) => a.name === 'Synthetic Burst Rifle');
     const zoomed = rifle!.modes?.['Weapon;;Zoomed'];
     expect(zoomed).toBeDefined();
     expect(zoomed!.falloff).toBe('35 - 60 meters');
@@ -319,7 +316,7 @@ describe('normalizeFandomHero on Emre fixture (same-name dual-mode rifle)', () =
   });
 
   it('preserves single-mode Cyber Frag as flat entry', () => {
-    const frag = hero.stats.abilities?.['Cyber Frag'];
+    const frag = hero.abilities.find((a) => a.name === 'Cyber Frag');
     expect(frag).toBeDefined();
     expect(frag!.cooldown).toBe('10 seconds');
     expect(frag!.modes).toBeUndefined();

@@ -40,7 +40,7 @@ Every `heroes/<slug>.json` also includes a top-level `attribution` block with th
 - **Minor** (`X.Y.0`): non-breaking schema change — added optional fields, new aggregate files, additional metadata. Existing consumers keep working unchanged. May include data changes.
 - **Patch** (`X.Y.Z`): data-only change — same fields, same types, same shape. Routine refreshes from new patches go here.
 
-The version is set in [`src/config.ts`](./src/config.ts) and is not auto-bumped by the scrape workflow.
+The version reflects what's currently on `main`, not what's in flight — don't bump until a schema change actually merges. While a PR is WIP, accumulate breaking changes under one bump rather than churning the version commit-by-commit. The version is set in [`src/config.ts`](./src/config.ts) and is not auto-bumped by the scrape workflow.
 
 For AI agents specifically, see [AGENTS.md](./AGENTS.md).
 

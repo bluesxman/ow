@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T15:47:39.427Z",
+    "last_updated": "2026-04-25T16:09:21.865Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -29,8 +29,7 @@
           "perks.major",
           "stats.health",
           "stats.armor",
-          "stats.shields",
-          "stats.abilities.*"
+          "stats.shields"
         ]
       }
     ],
@@ -48,23 +47,62 @@
     "abilities": [
       {
         "name": "Photon Projector",
-        "description": "Short-range beam weapon with increasing damage."
+        "description": "Short-range beam weapon with increasing damage.",
+        "ability_type": "Weapon;;Primary Fire",
+        "damage": "60/120/180 per second (level 1/2/3)",
+        "headshot": false,
+        "range": "12 meters",
+        "projectile_radius": "0.25 meters",
+        "ammo": 100,
+        "reload": "1.5 seconds animation",
+        "duration": "2 seconds (decay delay) / 1.7 seconds (decay per level)",
+        "dps": "60/120/180 while firing"
       },
       {
         "name": "Photon Projector Alt Fire",
-        "description": "Hold to charge, release to fire explosive orb."
+        "description": "Hold to charge, release to fire explosive orb.",
+        "ability_type": "Weapon;;Secondary Fire",
+        "damage": "5 - 100 (direct hit, min - max charge) / 2.5 - 50 (aoe at falloff start, min - max charge) / 2.5 - 12.5 (aoe at max radius, min - max charge)",
+        "projectile_radius": "0.115 - 0.475 meters (min - max charge)",
+        "radius": "0.5 meters (falloff start) / 0.5 - 2.0 meters (max radius, min - max charge)",
+        "duration": "1 second (to max charge)",
+        "rate_of_fire": "3.9 shots/s (min charge) / 0.8 shots/s (max charge)",
+        "projectile_speed": "50 m/s",
+        "ammo": 100,
+        "reload": "1.5 seconds animation",
+        "headshot": false,
+        "spread": "None",
+        "dps": "90.9 while firing (at full charge)"
       },
       {
         "name": "Sentry Turret",
-        "description": "Deploy a small turret that damages and slows enemies."
+        "description": "Deploy a small turret that damages and slows enemies.",
+        "ability_type": "Ability",
+        "cooldown": "10 seconds",
+        "health": 40,
+        "damage": "30 per second",
+        "headshot": false,
+        "duration": "Until destroyed or replaced",
+        "projectile_speed": "20 meters per second",
+        "range": "10 meters (turret beam)"
       },
       {
         "name": "Teleporter",
-        "description": "Create two temporary teleporters that enable instance travel between them."
+        "description": "Create two temporary teleporters that enable instance travel between them.",
+        "ability_type": "Ability",
+        "health": 100,
+        "duration": "10 seconds",
+        "cooldown": "12 seconds",
+        "range": "30 meters",
+        "radius": "1.5 meter (interact range)"
       },
       {
         "name": "Photon Barrier",
-        "description": "Deploy a massive energy barrier."
+        "description": "Deploy a massive energy barrier.",
+        "ability_type": "Ultimate Ability",
+        "health": 4000,
+        "duration": "12 seconds",
+        "range": "25 meters"
       }
     ],
     "perks": {
@@ -91,58 +129,7 @@
     },
     "stats": {
       "health": 125,
-      "shields": 150,
-      "abilities": {
-        "Photon Projector": {
-          "ability_type": "Weapon;;Primary Fire",
-          "damage": "60/120/180 per second (level 1/2/3)",
-          "headshot": false,
-          "range": "12 meters",
-          "projectile_radius": "0.25 meters",
-          "ammo": 100,
-          "reload": "1.5 seconds animation",
-          "duration": "2 seconds (decay delay) / 1.7 seconds (decay per level)",
-          "dps": "60/120/180 while firing"
-        },
-        "Photon Projector Alt Fire": {
-          "ability_type": "Weapon;;Secondary Fire",
-          "damage": "5 - 100 (direct hit, min - max charge) / 2.5 - 50 (aoe at falloff start, min - max charge) / 2.5 - 12.5 (aoe at max radius, min - max charge)",
-          "projectile_radius": "0.115 - 0.475 meters (min - max charge)",
-          "radius": "0.5 meters (falloff start) / 0.5 - 2.0 meters (max radius, min - max charge)",
-          "duration": "1 second (to max charge)",
-          "rate_of_fire": "3.9 shots/s (min charge) / 0.8 shots/s (max charge)",
-          "projectile_speed": "50 m/s",
-          "ammo": 100,
-          "reload": "1.5 seconds animation",
-          "headshot": false,
-          "spread": "None",
-          "dps": "90.9 while firing (at full charge)"
-        },
-        "Sentry Turret": {
-          "ability_type": "Ability",
-          "cooldown": "10 seconds",
-          "health": 40,
-          "damage": "30 per second",
-          "headshot": false,
-          "duration": "Until destroyed or replaced",
-          "projectile_speed": "20 meters per second",
-          "range": "10 meters (turret beam)"
-        },
-        "Teleporter": {
-          "ability_type": "Ability",
-          "health": 100,
-          "duration": "10 seconds",
-          "cooldown": "12 seconds",
-          "range": "30 meters",
-          "radius": "1.5 meter (interact range)"
-        },
-        "Photon Barrier": {
-          "ability_type": "Ultimate Ability",
-          "health": 4000,
-          "duration": "12 seconds",
-          "range": "25 meters"
-        }
-      }
+      "shields": 150
     }
   }
 }

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T15:47:39.427Z",
+    "last_updated": "2026-04-25T16:09:21.865Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -29,8 +29,7 @@
           "perks.major",
           "stats.health",
           "stats.armor",
-          "stats.shields",
-          "stats.abilities.*"
+          "stats.shields"
         ]
       }
     ],
@@ -48,23 +47,57 @@
     "abilities": [
       {
         "name": "Xuanwu Staff",
-        "description": "Fire a damaging water orb. Hold to control its trajectory and empower its explosion."
+        "description": "Fire a damaging water orb. Hold to control its trajectory and empower its explosion.",
+        "ability_type": "Weapon",
+        "damage": "10 (direct hit bonus, uncharged) / 20 (splash, uncharged) / 40 (direct hit bonus, charged) / 60 (splash, charged)",
+        "falloff": "0.8 - 1.3 meters (splash, uncharged) / 0.8 - 2.7 meters (splash, charged)",
+        "pellets": 1,
+        "rate_of_fire": "3 shots/s",
+        "reload": "1.5 seconds",
+        "ammo": 20,
+        "spread": "None",
+        "duration": "0.3 seconds (charge time) / 2.5 seconds (max control time)",
+        "projectile_radius": "0.42 meters",
+        "projectile_speed": "25 m/s",
+        "dps": "Rapid fire of uncharged orbs: 90.91 while firing (74.07 overall w/ reload) Perfectly timed charged orbs: 158.73 while firing (128.21 overall w/ reload)"
       },
       {
         "name": "Restorative Stream",
-        "description": "Place a passive healing stream on an ally. Hold on the target to manually heal at an improved rate, consuming resource."
+        "description": "Place a passive healing stream on an ally. Hold on the target to manually heal at an improved rate, consuming resource.",
+        "ability_type": "Ability",
+        "healing": "20 per second (passive) / 55 per second (bonus manual healing)",
+        "range": "20 meters",
+        "duration": "5 seconds (LoS timeout, passive) / 1 second (LoS timeout, manual) / 2 seconds (recharge delay)"
       },
       {
         "name": "Rushing Torrent",
-        "description": "Ride water to move faster and jump higher."
+        "description": "Ride water to move faster and jump higher.",
+        "ability_type": "Ability",
+        "cooldown": "8 seconds",
+        "range": "3.7 meters (vertical)",
+        "duration": "3.5 seconds"
       },
       {
         "name": "Guardian Wave",
-        "description": "Send a water wave forward that increases the amount of healing received by allies and knocks back enemies."
+        "description": "Send a water wave forward that increases the amount of healing received by allies and knocks back enemies.",
+        "ability_type": "Ability",
+        "cooldown": "14 seconds",
+        "damage": "80 - 40",
+        "healing": 80,
+        "duration": "3 seconds (healing amplification)",
+        "range": "30 meters",
+        "falloff": "4 - 17.5 meters",
+        "projectile_speed": "30 m/s"
       },
       {
         "name": "Tidal Blast",
-        "description": "Protect an ally or yourself with water that detonates after a short duration. The explosion knocks down enemies and massively heals the host target."
+        "description": "Protect an ally or yourself with water that detonates after a short duration. The explosion knocks down enemies and massively heals the host target.",
+        "ability_type": "Ultimate Ability",
+        "healing": 250,
+        "damage": 100,
+        "range": "35 meters",
+        "radius": "7.5 meters",
+        "duration": "3.5 seconds (explosion delay) / 1.5 seconds (knockdown)"
       }
     ],
     "perks": {
@@ -90,53 +123,7 @@
       ]
     },
     "stats": {
-      "health": 225,
-      "abilities": {
-        "Xuanwu Staff": {
-          "ability_type": "Weapon",
-          "damage": "10 (direct hit bonus, uncharged) / 20 (splash, uncharged) / 40 (direct hit bonus, charged) / 60 (splash, charged)",
-          "falloff": "0.8 - 1.3 meters (splash, uncharged) / 0.8 - 2.7 meters (splash, charged)",
-          "pellets": 1,
-          "rate_of_fire": "3 shots/s",
-          "reload": "1.5 seconds",
-          "ammo": 20,
-          "spread": "None",
-          "duration": "0.3 seconds (charge time) / 2.5 seconds (max control time)",
-          "projectile_radius": "0.42 meters",
-          "projectile_speed": "25 m/s",
-          "dps": "Rapid fire of uncharged orbs: 90.91 while firing (74.07 overall w/ reload) Perfectly timed charged orbs: 158.73 while firing (128.21 overall w/ reload)"
-        },
-        "Restorative Stream": {
-          "ability_type": "Ability",
-          "healing": "20 per second (passive) / 55 per second (bonus manual healing)",
-          "range": "20 meters",
-          "duration": "5 seconds (LoS timeout, passive) / 1 second (LoS timeout, manual) / 2 seconds (recharge delay)"
-        },
-        "Rushing Torrent": {
-          "ability_type": "Ability",
-          "cooldown": "8 seconds",
-          "range": "3.7 meters (vertical)",
-          "duration": "3.5 seconds"
-        },
-        "Guardian Wave": {
-          "ability_type": "Ability",
-          "cooldown": "14 seconds",
-          "damage": "80 - 40",
-          "healing": 80,
-          "duration": "3 seconds (healing amplification)",
-          "range": "30 meters",
-          "falloff": "4 - 17.5 meters",
-          "projectile_speed": "30 m/s"
-        },
-        "Tidal Blast": {
-          "ability_type": "Ultimate Ability",
-          "healing": 250,
-          "damage": 100,
-          "range": "35 meters",
-          "radius": "7.5 meters",
-          "duration": "3.5 seconds (explosion delay) / 1.5 seconds (knockdown)"
-        }
-      }
+      "health": 225
     }
   }
 }

@@ -38,7 +38,11 @@ interface HeroStats {
   health?: number;
   armor?: number;
   shields?: number;
-  abilities?: Record<string, AbilityStat>;
+}
+
+interface AbilityEntry extends AbilityStat {
+  name: string;
+  description?: string;
 }
 
 interface HeroFile {
@@ -46,6 +50,7 @@ interface HeroFile {
   attribution?: { fandom_page?: string; blizzard_page?: string };
   hero: {
     slug: string;
+    abilities: AbilityEntry[];
     perks: { minor: Array<{ name: string }>; major: Array<{ name: string }> };
     stats?: HeroStats;
   };
@@ -59,7 +64,7 @@ interface IndexFile {
 
 interface AggregateFile {
   metadata: FetchedMetadata;
-  heroes: Record<string, { stats?: HeroStats }>;
+  heroes: Record<string, { stats?: HeroStats; abilities?: AbilityEntry[] }>;
 }
 
 async function fetchJson<T>(url: string): Promise<T> {
@@ -99,12 +104,16 @@ function assertSources(label: string, metadata: FetchedMetadata): void {
   }
 }
 
-function hasFandomStats(stats: HeroStats | undefined): boolean {
-  if (!stats) return false;
-  if (stats.health !== undefined || stats.armor !== undefined || stats.shields !== undefined) {
-    return true;
+function hasFandomData(hero: { stats?: HeroStats; abilities?: AbilityEntry[] }): boolean {
+  const s = hero.stats;
+  if (s && (s.health !== undefined || s.armor !== undefined || s.shields !== undefined)) return true;
+  if (hero.abilities && hero.abilities.length > 0) {
+    // Look for any numeric/string stat field beyond the bare name+description.
+    return hero.abilities.some((a) => {
+      const keys = Object.keys(a);
+      return keys.some((k) => k !== 'name' && k !== 'description');
+    });
   }
-  if (stats.abilities && Object.keys(stats.abilities).length > 0) return true;
   return false;
 }
 
@@ -132,8 +141,8 @@ async function main(): Promise<void> {
 
   const statsAgg = await fetchJson<AggregateFile>(`${BASE}/stats.json`);
   let heroesWithFandomStats = 0;
-  for (const stats of Object.values(statsAgg.heroes)) {
-    if (hasFandomStats(stats.stats)) heroesWithFandomStats++;
+  for (const hero of Object.values(statsAgg.heroes)) {
+    if (hasFandomData(hero)) heroesWithFandomStats++;
   }
   if (heroesWithFandomStats === 0) {
     throw new Error('stats.json: no hero has Fandom-derived stats — enrichment likely failed entirely');
@@ -163,11 +172,11 @@ async function main(): Promise<void> {
       throw new Error(`heroes/${slug}.json: blizzard_page wrong host: ${blizzardPage}`);
     }
 
-    if (hasFandomStats(doc.hero.stats) && !fandomInSources(doc.metadata)) {
-      throw new Error(`heroes/${slug}.json: contains Fandom-derived stats but Fandom not in metadata.sources`);
+    if (hasFandomData(doc.hero) && !fandomInSources(doc.metadata)) {
+      throw new Error(`heroes/${slug}.json: contains Fandom-derived data but Fandom not in metadata.sources`);
     }
 
-    console.log(`  ${slug}: perks match, attribution OK${hasFandomStats(doc.hero.stats) ? ', stats present' : ''}`);
+    console.log(`  ${slug}: perks match, attribution OK${hasFandomData(doc.hero) ? ', stats present' : ''}`);
   }
 
   console.log('All checks passed.');

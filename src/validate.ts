@@ -10,18 +10,20 @@ const PerkSchema = z.object({
   description: z.string().min(1),
 });
 
+const StatValue = z.union([z.number(), z.string(), z.boolean()]);
+
+// Mode entries (ADS / Zoomed / Secondary Fire / form variants) carry the same
+// numeric fields as the base ability but never nest further.
+const AbilityModeSchema = z.record(z.string(), StatValue.optional());
+
 const AbilitySchema = z.object({
   name: z.string().min(1),
   description: z.string().min(1),
-});
-
-const StatValue = z.union([z.number(), z.string(), z.boolean()]);
-
-const AbilityStatModeSchema = z.record(z.string(), StatValue.optional());
-
-const AbilityStatSchema = z.record(
-  z.string(),
-  z.union([StatValue, z.record(z.string(), AbilityStatModeSchema)]).optional(),
+}).catchall(
+  // Anything beyond name/description is either a numeric/string/boolean stat
+  // or the `modes` record. Catchall keeps the schema permissive — Fandom adds
+  // new template params over time and we don't want to break on them.
+  z.union([StatValue, z.record(z.string(), AbilityModeSchema)]).optional(),
 );
 
 export const HeroSchema = z.object({
@@ -39,7 +41,6 @@ export const HeroSchema = z.object({
     health: z.number().optional(),
     armor: z.number().optional(),
     shields: z.number().optional(),
-    abilities: z.record(z.string(), AbilityStatSchema).optional(),
   }),
 });
 
@@ -58,9 +59,7 @@ interface ValidationFixture {
     slug: string;
     role?: 'tank' | 'damage' | 'support';
     perks?: { minor: string[]; major: string[] };
-    stats?: {
-      abilities?: Record<string, Record<string, string | number>>;
-    };
+    abilities?: Record<string, Record<string, string | number>>;
   }>;
 }
 
@@ -123,24 +122,24 @@ export async function checkAgainstFixture(heroes: Record<string, Hero>): Promise
       }
     }
 
-    if (expected.stats?.abilities) {
-      for (const [abilityName, expectedFields] of Object.entries(expected.stats.abilities)) {
-        const actualAbility = hero.stats.abilities?.[abilityName];
+    if (expected.abilities) {
+      for (const [abilityName, expectedFields] of Object.entries(expected.abilities)) {
+        const actualAbility = hero.abilities.find((a) => a.name === abilityName);
         if (!actualAbility) {
           mismatches.push({
             slug: expected.slug,
-            tier: `stats.${abilityName}`,
+            tier: `abilities.${abilityName}`,
             expected: [`<ability present with fields ${Object.keys(expectedFields).join(', ')}>`],
             got: ['<ability missing>'],
           });
           continue;
         }
         for (const [field, expectedVal] of Object.entries(expectedFields)) {
-          const m = checkStatField(actualAbility, field, expectedVal);
+          const m = checkStatField(actualAbility as Record<string, unknown>, field, expectedVal);
           if (m) {
             mismatches.push({
               slug: expected.slug,
-              tier: `stats.${abilityName}.${field}`,
+              tier: `abilities.${abilityName}.${field}`,
               expected: [String(expectedVal)],
               got: [m.actual],
             });

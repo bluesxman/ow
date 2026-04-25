@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T15:47:39.427Z",
+    "last_updated": "2026-04-25T16:09:21.865Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -29,8 +29,7 @@
           "perks.major",
           "stats.health",
           "stats.armor",
-          "stats.shields",
-          "stats.abilities.*"
+          "stats.shields"
         ]
       }
     ],
@@ -48,23 +47,60 @@
     "abilities": [
       {
         "name": "Biotic Rifle",
-        "description": "Long-range rifle that heals allies and damages enemies."
+        "description": "Long-range rifle that heals allies and damages enemies.",
+        "ability_type": "Weapon;;Hip Fire",
+        "damage": "75 over 0.59 seconds",
+        "headshot": false,
+        "healing": "75 over 0.59 seconds",
+        "projectile_speed": "125 m/s",
+        "rate_of_fire": "1.25 shots/s",
+        "ammo": 15,
+        "reload": "1.5 seconds",
+        "duration": "0.59 seconds effect",
+        "projectile_radius": "0.15 meters",
+        "spread": "None",
+        "dps": "while firing / overall w/ reload"
       },
       {
         "name": "Zoom (ADS)",
-        "description": "Hold to zoom in."
+        "description": "Hold to zoom in.",
+        "ability_type": "Weapon;;ADS",
+        "headshot": false,
+        "projectile_radius": "0.07 meters (enemies) / 0.3 meters (allies)",
+        "spread": "None",
+        "dps": "while firing / overall w/ reload"
       },
       {
         "name": "Sleep Dart",
-        "description": "Fires a dart that puts an enemy to sleep."
+        "description": "Fires a dart that puts an enemy to sleep.",
+        "ability_type": "Ability",
+        "cooldown": "14 seconds",
+        "damage": 5,
+        "headshot": false,
+        "duration": "0.5 seconds (sleep min) / 5 seconds (sleep max, non-tanks) / 3.5 seconds (sleep max, tanks) / 0.5 seconds (wakeup)",
+        "projectile_speed": "60 m/s",
+        "projectile_radius": "0.2 meters"
       },
       {
         "name": "Biotic Grenade",
-        "description": "Throws a grenade that heals and increases healing on allies, while damaging and preventing healing on enemies."
+        "description": "Throws a grenade that heals and increases healing on allies, while damaging and preventing healing on enemies.",
+        "ability_type": "Ability",
+        "cooldown": "12 seconds",
+        "damage": 75,
+        "headshot": false,
+        "healing": 75,
+        "projectile_speed": "30 m/s",
+        "projectile_radius": "0.275 meters",
+        "radius": "4 meters",
+        "duration": "3 seconds"
       },
       {
         "name": "Nano Boost",
-        "description": "Increases an ally's damage, while reducing damage taken."
+        "description": "Increases an ally's damage, while reducing damage taken.",
+        "ability_type": "Ultimate Ability",
+        "healing": 250,
+        "duration": "8 seconds",
+        "range": "40 meters"
       }
     ],
     "perks": {
@@ -90,56 +126,7 @@
       ]
     },
     "stats": {
-      "health": 250,
-      "abilities": {
-        "Biotic Rifle": {
-          "ability_type": "Weapon;;Hip Fire",
-          "damage": "75 over 0.59 seconds",
-          "headshot": false,
-          "healing": "75 over 0.59 seconds",
-          "projectile_speed": "125 m/s",
-          "rate_of_fire": "1.25 shots/s",
-          "ammo": 15,
-          "reload": "1.5 seconds",
-          "duration": "0.59 seconds effect",
-          "projectile_radius": "0.15 meters",
-          "spread": "None",
-          "dps": "while firing / overall w/ reload"
-        },
-        "Zoom (ADS)": {
-          "ability_type": "Weapon;;ADS",
-          "headshot": false,
-          "projectile_radius": "0.07 meters (enemies) / 0.3 meters (allies)",
-          "spread": "None",
-          "dps": "while firing / overall w/ reload"
-        },
-        "Sleep Dart": {
-          "ability_type": "Ability",
-          "cooldown": "14 seconds",
-          "damage": 5,
-          "headshot": false,
-          "duration": "0.5 seconds (sleep min) / 5 seconds (sleep max, non-tanks) / 3.5 seconds (sleep max, tanks) / 0.5 seconds (wakeup)",
-          "projectile_speed": "60 m/s",
-          "projectile_radius": "0.2 meters"
-        },
-        "Biotic Grenade": {
-          "ability_type": "Ability",
-          "cooldown": "12 seconds",
-          "damage": 75,
-          "headshot": false,
-          "healing": 75,
-          "projectile_speed": "30 m/s",
-          "projectile_radius": "0.275 meters",
-          "radius": "4 meters",
-          "duration": "3 seconds"
-        },
-        "Nano Boost": {
-          "ability_type": "Ultimate Ability",
-          "healing": 250,
-          "duration": "8 seconds",
-          "range": "40 meters"
-        }
-      }
+      "health": 250
     }
   }
 }

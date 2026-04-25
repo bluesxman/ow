@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T15:47:39.427Z",
+    "last_updated": "2026-04-25T16:09:21.865Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -29,8 +29,7 @@
           "perks.major",
           "stats.health",
           "stats.armor",
-          "stats.shields",
-          "stats.abilities.*"
+          "stats.shields"
         ]
       }
     ],
@@ -48,31 +47,68 @@
     "abilities": [
       {
         "name": "Inspire",
-        "description": "Dealing damage to enemies heals nearby allies."
+        "description": "Dealing damage to enemies heals nearby allies.",
+        "ability_type": "Passive Ability",
+        "duration": "4 seconds",
+        "healing": "15 per second",
+        "radius": "20 meters"
       },
       {
         "name": "Rocket Flail",
-        "description": "Melee weapon with extended range."
+        "description": "Melee weapon with extended range.",
+        "ability_type": "Weapon",
+        "damage": 45,
+        "headshot": false,
+        "rate_of_fire": "1 swing per 0.6 seconds",
+        "duration": "0.240 seconds (hitbox active)",
+        "range": "6 meters",
+        "dps": "75 while swinging"
       },
       {
         "name": "Barrier Shield",
-        "description": "Hold to deploy a frontal energy barrier."
+        "description": "Hold to deploy a frontal energy barrier.",
+        "ability_type": "Ability",
+        "cooldown": "5 seconds (destroyed)",
+        "health": "300 (default) / 750 (during Rally)"
       },
       {
         "name": "Shield Bash",
-        "description": "Available when Barrier Shield is deployed. Dash forward to knock back an enemy."
+        "description": "Available when Barrier Shield is deployed. Dash forward to knock back an enemy.",
+        "ability_type": "Ability",
+        "cooldown": "5 seconds",
+        "damage": 70,
+        "duration": "0.3 seconds",
+        "range": "8.5 meters (dash)",
+        "radius": "1.4 meters (hitbox)"
       },
       {
         "name": "Whip Shot",
-        "description": "Launch your flail forward to knock an enemy away from you."
+        "description": "Launch your flail forward to knock an enemy away from you.",
+        "ability_type": "Ability",
+        "cooldown": "4 seconds",
+        "damage": 70,
+        "headshot": false,
+        "range": "20 meters",
+        "duration": "Up to 0.43 seconds (travel time)",
+        "projectile_radius": "None",
+        "projectile_speed": "80 m/s"
       },
       {
         "name": "Repair Pack",
-        "description": "Heals an ally for a short duration."
+        "description": "Heals an ally for a short duration.",
+        "ability_type": "Ability",
+        "cooldown": "5 seconds",
+        "healing": "25 (instantly) / 100 over 2 seconds (over time)",
+        "duration": "2 seconds",
+        "range": "25 meters",
+        "projectile_speed": "45 m/s"
       },
       {
         "name": "Rally",
-        "description": "Gain armor, empower Barrier Shield and provide extra health to nearby allies."
+        "description": "Gain armor, empower Barrier Shield and provide extra health to nearby allies.",
+        "ability_type": "Ultimate Ability",
+        "radius": "8 meters",
+        "duration": "10 seconds (Rally) / 30 seconds (overhealth) / 0.75 seconds (Shield Bash stun)"
       }
     ],
     "perks": {
@@ -99,60 +135,7 @@
     },
     "stats": {
       "health": 200,
-      "armor": 50,
-      "abilities": {
-        "Inspire": {
-          "ability_type": "Passive Ability",
-          "duration": "4 seconds",
-          "healing": "15 per second",
-          "radius": "20 meters"
-        },
-        "Rocket Flail": {
-          "ability_type": "Weapon",
-          "damage": 45,
-          "headshot": false,
-          "rate_of_fire": "1 swing per 0.6 seconds",
-          "duration": "0.240 seconds (hitbox active)",
-          "range": "6 meters",
-          "dps": "75 while swinging"
-        },
-        "Barrier Shield": {
-          "ability_type": "Ability",
-          "cooldown": "5 seconds (destroyed)",
-          "health": "300 (default) / 750 (during Rally)"
-        },
-        "Shield Bash": {
-          "ability_type": "Ability",
-          "cooldown": "5 seconds",
-          "damage": 70,
-          "duration": "0.3 seconds",
-          "range": "8.5 meters (dash)",
-          "radius": "1.4 meters (hitbox)"
-        },
-        "Whip Shot": {
-          "ability_type": "Ability",
-          "cooldown": "4 seconds",
-          "damage": 70,
-          "headshot": false,
-          "range": "20 meters",
-          "duration": "Up to 0.43 seconds (travel time)",
-          "projectile_radius": "None",
-          "projectile_speed": "80 m/s"
-        },
-        "Repair Pack": {
-          "ability_type": "Ability",
-          "cooldown": "5 seconds",
-          "healing": "25 (instantly) / 100 over 2 seconds (over time)",
-          "duration": "2 seconds",
-          "range": "25 meters",
-          "projectile_speed": "45 m/s"
-        },
-        "Rally": {
-          "ability_type": "Ultimate Ability",
-          "radius": "8 meters",
-          "duration": "10 seconds (Rally) / 30 seconds (overhealth) / 0.75 seconds (Shield Bash stun)"
-        }
-      }
+      "armor": 50
     }
   }
 }

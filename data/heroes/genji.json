@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T15:47:39.427Z",
+    "last_updated": "2026-04-25T16:09:21.865Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -29,8 +29,7 @@
           "perks.major",
           "stats.health",
           "stats.armor",
-          "stats.shields",
-          "stats.abilities.*"
+          "stats.shields"
         ]
       }
     ],
@@ -48,27 +47,66 @@
     "abilities": [
       {
         "name": "Cyber-Agility",
-        "description": "Climb on walls and double jump."
+        "description": "Climb on walls and double jump.",
+        "ability_type": "Passive Ability",
+        "duration": "Up to 1 second"
       },
       {
         "name": "Shuriken",
-        "description": "Throw an accurate burst of 3 projectiles."
+        "description": "Throw an accurate burst of 3 projectiles.",
+        "ability_type": "Weapon;;Primary Fire",
+        "damage": "27 (per shuriken) / 81 (per shot)",
+        "headshot": true,
+        "pellets": 3,
+        "projectile_radius": "0.125 meters",
+        "projectile_speed": "75 m/s",
+        "rate_of_fire": "1.14 shots/s",
+        "ammo": 30,
+        "reload": "1.5 seconds",
+        "spread": "None",
+        "dps": "92.05 while firing (85.94 overall w/reload)"
       },
       {
         "name": "Shuriken Alt Fire",
-        "description": "Throw a fan of 3 projectiles in an arc."
+        "description": "Throw a fan of 3 projectiles in an arc.",
+        "ability_type": "Weapon;;Secondary Fire",
+        "damage": "(per shuriken) / (per shot)",
+        "headshot": true,
+        "projectile_speed": "m/s",
+        "projectile_radius": "0.125 meters",
+        "rate_of_fire": "1.47 shots/s",
+        "pellets": 3,
+        "reload": "1.5 seconds",
+        "spread": "4.5 degrees",
+        "dps": "119.12 while firing (109.09 overall w/reload)"
       },
       {
         "name": "Swift Strike",
-        "description": "Rapidly dash forward and inflict damage on enemies. Eliminations reset the cooldown."
+        "description": "Rapidly dash forward and inflict damage on enemies. Eliminations reset the cooldown.",
+        "ability_type": "Ability",
+        "cooldown": "8 seconds",
+        "damage": 50,
+        "headshot": false,
+        "duration": "0.4 seconds",
+        "range": "15 meters"
       },
       {
         "name": "Deflect",
-        "description": "Deflect incoming projectiles towards the direction you are aiming and block melee attacks."
+        "description": "Deflect incoming projectiles towards the direction you are aiming and block melee attacks.",
+        "ability_type": "Ability",
+        "cooldown": "10 seconds",
+        "duration": "0.27 seconds min. duration / 2 seconds max. duration / 0.192 seconds recovery"
       },
       {
         "name": "Dragonblade",
-        "description": "Unsheathe a deadly melee weapon."
+        "description": "Unsheathe a deadly melee weapon.",
+        "ability_type": "Ultimate Ability",
+        "damage": 110,
+        "headshot": false,
+        "rate_of_fire": "1.437 swings/s on average.",
+        "duration": "6 seconds",
+        "range": "5 meters",
+        "dps": "158.05 while swinging continuously"
       }
     ],
     "perks": {
@@ -94,60 +132,7 @@
       ]
     },
     "stats": {
-      "health": 250,
-      "abilities": {
-        "Cyber-Agility": {
-          "ability_type": "Passive Ability",
-          "duration": "Up to 1 second"
-        },
-        "Shuriken": {
-          "ability_type": "Weapon;;Primary Fire",
-          "damage": "27 (per shuriken) / 81 (per shot)",
-          "headshot": true,
-          "pellets": 3,
-          "projectile_radius": "0.125 meters",
-          "projectile_speed": "75 m/s",
-          "rate_of_fire": "1.14 shots/s",
-          "ammo": 30,
-          "reload": "1.5 seconds",
-          "spread": "None",
-          "dps": "92.05 while firing (85.94 overall w/reload)"
-        },
-        "Shuriken Alt Fire": {
-          "ability_type": "Weapon;;Secondary Fire",
-          "damage": "(per shuriken) / (per shot)",
-          "headshot": true,
-          "projectile_speed": "m/s",
-          "projectile_radius": "0.125 meters",
-          "rate_of_fire": "1.47 shots/s",
-          "pellets": 3,
-          "reload": "1.5 seconds",
-          "spread": "4.5 degrees",
-          "dps": "119.12 while firing (109.09 overall w/reload)"
-        },
-        "Swift Strike": {
-          "ability_type": "Ability",
-          "cooldown": "8 seconds",
-          "damage": 50,
-          "headshot": false,
-          "duration": "0.4 seconds",
-          "range": "15 meters"
-        },
-        "Deflect": {
-          "ability_type": "Ability",
-          "cooldown": "10 seconds",
-          "duration": "0.27 seconds min. duration / 2 seconds max. duration / 0.192 seconds recovery"
-        },
-        "Dragonblade": {
-          "ability_type": "Ultimate Ability",
-          "damage": 110,
-          "headshot": false,
-          "rate_of_fire": "1.437 swings/s on average.",
-          "duration": "6 seconds",
-          "range": "5 meters",
-          "dps": "158.05 while swinging continuously"
-        }
-      }
+      "health": 250
     }
   }
 }

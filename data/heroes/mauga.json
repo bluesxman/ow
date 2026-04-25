@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T15:47:39.427Z",
+    "last_updated": "2026-04-25T16:09:21.865Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -29,8 +29,7 @@
           "perks.major",
           "stats.health",
           "stats.armor",
-          "stats.shields",
-          "stats.abilities.*"
+          "stats.shields"
         ]
       }
     ],
@@ -48,27 +47,66 @@
     "abilities": [
       {
         "name": "Berserker",
-        "description": "Gain temporary health when dealing critical damage."
+        "description": "Gain temporary health when dealing critical damage.",
+        "ability_type": "Passive Ability",
+        "duration": "2 seconds"
       },
       {
         "name": "Incendiary Chaingun",
-        "description": "Automatic weapon that ignites enemies on repeated impacts."
+        "description": "Automatic weapon that ignites enemies on repeated impacts.",
+        "ability_type": "Weapon;;Primary Fire",
+        "damage": "4 - 1.2 (direct) / 15 per second (damage over time)",
+        "falloff": "30 - 40 meters / 15 - 20 meters (simultaneous fire)",
+        "headshot": true,
+        "ammo": 300,
+        "rate_of_fire": "18 shots/s",
+        "reload": "2 seconds",
+        "spread": "1 degree (base) / 4 degrees (simultaneous fire)",
+        "projectile_radius": "0.04 meters",
+        "duration": "4 seconds (damage over time)",
+        "dps": "72 while firing (64.7 w/ reload) 87 w/ damage over time 288 while firing both guns simultaneously 303 w/ damage over time"
       },
       {
         "name": "Volatile Chaingun",
-        "description": "Automatic weapon that deals critical damage to burning enemies."
+        "description": "Automatic weapon that deals critical damage to burning enemies.",
+        "ability_type": "Weapon;;Secondary Fire",
+        "damage": "4 - 1.2",
+        "falloff": "30 - 40 meters / 15 - 20 meters (simultaneous fire)",
+        "headshot": true,
+        "ammo": 300,
+        "rate_of_fire": "18 shots/s",
+        "reload": "2 seconds",
+        "spread": "1 degree (base) / 4 degrees (simultaneous fire)",
+        "projectile_radius": "0.04 meters",
+        "dps": "72 while firing (64.7 w/ reload) 288 while firing both guns simultaneously 303 w/ damage over time"
       },
       {
         "name": "Overrun",
-        "description": "Charge forward to stomp and launch enemies. You are unstoppable while charging."
+        "description": "Charge forward to stomp and launch enemies. You are unstoppable while charging.",
+        "ability_type": "Ability",
+        "cooldown": "5 seconds",
+        "damage": "30 (collision) / 75 (stomp, outer radius) / 150 (stomp, inner radius)",
+        "duration": "0.32 seconds (charge, min) / 2 seconds (charge, max) / 0.6 seconds (stomp) / 1 second (knockdown)",
+        "range": "4.4 meters (charge, min) / 28 meters (charge, max) / 6.5 meters (stomp)",
+        "radius": "7 meters (stomp, max) / 2 meters (stomp, critical)",
+        "projectile_speed": "30 m/s (shockwave)"
       },
       {
         "name": "Cardiac Overdrive",
-        "description": "Gain damage reduction and nearby allies heal themselves by dealing damage."
+        "description": "Gain damage reduction and nearby allies heal themselves by dealing damage.",
+        "ability_type": "Ability",
+        "cooldown": "12 seconds",
+        "healing": "100% of damage dealt (self) / 50% of damage dealt (allies)",
+        "duration": "3 seconds",
+        "radius": "10.5 meter radius"
       },
       {
         "name": "Cage Fight",
-        "description": "Deploy a barrier that traps yourself and enemies. Automatically reloads Mauga's Chainguns at the start of the ultimate."
+        "description": "Deploy a barrier that traps yourself and enemies. Automatically reloads Mauga's Chainguns at the start of the ultimate.",
+        "ability_type": "Ultimate Ability",
+        "health": 1200,
+        "duration": "8 seconds",
+        "radius": "7.2 meters"
       }
     ],
     "perks": {
@@ -95,60 +133,7 @@
     },
     "stats": {
       "health": 425,
-      "armor": 150,
-      "abilities": {
-        "Berserker": {
-          "ability_type": "Passive Ability",
-          "duration": "2 seconds"
-        },
-        "Incendiary Chaingun": {
-          "ability_type": "Weapon;;Primary Fire",
-          "damage": "4 - 1.2 (direct) / 15 per second (damage over time)",
-          "falloff": "30 - 40 meters / 15 - 20 meters (simultaneous fire)",
-          "headshot": true,
-          "ammo": 300,
-          "rate_of_fire": "18 shots/s",
-          "reload": "2 seconds",
-          "spread": "1 degree (base) / 4 degrees (simultaneous fire)",
-          "projectile_radius": "0.04 meters",
-          "duration": "4 seconds (damage over time)",
-          "dps": "72 while firing (64.7 w/ reload) 87 w/ damage over time 288 while firing both guns simultaneously 303 w/ damage over time"
-        },
-        "Volatile Chaingun": {
-          "ability_type": "Weapon;;Secondary Fire",
-          "damage": "4 - 1.2",
-          "falloff": "30 - 40 meters / 15 - 20 meters (simultaneous fire)",
-          "headshot": true,
-          "ammo": 300,
-          "rate_of_fire": "18 shots/s",
-          "reload": "2 seconds",
-          "spread": "1 degree (base) / 4 degrees (simultaneous fire)",
-          "projectile_radius": "0.04 meters",
-          "dps": "72 while firing (64.7 w/ reload) 288 while firing both guns simultaneously 303 w/ damage over time"
-        },
-        "Overrun": {
-          "ability_type": "Ability",
-          "cooldown": "5 seconds",
-          "damage": "30 (collision) / 75 (stomp, outer radius) / 150 (stomp, inner radius)",
-          "duration": "0.32 seconds (charge, min) / 2 seconds (charge, max) / 0.6 seconds (stomp) / 1 second (knockdown)",
-          "range": "4.4 meters (charge, min) / 28 meters (charge, max) / 6.5 meters (stomp)",
-          "radius": "7 meters (stomp, max) / 2 meters (stomp, critical)",
-          "projectile_speed": "30 m/s (shockwave)"
-        },
-        "Cardiac Overdrive": {
-          "ability_type": "Ability",
-          "cooldown": "12 seconds",
-          "healing": "100% of damage dealt (self) / 50% of damage dealt (allies)",
-          "duration": "3 seconds",
-          "radius": "10.5 meter radius"
-        },
-        "Cage Fight": {
-          "ability_type": "Ultimate Ability",
-          "health": 1200,
-          "duration": "8 seconds",
-          "radius": "7.2 meters"
-        }
-      }
+      "armor": 150
     }
   }
 }

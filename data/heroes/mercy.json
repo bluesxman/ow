@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T15:47:39.427Z",
+    "last_updated": "2026-04-25T16:09:21.865Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -29,8 +29,7 @@
           "perks.major",
           "stats.health",
           "stats.armor",
-          "stats.shields",
-          "stats.abilities.*"
+          "stats.shields"
         ]
       }
     ],
@@ -48,35 +47,68 @@
     "abilities": [
       {
         "name": "Swift Recovery",
-        "description": "Begin regenerating health more quickly."
+        "description": "Begin regenerating health more quickly.",
+        "ability_type": "Passive Ability"
       },
       {
         "name": "Angelic Descent",
-        "description": "Fall very slowly."
+        "description": "Fall very slowly.",
+        "duration": "Until cancelled",
+        "ability_type": "Passive Ability"
       },
       {
         "name": "Caduceus Staff",
-        "description": "Hold to heal an ally. Hold to increase an ally's damage inflicted."
+        "description": "Hold to heal an ally. Hold to increase an ally's damage inflicted.",
+        "ability_type": "Weapon",
+        "healing": "55 per second",
+        "range": "15 meters"
       },
       {
         "name": "Caduceus Blaster",
-        "description": "Automatic weapon."
+        "description": "Automatic weapon.",
+        "ability_type": "Weapon",
+        "damage": 20,
+        "headshot": true,
+        "projectile_speed": "50 m/s",
+        "projectile_radius": "0.275 meters",
+        "rate_of_fire": "5 shots/s",
+        "ammo": 25,
+        "reload": "1.4 seconds",
+        "spread": "None",
+        "dps": "100 while firing (78 overall w/reload)"
       },
       {
         "name": "Guardian Angel",
-        "description": "Fly towards an ally. While in flight, Jump launches you forward, and and Crouch launches you upward."
+        "description": "Fly towards an ally. While in flight, Jump launches you forward, and and Crouch launches you upward.",
+        "ability_type": "Ability",
+        "range": "30 meters",
+        "cooldown": "1.5 seconds"
       },
       {
         "name": "Resurrect",
-        "description": "Revive a dead teammate."
+        "description": "Revive a dead teammate.",
+        "ability_type": "Ability",
+        "healing": "Revives ally at full health",
+        "range": "5.50 meters",
+        "cooldown": "30 seconds"
       },
       {
         "name": "Flash Heal",
-        "description": "Heal Caduceus Staff's active target, healing is doubled on allies below half health."
+        "description": "Heal Caduceus Staff's active target, healing is doubled on allies below half health.",
+        "ability_type": "Ability",
+        "cooldown": "12 seconds",
+        "healing": "60 (default) / 120 (low health)"
       },
       {
         "name": "Valkyrie",
-        "description": "Gain the ability to fly. Abilities are enhanced."
+        "description": "Gain the ability to fly. Abilities are enhanced.",
+        "ability_type": "Ultimate Ability",
+        "healing": "65 per second per target",
+        "damage": "Chain-damage boost (30% per target)",
+        "projectile_speed": "100 m/s (Blaster)",
+        "ammo": "∞ (Blaster)",
+        "duration": "15 seconds",
+        "range": "10 meters (chain healing) / +100% range (Guardian Angel, Caduceus Staff)"
       }
     ],
     "perks": {
@@ -102,58 +134,7 @@
       ]
     },
     "stats": {
-      "health": 225,
-      "abilities": {
-        "Swift Recovery": {
-          "ability_type": "Passive Ability"
-        },
-        "Angelic Descent": {
-          "duration": "Until cancelled",
-          "ability_type": "Passive Ability"
-        },
-        "Caduceus Staff": {
-          "ability_type": "Weapon",
-          "healing": "55 per second",
-          "range": "15 meters"
-        },
-        "Caduceus Blaster": {
-          "ability_type": "Weapon",
-          "damage": 20,
-          "headshot": true,
-          "projectile_speed": "50 m/s",
-          "projectile_radius": "0.275 meters",
-          "rate_of_fire": "5 shots/s",
-          "ammo": 25,
-          "reload": "1.4 seconds",
-          "spread": "None",
-          "dps": "100 while firing (78 overall w/reload)"
-        },
-        "Guardian Angel": {
-          "ability_type": "Ability",
-          "range": "30 meters",
-          "cooldown": "1.5 seconds"
-        },
-        "Resurrect": {
-          "ability_type": "Ability",
-          "healing": "Revives ally at full health",
-          "range": "5.50 meters",
-          "cooldown": "30 seconds"
-        },
-        "Flash Heal": {
-          "ability_type": "Ability",
-          "cooldown": "12 seconds",
-          "healing": "60 (default) / 120 (low health)"
-        },
-        "Valkyrie": {
-          "ability_type": "Ultimate Ability",
-          "healing": "65 per second per target",
-          "damage": "Chain-damage boost (30% per target)",
-          "projectile_speed": "100 m/s (Blaster)",
-          "ammo": "∞ (Blaster)",
-          "duration": "15 seconds",
-          "range": "10 meters (chain healing) / +100% range (Guardian Angel, Caduceus Staff)"
-        }
-      }
+      "health": 225
     }
   }
 }

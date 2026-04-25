@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T15:47:39.427Z",
+    "last_updated": "2026-04-25T16:09:21.865Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -29,8 +29,7 @@
           "perks.major",
           "stats.health",
           "stats.armor",
-          "stats.shields",
-          "stats.abilities.*"
+          "stats.shields"
         ]
       }
     ],
@@ -48,27 +47,59 @@
     "abilities": [
       {
         "name": "Quad Cannons",
-        "description": "Automatic assault weapons."
+        "description": "Automatic assault weapons.",
+        "ability_type": "Weapon",
+        "damage": "5 – 1.5 per shot",
+        "headshot": true,
+        "falloff": "15 – 25 meters",
+        "spread": "2 degrees (max)",
+        "projectile_radius": "0.04 meters",
+        "rate_of_fire": "25 shots per second",
+        "ammo": 80,
+        "reload": "1.6 seconds animation",
+        "dps": "125 while firing (83.33 overall w/reload)"
       },
       {
         "name": "Grappling Claw",
-        "description": "Launch a grappling claw to rapidly swing around the area. Enables high speed collisions to damage and knockback enemies."
+        "description": "Launch a grappling claw to rapidly swing around the area. Enables high speed collisions to damage and knockback enemies.",
+        "ability_type": "Ability",
+        "cooldown": "5 seconds (after fireball) / 1 second (no fireball)",
+        "damage": "60 (fireball collision)",
+        "range": "22.2 meters (max) / 6 meters (retracted)",
+        "duration": "8 seconds (max grapple time after fireball)"
       },
       {
         "name": "Roll",
-        "description": "Transform into a ball and increase maximum movement speed."
+        "description": "Transform into a ball and increase maximum movement speed.",
+        "ability_type": "Ability",
+        "cooldown": "0.4 seconds"
       },
       {
         "name": "Adaptive Shield",
-        "description": "Create temporary extra health that increase with more nearby enemies. Some of the health can be transferred to allies."
+        "description": "Create temporary extra health that increase with more nearby enemies. Some of the health can be transferred to allies.",
+        "ability_type": "Ability",
+        "cooldown": "15 seconds",
+        "radius": "13 meters",
+        "duration": "7 seconds (self) / 4 seconds (allies)"
       },
       {
         "name": "Piledriver",
-        "description": "Slam into the ground below to damage and launch enemies upward."
+        "description": "Slam into the ground below to damage and launch enemies upward.",
+        "ability_type": "Ability",
+        "cooldown": "8 seconds",
+        "damage": "100 - 20",
+        "radius": "1.5 - 8 meters",
+        "duration": "0.8 seconds (windup delay) / 0.75 seconds (enemy air lock)"
       },
       {
         "name": "Minefield",
-        "description": "Deploy a massive field of proximity mines."
+        "description": "Deploy a massive field of proximity mines.",
+        "ability_type": "Ultimate Ability",
+        "health": 60,
+        "damage": 165,
+        "duration": "16 seconds (on ground) / 1.25 seconds (arming time)",
+        "radius": "1.5 meters (per mine)",
+        "projectile_speed": "12 m/s"
       }
     ],
     "perks": {
@@ -96,53 +127,7 @@
     "stats": {
       "health": 300,
       "armor": 125,
-      "shields": 150,
-      "abilities": {
-        "Quad Cannons": {
-          "ability_type": "Weapon",
-          "damage": "5 – 1.5 per shot",
-          "headshot": true,
-          "falloff": "15 – 25 meters",
-          "spread": "2 degrees (max)",
-          "projectile_radius": "0.04 meters",
-          "rate_of_fire": "25 shots per second",
-          "ammo": 80,
-          "reload": "1.6 seconds animation",
-          "dps": "125 while firing (83.33 overall w/reload)"
-        },
-        "Grappling Claw": {
-          "ability_type": "Ability",
-          "cooldown": "5 seconds (after fireball) / 1 second (no fireball)",
-          "damage": "60 (fireball collision)",
-          "range": "22.2 meters (max) / 6 meters (retracted)",
-          "duration": "8 seconds (max grapple time after fireball)"
-        },
-        "Roll": {
-          "ability_type": "Ability",
-          "cooldown": "0.4 seconds"
-        },
-        "Adaptive Shield": {
-          "ability_type": "Ability",
-          "cooldown": "15 seconds",
-          "radius": "13 meters",
-          "duration": "7 seconds (self) / 4 seconds (allies)"
-        },
-        "Piledriver": {
-          "ability_type": "Ability",
-          "cooldown": "8 seconds",
-          "damage": "100 - 20",
-          "radius": "1.5 - 8 meters",
-          "duration": "0.8 seconds (windup delay) / 0.75 seconds (enemy air lock)"
-        },
-        "Minefield": {
-          "ability_type": "Ultimate Ability",
-          "health": 60,
-          "damage": 165,
-          "duration": "16 seconds (on ground) / 1.25 seconds (arming time)",
-          "radius": "1.5 meters (per mine)",
-          "projectile_speed": "12 m/s"
-        }
-      }
+      "shields": 150
     }
   }
 }

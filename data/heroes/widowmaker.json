@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T15:47:39.427Z",
+    "last_updated": "2026-04-25T16:09:21.865Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -29,8 +29,7 @@
           "perks.major",
           "stats.health",
           "stats.armor",
-          "stats.shields",
-          "stats.abilities.*"
+          "stats.shields"
         ]
       }
     ],
@@ -48,23 +47,58 @@
     "abilities": [
       {
         "name": "Widow's Kiss",
-        "description": "Automatic assault weapon."
+        "description": "Automatic assault weapon.",
+        "ability_type": "Weapon;;Hip Fire",
+        "damage": "14 - 4.2",
+        "falloff": "20 - 40 meters",
+        "headshot": true,
+        "rate_of_fire": "10 shots/s",
+        "ammo": 35,
+        "reload": "1.5 seconds animation",
+        "spread": "3 degrees (max)",
+        "projectile_radius": "0.07 meters",
+        "dps": "140 while firing (98 overall w/ reload)"
       },
       {
         "name": "Widow's Kiss (ADS)",
-        "description": "Hold for long-ranged sniper weapon."
+        "description": "Hold for long-ranged sniper weapon.",
+        "ability_type": "Weapon;;ADS",
+        "damage": "12 - 6 (at 0% power) / 120 - 60 (at 100% power)",
+        "falloff": "50 - 70 meters",
+        "headshot": true,
+        "rate_of_fire": "0.5 second recovery",
+        "ammo": 35,
+        "reload": "1.5 seconds animation",
+        "spread": "None",
+        "projectile_radius": "None",
+        "dps": "80 while firing (full charge) (70 overall w/reload)"
       },
       {
         "name": "Grappling Hook",
-        "description": "Launch a hook that pulls you towards a ledge."
+        "description": "Launch a hook that pulls you towards a ledge.",
+        "ability_type": "Ability",
+        "cooldown": "10 seconds",
+        "range": "20 meters"
       },
       {
         "name": "Venom Mine",
-        "description": "Launch a poison trap."
+        "description": "Launch a poison trap.",
+        "ability_type": "Ability",
+        "cooldown": "15 seconds",
+        "damage": "25 per second / 125 total",
+        "headshot": false,
+        "health": 1,
+        "projectile_speed": "20 m/s",
+        "projectile_radius": "0.2 meters",
+        "radius": "3 meters (trigger) / 4 meters (explosion)",
+        "duration": "Until replaced or destroyed (mine) / 1.4 seconds (arming time) / 5 seconds (poison)"
       },
       {
         "name": "Infra-Sight",
-        "description": "Provide your team with a view of the enemy's location."
+        "description": "Provide your team with a view of the enemy's location.",
+        "ability_type": "Ultimate Ability",
+        "radius": "Global",
+        "duration": "15 seconds"
       }
     ],
     "perks": {
@@ -90,54 +124,7 @@
       ]
     },
     "stats": {
-      "health": 225,
-      "abilities": {
-        "Widow's Kiss": {
-          "ability_type": "Weapon;;Hip Fire",
-          "damage": "14 - 4.2",
-          "falloff": "20 - 40 meters",
-          "headshot": true,
-          "rate_of_fire": "10 shots/s",
-          "ammo": 35,
-          "reload": "1.5 seconds animation",
-          "spread": "3 degrees (max)",
-          "projectile_radius": "0.07 meters",
-          "dps": "140 while firing (98 overall w/ reload)"
-        },
-        "Widow's Kiss (ADS)": {
-          "ability_type": "Weapon;;ADS",
-          "damage": "12 - 6 (at 0% power) / 120 - 60 (at 100% power)",
-          "falloff": "50 - 70 meters",
-          "headshot": true,
-          "rate_of_fire": "0.5 second recovery",
-          "ammo": 35,
-          "reload": "1.5 seconds animation",
-          "spread": "None",
-          "projectile_radius": "None",
-          "dps": "80 while firing (full charge) (70 overall w/reload)"
-        },
-        "Grappling Hook": {
-          "ability_type": "Ability",
-          "cooldown": "10 seconds",
-          "range": "20 meters"
-        },
-        "Venom Mine": {
-          "ability_type": "Ability",
-          "cooldown": "15 seconds",
-          "damage": "25 per second / 125 total",
-          "headshot": false,
-          "health": 1,
-          "projectile_speed": "20 m/s",
-          "projectile_radius": "0.2 meters",
-          "radius": "3 meters (trigger) / 4 meters (explosion)",
-          "duration": "Until replaced or destroyed (mine) / 1.4 seconds (arming time) / 5 seconds (poison)"
-        },
-        "Infra-Sight": {
-          "ability_type": "Ultimate Ability",
-          "radius": "Global",
-          "duration": "15 seconds"
-        }
-      }
+      "health": 225
     }
   }
 }

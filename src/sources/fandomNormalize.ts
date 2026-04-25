@@ -1,7 +1,18 @@
-import type { Ability, AbilityStat, AbilityStatMode, Hero, HeroStats, Perk } from '../types.js';
+import type { Ability, AbilityMode, Hero, HeroStats, Perk } from '../types.js';
 import { extractTopLevelTemplates, type ParsedTemplate } from './fandomWikitext.js';
 
-const FIELD_MAP: Record<string, keyof AbilityStat> = {
+// Stat fields we lift from Fandom's Ability_details template params onto the
+// Ability object. `key` is intentionally absent — that's a wiki-internal binding
+// label, not a publishable stat — but is read separately during ingest where
+// we still need it (currently nowhere; left out by omission).
+type StatField =
+  | 'damage' | 'cooldown' | 'range' | 'duration' | 'ammo'
+  | 'rate_of_fire' | 'reload' | 'falloff' | 'spread'
+  | 'projectile_radius' | 'projectile_speed' | 'pellets' | 'headshot'
+  | 'radius' | 'healing' | 'health' | 'dps' | 'movement_speed'
+  | 'ability_type';
+
+const FIELD_MAP: Record<string, StatField> = {
   damage: 'damage',
   damage_falloff_range: 'falloff',
   falloff: 'falloff',
@@ -29,7 +40,6 @@ const FIELD_MAP: Record<string, keyof AbilityStat> = {
   movement_speed: 'movement_speed',
   move_speed: 'movement_speed',
   ability_type: 'ability_type',
-  key: 'key',
 };
 
 export interface FandomHeroFields {
@@ -59,28 +69,37 @@ export function normalizeSubRole(infobox: ParsedTemplate | null): string | undef
   return cleaned.length > 0 ? cleaned : undefined;
 }
 
-export function normalizeAbility(template: ParsedTemplate): { name: string; stats: AbilityStat } | null {
-  const rawName = template.params['ability_name'] ?? template.params['name'];
-  if (!rawName) return null;
-  const name = rawName.trim();
-  if (!name) return null;
-
-  const stats: AbilityStat = {};
+// Extract the numeric/string stat fields from an Ability_details template body
+// into a plain Record. Used both for the base ability object and for sub-mode
+// entries (ADS / Zoomed / Secondary Fire). Empty values and unmapped keys are
+// dropped.
+function extractStatFields(template: ParsedTemplate): Record<string, number | string | boolean> {
+  const out: Record<string, number | string | boolean> = {};
   for (const [key, value] of Object.entries(template.params)) {
     if (!value || !value.trim()) continue;
     const mapped = FIELD_MAP[key];
     if (!mapped) continue;
     if (mapped === 'headshot') {
       const v = value.trim();
-      stats.headshot = v === '✓' || v.toLowerCase() === 'yes' || v.toLowerCase() === 'true';
+      out.headshot = v === '✓' || v.toLowerCase() === 'yes' || v.toLowerCase() === 'true';
       continue;
     }
     const trimmed = value.trim();
     const num = parseNumber(trimmed);
-    (stats as Record<string, number | string | boolean | undefined>)[mapped] = num !== undefined ? num : trimmed;
+    out[mapped] = num !== undefined ? num : trimmed;
   }
+  return out;
+}
 
-  return { name, stats };
+// Direct field-mapping helper for tests. Wraps extractStatFields in the legacy
+// shape `{ name, stats }` so unit tests can exercise the field map without
+// going through the full section-aware pipeline.
+export function normalizeAbility(template: ParsedTemplate): { name: string; stats: Record<string, number | string | boolean> } | null {
+  const rawName = template.params['ability_name'] ?? template.params['name'];
+  if (!rawName) return null;
+  const name = rawName.trim();
+  if (!name) return null;
+  return { name, stats: extractStatFields(template) };
 }
 
 // Locate the body of a level-2 section (==Heading==) and return [start, end).
@@ -104,7 +123,7 @@ function stripRemovedLevel4(body: string): string {
 
 // Parse the level-3 sub-headers within a section body and return the body
 // ranges (relative to the original wikitext offset). The "name" is the
-// trimmed header text, lower-cased for matching by the caller.
+// trimmed header text; the caller decides how to match it.
 function splitLevel3Sections(
   wt: string,
   sectionRange: [number, number],
@@ -126,7 +145,7 @@ function splitLevel3Sections(
 interface ParsedAbilityBlock {
   name: string;
   description: string;
-  stats: AbilityStat;
+  stats: Record<string, number | string | boolean>;
 }
 
 // Parse Ability_details / Ability_card templates inside a wikitext slice and
@@ -144,12 +163,7 @@ function parseAbilityBlocks(slice: string): ParsedAbilityBlock[] {
     if (!name) continue;
     if (/\(\s*old\s*\)\s*$/i.test(name)) continue;
     const description = (tpl.params['official_description'] ?? tpl.params['description'] ?? '').trim();
-    const parsed = normalizeAbility(tpl);
-    out.push({
-      name,
-      description,
-      stats: parsed?.stats ?? {},
-    });
+    out.push({ name, description, stats: extractStatFields(tpl) });
   }
   return out;
 }
@@ -193,13 +207,54 @@ export function extractSections(wikitext: string): ExtractedSections {
   return { abilityBlocks, minorPerks, majorPerks };
 }
 
-// Drop fields that don't carry information for the published Ability stats.
-// `key` is a wiki-internal binding label; `ability_type` we keep because it
-// classifies entries (Weapon / Ability / Passive Ability / Ultimate Ability).
-function cleanStatsForPublish(stats: AbilityStat): AbilityStat {
-  const { key: _key, ...rest } = stats;
-  void _key;
-  return rest;
+// Build the final Ability list. Same-named templates (the dual-mode rifles
+// like "Synthetic Burst Rifle" + "Synthetic Burst Rifle (ADS)" — wait, those
+// are differently named — only same-name pairs like Hip Fire + Zoomed) collapse
+// into one entry with `modes`. Pick Hip Fire / Primary Fire as base when present.
+function buildAbilities(blocks: ParsedAbilityBlock[]): Ability[] {
+  const groups = new Map<string, ParsedAbilityBlock[]>();
+  const order: string[] = [];
+  for (const b of blocks) {
+    const existing = groups.get(b.name);
+    if (existing) {
+      existing.push(b);
+    } else {
+      groups.set(b.name, [b]);
+      order.push(b.name);
+    }
+  }
+
+  const result: Ability[] = [];
+  for (const name of order) {
+    const group = groups.get(name)!;
+    const baseIdx = pickBaseIndex(group);
+    const baseBlock = group[baseIdx]!;
+    const ability: Ability = {
+      name,
+      description: baseBlock.description || '(no description on Fandom)',
+      ...baseBlock.stats,
+    } as Ability;
+
+    if (group.length > 1) {
+      const modes: Record<string, AbilityMode> = {};
+      for (let i = 0; i < group.length; i++) {
+        if (i === baseIdx) continue;
+        const sub = group[i]!.stats;
+        const modeKey = typeof sub.ability_type === 'string' && sub.ability_type.trim()
+          ? sub.ability_type.trim()
+          : 'Alt';
+        const { ability_type: _at, ...rest } = sub;
+        void _at;
+        if (modes[modeKey] !== undefined) {
+          console.warn(`duplicate sub-mode "${modeKey}" for ability "${name}" — overwriting`);
+        }
+        modes[modeKey] = rest as AbilityMode;
+      }
+      ability.modes = modes;
+    }
+    result.push(ability);
+  }
+  return result;
 }
 
 export function normalizeFandomHero(wikitext: string): FandomHeroFields {
@@ -217,63 +272,25 @@ export function normalizeFandomHero(wikitext: string): FandomHeroFields {
   const subRole = normalizeSubRole(infobox);
   const sections = extractSections(wikitext);
 
-  const abilityList: Ability[] = sections.abilityBlocks.map((b) => ({
-    name: b.name,
-    description: b.description || '(no description on Fandom)',
-  }));
-
-  // Fold same-named ability templates into a single base entry with `modes`
-  // sub-records, so `stats.abilities` stays keyed uniquely. Pick the Hip Fire
-  // / Primary Fire entry as base when present, else the first occurrence.
-  const groups = new Map<string, ParsedAbilityBlock[]>();
-  for (const b of sections.abilityBlocks) {
-    const existing = groups.get(b.name);
-    if (existing) existing.push(b);
-    else groups.set(b.name, [b]);
-  }
-
-  const abilityStats: Record<string, AbilityStat> = {};
-  for (const [name, group] of groups) {
-    if (group.length === 1) {
-      abilityStats[name] = cleanStatsForPublish(group[0]!.stats);
-      continue;
-    }
-    const baseIdx = pickBaseIndex(group);
-    const base = cleanStatsForPublish(group[baseIdx]!.stats);
-    const modes: Record<string, AbilityStatMode> = {};
-    for (let i = 0; i < group.length; i++) {
-      if (i === baseIdx) continue;
-      const stats = cleanStatsForPublish(group[i]!.stats);
-      const modeKey = typeof stats.ability_type === 'string' && stats.ability_type.trim()
-        ? stats.ability_type.trim()
-        : 'Alt';
-      const { ability_type: _at, modes: _m, ...rest } = stats;
-      void _at;
-      void _m;
-      const submode = rest as AbilityStatMode;
-      if (modes[modeKey] !== undefined) {
-        console.warn(`duplicate sub-mode "${modeKey}" for ability "${name}" — overwriting`);
-      }
-      modes[modeKey] = submode;
-    }
-    base.modes = modes;
-    abilityStats[name] = base;
-  }
-
-  const stats: HeroStats = { ...hp };
-  if (Object.keys(abilityStats).length > 0) stats.abilities = abilityStats;
+  const abilities = buildAbilities(sections.abilityBlocks);
 
   const perks = {
-    minor: sections.minorPerks.map((p) => ({ name: p.name, description: p.description })),
-    major: sections.majorPerks.map((p) => ({ name: p.name, description: p.description })),
+    minor: sections.minorPerks.map((p) => ({
+      name: p.name,
+      description: p.description || '(no description on Fandom)',
+    })),
+    major: sections.majorPerks.map((p) => ({
+      name: p.name,
+      description: p.description || '(no description on Fandom)',
+    })),
   };
 
-  const result: FandomHeroFields = { abilities: abilityList, perks, stats };
+  const result: FandomHeroFields = { abilities, perks, stats: { ...hp } };
   if (subRole) result.sub_role = subRole;
   return result;
 }
 
-function pickBaseIndex(group: Array<{ stats: AbilityStat }>): number {
+function pickBaseIndex(group: Array<{ stats: Record<string, number | string | boolean> }>): number {
   const hipFire = group.findIndex((g) => /hip\s*fire/i.test(String(g.stats.ability_type ?? '')));
   if (hipFire >= 0) return hipFire;
   const primary = group.findIndex((g) => /primary\s*fire/i.test(String(g.stats.ability_type ?? '')));

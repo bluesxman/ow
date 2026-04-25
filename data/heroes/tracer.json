@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T15:47:39.427Z",
+    "last_updated": "2026-04-25T16:09:21.865Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -29,8 +29,7 @@
           "perks.major",
           "stats.health",
           "stats.armor",
-          "stats.shields",
-          "stats.abilities.*"
+          "stats.shields"
         ]
       }
     ],
@@ -48,19 +47,44 @@
     "abilities": [
       {
         "name": "Pulse Pistols",
-        "description": "Short-range automatic weapons."
+        "description": "Short-range automatic weapons.",
+        "ability_type": "Weapon",
+        "damage": "5.75 - 1.725 (per bullet) / 11.5 - 3.45 (per shot)",
+        "falloff": "10 - 20 meters",
+        "headshot": true,
+        "rate_of_fire": "20 shots/s",
+        "ammo": 40,
+        "pellets": 2,
+        "reload": "1 second",
+        "spread": "3.5 degrees (max)",
+        "projectile_radius": "0.04 meters",
+        "dps": "230 while firing (120 overall w/reload)"
       },
       {
         "name": "Blink",
-        "description": "Teleport in the direction you are moving."
+        "description": "Teleport in the direction you are moving.",
+        "ability_type": "Ability",
+        "cooldown": "3 seconds",
+        "range": "7.5 meters",
+        "duration": "0.1 seconds recovery for reuse"
       },
       {
         "name": "Recall",
-        "description": "Travel back in time to your previous location and health."
+        "description": "Travel back in time to your previous location and health.",
+        "ability_type": "Ability",
+        "cooldown": "13 seconds",
+        "duration": "3 seconds (rewound time) / 0.9 seconds (invulnerablity)"
       },
       {
         "name": "Pulse Bomb",
-        "description": "Throw out a powerful sticky explosive."
+        "description": "Throw out a powerful sticky explosive.",
+        "ability_type": "Ultimate Ability",
+        "damage": "5 (stick) / 350 - 70 (explosion, enemy) / 175 - 35 (explosion, self)",
+        "headshot": false,
+        "radius": "2 - 4 meters (falloff start - max)",
+        "duration": "1 second (explosion delay)",
+        "projectile_speed": "15 m/s",
+        "projectile_radius": "0.22 meters"
       }
     ],
     "perks": {
@@ -86,42 +110,7 @@
       ]
     },
     "stats": {
-      "health": 175,
-      "abilities": {
-        "Pulse Pistols": {
-          "ability_type": "Weapon",
-          "damage": "5.75 - 1.725 (per bullet) / 11.5 - 3.45 (per shot)",
-          "falloff": "10 - 20 meters",
-          "headshot": true,
-          "rate_of_fire": "20 shots/s",
-          "ammo": 40,
-          "pellets": 2,
-          "reload": "1 second",
-          "spread": "3.5 degrees (max)",
-          "projectile_radius": "0.04 meters",
-          "dps": "230 while firing (120 overall w/reload)"
-        },
-        "Blink": {
-          "ability_type": "Ability",
-          "cooldown": "3 seconds",
-          "range": "7.5 meters",
-          "duration": "0.1 seconds recovery for reuse"
-        },
-        "Recall": {
-          "ability_type": "Ability",
-          "cooldown": "13 seconds",
-          "duration": "3 seconds (rewound time) / 0.9 seconds (invulnerablity)"
-        },
-        "Pulse Bomb": {
-          "ability_type": "Ultimate Ability",
-          "damage": "5 (stick) / 350 - 70 (explosion, enemy) / 175 - 35 (explosion, self)",
-          "headshot": false,
-          "radius": "2 - 4 meters (falloff start - max)",
-          "duration": "1 second (explosion delay)",
-          "projectile_speed": "15 m/s",
-          "projectile_radius": "0.22 meters"
-        }
-      }
+      "health": 175
     }
   }
 }

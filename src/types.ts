@@ -5,12 +5,7 @@ export interface Perk {
   description: string;
 }
 
-export interface Ability {
-  name: string;
-  description: string;
-}
-
-export interface AbilityStatMode {
+export interface AbilityMode {
   damage?: number | string;
   cooldown?: number | string;
   range?: number | string;
@@ -34,7 +29,10 @@ export interface AbilityStatMode {
   [key: string]: number | string | boolean | undefined;
 }
 
-export interface AbilityStat {
+export interface Ability {
+  name: string;
+  description: string;
+  ability_type?: string;
   damage?: number | string;
   cooldown?: number | string;
   range?: number | string;
@@ -53,17 +51,14 @@ export interface AbilityStat {
   health?: number | string;
   dps?: number | string;
   movement_speed?: number | string;
-  ability_type?: string;
-  key?: string;
-  modes?: Record<string, AbilityStatMode>;
-  [key: string]: number | string | boolean | Record<string, AbilityStatMode> | undefined;
+  modes?: Record<string, AbilityMode>;
+  [key: string]: number | string | boolean | Record<string, AbilityMode> | undefined;
 }
 
 export interface HeroStats {
   health?: number;
   armor?: number;
   shields?: number;
-  abilities?: Record<string, AbilityStat>;
 }
 
 export interface Hero {

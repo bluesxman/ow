@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T15:47:39.427Z",
+    "last_updated": "2026-04-25T16:09:21.865Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -29,8 +29,7 @@
           "perks.major",
           "stats.health",
           "stats.armor",
-          "stats.shields",
-          "stats.abilities.*"
+          "stats.shields"
         ]
       }
     ],
@@ -48,23 +47,58 @@
     "abilities": [
       {
         "name": "Hyperspheres",
-        "description": "Launch two charges which implode after a short duration, dealing damage in an area."
+        "description": "Launch two charges which implode after a short duration, dealing damage in an area.",
+        "ability_type": "Weapon",
+        "damage": "20 (direct hit bonus) / 40 – 12 (splash, enemy)",
+        "headshot": false,
+        "radius": "1 - 2.9 meters (splash, falloff start - max)",
+        "rate_of_fire": "0.67 shots/s",
+        "pellets": 2,
+        "ammo": "∞",
+        "range": "21 meters",
+        "projectile_speed": "48 m/s",
+        "projectile_radius": "0.32 meters",
+        "spread": "None",
+        "dps": "73.3 while firing"
       },
       {
         "name": "Experimental Barrier",
-        "description": "Hold to propel a floating barrier; release to stop. Press again to recall the barrier to you."
+        "description": "Hold to propel a floating barrier; release to stop. Press again to recall the barrier to you.",
+        "ability_type": "Ability",
+        "health": 650,
+        "projectile_speed": "20 m/s",
+        "range": "∞",
+        "duration": "Until recalled or destroyed",
+        "cooldown": "1 second (recalled) / 5 seconds (destroyed)"
       },
       {
         "name": "Kinetic Grasp",
-        "description": "Absorb projectiles in front of you and convert them into extra health."
+        "description": "Absorb projectiles in front of you and convert them into extra health.",
+        "ability_type": "Ability",
+        "cooldown": "12 seconds",
+        "range": "3 meters",
+        "duration": "2 seconds"
       },
       {
         "name": "Accretion",
-        "description": "Gather a mass of debris and throw it at an enemy to knock them down."
+        "description": "Gather a mass of debris and throw it at an enemy to knock them down.",
+        "ability_type": "Ability",
+        "cooldown": "10 seconds",
+        "damage": "80 (direct) / 40 – 12 (splash, enemy) / 20 – 6 (splash, self)",
+        "headshot": false,
+        "radius": "2.5 meters",
+        "duration": "1.1 seconds (knockdown)",
+        "projectile_speed": "37 m/s",
+        "projectile_radius": "0.9 meters"
       },
       {
         "name": "Gravitic Flux",
-        "description": "Manipulate gravity to lift enemies into the air and slam them back down."
+        "description": "Manipulate gravity to lift enemies into the air and slam them back down.",
+        "ability_type": "Ultimate Ability",
+        "damage": "50 (lift) / 50% max HP (slam)",
+        "duration": "5 seconds (targeting) / 1 second (activation delay) / 2.5 seconds (lift) / 0.6 seconds (high gravity)",
+        "range": "35 meters",
+        "radius": "8 meters"
       }
     ],
     "perks": {
@@ -91,54 +125,7 @@
     },
     "stats": {
       "health": 200,
-      "shields": 275,
-      "abilities": {
-        "Hyperspheres": {
-          "ability_type": "Weapon",
-          "damage": "20 (direct hit bonus) / 40 – 12 (splash, enemy)",
-          "headshot": false,
-          "radius": "1 - 2.9 meters (splash, falloff start - max)",
-          "rate_of_fire": "0.67 shots/s",
-          "pellets": 2,
-          "ammo": "∞",
-          "range": "21 meters",
-          "projectile_speed": "48 m/s",
-          "projectile_radius": "0.32 meters",
-          "spread": "None",
-          "dps": "73.3 while firing"
-        },
-        "Experimental Barrier": {
-          "ability_type": "Ability",
-          "health": 650,
-          "projectile_speed": "20 m/s",
-          "range": "∞",
-          "duration": "Until recalled or destroyed",
-          "cooldown": "1 second (recalled) / 5 seconds (destroyed)"
-        },
-        "Kinetic Grasp": {
-          "ability_type": "Ability",
-          "cooldown": "12 seconds",
-          "range": "3 meters",
-          "duration": "2 seconds"
-        },
-        "Accretion": {
-          "ability_type": "Ability",
-          "cooldown": "10 seconds",
-          "damage": "80 (direct) / 40 – 12 (splash, enemy) / 20 – 6 (splash, self)",
-          "headshot": false,
-          "radius": "2.5 meters",
-          "duration": "1.1 seconds (knockdown)",
-          "projectile_speed": "37 m/s",
-          "projectile_radius": "0.9 meters"
-        },
-        "Gravitic Flux": {
-          "ability_type": "Ultimate Ability",
-          "damage": "50 (lift) / 50% max HP (slam)",
-          "duration": "5 seconds (targeting) / 1 second (activation delay) / 2.5 seconds (lift) / 0.6 seconds (high gravity)",
-          "range": "35 meters",
-          "radius": "8 meters"
-        }
-      }
+      "shields": 275
     }
   }
 }

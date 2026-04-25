@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T15:47:39.427Z",
+    "last_updated": "2026-04-25T16:09:21.865Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -29,8 +29,7 @@
           "perks.major",
           "stats.health",
           "stats.armor",
-          "stats.shields",
-          "stats.abilities.*"
+          "stats.shields"
         ]
       }
     ],
@@ -48,23 +47,52 @@
     "abilities": [
       {
         "name": "Augmented Fusion Driver",
-        "description": "Automatic heat-based weapon."
+        "description": "Automatic heat-based weapon.",
+        "ability_type": "Weapon",
+        "damage": 14,
+        "projectile_speed": "100 m/s",
+        "projectile_radius": "0.225 meters",
+        "rate_of_fire": "10 rounds/s",
+        "reload": "3 seconds (cooldown after overheat) / 1.9 seconds (recharge from full heat)",
+        "ammo": "∞",
+        "headshot": true,
+        "spread": "0.75 degrees (max)",
+        "dps": "140 while firing (99.42 overall w/ recharge, 86.84 w/ overheat)"
       },
       {
         "name": "Energy Javelin",
-        "description": "Launch your javelin at an enemy to stun and knock them back. More effective if the enemy hits a wall."
+        "description": "Launch your javelin at an enemy to stun and knock them back. More effective if the enemy hits a wall.",
+        "ability_type": "Ability",
+        "cooldown": "7 seconds",
+        "damage": "70 (direct impact), 40 (wall collision)",
+        "headshot": false,
+        "duration": "0.45 seconds (impact stun) / 0.4 seconds (wall stun)",
+        "projectile_speed": "70 m/s",
+        "projectile_radius": "0.5 meters"
       },
       {
         "name": "Fortify",
-        "description": "Gain temporary health, reducing all damage taken and becoming unstoppable."
+        "description": "Gain temporary health, reducing all damage taken and becoming unstoppable.",
+        "ability_type": "Ability",
+        "cooldown": "15.5 seconds",
+        "duration": "4 seconds"
       },
       {
         "name": "Javelin Spin",
-        "description": "Spin your javelin to destroy projectiles and block melee attacks, while also pushing enemies and increasing forward speed."
+        "description": "Spin your javelin to destroy projectiles and block melee attacks, while also pushing enemies and increasing forward speed.",
+        "ability_type": "Ability",
+        "cooldown": "8 seconds",
+        "damage": "20 (first hit) / 5.3 (subsequent hits)",
+        "duration": "0.5 seconds (min) / 1.75 seconds (max) / 2 seconds (movement speed)",
+        "range": "3.5 meters / 180° (matrix angle)"
       },
       {
         "name": "Terra Surge",
-        "description": "Sweep in enemies and anchor down, gaining the effects of Fortify and charging up a surge of damage. Use Primary Fire to unleash the surge early."
+        "description": "Sweep in enemies and anchor down, gaining the effects of Fortify and charging up a surge of damage. Use Primary Fire to unleash the surge early.",
+        "ability_type": "Ultimate Ability",
+        "damage": "18.8/s (periodic damage) / 72 - 500 (release)",
+        "duration": "0.75 - 4 seconds (charge time)",
+        "radius": "10.5 meters (initial pull) / 8.5 meter (damage and slow)"
       }
     ],
     "perks": {
@@ -91,48 +119,7 @@
     },
     "stats": {
       "health": 150,
-      "armor": 300,
-      "abilities": {
-        "Augmented Fusion Driver": {
-          "ability_type": "Weapon",
-          "damage": 14,
-          "projectile_speed": "100 m/s",
-          "projectile_radius": "0.225 meters",
-          "rate_of_fire": "10 rounds/s",
-          "reload": "3 seconds (cooldown after overheat) / 1.9 seconds (recharge from full heat)",
-          "ammo": "∞",
-          "headshot": true,
-          "spread": "0.75 degrees (max)",
-          "dps": "140 while firing (99.42 overall w/ recharge, 86.84 w/ overheat)"
-        },
-        "Energy Javelin": {
-          "ability_type": "Ability",
-          "cooldown": "7 seconds",
-          "damage": "70 (direct impact), 40 (wall collision)",
-          "headshot": false,
-          "duration": "0.45 seconds (impact stun) / 0.4 seconds (wall stun)",
-          "projectile_speed": "70 m/s",
-          "projectile_radius": "0.5 meters"
-        },
-        "Fortify": {
-          "ability_type": "Ability",
-          "cooldown": "15.5 seconds",
-          "duration": "4 seconds"
-        },
-        "Javelin Spin": {
-          "ability_type": "Ability",
-          "cooldown": "8 seconds",
-          "damage": "20 (first hit) / 5.3 (subsequent hits)",
-          "duration": "0.5 seconds (min) / 1.75 seconds (max) / 2 seconds (movement speed)",
-          "range": "3.5 meters / 180° (matrix angle)"
-        },
-        "Terra Surge": {
-          "ability_type": "Ultimate Ability",
-          "damage": "18.8/s (periodic damage) / 72 - 500 (release)",
-          "duration": "0.75 - 4 seconds (charge time)",
-          "radius": "10.5 meters (initial pull) / 8.5 meter (damage and slow)"
-        }
-      }
+      "armor": 300
     }
   }
 }

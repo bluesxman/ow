@@ -127,8 +127,8 @@ export function buildAffected(parsed, heroesBySlug) {
       continue;
     }
 
-    const abilityKeys = Object.keys(hero.stats?.abilities ?? {});
-    const abilityKeysLower = new Map(abilityKeys.map((k) => [k.toLowerCase(), k]));
+    const abilityNames = (hero.abilities ?? []).map((a) => a.name);
+    const abilityKeysLower = new Map(abilityNames.map((k) => [k.toLowerCase(), k]));
     const perkNames = new Set();
     for (const p of hero.perks?.minor ?? []) perkNames.add(p.name.toLowerCase());
     for (const p of hero.perks?.major ?? []) perkNames.add(p.name.toLowerCase());

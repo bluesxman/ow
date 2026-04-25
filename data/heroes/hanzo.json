@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T15:47:39.427Z",
+    "last_updated": "2026-04-25T16:09:21.865Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -29,8 +29,7 @@
           "perks.major",
           "stats.health",
           "stats.armor",
-          "stats.shields",
-          "stats.abilities.*"
+          "stats.shields"
         ]
       }
     ],
@@ -48,27 +47,64 @@
     "abilities": [
       {
         "name": "Wall Climb",
-        "description": "Jump at walls to climb up them."
+        "description": "Jump at walls to climb up them.",
+        "duration": "Up to 1 second",
+        "ability_type": "Passive Ability"
       },
       {
         "name": "Storm Bow",
-        "description": "Hold to charge then release to launch arrows further."
+        "description": "Hold to charge then release to launch arrows further.",
+        "ability_type": "Weapon",
+        "damage": "125 (max charge) / 25 (min charge)",
+        "headshot": true,
+        "rate_of_fire": "0.82 shots/s (max charge) / 2 shots/s (min charge)",
+        "ammo": "∞",
+        "projectile_radius": "0.125 meters",
+        "projectile_speed": "110 m/s (max charge) / 25 m/s (min charge)",
+        "spread": "None",
+        "dps": "102.46 at full charge, 50 at min charge"
       },
       {
         "name": "Sonic Arrow",
-        "description": "Reveals enemies for a short time upon impact."
+        "description": "Reveals enemies for a short time upon impact.",
+        "ability_type": "Ability",
+        "cooldown": "12 seconds",
+        "headshot": true,
+        "radius": "9 meters",
+        "duration": "6 seconds"
       },
       {
         "name": "Storm Arrows",
-        "description": "The next 5 arrows ricochet and fire instantly at reduced damage."
+        "description": "The next 5 arrows ricochet and fire instantly at reduced damage.",
+        "ability_type": "Ability",
+        "cooldown": "8 seconds",
+        "damage": 75,
+        "headshot": true,
+        "ammo": 5,
+        "rate_of_fire": "4 shots/s",
+        "duration": "Up to 5 seconds",
+        "projectile_speed": "140 m/s",
+        "projectile_radius": "0.125 meters",
+        "spread": "None"
       },
       {
         "name": "Lunge",
-        "description": "Double Jump."
+        "description": "Double Jump.",
+        "cooldown": "4 seconds",
+        "range": "7.85 meters",
+        "ability_type": "Ability"
       },
       {
         "name": "Dragonstrike",
-        "description": "Launch a deadly Dragon Spirit that devastates enemies it passes through."
+        "description": "Launch a deadly Dragon Spirit that devastates enemies it passes through.",
+        "ability_type": "Ultimate Ability",
+        "damage": "125 (initial arrow) / 200 per second (outer) / 400 per second (inner)",
+        "headshot": true,
+        "projectile_speed": "20 m/s (initial arrow) / 15 m/s (dragons)",
+        "projectile_radius": "0.175 meters",
+        "radius": "4 meters (outer) / 2.4 meters (inner)",
+        "range": "10 meters (initial arrow) / Infinite (dragons)",
+        "duration": "0.5 seconds (initial arrow)"
       }
     ],
     "perks": {
@@ -94,58 +130,7 @@
       ]
     },
     "stats": {
-      "health": 250,
-      "abilities": {
-        "Wall Climb": {
-          "duration": "Up to 1 second",
-          "ability_type": "Passive Ability"
-        },
-        "Storm Bow": {
-          "ability_type": "Weapon",
-          "damage": "125 (max charge) / 25 (min charge)",
-          "headshot": true,
-          "rate_of_fire": "0.82 shots/s (max charge) / 2 shots/s (min charge)",
-          "ammo": "∞",
-          "projectile_radius": "0.125 meters",
-          "projectile_speed": "110 m/s (max charge) / 25 m/s (min charge)",
-          "spread": "None",
-          "dps": "102.46 at full charge, 50 at min charge"
-        },
-        "Sonic Arrow": {
-          "ability_type": "Ability",
-          "cooldown": "12 seconds",
-          "headshot": true,
-          "radius": "9 meters",
-          "duration": "6 seconds"
-        },
-        "Storm Arrows": {
-          "ability_type": "Ability",
-          "cooldown": "8 seconds",
-          "damage": 75,
-          "headshot": true,
-          "ammo": 5,
-          "rate_of_fire": "4 shots/s",
-          "duration": "Up to 5 seconds",
-          "projectile_speed": "140 m/s",
-          "projectile_radius": "0.125 meters",
-          "spread": "None"
-        },
-        "Lunge": {
-          "cooldown": "4 seconds",
-          "range": "7.85 meters",
-          "ability_type": "Ability"
-        },
-        "Dragonstrike": {
-          "ability_type": "Ultimate Ability",
-          "damage": "125 (initial arrow) / 200 per second (outer) / 400 per second (inner)",
-          "headshot": true,
-          "projectile_speed": "20 m/s (initial arrow) / 15 m/s (dragons)",
-          "projectile_radius": "0.175 meters",
-          "radius": "4 meters (outer) / 2.4 meters (inner)",
-          "range": "10 meters (initial arrow) / Infinite (dragons)",
-          "duration": "0.5 seconds (initial arrow)"
-        }
-      }
+      "health": 250
     }
   }
 }

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T15:47:39.427Z",
+    "last_updated": "2026-04-25T16:09:21.865Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -29,8 +29,7 @@
           "perks.major",
           "stats.health",
           "stats.armor",
-          "stats.shields",
-          "stats.abilities.*"
+          "stats.shields"
         ]
       }
     ],
@@ -48,27 +47,58 @@
     "abilities": [
       {
         "name": "Wall Ride",
-        "description": "Jump onto a wall to ride along it."
+        "description": "Jump onto a wall to ride along it.",
+        "cooldown": "0.5 seconds",
+        "ability_type": "Passive Ability"
       },
       {
         "name": "Sonic Amplifier",
-        "description": "Sonic projectile launcher."
+        "description": "Sonic projectile launcher.",
+        "ability_type": "Weapon",
+        "damage": "20 (per round) / 80 (per volley)",
+        "headshot": true,
+        "rate_of_fire": "1.07 volleys/s",
+        "pellets": 4,
+        "ammo": 20,
+        "reload": "1.5 seconds animation",
+        "projectile_speed": "50 m/s",
+        "projectile_radius": "0.22 meters",
+        "spread": "None",
+        "dps": "85.56 while firing (64.78 overall w/reload)"
       },
       {
         "name": "Soundwave",
-        "description": "Create a short-range blast wave to knock enemies away from you."
+        "description": "Create a short-range blast wave to knock enemies away from you.",
+        "ability_type": "Ability",
+        "damage": 45,
+        "range": "7 meters",
+        "duration": "0.56 s. recovery for primary",
+        "cooldown": "5 seconds",
+        "headshot": false
       },
       {
         "name": "Crossfade",
-        "description": "Switches between two songs: Healing Boost heals nearby allies, and Speed Boost makes nearby allies move faster."
+        "description": "Switches between two songs: Healing Boost heals nearby allies, and Speed Boost makes nearby allies move faster.",
+        "ability_type": "Ability",
+        "healing": "20 per second (allies) / 14.4 per second (self)",
+        "radius": "12 meters",
+        "duration": "0.4 seconds (swap delay)"
       },
       {
         "name": "Amp It Up",
-        "description": "Increase the effectiveness of your current song."
+        "description": "Increase the effectiveness of your current song.",
+        "ability_type": "Ability",
+        "healing": "56 per second",
+        "radius": "12 meters",
+        "cooldown": "12 seconds",
+        "duration": "3 seconds"
       },
       {
         "name": "Sound Barrier",
-        "description": "Create temporary extra health for nearby allies."
+        "description": "Create temporary extra health for nearby allies.",
+        "ability_type": "Ultimate Ability",
+        "radius": "30 meters",
+        "duration": "6 seconds"
       }
     ],
     "perks": {
@@ -94,52 +124,7 @@
       ]
     },
     "stats": {
-      "health": 225,
-      "abilities": {
-        "Wall Ride": {
-          "cooldown": "0.5 seconds",
-          "ability_type": "Passive Ability"
-        },
-        "Sonic Amplifier": {
-          "ability_type": "Weapon",
-          "damage": "20 (per round) / 80 (per volley)",
-          "headshot": true,
-          "rate_of_fire": "1.07 volleys/s",
-          "pellets": 4,
-          "ammo": 20,
-          "reload": "1.5 seconds animation",
-          "projectile_speed": "50 m/s",
-          "projectile_radius": "0.22 meters",
-          "spread": "None",
-          "dps": "85.56 while firing (64.78 overall w/reload)"
-        },
-        "Soundwave": {
-          "ability_type": "Ability",
-          "damage": 45,
-          "range": "7 meters",
-          "duration": "0.56 s. recovery for primary",
-          "cooldown": "5 seconds",
-          "headshot": false
-        },
-        "Crossfade": {
-          "ability_type": "Ability",
-          "healing": "20 per second (allies) / 14.4 per second (self)",
-          "radius": "12 meters",
-          "duration": "0.4 seconds (swap delay)"
-        },
-        "Amp It Up": {
-          "ability_type": "Ability",
-          "healing": "56 per second",
-          "radius": "12 meters",
-          "cooldown": "12 seconds",
-          "duration": "3 seconds"
-        },
-        "Sound Barrier": {
-          "ability_type": "Ultimate Ability",
-          "radius": "30 meters",
-          "duration": "6 seconds"
-        }
-      }
+      "health": 225
     }
   }
 }

@@ -179,14 +179,39 @@ export function buildAggregates(
     heroes: Object.fromEntries(slugs.map((s) => [s, { perks: heroes[s]!.perks }])),
   };
 
+  // Projection: descriptive subset of each ability — name + description only.
   const abilitiesDoc = {
     metadata,
-    heroes: Object.fromEntries(slugs.map((s) => [s, { abilities: heroes[s]!.abilities }])),
+    heroes: Object.fromEntries(
+      slugs.map((s) => [
+        s,
+        {
+          abilities: heroes[s]!.abilities.map((a) => ({ name: a.name, description: a.description })),
+        },
+      ]),
+    ),
   };
 
+  // Projection: numeric subset — health/armor/shields plus per-ability numeric
+  // stats with descriptions stripped.
   const statsDoc = {
     metadata,
-    heroes: Object.fromEntries(slugs.map((s) => [s, { stats: heroes[s]!.stats }])),
+    heroes: Object.fromEntries(
+      slugs.map((s) => {
+        const h = heroes[s]!;
+        return [
+          s,
+          {
+            stats: h.stats,
+            abilities: h.abilities.map((a) => {
+              const { description: _d, ...rest } = a;
+              void _d;
+              return rest;
+            }),
+          },
+        ];
+      }),
+    ),
   };
 
   const allDoc = {
@@ -261,7 +286,7 @@ async function writeAttribution(path: string, roster: RosterEntry[], metadata: M
   lines.push('# Attribution');
   lines.push('');
   lines.push(
-    'Abilities, perks, sub-roles, and combat stats (`abilities[]`, `perks.minor`, `perks.major`, `sub_role`, `stats.health`, `stats.armor`, `stats.shields`, `stats.abilities.*`) are sourced from the [Overwatch Fandom Wiki](https://overwatch.fandom.com/) and are available under [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/).',
+    'Abilities, perks, sub-roles, and combat stats (`abilities[]` including all numeric fields, `perks.minor`, `perks.major`, `sub_role`, `stats.health`, `stats.armor`, `stats.shields`) are sourced from the [Overwatch Fandom Wiki](https://overwatch.fandom.com/) and are available under [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/).',
   );
   lines.push('');
   lines.push(

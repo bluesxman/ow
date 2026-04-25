@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T15:47:39.427Z",
+    "last_updated": "2026-04-25T16:09:21.865Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -29,8 +29,7 @@
           "perks.major",
           "stats.health",
           "stats.armor",
-          "stats.shields",
-          "stats.abilities.*"
+          "stats.shields"
         ]
       }
     ],
@@ -48,27 +47,58 @@
     "abilities": [
       {
         "name": "Jetpack",
-        "description": "Permanent flight."
+        "description": "Permanent flight.",
+        "ability_type": "Passive Ability"
       },
       {
         "name": "Biotic Pawjectiles",
-        "description": "Mid-range projectile spread that heals allies and damages enemies."
+        "description": "Mid-range projectile spread that heals allies and damages enemies.",
+        "ability_type": "Weapon",
+        "damage": "24 (per volley) / 8 (center pellet) / 4 (per paw pellet)",
+        "headshot": false,
+        "healing": "24 (per volley)",
+        "rate_of_fire": "4.48 volleys/s",
+        "pellets": "1 center pellet / 4 paw pellets",
+        "ammo": 24,
+        "reload": "1.25 seconds",
+        "range": "40 meters",
+        "projectile_speed": "60 m/s",
+        "projectile_radius": "0.37 meters",
+        "spread": "0 degrees (center shot) / 0.3 degrees (close paw shots) / 0.9 degrees (far paw shows)",
+        "dps": "while firing ( w/ reload)"
       },
       {
         "name": "Frenetic Flight",
-        "description": "Accelerate in your movement direction. Fuel recovery is slower while carrying another player."
+        "description": "Accelerate in your movement direction. Fuel recovery is slower while carrying another player.",
+        "ability_type": "Ability",
+        "duration": "0.75 seconds (regen delay)"
       },
       {
         "name": "Lifeline",
-        "description": "Toggle into transport mode, allowing an ally to be towed. Increases movement speed and heals your ally."
+        "description": "Toggle into transport mode, allowing an ally to be towed. Increases movement speed and heals your ally.",
+        "ability_type": "Ability",
+        "cooldown": "2 seconds",
+        "radius": "4 meters (tether length)",
+        "healing": "25 per second (ally)"
       },
       {
         "name": "Purr",
-        "description": "Pulsing area heal that increases in frequency over time. Knockback nearby enemies when activated."
+        "description": "Pulsing area heal that increases in frequency over time. Knockback nearby enemies when activated.",
+        "ability_type": "Ability",
+        "cooldown": "12 seconds",
+        "damage": 30,
+        "healing": "30 (per pulse)",
+        "duration": "4 seconds (total) / 0.95 seconds (healing pulse rate)",
+        "range": "10 meters (healing and damage)"
       },
       {
         "name": "Catnapper",
-        "description": "Dive towards a ground location, knocking down enemies and tethering the nearest one to you."
+        "description": "Dive towards a ground location, knocking down enemies and tethering the nearest one to you.",
+        "ability_type": "Ultimate Ability",
+        "damage": 25,
+        "duration": "1.5 seconds (stun) / 4 seconds (max ultimate duration)",
+        "range": "25 meters",
+        "radius": "6 meters"
       }
     ],
     "perks": {
@@ -94,52 +124,7 @@
       ]
     },
     "stats": {
-      "health": 225,
-      "abilities": {
-        "Jetpack": {
-          "ability_type": "Passive Ability"
-        },
-        "Biotic Pawjectiles": {
-          "ability_type": "Weapon",
-          "damage": "24 (per volley) / 8 (center pellet) / 4 (per paw pellet)",
-          "headshot": false,
-          "healing": "24 (per volley)",
-          "rate_of_fire": "4.48 volleys/s",
-          "pellets": "1 center pellet / 4 paw pellets",
-          "ammo": 24,
-          "reload": "1.25 seconds",
-          "range": "40 meters",
-          "projectile_speed": "60 m/s",
-          "projectile_radius": "0.37 meters",
-          "spread": "0 degrees (center shot) / 0.3 degrees (close paw shots) / 0.9 degrees (far paw shows)",
-          "dps": "while firing ( w/ reload)"
-        },
-        "Frenetic Flight": {
-          "ability_type": "Ability",
-          "duration": "0.75 seconds (regen delay)"
-        },
-        "Lifeline": {
-          "ability_type": "Ability",
-          "cooldown": "2 seconds",
-          "radius": "4 meters (tether length)",
-          "healing": "25 per second (ally)"
-        },
-        "Purr": {
-          "ability_type": "Ability",
-          "cooldown": "12 seconds",
-          "damage": 30,
-          "healing": "30 (per pulse)",
-          "duration": "4 seconds (total) / 0.95 seconds (healing pulse rate)",
-          "range": "10 meters (healing and damage)"
-        },
-        "Catnapper": {
-          "ability_type": "Ultimate Ability",
-          "damage": 25,
-          "duration": "1.5 seconds (stun) / 4 seconds (max ultimate duration)",
-          "range": "25 meters",
-          "radius": "6 meters"
-        }
-      }
+      "health": 225
     }
   }
 }

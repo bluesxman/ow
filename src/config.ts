@@ -59,7 +59,6 @@ export const DATA_SOURCES: SourceAttribution[] = [
       'stats.health',
       'stats.armor',
       'stats.shields',
-      'stats.abilities.*',
     ],
   },
 ];

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T15:47:39.427Z",
+    "last_updated": "2026-04-25T16:09:21.865Z",
     "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
     "hero_count": 51,
     "heroes_failed": [],
@@ -29,8 +29,7 @@
           "perks.major",
           "stats.health",
           "stats.armor",
-          "stats.shields",
-          "stats.abilities.*"
+          "stats.shields"
         ]
       }
     ],
@@ -48,27 +47,60 @@
     "abilities": [
       {
         "name": "Reconstruction",
-        "description": "Dealing damage from abilities restores shields."
+        "description": "Dealing damage from abilities restores shields.",
+        "ability_type": "Passive Ability",
+        "healing": "75% of ability damage dealt"
       },
       {
         "name": "Photon Magnum",
-        "description": "Medium-range beam that culminates in a high impact shot."
+        "description": "Medium-range beam that culminates in a high impact shot.",
+        "ability_type": "Weapon",
+        "damage": "60 (over time) / 60 (hitscan shot)",
+        "ammo": 100,
+        "range": "25 meters",
+        "duration": "0.8 seconds (hitscan shot charge)",
+        "reload": "1.5 seconds",
+        "headshot": true,
+        "projectile_radius": "0.15 meters"
       },
       {
         "name": "Barrier Array",
-        "description": "Construct a segmented barrier."
+        "description": "Construct a segmented barrier.",
+        "ability_type": "Ability",
+        "cooldown": "14 seconds",
+        "range": "35 meters",
+        "health": "225 (per barrier segment)",
+        "duration": "8 seconds"
       },
       {
         "name": "Sonic Repulsors",
-        "description": "Push enemies back, stunning them if they hit a wall."
+        "description": "Push enemies back, stunning them if they hit a wall.",
+        "ability_type": "Ability",
+        "cooldown": "7 seconds",
+        "damage": "40 (base) / 40 (wall impact)",
+        "range": "8.5 meters",
+        "duration": "0.5 seconds (Immobilization) / 0.5 seconds (stun)"
       },
       {
         "name": "Crystal Charge",
-        "description": "Project an explosive crystal and reactivate to detonate it."
+        "description": "Project an explosive crystal and reactivate to detonate it.",
+        "ability_type": "Ability",
+        "cooldown": "8 seconds",
+        "damage": "50 (over time) / 100 - 50 (explosion)",
+        "duration": "1 second (damage over time)",
+        "range": "100 meters",
+        "radius": "2 - 4 meters (area of effect)",
+        "projectile_speed": "25 m/s"
       },
       {
         "name": "Panopticon",
-        "description": "Fire a hard-light barrier that imprisons enemies and detonates on expiration."
+        "description": "Fire a hard-light barrier that imprisons enemies and detonates on expiration.",
+        "ability_type": "Ultimate Ability",
+        "damage": "75 (piercing hit) / 300 - 100 (barrier health-based implosion)",
+        "duration": "5 seconds",
+        "health": 450,
+        "projectile_speed": "35 m/s",
+        "projectile_radius": "1.5 meters (globule) / 0.2 meters (direct hit damage) / 0.2 meters (matrix interaction)"
       }
     ],
     "perks": {
@@ -95,54 +127,7 @@
     },
     "stats": {
       "health": 100,
-      "shields": 400,
-      "abilities": {
-        "Reconstruction": {
-          "ability_type": "Passive Ability",
-          "healing": "75% of ability damage dealt"
-        },
-        "Photon Magnum": {
-          "ability_type": "Weapon",
-          "damage": "60 (over time) / 60 (hitscan shot)",
-          "ammo": 100,
-          "range": "25 meters",
-          "duration": "0.8 seconds (hitscan shot charge)",
-          "reload": "1.5 seconds",
-          "headshot": true,
-          "projectile_radius": "0.15 meters"
-        },
-        "Barrier Array": {
-          "ability_type": "Ability",
-          "cooldown": "14 seconds",
-          "range": "35 meters",
-          "health": "225 (per barrier segment)",
-          "duration": "8 seconds"
-        },
-        "Sonic Repulsors": {
-          "ability_type": "Ability",
-          "cooldown": "7 seconds",
-          "damage": "40 (base) / 40 (wall impact)",
-          "range": "8.5 meters",
-          "duration": "0.5 seconds (Immobilization) / 0.5 seconds (stun)"
-        },
-        "Crystal Charge": {
-          "ability_type": "Ability",
-          "cooldown": "8 seconds",
-          "damage": "50 (over time) / 100 - 50 (explosion)",
-          "duration": "1 second (damage over time)",
-          "range": "100 meters",
-          "radius": "2 - 4 meters (area of effect)",
-          "projectile_speed": "25 m/s"
-        },
-        "Panopticon": {
-          "ability_type": "Ultimate Ability",
-          "damage": "75 (piercing hit) / 300 - 100 (barrier health-based implosion)",
-          "duration": "5 seconds",
-          "health": 450,
-          "projectile_speed": "35 m/s",
-          "projectile_radius": "1.5 meters (globule) / 0.2 meters (direct hit damage) / 0.2 meters (matrix interaction)"
-        }
-      }
+      "shields": 400
     }
   }
 }

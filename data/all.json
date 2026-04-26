@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "6.0.0"
+    "schema_version": "6.0.1"
   },
   "heroes": {
     "ana": {
@@ -3167,7 +3167,7 @@
           "name": "Rocket Launcher",
           "description": "Long-range explosive projectile weapon.",
           "ability_type": "Weapon",
-          "damage": "140 (direct hit) / 80 – 24.6 (splash, enemy) / 20 – 6.15 (splash, self)",
+          "damage": "120 (direct hit) / 80 – 24.6 (splash, enemy) / 20 – 6.15 (splash, self)",
           "headshot": false,
           "rate_of_fire": "1.25 shots/second",
           "ammo": 6,

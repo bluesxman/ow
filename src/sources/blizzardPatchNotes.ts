@@ -16,7 +16,7 @@
 // strictly more information than pre-classified JSON.
 
 import { parse, type HTMLElement, type Node } from 'node-html-parser';
-import { PATCH_NOTES_URL, USER_AGENT } from '../config.js';
+import { PATCH_NOTES_ARCHIVE_BASE, PATCH_NOTES_URL, USER_AGENT } from '../config.js';
 
 // Earliest patch we publish. Coincides with OW2 Season 20: Vendetta — the
 // last season before the 2026 Overwatch rebrand. Older patches are still
@@ -248,6 +248,73 @@ export async function fetchPatchHtml(opts: FetchOptions = {}): Promise<string> {
   } finally {
     clearTimeout(timer);
   }
+}
+
+// Enumerate "YYYY-MM" strings from `from` (inclusive) up to and including
+// `to`. Both arguments are ISO `YYYY-MM-DD`; only the year/month are read.
+export function monthsBetween(from: string, to: string): string[] {
+  const [fy, fm] = from.split('-').map(Number) as [number, number, ...unknown[]];
+  const [ty, tm] = to.split('-').map(Number) as [number, number, ...unknown[]];
+  const out: string[] = [];
+  let y = fy;
+  let m = fm;
+  while (y < ty || (y === ty && m <= tm)) {
+    out.push(`${y.toString().padStart(4, '0')}-${m.toString().padStart(2, '0')}`);
+    m++;
+    if (m > 12) {
+      m = 1;
+      y++;
+    }
+  }
+  return out;
+}
+
+// Build the Blizzard URL for one month's archive. Trailing slash matters —
+// without it the server 307s and only some clients follow.
+export function patchArchiveUrl(yearMonth: string): string {
+  const [y, m] = yearMonth.split('-');
+  return `${PATCH_NOTES_ARCHIVE_BASE}/${y}/${m}/`;
+}
+
+export interface FetchAllOptions {
+  // Override the "today" anchor used to compute the last archive month.
+  // Defaults to the current UTC date. Useful for tests.
+  asOfDate?: string;
+  timeoutMs?: number;
+  // Override the cutoff (defaults to PATCH_HISTORY_CUTOFF_DATE). Useful for
+  // tests that want to walk a smaller window.
+  cutoffDate?: string;
+}
+
+// Fetches every monthly patch-notes archive from the cutoff month through the
+// current month, parses each, and returns deduplicated patches sorted
+// newest-first. Blizzard's landing page only renders the most recent few
+// patches, so older patches require walking per-month archive URLs at
+// /news/patch-notes/live/YYYY/MM/. Errors on individual months are logged
+// and skipped — losing one month is preferable to losing the entire run.
+export async function fetchAndRenderAll(opts: FetchAllOptions = {}): Promise<PatchMarkdown[]> {
+  const cutoff = opts.cutoffDate ?? PATCH_HISTORY_CUTOFF_DATE;
+  const asOf = opts.asOfDate ?? new Date().toISOString().slice(0, 10);
+  const timeoutMs = opts.timeoutMs ?? PATCH_NOTES_FETCH_TIMEOUT_MS;
+
+  const months = monthsBetween(cutoff, asOf);
+  const byDate = new Map<string, PatchMarkdown>();
+
+  for (const ym of months) {
+    const url = patchArchiveUrl(ym);
+    try {
+      const html = await fetchPatchHtml({ url, timeoutMs });
+      for (const patch of parsePatchNotesMarkdown(html)) {
+        if (!byDate.has(patch.date)) byDate.set(patch.date, patch);
+      }
+    } catch (err) {
+      console.warn(`patch-notes archive ${ym} failed: ${err instanceof Error ? err.message : String(err)}`);
+    }
+  }
+
+  const out = Array.from(byDate.values());
+  out.sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
+  return out;
 }
 
 export async function fetchAndRender(opts: FetchOptions = {}): Promise<PatchMarkdown[]> {

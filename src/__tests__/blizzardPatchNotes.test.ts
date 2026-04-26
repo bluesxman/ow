@@ -4,7 +4,9 @@ import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import {
   PATCH_HISTORY_CUTOFF_DATE,
+  monthsBetween,
   parsePatchNotesMarkdown,
+  patchArchiveUrl,
   renderCombined,
 } from '../sources/blizzardPatchNotes.js';
 
@@ -103,5 +105,51 @@ describe('renderCombined', () => {
   it('returns a placeholder when given no patches', () => {
     const doc = renderCombined([]);
     expect(doc).toContain('_No patches found._');
+  });
+});
+
+describe('monthsBetween', () => {
+  it('enumerates months inclusive of both endpoints', () => {
+    expect(monthsBetween('2025-12-09', '2026-04-23')).toEqual([
+      '2025-12',
+      '2026-01',
+      '2026-02',
+      '2026-03',
+      '2026-04',
+    ]);
+  });
+
+  it('handles same-month input', () => {
+    expect(monthsBetween('2026-04-01', '2026-04-30')).toEqual(['2026-04']);
+  });
+
+  it('crosses year boundaries', () => {
+    expect(monthsBetween('2025-11-01', '2026-02-15')).toEqual([
+      '2025-11',
+      '2025-12',
+      '2026-01',
+      '2026-02',
+    ]);
+  });
+
+  it('handles a multi-year span', () => {
+    const months = monthsBetween('2024-10-01', '2026-01-15');
+    expect(months[0]).toBe('2024-10');
+    expect(months[months.length - 1]).toBe('2026-01');
+    expect(months.length).toBe(16);
+  });
+});
+
+describe('patchArchiveUrl', () => {
+  it('builds a trailing-slash URL — required to avoid the 307 redirect', () => {
+    expect(patchArchiveUrl('2026-04')).toBe(
+      'https://overwatch.blizzard.com/en-us/news/patch-notes/live/2026/04/',
+    );
+  });
+
+  it('preserves the zero-padded month', () => {
+    expect(patchArchiveUrl('2026-01')).toBe(
+      'https://overwatch.blizzard.com/en-us/news/patch-notes/live/2026/01/',
+    );
   });
 });

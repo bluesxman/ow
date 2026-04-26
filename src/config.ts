@@ -3,6 +3,7 @@ import type { SourceAttribution } from './types.js';
 export const BASE_URL = 'https://overwatch.blizzard.com';
 export const HEROES_INDEX_URL = `${BASE_URL}/en-us/heroes/`;
 export const PATCH_NOTES_URL = `${BASE_URL}/en-us/news/patch-notes/`;
+export const PATCH_NOTES_ARCHIVE_BASE = `${BASE_URL}/en-us/news/patch-notes/live`;
 
 export const HERO_PAGE_TIMEOUT_MS = 20_000;
 export const HERO_LIST_TIMEOUT_MS = 20_000;

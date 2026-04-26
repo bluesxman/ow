@@ -12,6 +12,7 @@ import { dirname, resolve } from 'node:path';
 import process from 'node:process';
 import {
   fetchAndRender,
+  fetchAndRenderAll,
   PATCH_HISTORY_CUTOFF_DATE,
   renderCombined,
 } from '../../../../src/sources/blizzardPatchNotes.js';
@@ -37,8 +38,12 @@ function parseArgs(argv: string[]): ParsedArgs {
 
 async function main(): Promise<void> {
   const args = parseArgs(process.argv);
-  const fetchOpts = args.url ? { url: args.url } : {};
-  const patches = await fetchAndRender(fetchOpts);
+  // When --url is passed, fetch only that page (back-compat for ad-hoc
+  // probes). Otherwise walk every monthly archive from the cutoff forward
+  // so we don't lose patches that fell off the landing page.
+  const patches = args.url
+    ? await fetchAndRender({ url: args.url })
+    : await fetchAndRenderAll();
   const header = [
     `<!-- fetched_at: ${new Date().toISOString()} -->`,
     `<!-- cutoff_date: ${PATCH_HISTORY_CUTOFF_DATE} -->`,

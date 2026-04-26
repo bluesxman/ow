@@ -42,7 +42,9 @@ The validate command exits non-zero if `data/patch-notes.json` is malformed — 
 
 Default scope: **all patches in `data/patch-notes.json`** that haven't been applied to hero JSONs yet. Pass `--since=YYYY-MM-DD` to limit to patches on or after a date — useful when a previous run of this skill already applied earlier patches.
 
-For each patch in `data/patch-notes.json` (newest first), for each section, for each `change`:
+For each patch in `data/patch-notes.json` **(oldest first)**, for each section, for each `change`:
+
+> **Why oldest-first**: each applied change writes `field = to`. When multiple patches touch the same field over time (e.g. Pharah Hover Jets `bonus_movement_speed` was 40% pre-April-14, became 30% in the April 14 patch), iterating oldest-first means the newest patch's value lands last and survives — natural last-write-wins by time. Iterating newest-first would leave the oldest value in place, which is wrong.
 
 1. **Skip the change entirely** if any of the following:
    - `change.interpreted === null` — the AI couldn't interpret it. Surface in PR body under "Skipped (uninterpretable)" with the raw text.

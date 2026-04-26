@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "6.0.2"
+    "schema_version": "6.0.3"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Wrecking_Ball",
@@ -135,7 +135,7 @@
       ]
     },
     "stats": {
-      "health": 300,
+      "health": 450,
       "armor": 125,
       "shields": 150
     }

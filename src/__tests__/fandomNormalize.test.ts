@@ -40,6 +40,38 @@ describe('normalizeInfoboxHP', () => {
     const tpl = { name: 'Infobox character', params: { shields: '100' } };
     expect(normalizeInfoboxHP(tpl)).toEqual({ shields: 100 });
   });
+
+  it('adds the +150 role-queue passive to tank health', () => {
+    const tpl = {
+      name: 'Infobox character',
+      params: { role: '[[Tank]]', health: '250', armor: '300' },
+    };
+    expect(normalizeInfoboxHP(tpl)).toEqual({ health: 400, armor: 300 });
+  });
+
+  it('does not add +150 for damage heroes', () => {
+    const tpl = {
+      name: 'Infobox character',
+      params: { role: '[[Damage]]', health: '200' },
+    };
+    expect(normalizeInfoboxHP(tpl)).toEqual({ health: 200 });
+  });
+
+  it('does not add +150 for support heroes', () => {
+    const tpl = {
+      name: 'Infobox character',
+      params: { role: '[[Support]]', health: '200' },
+    };
+    expect(normalizeInfoboxHP(tpl)).toEqual({ health: 200 });
+  });
+
+  it('skips offset when tank has no health field', () => {
+    const tpl = {
+      name: 'Infobox character',
+      params: { role: '[[Tank]]', armor: '150' },
+    };
+    expect(normalizeInfoboxHP(tpl)).toEqual({ armor: 150 });
+  });
 });
 
 describe('normalizeSubRole', () => {

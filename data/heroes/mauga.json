@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "6.0.2"
+    "schema_version": "6.0.3"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Mauga",
@@ -142,7 +142,7 @@
       ]
     },
     "stats": {
-      "health": 425,
+      "health": 575,
       "armor": 150
     }
   }

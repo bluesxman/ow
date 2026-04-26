@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "6.0.2"
+    "schema_version": "6.0.3"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Winston",
@@ -130,7 +130,7 @@
       ]
     },
     "stats": {
-      "health": 275,
+      "health": 425,
       "armor": 200
     }
   }

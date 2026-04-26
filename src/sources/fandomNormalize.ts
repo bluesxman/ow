@@ -53,8 +53,14 @@ export interface FandomHeroFields {
 export function normalizeInfoboxHP(infobox: ParsedTemplate | null): Pick<HeroStats, 'health' | 'armor' | 'shields'> {
   const out: Pick<HeroStats, 'health' | 'armor' | 'shields'> = {};
   if (!infobox) return out;
+  // Fandom's Infobox character template renders tank `health` as
+  // `{{{health}}} (Open queue) / {{{health}}} + 150 (Role queue)` — the
+  // wikitext field is the open-queue base and the +150 role-queue passive
+  // is computed at render time, never stored. Apply it here so 5v5/role-queue
+  // is what we ship. Armor and shields aren't offset by the template.
+  const isTank = /tank/i.test(infobox.params['role'] ?? '');
   const health = parseNumber(infobox.params['health']);
-  if (health !== undefined) out.health = health;
+  if (health !== undefined) out.health = isTank ? health + 150 : health;
   const armor = parseNumber(infobox.params['armor']);
   if (armor !== undefined) out.armor = armor;
   const shield = parseNumber(infobox.params['shield'] ?? infobox.params['shields']);

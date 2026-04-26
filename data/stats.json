@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "6.0.2"
+    "schema_version": "6.0.3"
   },
   "heroes": {
     "ana": {
@@ -586,7 +586,7 @@
     },
     "doomfist": {
       "stats": {
-        "health": 375
+        "health": 525
       },
       "abilities": [
         {
@@ -649,7 +649,7 @@
     },
     "dva": {
       "stats": {
-        "health": 175,
+        "health": 325,
         "armor": 325
       },
       "abilities": [
@@ -1083,7 +1083,7 @@
     },
     "hazard": {
       "stats": {
-        "health": 275,
+        "health": 425,
         "armor": 225
       },
       "abilities": [
@@ -1283,7 +1283,7 @@
     },
     "junker-queen": {
       "stats": {
-        "health": 375
+        "health": 525
       },
       "abilities": [
         {
@@ -1685,7 +1685,7 @@
     },
     "mauga": {
       "stats": {
-        "health": 425,
+        "health": 575,
         "armor": 150
       },
       "abilities": [
@@ -2016,7 +2016,7 @@
     },
     "orisa": {
       "stats": {
-        "health": 150,
+        "health": 300,
         "armor": 300
       },
       "abilities": [
@@ -2140,7 +2140,7 @@
     },
     "ramattra": {
       "stats": {
-        "health": 275,
+        "health": 425,
         "armor": 100
       },
       "abilities": [
@@ -2284,7 +2284,7 @@
     },
     "reinhardt": {
       "stats": {
-        "health": 250,
+        "health": 400,
         "armor": 300
       },
       "abilities": [
@@ -2338,7 +2338,7 @@
     },
     "roadhog": {
       "stats": {
-        "health": 600
+        "health": 750
       },
       "abilities": [
         {
@@ -2481,7 +2481,7 @@
     },
     "sigma": {
       "stats": {
-        "health": 200,
+        "health": 350,
         "shields": 275
       },
       "abilities": [
@@ -3121,7 +3121,7 @@
     },
     "winston": {
       "stats": {
-        "health": 275,
+        "health": 425,
         "armor": 200
       },
       "abilities": [
@@ -3181,7 +3181,7 @@
     },
     "wrecking-ball": {
       "stats": {
-        "health": 300,
+        "health": 450,
         "armor": 125,
         "shields": 150
       },
@@ -3307,7 +3307,7 @@
     },
     "zarya": {
       "stats": {
-        "health": 175,
+        "health": 325,
         "shields": 225
       },
       "abilities": [

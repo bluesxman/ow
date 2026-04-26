@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "6.0.2"
+    "schema_version": "6.0.3"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Zarya",
@@ -140,7 +140,7 @@
       ]
     },
     "stats": {
-      "health": 175,
+      "health": 325,
       "shields": 225
     }
   }

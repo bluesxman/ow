@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "6.0.2"
+    "schema_version": "6.0.3"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Orisa",
@@ -127,7 +127,7 @@
       ]
     },
     "stats": {
-      "health": 150,
+      "health": 300,
       "armor": 300
     }
   }

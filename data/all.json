@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "6.0.2"
+    "schema_version": "6.0.3"
   },
   "heroes": {
     "ana": {
@@ -967,7 +967,7 @@
         ]
       },
       "stats": {
-        "health": 375
+        "health": 525
       }
     },
     "dva": {
@@ -1095,7 +1095,7 @@
         ]
       },
       "stats": {
-        "health": 175,
+        "health": 325,
         "armor": 325
       }
     },
@@ -1726,7 +1726,7 @@
         ]
       },
       "stats": {
-        "health": 275,
+        "health": 425,
         "armor": 225
       }
     },
@@ -2031,7 +2031,7 @@
         ]
       },
       "stats": {
-        "health": 375
+        "health": 525
       }
     },
     "junkrat": {
@@ -2649,7 +2649,7 @@
         ]
       },
       "stats": {
-        "health": 425,
+        "health": 575,
         "armor": 150
       }
     },
@@ -3145,7 +3145,7 @@
         ]
       },
       "stats": {
-        "health": 150,
+        "health": 300,
         "armor": 300
       }
     },
@@ -3365,7 +3365,7 @@
         ]
       },
       "stats": {
-        "health": 275,
+        "health": 425,
         "armor": 100
       }
     },
@@ -3554,7 +3554,7 @@
         ]
       },
       "stats": {
-        "health": 250,
+        "health": 400,
         "armor": 300
       }
     },
@@ -3665,7 +3665,7 @@
         ]
       },
       "stats": {
-        "health": 600
+        "health": 750
       }
     },
     "sierra": {
@@ -3865,7 +3865,7 @@
         ]
       },
       "stats": {
-        "health": 200,
+        "health": 350,
         "shields": 275
       }
     },
@@ -4856,7 +4856,7 @@
         ]
       },
       "stats": {
-        "health": 275,
+        "health": 425,
         "armor": 200
       }
     },
@@ -4956,7 +4956,7 @@
         ]
       },
       "stats": {
-        "health": 300,
+        "health": 450,
         "armor": 125,
         "shields": 150
       }
@@ -5158,7 +5158,7 @@
         ]
       },
       "stats": {
-        "health": 175,
+        "health": 325,
         "shields": 225
       }
     },

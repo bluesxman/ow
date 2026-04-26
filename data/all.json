@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "6.0.1"
+    "schema_version": "6.0.2"
   },
   "heroes": {
     "ana": {
@@ -147,7 +147,7 @@
           "description": "Hit enemies with fire attacks to burn them.",
           "ability_type": "Passive Ability",
           "damage": "10 per second (base) / 20 per second (fan the flames)",
-          "duration": "3 seconds"
+          "duration": "4 seconds"
         },
         {
           "slug": "zhuque-fans",

@@ -2086,7 +2086,7 @@
           "slug": "rocket-launcher",
           "name": "Rocket Launcher",
           "ability_type": "Weapon",
-          "damage": "140 (direct hit) / 80 – 24.6 (splash, enemy) / 20 – 6.15 (splash, self)",
+          "damage": "120 (direct hit) / 80 – 24.6 (splash, enemy) / 20 – 6.15 (splash, self)",
           "headshot": false,
           "rate_of_fire": "1.25 shots/second",
           "ammo": 6,

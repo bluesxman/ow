@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "6.0.2"
+    "schema_version": "6.0.3"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Sigma",
@@ -133,7 +133,7 @@
       ]
     },
     "stats": {
-      "health": 200,
+      "health": 350,
       "shields": 275
     }
   }

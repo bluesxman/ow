@@ -21,7 +21,9 @@
     "test:watch": "vitest",
     "patch-notes:rebuild-aggregates": "tsx .claude/skills/process-patch-notes/scripts/rebuild-aggregates.ts",
     "patch-notes:dump-raw": "tsx .claude/skills/refresh-patch-notes/scripts/dump-raw-patches.ts",
-    "patch-notes:validate": "tsx .claude/skills/refresh-patch-notes/scripts/validate-patch-notes.ts"
+    "patch-notes:validate": "tsx .claude/skills/refresh-patch-notes/scripts/validate-patch-notes.ts",
+    "patch-notes:apply": "tsx .claude/skills/process-patch-notes/scripts/apply-changes.ts",
+    "patch-notes:audit-fandom": "tsx .claude/skills/process-patch-notes/scripts/audit-fandom.ts"
   },
   "dependencies": {
     "playwright": "^1.59.0",

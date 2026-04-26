@@ -40,36 +40,61 @@ The validate command exits non-zero if `data/patch-notes.json` is malformed — 
 
 ## Update algorithm
 
-Default scope: **all patches in `data/patch-notes.json`** that haven't been applied to hero JSONs yet. Pass `--since=YYYY-MM-DD` to limit to patches on or after a date — useful when a previous run of this skill already applied earlier patches.
+Run the apply utility — it walks `data/patch-notes.json` oldest-first, edits hero JSONs in place per the rules below, and writes a structured report to `.run/apply-report.json` for the PR body:
 
-For each patch in `data/patch-notes.json` **(oldest first)**, for each section, for each `change`:
+!`npm run patch-notes:apply`
 
-> **Why oldest-first**: each applied change writes `field = to`. When multiple patches touch the same field over time (e.g. Pharah Hover Jets `bonus_movement_speed` was 40% pre-April-14, became 30% in the April 14 patch), iterating oldest-first means the newest patch's value lands last and survives — natural last-write-wins by time. Iterating newest-first would leave the oldest value in place, which is wrong.
+Pass `--since=YYYY-MM-DD` to limit scope, or `--dry-run` to preview without writing:
 
-1. **Skip the change entirely** if any of the following:
-   - `change.interpreted === null` — the AI couldn't interpret it. Surface in PR body under "Skipped (uninterpretable)" with the raw text.
-   - `change.interpreted.mode !== "retail"` — Stadium / mixed / unknown modes don't apply to retail hero JSON. Surface under "Skipped (mode=stadium)" or similar.
-   - `change.interpreted.blizzard_commentary` contains `"(6v6)"` — 6v6 sub-mode tuning isn't tracked in the schema (single value per field). Surface under "Skipped (6v6 variant)".
-   - `change.interpreted.subject_kind === "perk"` — perks carry only name+description in `hero.perks.*`, not numeric stats. Surface under "Skipped (perk numeric not tracked)".
-   - `change.interpreted.subject_kind === "system"` or `"map"` or `"role"` or `"unknown"` — not directly applicable to a single hero's stats. Surface under "Skipped (no hero subject)".
-   - `change.interpreted.metric === null` — qualitative behavior change with no numeric handle. Surface under "Skipped (qualitative)".
-   - `change.interpreted.to === null` — no target value to write. Surface under "Skipped (qualitative)".
-   - `change.interpreted.hero_slug` doesn't match any file in `data/heroes/` (PTR-only, recently-removed, or new hero not yet scraped). Surface under "Skipped (hero not in roster)".
+```
+npm run patch-notes:apply -- --since=2025-12-09
+npm run patch-notes:apply -- --dry-run
+```
 
-2. **Apply the change** when none of the skip rules fire:
-   - Read `data/heroes/<change.interpreted.hero_slug>.json`.
-   - **Ability change** (`subject_kind === "ability"`): locate the entry in `hero.abilities[]` whose `slug` equals `change.interpreted.subject_slug` (exact match — the slug is a foreign key, not a normalized display name). Set the field named `change.interpreted.metric` to `change.interpreted.to`.
-     - Composite-string slice handling: when the existing field value is a slash-separated string (e.g. `"10 (direct hit) / 25 - 7.5 (splash, enemy) / 12.5 - 3.75 (splash, self)"`), rewrite **only** the matching slice based on `change.interpreted.metric_phrase` (e.g. `"explosion damage"` → splash slice). If the slice mapping is ambiguous, skip the change and surface under "Skipped (composite-slice ambiguity)".
-     - If `change.interpreted.subject_slug` doesn't match any ability in `hero.abilities[]`, surface under "Skipped (ability not found)" — this shouldn't happen if `refresh-patch-notes` interpreted correctly, so flag for the human to spot-check. Cross-check against `change.raw.text` and `change.interpreted.subject_name` (display label) before assuming the patch-notes interpretation is wrong.
-   - **Hero-level change** (`subject_kind === "hero_general"`): only when `change.interpreted.metric` is one of `health`, `armor`, `shields`. Set `hero.stats.<metric>` to `change.interpreted.to`. Skip other metrics (e.g. `damage`, `cooldown` at hero-general level usually means a passive — not in the schema today).
+> **Why oldest-first**: each applied change writes `field = to`. When multiple patches touch the same field over time (e.g. Pharah Hover Jets `bonus_movement_speed` was 40% pre-April-14, became 30% in the April 14 patch), iterating oldest-first means the newest patch's value lands last and survives — natural last-write-wins by time.
 
-3. **Preserve JSON shape**: do not reorder keys, do not add fields, do not remove fields.
+The script implements these skip rules. Each skipped change appears in the report under its bucket; surface them in the PR body so a human can spot-check.
 
-4. **Audit trail**: when in doubt, fall back to `change.raw.text`. If the `interpreted` layer's call seems wrong (e.g. mismatched ability name), prefer the raw text and skip the change with a note rather than silently applying a wrong number.
+1. **Skip on**:
+   - `change.interpreted === null` — the AI couldn't interpret it (`uninterpretable`).
+   - `change.interpreted.mode !== "retail"` — Stadium / mixed / unknown don't apply to retail hero JSON (`mode=stadium` etc.).
+   - `change.interpreted.blizzard_commentary` contains `"(6v6)"` — 6v6 sub-mode tuning isn't tracked in the schema (single value per field) (`6v6`).
+   - `change.interpreted.subject_kind === "perk"` — perks carry only name+description (`perk`).
+   - `change.interpreted.subject_kind` ∈ {`system`, `map`, `role`, `unknown`} — no hero target (`no-hero-subject`).
+   - `change.interpreted.metric === null` or `to === null` — qualitative (`qualitative`).
+   - `change.interpreted.hero_slug` not in `data/heroes/` (`hero-not-in-roster`).
+   - The targeted ability isn't in `hero.abilities[]` (`ability-not-found`) — the patch interpretation may have a wrong subject_slug; cross-check against `change.raw.text` before fixing upstream.
+   - `metric` is in the patch enum but not on the targeted ability object (`ability-field-missing`) — schema gap; don't invent the field.
+   - `metric === "other"` — not in the ability schema (`ability-metric-other`).
 
-After all per-hero edits:
+2. **Apply only when both safety rails clear** (these encode the April 2026 backfill's lessons):
+   - **Composite-string fields** (`"10 (direct hit) / 25 - 7.5 (splash, enemy) / ..."`) — skip with `composite-slice-ambiguity`. Rewriting a single slice without per-slice metadata risks corrupting the others.
+   - **Qualified-string fields** (`"9 seconds / -2 seconds per enemy hit"`, `"25% of damage dealt"`, `"35 per second"`) — skip with `qualified-string-ambiguity`. Bare-numeric `to` would silently strip the qualifier.
+   - **`from`-value reconciliation** — the patch's `from` MUST match the existing stored value (numeric leading-token equality, with optional unit-bearing string OK). Skip with `value-mismatch` otherwise. Rationale: if Fandom has already drifted past `from`, applying `to` blindly corrupts a later state.
+   - **Unit-preserving coercion** — when existing is `"9 seconds"` and `to` is the bare number `12`, write `"12 seconds"` (don't drop the unit).
+
+3. **Hero-general writes** target `hero.stats.{health,armor,shields}` only. Other metrics (`damage`/`cooldown` at hero-general level usually mean a passive) skip with `hero-general-unsupported-metric`.
+
+4. **JSON shape preserved** — no key reordering, no added fields, no removed fields.
+
+After applying, rebuild aggregates so `data/index.json` and the top-level rollups stay in sync:
 
 !`npm run patch-notes:rebuild-aggregates`
+
+## Fandom drift audit
+
+After applying, check whether Fandom's stored values still match the patch history's tip-of-tree. The audit compares each retail change's `to` against the corresponding ability/stat field, keeps only the LATEST patch per `(hero, subject)` pair, and buckets by category:
+
+!`npm run patch-notes:audit-fandom`
+
+Output buckets:
+
+- **MATCHES** — Fandom matches `patch.to`. Up to date.
+- **STALE** — Fandom matches `patch.from`. The latest patch on this field was missed by Fandom; warrants a manual edit (or a follow-up `process-patch-notes` run that catches it).
+- **DRIFT** — Fandom matches neither `from` nor `to`. Spot-check by hand. Most are false positives: composite-string slices the audit doesn't peer inside (`"45 (swing) / 120 (overhead strike)"` contains `120` but the audit only checks the leading number), schema-naming mismatches (rate_of_fire vs. burst-time), multiplier-vs-absolute representations (Mercy Flash Heal "3x" stored as `60 / 120`), or values hidden in `modifies[]` sub-objects (Sierra Tracking Shot). Real Fandom errors are rare but present (the April 2026 backfill caught Anran Ignition burning duration `3s → 4s` this way).
+- **N/A** — couldn't compare (ability removed, field renamed).
+
+The audit doesn't write anything; surface notable STALE/DRIFT entries in the PR body for reviewer attention.
 
 ## Quality gates
 

@@ -96,7 +96,7 @@
         "description": "Throw a protective charm to make allies become briefly invulnerable and cleansed of most negative effects.",
         "ability_type": "Ability",
         "cooldown": "14 seconds",
-        "healing": "80 (no cleanse) / 80 (cleanse)",
+        "healing": 80,
         "projectile_speed": "37 m/s",
         "projectile_radius": "0.2 meters",
         "radius": "5 meters",

@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T19:12:33.183Z",
-    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
+    "last_updated": "2026-05-12T21:11:28.893Z",
+    "patch_version": "Overwatch Retail Patch Notes - May 12, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -116,19 +116,24 @@
         {
           "slug": "snipers-instinct",
           "name": "Sniper's Instinct",
-          "description": "Scoped shots charge 100% faster for 2 seconds after using Grappling Hook."
+          "description": "Scoped shots charge 100% faster for 2 seconds after using Grappling Hook.",
+          "duration": "2 seconds"
         }
       ],
       "major": [
         {
           "slug": "widow-s-bite",
           "name": "Widow’s Bite",
-          "description": "Scoped shots can charge up to 125%, piercing enemies when fully charged."
+          "description": "Scoped shots can charge up to 125%, piercing enemies when fully charged.",
+          "duration": "0.9 → 1.125 seconds charging"
         },
         {
           "slug": "seeker-mine",
           "name": "Seeker Mine",
-          "description": "Venom Mine now fires poison darts at enemies within 10 meters and remains active after triggered."
+          "description": "Venom Mine now fires poison darts at enemies within 10 meters and remains active after triggered.",
+          "damage": "10 per second / 75 total",
+          "duration": "5 seconds (poison) / 8.2 seconds (rearming time)",
+          "radius": "10 meters"
         }
       ]
     },

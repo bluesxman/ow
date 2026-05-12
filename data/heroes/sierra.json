@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T19:12:33.183Z",
-    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
+    "last_updated": "2026-05-12T21:11:28.893Z",
+    "patch_version": "Overwatch Retail Patch Notes - May 12, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -52,7 +52,7 @@
         "ability_type": "Weapon (Hip Fire)",
         "damage": "9 (per pellet) / 18 (per volley)",
         "headshot": true,
-        "rate_of_fire": "10.45 shots/s",
+        "rate_of_fire": "11.1 shots/s",
         "pellets": "2 per volley",
         "ammo": 80,
         "duration": "0.75 seconds (time to reach min spread)",
@@ -129,12 +129,15 @@
         {
           "slug": "medi-drone",
           "name": "Medi-Drone",
-          "description": "Anchor Drones hold a small medkit that can heal Sierra."
+          "description": "Anchor Drones hold a small medkit that can heal Sierra.",
+          "healing": 100
         },
         {
           "slug": "locked-in",
           "name": "Locked In",
-          "description": "Firing Tracking Shot increases your attack speed by 20% for 2 seconds."
+          "description": "Firing Tracking Shot increases your attack speed by 20% for 2 seconds.",
+          "duration": "2 seconds",
+          "dps": "while firing ( w/ reload)"
         }
       ]
     },

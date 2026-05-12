@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T19:12:33.183Z",
-    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
+    "last_updated": "2026-05-12T21:11:28.893Z",
+    "patch_version": "Overwatch Retail Patch Notes - May 12, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -120,14 +120,19 @@
         {
           "slug": "perfect-alignment",
           "name": "Perfect Alignment",
-          "description": "Increase the range of Photon Projector's primary fire by 20%."
+          "description": "Increase the range of Photon Projector's primary fire by 20%.",
+          "range": "12 → 14.4"
         }
       ],
       "major": [
         {
           "slug": "hovering-barrier",
           "name": "Hovering Barrier",
-          "description": "Teleporter gains the option to create a forward moving barrier instead. Pressing Ability 2 again slows down the barrier's movement."
+          "description": "Teleporter gains the option to create a forward moving barrier instead. Pressing Ability 2 again slows down the barrier's movement.",
+          "cooldown": "12 seconds",
+          "health": 600,
+          "duration": "6 seconds",
+          "projectile_speed": "5.5 m/s"
         },
         {
           "slug": "shield-battery",

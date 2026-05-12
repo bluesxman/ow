@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T19:12:33.183Z",
-    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
+    "last_updated": "2026-05-12T21:11:28.893Z",
+    "patch_version": "Overwatch Retail Patch Notes - May 12, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -120,7 +120,8 @@
         {
           "slug": "raging-storm",
           "name": "Raging Storm",
-          "description": "Whirlwind Dash continues to spin, hitting 3 more times for 30 damage in a wide area."
+          "description": "Whirlwind Dash continues to spin, hitting 3 more times for 30 damage in a wide area.",
+          "damage": 30
         },
         {
           "slug": "extra-edge",
@@ -137,7 +138,8 @@
         {
           "slug": "siphoning-strike",
           "name": "Siphoning Strike",
-          "description": "Overhead strikes gain 30% Lifesteal."
+          "description": "Overhead strikes gain 30% Lifesteal.",
+          "healing": "40% of damage dealt"
         }
       ]
     },

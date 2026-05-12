@@ -369,6 +369,64 @@ describe('normalizeFandomHero on Emre fixture (same-name dual-mode rifle)', () =
   });
 });
 
+describe('extractSections — robust to false-positive L2-shaped lines', () => {
+  it('does not end the Abilities section early when a template body contains a line wrapped in ==', () => {
+    // Real-world Ramattra (May 2026): a template param was wrapped in == == by
+    // accident, looking like a level-2 heading. Naive heading regex matched it
+    // and truncated the Abilities section after the first 2 templates.
+    const wt = `
+== Abilities ==
+{{Ability details
+| ability_name = First Ability
+| official_description = a.
+}}
+{{Ability details
+| ability_name = Second Ability
+| official_description = b.
+== | ability_keywords = area of effect;;cylindrical::armor piercing::barrier collide::travel time<blockquote>Block quote</blockquote> ==
+| ability_details = note
+}}
+{{Ability details
+| ability_name = Third Ability
+| official_description = c.
+}}
+{{Ability details
+| ability_name = Fourth Ability
+| official_description = d.
+}}
+== Perks ==
+=== Minor Perks ===
+{{Ability details
+| ability_name = One
+| ability_type = Minor Perk
+| official_description = x.
+}}
+{{Ability details
+| ability_name = Two
+| ability_type = Minor Perk
+| official_description = y.
+}}
+=== Major Perks ===
+{{Ability details
+| ability_name = Three
+| ability_type = Major Perk
+| official_description = w.
+}}
+{{Ability details
+| ability_name = Four
+| ability_type = Major Perk
+| official_description = z.
+}}
+`;
+    const sec = extractSections(wt);
+    expect(sec.abilityBlocks.map((b) => b.name)).toEqual([
+      'First Ability', 'Second Ability', 'Third Ability', 'Fourth Ability',
+    ]);
+    expect(sec.minorPerks).toHaveLength(2);
+    expect(sec.majorPerks).toHaveLength(2);
+  });
+});
+
 describe('normalizeFandomHero — perks lift structured stat fields', () => {
   it('emits damage on a perk that declares it in the template', () => {
     const wt = `

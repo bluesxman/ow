@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T19:12:33.183Z",
-    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
+    "last_updated": "2026-05-12T21:11:28.893Z",
+    "patch_version": "Overwatch Retail Patch Notes - May 12, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -113,7 +113,9 @@
         {
           "slug": "groggy",
           "name": "Groggy",
-          "description": "Enemies waking up from Sleep Dart are slowed and take 50 damage for 2 seconds."
+          "description": "Enemies waking up from Sleep Dart are slowed and take 50 damage for 2 seconds.",
+          "damage": 50,
+          "duration": "2 seconds"
         },
         {
           "slug": "speed-serum",
@@ -125,12 +127,15 @@
         {
           "slug": "headhunter",
           "name": "Headhunter",
-          "description": "Biotic Rifle can crit enemies."
+          "description": "Biotic Rifle can crit enemies.",
+          "headshot": true
         },
         {
           "slug": "biotic-bounce",
           "name": "Biotic Bounce",
-          "description": "After exploding, Biotic Grenade bounces and explodes again for 60 damage and healing."
+          "description": "After exploding, Biotic Grenade bounces and explodes again for 60 damage and healing.",
+          "damage": 60,
+          "healing": 60
         }
       ]
     },

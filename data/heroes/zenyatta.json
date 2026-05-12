@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T19:12:33.183Z",
-    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
+    "last_updated": "2026-05-12T21:11:28.893Z",
+    "patch_version": "Overwatch Retail Patch Notes - May 12, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -116,24 +116,28 @@
         {
           "slug": "discordant-repair",
           "name": "Discordant Repair",
-          "description": "Zenyatta gains 10% lifesteal against enemies affected by Discord Orb."
+          "description": "Zenyatta gains 10% lifesteal against enemies affected by Discord Orb.",
+          "healing": "6.5 (bodyshot, per orb) / 13 (headshot, per orb)"
         },
         {
           "slug": "ascendance",
           "name": "Ascendance",
-          "description": "Activate and hold Double Jump to hover for up to 3 seconds."
+          "description": "Activate and hold Double Jump to hover for up to 3 seconds.",
+          "duration": "3 seconds"
         }
       ],
       "major": [
         {
           "slug": "focused-destruction",
           "name": "Focused Destruction",
-          "description": "Secondary fire charges 20% faster and can store 1 extra Orb of Destruction."
+          "description": "Secondary fire charges 20% faster and can store 1 extra Orb of Destruction.",
+          "rate_of_fire": "1 orb per 0.42 seconds (charging) / 1 shot per 0.144 seconds (firing) / 0.6 seconds recovery"
         },
         {
           "slug": "dual-harmony",
           "name": "Dual Harmony",
-          "description": "Gain a 2nd Harmony Orb but they both heal for 70% effectiveness."
+          "description": "Gain a 2nd Harmony Orb but they both heal for 70% effectiveness.",
+          "healing": "35 → 24.5 per second"
         }
       ]
     },

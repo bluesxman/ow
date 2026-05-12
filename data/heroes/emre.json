@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T19:12:33.183Z",
-    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
+    "last_updated": "2026-05-12T21:11:28.893Z",
+    "patch_version": "Overwatch Retail Patch Notes - May 12, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -81,7 +81,8 @@
         "pellets": 3,
         "ammo": 36,
         "reload": "1.8 seconds",
-        "projectile_radius": "0.07 meters"
+        "projectile_radius": "0.07 meters",
+        "spread": "None"
       },
       {
         "slug": "siphon-blaster",
@@ -127,7 +128,8 @@
         {
           "slug": "suppressive-security",
           "name": "Suppressive Security",
-          "description": "Override Protocol's light rounds slow enemies by 30% for 1 second."
+          "description": "Override Protocol's light rounds slow enemies by 30% for 1 second.",
+          "duration": "1 second"
         },
         {
           "slug": "enhanced-agility",
@@ -144,7 +146,9 @@
         {
           "slug": "cyber-adhesion",
           "name": "Cyber Adhesion",
-          "description": "Cyber Frag now sticks on contact, dealing 40 extra damage to stuck enemies."
+          "description": "Cyber Frag now sticks on contact, dealing 40 extra damage to stuck enemies.",
+          "damage": "40 (impact)",
+          "projectile_radius": "0.2 meters (stick size)"
         }
       ]
     },

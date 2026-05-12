@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T19:12:33.183Z",
-    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
+    "last_updated": "2026-05-12T21:11:28.893Z",
+    "patch_version": "Overwatch Retail Patch Notes - May 12, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -115,7 +115,9 @@
         {
           "slug": "rapid-construction",
           "name": "Rapid Construction",
-          "description": "Healing Pylon builds 300% faster and its cooldown is reduced by 1.5 seconds."
+          "description": "Healing Pylon builds 300% faster and its cooldown is reduced by 1.5 seconds.",
+          "duration": "1.3 → 0.33 seconds (build time)",
+          "cooldown": "7 → 5.5 seconds (default) / 14 → 12.5 seconds (under attack)"
         },
         {
           "slug": "summer-solstice",
@@ -127,12 +129,17 @@
         {
           "slug": "solar-flare",
           "name": "Solar Flare",
-          "description": "Press Primary Fire while using Solar Rifle's healing beam to heal all allies in front of Illari for 100 healing."
+          "description": "Press Primary Fire while using Solar Rifle's healing beam to heal all allies in front of Illari for 100 healing.",
+          "cooldown": "10 seconds",
+          "healing": 100,
+          "radius": "20 meters"
         },
         {
           "slug": "sunburn",
           "name": "Sunburn",
-          "description": "Outburst ignites enemies, dealing an additional 50 damage over 3 seconds."
+          "description": "Outburst ignites enemies, dealing an additional 50 damage over 3 seconds.",
+          "damage": "16.67 per second / 50 total",
+          "duration": "3 seconds"
         }
       ]
     },

@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T19:12:33.183Z",
-    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
+    "last_updated": "2026-05-12T21:11:28.893Z",
+    "patch_version": "Overwatch Retail Patch Notes - May 12, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -126,7 +126,9 @@
         {
           "slug": "faster-blaster",
           "name": "Faster Blaster",
-          "description": "While using Glide Boost, Mediblaster fires continuosly."
+          "description": "While using Glide Boost, Mediblaster fires continuosly.",
+          "rate_of_fire": "20 shots/s",
+          "pellets": 1
         },
         {
           "slug": "lift-off",

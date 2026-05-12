@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T19:12:33.183Z",
-    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
+    "last_updated": "2026-05-12T21:11:28.893Z",
+    "patch_version": "Overwatch Retail Patch Notes - May 12, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -113,7 +113,8 @@
         {
           "slug": "steamroller",
           "name": "Steamroller",
-          "description": "Roll impacts deal 100% more damage to Tanks."
+          "description": "Roll impacts deal 100% more damage to Tanks.",
+          "damage": "120 (Tanks)"
         },
         {
           "slug": "multi-ball",
@@ -125,12 +126,17 @@
         {
           "slug": "hang-time",
           "name": "Hang Time",
-          "description": "Piledriver winds up longer, gaining air control and dealing up to 50% more damage."
+          "description": "Piledriver winds up longer, gaining air control and dealing up to 50% more damage.",
+          "damage": "150 - 20",
+          "duration": "1.1 seconds (windup delay)"
         },
         {
           "slug": "adaptive-barrier",
           "name": "Adaptive Barrier",
-          "description": "Adaptive Shield generates a 1.5 second barrier on activation."
+          "description": "Adaptive Shield generates a 1.5 second barrier on activation.",
+          "duration": "1.5 seconds",
+          "health": 150,
+          "radius": "Approx. 1.5 meters"
         }
       ]
     },

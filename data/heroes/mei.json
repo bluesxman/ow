@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T19:12:33.183Z",
-    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
+    "last_updated": "2026-05-12T21:11:28.893Z",
+    "patch_version": "Overwatch Retail Patch Notes - May 12, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -114,24 +114,29 @@
         {
           "slug": "skating-rink",
           "name": "Skating Rink",
-          "description": "Allies within Blizzard gain 25% increased movement speed and heal for 50 health per second."
+          "description": "Allies within Blizzard gain 25% increased movement speed and heal for 50 health per second.",
+          "healing": "50 per second"
         },
         {
           "slug": "glacial-propulsion",
           "name": "Glacial Propulsion",
-          "description": "Double jumping creates a small ice pillar that launches Mei into the air."
+          "description": "Double jumping creates a small ice pillar that launches Mei into the air.",
+          "cooldown": "10 seconds"
         }
       ],
       "major": [
         {
           "slug": "deep-freeze",
           "name": "Deep Freeze",
-          "description": "Continuously hitting enemies with primary fire freezes them for a short time."
+          "description": "Continuously hitting enemies with primary fire freezes them for a short time.",
+          "duration": "1 second"
         },
         {
           "slug": "cryo-storm",
           "name": "Cryo-Storm",
-          "description": "Cryo-Freeze slows and deals 70 damage per second to nearby enemies."
+          "description": "Cryo-Freeze slows and deals 70 damage per second to nearby enemies.",
+          "damage": "70 per second",
+          "radius": "4.5 meters"
         }
       ]
     },

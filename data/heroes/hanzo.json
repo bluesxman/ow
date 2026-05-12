@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T19:12:33.183Z",
-    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
+    "last_updated": "2026-05-12T21:11:28.893Z",
+    "patch_version": "Overwatch Retail Patch Notes - May 12, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -130,12 +130,18 @@
         {
           "slug": "frost-arrow",
           "name": "Frost Arrow",
-          "description": "Press Reload to ready an explosive frost arrow that slows enemies by 35% for 2 seconds."
+          "description": "Press Reload to ready an explosive frost arrow that slows enemies by 35% for 2 seconds.",
+          "duration": "2 seconds",
+          "radius": "4 meters",
+          "cooldown": "14 seconds"
         },
         {
           "slug": "scatter-arrows",
           "name": "Scatter Arrows",
-          "description": "On first ricochet, Storm Arrows split into 5 shots dealing 33% damage and bounce 1 extra time."
+          "description": "On first ricochet, Storm Arrows split into 5 shots dealing 33% damage and bounce 1 extra time.",
+          "damage": "75 → 25 (after bounce)",
+          "pellets": "1 → 5 (after bounce)",
+          "headshot": false
         }
       ]
     },

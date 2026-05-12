@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T19:12:33.183Z",
-    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
+    "last_updated": "2026-05-12T21:11:28.893Z",
+    "patch_version": "Overwatch Retail Patch Notes - May 12, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -130,12 +130,20 @@
         {
           "slug": "lindholm-explosives",
           "name": "Lindholm Explosives",
-          "description": "Configuration: Assault’s Weapon slowly fires explosive shells instead of a rotary cannon."
+          "description": "Configuration: Assault’s Weapon slowly fires explosive shells instead of a rotary cannon.",
+          "damage": "50 (direct hit bonus) / 90 - 27 (splash, enemy) / 36 - 10.8 (splash, self)",
+          "rate_of_fire": "1.33 shots/s",
+          "radius": "3.5 meters (splash)",
+          "projectile_radius": "0.275 meters",
+          "projectile_speed": "100 m/s",
+          "dps": "186.2 while firing"
         },
         {
           "slug": "self-repair",
           "name": "Self-Repair",
-          "description": "Press E to rapidly heal yourself."
+          "description": "Press E to rapidly heal yourself.",
+          "healing": "90 per second",
+          "duration": "0.5 seconds (min) / 3.3 seconds (max)"
         }
       ]
     },

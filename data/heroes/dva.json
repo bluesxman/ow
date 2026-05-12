@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T19:12:33.183Z",
-    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
+    "last_updated": "2026-05-12T21:11:28.893Z",
+    "patch_version": "Overwatch Retail Patch Notes - May 12, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -142,7 +142,9 @@
         {
           "slug": "bunny-power",
           "name": "Bunny Power",
-          "description": "Eject grants 75 temporary overhealth and Call Mech's damage radius is increased by 50%."
+          "description": "Eject grants 75 temporary overhealth and Call Mech's damage radius is increased by 50%.",
+          "radius": "4.5 meters",
+          "duration": "10 seconds"
         },
         {
           "slug": "extended-boosters",
@@ -154,12 +156,22 @@
         {
           "slug": "shield-system",
           "name": "Shield System",
-          "description": "Convert 150 health to shields. Defense Matrix restores shields based on 25% of its damage absorbed."
+          "description": "Convert 150 health to shields. Defense Matrix restores shields based on 25% of its damage absorbed.",
+          "health": -150
         },
         {
           "slug": "precision-fusion",
           "name": "Precision Fusion",
-          "description": "Press Reload to reduce Fusion Cannons' Spread by 75% for 3 seconds."
+          "description": "Press Reload to reduce Fusion Cannons' Spread by 75% for 3 seconds.",
+          "cooldown": "8 seconds",
+          "damage": "2 - 0.6 → 1 - 0.3 (per projectile) / 22 - 6.6 → 11 - 3.3 (per volley)",
+          "falloff": "10 - 20 → 15 - 30 meters",
+          "headshot": true,
+          "ammo": "∞",
+          "rate_of_fire": "6.67 shots/s → 13.33 shots/s",
+          "pellets": "11 per shot",
+          "spread": "→ degrees",
+          "duration": "3 seconds"
         }
       ]
     },

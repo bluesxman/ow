@@ -111,11 +111,20 @@ export function normalizeAbility(template: ParsedTemplate): { name: string; stat
 
 // Locate the body of a level-2 section (==Heading==) and return [start, end).
 // End is the next level-2 header or end-of-document. Returns null if not found.
+//
+// The next-L2 pattern requires the heading text to be `==<text>==` where
+// <text> contains only "header-safe" characters — letters, digits, spaces,
+// hyphens, parentheses, apostrophes. We've seen malformed wikitext on Fandom
+// where a template parameter line was accidentally wrapped in `==`s and
+// contains `|` / `<` / `>` / `=`; without this guard the loose form
+// `^==[^=][^\n]*==$` matches it and truncates the section early, dropping
+// abilities silently. The strict character class rejects those false
+// positives while still accepting every legitimate Overwatch wiki heading.
 function findLevel2SectionRange(wt: string, headingPattern: RegExp): [number, number] | null {
   const m = headingPattern.exec(wt);
   if (!m) return null;
   const start = m.index + m[0].length;
-  const next2 = /^==[^=][^\n]*==\s*$/gm;
+  const next2 = /^==\s*[A-Za-z0-9][A-Za-z0-9 ()'-]*\s*==\s*$/gm;
   next2.lastIndex = start;
   const next = next2.exec(wt);
   return [start, next ? next.index : wt.length];

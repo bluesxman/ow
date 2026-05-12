@@ -400,7 +400,7 @@
           "description": "Activate to heal yourself and nearby allies instantly, with additional healing over time. Instant heal is doubled for targets less than half health.",
           "ability_type": "Ability",
           "cooldown": "12 seconds",
-          "healing": "40 (instant, >50% max HP) / 80 (instant, <50% max HP) / 40 over 4 seconds (HoT)",
+          "healing": "50 (instant, >50% max HP) / 100 (instant, <50% max HP) / 50 over 4 seconds (HoT)",
           "radius": "12 meters",
           "duration": "4 seconds"
         },
@@ -1039,7 +1039,7 @@
           "description": "Launch a volley of explosive rockets.",
           "ability_type": "Ability;;Mech",
           "cooldown": "7 seconds",
-          "damage": "3 (direct hit bonus) / 5.5 - 1.375 (splash, enemy) / 5.5 - 1.375 (splash, self)",
+          "damage": "2 (direct hit bonus) / 5.5 - 1.375 (splash, enemy) / 5.5 - 1.375 (splash, self)",
           "rate_of_fire": "11 shots/s",
           "headshot": false,
           "ammo": 18,
@@ -1253,7 +1253,7 @@
           "cooldown": "11 seconds",
           "damage": "25 (direct hit) / 15 - 5 (area of effect)",
           "headshot": false,
-          "healing": "80% of damage dealt",
+          "healing": "60% of damage dealt",
           "duration": "5 seconds",
           "radius": "0.5 - 2.3 meters",
           "projectile_speed": "100 m/s",
@@ -1267,7 +1267,7 @@
           "cooldown": "10 seconds",
           "damage": "110 - 55 (area of effect)",
           "duration": "0.6 seconds (explosion delay)",
-          "radius": "2 - 4 meters",
+          "radius": "1.5 - 4 meters",
           "projectile_speed": "35 m/s",
           "projectile_radius": "0.16 meters"
         },
@@ -2294,7 +2294,7 @@
           "description": "Throw a protective charm to make allies become briefly invulnerable and cleansed of most negative effects.",
           "ability_type": "Ability",
           "cooldown": "14 seconds",
-          "healing": "80 (no cleanse) / 110 (cleanse)",
+          "healing": "80 (no cleanse) / 80 (cleanse)",
           "projectile_speed": "37 m/s",
           "projectile_radius": "0.2 meters",
           "radius": "5 meters",
@@ -2929,8 +2929,8 @@
           "name": "Kekkai Sanctuary",
           "description": "Create a sanctuary that heals allies and absorbs enemy projectiles from outside the area.",
           "ability_type": "Ultimate Ability",
-          "healing": "100 (instant) / 50 per second",
-          "duration": "7 seconds / 0.3 seconds (linger)"
+          "healing": "100 (instant) / 40 per second",
+          "duration": "6 seconds / 0.3 seconds (linger)"
         }
       ],
       "perks": {

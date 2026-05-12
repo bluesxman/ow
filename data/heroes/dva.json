@@ -108,7 +108,7 @@
         "description": "Launch a volley of explosive rockets.",
         "ability_type": "Ability;;Mech",
         "cooldown": "7 seconds",
-        "damage": "3 (direct hit bonus) / 5.5 - 1.375 (splash, enemy) / 5.5 - 1.375 (splash, self)",
+        "damage": "2 (direct hit bonus) / 5.5 - 1.375 (splash, enemy) / 5.5 - 1.375 (splash, self)",
         "rate_of_fire": "11 shots/s",
         "headshot": false,
         "ammo": 18,

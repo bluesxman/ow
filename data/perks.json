@@ -882,7 +882,7 @@
           {
             "slug": "concussive-force",
             "name": "Concussive Force",
-            "description": "Concussive Blast deals up to 50 explosion damage."
+            "description": "Concussive Blast deals up to 30 explosion damage."
           },
           {
             "slug": "helix-shields",
@@ -899,7 +899,7 @@
           {
             "slug": "rocket-salvo",
             "name": "Rocket Salvo",
-            "description": "After using a movement ability, the next primary fire shoots two spiraling mini-rockets, each dealing 40 damage."
+            "description": "After using a movement ability, the next primary fire shoots two spiraling mini-rockets, each dealing 30 damage."
           }
         ]
       }

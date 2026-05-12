@@ -2493,7 +2493,7 @@
           "name": "Crossfade",
           "description": "Switches between two songs: Healing Boost heals nearby allies, and Speed Boost makes nearby allies move faster.",
           "ability_type": "Ability",
-          "healing": "20 per second (allies) / 14.4 per second (self)",
+          "healing": "20 per second (allies) / 8 per second (self)",
           "radius": "12 meters",
           "duration": "0.4 seconds (swap delay)"
         },
@@ -3227,7 +3227,7 @@
           {
             "slug": "concussive-force",
             "name": "Concussive Force",
-            "description": "Concussive Blast deals up to 50 explosion damage."
+            "description": "Concussive Blast deals up to 30 explosion damage."
           },
           {
             "slug": "helix-shields",
@@ -3244,7 +3244,7 @@
           {
             "slug": "rocket-salvo",
             "name": "Rocket Salvo",
-            "description": "After using a movement ability, the next primary fire shoots two spiraling mini-rockets, each dealing 40 damage."
+            "description": "After using a movement ability, the next primary fire shoots two spiraling mini-rockets, each dealing 30 damage."
           }
         ]
       },

@@ -368,3 +368,104 @@ describe('normalizeFandomHero on Emre fixture (same-name dual-mode rifle)', () =
     expect(frag!.modes).toBeUndefined();
   });
 });
+
+describe('normalizeFandomHero — perks lift structured stat fields', () => {
+  it('emits damage on a perk that declares it in the template', () => {
+    const wt = `
+== Perks ==
+=== Major Perks ===
+{{Ability details
+| ability_name = Rocket Salvo
+| ability_type = Major Perk
+| official_description = Each rocket deals damage.
+| damage = 30 (per rocket)
+}}
+{{Ability details
+| ability_name = Other Major
+| ability_type = Major Perk
+| official_description = Two.
+}}
+=== Minor Perks ===
+{{Ability details
+| ability_name = One Minor
+| ability_type = Minor Perk
+| official_description = a.
+}}
+{{Ability details
+| ability_name = Two Minor
+| ability_type = Minor Perk
+| official_description = b.
+}}
+`;
+    const hero = normalizeFandomHero(wt);
+    const salvo = hero.perks.major.find((p) => p.name === 'Rocket Salvo');
+    expect(salvo).toBeDefined();
+    expect(salvo!.damage).toBe('30 (per rocket)');
+  });
+
+  it('omits stat fields when the template has none beyond description', () => {
+    const wt = `
+== Perks ==
+=== Minor Perks ===
+{{Ability details
+| ability_name = Plain Minor
+| ability_type = Minor Perk
+| official_description = Just a description.
+}}
+{{Ability details
+| ability_name = Other Minor
+| ability_type = Minor Perk
+| official_description = Other.
+}}
+=== Major Perks ===
+{{Ability details
+| ability_name = Plain Major
+| ability_type = Major Perk
+| official_description = Just a description.
+}}
+{{Ability details
+| ability_name = Other Major
+| ability_type = Major Perk
+| official_description = Other.
+}}
+`;
+    const hero = normalizeFandomHero(wt);
+    const plain = hero.perks.minor.find((p) => p.name === 'Plain Minor')!;
+    // Only the documented Perk fields should appear.
+    expect(Object.keys(plain).sort()).toEqual(['description', 'name', 'slug']);
+  });
+
+  it('lifts multiple stat fields onto a single perk', () => {
+    const wt = `
+== Perks ==
+=== Minor Perks ===
+{{Ability details
+| ability_name = Angelic Resurrection
+| ability_type = Minor Perk
+| official_description = Resurrect grants overhealth.
+| duration = 2 seconds
+| heal = 100
+}}
+{{Ability details
+| ability_name = Other Minor
+| ability_type = Minor Perk
+| official_description = b.
+}}
+=== Major Perks ===
+{{Ability details
+| ability_name = One Major
+| ability_type = Major Perk
+| official_description = a.
+}}
+{{Ability details
+| ability_name = Two Major
+| ability_type = Major Perk
+| official_description = b.
+}}
+`;
+    const hero = normalizeFandomHero(wt);
+    const ar = hero.perks.minor.find((p) => p.name === 'Angelic Resurrection')!;
+    expect(ar.duration).toBe('2 seconds');
+    expect(ar.healing).toBe(100);
+  });
+});

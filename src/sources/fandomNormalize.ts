@@ -283,21 +283,30 @@ export function normalizeFandomHero(wikitext: string): FandomHeroFields {
   const abilities = buildAbilities(sections.abilityBlocks);
 
   const perks = {
-    minor: sections.minorPerks.map((p) => ({
-      slug: toSlug(p.name),
-      name: p.name,
-      description: p.description || '(no description on Fandom)',
-    })),
-    major: sections.majorPerks.map((p) => ({
-      slug: toSlug(p.name),
-      name: p.name,
-      description: p.description || '(no description on Fandom)',
-    })),
+    minor: sections.minorPerks.map(buildPerk),
+    major: sections.majorPerks.map(buildPerk),
   };
 
   const result: FandomHeroFields = { abilities, perks, stats: { ...hp } };
   if (subRole) result.sub_role = subRole;
   return result;
+}
+
+// Build a Perk from a parsed Ability_details block. The block carries the same
+// kind of stat fields abilities do; we lift the ones the field map recognised
+// onto the perk so consumers can read structured numerics without re-parsing
+// the description string. Empty/missing stat fields are simply absent.
+// `ability_type` is dropped — for perks it's always "Minor Perk" / "Major Perk",
+// already implicit from the perks.minor vs perks.major slot.
+function buildPerk(block: ParsedAbilityBlock): Perk {
+  const { ability_type: _ignored, ...stats } = block.stats;
+  void _ignored;
+  return {
+    slug: toSlug(block.name),
+    name: block.name,
+    description: block.description || '(no description on Fandom)',
+    ...stats,
+  };
 }
 
 function pickBaseIndex(group: Array<{ stats: Record<string, number | string | boolean> }>): number {

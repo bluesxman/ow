@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "6.0.3"
+    "schema_version": "6.0.4"
   },
   "heroes": {
     "ana": {
@@ -287,7 +287,7 @@
           "slug": "regenerative-burst",
           "name": "Regenerative Burst",
           "ability_type": "Ability",
-          "cooldown": "14 seconds",
+          "cooldown": "12 seconds",
           "healing": "40 (instant, >50% max HP) / 80 (instant, <50% max HP) / 40 over 4 seconds (HoT)",
           "radius": "12 meters",
           "duration": "4 seconds"
@@ -929,7 +929,7 @@
           "slug": "updraft",
           "name": "Updraft",
           "ability_type": "Ability",
-          "cooldown": "12 seconds"
+          "cooldown": "10 seconds"
         },
         {
           "slug": "bola-shot",
@@ -1679,7 +1679,7 @@
           "name": "Sound Barrier",
           "ability_type": "Ultimate Ability",
           "radius": "30 meters",
-          "duration": "6 seconds"
+          "duration": "5 seconds"
         }
       ]
     },

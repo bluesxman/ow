@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-26T18:30:00.000Z",
-    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
+    "last_updated": "2026-05-12T20:30:00.000Z",
+    "patch_version": "Overwatch Retail Patch Notes - May 12, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -30,6 +30,2289 @@
     "schema_version": "5.1.0"
   },
   "patches": [
+    {
+      "date": "2026-05-12",
+      "title": "Overwatch Retail Patch Notes - May 12, 2026",
+      "url": null,
+      "sections": [
+        {
+          "title": "General Updates",
+          "mode": "retail",
+          "group_label": "Progression / Options",
+          "changes": [
+            {
+              "raw": {
+                "text": "All heroes now level up faster."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Progression XP",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "hero leveling speed",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "General progression speed-up; no numeric details provided."
+              }
+            },
+            {
+              "raw": {
+                "text": "Changed the default setting for \"Play Sound When Teammate Eliminated\" and \"Play Sound When Enemy Eliminated\" to \"On\"."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Audio default settings",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "elimination-sound default",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": {
+                "text": "Added new keyword \"Swap Reloads\" to the Advanced Info Panel."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Advanced Info Panel",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "ability keyword glossary",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "UI/glossary addition; the inline definition is preserved as raw context, not split out."
+              }
+            },
+            {
+              "raw": {
+                "text": "Adjusted Post Match Accolades cards to show underrepresented statistics more often and lessen the frequency of overrepresented statistics."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Post Match Accolades",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "accolade-card distribution",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            }
+          ]
+        },
+        {
+          "title": "Competitive Play Updates",
+          "mode": "retail",
+          "group_label": null,
+          "changes": [
+            {
+              "raw": {
+                "text": "Increased requirement to unlock Competitive Play from 20 wins to 50 wins."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Competitive Play unlock",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "unlock-wins requirement",
+                "from": "20 wins",
+                "to": "50 wins",
+                "delta": "+30 wins",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            }
+          ]
+        },
+        {
+          "title": "UI Updates",
+          "mode": "retail",
+          "group_label": null,
+          "changes": [
+            {
+              "raw": {
+                "text": "Cooldown is now visible while Nemesis Form is active."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Void Barrier",
+                "subject_slug": "void-barrier",
+                "metric": "other",
+                "metric_phrase": "cooldown UI visibility during Nemesis Form",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": {
+                "text": "Added a custom UI element showing how many allies are currently being healed by Inspire."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "brigitte",
+                "subject_name": "Inspire",
+                "subject_slug": "inspire",
+                "metric": "other",
+                "metric_phrase": "active-heal-targets UI element",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": {
+                "text": "This UI element can be toggled on/off in Brigitte's Hero Options."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "brigitte",
+                "subject_name": "Inspire",
+                "subject_slug": "inspire",
+                "metric": "other",
+                "metric_phrase": "UI toggle in Hero Options",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Continuation of the Inspire UI element bullet above."
+              }
+            }
+          ]
+        },
+        {
+          "title": "Tank",
+          "mode": "retail",
+          "group_label": "Initiator Subrole",
+          "changes": [
+            {
+              "raw": {
+                "text": "No longer triggers while airborne."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "role",
+                "hero_slug": null,
+                "subject_name": "Initiator Subrole (Tank)",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "trigger condition",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Tank Initiator subrole passive; subject_kind=role per spec."
+              }
+            },
+            {
+              "raw": {
+                "text": "Now triggers when using a specified movement ability: Winston – Jump Pack, D.Va – Boosters, Hazard – Violent Lunge, Wrecking Ball – Grappling Claw, Doomfist – Rocket Punch."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "role",
+                "hero_slug": null,
+                "subject_name": "Initiator Subrole (Tank)",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "trigger ability list",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Subrole-wide; the per-hero ability list is preserved in raw.text."
+              }
+            },
+            {
+              "raw": {
+                "text": "Heal amount reduced from 60 to 50."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "role",
+                "hero_slug": null,
+                "subject_name": "Initiator Subrole (Tank)",
+                "subject_slug": null,
+                "metric": "healing",
+                "metric_phrase": "subrole heal amount",
+                "from": 60,
+                "to": 50,
+                "delta": -10,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            }
+          ]
+        },
+        {
+          "title": "D.Va",
+          "mode": "retail",
+          "group_label": "D.Va",
+          "changes": [
+            {
+              "raw": {
+                "text": "Impact damage reduced from 3 to 2."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "dva",
+                "subject_name": "Micro Missiles",
+                "subject_slug": "micro-missiles",
+                "metric": "damage",
+                "metric_phrase": "impact damage per missile",
+                "from": 3,
+                "to": 2,
+                "delta": -1,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            }
+          ]
+        },
+        {
+          "title": "Doomfist",
+          "mode": "retail",
+          "group_label": "Doomfist",
+          "changes": [
+            {
+              "raw": {
+                "text": "Camera lock and shockwave effects now trigger later to better align with the animation."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "doomfist",
+                "subject_name": "Seismic Slam",
+                "subject_slug": "seismic-slam",
+                "metric": "other",
+                "metric_phrase": "camera-lock + shockwave timing",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": {
+                "text": "Added new visual and sound effects that play when Empowered Punch is about to time out."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "doomfist",
+                "subject_name": "Empowered Punch",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "empowered-state expiration FX",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Empowered Punch is the windup/state name for charged Rocket Punch and isn't present as a standalone ability in data/heroes/doomfist.json; subject_slug left null."
+              }
+            }
+          ]
+        },
+        {
+          "title": "Junker Queen",
+          "mode": "retail",
+          "group_label": "Junker Queen",
+          "changes": [
+            {
+              "raw": {
+                "text": "(5v5 only) Wound damage self-healing multiplier increased from 2.25x to 2.5x."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "junker-queen",
+                "subject_name": "Adrenaline Rush",
+                "subject_slug": "adrenaline-rush",
+                "metric": "other",
+                "metric_phrase": "wound-damage self-healing multiplier",
+                "from": "2.25x",
+                "to": "2.5x",
+                "delta": "+0.25x",
+                "blizzard_commentary": [
+                  "(5v5 only)"
+                ],
+                "notes": "5v5/role-queue-only buff; 6v6 unchanged."
+              }
+            }
+          ]
+        },
+        {
+          "title": "Emre",
+          "mode": "retail",
+          "group_label": "Emre",
+          "changes": [
+            {
+              "raw": {
+                "text": "Healing conversion reduced from 80% to 60%."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "emre",
+                "subject_name": "Siphon Blaster",
+                "subject_slug": "siphon-blaster",
+                "metric": "healing",
+                "metric_phrase": "healing conversion %",
+                "from": "80%",
+                "to": "60%",
+                "delta": "-20%",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": {
+                "text": "Radius of maximum explosion damage reduced from 2 to 1.5 meters."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "emre",
+                "subject_name": "Cyber Frag",
+                "subject_slug": "cyber-frag",
+                "metric": "radius",
+                "metric_phrase": "max-damage explosion radius",
+                "from": "2 meters",
+                "to": "1.5 meters",
+                "delta": "-0.5 meters",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            }
+          ]
+        },
+        {
+          "title": "Freja",
+          "mode": "retail",
+          "group_label": "Freja",
+          "changes": [
+            {
+              "raw": {
+                "text": "No longer reduces the height gained from Updraft."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "freja",
+                "subject_name": "Rising Winds",
+                "subject_slug": "rising-winds",
+                "metric": "other",
+                "metric_phrase": "Updraft height penalty removal",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": {
+                "text": "Cooldown reduced from 12 to 10 seconds."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "freja",
+                "subject_name": "Updraft",
+                "subject_slug": "updraft",
+                "metric": "cooldown",
+                "metric_phrase": "cooldown",
+                "from": "12 seconds",
+                "to": "10 seconds",
+                "delta": "-2 seconds",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": {
+                "text": "Bonus Ultimate charge increased from 25% to 33%."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "freja",
+                "subject_name": "Bounty Hunting",
+                "subject_slug": "bounty-hunting",
+                "metric": "ultimate_cost",
+                "metric_phrase": "bonus ultimate charge on final blow",
+                "from": "25%",
+                "to": "33%",
+                "delta": "+8%",
+                "blizzard_commentary": [],
+                "notes": "Metric framed as ultimate-charge gain on final blows."
+              }
+            }
+          ]
+        },
+        {
+          "title": "Sierra",
+          "mode": "retail",
+          "group_label": "Sierra",
+          "changes": [
+            {
+              "raw": {
+                "text": "Weapon fire volume reduced."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "sierra",
+                "subject_name": "Helix Rifle",
+                "subject_slug": "helix-rifle",
+                "metric": "other",
+                "metric_phrase": "weapon-fire audio volume",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            }
+          ]
+        },
+        {
+          "title": "Pharah",
+          "mode": "retail",
+          "group_label": "Pharah",
+          "changes": [
+            {
+              "raw": {
+                "text": "Damage reduced from 50 to 30."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "pharah",
+                "subject_name": "Concussive Force",
+                "subject_slug": "concussive-force",
+                "metric": "damage",
+                "metric_phrase": "perk damage",
+                "from": 50,
+                "to": 30,
+                "delta": -20,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": {
+                "text": "Damage reduced per rocket from 40 to 30."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "pharah",
+                "subject_name": "Rocket Salvo",
+                "subject_slug": "rocket-salvo",
+                "metric": "damage",
+                "metric_phrase": "damage per rocket",
+                "from": 40,
+                "to": 30,
+                "delta": -10,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            }
+          ]
+        },
+        {
+          "title": "Baptiste",
+          "mode": "retail",
+          "group_label": "Baptiste",
+          "changes": [
+            {
+              "raw": {
+                "text": "Instant healing increased from 40 to 50."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "baptiste",
+                "subject_name": "Regenerative Burst",
+                "subject_slug": "regenerative-burst",
+                "metric": "healing",
+                "metric_phrase": "instant healing",
+                "from": 40,
+                "to": 50,
+                "delta": 10,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": {
+                "text": "Healing over time increased from 40 to 50."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "baptiste",
+                "subject_name": "Regenerative Burst",
+                "subject_slug": "regenerative-burst",
+                "metric": "healing",
+                "metric_phrase": "healing over time",
+                "from": 40,
+                "to": 50,
+                "delta": 10,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": {
+                "text": "Cooldown reduced from 14 to 12 seconds."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "baptiste",
+                "subject_name": "Regenerative Burst",
+                "subject_slug": "regenerative-burst",
+                "metric": "cooldown",
+                "metric_phrase": "cooldown",
+                "from": "14 seconds",
+                "to": "12 seconds",
+                "delta": "-2 seconds",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            }
+          ]
+        },
+        {
+          "title": "Illari",
+          "mode": "retail",
+          "group_label": "Illari",
+          "changes": [
+            {
+              "raw": {
+                "text": "Base projectile size reduced from 0.05 to 0."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "illari",
+                "subject_name": "Solar Rifle",
+                "subject_slug": "solar-rifle",
+                "metric": "radius",
+                "metric_phrase": "base projectile size",
+                "from": 0.05,
+                "to": 0,
+                "delta": -0.05,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": {
+                "text": "Hitscan Global Projectile Size Bonus still applies (0.07)."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "illari",
+                "subject_name": "Solar Rifle",
+                "subject_slug": "solar-rifle",
+                "metric": "other",
+                "metric_phrase": "global hitscan projectile-size bonus",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [
+                  "(0.07)"
+                ],
+                "notes": "Clarification, not a numerical change: effective hitscan size is 0 base + 0.07 bonus = 0.07m."
+              }
+            }
+          ]
+        },
+        {
+          "title": "Kiriko",
+          "mode": "retail",
+          "group_label": "Kiriko",
+          "changes": [
+            {
+              "raw": {
+                "text": "Additional healing after negative status cleanse removed (was 30)."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "kiriko",
+                "subject_name": "Protection Suzu",
+                "subject_slug": "protection-suzu",
+                "metric": "healing",
+                "metric_phrase": "post-cleanse additional healing",
+                "from": 30,
+                "to": 0,
+                "delta": -30,
+                "blizzard_commentary": [
+                  "(was 30)"
+                ],
+                "notes": ""
+              }
+            }
+          ]
+        },
+        {
+          "title": "Lúcio",
+          "mode": "retail",
+          "group_label": "Lúcio",
+          "changes": [
+            {
+              "raw": {
+                "text": "Overhealth granted reduced from 750 to 625."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "lucio",
+                "subject_name": "Sound Barrier",
+                "subject_slug": "sound-barrier",
+                "metric": "health",
+                "metric_phrase": "overhealth granted",
+                "from": 750,
+                "to": 625,
+                "delta": -125,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": {
+                "text": "Duration reduced from 6 to 5 seconds."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "lucio",
+                "subject_name": "Sound Barrier",
+                "subject_slug": "sound-barrier",
+                "metric": "duration",
+                "metric_phrase": "duration",
+                "from": "6 seconds",
+                "to": "5 seconds",
+                "delta": "-1 second",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            }
+          ]
+        },
+        {
+          "title": "Mercy",
+          "mode": "retail",
+          "group_label": "Mercy",
+          "changes": [
+            {
+              "raw": {
+                "text": "Removed."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "mercy",
+                "subject_name": "Divine Momentum",
+                "subject_slug": "divine-momentum",
+                "metric": "other",
+                "metric_phrase": "perk removal",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Divine Momentum minor perk removed entirely; replaced by Winged Reach below."
+              }
+            },
+            {
+              "raw": {
+                "text": "New."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "mercy",
+                "subject_name": "Winged Reach",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "new perk introduced",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Winged Reach is a brand-new minor perk added in this patch; not yet in data/heroes/mercy.json (will appear after next scrape). subject_slug null."
+              }
+            },
+            {
+              "raw": {
+                "text": "Guardian Angel's range is increased by 30%."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "perk",
+                "hero_slug": "mercy",
+                "subject_name": "Winged Reach",
+                "subject_slug": null,
+                "metric": "range",
+                "metric_phrase": "Guardian Angel range",
+                "from": null,
+                "to": null,
+                "delta": "+30%",
+                "blizzard_commentary": [],
+                "notes": "Effect description of the new Winged Reach perk."
+              }
+            },
+            {
+              "raw": {
+                "text": "Launch speed increased by 10%. (Reverted to previous value)"
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "mercy",
+                "subject_name": "Guardian Angel",
+                "subject_slug": "guardian-angel",
+                "metric": "movement_speed",
+                "metric_phrase": "launch speed",
+                "from": null,
+                "to": null,
+                "delta": "+10%",
+                "blizzard_commentary": [
+                  "(Reverted to previous value)"
+                ],
+                "notes": "Restores Guardian Angel's pre-Season-2 launch speed."
+              }
+            }
+          ]
+        },
+        {
+          "title": "Mizuki",
+          "mode": "retail",
+          "group_label": "Mizuki",
+          "changes": [
+            {
+              "raw": {
+                "text": "Now absorbs enemy projectiles exiting the Sanctuary in addition to enemy projectiles entering the Sanctuary."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "mizuki",
+                "subject_name": "Kekkai Sanctuary",
+                "subject_slug": "kekkai-sanctuary",
+                "metric": "other",
+                "metric_phrase": "bidirectional projectile absorption",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": {
+                "text": "Healing over time reduced from 50/s to 40/s."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "mizuki",
+                "subject_name": "Kekkai Sanctuary",
+                "subject_slug": "kekkai-sanctuary",
+                "metric": "healing",
+                "metric_phrase": "healing per second",
+                "from": "50/s",
+                "to": "40/s",
+                "delta": "-10/s",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": {
+                "text": "Duration reduced from 7 to 6 seconds."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "mizuki",
+                "subject_name": "Kekkai Sanctuary",
+                "subject_slug": "kekkai-sanctuary",
+                "metric": "duration",
+                "metric_phrase": "duration",
+                "from": "7 seconds",
+                "to": "6 seconds",
+                "delta": "-1 second",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            }
+          ]
+        },
+        {
+          "title": "Major Hero Bug Fixes",
+          "mode": "retail",
+          "group_label": null,
+          "changes": [
+            {
+              "raw": {
+                "text": "Passive self-healing penalty is now correctly at 60% (was 70%)."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "lucio",
+                "subject_name": "Crossfade",
+                "subject_slug": "crossfade",
+                "metric": "other",
+                "metric_phrase": "passive self-healing penalty",
+                "from": "70%",
+                "to": "60%",
+                "delta": "-10%",
+                "blizzard_commentary": [
+                  "(was 70%)"
+                ],
+                "notes": "Bug fix correcting a value that was higher than intended."
+              }
+            },
+            {
+              "raw": {
+                "text": "Fixed an issue where armor's damage reduction was being applied twice to Xuanwu Staff orbs."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "wuyang",
+                "subject_name": "Xuanwu Staff",
+                "subject_slug": "xuanwu-staff",
+                "metric": "other",
+                "metric_phrase": "armor double-reduction bug",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            }
+          ]
+        },
+        {
+          "title": "Core Game Updates",
+          "mode": "retail",
+          "group_label": "Mystery Heroes",
+          "changes": [
+            {
+              "raw": {
+                "text": "Re-enabled Perks."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Mystery Heroes — Perks",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "mode-level perk toggle",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            }
+          ]
+        },
+        {
+          "title": "Stadium Updates",
+          "mode": "stadium",
+          "group_label": "General Changes",
+          "changes": [
+            {
+              "raw": {
+                "text": "Increased the timer for a match to end automatically due to a player leaving the match to 3 minutes to cover the Armory timer."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Stadium leaver-timeout",
+                "subject_slug": null,
+                "metric": "duration",
+                "metric_phrase": "auto-end timeout",
+                "from": null,
+                "to": "3 minutes",
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            }
+          ]
+        },
+        {
+          "title": "Tank",
+          "mode": "stadium",
+          "group_label": "Doomfist",
+          "changes": [
+            {
+              "raw": {
+                "text": "[The Best Defense] now scales proportionally with the Passive Health Gain from Currency."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "doomfist",
+                "subject_name": "The Best Defense...",
+                "subject_slug": "the-best-defense",
+                "metric": "other",
+                "metric_phrase": "passive HP scaling with currency",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Bracketed prefix names the passive; the hero's existing ability is 'The Best Defense...' (slug the-best-defense)."
+              }
+            },
+            {
+              "raw": {
+                "text": "Cooldown reduced to 8s (Down from 10s)."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "doomfist",
+                "subject_name": "Asteroid Smash",
+                "subject_slug": null,
+                "metric": "cooldown",
+                "metric_phrase": "cooldown",
+                "from": "10s",
+                "to": "8s",
+                "delta": "-2s",
+                "blizzard_commentary": [
+                  "(Down from 10s)"
+                ],
+                "notes": "Stadium Power, not a retail ability; subject_slug null."
+              }
+            },
+            {
+              "raw": {
+                "text": "Ally Healing increased to 20% (Up from 15%)."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "doomfist",
+                "subject_name": "Block Party",
+                "subject_slug": null,
+                "metric": "healing",
+                "metric_phrase": "ally healing %",
+                "from": "15%",
+                "to": "20%",
+                "delta": "+5%",
+                "blizzard_commentary": [
+                  "(Up from 15%)"
+                ],
+                "notes": "Stadium Power; subject_slug null."
+              }
+            },
+            {
+              "raw": {
+                "text": "Overhealth Max Life Scaling increased to 10% (Up from 8%)."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "doomfist",
+                "subject_name": "Helping Hand",
+                "subject_slug": null,
+                "metric": "health",
+                "metric_phrase": "overhealth max-life scaling",
+                "from": "8%",
+                "to": "10%",
+                "delta": "+2%",
+                "blizzard_commentary": [
+                  "(Up from 8%)"
+                ],
+                "notes": "Stadium Power; subject_slug null."
+              }
+            },
+            {
+              "raw": {
+                "text": "Level 3 Punch Bonus Damage increased to 50% (Up from 25%)."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "doomfist",
+                "subject_name": "Overpowered",
+                "subject_slug": null,
+                "metric": "damage",
+                "metric_phrase": "level-3 punch bonus damage %",
+                "from": "25%",
+                "to": "50%",
+                "delta": "+25%",
+                "blizzard_commentary": [
+                  "(Up from 25%)"
+                ],
+                "notes": "Stadium Power; subject_slug null."
+              }
+            },
+            {
+              "raw": {
+                "text": "Bonus damage increased to 20 (Up from 10)."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "doomfist",
+                "subject_name": "Rising Uppercut",
+                "subject_slug": null,
+                "metric": "damage",
+                "metric_phrase": "bonus damage",
+                "from": 10,
+                "to": 20,
+                "delta": 10,
+                "blizzard_commentary": [
+                  "(Up from 10)"
+                ],
+                "notes": "Stadium Power; subject_slug null."
+              }
+            }
+          ]
+        },
+        {
+          "title": "Tank",
+          "mode": "stadium",
+          "group_label": "Reinhardt",
+          "changes": [
+            {
+              "raw": {
+                "text": "Barrier Healing per 1s decreased to 3% of Max Life (Down from 5%)."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "reinhardt",
+                "subject_name": "To Me, My Friends",
+                "subject_slug": null,
+                "metric": "healing",
+                "metric_phrase": "barrier healing per second (% Max Life)",
+                "from": "5%",
+                "to": "3%",
+                "delta": "-2%",
+                "blizzard_commentary": [
+                  "(Down from 5%)"
+                ],
+                "notes": "Stadium Power; subject_slug null."
+              }
+            }
+          ]
+        },
+        {
+          "title": "Damage",
+          "mode": "stadium",
+          "group_label": "Freja",
+          "changes": [
+            {
+              "raw": {
+                "text": "Decreased Currency from Healing and Damage by 5%."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "freja",
+                "subject_name": "Freja",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "currency gain from healing/damage",
+                "from": null,
+                "to": null,
+                "delta": "-5%",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": {
+                "text": "Spread of extra bolts increased by 66%."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "freja",
+                "subject_name": "Volley à Deux",
+                "subject_slug": null,
+                "metric": "spread",
+                "metric_phrase": "extra-bolt spread",
+                "from": null,
+                "to": null,
+                "delta": "+66%",
+                "blizzard_commentary": [],
+                "notes": "Stadium Power; subject_slug null."
+              }
+            },
+            {
+              "raw": {
+                "text": "Max Life Healing reduced to 4% (Down from 6%)."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "freja",
+                "subject_name": "Forager",
+                "subject_slug": null,
+                "metric": "healing",
+                "metric_phrase": "max-life healing %",
+                "from": "6%",
+                "to": "4%",
+                "delta": "-2%",
+                "blizzard_commentary": [
+                  "(Down from 6%)"
+                ],
+                "notes": "Stadium Power; subject_slug null."
+              }
+            }
+          ]
+        },
+        {
+          "title": "Damage",
+          "mode": "stadium",
+          "group_label": "Reaper",
+          "changes": [
+            {
+              "raw": {
+                "text": "Reworked to \"[Dire Triggers] deals 30(AP) additional damage over 3s to Airborne enemies and to enemies beyond 8m.\""
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "reaper",
+                "subject_name": "Backstabber",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "power rework",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Stadium Power; full rework. subject_slug null."
+              }
+            },
+            {
+              "raw": {
+                "text": "After use an ability or reloading, refresh cooldown of [Dire Triggers]."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "reaper",
+                "subject_name": "Trigger Finger",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "new power effect",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Stadium Power; new this patch. subject_slug null."
+              }
+            },
+            {
+              "raw": {
+                "text": "Removed."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "reaper",
+                "subject_name": "Vampiric Touch",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "power removal",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Stadium Power removed."
+              }
+            }
+          ]
+        },
+        {
+          "title": "Damage",
+          "mode": "stadium",
+          "group_label": "Soldier: 76",
+          "changes": [
+            {
+              "raw": {
+                "text": "Applied reduced effectiveness of Biotic Fields spawned via Hunker Down (50%) to Overhealth."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "soldier-76",
+                "subject_name": "Frontliners",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "overhealth scaling from Hunker-Down Biotic Fields",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [
+                  "(50%)"
+                ],
+                "notes": "Stadium Power; reduces overhealth from Hunker-Down-spawned Biotic Fields to 50%."
+              }
+            }
+          ]
+        },
+        {
+          "title": "Damage",
+          "mode": "stadium",
+          "group_label": "Vendetta",
+          "changes": [
+            {
+              "raw": {
+                "text": "Increased Currency gain from Healing and Damage by 5%."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "hero_general",
+                "hero_slug": "vendetta",
+                "subject_name": "Vendetta",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "currency gain from healing/damage",
+                "from": null,
+                "to": null,
+                "delta": "+5%",
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            }
+          ]
+        },
+        {
+          "title": "Support",
+          "mode": "stadium",
+          "group_label": "Jetpack Cat",
+          "changes": [
+            {
+              "raw": {
+                "text": "When [Purr] ends, all other allies within [Purr]'s radius gain Overhealth equal to 40% of damage dealt during [Purr] and 10% to yourself for 3s."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "jetpack-cat",
+                "subject_name": "Lindholm Inspiration",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "power effect text",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Stadium Power text; treat as descriptive."
+              }
+            },
+            {
+              "raw": {
+                "text": "[Purr] persists 15% longer for each ally or enemy currently affected by [Purr], up to 75%. Amount of healing pulses resets every 4 pulses."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "jetpack-cat",
+                "subject_name": "Purr-sistence",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "power effect text",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": {
+                "text": "Enemies within your [Purr] take damage equal to 30% of its healing."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "jetpack-cat",
+                "subject_name": "Territorial",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "power effect text",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": {
+                "text": "[Lifeline] can tether to 1 additional ally."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "jetpack-cat",
+                "subject_name": "Battle Fur-mation",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "extra tether target",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": {
+                "text": "Ability: [Lifeline] tethers an explosive Toy Ball, that explodes for up to 100 (AP) damage on impact. (6s Cooldown)."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "jetpack-cat",
+                "subject_name": "Bell Bomb",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "new power effect",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [
+                  "(6s Cooldown)"
+                ],
+                "notes": ""
+              }
+            },
+            {
+              "raw": {
+                "text": "When you release a target from [Lifeline] or [Catnapper], restore 20% Fuel. Restore 1% Fuel for every 10 Ability Damage dealt."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "jetpack-cat",
+                "subject_name": "Tow Beans",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "power effect text",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": {
+                "text": "Ability: Your next [Quick Melee] deals 40 damage over 3s and increases [Quick Melee] Attack Speed by 100% for 1s (12s Cooldown)."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "jetpack-cat",
+                "subject_name": "Frenzy",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "power effect text",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [
+                  "(12s Cooldown)"
+                ],
+                "notes": ""
+              }
+            },
+            {
+              "raw": {
+                "text": "While [Frenetic Flight] is active, [Purr]'s cooldown refreshes 40% faster and all other ability cooldowns refresh 80% faster."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "jetpack-cat",
+                "subject_name": "Tomcat Reserves",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "power effect text",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": {
+                "text": "After activating [Frenetic Flight] for 0.5s, next time you collide with an enemy, explode for up 120 damage and restore up to 40% fuel based on distance travelled."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "jetpack-cat",
+                "subject_name": "Zoomies",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "power effect text",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": {
+                "text": "While [Purr] is active, shoot both guns. The bonus shot deals 25% damage."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "jetpack-cat",
+                "subject_name": "Ambidex-fur-ous",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "power effect text",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": {
+                "text": "When hitting an ally with [Biotic Pawjectiles], it bounces to 1 nearby ally within 5m at 25% effectiveness."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "jetpack-cat",
+                "subject_name": "Bouncing Biscuits",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "power effect text",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": {
+                "text": "+25% Starting Ultimate Charge. [Catnapper] scratches enemies on impact, slowing them and dealing 150 damage over 3s."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "jetpack-cat",
+                "subject_name": "Scratch-ageddon",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "power effect text",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": {
+                "text": "Toxmoplasmosis - Rare Weapon Hero Item: 5% Ability Power; 10% Melee Damage; [Quick Melee] damage Slows enemies by 10% and Reveals them for 3s; 4000 Cost."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "jetpack-cat",
+                "subject_name": "Toxmoplasmosis",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "new Stadium Hero Item",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Bullets for this item were flattened into a single change for legibility."
+              }
+            },
+            {
+              "raw": {
+                "text": "Recycling Rounds - Epic Weapon Hero Item: 15% Attack Speed; While [Purr] is active, restore 20% Max Ammo every 1s; 11000 Cost."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "jetpack-cat",
+                "subject_name": "Recycling Rounds",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "new Stadium Hero Item",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Bullets flattened for legibility."
+              }
+            },
+            {
+              "raw": {
+                "text": "Tether Speed - Rare Ability Hero Item: 25 Shields; 5% Ability Power; When an ally is released from [Lifeline], they gain 30% Move Speed for 3s; 4000 Cost."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "jetpack-cat",
+                "subject_name": "Tether Speed",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "new Stadium Hero Item",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Bullets flattened for legibility."
+              }
+            },
+            {
+              "raw": {
+                "text": "Purr-imeter Expander - Epic Ability Hero Item: 10% Ability Power; 40% [Purr] Radius; 10000 Cost."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "jetpack-cat",
+                "subject_name": "Purr-imeter Expander",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "new Stadium Hero Item",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Bullets flattened for legibility."
+              }
+            },
+            {
+              "raw": {
+                "text": "Big Boop - Rare Survival Hero Item: +25 Armor; +50% [Purr] Knockback Power; [Purr] Knockback Damage slows enemies by 30% for 3s; 3750 Cost."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "jetpack-cat",
+                "subject_name": "Big Boop",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "new Stadium Hero Item",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Bullets flattened for legibility."
+              }
+            },
+            {
+              "raw": {
+                "text": "Tether Toughness - Epic Survival Hero Item: 50 Health; While [Lifeline] is active, gain 1% Ultimate Charge for every ally tethered and grant 20 Overhealth to them, up to 100, every 1s; 9000 Cost."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "jetpack-cat",
+                "subject_name": "Tether Toughness",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "new Stadium Hero Item",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Bullets flattened for legibility."
+              }
+            },
+            {
+              "raw": {
+                "text": "Fuel Pod - Epic Survival Hero Item: 25 Shields; 25% [Frenetic Flight] Fuel; 10000 Cost."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "jetpack-cat",
+                "subject_name": "Fuel Pod",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "new Stadium Hero Item",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Bullets flattened for legibility."
+              }
+            }
+          ]
+        },
+        {
+          "title": "Support",
+          "mode": "stadium",
+          "group_label": "Wuyang",
+          "changes": [
+            {
+              "raw": {
+                "text": "Bonus Orb Damage decreased to 30% (Down from 40%)."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "wuyang",
+                "subject_name": "Paindrops",
+                "subject_slug": null,
+                "metric": "damage",
+                "metric_phrase": "bonus orb damage %",
+                "from": "40%",
+                "to": "30%",
+                "delta": "-10%",
+                "blizzard_commentary": [
+                  "(Down from 40%)"
+                ],
+                "notes": "Stadium Power; subject_slug null."
+              }
+            },
+            {
+              "raw": {
+                "text": "Cooldown reduced to 10s (Down from 15s)."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "wuyang",
+                "subject_name": "Splish Splash",
+                "subject_slug": null,
+                "metric": "cooldown",
+                "metric_phrase": "cooldown",
+                "from": "15s",
+                "to": "10s",
+                "delta": "-5s",
+                "blizzard_commentary": [
+                  "(Down from 15s)"
+                ],
+                "notes": "Stadium Power; subject_slug null."
+              }
+            }
+          ]
+        },
+        {
+          "title": "Support",
+          "mode": "stadium",
+          "group_label": "Zenyatta",
+          "changes": [
+            {
+              "raw": {
+                "text": "Healing from damage dealt decreased to 20% (Down from 30%)."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "zenyatta",
+                "subject_name": "Enlightenment",
+                "subject_slug": null,
+                "metric": "healing",
+                "metric_phrase": "healing from damage %",
+                "from": "30%",
+                "to": "20%",
+                "delta": "-10%",
+                "blizzard_commentary": [
+                  "(Down from 30%)"
+                ],
+                "notes": "Stadium Power; subject_slug null."
+              }
+            }
+          ]
+        },
+        {
+          "title": "General Item Changes",
+          "mode": "stadium",
+          "group_label": null,
+          "changes": [
+            {
+              "raw": {
+                "text": "Bonus Damage to Airborne targets increased from 20% to 25%."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Skyline Nanites",
+                "subject_slug": null,
+                "metric": "damage",
+                "metric_phrase": "bonus damage vs airborne",
+                "from": "20%",
+                "to": "25%",
+                "delta": "+5%",
+                "blizzard_commentary": [],
+                "notes": "Rare Ability General Item."
+              }
+            },
+            {
+              "raw": {
+                "text": "Bonus Damage to Airborne targets increased from 25% to 30%."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Aerial Distresser",
+                "subject_slug": null,
+                "metric": "damage",
+                "metric_phrase": "bonus damage vs airborne",
+                "from": "25%",
+                "to": "30%",
+                "delta": "+5%",
+                "blizzard_commentary": [],
+                "notes": "Epic Weapon General Item."
+              }
+            },
+            {
+              "raw": {
+                "text": "Overhealth Reduction internal cooldown reduced from 5s to 3s."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Sundering Vial",
+                "subject_slug": null,
+                "metric": "cooldown",
+                "metric_phrase": "overhealth-reduction internal cooldown",
+                "from": "5s",
+                "to": "3s",
+                "delta": "-2s",
+                "blizzard_commentary": [],
+                "notes": "Epic Survival General Item."
+              }
+            },
+            {
+              "raw": {
+                "text": "Overhealth reduction effect duration increased from 3s to 5s."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Sundering Vial",
+                "subject_slug": null,
+                "metric": "duration",
+                "metric_phrase": "overhealth-reduction effect duration",
+                "from": "3s",
+                "to": "5s",
+                "delta": "+2s",
+                "blizzard_commentary": [],
+                "notes": "Epic Survival General Item."
+              }
+            },
+            {
+              "raw": {
+                "text": "Range increased from 6m to 8m."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Necrotic Repellant",
+                "subject_slug": null,
+                "metric": "range",
+                "metric_phrase": "range",
+                "from": "6m",
+                "to": "8m",
+                "delta": "+2m",
+                "blizzard_commentary": [],
+                "notes": "Epic Gadget."
+              }
+            },
+            {
+              "raw": {
+                "text": "Duration decreased from 5s to 3s."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Colossus Core",
+                "subject_slug": null,
+                "metric": "duration",
+                "metric_phrase": "duration",
+                "from": "5s",
+                "to": "3s",
+                "delta": "-2s",
+                "blizzard_commentary": [],
+                "notes": "Epic Gadget."
+              }
+            },
+            {
+              "raw": {
+                "text": "Cost decreased from 13000 to 12000."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Refresher",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "cost",
+                "from": 13000,
+                "to": 12000,
+                "delta": -1000,
+                "blizzard_commentary": [],
+                "notes": "Epic Gadget."
+              }
+            }
+          ]
+        },
+        {
+          "title": "Website Updates",
+          "mode": "retail",
+          "group_label": null,
+          "changes": [
+            {
+              "raw": {
+                "text": "Hero Stats now appear under Heroes → Hero Stats."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Website navigation",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "hero-stats nav location",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": {
+                "text": "Hero Ban Rates are now displayed on the PlayOverwatch website in Hero Stats. Hero Pick Rates and Win Rates are still included in Hero Stats."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Website Hero Stats",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "ban-rate display",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": {
+                "text": "The existing Heroes page has been renamed to Hero Gallery."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Website Heroes page",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "page rename",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            }
+          ]
+        },
+        {
+          "title": "Bug Fixes",
+          "mode": "retail",
+          "group_label": "General",
+          "changes": [
+            {
+              "raw": {
+                "text": "Fixed an issue where Mizuki's soft targeting would no longer show while dead."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "mizuki",
+                "subject_name": "Soft targeting",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "targeting UI bug",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Targeting UI behavior, not a single ability slug."
+              }
+            },
+            {
+              "raw": {
+                "text": "Fixed an issue where Doomfist's Seismic Slam would sometimes cause a desync issue when landing on the floor."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "doomfist",
+                "subject_name": "Seismic Slam",
+                "subject_slug": "seismic-slam",
+                "metric": "other",
+                "metric_phrase": "landing desync bug",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": {
+                "text": "Fixed an issue that incorrectly disabled the Requeue and Leave Game buttons in competitive modes during the post-match accolades screen."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Competitive post-match UI",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "disabled requeue/leave-game buttons",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": {
+                "text": "Fixed an issue preventing stick and d-pad navigation during \"While You Wait.\""
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "While You Wait",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "controller navigation bug",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": {
+                "text": "Fixed Vendetta's overhead not getting kill credit when forcing enemies into pits."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "vendetta",
+                "subject_name": "Overhead",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "kill-credit bug",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "'Overhead' is Vendetta's melee attack; no matching slug in current data."
+              }
+            },
+            {
+              "raw": {
+                "text": "Fixed Brigitte's VO for Repair Packs being on cooldown not being played under the correct conditions."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "brigitte",
+                "subject_name": "Repair Pack",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "VO trigger bug",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Repair Pack VO bug; verify slug exists if needed."
+              }
+            }
+          ]
+        },
+        {
+          "title": "Bug Fixes",
+          "mode": "stadium",
+          "group_label": "Stadium",
+          "changes": [
+            {
+              "raw": {
+                "text": "Fixed an issue where Ramattra's Power Final Form was not properly activating when entering Nemesis Form via Annihilation."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Final Form",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "power activation bug",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Stadium Power; subject_slug null."
+              }
+            },
+            {
+              "raw": {
+                "text": "Fixed an issue where Ramattra's Item R-7000 Powercell was not properly granting Weapon Power after its max Weapon Power bonus was reached."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "R-7000 Powercell",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "weapon-power grant bug",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Stadium Hero Item."
+              }
+            },
+            {
+              "raw": {
+                "text": "Fixed an issue where Ramattra's Power Void Blight's damage was not scaling with Weapon Power."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Void Blight",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "weapon-power scaling bug",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Stadium Power."
+              }
+            },
+            {
+              "raw": {
+                "text": "Fixed an issue where Barrier Size was not increasing when Ramattra picked both Recursion Relay and Ramparts."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Recursion Relay + Ramparts",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "barrier-size stacking bug",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Interaction between two Stadium Powers."
+              }
+            },
+            {
+              "raw": {
+                "text": "Fixed an issue where Ramattra's Void Barrier was not triggering On Ability items."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Void Barrier",
+                "subject_slug": "void-barrier",
+                "metric": "other",
+                "metric_phrase": "on-ability item trigger bug",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            },
+            {
+              "raw": {
+                "text": "Fixed an issue where combining Swirling Ward and Final Form would cause Ravenous Vortex to heal enemies on Ramattra."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Swirling Ward + Final Form",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "enemy-healing bug",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Interaction between two Stadium Powers."
+              }
+            },
+            {
+              "raw": {
+                "text": "Fixed an issue where Cybervenom applies Healing Reduction debuff to allies that are critically healed via Juno's Power MediMaster."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "juno",
+                "subject_name": "MediMaster",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "cybervenom ally-debuff bug",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Stadium Power; crossover with Cybervenom item."
+              }
+            },
+            {
+              "raw": {
+                "text": "Fixed an issue where Mercy's Flash Heal wasn't triggering On Ability Items."
+              },
+              "interpreted": {
+                "mode": "stadium",
+                "subject_kind": "ability",
+                "hero_slug": "mercy",
+                "subject_name": "Flash Heal",
+                "subject_slug": "flash-heal",
+                "metric": "other",
+                "metric_phrase": "on-ability item trigger bug",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": ""
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-04-28",
+      "title": "Overwatch Retail Patch Notes – April 28, 2026",
+      "url": null,
+      "sections": [
+        {
+          "title": "Bug Fixes",
+          "mode": "retail",
+          "group_label": "General",
+          "changes": [
+            {
+              "raw": {
+                "text": "Fixed an issue where players were unable to jump while the scoreboard was open."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "system",
+                "hero_slug": null,
+                "subject_name": "Scoreboard / Jump input",
+                "subject_slug": null,
+                "metric": "other",
+                "metric_phrase": "scoreboard-blocked jump input",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "General-system bug fix; not tied to a hero."
+              }
+            },
+            {
+              "raw": {
+                "text": "Fixed an issue where Ramattra's ultimate could sometimes play louder than intended."
+              },
+              "interpreted": {
+                "mode": "retail",
+                "subject_kind": "ability",
+                "hero_slug": "ramattra",
+                "subject_name": "Annihilation",
+                "subject_slug": "annihilation",
+                "metric": "other",
+                "metric_phrase": "ultimate audio volume",
+                "from": null,
+                "to": null,
+                "delta": null,
+                "blizzard_commentary": [],
+                "notes": "Bullet says 'Ramattra's ultimate' — Annihilation. Audio-only bug fix."
+              }
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-04-23",
       "title": "Overwatch Retail Patch Notes – April 23, 2026",

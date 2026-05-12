@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "6.0.3"
+    "schema_version": "6.0.4"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Baptiste",
@@ -85,8 +85,8 @@
         "name": "Regenerative Burst",
         "description": "Activate to heal yourself and nearby allies instantly, with additional healing over time. Instant heal is doubled for targets less than half health.",
         "ability_type": "Ability",
-        "cooldown": "14 seconds",
-        "healing": "40 (instant, >50% max HP) / 80 (instant, <50% max HP) / 40 over 4 seconds (HoT)",
+        "cooldown": "12 seconds",
+        "healing": "50 (instant, >50% max HP) / 100 (instant, <50% max HP) / 50 over 4 seconds (HoT)",
         "radius": "12 meters",
         "duration": "4 seconds"
       },

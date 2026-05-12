@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "6.0.3"
+    "schema_version": "6.0.4"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Emre",
@@ -91,7 +91,7 @@
         "cooldown": "11 seconds",
         "damage": "25 (direct hit) / 15 - 5 (area of effect)",
         "headshot": false,
-        "healing": "80% of damage dealt",
+        "healing": "60% of damage dealt",
         "duration": "5 seconds",
         "radius": "0.5 - 2.3 meters",
         "projectile_speed": "100 m/s",
@@ -105,7 +105,7 @@
         "cooldown": "10 seconds",
         "damage": "110 - 55 (area of effect)",
         "duration": "0.6 seconds (explosion delay)",
-        "radius": "2 - 4 meters",
+        "radius": "1.5 - 4 meters",
         "projectile_speed": "35 m/s",
         "projectile_radius": "0.16 meters"
       },

@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "6.0.3"
+    "schema_version": "6.0.4"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Mizuki",
@@ -105,8 +105,8 @@
         "name": "Kekkai Sanctuary",
         "description": "Create a sanctuary that heals allies and absorbs enemy projectiles from outside the area.",
         "ability_type": "Ultimate Ability",
-        "healing": "100 (instant) / 50 per second",
-        "duration": "7 seconds / 0.3 seconds (linger)"
+        "healing": "100 (instant) / 40 per second",
+        "duration": "6 seconds / 0.3 seconds (linger)"
       }
     ],
     "perks": {

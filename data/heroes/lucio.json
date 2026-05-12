@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "6.0.3"
+    "schema_version": "6.0.4"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/L%C3%BAcio",
@@ -84,7 +84,7 @@
         "name": "Crossfade",
         "description": "Switches between two songs: Healing Boost heals nearby allies, and Speed Boost makes nearby allies move faster.",
         "ability_type": "Ability",
-        "healing": "20 per second (allies) / 14.4 per second (self)",
+        "healing": "20 per second (allies) / 8 per second (self)",
         "radius": "12 meters",
         "duration": "0.4 seconds (swap delay)"
       },
@@ -104,7 +104,7 @@
         "description": "Create temporary extra health for nearby allies.",
         "ability_type": "Ultimate Ability",
         "radius": "30 meters",
-        "duration": "6 seconds"
+        "duration": "5 seconds"
       }
     ],
     "perks": {

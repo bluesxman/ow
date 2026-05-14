@@ -1017,7 +1017,7 @@
             "slug": "rocket-salvo",
             "name": "Rocket Salvo",
             "description": "After using a movement ability, the next primary fire shoots two spiraling mini-rockets, each dealing 30 damage.",
-            "damage": "30 (per rocket) / 200 (direct hit if all rockets land)"
+            "damage": "30 (per rocket) / 180 (direct hit if all rockets land)"
           }
         ]
       }

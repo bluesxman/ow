@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T19:12:33.183Z",
-    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
+    "last_updated": "2026-05-12T21:11:28.893Z",
+    "patch_version": "Overwatch Retail Patch Notes - May 12, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "6.0.4"
+    "schema_version": "6.1.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Reaper",
@@ -119,14 +119,19 @@
         {
           "slug": "soul-reaving",
           "name": "Soul Reaving",
-          "description": "Collect Soul Globes from dead enemies to restore 50 health."
+          "description": "Collect Soul Globes from dead enemies to restore 50 health.",
+          "healing": 50,
+          "duration": "8 seconds"
         }
       ],
       "major": [
         {
           "slug": "shadow-blink",
           "name": "Shadow Blink",
-          "description": "Shadow Step's cast time and cooldown are 25% faster, but the range is reduced by 25%."
+          "description": "Shadow Step's cast time and cooldown are 25% faster, but the range is reduced by 25%.",
+          "cooldown": "10 → 7.5 seconds",
+          "range": "35 → 23.2 meters",
+          "duration": "0.5 → 0.8 seconds (teleportation) / 0.98 → 1.2 seconds (invulnerability)"
         },
         {
           "slug": "trigger-finger",

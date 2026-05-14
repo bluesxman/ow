@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T19:12:33.183Z",
-    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
+    "last_updated": "2026-05-12T21:11:28.893Z",
+    "patch_version": "Overwatch Retail Patch Notes - May 12, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "6.0.4"
+    "schema_version": "6.1.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Jetpack_Cat",
@@ -124,12 +124,16 @@
         {
           "slug": "headbutt",
           "name": "Headbutt",
-          "description": "Frenetic Flight can knockback an enemy on impact when flying fast enough. Generate 25% fuel on knockback"
+          "description": "Frenetic Flight can knockback an enemy on impact when flying fast enough. Generate 25% fuel on knockback",
+          "damage": 30
         },
         {
           "slug": "claws-out",
           "name": "Claws Out",
-          "description": "Quick Melee becomes empowered every 6 seconds, wounding enemies for 40 damage and slowing them by 30% for 1 second."
+          "description": "Quick Melee becomes empowered every 6 seconds, wounding enemies for 40 damage and slowing them by 30% for 1 second.",
+          "cooldown": "6 seconds",
+          "damage": "40 (damage over time)",
+          "duration": "1 second"
         }
       ]
     },

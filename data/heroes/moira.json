@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T19:12:33.183Z",
-    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
+    "last_updated": "2026-05-12T21:11:28.893Z",
+    "patch_version": "Overwatch Retail Patch Notes - May 12, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "6.0.4"
+    "schema_version": "6.1.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Moira",
@@ -108,7 +108,9 @@
         {
           "slug": "destructions-divide",
           "name": "Destruction's Divide",
-          "description": "Coalescence can be toggled between pure healing or pure damage, with 30% greater effect."
+          "description": "Coalescence can be toggled between pure healing or pure damage, with 30% greater effect.",
+          "damage": "85 → 110.5 per second",
+          "healing": "140 → 182 per second (allies) / 55 → 71.5 per second (self)"
         },
         {
           "slug": "ethical-nourishment",
@@ -125,7 +127,8 @@
         {
           "slug": "phantom-step",
           "name": "Phantom Step",
-          "description": "Fade lasts 0.5 seconds longer and boosts jump height by 50%."
+          "description": "Fade lasts 0.5 seconds longer and boosts jump height by 50%.",
+          "duration": "0.75 → 1.25 seconds"
         }
       ]
     },

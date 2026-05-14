@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T19:12:33.183Z",
-    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
+    "last_updated": "2026-05-12T21:11:28.893Z",
+    "patch_version": "Overwatch Retail Patch Notes - May 12, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "6.0.4"
+    "schema_version": "6.1.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Sigma",
@@ -123,12 +123,15 @@
         {
           "slug": "hyper-strike",
           "name": "Hyper Strike",
-          "description": "Every 5 direct hits with Hyperspheres, your next successful Quick Melee levitates and knocks away enemies."
+          "description": "Every 5 direct hits with Hyperspheres, your next successful Quick Melee levitates and knocks away enemies.",
+          "damage": "50 over 0.37 seconds",
+          "duration": "1 second"
         },
         {
           "slug": "levitation",
           "name": "Levitation",
-          "description": "Activate and hold Double Jump to briefly levitate upward."
+          "description": "Activate and hold Double Jump to briefly levitate upward.",
+          "duration": "1.75 seconds"
         }
       ]
     },

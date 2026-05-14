@@ -187,6 +187,14 @@ function findAbility(hero: Hero, slug: string): Hero['abilities'][number] | unde
   return hero.abilities?.find((a) => a.slug === slug);
 }
 
+function findPerk(hero: Hero, slug: string): { perk: Hero['perks']['minor'][number]; tier: 'minor' | 'major' } | undefined {
+  const minor = hero.perks?.minor?.find((p) => p.slug === slug);
+  if (minor) return { perk: minor, tier: 'minor' };
+  const major = hero.perks?.major?.find((p) => p.slug === slug);
+  if (major) return { perk: major, tier: 'major' };
+  return undefined;
+}
+
 function bcContains6v6(bc: string[] | null | undefined): boolean {
   if (!bc) return false;
   return bc.some((s) => s.includes('6v6'));
@@ -248,10 +256,6 @@ async function run(args: ParsedArgs): Promise<RunResult> {
           continue;
         }
         const kind: PatchSubjectKind = interp.subject_kind;
-        if (kind === 'perk') {
-          skip('perk', skipRec('perk numeric not tracked'));
-          continue;
-        }
         if (kind === 'system' || kind === 'map' || kind === 'role' || kind === 'unknown') {
           skip('no-hero-subject', skipRec(`no-hero-subject (${kind})`));
           continue;
@@ -329,9 +333,13 @@ async function run(args: ParsedArgs): Promise<RunResult> {
           continue;
         }
 
-        // kind === 'ability'
-        const abilitySlug = interp.subject_slug;
-        if (!abilitySlug) {
+        // kind === 'ability' or 'perk' — both target a slug-addressed entity
+        // on the hero with the same shape of optional stat fields. The lookup,
+        // field-write, and report-bucket differ only in where they look and
+        // what label they emit; the safety rails (composite/qualified strings,
+        // from-value reconciliation) are identical.
+        const targetSlug = interp.subject_slug;
+        if (!targetSlug) {
           skip(
             'ability-not-found',
             skipRec('subject_slug null', {
@@ -341,47 +349,66 @@ async function run(args: ParsedArgs): Promise<RunResult> {
           );
           continue;
         }
-        const ability = findAbility(hero, abilitySlug);
-        if (!ability) {
-          skip(
-            'ability-not-found',
-            skipRec(`ability '${abilitySlug}' not found`, {
-              hero_slug: heroSlug,
-              subject_name: interp.subject_name,
-            }),
-          );
-          continue;
+        let target: Record<string, unknown> | undefined;
+        let targetKind: 'ability' | 'perk';
+        if (kind === 'perk') {
+          const found = findPerk(hero, targetSlug);
+          if (!found) {
+            skip(
+              'perk-not-found',
+              skipRec(`perk '${targetSlug}' not found`, {
+                hero_slug: heroSlug,
+                subject_name: interp.subject_name,
+              }),
+            );
+            continue;
+          }
+          target = found.perk as unknown as Record<string, unknown>;
+          targetKind = 'perk';
+        } else {
+          const ability = findAbility(hero, targetSlug);
+          if (!ability) {
+            skip(
+              'ability-not-found',
+              skipRec(`ability '${targetSlug}' not found`, {
+                hero_slug: heroSlug,
+                subject_name: interp.subject_name,
+              }),
+            );
+            continue;
+          }
+          target = ability as Record<string, unknown>;
+          targetKind = 'ability';
         }
         if (!ABILITY_METRIC_FIELDS.has(metric)) {
           skip(
-            'ability-metric-other',
-            skipRec(`metric=${metric} not in ability schema`, {
+            `${targetKind}-metric-other`,
+            skipRec(`metric=${metric} not in ${targetKind} schema`, {
               hero_slug: heroSlug,
-              ability_slug: abilitySlug,
+              [`${targetKind}_slug`]: targetSlug,
               metric_phrase: interp.metric_phrase,
             }),
           );
           continue;
         }
-        const abilityRec = ability as Record<string, unknown>;
-        if (!(metric in abilityRec)) {
+        if (!(metric in target)) {
           skip(
-            'ability-field-missing',
-            skipRec(`field '${metric}' missing on ability`, {
+            `${targetKind}-field-missing`,
+            skipRec(`field '${metric}' missing on ${targetKind}`, {
               hero_slug: heroSlug,
-              ability_slug: abilitySlug,
-              available_fields: Object.keys(abilityRec).sort(),
+              [`${targetKind}_slug`]: targetSlug,
+              available_fields: Object.keys(target).sort(),
             }),
           );
           continue;
         }
-        const old = abilityRec[metric];
+        const old = target[metric];
         if (isCompositeString(old)) {
           skip(
             'composite-slice-ambiguity',
             skipRec('composite-string slice ambiguity', {
               hero_slug: heroSlug,
-              ability_slug: abilitySlug,
+              [`${targetKind}_slug`]: targetSlug,
               field: metric,
               current: old,
               proposed_to: interp.to,
@@ -395,7 +422,7 @@ async function run(args: ParsedArgs): Promise<RunResult> {
             'qualified-string-ambiguity',
             skipRec('qualified-string ambiguity (would lose info)', {
               hero_slug: heroSlug,
-              ability_slug: abilitySlug,
+              [`${targetKind}_slug`]: targetSlug,
               field: metric,
               current: old,
               proposed_to: interp.to,
@@ -408,9 +435,9 @@ async function run(args: ParsedArgs): Promise<RunResult> {
         if (!fromMatchesExisting(interp.from, old)) {
           skip(
             'value-mismatch',
-            skipRec('from-value does not match existing field', {
+            skipRec(`from-value does not match existing ${targetKind} field`, {
               hero_slug: heroSlug,
-              ability_slug: abilitySlug,
+              [`${targetKind}_slug`]: targetSlug,
               field: metric,
               expected_from: interp.from,
               current: old,
@@ -421,13 +448,13 @@ async function run(args: ParsedArgs): Promise<RunResult> {
           continue;
         }
         const newVal = coerceToExistingFormat(interp.to, old);
-        abilityRec[metric] = newVal;
+        target[metric] = newVal;
         dirty.set(heroSlug, heroFile);
         applied.push({
           patch_date: patch.date,
           hero_slug: heroSlug,
-          ability_slug: abilitySlug,
-          field: metric,
+          ability_slug: targetKind === 'ability' ? targetSlug : null,
+          field: targetKind === 'perk' ? `perks.${targetSlug}.${metric}` : metric,
           from: old,
           to: newVal,
           raw,

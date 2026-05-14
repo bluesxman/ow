@@ -368,3 +368,162 @@ describe('normalizeFandomHero on Emre fixture (same-name dual-mode rifle)', () =
     expect(frag!.modes).toBeUndefined();
   });
 });
+
+describe('extractSections — robust to false-positive L2-shaped lines', () => {
+  it('does not end the Abilities section early when a template body contains a line wrapped in ==', () => {
+    // Real-world Ramattra (May 2026): a template param was wrapped in == == by
+    // accident, looking like a level-2 heading. Naive heading regex matched it
+    // and truncated the Abilities section after the first 2 templates.
+    const wt = `
+== Abilities ==
+{{Ability details
+| ability_name = First Ability
+| official_description = a.
+}}
+{{Ability details
+| ability_name = Second Ability
+| official_description = b.
+== | ability_keywords = area of effect;;cylindrical::armor piercing::barrier collide::travel time<blockquote>Block quote</blockquote> ==
+| ability_details = note
+}}
+{{Ability details
+| ability_name = Third Ability
+| official_description = c.
+}}
+{{Ability details
+| ability_name = Fourth Ability
+| official_description = d.
+}}
+== Perks ==
+=== Minor Perks ===
+{{Ability details
+| ability_name = One
+| ability_type = Minor Perk
+| official_description = x.
+}}
+{{Ability details
+| ability_name = Two
+| ability_type = Minor Perk
+| official_description = y.
+}}
+=== Major Perks ===
+{{Ability details
+| ability_name = Three
+| ability_type = Major Perk
+| official_description = w.
+}}
+{{Ability details
+| ability_name = Four
+| ability_type = Major Perk
+| official_description = z.
+}}
+`;
+    const sec = extractSections(wt);
+    expect(sec.abilityBlocks.map((b) => b.name)).toEqual([
+      'First Ability', 'Second Ability', 'Third Ability', 'Fourth Ability',
+    ]);
+    expect(sec.minorPerks).toHaveLength(2);
+    expect(sec.majorPerks).toHaveLength(2);
+  });
+});
+
+describe('normalizeFandomHero — perks lift structured stat fields', () => {
+  it('emits damage on a perk that declares it in the template', () => {
+    const wt = `
+== Perks ==
+=== Major Perks ===
+{{Ability details
+| ability_name = Rocket Salvo
+| ability_type = Major Perk
+| official_description = Each rocket deals damage.
+| damage = 30 (per rocket)
+}}
+{{Ability details
+| ability_name = Other Major
+| ability_type = Major Perk
+| official_description = Two.
+}}
+=== Minor Perks ===
+{{Ability details
+| ability_name = One Minor
+| ability_type = Minor Perk
+| official_description = a.
+}}
+{{Ability details
+| ability_name = Two Minor
+| ability_type = Minor Perk
+| official_description = b.
+}}
+`;
+    const hero = normalizeFandomHero(wt);
+    const salvo = hero.perks.major.find((p) => p.name === 'Rocket Salvo');
+    expect(salvo).toBeDefined();
+    expect(salvo!.damage).toBe('30 (per rocket)');
+  });
+
+  it('omits stat fields when the template has none beyond description', () => {
+    const wt = `
+== Perks ==
+=== Minor Perks ===
+{{Ability details
+| ability_name = Plain Minor
+| ability_type = Minor Perk
+| official_description = Just a description.
+}}
+{{Ability details
+| ability_name = Other Minor
+| ability_type = Minor Perk
+| official_description = Other.
+}}
+=== Major Perks ===
+{{Ability details
+| ability_name = Plain Major
+| ability_type = Major Perk
+| official_description = Just a description.
+}}
+{{Ability details
+| ability_name = Other Major
+| ability_type = Major Perk
+| official_description = Other.
+}}
+`;
+    const hero = normalizeFandomHero(wt);
+    const plain = hero.perks.minor.find((p) => p.name === 'Plain Minor')!;
+    // Only the documented Perk fields should appear.
+    expect(Object.keys(plain).sort()).toEqual(['description', 'name', 'slug']);
+  });
+
+  it('lifts multiple stat fields onto a single perk', () => {
+    const wt = `
+== Perks ==
+=== Minor Perks ===
+{{Ability details
+| ability_name = Angelic Resurrection
+| ability_type = Minor Perk
+| official_description = Resurrect grants overhealth.
+| duration = 2 seconds
+| heal = 100
+}}
+{{Ability details
+| ability_name = Other Minor
+| ability_type = Minor Perk
+| official_description = b.
+}}
+=== Major Perks ===
+{{Ability details
+| ability_name = One Major
+| ability_type = Major Perk
+| official_description = a.
+}}
+{{Ability details
+| ability_name = Two Major
+| ability_type = Major Perk
+| official_description = b.
+}}
+`;
+    const hero = normalizeFandomHero(wt);
+    const ar = hero.perks.minor.find((p) => p.name === 'Angelic Resurrection')!;
+    expect(ar.duration).toBe('2 seconds');
+    expect(ar.healing).toBe(100);
+  });
+});

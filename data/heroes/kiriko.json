@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T19:12:33.183Z",
-    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
+    "last_updated": "2026-05-12T21:11:28.893Z",
+    "patch_version": "Overwatch Retail Patch Notes - May 12, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "6.0.4"
+    "schema_version": "6.1.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Kiriko",
@@ -116,7 +116,8 @@
         {
           "slug": "urgent-care",
           "name": "Urgent Care",
-          "description": "Healing Ofuda projectile speed is increased by 50% when seeking critical health allies."
+          "description": "Healing Ofuda projectile speed is increased by 50% when seeking critical health allies.",
+          "projectile_speed": "30 → 42 m/s"
         },
         {
           "slug": "fortune-teller",
@@ -128,12 +129,14 @@
         {
           "slug": "ready-step",
           "name": "Ready Step",
-          "description": "Swift Step grants Kiriko 40% increased attack and reload speed for 3 seconds."
+          "description": "Swift Step grants Kiriko 40% increased attack and reload speed for 3 seconds.",
+          "dps": "while firing ( w/ reload)"
         },
         {
           "slug": "foxtrot",
           "name": "Foxtrot",
-          "description": "Protection Suzu grants allies 30% increased movement speed for 4 seconds."
+          "description": "Protection Suzu grants allies 30% increased movement speed for 4 seconds.",
+          "duration": "4 seconds"
         }
       ]
     },

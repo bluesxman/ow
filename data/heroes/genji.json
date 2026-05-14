@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T19:12:33.183Z",
-    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
+    "last_updated": "2026-05-12T21:11:28.893Z",
+    "patch_version": "Overwatch Retail Patch Notes - May 12, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "6.0.4"
+    "schema_version": "6.1.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Genji",
@@ -125,19 +125,23 @@
         {
           "slug": "dragons-thirst",
           "name": "Dragon's Thirst",
-          "description": "Dragonblade swings gain 30% lifesteal."
+          "description": "Dragonblade swings gain 30% lifesteal.",
+          "healing": "30% of damage dealt"
         }
       ],
       "major": [
         {
           "slug": "blade-twisting",
           "name": "Blade Twisting",
-          "description": "Swift Strike deals 25 additional damage over time if the enemy is below half health."
+          "description": "Swift Strike deals 25 additional damage over time if the enemy is below half health.",
+          "damage": "25 over time",
+          "duration": "1 second"
         },
         {
           "slug": "meditation",
           "name": "Meditation",
-          "description": "Regenerate 35 health per second while Deflect is active."
+          "description": "Regenerate 35 health per second while Deflect is active.",
+          "healing": "35 per second"
         }
       ]
     },

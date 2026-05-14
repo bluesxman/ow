@@ -12,7 +12,13 @@ const PerkSchema = z.object({
   slug: SlugSchema,
   name: z.string().min(1),
   description: z.string().min(1),
-});
+}).catchall(
+  // Fandom's Ability_details template is shared between abilities and perks.
+  // When a perk carries structured stat fields (damage, cooldown, etc.) we
+  // surface them here; the catchall mirrors AbilitySchema so the validator
+  // permits any of the same numeric/string/boolean stat values.
+  z.union([z.number(), z.string(), z.boolean()]).optional(),
+);
 
 const StatValue = z.union([z.number(), z.string(), z.boolean()]);
 

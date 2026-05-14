@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T19:12:33.183Z",
-    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
+    "last_updated": "2026-05-12T21:11:28.893Z",
+    "patch_version": "Overwatch Retail Patch Notes - May 12, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "6.0.4"
+    "schema_version": "6.1.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Cassidy",
@@ -114,24 +114,34 @@
         {
           "slug": "bang-bang",
           "name": "Bang Bang",
-          "description": "Cassidy throws a second Flashbang that travels farther, but both Flashbangs deal 40% reduced damage."
+          "description": "Cassidy throws a second Flashbang that travels farther, but both Flashbangs deal 40% reduced damage.",
+          "damage": "→",
+          "pellets": "1 → 2",
+          "range": "10 meters (2nd grenade)"
         },
         {
           "slug": "even-the-odds",
           "name": "Even the Odds",
-          "description": "Regenerate 30 health per second for each enemy targeted by Deadeye."
+          "description": "Regenerate 30 health per second for each enemy targeted by Deadeye.",
+          "healing": "30/s per target"
         }
       ],
       "major": [
         {
           "slug": "rollin-round-up",
           "name": "Rollin' Round-Up",
-          "description": "Combat Roll also heals 15 health for each bullet reloaded."
+          "description": "Combat Roll also heals 15 health for each bullet reloaded.",
+          "healing": "15 per bullet"
         },
         {
           "slug": "silver-bullet",
           "name": "Silver Bullet",
-          "description": "Peacekeeper's secondary fire is replaced with a piercing shot that inflicts bleeding. Combat Roll and Deadeye reset its cooldown."
+          "description": "Peacekeeper's secondary fire is replaced with a piercing shot that inflicts bleeding. Combat Roll and Deadeye reset its cooldown.",
+          "cooldown": "8 seconds",
+          "damage": "70 - 21 (base) / 70 (bleed)",
+          "falloff": "25 - 35 meters",
+          "headshot": true,
+          "duration": "2.5 seconds (bleed)"
         }
       ]
     },

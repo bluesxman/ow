@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T19:12:33.183Z",
-    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
+    "last_updated": "2026-05-12T21:11:28.893Z",
+    "patch_version": "Overwatch Retail Patch Notes - May 12, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "6.0.4"
+    "schema_version": "6.1.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Venture",
@@ -117,7 +117,9 @@
         {
           "slug": "deep-burrow",
           "name": "Deep Burrow",
-          "description": "Drill Dash distance is 50% longer while while burrowing."
+          "description": "Drill Dash distance is 50% longer while while burrowing.",
+          "duration": "0.9 → 1.35 seconds (burrowed)",
+          "range": "15 → 22.5 meters (burrowed)"
         },
         {
           "slug": "excavation-exhilaration",
@@ -129,7 +131,10 @@
         {
           "slug": "smart-extender",
           "name": "Smart Extender",
-          "description": "Empower SMART Excavator with E to increase its maximum projectile range by 100% for 4 seconds."
+          "description": "Empower SMART Excavator with E to increase its maximum projectile range by 100% for 4 seconds.",
+          "cooldown": "12 seconds",
+          "duration": "4 seconds",
+          "range": "16 → 32 meters (SMART Excavator)"
         },
         {
           "slug": "covered-in-dirt",

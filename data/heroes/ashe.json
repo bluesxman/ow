@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T19:12:33.183Z",
-    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
+    "last_updated": "2026-05-12T21:11:28.893Z",
+    "patch_version": "Overwatch Retail Patch Notes - May 12, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "6.0.4"
+    "schema_version": "6.1.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Ashe",
@@ -124,19 +124,24 @@
         {
           "slug": "double-barreled",
           "name": "Double-Barreled",
-          "description": "Knocking an enemy back with Coach Gun briefly allows it to be used again with 25% reduced knockback."
+          "description": "Knocking an enemy back with Coach Gun briefly allows it to be used again with 25% reduced knockback.",
+          "duration": "1 second (Time to reuse Coach Gun)"
         }
       ],
       "major": [
         {
           "slug": "vipers-sting",
           "name": "Viper's Sting",
-          "description": "Hitting 2 consecutive scoped shots on a target deals 25 extra damage and reloads 1 ammo."
+          "description": "Hitting 2 consecutive scoped shots on a target deals 25 extra damage and reloads 1 ammo.",
+          "damage": 25,
+          "duration": "1 second",
+          "ammo": "+1 current ammo"
         },
         {
           "slug": "airburst",
           "name": "Airburst",
-          "description": "Dynamite has a 40% increased detonation radius while airborne and refunds 3 ammo when thrown."
+          "description": "Dynamite has a 40% increased detonation radius while airborne and refunds 3 ammo when thrown.",
+          "radius": "5 → 7 meters"
         }
       ]
     },

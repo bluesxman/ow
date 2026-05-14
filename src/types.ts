@@ -8,6 +8,31 @@ export interface Perk {
   slug: string;
   name: string;
   description: string;
+  // Optional structured stat fields. Fandom's Ability_details template is
+  // shared between abilities and perks; when a perk has a quantitative effect
+  // (e.g. Pharah Rocket Salvo "damage = 40 (per rocket)"), the template carries
+  // those fields and we surface them here. Adoption on Fandom is uneven —
+  // most perks have only a description — so every field is optional.
+  ability_type?: string;
+  damage?: number | string;
+  cooldown?: number | string;
+  range?: number | string;
+  duration?: number | string;
+  ammo?: number | string;
+  rate_of_fire?: number | string;
+  reload?: number | string;
+  falloff?: number | string;
+  spread?: number | string;
+  projectile_radius?: number | string;
+  projectile_speed?: number | string;
+  pellets?: number | string;
+  headshot?: boolean | string;
+  radius?: number | string;
+  healing?: number | string;
+  health?: number | string;
+  dps?: number | string;
+  movement_speed?: number | string;
+  [key: string]: number | string | boolean | undefined;
 }
 
 export interface AbilityMode {

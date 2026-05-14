@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T19:12:33.183Z",
-    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
+    "last_updated": "2026-05-12T21:11:28.893Z",
+    "patch_version": "Overwatch Retail Patch Notes - May 12, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "6.0.4"
+    "schema_version": "6.1.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Winston",
@@ -113,19 +113,24 @@
         {
           "slug": "heavy-landing",
           "name": "Heavy Landing",
-          "description": "During Primal Rage, Jump Pack's damage and area increase by up to 75% while airborne."
+          "description": "During Primal Rage, Jump Pack's damage and area increase by up to 75% while airborne.",
+          "damage": "105 - 1",
+          "range": "9 meters"
         }
       ],
       "major": [
         {
           "slug": "chain-lightning",
           "name": "Chain Lightning",
-          "description": "Fully charged Secondary Fire hits bounce to up to 2 additional targets."
+          "description": "Fully charged Secondary Fire hits bounce to up to 2 additional targets.",
+          "damage": "48 (1st bounce) / 36 (2nd bounce)",
+          "range": "10 meters"
         },
         {
           "slug": "revitalizing-barrier",
           "name": "Revitalizing Barrier",
-          "description": "Barrier Projector heals allies within it for 30 health per second."
+          "description": "Barrier Projector heals allies within it for 30 health per second.",
+          "healing": "30 per second"
         }
       ]
     },

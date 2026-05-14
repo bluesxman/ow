@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T19:12:33.183Z",
-    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
+    "last_updated": "2026-05-12T21:11:28.893Z",
+    "patch_version": "Overwatch Retail Patch Notes - May 12, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "6.0.4"
+    "schema_version": "6.1.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Roadhog",
@@ -129,19 +129,23 @@
         {
           "slug": "shrapnel-launcher",
           "name": "Shrapnel Launcher",
-          "description": "Extend the range of Scrap Gun's secondary fire by 50% and tighten its burst spread by 25%."
+          "description": "Extend the range of Scrap Gun's secondary fire by 50% and tighten its burst spread by 25%.",
+          "spread": "8 → 6 degrees"
         }
       ],
       "major": [
         {
           "slug": "hogdrogen-exposure",
           "name": "Hogdrogen Exposure",
-          "description": "Take A Breather also heals nearby allies for 50% of its healing."
+          "description": "Take A Breather also heals nearby allies for 50% of its healing.",
+          "healing": "75/s",
+          "radius": "10 meters"
         },
         {
           "slug": "pulled-pork",
           "name": "Pulled Pork",
-          "description": "Gain overhealth based on how far you pull enemies with Chain Hook, up to 300."
+          "description": "Gain overhealth based on how far you pull enemies with Chain Hook, up to 300.",
+          "duration": "2 seconds"
         }
       ]
     },

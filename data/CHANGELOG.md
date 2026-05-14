@@ -2,6 +2,27 @@
 
 Auto-generated per-run diffs. Newest first.
 
+## 2026-05-12 — Overwatch Retail Patch Notes - May 12, 2026
+
+### Changed
+- **ramattra**
+  - abilities list changed: [Void Accelerator|Void Barrier] → [Annihilation|Block|Nemesis Form|Pummel|Ravenous Vortex|Void Accelerator|Void Barrier]
+
+## 2026-05-12 — Overwatch Retail Patch Notes - May 12, 2026
+
+### Changed
+- **domina**
+  - stats.health: 100 → 250
+- **freja**
+  - major[Rising Winds] description changed
+- **pharah**
+  - minor[Concussive Force] description changed
+  - major[Rocket Salvo] description changed
+- **ramattra**
+  - abilities list changed: [Annihilation|Block|Nemesis Form|Pummel|Ravenous Vortex|Void Accelerator|Void Barrier] → [Void Accelerator|Void Barrier]
+
+Auto-generated per-run diffs. Newest first.
+
 ## 2026-04-25 — Overwatch Retail Patch Notes – April 23, 2026
 
 ### Changed

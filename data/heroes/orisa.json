@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T19:12:33.183Z",
-    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
+    "last_updated": "2026-05-12T21:11:28.893Z",
+    "patch_version": "Overwatch Retail Patch Notes - May 12, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "6.0.4"
+    "schema_version": "6.1.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/Orisa",
@@ -105,7 +105,8 @@
         {
           "slug": "defense-protocol",
           "name": "Defense Protocol",
-          "description": "Regenerate 100 health per second while charging Terra Surge."
+          "description": "Regenerate 100 health per second while charging Terra Surge.",
+          "healing": "100 per second"
         },
         {
           "slug": "mobile-fortification",
@@ -117,12 +118,17 @@
         {
           "slug": "charged-javelin",
           "name": "Charged Javelin",
-          "description": "Energy Javelin can be charged to increase projectile speed and knockback. Pierces enemies at full power."
+          "description": "Energy Javelin can be charged to increase projectile speed and knockback. Pierces enemies at full power.",
+          "projectile_speed": "72 m/s (min charge) / 140 m/s (max charge)"
         },
         {
           "slug": "protective-barrier",
           "name": "Protective Barrier",
-          "description": "Javelin Spin is replaced with a barrier."
+          "description": "Javelin Spin is replaced with a barrier.",
+          "cooldown": "8 seconds",
+          "health": 600,
+          "duration": "6 seconds",
+          "radius": "7.4 meter width / 3.8 meter height / 2.9 meter depth"
         }
       ]
     },

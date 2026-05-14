@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2026-04-25T19:12:33.183Z",
-    "patch_version": "Overwatch Retail Patch Notes – April 23, 2026",
+    "last_updated": "2026-05-12T21:11:28.893Z",
+    "patch_version": "Overwatch Retail Patch Notes - May 12, 2026",
     "hero_count": 51,
     "heroes_failed": [],
     "fandom_failed": [],
@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "schema_version": "6.0.4"
+    "schema_version": "6.1.0"
   },
   "attribution": {
     "fandom_page": "https://overwatch.fandom.com/wiki/L%C3%BAcio",
@@ -112,7 +112,8 @@
         {
           "slug": "soundwave-rider",
           "name": "Soundwave Rider",
-          "description": "Wall Riding empowers your next Soundwave, increasing its knockback by 25% and damage by 50%."
+          "description": "Wall Riding empowers your next Soundwave, increasing its knockback by 25% and damage by 50%.",
+          "damage": "45 → 67.5"
         },
         {
           "slug": "beat-drop",
@@ -124,12 +125,18 @@
         {
           "slug": "noise-violation",
           "name": "Noise Violation",
-          "description": "Crossfade's range is increased by 150% while Amp It Up is active."
+          "description": "Crossfade's range is increased by 150% while Amp It Up is active.",
+          "range": "20 meters",
+          "duration": "3 seconds"
         },
         {
           "slug": "accelerando",
           "name": "Accelerando",
-          "description": "Gain 15% attack speed while Lucio's Speed Song is active, tripled during Amp It Up."
+          "description": "Gain 15% attack speed while Lucio's Speed Song is active, tripled during Amp It Up.",
+          "rate_of_fire": "1.23 shots/s (base) / 1.55 shots/s (Amp It Up)",
+          "reload": "0.75 seconds animation",
+          "duration": "3 seconds",
+          "dps": "while firing ( w/ reload)"
         }
       ]
     },
